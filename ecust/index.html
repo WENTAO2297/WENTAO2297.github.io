@@ -1,0 +1,341 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>华东理工大学 | ECUST | WENTAO's Blog</title><meta name="author" content="文韬"><meta name="copyright" content="文韬"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="&#x2F;* 页面基础设置：透明背景 *&#x2F;   #page {     background: transparent !important;     box-shadow: none !important;     padding: 0 !important;     margin-top: 0 !important;   }   #page .page-title { display: none">
+<meta property="og:type" content="website">
+<meta property="og:title" content="华东理工大学 | ECUST">
+<meta property="og:url" content="http://example.com/ecust/index.html">
+<meta property="og:site_name" content="WENTAO&#39;s Blog">
+<meta property="og:description" content="&#x2F;* 页面基础设置：透明背景 *&#x2F;   #page {     background: transparent !important;     box-shadow: none !important;     padding: 0 !important;     margin-top: 0 !important;   }   #page .page-title { display: none">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/images/logo.jpg">
+<meta property="article:published_time" content="2025-11-23T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-11-24T13:16:56.926Z">
+<meta property="article:author" content="文韬">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/logo.jpg"><script type="application/ld+json"></script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/ecust/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.3-b2"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.12.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '华东理工大学 | ECUST',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'page'
+}</script><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script><style>
+  /* --- 基础设置 --- */
+  @keyframes bgFadeIn { 0% { opacity: 0; } 100% { opacity: 1; } }
+  body, #web_bg { background-color: #000 !important; }
+  
+  /* 固定背景 & 透明页头 */
+  #web_bg { 
+      background-attachment: fixed !important;
+      background-size: cover !important;
+      background-image: url("/images/index.jpg");
+  }
+  #page-header { 
+      background-color: transparent !important;
+      animation: none !important;
+  }
+
+  /* 页脚样式 (白底黑字) */
+  #footer { background: #ffffff !important; color: #000000 !important; margin-top: 0 !important; }
+  #footer a { color: #333333 !important; }
+  #footer::before { background: transparent !important; }
+
+  /* --- 左下角悬浮播放器样式 --- */
+  @keyframes rotate-disc { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+  #fixed-aplayer {
+      position: fixed !important; bottom: 20px !important; left: 20px !important; z-index: 9999 !important;
+      width: 60px !important; height: 60px !important; border-radius: 50% !important;
+      background: rgba(255, 255, 255, 0.1) !important; backdrop-filter: blur(2px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5) !important;
+      overflow: hidden !important; cursor: pointer !important;
+      pointer-events: auto !important;
+      
+      /* 半透明 + 慢速旋转 */
+      opacity: 0.8 !important; 
+      transition: transform 0.3s ease, opacity 0.3s ease !important; 
+  }
+  
+  #fixed-aplayer:hover { transform: scale(1.1); opacity: 1 !important; }
+
+  #fixed-aplayer .aplayer { margin: 0 !important; background: transparent !important; border: none !important; box-shadow: none !important; }
+  #fixed-aplayer .aplayer-body { width: 100% !important; height: 100% !important; }
+
+  #fixed-aplayer .aplayer-pic {
+      position: absolute !important; top: 0; left: 0; width: 100% !important; height: 100% !important;
+      border-radius: 50% !important; margin: 0 !important;
+      background-image: url("/images/cover.jpg") !important; background-size: cover !important;
+      animation: rotate-disc 25s linear infinite; 
+      pointer-events: none !important; /* 关键：点击穿透 */
+  }
+
+  /* 隐藏多余元素 */
+  #fixed-aplayer .aplayer-info,
+  #fixed-aplayer .aplayer-bar-wrap,
+  #fixed-aplayer .aplayer-notice,
+  #fixed-aplayer .aplayer-miniswitcher,
+  #fixed-aplayer .aplayer-list,
+  #fixed-aplayer .aplayer-button,
+  #fixed-aplayer .aplayer-icon-play,
+  #fixed-aplayer .aplayer-icon-pause {
+      display: none !important;
+  }
+
+  /* 字体与排版 */
+  #site-info { transform: translateY(-80px) !important; }
+  #site-title, #site-subtitle { font-family: 'Shippori Mincho', serif !important; }
+  #site-title { font-size: 5rem !important; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+  #site-subtitle { font-size: 2rem !important; }
+</style>
+<meta name="generator" content="Hexo 8.1.1"></head><body><div id="web_bg" style="background-image: url(/images/index.jpg);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/images/logo.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/ecust/"><i class="fa-fw fas fa-university"></i><span> 华理</span></a></div><div class="menus_item"><a class="site-page" href="/categories/%E7%95%99%E5%AD%A6/"><i class="fa-fw fas fa-plane"></i><span> 留学</span></a></div><div class="menus_item"><a class="site-page" href="/categories/%E6%B8%B8%E6%88%8F/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏</span></a></div><div class="menus_item"><a class="site-page" href="/categories/%E9%9A%8F%E7%AC%94/"><i class="fa-fw fas fa-feather-alt"></i><span> 随笔</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div></div></div><div class="page type-ecust" id="body-wrap"><header class="not-home-page fixed" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">WENTAO's Blog</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/ecust/"><i class="fa-fw fas fa-university"></i><span> 华理</span></a></div><div class="menus_item"><a class="site-page" href="/categories/%E7%95%99%E5%AD%A6/"><i class="fa-fw fas fa-plane"></i><span> 留学</span></a></div><div class="menus_item"><a class="site-page" href="/categories/%E6%B8%B8%E6%88%8F/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏</span></a></div><div class="menus_item"><a class="site-page" href="/categories/%E9%9A%8F%E7%AC%94/"><i class="fa-fw fas fa-feather-alt"></i><span> 随笔</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">华东理工大学 | ECUST</h1></div></header><main class="layout hide-aside" id="content-inner"><div id="page"><div class="container" id="article-container"><style>
+  /* 页面基础设置：透明背景 */
+  #page {
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin-top: 0 !important;
+  }
+  #page .page-title { display: none; }
+
+  /* --- 容器布局 --- */
+  .semester-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+    padding: 40px 20px;
+    margin-top: 20px;
+  }
+  
+  /* --- 扁平化卡片设计 --- */
+  .semester-card {
+    width: 45%; 
+    min-width: 280px;
+    
+    /* ⬇️ 核心：纯白背景 + 极细边框 ⬇️ */
+    background: #ffffff;
+    border: 1px solid #f0f0f0; /* 极浅的灰色边框 */
+    border-radius: 12px;       /* 适度的圆角，不要太圆 */
+    
+    padding: 35px 25px;
+    text-align: center;
+    
+    /* 默认无阴影或极淡阴影，保持扁平 */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    
+    transition: all 0.3s ease;
+    text-decoration: none !important;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* 鼠标悬停特效：轻微上浮 + 阴影加深 + 边框变色 */
+  .semester-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    border-color: #49b1f5; /* 悬停时边框变蓝 */
+  }
+
+  /* --- 数字序号样式 (替代图标) --- */
+  .semester-num {
+    font-size: 60px;
+    font-weight: 900; /* 特粗字体 */
+    line-height: 1;
+    margin-bottom: 15px;
+    
+    /* 默认是浅灰色，看起来很高级 */
+    color: #f0f2f5; 
+    font-family: 'Shippori Mincho', serif; /* 配合你的日文字体，很有质感 */
+    
+    transition: all 0.3s;
+  }
+  
+  /* 悬停时数字变色 */
+  .semester-card:hover .semester-num {
+    color: #49b1f5;
+    transform: scale(1.1);
+  }
+  
+  /* 标题与文字 */
+  .semester-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+  }
+  .semester-desc {
+    font-size: 13px;
+    color: #888;
+    text-transform: uppercase; /* 英文全大写，更整齐 */
+    letter-spacing: 1px;
+  }
+</style>
+
+<div class="semester-container">
+  
+  <a class="semester-card" href="/categories/华理/大三上/">
+    <div class="semester-num">01</div>
+    <div class="semester-title">大三上学期</div>
+    <div class="semester-desc">Junior Year</div>
+  </a>
+
+  <a class="semester-card" href="/categories/华理/大三下/">
+    <div class="semester-num">02</div>
+    <div class="semester-title">大三下学期</div>
+    <div class="semester-desc">Junior Year</div>
+  </a>
+
+  <a class="semester-card" href="/categories/华理/大四上/">
+    <div class="semester-num">03</div>
+    <div class="semester-title">大四上学期</div>
+    <div class="semester-desc">Senior Year</div>
+  </a>
+
+  <a class="semester-card" href="/categories/华理/大四下/">
+    <div class="semester-num">04</div>
+    <div class="semester-title">大四下学期</div>
+    <div class="semester-desc">Graduation</div>
+  </a>
+
+</div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By 文韬</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.3-b2</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"></div><div id="rightside-config-show"><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.3-b2"></script><script src="/js/main.js?v=5.5.3-b2"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@19.1.3/dist/lazyload.iife.min.js"></script><div class="js-pjax"></div><script>document.addEventListener("DOMContentLoaded", function(){ var e = document.getElementById("site-title"); if(e){ e.innerText = "月が綺麗ですね"; } });</script><link rel="preload" href="/images/index.jpg" as="image"><div id="fixed-aplayer"></div>
+<script>
+  var ap = new APlayer({
+    element: document.getElementById("fixed-aplayer"),
+    theme: "#ffffff",
+    fixed: false,
+    autoplay: false,
+    loop: "all",
+    order: "random",
+    mini: false, 
+    volume: 0.7,
+    lrcType: 0,
+    audio: [{
+      name: "唯一",
+      artist: "G.E.M.邓紫棋",
+      url: "/audio/test.mp3",
+      cover: "/images/cover.jpg"
+    }]
+  });
+  
+  document.getElementById('fixed-aplayer').addEventListener('click', function() { ap.toggle(); });
+  
+  ap.on('play', function () {
+      var pic = document.querySelector('#fixed-aplayer .aplayer-pic');
+      if(pic) pic.style.animationPlayState = 'running';
+  });
+  ap.on('pause', function () {
+      var pic = document.querySelector('#fixed-aplayer .aplayer-pic');
+      if(pic) pic.style.animationPlayState = 'paused';
+  });
+</script>
+<script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.3-b2"></script></div></div></body></html>

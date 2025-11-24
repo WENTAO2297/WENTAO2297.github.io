@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hello World</title>
+    <url>/2025/11/24/HELLO-WORLD/</url>
+    <content><![CDATA[<p>写在前面：<strong>这是我的第一篇博客，所以非常简陋</strong><br>到了大三才发觉有必要搭建一个自己的博客😂，真是有够好笑的。<br>以后我会在这里记录，欢迎大家吃瓜👏👏👏</p>
+]]></content>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>monesy play</title>
     <url>/2025/11/24/dust2-m0nesy-play/</url>
     <content><![CDATA[<p><strong>小孩我从他出道看到现在，是我最喜欢的选手</strong><br>以前有段时间打狙怎么打怎么有，现在玩的少了，菜了<br>但是小孩的比赛我还是不会缺席的。</p>
@@ -23,15 +32,6 @@
       </categories>
       <tags>
         <tag>游戏</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2025/11/24/HELLO-WORLD/</url>
-    <content><![CDATA[<p><strong>这是我的第一篇博客，所以会非常简陋。</strong><br>以后我会在这里记录，欢迎大家吃瓜👏👏👏</p>
-]]></content>
-      <tags>
-        <tag>随笔</tag>
       </tags>
   </entry>
 </search>
