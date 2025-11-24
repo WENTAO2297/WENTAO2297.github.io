@@ -100,7 +100,7 @@
   algolia: undefined,
   localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
   translate: undefined,
-  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
   copy: {
     success: '复制成功',
     error: '复制失败',
@@ -126,7 +126,7 @@
     buttonText: '加载更多'
   },
   isPhotoFigcaption: false,
-  islazyloadPlugin: true,
+  islazyloadPlugin: false,
   isAnchor: false,
   percent: {
     toc: true,
@@ -139,17 +139,16 @@
   isToc: true,
   pageType: 'post'
 }</script><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script><style>
-  /* --- 基础设置 --- */
   @keyframes bgFadeIn { 0% { opacity: 0; } 100% { opacity: 1; } }
   body, #web_bg { background-color: #000 !important; }
-  
+
   /* 固定背景 & 透明页头 */
-  #web_bg { 
+  #web_bg {
       background-attachment: fixed !important;
       background-size: cover !important;
       background-image: url("/images/index.jpg");
   }
-  #page-header { 
+  #page-header {
       background-color: transparent !important;
       animation: none !important;
   }
@@ -159,9 +158,8 @@
   #footer a { color: #333333 !important; }
   #footer::before { background: transparent !important; }
 
-  /* --- 左下角悬浮播放器样式 --- */
+  /* 左下角悬浮播放器样式 */
   @keyframes rotate-disc { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-
   #fixed-aplayer {
       position: fixed !important; bottom: 20px !important; left: 20px !important; z-index: 9999 !important;
       width: 60px !important; height: 60px !important; border-radius: 50% !important;
@@ -169,36 +167,19 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.5) !important;
       overflow: hidden !important; cursor: pointer !important;
       pointer-events: auto !important;
-      
-      /* 半透明 + 慢速旋转 */
-      opacity: 0.8 !important; 
-      transition: transform 0.3s ease, opacity 0.3s ease !important; 
+      opacity: 0.8 !important; transition: transform 0.3s ease, opacity 0.3s ease !important;
   }
-  
   #fixed-aplayer:hover { transform: scale(1.1); opacity: 1 !important; }
-
   #fixed-aplayer .aplayer { margin: 0 !important; background: transparent !important; border: none !important; box-shadow: none !important; }
   #fixed-aplayer .aplayer-body { width: 100% !important; height: 100% !important; }
-
   #fixed-aplayer .aplayer-pic {
       position: absolute !important; top: 0; left: 0; width: 100% !important; height: 100% !important;
       border-radius: 50% !important; margin: 0 !important;
       background-image: url("/images/cover.jpg") !important; background-size: cover !important;
-      animation: rotate-disc 25s linear infinite; 
-      pointer-events: none !important; /* 关键：点击穿透 */
+      animation: rotate-disc 25s linear infinite; pointer-events: none !important;
   }
-
   /* 隐藏多余元素 */
-  #fixed-aplayer .aplayer-info,
-  #fixed-aplayer .aplayer-bar-wrap,
-  #fixed-aplayer .aplayer-notice,
-  #fixed-aplayer .aplayer-miniswitcher,
-  #fixed-aplayer .aplayer-list,
-  #fixed-aplayer .aplayer-button,
-  #fixed-aplayer .aplayer-icon-play,
-  #fixed-aplayer .aplayer-icon-pause {
-      display: none !important;
-  }
+  #fixed-aplayer .aplayer-info, #fixed-aplayer .aplayer-bar-wrap, #fixed-aplayer .aplayer-notice, #fixed-aplayer .aplayer-miniswitcher, #fixed-aplayer .aplayer-list, #fixed-aplayer .aplayer-button, #fixed-aplayer .aplayer-icon-play, #fixed-aplayer .aplayer-icon-pause { display: none !important; }
 
   /* 字体与排版 */
   #site-info { transform: translateY(-80px) !important; }
@@ -230,7 +211,7 @@ top_img: false
     &lt;/iframe&gt;
 &lt;/div&gt;
 </code></pre>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">文韬</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2025/11/24/Hexo-%E5%8D%9A%E5%AE%A2%E5%B5%8C%E5%85%A5b%E7%AB%99%E8%A7%86%E9%A2%91%E5%88%B6%E4%BD%9C%E6%B8%B8%E6%88%8F%E9%AB%98%E5%85%89%E9%80%9A%E7%94%A8%E6%A8%A1%E7%89%88/">http://example.com/2025/11/24/Hexo-%E5%8D%9A%E5%AE%A2%E5%B5%8C%E5%85%A5b%E7%AB%99%E8%A7%86%E9%A2%91%E5%88%B6%E4%BD%9C%E6%B8%B8%E6%88%8F%E9%AB%98%E5%85%89%E9%80%9A%E7%94%A8%E6%A8%A1%E7%89%88/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://example.com" target="_blank">WENTAO's Blog</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/images/logo.jpg" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2025/11/24/dust2-m0nesy-play/" title="monesy play"><img class="cover" src="/2025/11/24/dust2-m0nesy-play/1.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">monesy play</div></div><div class="info-2"><div class="info-item-1">小孩我从他出道看到现在，是我最喜欢的选手以前有段时间打狙怎么打怎么有，现在玩的少了，菜了但是小孩的比赛我还是不会缺席的。           (点击跳转 B站观看)  </div></div></div></a></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="giscus-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/logo.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">文韬</div><div class="author-info-description">在这里记录我的日常</div><div class="card-info-social-icons"><a class="social-icon" href="https://www.douyin.com/user/self?from_tab_name=main" target="_blank" title="抖音"><i class="fab fa-tiktok" style="color: #000000;"></i></a><a class="social-icon" href="https://space.bilibili.com/384204746?spm_id_from=333.1007.0.0" target="_blank" title="Bilibili"><i class="fab fa-bilibili" style="color: #fb7299;"></i></a><a class="social-icon" href="https://github.com/WENTAO2297" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%8E%AE-%E6%B8%B8%E6%88%8F%E9%AB%98%E5%85%89%E9%80%9A%E7%94%A8%E6%A8%A1%E7%89%88%E4%BB%A3%E7%A0%81"><span class="toc-number">1.</span> <span class="toc-text">🎮 游戏高光通用模版代码</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/11/24/Hexo-%E5%8D%9A%E5%AE%A2%E5%B5%8C%E5%85%A5b%E7%AB%99%E8%A7%86%E9%A2%91%E5%88%B6%E4%BD%9C%E6%B8%B8%E6%88%8F%E9%AB%98%E5%85%89%E9%80%9A%E7%94%A8%E6%A8%A1%E7%89%88/" title="Hexo 博客嵌入b站视频制作游戏高光通用模版">Hexo 博客嵌入b站视频制作游戏高光通用模版</a><time datetime="2025-11-24T14:00:00.000Z" title="发表于 2025-11-24 22:00:00">2025-11-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/11/24/dust2-m0nesy-play/" title="monesy play"><img src="/2025/11/24/dust2-m0nesy-play/1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="monesy play"/></a><div class="content"><a class="title" href="/2025/11/24/dust2-m0nesy-play/" title="monesy play">monesy play</a><time datetime="2025-11-24T10:11:17.000Z" title="发表于 2025-11-24 18:11:17">2025-11-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/11/24/HELLO-WORLD/" title="Hello World">Hello World</a><time datetime="2025-11-24T05:10:41.000Z" title="发表于 2025-11-24 13:10:41">2025-11-24</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By 文韬</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.3-b2</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.3-b2"></script><script src="/js/main.js?v=5.5.3-b2"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@19.1.3/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(() => {
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">文韬</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2025/11/24/Hexo-%E5%8D%9A%E5%AE%A2%E5%B5%8C%E5%85%A5b%E7%AB%99%E8%A7%86%E9%A2%91%E5%88%B6%E4%BD%9C%E6%B8%B8%E6%88%8F%E9%AB%98%E5%85%89%E9%80%9A%E7%94%A8%E6%A8%A1%E7%89%88/">http://example.com/2025/11/24/Hexo-%E5%8D%9A%E5%AE%A2%E5%B5%8C%E5%85%A5b%E7%AB%99%E8%A7%86%E9%A2%91%E5%88%B6%E4%BD%9C%E6%B8%B8%E6%88%8F%E9%AB%98%E5%85%89%E9%80%9A%E7%94%A8%E6%A8%A1%E7%89%88/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://example.com" target="_blank">WENTAO's Blog</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/images/logo.jpg" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2025/11/24/dust2-m0nesy-play/" title="monesy play"><img class="cover" src="/2025/11/24/dust2-m0nesy-play/1.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">monesy play</div></div><div class="info-2"><div class="info-item-1">小孩我从他出道看到现在，是我最喜欢的选手以前有段时间打狙怎么打怎么有，现在玩的少了，菜了但是小孩的比赛我还是不会缺席的。           (点击跳转 B站观看)  </div></div></div></a></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="giscus-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/logo.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">文韬</div><div class="author-info-description">在这里记录我的日常</div><div class="card-info-social-icons"><a class="social-icon" href="https://www.douyin.com/user/self?from_tab_name=main" target="_blank" title="抖音"><i class="fab fa-tiktok" style="color: #000000;"></i></a><a class="social-icon" href="https://space.bilibili.com/384204746?spm_id_from=333.1007.0.0" target="_blank" title="Bilibili"><i class="fab fa-bilibili" style="color: #fb7299;"></i></a><a class="social-icon" href="https://github.com/WENTAO2297" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%8E%AE-%E6%B8%B8%E6%88%8F%E9%AB%98%E5%85%89%E9%80%9A%E7%94%A8%E6%A8%A1%E7%89%88%E4%BB%A3%E7%A0%81"><span class="toc-number">1.</span> <span class="toc-text">🎮 游戏高光通用模版代码</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/11/24/Hexo-%E5%8D%9A%E5%AE%A2%E5%B5%8C%E5%85%A5b%E7%AB%99%E8%A7%86%E9%A2%91%E5%88%B6%E4%BD%9C%E6%B8%B8%E6%88%8F%E9%AB%98%E5%85%89%E9%80%9A%E7%94%A8%E6%A8%A1%E7%89%88/" title="Hexo 博客嵌入b站视频制作游戏高光通用模版">Hexo 博客嵌入b站视频制作游戏高光通用模版</a><time datetime="2025-11-24T14:00:00.000Z" title="发表于 2025-11-24 22:00:00">2025-11-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/11/24/dust2-m0nesy-play/" title="monesy play"><img src="/2025/11/24/dust2-m0nesy-play/1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="monesy play"/></a><div class="content"><a class="title" href="/2025/11/24/dust2-m0nesy-play/" title="monesy play">monesy play</a><time datetime="2025-11-24T10:11:17.000Z" title="发表于 2025-11-24 18:11:17">2025-11-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/11/24/HELLO-WORLD/" title="Hello World">Hello World</a><time datetime="2025-11-24T05:10:41.000Z" title="发表于 2025-11-24 13:10:41">2025-11-24</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By 文韬</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.3-b2</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.3-b2"></script><script src="/js/main.js?v=5.5.3-b2"></script><div class="js-pjax"><script>(() => {
   const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
   const option = null
 
@@ -314,7 +295,7 @@ top_img: false
     autoplay: false,
     loop: "all",
     order: "random",
-    mini: false, 
+    mini: false,
     volume: 0.7,
     lrcType: 0,
     audio: [{
@@ -324,9 +305,9 @@ top_img: false
       cover: "/images/cover.jpg"
     }]
   });
-  
+
   document.getElementById('fixed-aplayer').addEventListener('click', function() { ap.toggle(); });
-  
+
   ap.on('play', function () {
       var pic = document.querySelector('#fixed-aplayer .aplayer-pic');
       if(pic) pic.style.animationPlayState = 'running';
