@@ -124,7 +124,6 @@
   isToc: false,
   pageType: 'page'
 }</script><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script><style>
-  /* --- 基础设置 --- */
   @keyframes bgFadeIn { 0% { opacity: 0; } 100% { opacity: 1; } }
   body, #web_bg { background-color: #000 !important; }
   
@@ -139,12 +138,23 @@
       animation: none !important;
   }
 
-  /* 页脚样式 (白底黑字) */
-  #footer { background: #ffffff !important; color: #000000 !important; margin-top: 0 !important; }
-  #footer a { color: #333333 !important; }
+  /* ⬇️⬇️ 最终修复：页脚横向布局和可读性 ⬇️⬇️ */
+  #footer { 
+      background: #ffffff !important; 
+      color: #000000 !important; /* ⬅️ 保持纯黑底色 */
+      margin-top: 0 !important; 
+      font-size: 0.9em !important; /* 增加字号 */
+      font-weight: 500 !important;
+  }
+  #footer a, #footer span, #footer div { /* ⬅️ 确保链接和所有文字都是纯黑 */
+      color: #000000 !important; 
+  }
   #footer::before { background: transparent !important; }
 
-  /* ⬇️⬇️ 左下角悬浮播放器样式 (已修复) ⬇️⬇️ */
+  /* 移除所有强制布局代码 */
+  /* ⬆️⬆️ 页脚布局和可读性 ⬆️⬆️ */
+
+  /* 左下角悬浮播放器样式 */
   @keyframes rotate-disc { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
   #fixed-aplayer {
       position: fixed !important; bottom: 20px !important; left: 20px !important; z-index: 9999 !important;
@@ -289,33 +299,4 @@
     <div class="semester-desc">Graduation</div>
   </a>
 
-</div></div></div></main><footer id="footer"><div class="footer-other"><!-- ⬇️ 网站信息：强制水平显示，作为页脚的一部分 ⬇️--><div style="display:flex; flex-wrap:wrap; justify-content:center; gap:20px; padding: 10px 0; font-size: 0.9em; line-height: 1.5;"><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">3</div></div><div class="webinfo-item"><div class="item-name">运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2025-11-23T10:00:00.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-11-24T16:00:04.114Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div><!-- ⬆️ 网站信息：强制水平显示 ⬆️--><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By 文韬</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.3-b2</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"></div><div id="rightside-config-show"><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.3-b2"></script><script src="/js/main.js?v=5.5.3-b2"></script><div class="js-pjax"></div><script>document.addEventListener("DOMContentLoaded", function(){ var e = document.getElementById("site-title"); if(e){ e.innerText = "月が綺麗ですね"; } });</script><link rel="preload" href="/images/index.jpg" as="image"><div id="fixed-aplayer"></div>
-<script>
-  var ap = new APlayer({
-    element: document.getElementById("fixed-aplayer"),
-    theme: "#ffffff",
-    fixed: false,
-    autoplay: false,
-    loop: "all",
-    order: "random",
-    mini: false, 
-    volume: 0.7,
-    lrcType: 0,
-    audio: [{
-      name: "唯一",
-      artist: "G.E.M.邓紫棋",
-      url: "/audio/test.mp3",
-      cover: "/images/cover.jpg"
-    }]
-  });
-  document.getElementById('fixed-aplayer').addEventListener('click', function() { ap.toggle(); });
-  ap.on('play', function () {
-      var pic = document.querySelector('#fixed-aplayer .aplayer-pic');
-      if(pic) pic.style.animationPlayState = 'running';
-  });
-  ap.on('pause', function () {
-      var pic = document.querySelector('#fixed-aplayer .aplayer-pic');
-      if(pic) pic.style.animationPlayState = 'paused';
-  });
-</script>
-<script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.3-b2"></script></div></div></body></html>
+</div></div></div></main><footer id="footer"><div class="footer-other"><!-- ⬇️ 网站信息：强制水平显示，作为页脚的一部分 ⬇️--><div style="display:flex; flex-wrap:wrap; justify-content:center; gap:20px; padding: 10px 0; font-size: 0.9em; line-height: 1.5;"><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">3</div></div><div class="webinfo-item"><div class="item-name">运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2025-11-23T10:00:00.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-11-24T16:05:47.898Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div><!-- ⬆️ 网站信息：强制水平显示 ⬆️--><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By 文韬</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.3-b2</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"></div><div id="rightside-config-show"><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.3-b2"></script><script src="/js/main.js?v=5.5.3-b2"></script><div class="js-pjax"></div><script>document.addEventListener("DOMContentLoaded", function(){ var e = document.getElementById("<script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.3-b2"></script></div></div></body></html>
