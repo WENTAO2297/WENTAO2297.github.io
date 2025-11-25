@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hello World</title>
+    <url>/2025/11/24/HELLO-WORLD/</url>
+    <content><![CDATA[<p>写在前面：<strong>这是我的第一篇博客，所以非常简陋</strong><br>到了大三才发觉有必要搭建一个自己的博客😂，真是有够好笑的。<br>以后我会在这里记录，欢迎大家吃瓜👏👏👏</p>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Hexo 博客嵌入b站视频制作游戏高光通用模版</title>
     <url>/2025/11/24/Hexo-moban/</url>
     <content><![CDATA[<p>先吐槽，我花了整整四个小时才解决代码块右上角没有复制按钮的问题，我尝试了官方方案、PrismJS插件、重制依赖等等方法都无果的情况下，最终我放弃Hexo渲染，直接在前端用原生JS手写DOM，强行把pre标签放入div，再手搓一个按钮进去。我真是要累死了。。。。。。。不过当我成功的时候，比撸管还爽😁</p>
@@ -54,15 +63,6 @@ top_img: false
       <categories>
         <category>游戏</category>
         <category>CS2</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2025/11/24/HELLO-WORLD/</url>
-    <content><![CDATA[<p>写在前面：<strong>这是我的第一篇博客，所以非常简陋</strong><br>到了大三才发觉有必要搭建一个自己的博客😂，真是有够好笑的。<br>以后我会在这里记录，欢迎大家吃瓜👏👏👏</p>
-]]></content>
-      <categories>
-        <category>随笔</category>
       </categories>
   </entry>
 </search>
