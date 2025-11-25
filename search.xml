@@ -3,33 +3,57 @@
   <entry>
     <title>Hexo 博客嵌入b站视频制作游戏高光通用模版</title>
     <url>/2025/11/24/Hexo-%E5%8D%9A%E5%AE%A2%E5%B5%8C%E5%85%A5b%E7%AB%99%E8%A7%86%E9%A2%91%E5%88%B6%E4%BD%9C%E6%B8%B8%E6%88%8F%E9%AB%98%E5%85%89%E9%80%9A%E7%94%A8%E6%A8%A1%E7%89%88/</url>
-    <content><![CDATA[<p>先放模版：</p>
-<h3 id="🎮-游戏高光通用模版代码"><a href="#🎮-游戏高光通用模版代码" class="headerlink" title="🎮 游戏高光通用模版代码"></a>🎮 游戏高光通用模版代码</h3><p>请注意：复制时，请从最上方的 <code>---</code> 符号开始，到最下方的 <code>&lt;/div&gt;</code> 结束。</p>
-<pre><code class="language-yaml">---
-title: 【填空：这里写标题】
-date: 
+    <content><![CDATA[<p><strong>先吐槽，我花了整整四个小时才解决代码块右上角没有复制按钮的问题（但是目前已经解决），我尝试了官方方案、PrismJS插件、重制依赖等等方法都无果的情况下，最终我放弃Hexo渲染，直接在前端用原生JS手写DOM，强行把pre标签放入div，再受挫一个按钮进去。我真是要累死了。。。。。。。不过当我成功的时候，比撸管还爽😁</strong></p>
+<p>以下是正文，以后我也会补充其他博客的模版：</p>
+<p>以后写新游戏博客时，直接点击右上角复制按钮，将下方代码粘贴到新 Markdown 文件中，然后填空即可。</p>
+<h3 id="🎮-游戏高光通用模版-封面跳转式"><a href="#🎮-游戏高光通用模版-封面跳转式" class="headerlink" title="🎮 游戏高光通用模版 (封面跳转式)"></a>🎮 游戏高光通用模版 (封面跳转式)</h3><p>请注意：</p>
+<ol>
+<li>复制后，请修改所有带 <code>【】</code> 的部分。</li>
+<li><strong>关键</strong>：代码块中 <code>div</code> 和 <code>svg</code> 那一行非常长，<strong>千万不要换行，也不要在前面加空格缩进</strong>，否则播放按钮会变成黑色代码块。</li>
+</ol>
+<pre><code class="language-html">---
+title: 【修改：这里写文章标题】
+date: 【修改：日期，格式如 2025-11-24 18:00:00】
 tags:
-categories: 
+categories:
   - 游戏
-  - 【填空：具体游戏名，如 CS2】
-# ⬇️ 封面图路径：/年/月/日/文章文件名/图片名.jpg
-cover: /2025/11/24/你的文章文件名/cover.jpg
+  - 【修改：具体游戏名，如 CS2】
+cover: 【修改：封面图路径，例如 /2025/11/24/xxx/1.jpg】
 top_img: false
 ---
+【修改：在这里写你的推荐语、心得体会...】
 
-（在这里可以写一些心得）
-
-&lt;div style=&quot;position: relative; width: 100%; height: 0; padding-bottom: 65%; margin: 20px 0; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.3); background: #f0f0f0;&quot;&gt;
-    &lt;iframe src=&quot;https://player.bilibili.com/player.html?bvid=【填空：这里填BV号】&amp;page=1&amp;high_quality=1&amp;danmaku=0&quot; 
-            scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot; 
-            loading=&quot;lazy&quot; referrerpolicy=&quot;no-referrer&quot;
-            style=&quot;position: absolute; width: 100%; height: 100%;&quot;&gt;
-    &lt;/iframe&gt;
+&lt;div style=&quot;margin: 30px 0; text-align: center;&quot;&gt;
+&lt;a href=&quot;【修改：这里填 B站视频链接】&quot; target=&quot;_blank&quot; style=&quot;display: block; position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 16px rgba(0,0,0,0.2); line-height: 0; background: transparent;&quot;&gt;
+&lt;img src=&quot;【修改：封面图路径 (与上方 cover 保持一致)】&quot; alt=&quot;Video Cover&quot; style=&quot;width: 100%; height: auto; display: block; margin: 0; object-fit: cover;&quot;&gt;
+&lt;div style=&quot;position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center; transition: background 0.3s;&quot;&gt;&lt;div style=&quot;width: 60px; height: 60px; background: rgba(255,255,255,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3);&quot;&gt;&lt;svg viewBox=&quot;0 0 1024 1024&quot; width=&quot;24&quot; height=&quot;24&quot; fill=&quot;#333&quot; style=&quot;margin-left: 4px;&quot;&gt;&lt;path d=&quot;M841.16 473.63L247.43 127.99a46.6 46.6 0 0 0-46.94 1.07A46.6 46.6 0 0 0 176 170.1v683.8a46.6 46.6 0 0 0 24.49 41.04 46.6 46.6 0 0 0 46.94 1.07l593.73-345.64a46.6 46.6 0 0 0 0-80.74z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/a&gt;
+&lt;p style=&quot;font-size: 14px; color: #888; margin-top: 10px; font-family: &#39;Shippori Mincho&#39;; line-height: 1.5;&quot;&gt;
+(点击跳转 B站观看)
+&lt;/p&gt;
 &lt;/div&gt;
 </code></pre>
 ]]></content>
       <categories>
         <category>随笔</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>monesy play</title>
+    <url>/2025/11/24/dust2-m0nesy-play/</url>
+    <content><![CDATA[<p><strong>小孩我从他出道看到现在，是我最喜欢的选手</strong><br>以前有段时间打狙怎么打怎么有，现在玩的少了，菜了<br>但是小孩的比赛我还是不会缺席的。</p>
+<div style="margin: 30px 0; text-align: center;">
+<a href="https://www.bilibili.com/video/BV1fm1EBwEJi" target="_blank" style="display: block; position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 16px rgba(0,0,0,0.2); line-height: 0; background: transparent;">
+<img src="/2025/11/24/dust2-m0nesy-play/1.jpg" alt="m0NESY Highlight" style="width: 100%; height: auto; display: block; margin: 0; object-fit: cover;">
+<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center; transition: background 0.3s;"><div style="width: 60px; height: 60px; background: rgba(255,255,255,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3);"><svg viewBox="0 0 1024 1024" width="24" height="24" fill="#333" style="margin-left: 4px;"><path d="M841.16 473.63L247.43 127.99a46.6 46.6 0 0 0-46.94 1.07A46.6 46.6 0 0 0 176 170.1v683.8a46.6 46.6 0 0 0 24.49 41.04 46.6 46.6 0 0 0 46.94 1.07l593.73-345.64a46.6 46.6 0 0 0 0-80.74z"></path></svg></div></div>
+</a>
+<p style="font-size: 14px; color: #888; margin-top: 10px; font-family: 'Shippori Mincho'; line-height: 1.5;">
+(点击跳转 B站观看)
+</p>
+</div>]]></content>
+      <categories>
+        <category>游戏</category>
+        <category>CS2</category>
       </categories>
   </entry>
   <entry>
@@ -40,27 +64,5 @@ top_img: false
       <tags>
         <tag>随笔</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>monesy play</title>
-    <url>/2025/11/24/dust2-m0nesy-play/</url>
-    <content><![CDATA[<p><strong>小孩我从他出道看到现在，是我最喜欢的选手</strong><br>以前有段时间打狙怎么打怎么有，现在玩的少了，菜了<br>但是小孩的比赛我还是不会缺席的。</p>
-<div style="margin: 30px 0; text-align: center;">
-<a href="https://www.bilibili.com/video/BV1fm1EBwEJi" target="_blank" style="display: block; position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 16px rgba(0,0,0,0.2); line-height: 0; background: transparent;">
-<img src="1.jpg" alt="m0NESY Highlight" style="width: 100%; height: auto; display: block; margin: 0; object-fit: cover;">
-<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center; transition: background 0.3s;">
-<div style="width: 60px; height: 60px; background: rgba(255,255,255,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
-<svg viewBox="0 0 1024 1024" width="24" height="24" fill="#333" style="margin-left: 4px;"><path d="M841.16 473.63L247.43 127.99a46.6 46.6 0 0 0-46.94 1.07A46.6 46.6 0 0 0 176 170.1v683.8a46.6 46.6 0 0 0 24.49 41.04 46.6 46.6 0 0 0 46.94 1.07l593.73-345.64a46.6 46.6 0 0 0 0-80.74z"></path></svg>
-</div>
-</div>
-</a>
-<p style="font-size: 14px; color: #888; margin-top: 10px; font-family: 'Shippori Mincho'; line-height: 1.5;">
-(点击跳转 B站观看)
-</p>
-</div>]]></content>
-      <categories>
-        <category>游戏</category>
-        <category>CS2</category>
-      </categories>
   </entry>
 </search>

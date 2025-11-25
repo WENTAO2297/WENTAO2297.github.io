@@ -62,7 +62,7 @@
         document.head.appendChild(link)
       }),
       addGlobalFn: (key, fn, name = false, parent = window) => {
-        if (!false && key.startsWith('pjax')) return
+        if (!true && key.startsWith('pjax')) return
         const globalFn = parent.globalFn || {}
         globalFn[key] = globalFn[key] || {}
         globalFn[key][name || Object.keys(globalFn[key]).length] = fn
@@ -129,41 +129,49 @@
   isHighlightShrink: false,
   isToc: false,
   pageType: 'home'
-}</script><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script><style>
-  @keyframes bgFadeIn { 0% { opacity: 0; } 100% { opacity: 1; } }
-  body, #web_bg { background-color: #000 !important; }
-
-  /* 固定背景 & 透明页头 */
+}</script><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><style>
+  /* ====== A. 全局背景与透明修复 (解决蓝色背景问题) ====== */
+  /* 1. 设置全局固定背景图 */
   #web_bg {
+      background-image: url("/images/index.jpg") !important;
       background-attachment: fixed !important;
       background-size: cover !important;
-      background-image: url("/images/index.jpg");
+      background-repeat: no-repeat !important;
+      background-position: center center !important;
+      z-index: -999;
   }
-  #page-header {
+  
+  /* 2. 强制首页和所有子页面(分类、标签、文章)的页头透明 */
+  #page-header, 
+  #page-header.not-home-page, 
+  #page-header.full_page {
       background-color: transparent !important;
-      animation: none !important;
+      background-image: none !important;
   }
 
-  /* 页脚样式 (白底黑字) */
-  #footer { 
-      background: #ffffff !important; color: #000000 !important; margin-top: 0 !important; 
-      font-size: 0.9em !important; font-weight: 500 !important;
+  /* 3. 页脚半透明白底，防止文字看不清 */
+  #footer {
+      background: rgba(255,255,255, 0.9) !important;
+      color: #000 !important;
   }
-  #footer a, #footer span, #footer div { color: #000000 !important; }
+  #footer a { color: #333 !important; }
+  #footer::before { background: transparent !important; }
 
-  /* 左下角悬浮播放器样式 */
+  /* ====== B. APlayer 播放器样式 ====== */
   @keyframes rotate-disc { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  
   #fixed-aplayer {
       position: fixed !important; bottom: 20px !important; left: 20px !important; z-index: 9999 !important;
       width: 60px !important; height: 60px !important; border-radius: 50% !important;
-      background: rgba(255, 255, 255, 0.1) !important; backdrop-filter: blur(2px);
+      background: rgba(255, 255, 255, 0.2) !important; backdrop-filter: blur(5px);
       box-shadow: 0 4px 10px rgba(0,0,0,0.5) !important;
       overflow: hidden !important; cursor: pointer !important;
-      pointer-events: auto !important;
-      opacity: 0.8 !important; transition: transform 0.3s ease, opacity 0.3s ease !important;
+      transition: transform 0.3s ease, opacity 0.3s ease !important;
+      opacity: 0.8;
   }
   #fixed-aplayer:hover { transform: scale(1.1); opacity: 1 !important; }
-  #fixed-aplayer .aplayer { margin: 0 !important; background: transparent !important; border: none !important; box-shadow: none !important; }
+  
+  #fixed-aplayer .aplayer { margin: 0 !important; background: transparent !important; border: none !important; }
   #fixed-aplayer .aplayer-body { width: 100% !important; height: 100% !important; }
   #fixed-aplayer .aplayer-pic {
       position: absolute !important; top: 0; left: 0; width: 100% !important; height: 100% !important;
@@ -171,16 +179,47 @@
       background-image: url("/images/cover.jpg") !important; background-size: cover !important;
       animation: rotate-disc 25s linear infinite; pointer-events: none !important;
   }
-  /* 隐藏多余元素 */
-  #fixed-aplayer .aplayer-info, #fixed-aplayer .aplayer-bar-wrap, #fixed-aplayer .aplayer-notice, #fixed-aplayer .aplayer-miniswitcher, #fixed-aplayer .aplayer-list, #fixed-aplayer .aplayer-button, #fixed-aplayer .aplayer-icon-play, #fixed-aplayer .aplayer-icon-pause { display: none !important; }
+  /* 隐藏播放器多余元素，只留封面 */
+  #fixed-aplayer .aplayer-info, #fixed-aplayer .aplayer-bar-wrap, #fixed-aplayer .aplayer-notice, 
+  #fixed-aplayer .aplayer-miniswitcher, #fixed-aplayer .aplayer-list, #fixed-aplayer .aplayer-button, 
+  #fixed-aplayer .aplayer-icon-play, #fixed-aplayer .aplayer-icon-pause { display: none !important; }
 
-  /* 字体与排版 */
-  #site-info { transform: translateY(-80px) !important; }
+
+  /* ====== C. 代码块样式修复 (手动外挂模式) ====== */
+  /* 代码块容器 */
+  .code-container {
+      position: relative;
+      margin: 20px 0;
+      background: #282c34 !important; /* 深色背景 */
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      overflow: hidden;
+  }
+  /* 修正 pre 标签 */
+  .code-container pre {
+      margin: 0 !important;
+      padding: 40px 15px 15px 15px !important; /* 顶部留空给按钮 */
+      background: transparent !important;
+      overflow-x: auto;
+      color: #abb2bf !important;
+      font-family: Consolas, Monaco, monospace !important;
+  }
+  /* 复制按钮 */
+  .manual-copy-btn {
+      position: absolute; top: 6px; right: 10px;
+      color: #fff; background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 4px; padding: 4px 10px; font-size: 12px;
+      cursor: pointer; z-index: 100; transition: all 0.2s;
+  }
+  .manual-copy-btn:hover { background: rgba(255, 255, 255, 0.4); }
+  .manual-copy-btn.copied { background: #4caf50; border-color: #4caf50; }
+
+  /* D. 字体 */
   #site-title, #site-subtitle { font-family: 'Shippori Mincho', serif !important; }
   #site-title { font-size: 5rem !important; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
-  #site-subtitle { font-size: 2rem !important; }
 </style>
-<meta name="generator" content="Hexo 8.1.1"></head><body><div id="web_bg" style="background-image: url(/images/index.jpg);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/images/logo.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">1</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/ecust/"><i class="fa-fw fas fa-university"></i><span> 华理</span></a></div><div class="menus_item"><a class="site-page" href="/categories/%E7%95%99%E5%AD%A6/"><i class="fa-fw fas fa-plane"></i><span> 留学</span></a></div><div class="menus_item"><a class="site-page" href="/categories/%E6%B8%B8%E6%88%8F/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏</span></a></div><div class="menus_item"><a class="site-page" href="/categories/%E9%9A%8F%E7%AC%94/"><i class="fa-fw fas fa-feather-alt"></i><span> 随笔</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page fixed" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">WENTAO's Blog</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/ecust/"><i class="fa-fw fas fa-university"></i><span> 华理</span></a></div><div class="menus_item"><a class="site-page" href="/categories/%E7%95%99%E5%AD%A6/"><i class="fa-fw fas fa-plane"></i><span> 留学</span></a></div><div class="menus_item"><a class="site-page" href="/categories/%E6%B8%B8%E6%88%8F/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏</span></a></div><div class="menus_item"><a class="site-page" href="/categories/%E9%9A%8F%E7%AC%94/"><i class="fa-fw fas fa-feather-alt"></i><span> 随笔</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="site-info"><h1 id="site-title">WENTAO's Blog</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://www.douyin.com/user/self?from_tab_name=main" target="_blank" title="抖音"><i class="fab fa-tiktok" style="color: #000000;"></i></a><a class="social-icon" href="https://space.bilibili.com/384204746?spm_id_from=333.1007.0.0" target="_blank" title="Bilibili"><i class="fab fa-bilibili" style="color: #fb7299;"></i></a><a class="social-icon" href="https://github.com/WENTAO2297" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/11/24/Hexo-%E5%8D%9A%E5%AE%A2%E5%B5%8C%E5%85%A5b%E7%AB%99%E8%A7%86%E9%A2%91%E5%88%B6%E4%BD%9C%E6%B8%B8%E6%88%8F%E9%AB%98%E5%85%89%E9%80%9A%E7%94%A8%E6%A8%A1%E7%89%88/" title="Hexo 博客嵌入b站视频制作游戏高光通用模版">Hexo 博客嵌入b站视频制作游戏高光通用模版</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-11-24T14:00:00.000Z" title="发表于 2025-11-24 22:00:00">2025-11-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></span></div><div class="content">先放模版： 🎮 游戏高光通用模版代码请注意：复制时，请从最上方的 --- 符号开始，到最下方的 &lt;/div&gt; 结束。 --- title: 【填空：这里写标题】 date:  tags: categories:    - 游戏   - 【填空：具体游戏名，如 CS2】 # ⬇️ 封面图路径：/年/月/日/文章文件名/图片名.jpg cover: /2025/11/24/你的文章文件名/cover.jpg top_img: false ---  （在这里可以写一些心得）  &lt;div style=&quot;position: relative; width: 100%; height: 0; padding-bottom: 65%; margin: 20px 0; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.3); background: #f0f0f0;&quot;&gt;     &lt;iframe src=&quot;https://player.b...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2025/11/24/dust2-m0nesy-play/" title="monesy play"><img class="post-bg" src="/2025/11/24/dust2-m0nesy-play/1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="monesy play"></a></div><div class="recent-post-info"><a class="article-title" href="/2025/11/24/dust2-m0nesy-play/" title="monesy play">monesy play</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-11-24T10:11:17.000Z" title="发表于 2025-11-24 18:11:17">2025-11-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%B8%B8%E6%88%8F/">游戏</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%B8%B8%E6%88%8F/CS2/">CS2</a></span></div><div class="content">小孩我从他出道看到现在，是我最喜欢的选手以前有段时间打狙怎么打怎么有，现在玩的少了，菜了但是小孩的比赛我还是不会缺席的。           (点击跳转 B站观看)  </div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/11/24/HELLO-WORLD/" title="Hello World">Hello World</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-11-24T05:10:41.000Z" title="发表于 2025-11-24 13:10:41">2025-11-24</time></span></div><div class="content">写在前面：这是我的第一篇博客，所以非常简陋到了大三才发觉有必要搭建一个自己的博客😂，真是有够好笑的。以后我会在这里记录，欢迎大家吃瓜👏👏👏 </div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/logo.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">文韬</div><div class="author-info-description">在这里记录我的日常</div><div class="card-info-social-icons"><a class="social-icon" href="https://www.douyin.com/user/self?from_tab_name=main" target="_blank" title="抖音"><i class="fab fa-tiktok" style="color: #000000;"></i></a><a class="social-icon" href="https://space.bilibili.com/384204746?spm_id_from=333.1007.0.0" target="_blank" title="Bilibili"><i class="fab fa-bilibili" style="color: #fb7299;"></i></a><a class="social-icon" href="https://github.com/WENTAO2297" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/11/24/Hexo-%E5%8D%9A%E5%AE%A2%E5%B5%8C%E5%85%A5b%E7%AB%99%E8%A7%86%E9%A2%91%E5%88%B6%E4%BD%9C%E6%B8%B8%E6%88%8F%E9%AB%98%E5%85%89%E9%80%9A%E7%94%A8%E6%A8%A1%E7%89%88/" title="Hexo 博客嵌入b站视频制作游戏高光通用模版">Hexo 博客嵌入b站视频制作游戏高光通用模版</a><time datetime="2025-11-24T14:00:00.000Z" title="发表于 2025-11-24 22:00:00">2025-11-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/11/24/dust2-m0nesy-play/" title="monesy play"><img src="/2025/11/24/dust2-m0nesy-play/1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="monesy play"/></a><div class="content"><a class="title" href="/2025/11/24/dust2-m0nesy-play/" title="monesy play">monesy play</a><time datetime="2025-11-24T10:11:17.000Z" title="发表于 2025-11-24 18:11:17">2025-11-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/11/24/HELLO-WORLD/" title="Hello World">Hello World</a><time datetime="2025-11-24T05:10:41.000Z" title="发表于 2025-11-24 13:10:41">2025-11-24</time></div></div></div></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">3</div></div><div class="webinfo-item"><div class="item-name">运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2025-11-23T10:00:00.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-11-25T04:31:42.033Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By 文韬</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.3-b2</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.3-b2"></script><script src="/js/main.js?v=5.5.3-b2"></script><div class="js-pjax"><script>window.typedJSFn = {
+<meta name="generator" content="Hexo 8.1.1"></head><body><div id="web_bg" style="background-image: url(/images/index.jpg);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/images/logo.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">1</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/ecust/"><i class="fa-fw fas fa-university"></i><span> 华理</span></a></div><div class="menus_item"><a class="site-page" href="/categories/%E7%95%99%E5%AD%A6/"><i class="fa-fw fas fa-plane"></i><span> 留学</span></a></div><div class="menus_item"><a class="site-page" href="/categories/%E6%B8%B8%E6%88%8F/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏</span></a></div><div class="menus_item"><a class="site-page" href="/categories/%E9%9A%8F%E7%AC%94/"><i class="fa-fw fas fa-feather-alt"></i><span> 随笔</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page fixed" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">WENTAO's Blog</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/ecust/"><i class="fa-fw fas fa-university"></i><span> 华理</span></a></div><div class="menus_item"><a class="site-page" href="/categories/%E7%95%99%E5%AD%A6/"><i class="fa-fw fas fa-plane"></i><span> 留学</span></a></div><div class="menus_item"><a class="site-page" href="/categories/%E6%B8%B8%E6%88%8F/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏</span></a></div><div class="menus_item"><a class="site-page" href="/categories/%E9%9A%8F%E7%AC%94/"><i class="fa-fw fas fa-feather-alt"></i><span> 随笔</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="site-info"><h1 id="site-title">WENTAO's Blog</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://www.douyin.com/user/self?from_tab_name=main" target="_blank" title="抖音"><i class="fab fa-tiktok" style="color: #000000;"></i></a><a class="social-icon" href="https://space.bilibili.com/384204746?spm_id_from=333.1007.0.0" target="_blank" title="Bilibili"><i class="fab fa-bilibili" style="color: #fb7299;"></i></a><a class="social-icon" href="https://github.com/WENTAO2297" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/11/24/Hexo-%E5%8D%9A%E5%AE%A2%E5%B5%8C%E5%85%A5b%E7%AB%99%E8%A7%86%E9%A2%91%E5%88%B6%E4%BD%9C%E6%B8%B8%E6%88%8F%E9%AB%98%E5%85%89%E9%80%9A%E7%94%A8%E6%A8%A1%E7%89%88/" title="Hexo 博客嵌入b站视频制作游戏高光通用模版">Hexo 博客嵌入b站视频制作游戏高光通用模版</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-11-24T14:00:00.000Z" title="发表于 2025-11-24 22:00:00">2025-11-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></span></div><div class="content">先吐槽，我花了整整四个小时才解决代码块右上角没有复制按钮的问题（但是目前已经解决），我尝试了官方方案、PrismJS插件、重制依赖等等方法都无果的情况下，最终我放弃Hexo渲染，直接在前端用原生JS手写DOM，强行把pre标签放入div，再受挫一个按钮进去。我真是要累死了。。。。。。。不过当我成功的时候，比撸管还爽😁 以下是正文，以后我也会补充其他博客的模版： 以后写新游戏博客时，直接点击右上角复制按钮，将下方代码粘贴到新 Markdown 文件中，然后填空即可。 🎮 游戏高光通用模版 (封面跳转式)请注意：  复制后，请修改所有带 【】 的部分。 关键：代码块中 div 和 svg 那一行非常长，千万不要换行，也不要在前面加空格缩进，否则播放按钮会变成黑色代码块。  --- title: 【修改：这里写文章标题】 date: 【修改：日期，格式如 2025-11-24 18:00:00】 tags: categories:   - 游戏   - 【修改：具体游戏名，如 CS2】 cover: 【修改：封面图路径，例如 /2025/11/24/xxx/1.jpg】 top_i...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2025/11/24/dust2-m0nesy-play/" title="monesy play"><img class="post-bg" src="/2025/11/24/dust2-m0nesy-play/1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="monesy play"></a></div><div class="recent-post-info"><a class="article-title" href="/2025/11/24/dust2-m0nesy-play/" title="monesy play">monesy play</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-11-24T10:11:17.000Z" title="发表于 2025-11-24 18:11:17">2025-11-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%B8%B8%E6%88%8F/">游戏</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%B8%B8%E6%88%8F/CS2/">CS2</a></span></div><div class="content">小孩我从他出道看到现在，是我最喜欢的选手以前有段时间打狙怎么打怎么有，现在玩的少了，菜了但是小孩的比赛我还是不会缺席的。       (点击跳转 B站观看)  </div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2025/11/24/HELLO-WORLD/" title="Hello World">Hello World</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-11-24T05:10:41.000Z" title="发表于 2025-11-24 13:10:41">2025-11-24</time></span></div><div class="content">写在前面：这是我的第一篇博客，所以非常简陋到了大三才发觉有必要搭建一个自己的博客😂，真是有够好笑的。以后我会在这里记录，欢迎大家吃瓜👏👏👏 </div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/logo.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">文韬</div><div class="author-info-description">在这里记录我的日常</div><div class="card-info-social-icons"><a class="social-icon" href="https://www.douyin.com/user/self?from_tab_name=main" target="_blank" title="抖音"><i class="fab fa-tiktok" style="color: #000000;"></i></a><a class="social-icon" href="https://space.bilibili.com/384204746?spm_id_from=333.1007.0.0" target="_blank" title="Bilibili"><i class="fab fa-bilibili" style="color: #fb7299;"></i></a><a class="social-icon" href="https://github.com/WENTAO2297" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/11/24/Hexo-%E5%8D%9A%E5%AE%A2%E5%B5%8C%E5%85%A5b%E7%AB%99%E8%A7%86%E9%A2%91%E5%88%B6%E4%BD%9C%E6%B8%B8%E6%88%8F%E9%AB%98%E5%85%89%E9%80%9A%E7%94%A8%E6%A8%A1%E7%89%88/" title="Hexo 博客嵌入b站视频制作游戏高光通用模版">Hexo 博客嵌入b站视频制作游戏高光通用模版</a><time datetime="2025-11-24T14:00:00.000Z" title="发表于 2025-11-24 22:00:00">2025-11-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/11/24/dust2-m0nesy-play/" title="monesy play"><img src="/2025/11/24/dust2-m0nesy-play/1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="monesy play"/></a><div class="content"><a class="title" href="/2025/11/24/dust2-m0nesy-play/" title="monesy play">monesy play</a><time datetime="2025-11-24T10:11:17.000Z" title="发表于 2025-11-24 18:11:17">2025-11-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/11/24/HELLO-WORLD/" title="Hello World">Hello World</a><time datetime="2025-11-24T05:10:41.000Z" title="发表于 2025-11-24 13:10:41">2025-11-24</time></div></div></div></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">3</div></div><div class="webinfo-item"><div class="item-name">运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2025-11-23T10:00:00.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-11-25T07:48:09.358Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By 文韬</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.3-b2</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.3-b2"></script><script src="/js/main.js?v=5.5.3-b2"></script><div class="js-pjax"><script>window.typedJSFn = {
   init: str => {
     window.typed = new Typed('#subtitle', Object.assign({
       strings: str,
@@ -226,54 +265,125 @@ btf.addGlobalFn('pjaxSendOnce', () => { typed.destroy() }, 'typedDestroy')
 </script><script>function subtitleType () {
   typedJSFn.processSubtitle(["“一期一会”","“壹生只有一次的相遇”"])
 }
-typedJSFn.run(subtitleType)</script></div><script>document.addEventListener("DOMContentLoaded", function(){ var e = document.getElementById("site-title"); if(e){ e.innerText = "月が綺麗ですね"; } });</script><link rel="preload" href="/images/index.jpg" as="image"><script>
-  // 核心函数：用于初始化代码块和复制按钮
-  function initializeCodeBlocks() {
-      // 确保 Prism.js 和主题功能函数都存在
-      if (typeof Prism !== 'undefined' && typeof window.btf !== 'undefined' && typeof window.addCodeHljsInit !== 'undefined') {
-          // 1. 重新运行主题自带的 Toolbar 初始化函数
-          window.addCodeHljsInit(); 
-          // 2. 重新高亮代码 (确保 Mac Style 和行号生效)
-          Prism.highlightAll(); 
-      }
+typedJSFn.run(subtitleType)</script></div><script>document.addEventListener("DOMContentLoaded", function(){ var e = document.getElementById("site-title"); if(e){ e.innerText = "月が綺麗ですね"; } });</script><link rel="preload" href="/images/index.jpg" as="image"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script><div id="fixed-aplayer"></div>
+<script>
+  // --- A. 播放器初始化逻辑 ---
+  var ap = null; // 全局变量
+  function initAPlayer() {
+      if(ap) return; // 防止重复初始化
+      ap = new APlayer({
+          element: document.getElementById("fixed-aplayer"),
+          theme: "#ffffff", fixed: false, autoplay: false, loop: "all", order: "random", mini: false, volume: 0.7, lrcType: 0,
+          audio: [{
+              name: "唯一", artist: "G.E.M.邓紫棋", url: "/audio/test.mp3", cover: "/images/cover.jpg"
+          }]
+      });
+      // 绑定事件
+      var playerEl = document.getElementById('fixed-aplayer');
+      playerEl.onclick = function() { ap.toggle(); };
+      ap.on('play', function () {
+          var pic = document.querySelector('#fixed-aplayer .aplayer-pic');
+          if(pic) pic.style.animationPlayState = 'running';
+      });
+      ap.on('pause', function () {
+          var pic = document.querySelector('#fixed-aplayer .aplayer-pic');
+          if(pic) pic.style.animationPlayState = 'paused';
+      });
   }
 
-  // 绑定 PJAX 事件：在页面内容加载完成后执行初始化
-  if (window.Pace) {
-    window.Pace.on('done', initializeCodeBlocks);
+  // --- B. 代码块修复逻辑 ---
+  function fixCodeBlock() {
+      if (typeof hljs !== 'undefined') hljs.highlightAll();
+      
+      document.querySelectorAll('pre code').forEach((codeBlock) => {
+          var pre = codeBlock.parentNode;
+          if (pre.parentNode.classList.contains('code-container')) return;
+
+          var container = document.createElement('div');
+          container.className = 'code-container';
+          pre.parentNode.insertBefore(container, pre);
+          container.appendChild(pre);
+
+          var btn = document.createElement('button');
+          btn.className = 'manual-copy-btn';
+          btn.innerText = '复制';
+          
+          btn.onclick = function() {
+              navigator.clipboard.writeText(codeBlock.innerText).then(function() {
+                  btn.innerText = '成功'; btn.classList.add('copied');
+                  setTimeout(() => { btn.innerText = '复制'; btn.classList.remove('copied'); }, 2000);
+              }).catch(() => { btn.innerText = '失败'; });
+          };
+          container.appendChild(btn);
+      });
   }
-  document.addEventListener('pjax:complete', initializeCodeBlocks);
-  document.addEventListener('DOMContentLoaded', initializeCodeBlocks);
-</script>
-<div id="fixed-aplayer"></div>
-<script>
-  var ap = new APlayer({
-    element: document.getElementById("fixed-aplayer"),
-    theme: "#ffffff",
-    fixed: false,
-    autoplay: false,
-    loop: "all",
-    order: "random",
-    mini: false, 
-    volume: 0.7,
-    lrcType: 0,
-    audio: [{
-      name: "唯一",
-      artist: "G.E.M.邓紫棋",
-      url: "/audio/test.mp3",
-      cover: "/images/cover.jpg"
-    }]
+
+  // --- C. 执行逻辑 (适配 PJAX) ---
+  // 1. 首次加载
+  document.addEventListener('DOMContentLoaded', function() {
+      initAPlayer();
+      fixCodeBlock();
   });
-  
-  document.getElementById('fixed-aplayer').addEventListener('click', function() { ap.toggle(); });
-  
-  ap.on('play', function () {
-      var pic = document.querySelector('#fixed-aplayer .aplayer-pic');
-      if(pic) pic.style.animationPlayState = 'running';
-  });
-  ap.on('pause', function () {
-      var pic = document.querySelector('#fixed-aplayer .aplayer-pic');
-      if(pic) pic.style.animationPlayState = 'paused';
+  // 2. PJAX 跳转后
+  document.addEventListener('pjax:complete', function() {
+      // 播放器不需要重新初始化，因为它是固定定位且在 PJAX 容器外(body下)
+      // 但代码块是在 PJAX 容器内的，所以必须重跑
+      fixCodeBlock();
   });
 </script>
-<script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.3-b2"></script></div></div></body></html>
+<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script>(() => {
+  const pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","meta[property=\"og:description\"]","link[rel=\"canonical\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      const usePjax = true
+      false
+        ? (usePjax ? pjax.loadUrl('/404.html') : window.location.href = '/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.3-b2"></script></div></div></body></html>
