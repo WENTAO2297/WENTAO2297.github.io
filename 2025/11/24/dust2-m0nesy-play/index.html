@@ -154,9 +154,11 @@
   }
 
   /* 页脚样式 (白底黑字) */
-  #footer { background: #ffffff !important; color: #000000 !important; margin-top: 0 !important; }
-  #footer a { color: #333333 !important; }
-  #footer::before { background: transparent !important; }
+  #footer { 
+      background: #ffffff !important; color: #000000 !important; margin-top: 0 !important; 
+      font-size: 0.9em !important; font-weight: 500 !important;
+  }
+  #footer a, #footer span, #footer div { color: #000000 !important; }
 
   /* 左下角悬浮播放器样式 */
   @keyframes rotate-disc { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
@@ -275,7 +277,26 @@
   } else {
     window.loadOtherComment = loadGiscus
   }
-})()</script></div><script>document.addEventListener("DOMContentLoaded", function(){ var e = document.getElementById("site-title"); if(e){ e.innerText = "月が綺麗ですね"; } });</script><link rel="preload" href="/images/index.jpg" as="image"><div id="fixed-aplayer"></div>
+})()</script></div><script>document.addEventListener("DOMContentLoaded", function(){ var e = document.getElementById("site-title"); if(e){ e.innerText = "月が綺麗ですね"; } });</script><link rel="preload" href="/images/index.jpg" as="image"><script>
+  // 核心函数：用于初始化代码块和复制按钮
+  function initializeCodeBlocks() {
+      // 确保 Prism.js 和主题功能函数都存在
+      if (typeof Prism !== 'undefined' && typeof window.btf !== 'undefined' && typeof window.addCodeHljsInit !== 'undefined') {
+          // 1. 重新运行主题自带的 Toolbar 初始化函数
+          window.addCodeHljsInit(); 
+          // 2. 重新高亮代码 (确保 Mac Style 和行号生效)
+          Prism.highlightAll(); 
+      }
+  }
+
+  // 绑定 PJAX 事件：在页面内容加载完成后执行初始化
+  if (window.Pace) {
+    window.Pace.on('done', initializeCodeBlocks);
+  }
+  document.addEventListener('pjax:complete', initializeCodeBlocks);
+  document.addEventListener('DOMContentLoaded', initializeCodeBlocks);
+</script>
+<div id="fixed-aplayer"></div>
 <script>
   var ap = new APlayer({
     element: document.getElementById("fixed-aplayer"),
@@ -284,7 +305,7 @@
     autoplay: false,
     loop: "all",
     order: "random",
-    mini: false,
+    mini: false, 
     volume: 0.7,
     lrcType: 0,
     audio: [{
@@ -294,9 +315,9 @@
       cover: "/images/cover.jpg"
     }]
   });
-
+  
   document.getElementById('fixed-aplayer').addEventListener('click', function() { ap.toggle(); });
-
+  
   ap.on('play', function () {
       var pic = document.querySelector('#fixed-aplayer .aplayer-pic');
       if(pic) pic.style.animationPlayState = 'running';
