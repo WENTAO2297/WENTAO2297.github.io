@@ -7,7 +7,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/images/logo.jpg">
 <meta property="article:published_time" content="2025-11-23T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-11-24T13:16:56.926Z">
+<meta property="article:modified_time" content="2025-11-25T15:23:13.415Z">
 <meta property="article:author" content="文韬">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/images/logo.jpg"><script type="application/ld+json"></script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/ecust/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.3-b2"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
@@ -56,7 +56,7 @@
         document.head.appendChild(link)
       }),
       addGlobalFn: (key, fn, name = false, parent = window) => {
-        if (!true && key.startsWith('pjax')) return
+        if (!false && key.startsWith('pjax')) return
         const globalFn = parent.globalFn || {}
         globalFn[key] = globalFn[key] || {}
         globalFn[key][name || Object.keys(globalFn[key]).length] = fn
@@ -123,55 +123,44 @@
   isHighlightShrink: false,
   isToc: false,
   pageType: 'page'
-}</script><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><style>
-  #page-header, #page-header.not-home-page, #page-header.full_page, #page-header.post-bg {
-      background-color: transparent !important;
-      background-image: none !important;
+}</script><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><style>
+  /* ====== 1. 【关键修复】隐藏剪刀和虚线分割线 ====== */
+  hr {
+      border: none !important;
+      background: transparent !important;
+      margin: 2rem auto !important;
   }
-  #page-header::before, #page-header.not-home-page::before, #page-header.post-bg::before {
-      background-color: rgba(0,0,0,0.25) !important;
-      background-image: none !important;
-      opacity: 1 !important;
+  hr::before {
+      display: none !important; /* 彻底隐藏剪刀图标 */
   }
+
+  /* ====== 2. 全局背景 (防卡顿优化) ====== */
   #web_bg {
-      position: fixed !important;
-      top: 0; left: 0; width: 100%; height: 100%;
-      min-height: 100vh;
-      z-index: -999;
+      position: fixed !important; top: 0; left: 0; width: 100%; height: 100%; min-height: 100vh; z-index: -999;
       background: url("/images/index.jpg") no-repeat center center / cover !important;
       background-attachment: scroll !important;
-      will-change: transform;
-      transform: translate3d(0,0,0);
+      will-change: transform; transform: translate3d(0,0,0);
   }
-  #local-search .search-dialog hr { display: none !important; }
-  @keyframes rotate-disc { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-  #fixed-aplayer {
-      position: fixed !important; bottom: 20px !important; left: 20px !important; z-index: 9999 !important;
-      width: 60px !important; height: 60px !important; border-radius: 50% !important;
-      background: #fff !important; border: 1px solid #ddd !important;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1) !important;
-      overflow: hidden !important; cursor: pointer !important;
-      opacity: 0.9; transform: translateZ(0);
+  
+  /* ====== 3. 透明页头与遮罩 ====== */
+  #page-header, #page-header.not-home-page, #page-header.full_page, #page-header.post-bg {
+      background-color: transparent !important; background-image: none !important;
   }
-  #fixed-aplayer:hover { opacity: 1 !important; }
-  #fixed-aplayer .aplayer { margin: 0 !important; background: transparent !important; border: none !important; }
-  #fixed-aplayer .aplayer-body { width: 100% !important; height: 100% !important; }
-  #fixed-aplayer .aplayer-pic {
-      position: absolute !important; top: 0; left: 0; width: 100% !important; height: 100% !important;
-      border-radius: 50% !important; margin: 0 !important;
-      background-image: url("/images/cover.jpg") !important; background-size: cover !important;
-      animation: rotate-disc 25s linear infinite !important;
-      pointer-events: none !important;
+  /* 顶部黑色遮罩 (0.25透明度) */
+  #page-header::before, #page-header.not-home-page::before, #page-header.post-bg::before {
+      background-color: rgba(0,0,0,0.25) !important; background-image: none !important; opacity: 1 !important;
   }
-  #fixed-aplayer .aplayer-info, #fixed-aplayer .aplayer-bar-wrap, #fixed-aplayer .aplayer-notice,
-  #fixed-aplayer .aplayer-miniswitcher, #fixed-aplayer .aplayer-list, #fixed-aplayer .aplayer-button,
-  #fixed-aplayer .aplayer-icon-play, #fixed-aplayer .aplayer-icon-pause { display: none !important; }
+  
+  /* ====== 4. 其他样式 ====== */
   .avatar-img img:hover { transform: none !important; }
   #footer { background: rgba(255,255,255, 0.95) !important; color: #000 !important; }
   #footer a { color: #333 !important; }
   #footer::before { background: transparent !important; }
+  #local-search .search-dialog hr { display: none !important; }
   #site-title, #site-subtitle { font-family: 'Shippori Mincho', serif !important; }
   #site-title { font-size: 5rem !important; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+  
+  /* 代码块样式 */
   .code-container { position: relative; margin: 20px 0; background: #282c34 !important; border-radius: 8px; overflow: hidden; }
   .code-container pre { margin: 0 !important; padding: 40px 15px 15px 15px !important; background: transparent !important; overflow-x: auto; color: #abb2bf !important; font-family: Consolas, Monaco, monospace !important; }
   .manual-copy-btn { position: absolute; top: 6px; right: 10px; color: #fff; background: rgba(255, 255, 255, 0.15); border: 1px solid rgba(255,255,255,0.2); border-radius: 4px; padding: 4px 10px; font-size: 12px; cursor: pointer; z-index: 100; transition: background 0.2s; }
@@ -239,8 +228,8 @@
     line-height: 1;
     margin-bottom: 15px;
     
-    /* 默认是浅灰色，看起来很高级 */
-    color: #f0f2f5; 
+    /* ⬇️⬇️ 修复点在这里：颜色加深为灰色，确保可见 ⬇️⬇️ */
+    color: #cccccc !important; 
     font-family: 'Shippori Mincho', serif; /* 配合你的日文字体，很有质感 */
     
     transition: all 0.3s;
@@ -248,7 +237,7 @@
   
   /* 悬停时数字变色 */
   .semester-card:hover .semester-num {
-    color: #49b1f5;
+    color: #49b1f5 !important;
     transform: scale(1.1);
   }
   
@@ -294,24 +283,19 @@
     <div class="semester-desc">Graduation</div>
   </a>
 
-</div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By 文韬</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.3-b2</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"></div><div id="rightside-config-show"><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.3-b2"></script><script src="/js/main.js?v=5.5.3-b2"></script><div class="js-pjax"></div><link rel="preload" href="/images/index.jpg" as="image"><script>document.addEventListener("DOMContentLoaded", function(){ var e = document.getElementById("site-title"); if(e){ e.innerText = "月が綺麗ですね"; } });</script><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js" defer></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js" defer></script><div id="fixed-aplayer"></div>
-<script>
-  var ap = null;
-  function initAPlayer() {
-      if(ap || document.querySelector('.aplayer-body')) return;
-      if(!window.APlayer) { setTimeout(initAPlayer, 100); return; }
-      ap = new APlayer({
-          element: document.getElementById("fixed-aplayer"),
-          theme: "#ffffff", fixed: false, autoplay: false, loop: "all", order: "random", mini: false, volume: 0.7, lrcType: 0,
-          audio: [{ name: "唯一", artist: "G.E.M.邓紫棋", url: "/audio/test.mp3", cover: "/images/cover.jpg" }]
-      });
-      var el = document.getElementById('fixed-aplayer');
-      var clone = el.cloneNode(true);
-      el.parentNode.replaceChild(clone, el);
-      clone.onclick = function() { if(ap) ap.toggle(); };
-      ap.on('play', function () { var p = document.querySelector('#fixed-aplayer .aplayer-pic'); if(p) p.style.animationPlayState = 'running'; });
-      ap.on('pause', function () { var p = document.querySelector('#fixed-aplayer .aplayer-pic'); if(p) p.style.animationPlayState = 'paused'; });
-  }
+</div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By 文韬</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.3-b2</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"></div><div id="rightside-config-show"><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.3-b2"></script><script src="/js/main.js?v=5.5.3-b2"></script><div class="js-pjax"></div><link rel="preload" href="/images/index.jpg" as="image"><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js" defer></script><script>
+  // 1. 【关键修复】标题修改逻辑 (仅在主页生效)
+  document.addEventListener("DOMContentLoaded", function(){ 
+      var e = document.getElementById("site-title");
+      // 判断当前路径是否为首页
+      var isHomePage = window.location.pathname === '/' || window.location.pathname === '/index.html';
+      
+      if(e && isHomePage){ 
+          e.innerText = "月が綺麗ですね"; 
+      }
+  });
+
+  // 2. 代码块修复逻辑
   function fixCodeBlock() {
       if (typeof hljs !== 'undefined') hljs.highlightAll();
       var targets = document.querySelectorAll('pre code');
@@ -319,10 +303,12 @@
           var pre = codeBlock.parentNode;
           if (pre.parentNode.classList.contains('code-container')) return;
           if (pre.parentElement && pre.parentElement.classList.contains('code-container')) return;
+          
           var container = document.createElement('div');
           container.className = 'code-container';
           pre.parentNode.insertBefore(container, pre);
           container.appendChild(pre);
+          
           var btn = document.createElement('button');
           btn.className = 'manual-copy-btn';
           btn.innerText = '复制';
@@ -336,62 +322,8 @@
           container.appendChild(btn);
       });
   }
-  document.addEventListener('DOMContentLoaded', function() { initAPlayer(); fixCodeBlock(); });
-  document.addEventListener('pjax:complete', function() { fixCodeBlock(); });
+  
+  // 页面加载完成后执行
+  window.addEventListener('load', function() { fixCodeBlock(); });
 </script>
-<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script>(() => {
-  const pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","meta[property=\"og:description\"]","link[rel=\"canonical\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
-
-  window.pjax = new Pjax({
-    elements: 'a:not([target="_blank"])',
-    selectors: pjaxSelectors,
-    cacheBust: false,
-    analytics: false,
-    scrollRestoration: false
-  })
-
-  const triggerPjaxFn = (val) => {
-    if (!val) return
-    Object.values(val).forEach(fn => {
-      try {
-        fn()
-      } catch (err) {
-        console.debug('Pjax callback failed:', err)
-      }
-    })
-  }
-
-  document.addEventListener('pjax:send', () => {
-    // removeEventListener
-    btf.removeGlobalFnEvent('pjaxSendOnce')
-    btf.removeGlobalFnEvent('themeChange')
-
-    // reset readmode
-    const $bodyClassList = document.body.classList
-    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
-
-    triggerPjaxFn(window.globalFn.pjaxSend)
-  })
-
-  document.addEventListener('pjax:complete', () => {
-    btf.removeGlobalFnEvent('pjaxCompleteOnce')
-    document.querySelectorAll('script[data-pjax]').forEach(item => {
-      const newScript = document.createElement('script')
-      const content = item.text || item.textContent || item.innerHTML || ""
-      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
-      newScript.appendChild(document.createTextNode(content))
-      item.parentNode.replaceChild(newScript, item)
-    })
-
-    triggerPjaxFn(window.globalFn.pjaxComplete)
-  })
-
-  document.addEventListener('pjax:error', e => {
-    if (e.request.status === 404) {
-      const usePjax = true
-      false
-        ? (usePjax ? pjax.loadUrl('/404.html') : window.location.href = '/404.html')
-        : window.location.href = e.request.responseURL
-    }
-  })
-})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.3-b2"></script></div></div></body></html>
+<script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.3-b2"></script></div></div></body></html>
