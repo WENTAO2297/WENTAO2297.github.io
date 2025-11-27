@@ -1,53 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/2025/11/24/HELLO-WORLD/</url>
-    <content><![CDATA[<p>写在前面：<strong>这是我的第一篇博客，所以非常简陋</strong><br>到了大三才发觉有必要搭建一个自己的博客😂，真是有够好笑的。<br>以后我会在这里记录，欢迎大家吃瓜👏👏👏</p>
-]]></content>
-      <categories>
-        <category>随笔</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Hexo 博客嵌入b站视频制作游戏高光通用模版</title>
-    <url>/2025/11/24/Hexo-moban/</url>
-    <content><![CDATA[<p>先吐槽，我花了整整四个小时才解决代码块右上角没有复制按钮的问题，我尝试了官方方案、PrismJS插件、重制依赖等等方法都无果的情况下，最终我放弃Hexo渲染，直接在前端用原生JS手写DOM，强行把pre标签放入div，再手搓一个按钮进去。我真是要累死了。。。。。。。不过当我成功的时候，比撸管还爽😁</p>
-<p><strong>以下是正文，以后我也会补充其他博客的模版：</strong></p>
-<p>以后写新游戏博客时，直接点击右上角复制按钮，将下方代码粘贴到新 Markdown 文件中，然后填空即可。</p>
-<h3 id="🎮-游戏高光通用模版-封面跳转式"><a href="#🎮-游戏高光通用模版-封面跳转式" class="headerlink" title="🎮 游戏高光通用模版 (封面跳转式)"></a>🎮 游戏高光通用模版 (封面跳转式)</h3><p>请注意：</p>
-<ol>
-<li>复制后，请修改所有带 <code>【】</code> 的部分。</li>
-<li><strong>关键</strong>：代码块中 <code>div</code> 和 <code>svg</code> 那一行非常长，<strong>千万不要换行，也不要在前面加空格缩进</strong>，否则播放按钮会变成黑色代码块。</li>
-</ol>
-<pre><code class="language-html">---
-title: 【修改：这里写文章标题】
-date: 【修改：日期，格式如 2025-11-24 18:00:00】
-tags:
-categories:
-  - 游戏
-  - 【修改：具体游戏名，如 CS2】
-cover: 【修改：封面图路径，例如 /2025/11/24/xxx/1.jpg】
-top_img: false
----
-【修改：在这里写你的推荐语、心得体会...】
-
-&lt;div style=&quot;margin: 30px 0; text-align: center;&quot;&gt;
-&lt;a href=&quot;【修改：这里填 B站视频链接】&quot; target=&quot;_blank&quot; style=&quot;display: block; position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 16px rgba(0,0,0,0.2); line-height: 0; background: transparent;&quot;&gt;
-&lt;img src=&quot;【修改：封面图路径 (与上方 cover 保持一致)】&quot; alt=&quot;Video Cover&quot; style=&quot;width: 100%; height: auto; display: block; margin: 0; object-fit: cover;&quot;&gt;
-&lt;div style=&quot;position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center; transition: background 0.3s;&quot;&gt;&lt;div style=&quot;width: 60px; height: 60px; background: rgba(255,255,255,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3);&quot;&gt;&lt;svg viewBox=&quot;0 0 1024 1024&quot; width=&quot;24&quot; height=&quot;24&quot; fill=&quot;#333&quot; style=&quot;margin-left: 4px;&quot;&gt;&lt;path d=&quot;M841.16 473.63L247.43 127.99a46.6 46.6 0 0 0-46.94 1.07A46.6 46.6 0 0 0 176 170.1v683.8a46.6 46.6 0 0 0 24.49 41.04 46.6 46.6 0 0 0 46.94 1.07l593.73-345.64a46.6 46.6 0 0 0 0-80.74z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;/a&gt;
-&lt;p style=&quot;font-size: 14px; color: #888; margin-top: 10px; font-family: &#39;Shippori Mincho&#39;; line-height: 1.5;&quot;&gt;
-(点击跳转 B站观看)
-&lt;/p&gt;
-&lt;/div&gt;
-</code></pre>
-]]></content>
-      <categories>
-        <category>随笔</category>
-      </categories>
-  </entry>
-  <entry>
     <title>monesy play</title>
     <url>/2025/11/24/dust2-m0nesy-play/</url>
     <content><![CDATA[<p><strong>小孩我从他出道看到现在，是我最喜欢的选手</strong><br>以前有段时间打狙怎么打怎么有，现在玩的少了，菜了<br>但是小孩的比赛我还是不会缺席的。</p>
@@ -60,25 +13,6 @@ top_img: false
 (点击跳转 B站观看)
 </p>
 </div>]]></content>
-      <categories>
-        <category>游戏</category>
-        <category>CS2</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>CS最高光：5颗5个头</title>
-    <url>/2025/11/26/lifetime/</url>
-    <content><![CDATA[<p>不多说，就两个字：<strong>无敌</strong></p>
-<div style="margin: 30px 0; text-align: center;">
-<a href="https://www.bilibili.com/video/BV1PUdZYQEVq/?spm_id_from=333.1387.homepage.video_card.click&vd_source=40c2f338cd1dc3217fb5b6ce2dd7ae38" target="_blank" style="display: block; position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 16px rgba(0,0,0,0.2); line-height: 0; background: transparent;">
-<img src="/2025/11/26/lifetime/1.jpg" alt="Video Cover" style="width: 100%; height: auto; display: block; margin: 0; object-fit: cover;">
-<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center; transition: background 0.3s;"><div style="width: 60px; height: 60px; background: rgba(255,255,255,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3);"><svg viewBox="0 0 1024 1024" width="24" height="24" fill="#333" style="margin-left: 4px;"><path d="M841.16 473.63L247.43 127.99a46.6 46.6 0 0 0-46.94 1.07A46.6 46.6 0 0 0 176 170.1v683.8a46.6 46.6 0 0 0 24.49 41.04 46.6 46.6 0 0 0 46.94 1.07l593.73-345.64a46.6 46.6 0 0 0 0-80.74z"></path></svg></div></div>
-</a>
-<p style="font-size: 14px; color: #888; margin-top: 10px; font-family: 'Shippori Mincho'; line-height: 1.5;">
-(点击跳转 B站观看)
-</p>
-</div>
-]]></content>
       <categories>
         <category>游戏</category>
         <category>CS2</category>
@@ -145,7 +79,7 @@ top_img: false
 <p>我深刻体会到，现代智能科学正朝着“群体化、复杂化、落地化”演进：多智能体解决了感知广度问题，分解优化策略突破了计算维度限制，而工业互联网与信息安全则保障了技术的稳健落地。这种从系统工程高度审视技术脉络的宏观视角，不仅极大增强了我的专业学习兴趣，更让我对未来的科研方向与职业规范有了清晰认识。</p>
 <p>我认识到，单纯的算法优化已遭遇边际效应递减，真正的创新往往源于“AI+X”的跨学科交叉融合。无论是利用深度学习加速新材料研发，还是解决复杂的物流调度，都要求我们具备开阔的国际视野，打破学科壁垒，将智能技术作为解决国计民生核心难题的通用工具。同时，技术是把双刃剑，强大的算力必须配合正确的价值观。面对全球老龄化等严峻挑战，融合机器学习的智慧医疗与养老系统虽能解决社会痛点，但其底线必须建立在安全可控之上。作为未来的工程师，我们既要利用先进算法实现精准筛查与情感陪伴，更要时刻警惕隐私泄露与算法歧视等风险，坚定推动“负责任的人工智能”建设，确保技术在严守伦理规范的前提下真正赋能人类的美好生活，让科技的光辉温暖社会的每一个角落。</p>
 <hr>
-<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><ol>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol>
 <li>K. Zhang, Z. Yang, and T. Başar, “Multi-agent reinforcement learning: A selective overview of theories and algorithms,” <em>IEEE Transactions on Automatic Control</em>, vol. 66, no. [cite_start]12, pp. 5690–5708, 2021. [cite: 56, 57]</li>
 <li>X. Li, K. Tang, M. N. Omidvar, Z. Yang, and K. Qin, “A survey on cooperative co-evolutionary algorithms,” <em>IEEE Transactions on Evolutionary Computation</em>, vol. 17, no. [cite_start]4, pp. 471–496, 2013. [cite: 58, 59]</li>
 <li>A.-R. Sadeghi, C. Wachsmann, and M. Waidner, “Security and privacy in industrial internet of things: Current status and potential future challenges,” <em>ACM Transactions on Embedded Computing Systems</em>, vol. 14, no. [cite_start]4, pp. 76:1–76:27, 2015. [cite: 60, 61]</li>
@@ -161,6 +95,25 @@ top_img: false
       <categories>
         <category>华理</category>
         <category>大三上</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>CS最高光：5颗5个头</title>
+    <url>/2025/11/26/lifetime/</url>
+    <content><![CDATA[<p>不多说，就两个字：<strong>无敌</strong></p>
+<div style="margin: 30px 0; text-align: center;">
+<a href="https://www.bilibili.com/video/BV1PUdZYQEVq/?spm_id_from=333.1387.homepage.video_card.click&vd_source=40c2f338cd1dc3217fb5b6ce2dd7ae38" target="_blank" style="display: block; position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 16px rgba(0,0,0,0.2); line-height: 0; background: transparent;">
+<img src="/2025/11/26/lifetime/1.jpg" alt="Video Cover" style="width: 100%; height: auto; display: block; margin: 0; object-fit: cover;">
+<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center; transition: background 0.3s;"><div style="width: 60px; height: 60px; background: rgba(255,255,255,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3);"><svg viewBox="0 0 1024 1024" width="24" height="24" fill="#333" style="margin-left: 4px;"><path d="M841.16 473.63L247.43 127.99a46.6 46.6 0 0 0-46.94 1.07A46.6 46.6 0 0 0 176 170.1v683.8a46.6 46.6 0 0 0 24.49 41.04 46.6 46.6 0 0 0 46.94 1.07l593.73-345.64a46.6 46.6 0 0 0 0-80.74z"></path></svg></div></div>
+</a>
+<p style="font-size: 14px; color: #888; margin-top: 10px; font-family: 'Shippori Mincho'; line-height: 1.5;">
+(点击跳转 B站观看)
+</p>
+</div>
+]]></content>
+      <categories>
+        <category>游戏</category>
+        <category>CS2</category>
       </categories>
   </entry>
 </search>
