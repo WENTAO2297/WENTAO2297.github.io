@@ -153,7 +153,103 @@
 <li>减少或移除正则化参数</li>
 <li>延长训练时间/充分训练  </li>
 </ul>
-<h2 id="第二章-线性感知机"><a href="#第二章-线性感知机" class="headerlink" title="第二章 线性感知机"></a>第二章 线性感知机</h2>]]></content>
+<h1 id="第二章-线性感知机"><a href="#第二章-线性感知机" class="headerlink" title="第二章 线性感知机"></a>第二章 线性感知机</h1><h2 id="1-超平面-Hyperplane"><a href="#1-超平面-Hyperplane" class="headerlink" title="1. 超平面 (Hyperplane)"></a>1. 超平面 (Hyperplane)</h2><h3 id="怎么理解？"><a href="#怎么理解？" class="headerlink" title="怎么理解？"></a>怎么理解？</h3><blockquote>
+<p><strong>定义</strong>：在 $n$ 维空间中，将空间一分为二的 $n-1$ 维子空间。</p>
+</blockquote>
+<ul>
+<li><strong>超平面方程</strong>：<script type="math/tex; mode=display">w \cdot x + b = 0</script></li>
+</ul>
+<h3 id="点到超平面的几何距离"><a href="#点到超平面的几何距离" class="headerlink" title="点到超平面的几何距离"></a>点到超平面的几何距离</h3><script type="math/tex; mode=display">d = \frac{|w \cdot x + b|}{\|w\|}</script><hr>
+<h2 id="2-感知机模型-Perceptron"><a href="#2-感知机模型-Perceptron" class="headerlink" title="2. 感知机模型 (Perceptron)"></a>2. 感知机模型 (Perceptron)</h2><ul>
+<li><strong>关键词</strong>：<code>线性二分模型</code>、<code>判别模型</code></li>
+</ul>
+<h3 id="1-模型"><a href="#1-模型" class="headerlink" title="(1) 模型"></a>(1) 模型</h3><ul>
+<li><strong>输入空间</strong>：$x \in R^n$</li>
+<li><strong>输出空间</strong>：$y \in \{+1, -1\}$</li>
+<li><strong>假设空间</strong>：<script type="math/tex; mode=display">f(x) = sign(w \cdot x + b)</script></li>
+</ul>
+<blockquote>
+<p><strong>符号函数 (Sign Function)</strong>：</p>
+<script type="math/tex; mode=display">
+sign(x) =
+\begin{cases}
++1, & x \geq 0 \\
+-1, & x < 0
+\end{cases}</script></blockquote>
+<ul>
+<li><strong>模型参数</strong>：<ul>
+<li>$w$：权值向量</li>
+<li>$b$：偏置</li>
+<li>$w \cdot x$：内积</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-策略"><a href="#2-策略" class="headerlink" title="(2) 策略"></a>(2) 策略</h3><p>感知机的目标是<strong>最小化误分类点到超平面的总距离。</strong></p>
+<ul>
+<li><strong>损失函数</strong>（误分类点集合 $M$）：<script type="math/tex; mode=display">
+  L(w, b) = - \sum_{x_i \in M} y_i (w \cdot x_i + b)</script>  <em>(注：由于 $\frac{1}{|w|}$ 不影响梯度方向，为了计算简便，在损失函数中省略)</em></li>
+</ul>
+<h3 id="3-算法"><a href="#3-算法" class="headerlink" title="(3) 算法"></a>(3) 算法</h3><p>转化为求解最优化问题：</p>
+<script type="math/tex; mode=display">
+\min_{w, b} L(w, b) = - \sum_{x_i \in M} y_i (w \cdot x_i + b)</script><hr>
+<h2 id="3-算法实现形式"><a href="#3-算法实现形式" class="headerlink" title="3. 算法实现形式"></a>3. 算法实现形式</h2><h3 id="1-梯度下降法"><a href="#1-梯度下降法" class="headerlink" title="(1) 梯度下降法"></a>(1) 梯度下降法</h3><ul>
+<li><strong>输入</strong>：训练数据集 $T = {(x_1, y_1), \dots, (x_N, y_N)}$，学习率 $\eta$ ($0 &lt; \eta \le 1$)</li>
+<li><strong>输出</strong>：$w, b$</li>
+</ul>
+<p><strong>算法步骤</strong>：</p>
+<ol>
+<li><strong>初始化</strong>：$w_0 \leftarrow 0, b_0 \leftarrow 0$，$\eta$看题目</li>
+<li><strong>选取数据</strong>：$(x_i, y_i)$</li>
+<li><strong>判断误分类</strong>：<br>如果满足条件 $y_i (w \cdot x_i + b) \le 0$，则更新参数：<script type="math/tex; mode=display">
+\begin{aligned}
+w &\leftarrow w + \eta y_i x_i \\
+b &\leftarrow b + \eta y_i
+\end{aligned}</script></li>
+<li><strong>循环</strong>：转至 (2)，直至训练集中没有误分类点。</li>
+</ol>
+<blockquote>
+<p><strong>特点</strong>：直观，但如果数据量大或维度高，计算量大。</p>
+</blockquote>
+<h3 id="2-对偶形式"><a href="#2-对偶形式" class="headerlink" title="(2) 对偶形式"></a>(2) 对偶形式</h3><ul>
+<li><strong>核心思想</strong>：将 $w$ 表示为实例 $x_i$ 和标记 $y_i$ 的线性组合。</li>
+<li><strong>输出</strong>：$\alpha, b$</li>
+<li><strong>假设空间变为</strong>：<script type="math/tex; mode=display">f(x) = sign\left(\sum_{j=1}^{N} \alpha_j y_j (x_j \cdot x_i) + b\right)</script>  <em>(其中 $\alpha = (\alpha_1, \alpha_2, \dots, \alpha_N)^T$)</em></li>
+</ul>
+<p><strong>算法步骤</strong>：</p>
+<ol>
+<li><strong>初始化</strong>：$\alpha \leftarrow 0, b \leftarrow 0$</li>
+<li><strong>选取数据</strong>：$(x_i, y_i)$</li>
+<li><strong>判断误分类</strong>：<br>如果满足条件：<script type="math/tex; mode=display">
+y_i \left(\sum_{j=1}^{N} \alpha_j y_j (x_j \cdot x_i) + b\right) \le 0</script>则更新参数：<script type="math/tex; mode=display">
+\begin{aligned}
+\alpha_i &\leftarrow \alpha_i + \eta \\
+b &\leftarrow b + \eta y_i
+\end{aligned}</script>（$b$和梯度下降一样）</li>
+<li><strong>循环</strong>：转至 (2) 直到无误分类数据。</li>
+</ol>
+<h4 id="💡-重点：如何计算判别式："><a href="#💡-重点：如何计算判别式：" class="headerlink" title="💡 重点：如何计算判别式："></a>💡 重点：如何计算判别式：</h4><p>在对偶形式中，样本之间的内积计算非常频繁，通常预先计算 <strong>Gram 矩阵</strong> 并存储：</p>
+<script type="math/tex; mode=display">
+G = [x_i \cdot x_j]_{N \times N} =
+\begin{bmatrix}
+x_1 \cdot x_1 & x_1 \cdot x_2 & \cdots & x_1 \cdot x_N \\
+x_2 \cdot x_1 & x_2 \cdot x_2 & \cdots & x_2 \cdot x_N \\
+\vdots & \vdots & \ddots & \vdots \\
+x_N \cdot x_1 & x_N \cdot x_2 & \cdots & x_N \cdot x_N \\
+\end{bmatrix}</script><p><strong>注意：$x_i$ 有几个，$\alpha_i$ 就有几个 $=0$（初始化）</strong><br><strong>做题技巧（表格法迭代）</strong>：<br><img src="2025-11-30-18-07-41.png" alt=""></p>
+<hr>
+<h2 id="4-感知机算法收敛性定理"><a href="#4-感知机算法收敛性定理" class="headerlink" title="4. 感知机算法收敛性定理"></a>4. 感知机算法收敛性定理</h2><ul>
+<li><p><strong>收敛定理 (Novikoff)</strong>：<br>  误分类次数 $k$ 有上界。这意味着，<strong>只要训练数据集是线性可分的，感知机算法一定能收敛</strong>（在有限步内找到解）。</p>
+</li>
+<li><p><strong>局限性</strong>：</p>
+<ol>
+<li><strong>解不唯一</strong>：解依赖于初值的选择，也依赖于误分类点的选择顺序。</li>
+<li><strong>震荡</strong>：如果数据集<strong>线性不可分</strong>，算法会一直震荡，无法做到完全正确分类。</li>
+</ol>
+</li>
+<li><p><strong>下一步引申</strong>：<br>  为了得到<strong>唯一</strong>且<strong>最优</strong>的分离超平面，我们需要引入更强的约束 —— 这就是 <strong>SVM (支持向量机)</strong> 的由来。</p>
+</li>
+</ul>
+]]></content>
       <categories>
         <category>华理</category>
         <category>大三上</category>
