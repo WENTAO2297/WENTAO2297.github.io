@@ -281,7 +281,7 @@ x_N \cdot x_1 & x_N \cdot x_2 & \cdots & x_N \cdot x_N \\
 <li><strong>最坏情况</strong>：时间复杂度 $O(N)$</li>
 <li><strong>适用场景</strong>：更适用于<strong>训练实例维度远大于空间维度</strong>时的搜索。  </li>
 </ul>
-<h1 id="第四章-贝叶斯方法"><a href="#第四章-贝叶斯方法" class="headerlink" title="第四章 贝叶斯方法"></a>第四章 贝叶斯方法</h1><h2 id="概率统计基础知识"><a href="#概率统计基础知识" class="headerlink" title="概率统计基础知识"></a>概率统计基础知识</h2><h3 id="pmf-amp-pdf"><a href="#pmf-amp-pdf" class="headerlink" title="$pmf$ &amp; $pdf$"></a>$pmf$ &amp; $pdf$</h3><p><strong>概率质量函数（Probability mass function）</strong><br>定义：$P(X=x_i)$，即<strong>离散随机变量</strong>在各特定取值上的概率。</p>
+<h1 id="第四章-贝叶斯方法"><a href="#第四章-贝叶斯方法" class="headerlink" title="第四章 贝叶斯方法"></a>第四章 贝叶斯方法</h1><h2 id="1-概率统计基础知识"><a href="#1-概率统计基础知识" class="headerlink" title="1. 概率统计基础知识"></a>1. 概率统计基础知识</h2><h3 id="pmf-amp-pdf"><a href="#pmf-amp-pdf" class="headerlink" title="$pmf$ &amp; $pdf$"></a>$pmf$ &amp; $pdf$</h3><p><strong>概率质量函数（Probability mass function）</strong><br>定义：$P(X=x_i)$，即<strong>离散随机变量</strong>在各特定取值上的概率。</p>
 <ul>
 <li>$\sum_{i} P(X=x_i) = 1$</li>
 <li>$P(X=x_i \cap X=x_j) = 0 \text{ if } i \neq j$</li>
@@ -335,7 +335,7 @@ x_N \cdot x_1 & x_N \cdot x_2 & \cdots & x_N \cdot x_N \\
 <script type="math/tex; mode=display">\rho_{X,Y} = \frac{Cov(X, Y)}{\sigma_x \sigma_y}</script><ul>
 <li>取值范围：$[-1, 1]$。<br>（$1$ 为完全正相关，$-1$ 为完全负相关，$0$ 为无线性相关）</li>
 </ul>
-<h2 id="朴素贝叶斯"><a href="#朴素贝叶斯" class="headerlink" title="朴素贝叶斯"></a>朴素贝叶斯</h2><h3 id="贝叶斯"><a href="#贝叶斯" class="headerlink" title="贝叶斯"></a>贝叶斯</h3><ul>
+<h2 id="2-朴素贝叶斯"><a href="#2-朴素贝叶斯" class="headerlink" title="2. 朴素贝叶斯"></a>2. 朴素贝叶斯</h2><h3 id="贝叶斯"><a href="#贝叶斯" class="headerlink" title="贝叶斯"></a>贝叶斯</h3><ul>
 <li><strong><code>贝叶斯公式 (Bayes&#39; Theorem)</code></strong>：<script type="math/tex; mode=display">P(A|B) = \frac{P(B|A)P(A)}{P(B)}</script><ul>
 <li>$P(A|B)$: 后验概率 (Posterior)</li>
 <li>$P(B|A)$: 似然 (Likelihood)</li>
@@ -346,9 +346,12 @@ x_N \cdot x_1 & x_N \cdot x_2 & \cdots & x_N \cdot x_N \\
 <li><strong>贝叶斯决策</strong>：<ul>
 <li>已知<strong>类条件概率密度</strong>参数表达式和<strong>先验概率</strong></li>
 <li>利用<strong>贝叶斯公式</strong>转换成<strong>后验概率</strong></li>
-<li>根据<strong>后验概率</strong>大小进行决策分类<h3 id="朴素贝叶斯-1"><a href="#朴素贝叶斯-1" class="headerlink" title="朴素贝叶斯"></a>朴素贝叶斯</h3>基于贝叶斯定理与特征条件独立假设的分类算法。</li>
+<li>根据<strong>后验概率</strong>大小进行决策分类</li>
 </ul>
 </li>
+</ul>
+<h3 id="朴素贝叶斯"><a href="#朴素贝叶斯" class="headerlink" title="朴素贝叶斯"></a>朴素贝叶斯</h3><p>基于贝叶斯定理与特征条件独立假设的分类算法。</p>
+<ul>
 <li><strong>“朴素” (Naive) 的含义</strong>：假设样本的各个特征之间<strong>相互独立</strong>。<script type="math/tex; mode=display">P(x_1, x_2, \dots, x_n | y) = \prod_{i=1}^{n} P(x_i | y)</script></li>
 </ul>
 <h3 id="朴素贝叶斯分类器"><a href="#朴素贝叶斯分类器" class="headerlink" title="朴素贝叶斯分类器"></a>朴素贝叶斯分类器</h3><p>给定输入特征向量 $\mathbf{x} = (x_1, x_2, \dots, x_n)$，预测类别 $y$。<br>我们只需最大化分子部分<code>(这个公式考试一定要写)</code>：</p>
@@ -375,6 +378,159 @@ x_N \cdot x_1 & x_N \cdot x_2 & \cdots & x_N \cdot x_N \\
 </ul>
 </li>
 </ol>
+<h1 id="第五章-决策树"><a href="#第五章-决策树" class="headerlink" title="第五章 决策树"></a>第五章 决策树</h1><h2 id="1-决策树模型"><a href="#1-决策树模型" class="headerlink" title="1. 决策树模型"></a>1. 决策树模型</h2><h3 id="决策树的表示"><a href="#决策树的表示" class="headerlink" title="决策树的表示"></a>决策树的表示</h3><ul>
+<li>一种描述对实例分类的 <strong>树形结构</strong>，包含：<ul>
+<li><strong>根结点 (Root Node)</strong>：最上面的结点，是整个决策树的开始。</li>
+<li><strong>内部结点 (Internal Node)</strong>：代表一个<strong>问题</strong>或者<strong>决策</strong>，通常对应待<strong>分类对象的属性</strong>。</li>
+<li><strong>叶结点 (Leaf Node)</strong>：代表一种可能的<strong>分类结果</strong>。</li>
+<li><strong>有向边</strong>：连接各个结点。</li>
+</ul>
+</li>
+</ul>
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ul>
+<li><strong>可解释性强</strong>：推理过程容易理解，可以表示成 <code>If-Then</code> 形式。</li>
+<li><strong>依赖属性取值</strong>：推理过程完全依赖于属性变量的取值特点。</li>
+<li><strong>特征筛选</strong>：可自动忽略对目标变量<strong>没有贡献的属性变量</strong>，为判断属性重要性、减少变量数目提供参考。</li>
+</ul>
+<h3 id="学习目的"><a href="#学习目的" class="headerlink" title="学习目的"></a>学习目的</h3><ul>
+<li><strong>理想的决策树</strong>（通常有以下3种目标）：<ol>
+<li>叶结点数最少</li>
+<li>叶结点深度最小</li>
+<li>叶结点数最少且叶结点深度最小</li>
+</ol>
+</li>
+<li><strong>现实困境</strong>：找到这种绝对最优的决策树是 <strong>NP难题</strong>。</li>
+<li><strong>实际目标</strong>：找到 <strong>尽可能</strong> 趋向于最优的决策树。</li>
+</ul>
+<hr>
+<h2 id="2-特征选择与信息熵"><a href="#2-特征选择与信息熵" class="headerlink" title="2. 特征选择与信息熵"></a>2. 特征选择与信息熵</h2><h3 id="熵（Entropy）"><a href="#熵（Entropy）" class="headerlink" title="熵（Entropy）"></a>熵（Entropy）</h3><ul>
+<li><strong>定义</strong>：度量样本集合 <strong>纯度 (Purity)</strong> 最常用的一种指标，代表随机变量<strong>不确定性的度量</strong>。<blockquote>
+<p><strong>规律</strong>：熵越大，随机变量的不确定性就越大。</p>
+</blockquote>
+</li>
+<li><strong>计算公式</strong>：<br>  设 $X$ 是一个取有限个值的离散随机变量，其概率分布为 $P(X=x_i) = p_i, \quad i=1,2,\dots,n$，则随机变量 $X$ 的熵 $H(X)$ 定义为：<script type="math/tex; mode=display">H(X) = -\sum_{i=1}^{n} p_i \log_2 p_i</script>  <strong>注</strong>：若 $p_i=0$，则定义 $0 \log 0 = 0$。</li>
+</ul>
+<h3 id="条件熵-Conditional-Entropy"><a href="#条件熵-Conditional-Entropy" class="headerlink" title="条件熵 (Conditional Entropy)"></a>条件熵 (Conditional Entropy)</h3><ul>
+<li><strong>定义</strong>：表示在已知随机变量 $X$ 的条件下，随机变量 $Y$ 的不确定性。</li>
+<li><strong>计算公式</strong>：<script type="math/tex; mode=display">H(Y|X) = \sum_{i=1}^{n} p_i H(Y|X=x_i)</script>  其中 $p_i = P(X=x_i)$。</li>
+</ul>
+<h3 id="信息增益-Information-Gain"><a href="#信息增益-Information-Gain" class="headerlink" title="信息增益 (Information Gain)"></a>信息增益 (Information Gain)</h3><ul>
+<li><strong>定义</strong>：特征 $A$ 对训练数据集 $D$ 的信息增益 $g(D, A)$，定义为集合 $D$ 的经验熵 $H(D)$ 与特征 $A$ 给定条件下 $D$ 的经验条件熵 $H(D|A)$ 之差。<script type="math/tex; mode=display">g(D, A) = H(D) - H(D|A)</script></li>
+<li><strong>物理意义</strong>：由于特征 $A$ 而使得对数据集 $D$ 的分类不确定性减少的程度。<strong>信息增益大的特征具有更强的分类能力。</strong></li>
+</ul>
+<h3 id="信息增益比-Information-Gain-Ratio"><a href="#信息增益比-Information-Gain-Ratio" class="headerlink" title="信息增益比 (Information Gain Ratio)"></a>信息增益比 (Information Gain Ratio)</h3><ul>
+<li><strong>背景</strong>：信息增益倾向于选择 <strong>取值较多</strong> 的特征（例如唯一的 ID 号），这往往不是我们想要的。</li>
+<li><strong>定义</strong>：特征 $A$ 对训练数据集 $D$ 的信息增益比 $g_R(D, A)$ 定义为信息增益 $g(D, A)$ 与训练数据集 $D$ 关于特征 $A$ 的值的熵 $H_A(D)$ 之比：<script type="math/tex; mode=display">g_R(D, A) = \frac{g(D, A)}{H_A(D)}</script>  其中，<script type="math/tex; mode=display">H_A(D) = -\sum_{i=1}^{n} \frac{|D_i|}{|D|} \log_2 \frac{|D_i|}{|D|}</script>   $n$ 是特征 $A$ 取值的个数。</li>
+</ul>
+<hr>
+<h2 id="3-经典算法"><a href="#3-经典算法" class="headerlink" title="3. 经典算法"></a>3. 经典算法</h2><h3 id="ID3-算法"><a href="#ID3-算法" class="headerlink" title="$ID3$ 算法"></a>$ID3$ 算法</h3><ul>
+<li><strong>测试属性</strong>：<code>信息增益</code>  </li>
+</ul>
+<p><strong>具体计算流程</strong>：（设$C_1+C_2=D$）</p>
+<ol>
+<li><p><strong>计算不考虑特征的信息熵</strong>：</p>
+<script type="math/tex; mode=display">H(D) = -\sum_{k=1}^{K} p_k \log_2 p_k= -\sum_{k=1}^{K} \frac{|C_k|}{|D|} \log_2 \frac{|C_k|}{|D|}</script><p>其中 $|D|$ 为样本总数，$|C_k|$ 为属于第 $k$ 类的样本数(eg: <em>买/不买</em>)。</p>
+</li>
+<li><p><strong>计算条件熵</strong>：</p>
+<ul>
+<li>先选择一个 <strong>特征 $A_i$</strong>，将数据集 $D$ 根据特征 $A_i$ 的<strong>不同取值</strong>划分为 $n$ 个子集 $D_1, D_2, \dots, D_n$。</li>
+<li>计算特征 $A_i$ 下不同取值 $D_i$ 的信息熵 $H(D_i)$：<script type="math/tex; mode=display">H(D_i)= -\sum_{k=1}^{K} \frac{|C_k|}{|D_i|} \log_2 \frac{|C_k|}{|D_i|}</script>其中，$C_k$ 是在集合 $D_i$ 里的第 $k$ 种类别的数量 (eg: <em>买/不买</em>)。</li>
+<li>计算条件熵 $H(D|A_i)$：<script type="math/tex; mode=display">H(D|A_i) = \sum_{i=1}^{n} p_i H(D_i)= \sum_{i=1}^{n} \frac{|D_i|}{|D|} H(D_i)</script></li>
+</ul>
+</li>
+<li><p><strong>计算信息增益</strong>：</p>
+<script type="math/tex; mode=display">g(D, A_i) = H(D) - H(D|A_i)</script></li>
+<li><p><strong>特征选择</strong>：<br>选取 <strong>信息增益最大</strong> 的特征$A_i$作为当前的分裂节点（根节点或内部节点）。</p>
+</li>
+<li><p><strong>递归构建</strong>：<br>对子节点重复以上步骤，以此类推，直至分类完全（或满足停止条件）。</p>
+</li>
+</ol>
+<h3 id="C4-5-算法"><a href="#C4-5-算法" class="headerlink" title="$C4.5$ 算法"></a>$C4.5$ 算法</h3><ul>
+<li><strong>测试属性</strong>：<code>信息增益比</code> （除<strong>选择特征的标准不同</strong>外，其余步骤与 $ID3$ <strong>一致</strong>）。</li>
+<li>计算完<strong>信息增益</strong>后，计算<strong>信息增益比</strong>：<script type="math/tex; mode=display">g_R(D, A) = \frac{g(D, A)}{H_A(D)}</script>其中，<strong>特征固有值</strong>：<script type="math/tex; mode=display">H_A(D) = -\sum_{i=1}^{n} \frac{|D_i|}{|D|} \log_2 \frac{|D_i|}{|D|}</script>这里 $|D|$ 是样本总数，注意和 $H(D_i)$ 的计算区分。</li>
+</ul>
+<h3 id="过拟合-Overfitting-1"><a href="#过拟合-Overfitting-1" class="headerlink" title="过拟合 (Overfitting)"></a>过拟合 (Overfitting)</h3><ul>
+<li><strong>现象</strong>：决策树算法增长树的每一个分支的深度，直到恰好能对训练样例比较完美地分类。</li>
+<li><strong>原因</strong>：当数据中 <strong>有噪声</strong> 或 <strong>训练样例数量太少</strong>，以至于不能产生目标函数的有代表性的采样时，简单算法产生的树会过拟合训练样例。</li>
+</ul>
+<hr>
+<h2 id="4-CART-算法-Classification-And-Regression-Tree"><a href="#4-CART-算法-Classification-And-Regression-Tree" class="headerlink" title="4. $CART$算法 (Classification And Regression Tree)"></a>4. $CART$算法 (Classification And Regression Tree)</h2><h3 id="基尼指数-Gini-Index"><a href="#基尼指数-Gini-Index" class="headerlink" title="基尼指数 (Gini Index)"></a>基尼指数 (Gini Index)</h3><ul>
+<li><strong>定义</strong>：度量数据纯度的指标。<strong>基尼指数越小，模型的不确定性越小，纯度越高</strong>。</li>
+<li><p><strong>计算公式</strong>：<br>  假设有 $K$ 个类，样本点属于第 $k$ 类的概率为 $p_k$，则概率分布的基尼指数为：</p>
+<script type="math/tex; mode=display">Gini(p) = \sum_{k=1}^{K} p_k(1-p_k) = 1 - \sum_{k=1}^{K} p_k^2</script><p>  对于给定的样本集合 $D$，其基尼指数为：</p>
+<script type="math/tex; mode=display">Gini(D) = 1 - \sum_{k=1}^{K} \left(\frac{|C_k|}{|D|}\right)^2</script><p>  其中 $C_k$ 是 $D$ 中属于第 $k$ 类的样本子集。</p>
+</li>
+<li><p><strong>特征下的基尼指数</strong>：<br>  如果特征 $A$ 的取值将集合 $D$ 分割成 $D_1$ 和 $D_2$ 两部分（<strong>注意：CART 生成的是二叉树</strong>），则在特征 $A$ 的条件下，集合 $D$ 的基尼指数为：</p>
+<script type="math/tex; mode=display">Gini(D, A) = \frac{|D_1|}{|D|} Gini(D_1) + \frac{|D_2|}{|D|} Gini(D_2)</script></li>
+<li><p><strong>选择标准</strong>：选择使得 <strong>基尼指数最小</strong> 的特征及其划分点作为最优特征和最优切分点。</p>
+</li>
+</ul>
+<h3 id="决策树生成"><a href="#决策树生成" class="headerlink" title="决策树生成"></a>决策树生成</h3><ul>
+<li><strong>回归树</strong>：使用 <strong>平方误差最小化</strong> 准则。</li>
+<li><strong>分类树</strong>：使用 <strong>基尼指数最小化</strong> 准则。</li>
+<li><strong>具体生成流程 (分类树)</strong>：<ol>
+<li>对训练数据集 $D$ 的每个特征 $A$，以及该特征的每个可能取值 $a$，根据 $A=a$ 与 $A \neq a$ 将 $D$ 分割为 $D_1$ 和 $D_2$。</li>
+<li>计算该切分下的 $Gini(D, A)$。</li>
+<li>在所有可能的特征 $A$ 以及它们所有可能的切分点 $a$ 中，选择 <strong>基尼指数最小</strong> 的特征及其切分点作为最优特征与最优切分点。</li>
+<li>生成两个子结点，将训练数据集依特征分配到两个子结点中。</li>
+<li>对子结点递归地调用上述步骤，直到满足停止条件（如结点样本数小于阈值、基尼指数小于阈值或没有更多特征）。</li>
+</ol>
+</li>
+</ul>
+<h3 id="决策树剪枝-Pruning"><a href="#决策树剪枝-Pruning" class="headerlink" title="决策树剪枝 (Pruning)"></a>决策树剪枝 (Pruning)</h3><ul>
+<li><strong>目的</strong>：防止过拟合。</li>
+<li><strong>手段</strong>：剪枝，限定叶节点最小样本数，强制决策树最大深度。</li>
+</ul>
+<h4 id="预剪枝-Pre-Pruning"><a href="#预剪枝-Pre-Pruning" class="headerlink" title="预剪枝 (Pre-Pruning)"></a>预剪枝 (Pre-Pruning)</h4><ul>
+<li>在决策树生成过程中，对每个结点在 <strong>划分前先进行估计</strong>。</li>
+<li>若当前结点的划分不能带来决策树 <strong>泛化性能提升</strong>，则停止划分，并标记当前结点为叶结点。</li>
+</ul>
+<h4 id="后剪枝-Post-Pruning"><a href="#后剪枝-Post-Pruning" class="headerlink" title="后剪枝 (Post-Pruning)"></a>后剪枝 (Post-Pruning)</h4><ul>
+<li>从训练集先生成一棵 <strong>完整的决策树</strong>。</li>
+<li>自底而上地考察非叶结点，若将该结点对应的子树替换为叶结点能带来决策树 <strong>泛化性能提升</strong>，则 <strong>将该子树替换为叶结点</strong>。</li>
+<li>CART 常用 <strong>CCP (Cost-Complexity Pruning, 代价复杂度剪枝)</strong> 方法。</li>
+</ul>
+<blockquote>
+<p><strong>对比</strong>：一般情形下，后剪枝决策树的欠拟合风险很小，泛化性能优于预剪枝决策树。但训练时间开销比未剪枝决策树和预剪枝决策树要大得多。</p>
+</blockquote>
+<hr>
+<h2 id="5-随机森林-Random-Forest"><a href="#5-随机森林-Random-Forest" class="headerlink" title="5. 随机森林 (Random Forest)"></a>5. 随机森林 (Random Forest)</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><ul>
+<li>一种基于 <strong>Bagging</strong>（装袋法）的集成学习方法。</li>
+<li>通过构建多棵决策树，并将它们的预测结果进行汇总（分类问题用 <strong>多数投票</strong>，回归问题用 <strong>平均值</strong>）来输出最终结果。</li>
+<li><strong>“随机”的含义</strong>：体现在 <strong>样本选择的随机性</strong> 和 <strong>特征选择的随机性</strong>。</li>
+</ul>
+<h3 id="构建流程"><a href="#构建流程" class="headerlink" title="构建流程"></a>构建流程</h3><ol>
+<li><p><strong>Bootstrap 采样 (样本随机)</strong>：</p>
+<ul>
+<li>对于 $N$ 个样本的训练集，有放回地随机抽取 $N$ 次，得到一个新的训练集。</li>
+<li>未被抽到的样本称为 <strong>袋外数据 (Out-of-Bag, OOB)</strong>，可用于验证模型泛化能力。</li>
+<li>重复上述步骤 $k$ 次，生成 $k$ 个独立的训练集。</li>
+</ul>
+</li>
+<li><p><strong>特征随机选择 (特征随机)</strong>：</p>
+<ul>
+<li>在构建每棵树的每个分裂结点时，不是从所有 $M$ 个特征中选择最优特征，而是随机从 $M$ 个特征中选取 $m$ 个特征 ($m \ll M$) 作为一个子集。</li>
+<li>从这 $m$ 个特征中选择最优的分裂属性。</li>
+</ul>
+</li>
+<li><p><strong>生成决策树</strong>：</p>
+<ul>
+<li>利用上述采样和特征子集，完全生长决策树（通常 <strong>不剪枝</strong>）。</li>
+</ul>
+</li>
+<li><p><strong>集成输出</strong>：</p>
+<ul>
+<li><strong>分类</strong>：所有树投票，票数最多的类别为最终结果。</li>
+<li><strong>回归</strong>：所有树预测值的简单算术平均。</li>
+</ul>
+</li>
+</ol>
+<h3 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h3><ul>
+<li><strong>准确率高</strong>：在许多数据集上表现良好，抗过拟合能力强（因为引入了双重随机性）。</li>
+<li><strong>并行处理</strong>：每棵树互不依赖，可以并行训练，速度快。</li>
+<li><strong>高维数据友好</strong>：能够处理具有成千上万个特征的输入矩阵，而无需进行特征降维。</li>
+<li><strong>自带评估</strong>：可以使用 OOB 数据进行内部评估，无需额外的验证集。</li>
+</ul>
 ]]></content>
       <categories>
         <category>华理</category>
