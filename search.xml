@@ -688,7 +688,13 @@ L(\mathbf{w}) &= \sum_{i=1}^{N} [y_i \log \pi (\mathbf{x}_i) + (1 - y_i) \log ( 
 <li>拟牛顿法</li>
 <li>改进的迭代尺度法</li>
 </ul>
-<h2 id="5-Logistic-Regression-（推导）"><a href="#5-Logistic-Regression-（推导）" class="headerlink" title="5. $Logistic Regression$（推导）"></a>5. $Logistic Regression$（推导）</h2>]]></content>
+<h2 id="5-Logistic-Regression-（推导）"><a href="#5-Logistic-Regression-（推导）" class="headerlink" title="5. $Logistic Regression$（推导）"></a>5. $Logistic Regression$（推导）</h2><p><img src="2025-12-05-20-35-01.png" alt=""><br><strong>推导过程</strong>：<br><img src="2025-12-05-21-04-01.png" alt=""><br><strong>三个关键点</strong>：</p>
+<ul>
+<li>$Sigmoid$函数的导数</li>
+<li>构造概率似然函数</li>
+<li>把求导拆分成两个求导</li>
+</ul>
+]]></content>
       <categories>
         <category>华理</category>
         <category>大三上</category>
