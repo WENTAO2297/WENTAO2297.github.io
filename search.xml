@@ -493,7 +493,7 @@ x_N \cdot x_1 & x_N \cdot x_2 & \cdots & x_N \cdot x_N \\
 <li><strong>定义</strong>：特征 $A$ 对训练数据集 $D$ 的信息增益 $g(D, A)$，定义为集合 $D$ 的经验熵 $H(D)$ 与特征 $A$ 给定条件下 $D$ 的经验条件熵 $H(D|A)$ 之差。<script type="math/tex; mode=display">g(D, A) = H(D) - H(D|A)</script></li>
 <li><strong>物理意义</strong>：由于特征 $A$ 而使得对数据集 $D$ 的分类不确定性减少的程度。<strong>信息增益大的特征具有更强的分类能力。</strong></li>
 </ul>
-<h3 id="信息增益比-Information-Gain-Ratio"><a href="#信息增益比-Information-Gain-Ratio" class="headerlink" title="信息增益比 (Information Gain Ratio)"></a>信息增益比 (Information Gain Ratio)</h3><ul>
+<h3 id="信息增益比-Gain-Ratio"><a href="#信息增益比-Gain-Ratio" class="headerlink" title="信息增益比 (Gain Ratio)"></a>信息增益比 (Gain Ratio)</h3><ul>
 <li><strong>背景</strong>：信息增益倾向于选择 <strong>取值较多</strong> 的特征（例如唯一的 ID 号），这往往不是我们想要的。</li>
 <li><strong>定义</strong>：特征 $A$ 对训练数据集 $D$ 的信息增益比 $g_R(D, A)$ 定义为信息增益 $g(D, A)$ 与训练数据集 $D$ 关于特征 $A$ 的值的熵 $H_A(D)$ 之比：<script type="math/tex; mode=display">g_R(D, A) = \frac{g(D, A)}{H_A(D)}</script>  其中，<script type="math/tex; mode=display">H_A(D) = -\sum_{i=1}^{n} \frac{|D_i|}{|D|} \log_2 \frac{|D_i|}{|D|}</script>   $n$ 是特征 $A$ 取值的个数。</li>
 </ul>
@@ -524,12 +524,12 @@ x_N \cdot x_1 & x_N \cdot x_2 & \cdots & x_N \cdot x_N \\
 <li><strong>测试属性</strong>：<code>信息增益比</code> （除<strong>选择特征的标准不同</strong>外，其余步骤与 $ID3$ <strong>一致</strong>）。</li>
 <li>计算完<strong>信息增益</strong>后，计算<strong>信息增益比</strong>：<script type="math/tex; mode=display">g_R(D, A) = \frac{g(D, A)}{H_A(D)}</script>其中，<strong>特征固有值</strong>：<script type="math/tex; mode=display">H_A(D) = -\sum_{i=1}^{n} \frac{|D_i|}{|D|} \log_2 \frac{|D_i|}{|D|}</script>这里 $|D|$ 是样本总数，注意和 $H(D_i)$ 的计算区分。</li>
 </ul>
-<h3 id="过拟合-Overfitting-1"><a href="#过拟合-Overfitting-1" class="headerlink" title="过拟合 (Overfitting)"></a>过拟合 (Overfitting)</h3><ul>
+<h3 id="过拟合"><a href="#过拟合" class="headerlink" title="过拟合"></a>过拟合</h3><ul>
 <li><strong>现象</strong>：决策树算法增长树的每一个分支的深度，直到恰好能对训练样例比较完美地分类。</li>
 <li><strong>原因</strong>：当数据中 <strong>有噪声</strong> 或 <strong>训练样例数量太少</strong>，以至于不能产生目标函数的有代表性的采样时，简单算法产生的树会过拟合训练样例。</li>
 </ul>
 <hr>
-<h2 id="4-CART-算法-Classification-And-Regression-Tree"><a href="#4-CART-算法-Classification-And-Regression-Tree" class="headerlink" title="4. $CART$算法 (Classification And Regression Tree)"></a>4. $CART$算法 (Classification And Regression Tree)</h2><h3 id="基尼指数-Gini-Index"><a href="#基尼指数-Gini-Index" class="headerlink" title="基尼指数 (Gini Index)"></a>基尼指数 (Gini Index)</h3><ul>
+<h2 id="4-CART-算法"><a href="#4-CART-算法" class="headerlink" title="4. $CART$算法"></a>4. $CART$算法</h2><h3 id="基尼指数-Gini-Index"><a href="#基尼指数-Gini-Index" class="headerlink" title="基尼指数 (Gini Index)"></a>基尼指数 (Gini Index)</h3><ul>
 <li><strong>定义</strong>：度量数据纯度的指标。<strong>基尼指数越小，模型的不确定性越小，纯度越高</strong>。</li>
 <li><p><strong>计算公式</strong>：<br>  假设有 $K$ 个类，样本点属于第 $k$ 类的概率为 $p_k$，则概率分布的基尼指数为：</p>
 <script type="math/tex; mode=display">Gini(p) = \sum_{k=1}^{K} p_k(1-p_k) = 1 - \sum_{k=1}^{K} p_k^2</script><p>  对于给定的样本集合 $D$，其基尼指数为：</p>
@@ -552,15 +552,15 @@ x_N \cdot x_1 & x_N \cdot x_2 & \cdots & x_N \cdot x_N \\
 </ol>
 </li>
 </ul>
-<h3 id="决策树剪枝-Pruning"><a href="#决策树剪枝-Pruning" class="headerlink" title="决策树剪枝 (Pruning)"></a>决策树剪枝 (Pruning)</h3><ul>
+<h3 id="决策树剪枝"><a href="#决策树剪枝" class="headerlink" title="决策树剪枝"></a>决策树剪枝</h3><ul>
 <li><strong>目的</strong>：防止过拟合。</li>
 <li><strong>手段</strong>：剪枝，限定叶节点最小样本数，强制决策树最大深度，交叉验证（$CART$剪枝）。</li>
 </ul>
-<h4 id="预剪枝-Pre-Pruning"><a href="#预剪枝-Pre-Pruning" class="headerlink" title="预剪枝 (Pre-Pruning)"></a>预剪枝 (Pre-Pruning)</h4><ul>
+<h4 id="预剪枝"><a href="#预剪枝" class="headerlink" title="预剪枝"></a>预剪枝</h4><ul>
 <li>在决策树生成过程中，对每个结点在 <strong>划分前先进行估计</strong>。</li>
 <li>若当前结点的划分不能带来决策树 <strong>泛化性能提升</strong>，则停止划分，并标记当前结点为叶结点。</li>
 </ul>
-<h4 id="后剪枝-Post-Pruning"><a href="#后剪枝-Post-Pruning" class="headerlink" title="后剪枝 (Post-Pruning)"></a>后剪枝 (Post-Pruning)</h4><ul>
+<h4 id="后剪枝"><a href="#后剪枝" class="headerlink" title="后剪枝"></a>后剪枝</h4><ul>
 <li>从训练集先生成一棵 <strong>完整的决策树</strong>。</li>
 <li>自底而上地考察非叶结点，若将该结点对应的子树替换为叶结点能带来决策树 <strong>泛化性能提升</strong>，则 <strong>将该子树替换为叶结点</strong>。</li>
 <li>CART 常用 <strong>CCP (Cost-Complexity Pruning, 代价复杂度剪枝)</strong> 方法。</li>
@@ -676,7 +676,7 @@ L(\mathbf{w}) &= \sum_{i=1}^{N} [y_i \log \pi (\mathbf{x}_i) + (1 - y_i) \log ( 
 &= \sum_{i=1}^{N} \left[y_i \log \frac{\pi(\mathbf{x}_i)}{1 - \pi(\mathbf{x}_i)} + \log ( 1 - \pi(\mathbf{x}_i)) \right] \\
 &= \sum_{i=1}^{N} [y_i (\mathbf{w} \cdot \mathbf{x}_i) - \log ( 1 + \exp ( \mathbf{w} \cdot \mathbf{x}_i))]
 \end{aligned}</script>注意：第三个等号是代入 $\pi(\boldsymbol{x})= P(Y=1|\boldsymbol{x})= \frac{\exp(w \cdot x)}{1 + \exp(w \cdot x)}…$</li>
-<li>最后，对 $L(\omega)$ 求极大值（梯度下降-<strong>求导</strong>）, 得到 $\omega$ 的估计值  </li>
+<li>最后，对 $L(\omega)$ 求极大值（梯度下降-<strong>求导</strong>）, 得到 $\omega$ 的估计值。  </li>
 </ul>
 <p><strong>三种函数图示</strong>：<br><img src="2025-12-05-17-55-15.png" alt=""></p>
 <h2 id="3-最大熵模型"><a href="#3-最大熵模型" class="headerlink" title="3. 最大熵模型"></a>3. 最大熵模型</h2><ul>
@@ -694,6 +694,200 @@ L(\mathbf{w}) &= \sum_{i=1}^{N} [y_i \log \pi (\mathbf{x}_i) + (1 - y_i) \log ( 
 <li>构造概率似然函数</li>
 <li>把求导拆分成两个求导</li>
 </ul>
+<h1 id="第七章-支持向量机"><a href="#第七章-支持向量机" class="headerlink" title="第七章 支持向量机"></a>第七章 支持向量机</h1><ul>
+<li>定义：在特征空间上的<strong>间隔最大线性分类器</strong>（与感知机的不同）</li>
+<li><strong>核技巧</strong>，所以存在<strong>非线性分类器</strong></li>
+<li>学习策略：间隔最大化$\longrightarrow$正则化的<strong>合页损失函数</strong>最小化问题</li>
+</ul>
+<h2 id="1-线性可分-SVM-（硬间隔）"><a href="#1-线性可分-SVM-（硬间隔）" class="headerlink" title="1. 线性可分 SVM （硬间隔）"></a>1. 线性可分 SVM （硬间隔）</h2><blockquote>
+<ul>
+<li>所有样本必须线性可分，对噪音敏感，容易过拟合。</li>
+</ul>
+</blockquote>
+<h3 id="（1）原始算法"><a href="#（1）原始算法" class="headerlink" title="（1）原始算法"></a>（1）原始算法</h3><ol>
+<li>构造并求解最优化问题：<script type="math/tex; mode=display">
+\left\{
+\begin{aligned}
+& \min_{w,b} \;\; \frac{1}{2}\|w\|^2 \\
+& \text{s.t.} \;\; y_i(w \cdot x_i + b) - 1 \ge 0, \quad i = 1, 2, \cdots, N
+\end{aligned}
+\right.</script></li>
+<li>得到分离超平面：<script type="math/tex; mode=display">w^*\cdot x+b^*=0</script></li>
+<li>分类决策函数<script type="math/tex; mode=display">f(x)=sign(w^*\cdot x+b^*=0)</script></li>
+</ol>
+<h3 id="（2）对偶问题（KKT条件）"><a href="#（2）对偶问题（KKT条件）" class="headerlink" title="（2）对偶问题（KKT条件）"></a>（2）对偶问题（KKT条件）</h3><h4 id="原始问题"><a href="#原始问题" class="headerlink" title="原始问题"></a>原始问题</h4><p>SVM 的基本型是一个凸二次规划问题。我们的目标是最小化参数的范数（最大化间隔），同时满足分类约束。</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\min_{w,b} \quad & \frac{1}{2}\|w\|^2 \\
+\text{s.t.} \quad & 1 - y_i(w \cdot x_i + b) \le 0, \quad i=1,\dots,N
+\end{aligned}</script><h4 id="A-构造拉格朗日函数"><a href="#A-构造拉格朗日函数" class="headerlink" title="A.构造拉格朗日函数"></a>A.构造拉格朗日函数</h4><p>引入拉格朗日乘子 $\alpha = (\alpha_1, \alpha_2, \dots, \alpha_N)^T$，且 $\alpha_i \ge 0$。将<strong>约束条件融合到目标函数中</strong>：</p>
+<script type="math/tex; mode=display">
+L(w, b, \alpha) = \frac{1}{2}\|w\|^2 + \sum_{i=1}^{N} \alpha_i \left( 1 - y_i(w \cdot x_i + b) \right)</script><p>根据拉格朗日对偶性，原始问题等价于极小极大问题：</p>
+<script type="math/tex; mode=display">\min_{w,b} \max_{\alpha \ge 0} L(w, b, \alpha)</script><p>其对偶问题则是交换顺序（满足kkt条件），变为极大极小问题：</p>
+<script type="math/tex; mode=display">\max_{\alpha \ge 0} \min_{w,b} L(w, b, \alpha)</script><h4 id="B-求解对偶问题"><a href="#B-求解对偶问题" class="headerlink" title="B.求解对偶问题"></a>B.求解对偶问题</h4><ul>
+<li>第一步：求内层最小值 $\min_{w,b} L(w, b, \alpha)$</li>
+</ul>
+<p>对 $w$ 和 $b$ 分别求偏导并令其为 0：</p>
+<ol>
+<li><strong>对 $w$ 求导：</strong><script type="math/tex; mode=display">\nabla_w L = w - \sum_{i=1}^{N} \alpha_i y_i x_i = 0 \implies \mathbf{w = \sum_{i=1}^{N} \alpha_i y_i x_i}</script></li>
+<li><strong>对 $b$ 求导：</strong><script type="math/tex; mode=display">\nabla_b L = - \sum_{i=1}^{N} \alpha_i y_i = 0 \implies \mathbf{\sum_{i=1}^{N} \alpha_i y_i = 0}</script></li>
+</ol>
+<ul>
+<li>第二步：代回拉格朗日函数</li>
+</ul>
+<p>将上述两个关系式代回 $L(w, b, \alpha)$：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+L(w, b, \alpha) &= \frac{1}{2} \underbrace{w \cdot w}_{\|w\|^2} - w \cdot \underbrace{\sum_{i=1}^{N} \alpha_i y_i x_i}_{w} - b \underbrace{\sum_{i=1}^{N} \alpha_i y_i}_{0} + \sum_{i=1}^{N} \alpha_i \\
+&= \frac{1}{2} \|w\|^2 - \|w\|^2 + \sum_{i=1}^{N} \alpha_i \\
+&= \sum_{i=1}^{N} \alpha_i - \frac{1}{2} \|w\|^2
+\end{aligned}</script><p>展开 $|w|^2$ 项：</p>
+<script type="math/tex; mode=display">\|w\|^2 = \left( \sum_{i=1}^{N} \alpha_i y_i x_i \right) \cdot \left( \sum_{j=1}^{N} \alpha_j y_j x_j \right) = \sum_{i=1}^{N}\sum_{j=1}^{N} \alpha_i \alpha_j y_i y_j (x_i \cdot x_j)</script><ul>
+<li>第三步：最终的对偶问题</li>
+</ul>
+<p>此时目标是 $\max_{\alpha}$，通常我们习惯转换为 $\min_{\alpha}$ (取负号)。</p>
+<p><strong>最终对偶形式 (Dual Form)：</strong></p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\min_{\alpha} \quad & \frac{1}{2} \sum_{i=1}^{N}\sum_{j=1}^{N} \alpha_i \alpha_j y_i y_j (x_i \cdot x_j) - \sum_{i=1}^{N} \alpha_i \\
+\text{s.t.} \quad & \sum_{i=1}^{N} \alpha_i y_i = 0 \\
+& \alpha_i \ge 0 \quad (\text{硬间隔}) \\
+& 0 \le \alpha_i \le C \quad (\text{软间隔})
+\end{aligned}</script><hr>
+<h4 id="C-KKT-条件"><a href="#C-KKT-条件" class="headerlink" title="C.KKT 条件"></a>C.KKT 条件</h4><p>为了保证对偶问题的解（Dual Optimal）同时也确实是原始问题（Primal Optimal）的解，必须满足 KKT 条件。这是 SVM 具有“稀疏性”（支持向量特性）的数学根源。</p>
+<p>对于最优解 $w^{\ast}, b^{\ast}, \alpha^{\ast}$ 必须满足以下四个条件：</p>
+<p><strong>1. 稳定性条件 (Stationarity):</strong><br>即导数为 0：</p>
+<script type="math/tex; mode=display">w^* = \sum_{i=1}^{N} \alpha_i^* y_i x_i</script><script type="math/tex; mode=display">\sum_{i=1}^{N} \alpha_i^* y_i = 0</script><p><strong>2. <code>互补松弛性 (Complementary Slackness)</code> [核心]:</strong></p>
+<script type="math/tex; mode=display">\alpha_i^* (1 - y_i(w^* \cdot x_i + b^*)) = 0</script><p><strong>互补松弛性的物理意义：</strong><br>这个条件告诉我们，对于任意样本 $i$ ，或者 $\alpha_i^{\ast} = 0$ ，或者 $1 - y_i(w^{\ast} \cdot x_i + b^{\ast}) = 0$ 。</p>
+<ul>
+<li>如果 $\alpha_i^{\ast} = 0$ ，该样本对模型没有贡献（非支持向量）。</li>
+<li>如果 $\alpha_i^{\ast} &gt; 0$ ，则必须满足 $y_i(w^{\ast} \cdot x_i + b^{\ast}) = 1$ ，即样本点必须位于 <strong>间隔边界</strong> 上。这些点就是 <strong>支持向量</strong>。</li>
+</ul>
+<p><strong>3. 原始可行性 (Primal Feasibility):</strong><br>样本必须满足分类间隔约束：</p>
+<script type="math/tex; mode=display">1 - y_i(w^* \cdot x_i + b^*) \le 0</script><p><strong>4. 对偶可行性 (Dual Feasibility):</strong><br>拉格朗日乘子必须非负：</p>
+<script type="math/tex; mode=display">\alpha_i^* \ge 0</script><h2 id=""><a href="#" class="headerlink" title=""></a><img src="2025-12-06-15-09-54.png" alt=""></h2><p><strong>关键点总结</strong></p>
+<p><strong>1. 为什么要做对偶？</strong></p>
+<ul>
+<li><strong>计算效率：</strong> 摆脱了对特征维度 $d$ 的依赖，计算复杂度仅与样本数量 $N$ 有关。</li>
+<li><strong>核技巧 (Kernel Trick)：</strong> 最终公式中只包含内积 $(x_i \cdot x_j)$。我们可以直接用核函数 $K(x_i, x_j)$ 替换它，从而在不显式增加维度的情况下解决非线性分类问题。</li>
+</ul>
+<p><strong>2. 软间隔 (Soft Margin) 的变化</strong></p>
+<ul>
+<li>如果是软间隔 SVM，KKT 条件中的对偶可行性变为 $0 \le \alpha_i \le C$。</li>
+<li>当 $\alpha_i = C$ 时，样本点可能是一个异常点（位于间隔内部或分错）。</li>
+</ul>
+<hr>
+<h2 id="2-线性-SVM-（软间隔）"><a href="#2-线性-SVM-（软间隔）" class="headerlink" title="2. 线性 SVM （软间隔）"></a>2. 线性 SVM （软间隔）</h2><blockquote>
+<ul>
+<li>允许样本存在噪声，有较好的鲁棒性。</li>
+</ul>
+</blockquote>
+<h3 id="（1）核心思想与动机"><a href="#（1）核心思想与动机" class="headerlink" title="（1）核心思想与动机"></a><strong>（1）核心思想与动机</strong></h3><ul>
+<li><strong>动机：</strong> 现实中的数据往往不是完全线性可分的，或者包含噪声（异常点）。硬间隔 SVM 强行划分会导致过拟合或无解。</li>
+<li><strong>解决：</strong> 引入<strong>松弛变量 (Slack Variable)</strong>，允许部分样本点不满足严格的间隔约束（即允许犯错），以换取更大的间隔和更好的模型泛化能力。</li>
+</ul>
+<h3 id="（2）原始问题的数学表达"><a href="#（2）原始问题的数学表达" class="headerlink" title="（2）原始问题的数学表达"></a><strong>（2）原始问题的数学表达</strong></h3><ul>
+<li><p><strong>引入松弛变量 $\xi_i$ (Xi)：</strong><br>  为了容忍错误，约束条件由原来的硬性限制改为软性限制：</p>
+<script type="math/tex; mode=display">y_i(w \cdot x_i + b) \ge 1 - \xi_i</script><p>  其中 $\xi_i \ge 0$。</p>
+</li>
+<li><p><strong>几何意义：</strong></p>
+<ul>
+<li>$\xi_i = 0$：样本分类正确且在间隔边界外（理想情况）。</li>
+<li>$0 &lt; \xi_i &lt; 1$：样本分类正确，但落入间隔带内部（违背了最大间隔，但在正确的一侧）。</li>
+<li>$\xi_i = 1$：样本落在决策边界（超平面）上。</li>
+<li>$\xi_i &gt; 1$：样本被错误分类（跑到对面去了）。</li>
+</ul>
+</li>
+<li><p><strong>目标函数：</strong><br>  需要在“最大化间隔”（结构风险）和“最小化误分程度”（经验风险）之间做权衡：</p>
+<script type="math/tex; mode=display">\min_{w,b,\xi} \quad \frac{1}{2}\|w\|^2 + C \sum_{i=1}^{N} \xi_i</script></li>
+</ul>
+<h3 id="（3）核心参数-C-的物理意义"><a href="#（3）核心参数-C-的物理意义" class="headerlink" title="（3）核心参数 C 的物理意义"></a><strong>（3）核心参数 C 的物理意义</strong></h3><ul>
+<li><strong>定义：</strong> $C &gt; 0$ 是惩罚系数（正则化参数的倒数），由用户设定的超参数。</li>
+<li><strong>C 值较大：</strong> 对误分容忍度低。模型会迫使 $\xi_i$ 趋近于 0，追求训练集的高准确率。<ul>
+<li><em>后果：</em> 接近硬间隔，间隔变窄，容易<strong>过拟合</strong>。</li>
+</ul>
+</li>
+<li><strong>C 值较小：</strong> 对误分容忍度高。允许更多样本违背约束，更看重 $\frac{1}{2}|w|^2$（即间隔宽度）。<ul>
+<li><em>后果：</em> 间隔变宽，容易<strong>欠拟合</strong>（若太小），但泛化能力通常更强。</li>
+</ul>
+</li>
+</ul>
+<h3 id="（4）对偶问题与解的特性"><a href="#（4）对偶问题与解的特性" class="headerlink" title="（4）对偶问题与解的特性"></a><strong>（4）对偶问题与解的特性</strong></h3><ul>
+<li><p><strong>拉格朗日乘子范围的变化：</strong><br>  这是与硬间隔最直接的数学区别。在求解对偶问题时，乘子 $\alpha_i$ 的约束变为：</p>
+<script type="math/tex; mode=display">0 \le \alpha_i \le C</script><p>  （硬间隔是 $0 \le \alpha_i &lt; +\infty$）</p>
+</li>
+<li><p><strong>支持向量 (Support Vectors) 的判定：</strong><br>  根据 KKT 条件中的互补松弛性，只有 $\alpha_i &gt; 0$ 的样本是支持向量：</p>
+<ul>
+<li>若 $0 &lt; \alpha_i &lt; C$：对应的 $\xi_i = 0$，样本恰好落在<strong>间隔边界</strong>上（它是决定间隔宽度的核心力量）。</li>
+<li>若 $\alpha_i = C$：对应的 $\xi_i &gt; 0$，样本是<strong>异常点</strong>（位于间隔内部或分错的点）。</li>
+</ul>
+</li>
+</ul>
+<h3 id="（5）等价形式：合页损失函数-Hinge-Loss"><a href="#（5）等价形式：合页损失函数-Hinge-Loss" class="headerlink" title="（5）等价形式：合页损失函数 (Hinge Loss)"></a><strong>（5）等价形式：合页损失函数 (Hinge Loss)</strong></h3><ul>
+<li>软间隔 SVM 的优化目标等价于<code>合页损失函数</code>：<script type="math/tex; mode=display">\min_{w,b} \sum_{i=1}^{N} [1 - y_i(w \cdot x_i + b)]_+ + \lambda \|w\|^2</script></li>
+<li><strong>Hinge Loss 定义：</strong> $L(y, f(x)) = \max(0, 1 - y f(x))$</li>
+<li><strong>解释：</strong> 只有当样本不仅分对了，而且距离超平面距离足够远（函数间隔大于 1）时，损失才为 0；否则损失随着错误的程度线性增加。</li>
+</ul>
+<h2 id="3-支持向量是什么？"><a href="#3-支持向量是什么？" class="headerlink" title="3. 支持向量是什么？"></a>3. 支持向量是什么？</h2><ul>
+<li>支持向量是使得<strong>约束条件等号成立</strong>的点，即 $\text{s.t.} \;\; y_i(w \cdot x_i + b) - 1 = 0$</li>
+<li>直观地，大多数点对于边界在哪没有影响，支持向量是<strong>决定了决策边界在哪</strong>的样本点。<code>分离超平面完全由支持向量决定</code>。</li>
+<li>支持向量一定在间隔边界上。</li>
+</ul>
+<p><img src="2025-12-06-16-40-33.png" alt=""></p>
+<ol>
+<li>线性可分：与分离超平面<strong>距离最近</strong>的样本点</li>
+</ol>
+<h2 id="4-核函数与非线性-SVM"><a href="#4-核函数与非线性-SVM" class="headerlink" title="4. 核函数与非线性 SVM"></a>4. 核函数与非线性 SVM</h2><h3 id="（1）非线性-SVM-的核心直观"><a href="#（1）非线性-SVM-的核心直观" class="headerlink" title="（1）非线性 SVM 的核心直观"></a><strong>（1）非线性 SVM 的核心直观</strong></h3><ul>
+<li><strong>问题：</strong> 原始样本空间中，数据线性不可分（如异或问题、环形数据）。</li>
+<li><strong>策略：</strong> 将样本从低维空间映射到高维特征空间（Hilbert Space）。根据 Cover 定理，在足够高的维度中，数据更有可能是线性可分的。</li>
+<li><strong>映射函数：</strong> $\phi: \mathcal{X} \to \mathcal{H}$</li>
+</ul>
+<h3 id="（2）核技巧-Kernel-Trick"><a href="#（2）核技巧-Kernel-Trick" class="headerlink" title="（2）核技巧 (Kernel Trick)"></a><strong>（2）核技巧 (Kernel Trick)</strong></h3><ul>
+<li><strong>困境：</strong> 如果直接计算高维向量 $\phi(x)$，计算复杂度极高，甚至因维度无穷大而无法计算。</li>
+<li><strong>观察：</strong> 在 SVM 对偶问题中，样本仅以<strong>内积</strong>形式出现：$\langle x_i, x_j \rangle$。在高维空间中对应 $\langle \phi(x_i), \phi(x_j) \rangle$。</li>
+<li><strong>核函数定义：</strong> 设 $\mathcal{X}$ 是输入空间，$\mathcal{H}$ 是特征空间。如果存在函数 $K(x, z)$ 满足：<script type="math/tex; mode=display">K(x, z) = \phi(x) \cdot \phi(z)</script>  则称 $K$ 为核函数。</li>
+<li><strong>作用：</strong> 我们不需要显式知道 $\phi(x)$ 是什么，只需在低维空间计算 $K(x, z)$，就能等效达到在高维空间做超平面划分的效果。</li>
+</ul>
+<h3 id="（3）对偶问题的修改"><a href="#（3）对偶问题的修改" class="headerlink" title="（3）对偶问题的修改"></a><strong>（3）对偶问题的修改</strong></h3><p>引入核函数后，非线性 SVM 的优化目标变为：</p>
+<script type="math/tex; mode=display">
+\min_{\alpha} \frac{1}{2} \sum_{i=1}^{N}\sum_{j=1}^{N} \alpha_i \alpha_j y_i y_j K(x_i, x_j) - \sum_{i=1}^{N} \alpha_i</script><p>决策函数变为：</p>
+<script type="math/tex; mode=display">f(x) = \text{sign}\left( \sum_{i=1}^{N} \alpha_i y_i K(x_i, x) + b \right)</script><h3 id="（4）常用核函数"><a href="#（4）常用核函数" class="headerlink" title="（4）常用核函数"></a><strong>（4）常用核函数</strong></h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">核函数</th>
+<th style="text-align:left">公式 $K(x, z)$</th>
+<th style="text-align:left">特点与应用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>线性核 (Linear)</strong></td>
+<td style="text-align:left">$x \cdot z$</td>
+<td style="text-align:left">无映射。适用于特征维数高的情况。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>多项式核 (Poly)</strong></td>
+<td style="text-align:left">$(x \cdot z + 1)^d$</td>
+<td style="text-align:left">映射到 $d$ 阶多项式空间。参数多，计算稍慢。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>高斯核 (RBF)</strong></td>
+<td style="text-align:left">$\exp(-\frac{\lVert x - z \rVert^2}{2\sigma^2})$</td>
+<td style="text-align:left"><strong>最常用</strong>。映射到无穷维空间。衡量样本相似度。$\gamma$ 越大，模型越复杂（易过拟合）。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Sigmoid 核</strong></td>
+<td style="text-align:left">$\tanh(\gamma x \cdot z + r)$</td>
+<td style="text-align:left">类似于神经网络中的激活函数。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="（5）什么样的函数能做核函数？"><a href="#（5）什么样的函数能做核函数？" class="headerlink" title="（5）什么样的函数能做核函数？"></a><strong>（5）什么样的函数能做核函数？</strong></h3><ul>
+<li><strong>Mercer 定理 (Mercer’s Theorem)：</strong><br>  只要函数 $K$ 满足<strong>对称性</strong>，且对应的核矩阵（Gram Matrix）是<strong>半正定</strong>（所有特征值非负）的，它就是合法的核函数。</li>
+</ul>
+<p><img src="2025-12-06-16-32-38.png" alt=""></p>
 ]]></content>
       <categories>
         <category>华理</category>
