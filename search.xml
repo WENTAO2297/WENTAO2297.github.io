@@ -888,6 +888,271 @@ L(w, b, \alpha) &= \frac{1}{2} \underbrace{w \cdot w}_{\|w\|^2} - w \cdot \under
 <li><strong>Mercer 定理 (Mercer’s Theorem)：</strong><br>  只要函数 $K$ 满足<strong>对称性</strong>，且对应的核矩阵（Gram Matrix）是<strong>半正定</strong>（所有特征值非负）的，它就是合法的核函数。</li>
 </ul>
 <p><img src="2025-12-06-16-32-38.png" alt=""></p>
+<h1 id="第八章-提升算法"><a href="#第八章-提升算法" class="headerlink" title="第八章 提升算法"></a>第八章 提升算法</h1><h2 id="基本思想"><a href="#基本思想" class="headerlink" title="基本思想"></a>基本思想</h2><h3 id="偏差和方差"><a href="#偏差和方差" class="headerlink" title="偏差和方差"></a>偏差和方差</h3><p><img src="2025-12-07-16-09-35.png" alt=""></p>
+<ul>
+<li>（b）是欠拟合（高偏差）</li>
+<li>（c）是过拟合（高方差）</li>
+</ul>
+<h3 id="集成学习方法"><a href="#集成学习方法" class="headerlink" title="集成学习方法"></a>集成学习方法</h3><ol>
+<li>并行化：不存在强依赖关系，关注<strong>降低方差</strong>。代表：<strong>随机森林，Bagging</strong></li>
+<li>序列化：又叫串行化，是强依赖关系，关注<strong>降低偏差</strong>。代表：<strong>Boosting</strong><ul>
+<li>思想：只要找到一个<strong>比随机猜测略好（分类误差 &lt;0.5）</strong>的弱学习算法，就可以直接将其提升为强学习算法。</li>
+</ul>
+</li>
+</ol>
+<h2 id="AdaBoost-算法"><a href="#AdaBoost-算法" class="headerlink" title="$AdaBoost$ 算法"></a>$AdaBoost$ 算法</h2><p>关键词：<code>加法模型、指数损失、前向分布算法</code><br><strong>注意点</strong>：</p>
+<ol>
+<li>计算 $G(m)$ 的训练误差 $e_m$</li>
+<li>计算系数 $\alpha_m =\frac{1}{2}ln\frac{1-e_m}{e_m}$ <code>&lt;0.5</code> （不考计算，但这一点要注意）</li>
+<li>正确分类权值更新：$\times e^{-\alpha}$ ；错误分类权值更新：$\times e^{\alpha}$ </li>
+<li>损失函数：<strong>指数损失</strong> $L(y,f(x)) =exp(-yf(x))$</li>
+<li><code>分错样本权值变大，分对样本权值变小</code>，权值和 =1（下图选 $B$）<br><img src="2025-12-07-16-31-16.png" alt=""><ul>
+<li><strong>注意</strong>：样本权重 $\omega$ 之和 $=1$，但是基分类器权重 $\alpha_m$ 之和 $\not ={1}$</li>
+</ul>
+</li>
+<li>为什么 $AdaBoost$ 对噪声敏感？<br>因为 AdaBoost 的机制是指数级地增加被分错样本的权重，是串行化模型，关住提高模型准确度（降低偏差），所以对噪声非常敏感。如果数据中存在标签错误的噪声点，模型会投入极大的资源去强行拟合这个噪声，导致正常样本被牺牲，从而过拟合。</li>
+</ol>
+<h1 id="第九章-EM算法"><a href="#第九章-EM算法" class="headerlink" title="第九章 EM算法"></a>第九章 EM算法</h1><h2 id="1-EM算法的导出"><a href="#1-EM算法的导出" class="headerlink" title="1. EM算法的导出"></a>1. EM算法的导出</h2><p><strong>输入</strong>：观测变量数据 $X$，隐变量 $Z$，联合分布 $P(X,Z|\theta)$<br><strong>输出</strong>：模型参数 $\theta$</p>
+<ol>
+<li><p><strong>初始化 (Initialization)</strong></p>
+<ul>
+<li>随机选取模型参数的初值 $\theta^{(0)}$。</li>
+<li><em>注：EM 算法对初值敏感，不同的初值可能导致收敛到不同的局部极值。</em></li>
+</ul>
+</li>
+<li><p><strong>E步 (Expectation Step)</strong></p>
+<ul>
+<li><strong>目的</strong>：利用当前参数推测隐变量的分布。</li>
+<li><strong>操作</strong>：基于当前参数 $\theta^{(t)}$ 和观测数据 $X$，计算隐变量 $Z$ 的条件概率（后验概率）。</li>
+<li><strong>构造 Q 函数</strong>（即完全数据对数似然函数的期望）：<script type="math/tex; mode=display">Q(\theta, \theta^{(t)}) = E_{Z|X, \theta^{(t)}}[\log P(X, Z | \theta)]</script></li>
+</ul>
+</li>
+<li><p><strong>M步 (Maximization Step)</strong></p>
+<ul>
+<li><strong>目的</strong>：根据推测的隐变量分布，更新模型参数。</li>
+<li><strong>操作</strong>：寻找一个新的参数 $\theta$，使得 Q 函数的值最大化：<script type="math/tex; mode=display">\theta^{(t+1)} = \arg \max_{\theta} Q(\theta, \theta^{(t)})</script></li>
+</ul>
+</li>
+<li><p><strong>收敛判断 (Convergence Check)</strong></p>
+<ul>
+<li><strong>操作</strong>：计算参数的更新幅度 $|\theta^{(t+1)} - \theta^{(t)}|$ 或对数似然函数的增量。</li>
+<li><strong>判断</strong>：<ul>
+<li>若变化量小于预设阈值 $\epsilon$（如 $1e-5$），则停止迭代，输出最终参数 $\hat{\theta} = \theta^{(t+1)}$。</li>
+<li>否则，令 $t \leftarrow t+1$，返回第 2 步继续迭代。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="2-EM算法的收敛性"><a href="#2-EM算法的收敛性" class="headerlink" title="2. EM算法的收敛性"></a>2. EM算法的收敛性</h2><h3 id="1-核心性质：单调递增"><a href="#1-核心性质：单调递增" class="headerlink" title="(1). 核心性质：单调递增"></a>(1). 核心性质：单调递增</h3><p>EM 算法保证每次迭代后，观测数据的对数似然函数值是非递减的。即：</p>
+<script type="math/tex; mode=display">L(\theta^{(t+1)}) \ge L(\theta^{(t)})</script><p>由于似然函数通常有上界（Bounded from above），单调递增且有上界的序列必然收敛。</p>
+<h3 id="2-数学原理：下界逼近"><a href="#2-数学原理：下界逼近" class="headerlink" title="(2). 数学原理：下界逼近"></a>(2). 数学原理：下界逼近</h3><ul>
+<li><strong>原理</strong>：EM 算法并不直接优化复杂的 $L(\theta)$，而是优化其<strong>下界</strong>。</li>
+<li><strong>工具</strong>：利用 <strong>Jensen 不等式 (Jensen’s Inequality)</strong> 构造下界函数 $B(\theta, \theta^{(t)})$。</li>
+<li><strong>过程</strong>：<script type="math/tex; mode=display">L(\theta) - L(\theta^{(t)}) \ge 0</script>通过最大化下界 Q 函数，间接推高了原目标函数 $L(\theta)$。</li>
+</ul>
+<h3 id="3-收敛目标：局部最优"><a href="#3-收敛目标：局部最优" class="headerlink" title="(3). 收敛目标：局部最优"></a>(3). 收敛目标：局部最优</h3><ul>
+<li>EM 算法<strong>不能保证</strong>收敛到全局最优解 (Global Maximum)。</li>
+<li>它通常收敛到似然函数的<strong>稳定点 (Stationary Point)</strong>，大多数情况下是<strong>局部极大值 (Local Maximum)</strong>。</li>
+<li>只有在目标函数是凸函数（Concave）等特殊情况下，才能保证全局最优。</li>
+</ul>
+<h3 id="4-工程启示"><a href="#4-工程启示" class="headerlink" title="(4). 工程启示"></a>(4). 工程启示</h3><ul>
+<li><strong>初值敏感性</strong>：由于存在多个局部极值，最终结果高度依赖于初始参数 $\theta^{(0)}$ 的选择。<ul>
+<li><em>解决方案</em>：采用多次随机初始化 (Random Restarts)，取结果最好的那一组；或使用 K-Means 等算法预热初始化。</li>
+</ul>
+</li>
+<li><strong>收敛速度</strong>：算法在迭代初期收敛较快，但在接近极值点时收敛速度变慢（通常为一阶线性收敛）。</li>
+</ul>
+<h2 id="3-高斯混合模型-GMM"><a href="#3-高斯混合模型-GMM" class="headerlink" title="3. 高斯混合模型 (GMM)"></a>3. 高斯混合模型 (GMM)</h2><p>在统计学习和模式识别中，<strong>高斯混合模型 (GMM)</strong> 和 <strong>EM 算法</strong> 通常是绑定出现的。简单来说：GMM 是我们要建立的<strong>模型</strong>（Model），而 EM 算法是用于训练该模型的<strong>优化方法</strong>（Optimization Method）。</p>
+<h3 id="1-高斯混合模型-GMM"><a href="#1-高斯混合模型-GMM" class="headerlink" title="(1). 高斯混合模型 (GMM)"></a>(1). 高斯混合模型 (GMM)</h3><h4 id="直观理解"><a href="#直观理解" class="headerlink" title="直观理解"></a>直观理解</h4><p>传统的聚类算法（如 K-Means）是<strong>硬聚类</strong>，即一个样本点要么属于 A 类，要么属于 B 类。但在实际应用中，很多数据具有模糊性（Ambiguity）。</p>
+<p><strong>GMM (Gaussian Mixture Model)</strong> 是一种<strong>软聚类</strong>模型。它假设数据是由 $K$ 个不同的高斯分布（正态分布）混合生成的。对于每一个数据点，模型给出的是它属于每个簇的<strong>概率</strong>。</p>
+<h4 id="数学定义"><a href="#数学定义" class="headerlink" title="数学定义"></a>数学定义</h4><p>GMM 的概率密度函数定义为 $K$ 个高斯密度的加权和：</p>
+<script type="math/tex; mode=display">
+P(x|\theta) = \sum_{k=1}^{K} \pi_k \mathcal{N}(x | \mu_k, \Sigma_k)</script><p>其中：</p>
+<ul>
+<li>$x$: 观测数据。</li>
+<li>$\pi_k$: <strong>混合系数</strong> (Mixing Coefficient)，即第 $k$ 个高斯分布被选中的概率，满足 $\sum \pi_k = 1$ 且 $\pi_k \ge 0$。</li>
+<li>$\mathcal{N}(x | \mu_k, \Sigma_k)$: 第 $k$ 个<strong>高斯分布密度函数</strong>，参数为均值 $\mu_k$ 和协方差矩阵 $\Sigma_k$。</li>
+</ul>
+<p>我们需要估计的参数集合为 $\theta = { \pi_1, \dots, \pi_K, \mu_1, \dots, \mu_K, \Sigma_1, \dots, \Sigma_K }$。</p>
+<hr>
+<h3 id="2-为什么需要-EM-算法？"><a href="#2-为什么需要-EM-算法？" class="headerlink" title="(2). 为什么需要 EM 算法？"></a>(2). 为什么需要 EM 算法？</h3><p>如果我们知道每个样本具体属于哪个高斯分布（即已知<strong>隐变量 Latent Variable</strong>），我们直接用<strong>极大似然估计 (MLE)</strong> 就可以算出 $\mu$ 和 $\Sigma$。</p>
+<p>但在非监督学习中，我们<strong>不知道</strong>样本的类别标签。这就陷入了一个“鸡生蛋，蛋生鸡”的循环：</p>
+<ol>
+<li>要算出参数 $\theta$，需要先知道每个样本属于哪个分布（隐变量）。</li>
+<li>要知道样本属于哪个分布，又需要先有准确的参数 $\theta$ 来计算概率。</li>
+</ol>
+<p><strong>EM 算法 (Expectation-Maximization Algorithm)</strong> 正是为了解决这种含有隐变量的概率模型参数估计问题。</p>
+<hr>
+<h3 id="3-EM-算法在-GMM-中的流程"><a href="#3-EM-算法在-GMM-中的流程" class="headerlink" title="(3). EM 算法在 GMM 中的流程"></a>(3). EM 算法在 GMM 中的流程</h3><p>EM 算法通过迭代的方式逼近最优解，主要分为两步：<strong>E步（期望步）</strong>和 <strong>M步（最大化步）</strong>。</p>
+<h4 id="Step-0-初始化"><a href="#Step-0-初始化" class="headerlink" title="Step 0: 初始化"></a>Step 0: 初始化</h4><p>随机初始化参数 $\mu_k, \Sigma_k, \pi_k$。</p>
+<h4 id="Step-1-E-step-计算责任-后验概率"><a href="#Step-1-E-step-计算责任-后验概率" class="headerlink" title="Step 1: E-step (计算责任/后验概率)"></a>Step 1: E-step (计算责任/后验概率)</h4><p>固定参数，计算第 $n$ 个样本来自第 $k$ 个分模型的概率（也称为“责任” $\gamma_{nk}$）：</p>
+<script type="math/tex; mode=display">
+\gamma_{nk} = P(z_n = k | x_n) = \frac{\pi_k \mathcal{N}(x_n | \mu_k, \Sigma_k)}{\sum_{j=1}^{K} \pi_j \mathcal{N}(x_n | \mu_j, \Sigma_j)}</script><blockquote>
+<p><strong>直观解释</strong>：看当前这个点，在第 $k$ 个分布里的相对密度有多大。</p>
+</blockquote>
+<h4 id="Step-2-M-step-更新参数"><a href="#Step-2-M-step-更新参数" class="headerlink" title="Step 2: M-step (更新参数)"></a>Step 2: M-step (更新参数)</h4><p>利用 E 步算出的 $\gamma_{nk}$ 作为权重，重新估计参数（最大化 Q 函数）：</p>
+<ol>
+<li><strong>更新均值 $\mu_k$</strong>（加权平均）：<script type="math/tex; mode=display">
+\mu_k^{new} = \frac{1}{N_k} \sum_{n=1}^{N} \gamma_{nk} x_n</script></li>
+<li><strong>更新协方差 $\Sigma_k$</strong>（加权协方差）：<script type="math/tex; mode=display">
+\Sigma_k^{new} = \frac{1}{N_k} \sum_{n=1}^{N} \gamma_{nk} (x_n - \mu_k^{new})(x_n - \mu_k^{new})^T</script></li>
+<li><strong>更新混合系数 $\pi_k$</strong>：<script type="math/tex; mode=display">
+\pi_k^{new} = \frac{N_k}{N}</script>其中 $N<em>k = \sum</em>{n=1}^{N} \gamma_{nk}$ 是第 $k$ 类权重的总和。</li>
+</ol>
+<h4 id="Step-3-收敛判断"><a href="#Step-3-收敛判断" class="headerlink" title="Step 3: 收敛判断"></a>Step 3: 收敛判断</h4><p>重复 E 步和 M 步，直到对数似然函数 (Log-Likelihood) 的增长小于阈值，或参数不再变化。</p>
+<hr>
+<h3 id="4-GMM-vs-K-Means"><a href="#4-GMM-vs-K-Means" class="headerlink" title="(4). GMM vs K-Means"></a>(4). GMM vs K-Means</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">维度</th>
+<th style="text-align:left">K-Means</th>
+<th style="text-align:left">GMM (高斯混合模型)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>聚类性质</strong></td>
+<td style="text-align:left"><strong>硬聚类</strong> (0 或 1)</td>
+<td style="text-align:left"><strong>软聚类</strong> (概率分布)</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>模型假设</strong></td>
+<td style="text-align:left">假设簇是球状的 (方差一致)</td>
+<td style="text-align:left">假设簇是高斯分布 (可通过协方差描述椭圆)</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>参数复杂度</strong></td>
+<td style="text-align:left">仅中心点 (Centroids)</td>
+<td style="text-align:left">中心点 + 协方差矩阵 + 混合系数</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>本质关系</strong></td>
+<td style="text-align:left">GMM 的一种特例</td>
+<td style="text-align:left">EM 算法的通用应用</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>对异常值</strong></td>
+<td style="text-align:left">敏感</td>
+<td style="text-align:left">相对鲁棒 (概率模型具有一定容错性)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="推导"><a href="#推导" class="headerlink" title="推导"></a>推导</h2><h3 id="引理9-2"><a href="#引理9-2" class="headerlink" title="引理9.2"></a>引理9.2</h3><h3 id="Q函数"><a href="#Q函数" class="headerlink" title="Q函数"></a>Q函数</h3><h1 id="第十章-聚类方法"><a href="#第十章-聚类方法" class="headerlink" title="第十章 聚类方法"></a>第十章 聚类方法</h1><h2 id="1-层次聚类"><a href="#1-层次聚类" class="headerlink" title="1. 层次聚类"></a>1. 层次聚类</h2><ul>
+<li>聚类是<strong>无监督学习</strong></li>
+</ul>
+<h3 id="聚类的核心参数"><a href="#聚类的核心参数" class="headerlink" title="聚类的核心参数"></a>聚类的核心参数</h3><ol>
+<li>距离（马氏距离、L距离）<ul>
+<li>距离越小，样本越相似</li>
+</ul>
+</li>
+<li>相似度（夹角余弦、相关系数）<ul>
+<li>相似度越大，样本越相似</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>直接影响聚类结果，其选择是聚类的根本问题。</li>
+</ul>
+<h3 id="硬聚类-amp-软聚类"><a href="#硬聚类-amp-软聚类" class="headerlink" title="硬聚类 &amp; 软聚类"></a>硬聚类 &amp; 软聚类</h3><ul>
+<li>一个样本只能属于一个类，就叫<strong>硬聚类</strong>。</li>
+<li>一个样本可以属于多个类，就叫<strong>软聚类</strong>。</li>
+</ul>
+<h3 id="一些概念"><a href="#一些概念" class="headerlink" title="一些概念"></a>一些概念</h3><p><strong>假设有两个类：$G_p , G_q$</strong></p>
+<ul>
+<li>类的中心：一个类中所有样本的均值</li>
+<li>类的直径：两个距离最远的样本距离</li>
+<li><strong>单连接</strong>：两个类中最近样本的距离</li>
+<li><strong>完全连接</strong>：两个类中最远样本的距离</li>
+<li>中心距离：两个样本中心间的距离</li>
+<li>平均距离：两个样本中所有样本的平均距离</li>
+</ul>
+<p>注意：做层次聚类题目的时候注意要求是按照<strong>单连接/完全连接</strong>来聚类，画图的时候<strong>长度要按比例</strong>。</p>
+<h3 id="聚合聚类-amp-分裂聚类"><a href="#聚合聚类-amp-分裂聚类" class="headerlink" title="聚合聚类 &amp; 分裂聚类"></a>聚合聚类 &amp; 分裂聚类</h3><ul>
+<li><p><strong>聚合聚类（自下而上聚类）</strong></p>
+<ul>
+<li>开始将每个样本各自分到一个类</li>
+<li>之后将相距最近的两类合并，建立一个新的类</li>
+<li>重复此操作直到满足停止条件</li>
+</ul>
+</li>
+<li><p><strong>分裂聚类（自上而下聚类）</strong></p>
+<ul>
+<li>开始将所有样本分到一个类</li>
+<li>之后将已有类中相距最远的样本分到两个新的类</li>
+<li>重复此操作直到满足停止条件</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-K-mean"><a href="#2-K-mean" class="headerlink" title="2. K-mean"></a>2. K-mean</h2><ul>
+<li>硬聚类、分成 k 个簇、非层次化、无监督学习</li>
+</ul>
+<h3 id="1-核心原理"><a href="#1-核心原理" class="headerlink" title="(1). 核心原理"></a>(1). 核心原理</h3><p>算法的核心目标是将 $n$ 个样本点划分到 $K$ 个簇 (Cluster) 中，使得每个样本点到其所属簇的中心的距离平方和最小。</p>
+<ul>
+<li><strong>输入</strong>：样本集 $X$，聚类簇数 $K$。</li>
+<li><strong>输出</strong>：$K$ 个簇的质心向量 $\mu$ 及每个样本的类别标签。</li>
+</ul>
+<h3 id="2-损失函数"><a href="#2-损失函数" class="headerlink" title="(2). 损失函数"></a>(2). 损失函数</h3><p>最小化<strong>每个簇内样本点到中心的距离之和</strong>：</p>
+<script type="math/tex; mode=display">
+J = \sum_{k=1}^{K} \sum_{x \in C_k} || x - \mu_k ||^2</script><p>其中：</p>
+<ul>
+<li>$C_k$：第 $k$ 个簇。</li>
+<li>$\mu_k$：第 $k$ 个簇的中心。</li>
+<li>$|| x - \mu_k ||^2$：欧几里得距离的平方。</li>
+</ul>
+<h3 id="3-算法流程"><a href="#3-算法流程" class="headerlink" title="(3). 算法流程"></a>(3). 算法流程</h3><p>K-Means 的迭代过程体现了 EM (Expectation-Maximization) 的思想：</p>
+<ol>
+<li><p><strong>初始化</strong>：<br>随机选择 $K$ 个样本点作为初始中心 ${ \mu_1, \dots, \mu_K }$。</p>
+</li>
+<li><p><strong>分配阶段</strong> —— <em>对应 E-step</em><br>计算每个样本 $x^{(i)}$ 到各个中心的距离，将其分配给最近的中心：</p>
+<script type="math/tex; mode=display">
+c^{(i)} = \arg\min_k || x^{(i)} - \mu_k ||^2</script></li>
+<li><p><strong>更新阶段</strong> —— <em>对应 M-step</em><br>重新计算每个簇的<strong>中心</strong>：</p>
+<script type="math/tex; mode=display">
+\mu_k = \frac{1}{|C_k|} \sum_{x \in C_k} x</script></li>
+<li><p><strong>收敛判断</strong>：<br>重复步骤 2 和 3，直到中心位置不再变化或变化非常小（小于阈值）。</p>
+</li>
+</ol>
+<h3 id="4-初值选择的解决（K-means-）"><a href="#4-初值选择的解决（K-means-）" class="headerlink" title="(4). 初值选择的解决（K-means++）"></a>(4). 初值选择的解决（K-means++）</h3><ul>
+<li><strong>问题</strong>：传统的随机初始化可能导致陷入局部最优解。</li>
+<li><strong>解法：K-Means++</strong>：<ul>
+<li>第一个质心随机选。</li>
+<li>后续质心选择时，距离当前已有质心<strong>越远的点，被选中的概率越大</strong>。</li>
+<li>以此优化初始质心的分布。</li>
+</ul>
+</li>
+</ul>
+<p>（优点：减少局部最优风险，加快收敛速度，更好聚类效果）</p>
+<h3 id="5-优缺点分析"><a href="#5-优缺点分析" class="headerlink" title="(5). 优缺点分析"></a>(5). 优缺点分析</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">优点</th>
+<th style="text-align:left">缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>原理简单</strong>，易于理解和实现。</td>
+<td style="text-align:left"><strong>需要预先指定 K 值</strong>，且 K 值对结果影响大。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>收敛速度快</strong>，时间复杂度近乎线性 $O(N \cdot K \cdot I)$。</td>
+<td style="text-align:left"><strong>对初始中心选择敏感</strong>，可能陷入局部最优。</td>
+</tr>
+<tr>
+<td style="text-align:left">适合处理球状分布、密集的簇。</td>
+<td style="text-align:left"><strong>噪声敏感</strong>，噪声会拉偏均值。</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"><strong>无法处理非凸形状，且高维数据处理能力差</strong> 。</td>
+</tr>
+</tbody>
+</table>
+</div>
 ]]></content>
       <categories>
         <category>华理</category>
