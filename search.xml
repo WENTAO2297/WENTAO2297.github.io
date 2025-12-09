@@ -1013,6 +1013,7 @@ P(x|\theta) = \sum_{k=1}^{K} \pi_k \mathcal{N}(x | \mu_k, \Sigma_k)</script><p>�
 </ul>
 <h2 id="2-K-mean"><a href="#2-K-mean" class="headerlink" title="2. K-mean"></a>2. K-mean</h2><ul>
 <li>硬聚类、分成 k 个簇、非层次化、无监督学习</li>
+<li>时间复杂度：$O(nkm)$，n个样本点到k个中心的距离，维度为m。</li>
 </ul>
 <h3 id="1-核心原理"><a href="#1-核心原理" class="headerlink" title="(1). 核心原理"></a>(1). 核心原理</h3><p>算法的核心目标是将 $n$ 个样本点划分到 $K$ 个簇 (Cluster) 中，使得每个样本点到其所属簇的中心的距离平方和最小。</p>
 <ul>
@@ -1064,7 +1065,7 @@ c^{(i)} = \arg\min_k || x^{(i)} - \mu_k ||^2</script></li>
 <td style="text-align:left"><strong>需要预先指定 K 值（k-means++/elbow方法）</strong>，且 K 值对结果影响大。</td>
 </tr>
 <tr>
-<td style="text-align:left"><strong>收敛速度快</strong>，时间复杂度近乎线性 $O(N \cdot K \cdot I)$。</td>
+<td style="text-align:left"><strong>收敛速度快</strong>，时间复杂度近乎线性 $O(N \cdot K \cdot M)$。</td>
 <td style="text-align:left"><strong>对初始中心选择敏感</strong>，可能陷入局部最优。</td>
 </tr>
 <tr>
@@ -1078,6 +1079,126 @@ c^{(i)} = \arg\min_k || x^{(i)} - \mu_k ||^2</script></li>
 </tbody>
 </table>
 </div>
+<h1 id="第十一章-奇异值分解"><a href="#第十一章-奇异值分解" class="headerlink" title="第十一章 奇异值分解"></a>第十一章 奇异值分解</h1><h2 id="1-基础概念"><a href="#1-基础概念" class="headerlink" title="1. 基础概念"></a>1. 基础概念</h2><p><strong>矩阵分解的目的：</strong>方便计算、方便储存、数据压缩。</p>
+<script type="math/tex; mode=display">
+A_{m \times n} = U_{m \times m} \Sigma_{m \times n} V^T_{n \times n} =diag（\sigma_1,\sigma_2...\sigma_n）</script><p>其中，$U、V$ 都是正交矩阵，$\Sigma$ 是对角阵（从大到小排）；diag（ ）为奇异值的对角阵。</p>
+<ul>
+<li>奇异值分解不要求A是方阵。</li>
+<li><strong>奇异值分解基本定理</strong>：奇异值分解对任意实矩阵都存在。</li>
+</ul>
+<h3 id="1-奇异值分解基本定理证明"><a href="#1-奇异值分解基本定理证明" class="headerlink" title="(1). 奇异值分解基本定理证明"></a>(1). 奇异值分解基本定理证明</h3><ul>
+<li>证明不要求。</li>
+</ul>
+<h3 id="2-SVD-的几何意义"><a href="#2-SVD-的几何意义" class="headerlink" title="(2). SVD 的几何意义"></a>(2). SVD 的几何意义</h3><ul>
+<li>$m \times n$ 矩阵A: <strong>表示从 n 维空间 $R_n$ 到 m 维空间 $R_m$ 的一个线性变换</strong>。</li>
+</ul>
+<p>对于任意矩阵 $A = U \Sigma V^T$，其线性变换的几何过程可以分解为：</p>
+<ol>
+<li><strong>旋转 ($V^T$)</strong>：<ul>
+<li>在输入空间（$R_n$）中进行旋转。</li>
+<li>目的是找到一组正交基（主方向），将其对齐到坐标轴。</li>
+</ul>
+</li>
+<li><strong>拉伸 ($\Sigma$)</strong>：<ul>
+<li>沿坐标轴方向进行缩放。</li>
+<li>缩放倍率即为<strong>奇异值</strong> $\sigma_i$。</li>
+<li>这一步将“单位圆/球”变换为“椭圆/椭球”。</li>
+</ul>
+</li>
+<li><strong>旋转 ($U$)</strong>：<ul>
+<li>将拉伸后的椭圆旋转到输出空间（$R_m$）的目标方向。</li>
+<li>$U$ 的列向量即为椭圆的主轴方向。</li>
+</ul>
+</li>
+</ol>
+<p><strong>直观理解</strong>：任何线性变换本质上都是把一个圆（或球）拉伸成一个椭圆（或椭球），SVD 让这个过程直观化。</p>
+<h3 id="3-奇异值分解的不唯一性"><a href="#3-奇异值分解的不唯一性" class="headerlink" title="(3). 奇异值分解的不唯一性"></a>(3). 奇异值分解的不唯一性</h3><ul>
+<li>$\Sigma$ 是唯一的，但是 $U、V$ 是不唯一的。</li>
+</ul>
+<h2 id="2-紧奇异值分解-amp-截断奇异值分解"><a href="#2-紧奇异值分解-amp-截断奇异值分解" class="headerlink" title="2. 紧奇异值分解 &amp; 截断奇异值分解"></a>2. 紧奇异值分解 &amp; 截断奇异值分解</h2><h3 id="1-紧奇异值分解"><a href="#1-紧奇异值分解" class="headerlink" title="(1). 紧奇异值分解"></a>(1). 紧奇异值分解</h3><p><strong>核心概念</strong>：去伪存真。只保留<strong>非零</strong>奇异值及其对应的奇异向量（即秩 $r$）。</p>
+<ul>
+<li><strong>定义</strong>：去掉 $\Sigma$ 中为 0 的奇异值，以及 $U$ 和 $V$ 中对应的列（这些列对应于零空间，对重构 $A$ 没有贡献）。</li>
+<li><strong>公式</strong>：<script type="math/tex; mode=display">
+  A = U_r \Sigma_r V_r^T</script></li>
+<li><strong>维度</strong>：<ul>
+<li>$U_r$: $m \times r$</li>
+<li>$\Sigma_r$: $r \times r$ (无零元素的方阵)</li>
+<li>$V_r^T$: $r \times n$</li>
+</ul>
+</li>
+<li><strong>特点</strong>：<strong>无损分解</strong>。计算结果严格等于原矩阵 $A$，相比完整 SVD 更节省存储空间。</li>
+</ul>
+<h3 id="2-截断奇异值分解"><a href="#2-截断奇异值分解" class="headerlink" title="(2). 截断奇异值分解"></a>(2). 截断奇异值分解</h3><p><strong>核心概念</strong>：抓大放小。只保留<strong>前 $k$ 个</strong>最大的奇异值（$k &lt; r$）。</p>
+<ul>
+<li><strong>定义</strong>：人为设定超参数 $k$，认为较小的奇异值是噪音并将其舍弃，仅保留主要特征。</li>
+<li><strong>公式</strong>：<script type="math/tex; mode=display">
+  A \approx A_k = U_k \Sigma_k V_k^T</script></li>
+<li><strong>维度</strong>：<ul>
+<li>$U_k$: $m \times k$</li>
+<li>$\Sigma_k$: $k \times k$</li>
+<li>$V_k^T$: $k \times n$</li>
+</ul>
+</li>
+<li><strong>特点</strong>：<strong>有损近似</strong>。它是原矩阵 $A$ 的最佳低秩近似（Best Low-Rank Approximation），常用于<strong>LSA（潜在语义分析）</strong>、<strong>图像压缩</strong>和<strong>降噪</strong>。 </li>
+</ul>
+<h2 id="3-奇异值分解的计算"><a href="#3-奇异值分解的计算" class="headerlink" title="3. 奇异值分解的计算"></a>3. 奇异值分解的计算</h2><h3 id="1-计算流程"><a href="#1-计算流程" class="headerlink" title="(1). 计算流程"></a>(1). 计算流程</h3><ol>
+<li><p>求右奇异向量 $V$</p>
+<ul>
+<li><strong>构建对称阵</strong>：计算 $W = A^T A$。</li>
+<li><strong>特征分解</strong>：求 $W$ 的特征值 $\lambda_i$ 和特征向量 $v_i$。</li>
+<li><strong>排序</strong>：将特征值按降序排列 $\lambda_1 \ge \lambda_2 \ge \dots \ge 0$。</li>
+<li><strong>单位化</strong>：将特征向量归一化（长度为1）。</li>
+<li><strong>构造 $V$</strong>：$V = [v_1, v_2, \dots, v_n]$。</li>
+</ul>
+</li>
+<li><p>求奇异值矩阵 $\Sigma$</p>
+<ul>
+<li><strong>计算奇异值</strong>：$\sigma_i = \sqrt{\lambda_i}$。</li>
+<li><strong>构造 $\Sigma$</strong>：将 $\sigma_i$ 填入对角矩阵的主对角线，其余位置补 0。</li>
+</ul>
+</li>
+<li><p>求左奇异向量 $U$</p>
+<ul>
+<li><strong>非零奇异值部分</strong>：利用公式直接计算对应的 $u_i$：<script type="math/tex; mode=display">
+u_i = \frac{1}{\sigma_i} A v_i</script></li>
+<li><strong>零奇异值/维度缺失部分</strong>：若 $\sigma_i = 0$ （直接找与 $u_i$ 垂直的向量即可）或矩阵 $A$ 行数大于列数（$m &gt; n$），需利用 <strong>Gram-Schmidt 正交化</strong> 在 $U$ 的正交补空间中寻找剩余的单位向量，以补全标准正交基。</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p><strong>注意</strong>：此方法（利用 $A^T A$）仅适用于手算练习。计算机数值计算通常采用 <strong>Golub-Kahan 双对角化算法</strong>，以避免 $A^T A$ 带来的条件数平方和精度损失。</p>
+</blockquote>
+<h3 id="2-矩阵的外积展开式（重点看一下）"><a href="#2-矩阵的外积展开式（重点看一下）" class="headerlink" title="(2). 矩阵的外积展开式（重点看一下）"></a>(2). 矩阵的外积展开式（重点看一下）</h3><script type="math/tex; mode=display">
+A = U\Sigma V^T, \Sigma = \text{diag}(\sigma_1, \sigma_2, \cdots, \sigma_p)</script><ul>
+<li>矩阵 $A$ 的奇异值分解 $U\Sigma V^T$ 也可以由 <strong>外积</strong> 形式表示</li>
+<li>将 $A$ 的奇异值分解看成矩阵 $U\Sigma$ 和 $V^T$ 的乘积</li>
+<li>将 $U\Sigma$ 按照列向量分块，将 $V^T$ 按行向量分块，即得<script type="math/tex; mode=display">
+  U\Sigma = [\sigma_1 u_1 \quad \sigma_2 u_2 \quad \cdots \quad \sigma_n u_n]</script><script type="math/tex; mode=display">
+  V^T = \begin{bmatrix} v_1^T \\ v_2^T \\ \vdots \\ v_n^T \end{bmatrix}</script></li>
+<li>则<script type="math/tex; mode=display">
+  A = (U\Sigma)V^T = \sigma_1 u_1 v_1^T + \sigma_2 u_2 v_2^T + \cdots + \sigma_n u_n v_n^T</script></li>
+</ul>
+<p><strong>最优近似矩阵：</strong></p>
+<ul>
+<li>若 $A$ 的秩为 $r$，则<script type="math/tex; mode=display">
+  A = \sigma_1 u_1 v_1^T + \sigma_2 u_2 v_2^T + \cdots + \sigma_r u_r v_r^T</script></li>
+<li>设矩阵<script type="math/tex; mode=display">
+  A_k = \sigma_1 u_1 v_1^T + \sigma_2 u_2 v_2^T + \cdots + \sigma_k u_k v_k^T</script></li>
+<li>矩阵 $A_k$ 就是 $A$ 的截断奇异值分解</li>
+<li>$A_k$ 的秩为 $k$，并且 $A_k$ 是秩为 $k$ 的矩阵中在 <strong>弗罗贝尼乌斯范数意义</strong> 下 $A$ 的 <strong>最优近似矩阵</strong></li>
+<li>由于通常奇异值递减很快，所以 $k$ 取很小值时，$A_k$ 也可以对 $A$ 有很好的近似</li>
+</ul>
+<p><strong>矩阵的 F 范数：</strong></p>
+<ul>
+<li>衡量两个矩阵的相似度。  </li>
+</ul>
+<p>设矩阵 $A \in R^{m \times n}$， $A$ 的奇异值分解为 $U \Sigma V^T$，其中 $\Sigma = \text{diag}(\sigma_1, \sigma_2, \dots, \sigma_n)$，则：</p>
+<script type="math/tex; mode=display">
+\|A\|_F = (\sigma_1^2 + \sigma_2^2 + \cdots + \sigma_n^2)^{\frac{1}{2}}</script><p><strong>定理15.3：</strong><br><img src="2025-12-09-21-02-32.png" alt=""></p>
+<ul>
+<li>$X$ 是 $A$ 的最优近似，因为它们的 F 范数最小。</li>
+<li>k 截断的矩阵等价于最优近似。</li>
+</ul>
 ]]></content>
       <categories>
         <category>华理</category>
