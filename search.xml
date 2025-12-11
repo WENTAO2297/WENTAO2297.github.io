@@ -1,56 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>人工智能原理与应用</title>
-    <url>/2025/12/11/AI/</url>
-    <content><![CDATA[<h1 id="第一章-绪论"><a href="#第一章-绪论" class="headerlink" title="第一章 绪论"></a>第一章 绪论</h1><p>智能：智能指人类在认识客观世界中，由思维过程和脑<br>力活动所表现出的综合能力。</p>
-<h2 id="智能包含的能力"><a href="#智能包含的能力" class="headerlink" title="智能包含的能力"></a>智能包含的能力</h2><p>  <img src="2025-12-11-19-04-02.png" alt=""></p>
-<h2 id="AI的研究目标"><a href="#AI的研究目标" class="headerlink" title="AI的研究目标"></a>AI的研究目标</h2><p>  <img src="2025-12-11-19-05-39.png" alt=""></p>
-<h2 id="三大学派"><a href="#三大学派" class="headerlink" title="三大学派"></a>三大学派</h2><p>  <img src="2025-12-11-19-07-05.png" alt=""><br>  <img src="2025-12-11-19-07-54.png" alt=""></p>
-<h2 id="新的发展"><a href="#新的发展" class="headerlink" title="新的发展"></a>新的发展</h2><p>  <img src="2025-12-11-19-08-50.png" alt=""></p>
-<h2 id="智能模拟方法"><a href="#智能模拟方法" class="headerlink" title="智能模拟方法"></a>智能模拟方法</h2><p>  <img src="2025-12-11-19-12-03.png" alt=""></p>
-<h2 id="推理"><a href="#推理" class="headerlink" title="推理"></a>推理</h2><p>  <strong>推理</strong>：是指按照某种策略从已知事实出发利用知识推出所需结论的过程。<br>  <strong>推理方法</strong>：归纳、演绎、（不）确定性推理</p>
-<h2 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h2><p>  <strong>搜索</strong>：依靠经验，利用已有知识，根据问题的实际情况，不断寻找可利用知识，从而构造一条代价最小的推理路线，使问题得以解决的过程。<br>  <strong>智能搜索</strong>：利用搜索过程中得到的信息来引导搜索向最优方向发展的算法。</p>
-<h2 id="神经元（画图）"><a href="#神经元（画图）" class="headerlink" title="神经元（画图）"></a>神经元（画图）</h2><p>  <img src="2025-12-11-19-17-46.png" alt=""></p>
-<h2 id="大数据的特性："><a href="#大数据的特性：" class="headerlink" title="大数据的特性："></a>大数据的特性：</h2><ul>
-<li><strong>规模性、多样性、实时性、价值性</strong></li>
-</ul>
-<h2 id="机器视觉的流程：图像获取-rightarrow-图像解释"><a href="#机器视觉的流程：图像获取-rightarrow-图像解释" class="headerlink" title="机器视觉的流程：图像获取$\rightarrow$图像解释"></a>机器视觉的流程：图像获取$\rightarrow$图像解释</h2><p>  <img src="2025-12-11-19-20-13.png" alt=""></p>
-<h2 id="模式识别"><a href="#模式识别" class="headerlink" title="模式识别"></a>模式识别</h2><p>  <img src="2025-12-11-19-21-05.png" alt=""></p>
-<h2 id="自然语言处理"><a href="#自然语言处理" class="headerlink" title="自然语言处理"></a>自然语言处理</h2><p>  <img src="2025-12-11-19-21-26.png" alt=""></p>
-<h2 id="智能控制"><a href="#智能控制" class="headerlink" title="智能控制"></a>智能控制</h2><p>  <img src="2025-12-11-19-21-48.png" alt=""></p>
-<h2 id="人工智能工程"><a href="#人工智能工程" class="headerlink" title="人工智能工程"></a>人工智能工程</h2><p>  <img src="2025-12-11-19-23-37.png" alt=""><br>  <img src="2025-12-11-19-24-19.png" alt=""></p>
-<h2 id="人工智能面临的问题"><a href="#人工智能面临的问题" class="headerlink" title="人工智能面临的问题"></a>人工智能面临的问题</h2><ol>
-<li>道德伦理问题</li>
-<li>法律法规的制定问题</li>
-<li>安全问题（信息安全、交通安全、人身安全）</li>
-<li>稀缺数据资源条件下的学习</li>
-<li>目前人工智能属于弱人工智能</li>
-</ol>
-<h2 id="未来发展趋势"><a href="#未来发展趋势" class="headerlink" title="未来发展趋势"></a>未来发展趋势</h2><ol>
-<li>从专用智能向通用是能发展</li>
-<li>从人工智能向人机融合发展</li>
-<li>自动化AI技术</li>
-<li>AI药物的研发</li>
-<li>减少对数据的需求</li>
-<li>可解释性和鲁棒性</li>
-</ol>
-<h1 id="第二章-数学基础"><a href="#第二章-数学基础" class="headerlink" title="第二章 数学基础"></a>第二章 数学基础</h1><h2 id="向量的范数"><a href="#向量的范数" class="headerlink" title="向量的范数"></a>向量的范数</h2><p>1) 1-范数</p>
-<script type="math/tex; mode=display">\|\alpha\|_1 = |\alpha_1| + |\alpha_2| + \cdots + |\alpha_n|</script><p>2) 2-范数</p>
-<script type="math/tex; mode=display">\|\alpha\|_2 = \sqrt{\alpha_1^2 + \alpha_2^2 + \cdots + \alpha_n^2}</script><p>3) $\infty$-范数</p>
-<script type="math/tex; mode=display">\|\alpha\|_\infty = \max\{|\alpha_1|, |\alpha_2|, \cdots, |\alpha_n|\}</script><p>4) p-范数</p>
-<script type="math/tex; mode=display">\|\alpha\|_p = \left( \sum_{i=1}^{n} |\alpha_i|^p \right)^{1/p}, \quad p \ge 1</script><h2 id="矩阵的范数"><a href="#矩阵的范数" class="headerlink" title="矩阵的范数"></a>矩阵的范数</h2><p>1) Frobenius 范数 (F-范数)</p>
-<script type="math/tex; mode=display">\|X\|_F = \left( \sum_{i,j=1}^{n} |x_{ij}|^2 \right)^{1/2} = \left( tr(X^H X) \right)^{1/2}</script><p>2) 1-范数</p>
-<script type="math/tex; mode=display">\|X\|_1 = \max_{j} \sum_{i=1}^{n} |x_{ij}|</script><p>3) 2-范数</p>
-<script type="math/tex; mode=display">\|X\|_2 = \sqrt{\lambda} \text{，其中 } \lambda \text{ 为 } X^H X \text{ 的最大特征值}</script><p>4) $\infty$-范数</p>
-<script type="math/tex; mode=display">\|X\|_\infty = \max_{i} \sum_{j=1}^{n} |x_{ij}|</script><p>其中，$X^H$ 为 $X$ 的共轭转置矩阵。</p>
-<h1 id="第三章-确定性知识系统"><a href="#第三章-确定性知识系统" class="headerlink" title="第三章 确定性知识系统"></a>第三章 确定性知识系统</h1>]]></content>
-      <categories>
-        <category>华理</category>
-        <category>大三上</category>
-      </categories>
-  </entry>
-  <entry>
     <title>专业前沿讲座报告</title>
     <url>/2025/11/26/lecture-report/</url>
     <content><![CDATA[<blockquote>
@@ -120,6 +70,78 @@
 <p><strong>附件下载：</strong> <a href="report.docx">📄 点击下载完整 Word 课程报告</a></p>
 </blockquote>
 ]]></content>
+      <categories>
+        <category>华理</category>
+        <category>大三上</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>人工智能原理与应用</title>
+    <url>/2025/12/11/AI/</url>
+    <content><![CDATA[<h1 id="第一章-绪论"><a href="#第一章-绪论" class="headerlink" title="第一章 绪论"></a>第一章 绪论</h1><p>智能：智能指人类在认识客观世界中，由思维过程和脑<br>力活动所表现出的综合能力。</p>
+<h2 id="智能包含的能力"><a href="#智能包含的能力" class="headerlink" title="智能包含的能力"></a>智能包含的能力</h2><p>  <img src="2025-12-11-19-04-02.png" alt=""></p>
+<h2 id="AI的研究目标"><a href="#AI的研究目标" class="headerlink" title="AI的研究目标"></a>AI的研究目标</h2><p>  <img src="2025-12-11-19-05-39.png" alt=""></p>
+<h2 id="三大学派"><a href="#三大学派" class="headerlink" title="三大学派"></a>三大学派</h2><p>  <img src="2025-12-11-19-07-05.png" alt=""><br>  <img src="2025-12-11-19-07-54.png" alt=""></p>
+<h2 id="新的发展"><a href="#新的发展" class="headerlink" title="新的发展"></a>新的发展</h2><p>  <img src="2025-12-11-19-08-50.png" alt=""></p>
+<h2 id="智能模拟方法"><a href="#智能模拟方法" class="headerlink" title="智能模拟方法"></a>智能模拟方法</h2><p>  <img src="2025-12-11-19-12-03.png" alt=""></p>
+<h2 id="推理"><a href="#推理" class="headerlink" title="推理"></a>推理</h2><p>  <strong>推理</strong>：是指按照某种策略从已知事实出发利用知识推出所需结论的过程。<br>  <strong>推理方法</strong>：归纳、演绎、（不）确定性推理</p>
+<h2 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h2><p>  <strong>搜索</strong>：依靠经验，利用已有知识，根据问题的实际情况，不断寻找可利用知识，从而构造一条代价最小的推理路线，使问题得以解决的过程。<br>  <strong>智能搜索</strong>：利用搜索过程中得到的信息来引导搜索向最优方向发展的算法。</p>
+<h2 id="神经元（画图）"><a href="#神经元（画图）" class="headerlink" title="神经元（画图）"></a>神经元（画图）</h2><p>  <img src="2025-12-11-19-17-46.png" alt=""></p>
+<h2 id="大数据的特性："><a href="#大数据的特性：" class="headerlink" title="大数据的特性："></a>大数据的特性：</h2><ul>
+<li><strong>规模性、多样性、实时性、价值性</strong></li>
+</ul>
+<h2 id="机器视觉的流程：图像获取-rightarrow-图像解释"><a href="#机器视觉的流程：图像获取-rightarrow-图像解释" class="headerlink" title="机器视觉的流程：图像获取$\rightarrow$图像解释"></a>机器视觉的流程：图像获取$\rightarrow$图像解释</h2><p>  <img src="2025-12-11-19-20-13.png" alt=""></p>
+<h2 id="模式识别"><a href="#模式识别" class="headerlink" title="模式识别"></a>模式识别</h2><p>  <img src="2025-12-11-19-21-05.png" alt=""></p>
+<h2 id="自然语言处理"><a href="#自然语言处理" class="headerlink" title="自然语言处理"></a>自然语言处理</h2><p>  <img src="2025-12-11-19-21-26.png" alt=""></p>
+<h2 id="智能控制"><a href="#智能控制" class="headerlink" title="智能控制"></a>智能控制</h2><p>  <img src="2025-12-11-19-21-48.png" alt=""></p>
+<h2 id="人工智能工程"><a href="#人工智能工程" class="headerlink" title="人工智能工程"></a>人工智能工程</h2><p>  <img src="2025-12-11-19-23-37.png" alt=""><br>  <img src="2025-12-11-19-24-19.png" alt=""></p>
+<h2 id="人工智能面临的问题"><a href="#人工智能面临的问题" class="headerlink" title="人工智能面临的问题"></a>人工智能面临的问题</h2><ol>
+<li>道德伦理问题</li>
+<li>法律法规的制定问题</li>
+<li>安全问题（信息安全、交通安全、人身安全）</li>
+<li>稀缺数据资源条件下的学习</li>
+<li>目前人工智能属于弱人工智能</li>
+</ol>
+<h2 id="未来发展趋势"><a href="#未来发展趋势" class="headerlink" title="未来发展趋势"></a>未来发展趋势</h2><ol>
+<li>从专用智能向通用是能发展</li>
+<li>从人工智能向人机融合发展</li>
+<li>自动化AI技术</li>
+<li>AI药物的研发</li>
+<li>减少对数据的需求</li>
+<li>可解释性和鲁棒性</li>
+</ol>
+<h1 id="第二章-数学基础"><a href="#第二章-数学基础" class="headerlink" title="第二章 数学基础"></a>第二章 数学基础</h1><h2 id="向量的范数"><a href="#向量的范数" class="headerlink" title="向量的范数"></a>向量的范数</h2><p>1) 1-范数</p>
+<script type="math/tex; mode=display">\|\alpha\|_1 = |\alpha_1| + |\alpha_2| + \cdots + |\alpha_n|</script><p>2) 2-范数</p>
+<script type="math/tex; mode=display">\|\alpha\|_2 = \sqrt{\alpha_1^2 + \alpha_2^2 + \cdots + \alpha_n^2}</script><p>3) $\infty$-范数</p>
+<script type="math/tex; mode=display">\|\alpha\|_\infty = \max\{|\alpha_1|, |\alpha_2|, \cdots, |\alpha_n|\}</script><p>4) p-范数</p>
+<script type="math/tex; mode=display">\|\alpha\|_p = \left( \sum_{i=1}^{n} |\alpha_i|^p \right)^{1/p}, \quad p \ge 1</script><h2 id="矩阵的范数"><a href="#矩阵的范数" class="headerlink" title="矩阵的范数"></a>矩阵的范数</h2><p>1) Frobenius 范数 (F-范数)</p>
+<script type="math/tex; mode=display">\|X\|_F = \left( \sum_{i,j=1}^{n} |x_{ij}|^2 \right)^{1/2} = \left( tr(X^H X) \right)^{1/2}</script><p>2) 1-范数</p>
+<script type="math/tex; mode=display">\|X\|_1 = \max_{j} \sum_{i=1}^{n} |x_{ij}|</script><p>3) 2-范数</p>
+<script type="math/tex; mode=display">\|X\|_2 = \sqrt{\lambda} \text{，其中 } \lambda \text{ 为 } X^H X \text{ 的最大特征值}</script><p>4) $\infty$-范数</p>
+<script type="math/tex; mode=display">\|X\|_\infty = \max_{i} \sum_{j=1}^{n} |x_{ij}|</script><p>其中，$X^H$ 为 $X$ 的共轭转置矩阵。</p>
+<h1 id="第三章-确定性知识系统"><a href="#第三章-确定性知识系统" class="headerlink" title="第三章 确定性知识系统"></a>第三章 确定性知识系统</h1><ul>
+<li><strong>知识</strong>是改造客观世界中积累起来的认识和经验。</li>
+<li>知识 = 信息 + 关联</li>
+</ul>
+<h2 id="知识的类型"><a href="#知识的类型" class="headerlink" title="知识的类型"></a>知识的类型</h2><p><img src="2025-12-11-22-06-18.png" alt=""></p>
+<h2 id="知识的作用效果"><a href="#知识的作用效果" class="headerlink" title="知识的作用效果"></a>知识的作用效果</h2><p><img src="2025-12-11-22-08-05.png" alt=""></p>
+<h2 id="知识的表示要求"><a href="#知识的表示要求" class="headerlink" title="知识的表示要求"></a>知识的表示要求</h2><ul>
+<li>可组织性与可维护性</li>
+<li>可理解性与可实现性</li>
+</ul>
+<h2 id="知识的类型-1"><a href="#知识的类型-1" class="headerlink" title="知识的类型"></a>知识的类型</h2><p><img src="2025-12-11-22-15-11.png" alt=""></p>
+<h2 id="推理方法及其分类"><a href="#推理方法及其分类" class="headerlink" title="推理方法及其分类"></a>推理方法及其分类</h2><ol>
+<li>演绎推理：<br><img src="2025-12-11-22-17-36.png" alt=""></li>
+<li>归纳推理<br><img src="2025-12-11-22-22-55.png" alt=""><br><img src="2025-12-11-22-23-09.png" alt=""><br><strong>演绎推理 &amp; 归纳推理区别</strong>：<br><img src="2025-12-11-22-22-30.png" alt=""></li>
+</ol>
+<h2 id="推理控制策略"><a href="#推理控制策略" class="headerlink" title="推理控制策略"></a>推理控制策略</h2><ul>
+<li>推理的控制策略是使推理过程尽快达到目标。</li>
+<li>分为两类：推理策略和搜索策略</li>
+</ul>
+<p><strong>冲突消解策略</strong>：当推理过程有多条知识可用时，如何从这多条可用知识中选出一条<strong>最佳知识</strong>用于推理的策略，常用的冲突消解策略有<em>领域知识优先和新鲜知识优先</em>等。</p>
+<h1 id="第四章-不确定性知识系统"><a href="#第四章-不确定性知识系统" class="headerlink" title="第四章 不确定性知识系统"></a>第四章 不确定性知识系统</h1><h2 id="知识的不确定性表示"><a href="#知识的不确定性表示" class="headerlink" title="知识的不确定性表示"></a>知识的不确定性表示</h2><p><img src="2025-12-11-22-30-33.png" alt=""><br><img src="2025-12-11-22-30-45.png" alt=""></p>
+<h2 id="主观贝叶斯推理"><a href="#主观贝叶斯推理" class="headerlink" title="主观贝叶斯推理"></a>主观贝叶斯推理</h2><h2 id="贝叶斯网络原理"><a href="#贝叶斯网络原理" class="headerlink" title="贝叶斯网络原理"></a>贝叶斯网络原理</h2><p><img src="2025-12-11-22-31-50.png" alt=""></p>
+<h1 id="第五章-智能搜索技术"><a href="#第五章-智能搜索技术" class="headerlink" title="第五章 智能搜索技术"></a>第五章 智能搜索技术</h1>]]></content>
       <categories>
         <category>华理</category>
         <category>大三上</category>
