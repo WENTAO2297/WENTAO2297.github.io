@@ -1,0 +1,382 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>人工智能原理与应用 | WENTAO's Blog</title><meta name="author" content="文韬"><meta name="copyright" content="文韬"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="第一章 绪论智能：智能指人类在认识客观世界中，由思维过程和脑力活动所表现出的综合能力。 智能包含的能力   AI的研究目标   三大学派     新的发展   智能模拟方法   推理  推理：是指按照某种策略从已知事实出发利用知识推出所需结论的过程。  推理方法：归纳、演绎、（不）确定性推理 搜索  搜索：依靠经验，利用已有知识，根据问题的实际情况，不断寻找可利用知识，从而构造一条代价最小的推理路">
+<meta property="og:type" content="article">
+<meta property="og:title" content="人工智能原理与应用">
+<meta property="og:url" content="http://example.com/2025/12/11/AI/index.html">
+<meta property="og:site_name" content="WENTAO&#39;s Blog">
+<meta property="og:description" content="第一章 绪论智能：智能指人类在认识客观世界中，由思维过程和脑力活动所表现出的综合能力。 智能包含的能力   AI的研究目标   三大学派     新的发展   智能模拟方法   推理  推理：是指按照某种策略从已知事实出发利用知识推出所需结论的过程。  推理方法：归纳、演绎、（不）确定性推理 搜索  搜索：依靠经验，利用已有知识，根据问题的实际情况，不断寻找可利用知识，从而构造一条代价最小的推理路">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/images/logo.jpg">
+<meta property="article:published_time" content="2025-12-11T07:51:18.000Z">
+<meta property="article:modified_time" content="2025-12-11T11:44:53.315Z">
+<meta property="article:author" content="文韬">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/logo.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "人工智能原理与应用",
+  "url": "http://example.com/2025/12/11/AI/",
+  "image": "http://example.com/images/logo.jpg",
+  "datePublished": "2025-12-11T07:51:18.000Z",
+  "dateModified": "2025-12-11T11:44:53.315Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "文韬",
+      "url": "http://example.com"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2025/12/11/AI/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.3-b2"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.12.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '人工智能原理与应用',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-screen-webfont/style.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"><style>
+  /* ====== 终极字体方案 ====== */
+  body, 
+  #site-title, 
+  #site-subtitle, 
+  .post-title, 
+  .page-title,
+  #page-header #site-title,
+  h1, h2, h3, h4, h5, h6,
+  #footer,
+  #nav,
+  .menus_item { 
+      font-family: 'LXGW WenKai Screen', sans-serif !important; 
+  }
+
+  /* 首页大标题防闪烁 */
+  #page-header:not(.not-home-page) #site-title {
+      font-size: 0 !important;
+  }
+  #page-header:not(.not-home-page) #site-title::before {
+      content: "夢が叶ったの？";
+      font-size: 5rem !important;
+      font-family: 'LXGW WenKai Screen', sans-serif !important;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+      display: block;
+  }
+
+  /* 其他样式保持不变 */
+  hr { border: none !important; background: transparent !important; margin: 2rem auto !important; }
+  hr::before { display: none !important; }
+
+  #web_bg {
+      position: fixed !important; top: 0; left: 0; width: 100%; height: 100%; min-height: 100vh; z-index: -999;
+      background: url("/images/index.jpg") no-repeat center center / cover !important;
+      background-attachment: scroll !important;
+      will-change: transform; transform: translate3d(0,0,0);
+  }
+  
+  #page-header, #page-header.not-home-page, #page-header.full_page, #page-header.post-bg {
+      background-color: transparent !important; background-image: none !important;
+  }
+  #page-header::before, #page-header.not-home-page::before, #page-header.post-bg::before {
+      background-color: rgba(0,0,0,0.25) !important; background-image: none !important; opacity: 1 !important;
+  }
+  
+  .avatar-img img:hover { transform: none !important; }
+  #footer { background: rgba(255,255,255, 0.95) !important; color: #000 !important; }
+  #footer a { color: #333 !important; }
+  #footer::before { background: transparent !important; }
+  #local-search .search-dialog hr { display: none !important; }
+</style>
+<meta name="generator" content="Hexo 8.1.1"></head><body><div id="web_bg" style="background-image: url(/images/index.jpg);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/images/logo.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/ecust/"><i class="fa-fw fas fa-university"></i><span> 华理</span></a></div><div class="menus_item"><a class="site-page" href="/categories/%E7%95%99%E5%AD%A6/"><i class="fa-fw fas fa-plane"></i><span> 留学</span></a></div><div class="menus_item"><a class="site-page" href="/categories/%E9%9A%8F%E7%AC%94/"><i class="fa-fw fas fa-feather-alt"></i><span> 随笔</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img fixed" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">WENTAO's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">人工智能原理与应用</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/ecust/"><i class="fa-fw fas fa-university"></i><span> 华理</span></a></div><div class="menus_item"><a class="site-page" href="/categories/%E7%95%99%E5%AD%A6/"><i class="fa-fw fas fa-plane"></i><span> 留学</span></a></div><div class="menus_item"><a class="site-page" href="/categories/%E9%9A%8F%E7%AC%94/"><i class="fa-fw fas fa-feather-alt"></i><span> 随笔</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">人工智能原理与应用</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-12-11T07:51:18.000Z" title="发表于 2025-12-11 15:51:18">2025-12-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-12-11T11:44:53.315Z" title="更新于 2025-12-11 19:44:53">2025-12-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%8D%8E%E7%90%86/">华理</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%8D%8E%E7%90%86/%E5%A4%A7%E4%B8%89%E4%B8%8A/">大三上</a></span></div><div class="meta-secondline"></div></div></div><article class="container post-content" id="article-container"><h1 id="第一章-绪论"><a href="#第一章-绪论" class="headerlink" title="第一章 绪论"></a>第一章 绪论</h1><p>智能：智能指人类在认识客观世界中，由思维过程和脑<br>力活动所表现出的综合能力。</p>
+<h2 id="智能包含的能力"><a href="#智能包含的能力" class="headerlink" title="智能包含的能力"></a>智能包含的能力</h2><p>  <img src="2025-12-11-19-04-02.png" alt=""></p>
+<h2 id="AI的研究目标"><a href="#AI的研究目标" class="headerlink" title="AI的研究目标"></a>AI的研究目标</h2><p>  <img src="2025-12-11-19-05-39.png" alt=""></p>
+<h2 id="三大学派"><a href="#三大学派" class="headerlink" title="三大学派"></a>三大学派</h2><p>  <img src="2025-12-11-19-07-05.png" alt=""><br>  <img src="2025-12-11-19-07-54.png" alt=""></p>
+<h2 id="新的发展"><a href="#新的发展" class="headerlink" title="新的发展"></a>新的发展</h2><p>  <img src="2025-12-11-19-08-50.png" alt=""></p>
+<h2 id="智能模拟方法"><a href="#智能模拟方法" class="headerlink" title="智能模拟方法"></a>智能模拟方法</h2><p>  <img src="2025-12-11-19-12-03.png" alt=""></p>
+<h2 id="推理"><a href="#推理" class="headerlink" title="推理"></a>推理</h2><p>  <strong>推理</strong>：是指按照某种策略从已知事实出发利用知识推出所需结论的过程。<br>  <strong>推理方法</strong>：归纳、演绎、（不）确定性推理</p>
+<h2 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h2><p>  <strong>搜索</strong>：依靠经验，利用已有知识，根据问题的实际情况，不断寻找可利用知识，从而构造一条代价最小的推理路线，使问题得以解决的过程。<br>  <strong>智能搜索</strong>：利用搜索过程中得到的信息来引导搜索向最优方向发展的算法。</p>
+<h2 id="神经元（画图）"><a href="#神经元（画图）" class="headerlink" title="神经元（画图）"></a>神经元（画图）</h2><p>  <img src="2025-12-11-19-17-46.png" alt=""></p>
+<h2 id="大数据的特性："><a href="#大数据的特性：" class="headerlink" title="大数据的特性："></a>大数据的特性：</h2><ul>
+<li><strong>规模性、多样性、实时性、价值性</strong></li>
+</ul>
+<h2 id="机器视觉的流程：图像获取-rightarrow-图像解释"><a href="#机器视觉的流程：图像获取-rightarrow-图像解释" class="headerlink" title="机器视觉的流程：图像获取$\rightarrow$图像解释"></a>机器视觉的流程：图像获取$\rightarrow$图像解释</h2><p>  <img src="2025-12-11-19-20-13.png" alt=""></p>
+<h2 id="模式识别"><a href="#模式识别" class="headerlink" title="模式识别"></a>模式识别</h2><p>  <img src="2025-12-11-19-21-05.png" alt=""></p>
+<h2 id="自然语言处理"><a href="#自然语言处理" class="headerlink" title="自然语言处理"></a>自然语言处理</h2><p>  <img src="2025-12-11-19-21-26.png" alt=""></p>
+<h2 id="智能控制"><a href="#智能控制" class="headerlink" title="智能控制"></a>智能控制</h2><p>  <img src="2025-12-11-19-21-48.png" alt=""></p>
+<h2 id="人工智能工程"><a href="#人工智能工程" class="headerlink" title="人工智能工程"></a>人工智能工程</h2><p>  <img src="2025-12-11-19-23-37.png" alt=""><br>  <img src="2025-12-11-19-24-19.png" alt=""></p>
+<h2 id="人工智能面临的问题"><a href="#人工智能面临的问题" class="headerlink" title="人工智能面临的问题"></a>人工智能面临的问题</h2><ol>
+<li>道德伦理问题</li>
+<li>法律法规的制定问题</li>
+<li>安全问题（信息安全、交通安全、人身安全）</li>
+<li>稀缺数据资源条件下的学习</li>
+<li>目前人工智能属于弱人工智能</li>
+</ol>
+<h2 id="未来发展趋势"><a href="#未来发展趋势" class="headerlink" title="未来发展趋势"></a>未来发展趋势</h2><ol>
+<li>从专用智能向通用是能发展</li>
+<li>从人工智能向人机融合发展</li>
+<li>自动化AI技术</li>
+<li>AI药物的研发</li>
+<li>减少对数据的需求</li>
+<li>可解释性和鲁棒性</li>
+</ol>
+<h1 id="第二章-数学基础"><a href="#第二章-数学基础" class="headerlink" title="第二章 数学基础"></a>第二章 数学基础</h1><h2 id="向量的范数"><a href="#向量的范数" class="headerlink" title="向量的范数"></a>向量的范数</h2><p>1) 1-范数</p>
+<script type="math/tex; mode=display">\|\alpha\|_1 = |\alpha_1| + |\alpha_2| + \cdots + |\alpha_n|</script><p>2) 2-范数</p>
+<script type="math/tex; mode=display">\|\alpha\|_2 = \sqrt{\alpha_1^2 + \alpha_2^2 + \cdots + \alpha_n^2}</script><p>3) $\infty$-范数</p>
+<script type="math/tex; mode=display">\|\alpha\|_\infty = \max\{|\alpha_1|, |\alpha_2|, \cdots, |\alpha_n|\}</script><p>4) p-范数</p>
+<script type="math/tex; mode=display">\|\alpha\|_p = \left( \sum_{i=1}^{n} |\alpha_i|^p \right)^{1/p}, \quad p \ge 1</script><h2 id="矩阵的范数"><a href="#矩阵的范数" class="headerlink" title="矩阵的范数"></a>矩阵的范数</h2><p>1) Frobenius 范数 (F-范数)</p>
+<script type="math/tex; mode=display">\|X\|_F = \left( \sum_{i,j=1}^{n} |x_{ij}|^2 \right)^{1/2} = \left( tr(X^H X) \right)^{1/2}</script><p>2) 1-范数</p>
+<script type="math/tex; mode=display">\|X\|_1 = \max_{j} \sum_{i=1}^{n} |x_{ij}|</script><p>3) 2-范数</p>
+<script type="math/tex; mode=display">\|X\|_2 = \sqrt{\lambda} \text{，其中 } \lambda \text{ 为 } X^H X \text{ 的最大特征值}</script><p>4) $\infty$-范数</p>
+<script type="math/tex; mode=display">\|X\|_\infty = \max_{i} \sum_{j=1}^{n} |x_{ij}|</script><p>其中，$X^H$ 为 $X$ 的共轭转置矩阵。</p>
+<h1 id="第三章-确定性知识系统"><a href="#第三章-确定性知识系统" class="headerlink" title="第三章 确定性知识系统"></a>第三章 确定性知识系统</h1></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">文韬</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2025/12/11/AI/">http://example.com/2025/12/11/AI/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://example.com" target="_blank">WENTAO's Blog</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/images/logo.jpg" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2025/11/27/statistical-learning/" title="模式识别与统计学习"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">模式识别与统计学习</div></div><div class="info-2"><div class="info-item-1">第一章 统计学习方法概述 ❝ 机器学习是一门人工智能的科学, 该领域的主要研究对象是人工智能, 特别是如何在经验学习中改善具体算法的性能。 ❞ —— 机器学习是对能通过经验自动改进的计算机算法的研究。  统计学习 概念：计算机基于数据构建概率统计模型，运用模型对数据进行预测和分析。 研究对象：数据、基本假设。 目的：对数据（特别是未知数据）进行预测和分析。  🤔 为什么需要机器学习？  数据量太大：人脑无法处理海量维度。 知识盲区：人类无法解释专业知识，或专业知识本身不存在。   发展历程与三要素模式识别与机器学习发展历程： 核心：统计学三要素\text{方法} = \text{模型} + \text{策略} + \text{算法}1. 模型 (Model)  非概率模型： 假设空间：决策函数 $F=\{f \mid Y=f(X)\}$ 参数空间：$F=\{f \mid Y=f_\theta(X), \theta \in \mathbb{R}^n\}$   概率模型： 假设空间：条件概率 $F=\{P \mid P(Y|X)\}$ 参数空间：$F=\{P \mid P_\the...</div></div></div></a></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="giscus-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/logo.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">文韬</div><div class="author-info-description">在这里记录我的日常</div><div class="card-info-social-icons"><a class="social-icon" href="https://www.douyin.com/user/self?from_tab_name=main" target="_blank" title="抖音"><i class="fab fa-tiktok" style="color: #000000;"></i></a><a class="social-icon" href="https://space.bilibili.com/384204746?spm_id_from=333.1007.0.0" target="_blank" title="Bilibili"><i class="fab fa-bilibili" style="color: #fb7299;"></i></a><a class="social-icon" href="https://github.com/WENTAO2297" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%BB%AA%E8%AE%BA"><span class="toc-text">第一章 绪论</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%99%BA%E8%83%BD%E5%8C%85%E5%90%AB%E7%9A%84%E8%83%BD%E5%8A%9B"><span class="toc-text">智能包含的能力</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AI%E7%9A%84%E7%A0%94%E7%A9%B6%E7%9B%AE%E6%A0%87"><span class="toc-text">AI的研究目标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E5%A4%A7%E5%AD%A6%E6%B4%BE"><span class="toc-text">三大学派</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B0%E7%9A%84%E5%8F%91%E5%B1%95"><span class="toc-text">新的发展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%99%BA%E8%83%BD%E6%A8%A1%E6%8B%9F%E6%96%B9%E6%B3%95"><span class="toc-text">智能模拟方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A8%E7%90%86"><span class="toc-text">推理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%9C%E7%B4%A2"><span class="toc-text">搜索</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A5%9E%E7%BB%8F%E5%85%83%EF%BC%88%E7%94%BB%E5%9B%BE%EF%BC%89"><span class="toc-text">神经元（画图）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9A%84%E7%89%B9%E6%80%A7%EF%BC%9A"><span class="toc-text">大数据的特性：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89%E7%9A%84%E6%B5%81%E7%A8%8B%EF%BC%9A%E5%9B%BE%E5%83%8F%E8%8E%B7%E5%8F%96-rightarrow-%E5%9B%BE%E5%83%8F%E8%A7%A3%E9%87%8A"><span class="toc-text">机器视觉的流程：图像获取$\rightarrow$图像解释</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB"><span class="toc-text">模式识别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86"><span class="toc-text">自然语言处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%99%BA%E8%83%BD%E6%8E%A7%E5%88%B6"><span class="toc-text">智能控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%B7%A5%E7%A8%8B"><span class="toc-text">人工智能工程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E9%9D%A2%E4%B8%B4%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-text">人工智能面临的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AA%E6%9D%A5%E5%8F%91%E5%B1%95%E8%B6%8B%E5%8A%BF"><span class="toc-text">未来发展趋势</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80"><span class="toc-text">第二章 数学基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%91%E9%87%8F%E7%9A%84%E8%8C%83%E6%95%B0"><span class="toc-text">向量的范数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%A9%E9%98%B5%E7%9A%84%E8%8C%83%E6%95%B0"><span class="toc-text">矩阵的范数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%A1%AE%E5%AE%9A%E6%80%A7%E7%9F%A5%E8%AF%86%E7%B3%BB%E7%BB%9F"><span class="toc-text">第三章 确定性知识系统</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/12/11/AI/" title="人工智能原理与应用">人工智能原理与应用</a><time datetime="2025-12-11T07:51:18.000Z" title="发表于 2025-12-11 15:51:18">2025-12-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/11/27/statistical-learning/" title="模式识别与统计学习">模式识别与统计学习</a><time datetime="2025-11-27T07:03:00.000Z" title="发表于 2025-11-27 15:03:00">2025-11-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/11/26/lecture-report/" title="专业前沿讲座报告">专业前沿讲座报告</a><time datetime="2025-11-26T12:52:00.000Z" title="发表于 2025-11-26 20:52:00">2025-11-26</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By 文韬</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.3-b2</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.3-b2"></script><script src="/js/main.js?v=5.5.3-b2"></script><div class="js-pjax"><script>(() => {
+  const loadMathjax = () => {
+    if (!window.MathJax) {
+      window.MathJax = {
+        loader: {
+          load: [
+            // Four font extension packages (optional)
+            //- '[tex]/bbm',
+            //- '[tex]/bboldx',
+            //- '[tex]/dsfont',
+            '[tex]/mhchem'
+          ],
+          paths: {
+            'mathjax-newcm': '[mathjax]/../@mathjax/mathjax-newcm-font',
+
+            //- // Four font extension packages (optional)
+            //- 'mathjax-bbm-extension': '[mathjax]/../@mathjax/mathjax-bbm-font-extension',
+            //- 'mathjax-bboldx-extension': '[mathjax]/../@mathjax/mathjax-bboldx-font-extension',
+            //- 'mathjax-dsfont-extension': '[mathjax]/../@mathjax/mathjax-dsfont-font-extension',
+            'mathjax-mhchem-extension': '[mathjax]/../@mathjax/mathjax-mhchem-font-extension'
+          }
+        },
+        output: {
+          font: 'mathjax-newcm',
+        },
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          tags: 'none',
+          packages: {
+            '[+]': [
+              'mhchem'
+            ]
+          }
+        },
+        chtml: {
+          scale: 1.1
+        },
+        options: {
+          enableMenu: true,
+          menuOptions: {
+            settings: {
+              enrich: false  // Turn off Braille and voice narration text automatic generation
+            }
+          },
+          renderActions: {
+            findScript: [10, doc => {
+              for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+                const display = !!node.type.match(/; *mode=display/)
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+                const text = document.createTextNode('')
+                node.parentNode.replaceChild(text, node)
+                math.start = {node: text, delim: '', n: 0}
+                math.end = {node: text, delim: '', n: 0}
+                doc.math.push(math)
+              }
+            }, '']
+          }
+        }
+      }
+
+      const script = document.createElement('script')
+      script.src = 'https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-mml-chtml.min.js'
+      script.id = 'MathJax-script'
+      script.async = true
+      document.head.appendChild(script)
+    } else {
+      MathJax.startup.document.state(0)
+      MathJax.texReset()
+      MathJax.typesetPromise()
+    }
+  }
+
+  btf.addGlobalFn('encrypt', loadMathjax, 'mathjax')
+  window.pjax ? loadMathjax() : window.addEventListener('load', loadMathjax)
+})()</script><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const getGiscusTheme = theme => theme === 'dark' ? 'dark' : 'light'
+
+  const createScriptElement = config => {
+    const ele = document.createElement('script')
+    Object.entries(config).forEach(([key, value]) => {
+      ele.setAttribute(key, value)
+    })
+    return ele
+  }
+
+  const loadGiscus = (el = document, key) => {
+    const mappingConfig = isShuoshuo
+      ? { 'data-mapping': 'specific', 'data-term': key }
+      : { 'data-mapping': (option && option['data-mapping']) || 'pathname' }
+
+    const giscusConfig = {
+      src: 'https://giscus.app/client.js',
+      'data-repo': 'WENTAO2297/WENTAO2297.github.io',
+      'data-repo-id': 'R_kgDOQbrGPw',
+      'data-category-id': 'DIC_kwDOQbrGP84Cye9K',
+      'data-theme': getGiscusTheme(document.documentElement.getAttribute('data-theme')),
+      'data-reactions-enabled': '1',
+      crossorigin: 'anonymous',
+      async: true,
+      ...option,
+      ...mappingConfig
+    }
+
+    const scriptElement = createScriptElement(giscusConfig)
+
+    el.querySelector('#giscus-wrap').appendChild(scriptElement)
+
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyGiscus = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+  }
+
+  const changeGiscusTheme = theme => {
+    const iframe = document.querySelector('#giscus-wrap iframe')
+    if (iframe) {
+      const message = {
+        giscus: {
+          setConfig: {
+            theme: getGiscusTheme(theme)
+          }
+        }
+      }
+      iframe.contentWindow.postMessage(message, 'https://giscus.app')
+    }
+  }
+
+  btf.addGlobalFn('themeChange', changeGiscusTheme, 'giscus')
+
+  if (isShuoshuo) {
+    'Giscus' === 'Giscus'
+      ? window.shuoshuoComment = { loadComment: loadGiscus }
+      : window.loadOtherComment = loadGiscus
+    return
+  }
+
+  if ('Giscus' === 'Giscus' || !false) {
+    if (false) btf.loadComment(document.getElementById('giscus-wrap'), loadGiscus)
+    else loadGiscus()
+  } else {
+    window.loadOtherComment = loadGiscus
+  }
+})()</script></div><link rel="preload" href="/images/index.jpg" as="image"><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.3-b2"></script></div></div></body></html>
