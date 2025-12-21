@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>嵌入式系统原理</title>
+    <url>/2025/12/21/STM32/</url>
+    <content><![CDATA[<h1 id="第一章-导论"><a href="#第一章-导论" class="headerlink" title="第一章 导论"></a>第一章 导论</h1><blockquote>
+<p>嵌入式系统是一切非PC和大型计算机系统。</p>
+</blockquote>
+<h1 id="第二章-Cortex-M3-微处理器"><a href="#第二章-Cortex-M3-微处理器" class="headerlink" title="第二章 Cortex-M3 微处理器"></a>第二章 Cortex-M3 微处理器</h1>]]></content>
+      <categories>
+        <category>华理</category>
+        <category>大三上</category>
+      </categories>
+  </entry>
+  <entry>
     <title>专业前沿讲座报告</title>
     <url>/2025/11/26/lecture-report/</url>
     <content><![CDATA[<blockquote>
@@ -231,7 +243,11 @@
   <entry>
     <title>模式识别与统计学习</title>
     <url>/2025/11/27/statistical-learning/</url>
-    <content><![CDATA[<h1 id="第一章-统计学习方法概述"><a href="#第一章-统计学习方法概述" class="headerlink" title="第一章 统计学习方法概述"></a>第一章 统计学习方法概述</h1><blockquote>
+    <content><![CDATA[<p>考试心得：</p>
+<ul>
+<li><strong>考的很简单，完全没必要花很多精力复习</strong></li>
+</ul>
+<h1 id="第一章-统计学习方法概述"><a href="#第一章-统计学习方法概述" class="headerlink" title="第一章 统计学习方法概述"></a>第一章 统计学习方法概述</h1><blockquote>
 <p>❝ 机器学习是一门人工智能的科学, 该领域的主要研究对象是人工智能, 特别是如何在经验学习中改善具体算法的性能。 ❞</p>
 <p>—— 机器学习是对能通过经验自动改进的计算机算法的研究。</p>
 </blockquote>
