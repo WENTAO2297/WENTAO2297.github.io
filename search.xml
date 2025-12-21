@@ -1,6 +1,159 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>人工智能原理与应用</title>
+    <url>/2025/12/11/AI/</url>
+    <content><![CDATA[<h1 id="第一章-绪论"><a href="#第一章-绪论" class="headerlink" title="第一章 绪论"></a>第一章 绪论</h1><p>智能：智能指人类在认识客观世界中，由思维过程和脑<br>力活动所表现出的综合能力。</p>
+<h2 id="智能包含的能力"><a href="#智能包含的能力" class="headerlink" title="智能包含的能力"></a>智能包含的能力</h2><p>  <img src="2025-12-11-19-04-02.png" alt=""></p>
+<h2 id="AI的研究目标"><a href="#AI的研究目标" class="headerlink" title="AI的研究目标"></a>AI的研究目标</h2><p>  <img src="2025-12-11-19-05-39.png" alt=""></p>
+<h2 id="三大学派"><a href="#三大学派" class="headerlink" title="三大学派"></a>三大学派</h2><p>  <img src="2025-12-11-19-07-05.png" alt=""><br>  <img src="2025-12-11-19-07-54.png" alt=""></p>
+<h2 id="新的发展"><a href="#新的发展" class="headerlink" title="新的发展"></a>新的发展</h2><p>  <img src="2025-12-11-19-08-50.png" alt=""></p>
+<h2 id="智能模拟方法"><a href="#智能模拟方法" class="headerlink" title="智能模拟方法"></a>智能模拟方法</h2><p>  <img src="2025-12-11-19-12-03.png" alt=""></p>
+<h2 id="推理"><a href="#推理" class="headerlink" title="推理"></a>推理</h2><p>  <strong>推理</strong>：是指按照某种策略从已知事实出发利用知识推出所需结论的过程。<br>  <strong>推理方法</strong>：归纳、演绎、（不）确定性推理</p>
+<h2 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h2><p>  <strong>搜索</strong>：依靠经验，利用已有知识，根据问题的实际情况，不断寻找可利用知识，从而构造一条代价最小的推理路线，使问题得以解决的过程。<br>  <strong>智能搜索</strong>：利用搜索过程中得到的信息来引导搜索向最优方向发展的算法。</p>
+<h2 id="神经元（画图）"><a href="#神经元（画图）" class="headerlink" title="神经元（画图）"></a>神经元（画图）</h2><p>  <img src="2025-12-11-19-17-46.png" alt=""></p>
+<h2 id="大数据的特性："><a href="#大数据的特性：" class="headerlink" title="大数据的特性："></a>大数据的特性：</h2><ul>
+<li><strong>规模性、多样性、实时性、价值性</strong></li>
+</ul>
+<h2 id="机器视觉的流程：图像获取-rightarrow-图像解释"><a href="#机器视觉的流程：图像获取-rightarrow-图像解释" class="headerlink" title="机器视觉的流程：图像获取$\rightarrow$图像解释"></a>机器视觉的流程：图像获取$\rightarrow$图像解释</h2><p>  <img src="2025-12-11-19-20-13.png" alt=""></p>
+<h2 id="模式识别"><a href="#模式识别" class="headerlink" title="模式识别"></a>模式识别</h2><p>  <img src="2025-12-11-19-21-05.png" alt=""></p>
+<h2 id="自然语言处理"><a href="#自然语言处理" class="headerlink" title="自然语言处理"></a>自然语言处理</h2><p>  <img src="2025-12-11-19-21-26.png" alt=""></p>
+<h2 id="智能控制"><a href="#智能控制" class="headerlink" title="智能控制"></a>智能控制</h2><p>  <img src="2025-12-11-19-21-48.png" alt=""></p>
+<h2 id="人工智能工程"><a href="#人工智能工程" class="headerlink" title="人工智能工程"></a>人工智能工程</h2><p>  <img src="2025-12-11-19-23-37.png" alt=""><br>  <img src="2025-12-11-19-24-19.png" alt=""></p>
+<h2 id="人工智能面临的问题"><a href="#人工智能面临的问题" class="headerlink" title="人工智能面临的问题"></a>人工智能面临的问题</h2><ol>
+<li>道德伦理问题</li>
+<li>法律法规的制定问题</li>
+<li>安全问题（信息安全、交通安全、人身安全）</li>
+<li>稀缺数据资源条件下的学习</li>
+<li>目前人工智能属于弱人工智能</li>
+</ol>
+<h2 id="未来发展趋势"><a href="#未来发展趋势" class="headerlink" title="未来发展趋势"></a>未来发展趋势</h2><ol>
+<li>从专用智能向通用是能发展</li>
+<li>从人工智能向人机融合发展</li>
+<li>自动化AI技术</li>
+<li>AI药物的研发</li>
+<li>减少对数据的需求</li>
+<li>可解释性和鲁棒性</li>
+</ol>
+<h1 id="第二章-数学基础"><a href="#第二章-数学基础" class="headerlink" title="第二章 数学基础"></a>第二章 数学基础</h1><h2 id="向量的范数"><a href="#向量的范数" class="headerlink" title="向量的范数"></a>向量的范数</h2><p>1) 1-范数</p>
+<script type="math/tex; mode=display">\|\alpha\|_1 = |\alpha_1| + |\alpha_2| + \cdots + |\alpha_n|</script><p>2) 2-范数</p>
+<script type="math/tex; mode=display">\|\alpha\|_2 = \sqrt{\alpha_1^2 + \alpha_2^2 + \cdots + \alpha_n^2}</script><p>3) $\infty$-范数</p>
+<script type="math/tex; mode=display">\|\alpha\|_\infty = \max\{|\alpha_1|, |\alpha_2|, \cdots, |\alpha_n|\}</script><p>4) p-范数</p>
+<script type="math/tex; mode=display">\|\alpha\|_p = \left( \sum_{i=1}^{n} |\alpha_i|^p \right)^{1/p}, \quad p \ge 1</script><h2 id="矩阵的范数"><a href="#矩阵的范数" class="headerlink" title="矩阵的范数"></a>矩阵的范数</h2><p>1) Frobenius 范数 (F-范数)</p>
+<script type="math/tex; mode=display">\|X\|_F = \left( \sum_{i,j=1}^{n} |x_{ij}|^2 \right)^{1/2} = \left( tr(X^H X) \right)^{1/2}</script><p>2) 1-范数</p>
+<script type="math/tex; mode=display">\|X\|_1 = \max_{j} \sum_{i=1}^{n} |x_{ij}|</script><p>3) 2-范数</p>
+<script type="math/tex; mode=display">\|X\|_2 = \sqrt{\lambda} \text{，其中 } \lambda \text{ 为 } X^H X \text{ 的最大特征值}</script><p>4) $\infty$-范数</p>
+<script type="math/tex; mode=display">\|X\|_\infty = \max_{i} \sum_{j=1}^{n} |x_{ij}|</script><p>其中，$X^H$ 为 $X$ 的共轭转置矩阵。</p>
+<h1 id="第三章-确定性知识系统"><a href="#第三章-确定性知识系统" class="headerlink" title="第三章 确定性知识系统"></a>第三章 确定性知识系统</h1><ul>
+<li><strong>知识</strong>是改造客观世界中积累起来的认识和经验。</li>
+<li>知识 = 信息 + 关联</li>
+</ul>
+<h2 id="知识的类型"><a href="#知识的类型" class="headerlink" title="知识的类型"></a>知识的类型</h2><p><img src="2025-12-11-22-06-18.png" alt=""></p>
+<h2 id="知识的作用效果"><a href="#知识的作用效果" class="headerlink" title="知识的作用效果"></a>知识的作用效果</h2><p><img src="2025-12-11-22-08-05.png" alt=""></p>
+<h2 id="知识的表示要求"><a href="#知识的表示要求" class="headerlink" title="知识的表示要求"></a>知识的表示要求</h2><ul>
+<li>可组织性与可维护性</li>
+<li>可理解性与可实现性</li>
+</ul>
+<h2 id="知识的类型-1"><a href="#知识的类型-1" class="headerlink" title="知识的类型"></a>知识的类型</h2><p><img src="2025-12-11-22-15-11.png" alt=""></p>
+<h2 id="推理方法及其分类"><a href="#推理方法及其分类" class="headerlink" title="推理方法及其分类"></a>推理方法及其分类</h2><ol>
+<li>演绎推理：<br><img src="2025-12-11-22-17-36.png" alt=""></li>
+<li>归纳推理<br><img src="2025-12-11-22-22-55.png" alt=""><br><img src="2025-12-11-22-23-09.png" alt=""><br><strong>演绎推理 &amp; 归纳推理区别</strong>：<br><img src="2025-12-11-22-22-30.png" alt=""></li>
+</ol>
+<h2 id="推理控制策略"><a href="#推理控制策略" class="headerlink" title="推理控制策略"></a>推理控制策略</h2><ul>
+<li>推理的控制策略是使推理过程尽快达到目标。</li>
+<li>分为两类：推理策略和搜索策略</li>
+</ul>
+<p><strong>冲突消解策略</strong>：当推理过程有多条知识可用时，如何从这多条可用知识中选出一条<strong>最佳知识</strong>用于推理的策略，常用的冲突消解策略有<em>领域知识优先和新鲜知识优先</em>等。</p>
+<h1 id="第四章-不确定性知识系统"><a href="#第四章-不确定性知识系统" class="headerlink" title="第四章 不确定性知识系统"></a>第四章 不确定性知识系统</h1><h2 id="知识的不确定性表示"><a href="#知识的不确定性表示" class="headerlink" title="知识的不确定性表示"></a>知识的不确定性表示</h2><p><img src="2025-12-11-22-30-33.png" alt=""><br><img src="2025-12-11-22-30-45.png" alt=""></p>
+<h2 id="主观贝叶斯推理"><a href="#主观贝叶斯推理" class="headerlink" title="主观贝叶斯推理"></a>主观贝叶斯推理</h2><h2 id="贝叶斯网络原理"><a href="#贝叶斯网络原理" class="headerlink" title="贝叶斯网络原理"></a>贝叶斯网络原理</h2><p><img src="2025-12-11-22-31-50.png" alt=""></p>
+<h1 id="第五章-智能搜索技术"><a href="#第五章-智能搜索技术" class="headerlink" title="第五章 智能搜索技术"></a>第五章 智能搜索技术</h1><h2 id="状态空间问题的求解"><a href="#状态空间问题的求解" class="headerlink" title="状态空间问题的求解"></a>状态空间问题的求解</h2><p><img src="2025-12-12-18-20-32.png" alt=""><br><img src="2025-12-12-18-20-56.png" alt=""></p>
+<h2 id="与或树"><a href="#与或树" class="headerlink" title="与或树"></a>与或树</h2><ul>
+<li><strong>分解</strong>：$P 归纳为 P_i, P_i 都有解的时候，P 有解。$</li>
+<li><strong>等价变换</strong>：$P 可以等价变为 P_i，有一个 P_i 有解，P 有解。$</li>
+</ul>
+<p><img src="2025-12-12-18-28-38.png" alt=""></p>
+<ul>
+<li>本原问题：不能再进行分解或者变换，可以直接解答的问题</li>
+<li>端节点：没有子节点的节点</li>
+<li>终止节点：本原问题对应的节点 <em>（终止节点一定是端节点，端节点不一定是终止节点）</em></li>
+<li>可解问题：<ul>
+<li>任何终止节点</li>
+<li>或树中有一个可解</li>
+<li>与树中都有解</li>
+</ul>
+</li>
+</ul>
+<h2 id="进化搜索"><a href="#进化搜索" class="headerlink" title="进化搜索"></a>进化搜索</h2><p><img src="2025-12-12-18-36-12.png" alt=""><br><strong>进化计算的生物学基础</strong>：</p>
+<ol>
+<li>遗传理论</li>
+<li>变异理论</li>
+<li>进化论</li>
+</ol>
+<h2 id="启发式搜索"><a href="#启发式搜索" class="headerlink" title="启发式搜索"></a>启发式搜索</h2><p><img src="2025-12-12-18-38-36.png" alt=""></p>
+<ul>
+<li>八数码难题：</li>
+</ul>
+<p><img src="2025-12-12-18-39-09.png" alt=""></p>
+<h2 id="A-算法"><a href="#A-算法" class="headerlink" title="A 算法"></a>A 算法</h2><p><img src="2025-12-12-18-40-15.png" alt=""><br><img src="2025-12-12-18-41-00.png" alt=""><br><img src="2025-12-12-18-41-22.png" alt=""></p>
+<h2 id="与或树的启发式搜索"><a href="#与或树的启发式搜索" class="headerlink" title="与或树的启发式搜索"></a>与或树的启发式搜索</h2><p><img src="2025-12-12-18-41-55.png" alt=""></p>
+<h2 id="博弈树"><a href="#博弈树" class="headerlink" title="博弈树"></a>博弈树</h2><p><img src="2025-12-12-18-42-41.png" alt=""><br><img src="2025-12-12-18-43-02.png" alt=""></p>
+<h2 id="进化搜索（这一部分看PPT理解）"><a href="#进化搜索（这一部分看PPT理解）" class="headerlink" title="进化搜索（这一部分看PPT理解）"></a>进化搜索（这一部分看PPT理解）</h2><ul>
+<li>蚁群算法</li>
+<li>遗传算法</li>
+</ul>
+<ol>
+<li>基本步骤：<br><img src="2025-12-13-16-33-40.png" alt=""></li>
+<li>三角函数的遗传算法优化（重点看一下）（17-20课时）</li>
+<li>轮盘赌：<br><img src="2025-12-13-16-38-57.png" alt=""></li>
+</ol>
+<ul>
+<li>粒子群优化算法<br>看ppt（21-24课时），重点求解tsp问题的步骤。</li>
+</ul>
+<p><strong>群智能的优点</strong>：</p>
+<ol>
+<li>灵活性：群体可以随时适应变化的环境。</li>
+<li>稳健性：即使个体失败，群体仍可以完成任务；自我组织；活动既不受中央控制，也不受局部监督。</li>
+</ol>
+<h1 id="第六章-机器学习"><a href="#第六章-机器学习" class="headerlink" title="第六章 机器学习"></a>第六章 机器学习</h1><h2 id="信息熵与信息增益"><a href="#信息熵与信息增益" class="headerlink" title="信息熵与信息增益"></a>信息熵与信息增益</h2><p><img src="2025-12-13-16-44-14.png" alt=""><br><img src="2025-12-13-16-44-31.png" alt=""></p>
+<h2 id="ID3-算法"><a href="#ID3-算法" class="headerlink" title="ID3 算法"></a>ID3 算法</h2><ul>
+<li><strong>测试属性</strong>：<code>信息增益</code>  </li>
+</ul>
+<p><strong>具体计算流程</strong>：（设$C_1+C_2=D$）</p>
+<ol>
+<li><p><strong>计算不考虑特征的信息熵</strong>：</p>
+<script type="math/tex; mode=display">H(D) = -\sum_{k=1}^{K} p_k \log_2 p_k= -\sum_{k=1}^{K} \frac{|C_k|}{|D|} \log_2 \frac{|C_k|}{|D|}</script><p>其中 $|D|$ 为样本总数，$|C_k|$ 为属于第 $k$ 类的样本数(eg: <em>买/不买</em>)。</p>
+</li>
+<li><p><strong>计算条件熵</strong>：</p>
+<ul>
+<li>先选择一个 <strong>特征 $A_i$</strong>，将数据集 $D$ 根据特征 $A_i$ 的<strong>不同取值</strong>划分为 $n$ 个子集 $D_1, D_2, \dots, D_n$。</li>
+<li>计算特征 $A_i$ 下不同取值 $D_i$ 的信息熵 $H(D_i)$：<script type="math/tex; mode=display">H(D_i)= -\sum_{k=1}^{K} \frac{|C_k|}{|D_i|} \log_2 \frac{|C_k|}{|D_i|}</script>其中，$C_k$ 是在集合 $D_i$ 里的第 $k$ 种类别的数量 (eg: <em>买/不买</em>)。</li>
+<li>计算条件熵 $H(D|A_i)$：<script type="math/tex; mode=display">H(D|A_i) = \sum_{i=1}^{n} p_i H(D_i)= \sum_{i=1}^{n} \frac{|D_i|}{|D|} H(D_i)</script></li>
+</ul>
+</li>
+<li><p><strong>计算信息增益</strong>：</p>
+<script type="math/tex; mode=display">g(D, A_i) = H(D) - H(D|A_i)</script></li>
+<li><p><strong>特征选择</strong>：<br>选取 <strong>信息增益最大</strong> 的特征$A_i$作为当前的分裂节点（根节点或内部节点）。</p>
+</li>
+<li><p><strong>递归构建</strong>：<br>对子节点重复以上步骤，以此类推，直至分类完全（或满足停止条件）。</p>
+</li>
+</ol>
+<h2 id="集成学习（Boosting-Bagging）"><a href="#集成学习（Boosting-Bagging）" class="headerlink" title="集成学习（Boosting/Bagging）"></a>集成学习（Boosting/Bagging）</h2><p><img src="2025-12-13-16-47-29.png" alt=""><br><img src="2025-12-13-16-47-43.png" alt=""></p>
+<h2 id="回归的含义、思想"><a href="#回归的含义、思想" class="headerlink" title="回归的含义、思想"></a>回归的含义、思想</h2><p><img src="2025-12-13-16-50-09.png" alt=""><br><img src="2025-12-13-16-50-28.png" alt=""></p>
+<h2 id="总体回归函数"><a href="#总体回归函数" class="headerlink" title="总体回归函数"></a>总体回归函数</h2><p><img src="2025-12-13-16-51-14.png" alt=""><br><img src="2025-12-13-16-51-28.png" alt=""><br><img src="2025-12-13-16-51-39.png" alt=""></p>
+<h2 id="计算题：最小二乘估计-OLS"><a href="#计算题：最小二乘估计-OLS" class="headerlink" title="计算题：最小二乘估计 $OLS$"></a>计算题：最小二乘估计 $OLS$</h2><ul>
+<li>看ppt（25-28）</li>
+</ul>
+<h1 id="第七章-支持向量机"><a href="#第七章-支持向量机" class="headerlink" title="第七章 支持向量机"></a>第七章 支持向量机</h1><ul>
+<li>看模式识别的笔记。</li>
+</ul>
+<h1 id="第八章-人工神经网络与连接学习"><a href="#第八章-人工神经网络与连接学习" class="headerlink" title="第八章 人工神经网络与连接学习"></a>第八章 人工神经网络与连接学习</h1><p>后面看三个ppt吧。</p>
+]]></content>
+      <categories>
+        <category>华理</category>
+        <category>大三上</category>
+      </categories>
+  </entry>
+  <entry>
     <title>嵌入式系统原理</title>
     <url>/2025/12/21/STM32/</url>
     <content><![CDATA[<h1 id="第一章-导论"><a href="#第一章-导论" class="headerlink" title="第一章 导论"></a>第一章 导论</h1><blockquote>
@@ -1486,159 +1639,6 @@ A = U\Sigma V^T, \Sigma = \text{diag}(\sigma_1, \sigma_2, \cdots, \sigma_p)</scr
 <blockquote>
 <p><strong>附件下载：</strong> <a href="report.docx">📄 点击下载完整 Word 课程报告</a></p>
 </blockquote>
-]]></content>
-      <categories>
-        <category>华理</category>
-        <category>大三上</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>人工智能原理与应用</title>
-    <url>/2025/12/11/AI/</url>
-    <content><![CDATA[<h1 id="第一章-绪论"><a href="#第一章-绪论" class="headerlink" title="第一章 绪论"></a>第一章 绪论</h1><p>智能：智能指人类在认识客观世界中，由思维过程和脑<br>力活动所表现出的综合能力。</p>
-<h2 id="智能包含的能力"><a href="#智能包含的能力" class="headerlink" title="智能包含的能力"></a>智能包含的能力</h2><p>  <img src="2025-12-11-19-04-02.png" alt=""></p>
-<h2 id="AI的研究目标"><a href="#AI的研究目标" class="headerlink" title="AI的研究目标"></a>AI的研究目标</h2><p>  <img src="2025-12-11-19-05-39.png" alt=""></p>
-<h2 id="三大学派"><a href="#三大学派" class="headerlink" title="三大学派"></a>三大学派</h2><p>  <img src="2025-12-11-19-07-05.png" alt=""><br>  <img src="2025-12-11-19-07-54.png" alt=""></p>
-<h2 id="新的发展"><a href="#新的发展" class="headerlink" title="新的发展"></a>新的发展</h2><p>  <img src="2025-12-11-19-08-50.png" alt=""></p>
-<h2 id="智能模拟方法"><a href="#智能模拟方法" class="headerlink" title="智能模拟方法"></a>智能模拟方法</h2><p>  <img src="2025-12-11-19-12-03.png" alt=""></p>
-<h2 id="推理"><a href="#推理" class="headerlink" title="推理"></a>推理</h2><p>  <strong>推理</strong>：是指按照某种策略从已知事实出发利用知识推出所需结论的过程。<br>  <strong>推理方法</strong>：归纳、演绎、（不）确定性推理</p>
-<h2 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h2><p>  <strong>搜索</strong>：依靠经验，利用已有知识，根据问题的实际情况，不断寻找可利用知识，从而构造一条代价最小的推理路线，使问题得以解决的过程。<br>  <strong>智能搜索</strong>：利用搜索过程中得到的信息来引导搜索向最优方向发展的算法。</p>
-<h2 id="神经元（画图）"><a href="#神经元（画图）" class="headerlink" title="神经元（画图）"></a>神经元（画图）</h2><p>  <img src="2025-12-11-19-17-46.png" alt=""></p>
-<h2 id="大数据的特性："><a href="#大数据的特性：" class="headerlink" title="大数据的特性："></a>大数据的特性：</h2><ul>
-<li><strong>规模性、多样性、实时性、价值性</strong></li>
-</ul>
-<h2 id="机器视觉的流程：图像获取-rightarrow-图像解释"><a href="#机器视觉的流程：图像获取-rightarrow-图像解释" class="headerlink" title="机器视觉的流程：图像获取$\rightarrow$图像解释"></a>机器视觉的流程：图像获取$\rightarrow$图像解释</h2><p>  <img src="2025-12-11-19-20-13.png" alt=""></p>
-<h2 id="模式识别"><a href="#模式识别" class="headerlink" title="模式识别"></a>模式识别</h2><p>  <img src="2025-12-11-19-21-05.png" alt=""></p>
-<h2 id="自然语言处理"><a href="#自然语言处理" class="headerlink" title="自然语言处理"></a>自然语言处理</h2><p>  <img src="2025-12-11-19-21-26.png" alt=""></p>
-<h2 id="智能控制"><a href="#智能控制" class="headerlink" title="智能控制"></a>智能控制</h2><p>  <img src="2025-12-11-19-21-48.png" alt=""></p>
-<h2 id="人工智能工程"><a href="#人工智能工程" class="headerlink" title="人工智能工程"></a>人工智能工程</h2><p>  <img src="2025-12-11-19-23-37.png" alt=""><br>  <img src="2025-12-11-19-24-19.png" alt=""></p>
-<h2 id="人工智能面临的问题"><a href="#人工智能面临的问题" class="headerlink" title="人工智能面临的问题"></a>人工智能面临的问题</h2><ol>
-<li>道德伦理问题</li>
-<li>法律法规的制定问题</li>
-<li>安全问题（信息安全、交通安全、人身安全）</li>
-<li>稀缺数据资源条件下的学习</li>
-<li>目前人工智能属于弱人工智能</li>
-</ol>
-<h2 id="未来发展趋势"><a href="#未来发展趋势" class="headerlink" title="未来发展趋势"></a>未来发展趋势</h2><ol>
-<li>从专用智能向通用是能发展</li>
-<li>从人工智能向人机融合发展</li>
-<li>自动化AI技术</li>
-<li>AI药物的研发</li>
-<li>减少对数据的需求</li>
-<li>可解释性和鲁棒性</li>
-</ol>
-<h1 id="第二章-数学基础"><a href="#第二章-数学基础" class="headerlink" title="第二章 数学基础"></a>第二章 数学基础</h1><h2 id="向量的范数"><a href="#向量的范数" class="headerlink" title="向量的范数"></a>向量的范数</h2><p>1) 1-范数</p>
-<script type="math/tex; mode=display">\|\alpha\|_1 = |\alpha_1| + |\alpha_2| + \cdots + |\alpha_n|</script><p>2) 2-范数</p>
-<script type="math/tex; mode=display">\|\alpha\|_2 = \sqrt{\alpha_1^2 + \alpha_2^2 + \cdots + \alpha_n^2}</script><p>3) $\infty$-范数</p>
-<script type="math/tex; mode=display">\|\alpha\|_\infty = \max\{|\alpha_1|, |\alpha_2|, \cdots, |\alpha_n|\}</script><p>4) p-范数</p>
-<script type="math/tex; mode=display">\|\alpha\|_p = \left( \sum_{i=1}^{n} |\alpha_i|^p \right)^{1/p}, \quad p \ge 1</script><h2 id="矩阵的范数"><a href="#矩阵的范数" class="headerlink" title="矩阵的范数"></a>矩阵的范数</h2><p>1) Frobenius 范数 (F-范数)</p>
-<script type="math/tex; mode=display">\|X\|_F = \left( \sum_{i,j=1}^{n} |x_{ij}|^2 \right)^{1/2} = \left( tr(X^H X) \right)^{1/2}</script><p>2) 1-范数</p>
-<script type="math/tex; mode=display">\|X\|_1 = \max_{j} \sum_{i=1}^{n} |x_{ij}|</script><p>3) 2-范数</p>
-<script type="math/tex; mode=display">\|X\|_2 = \sqrt{\lambda} \text{，其中 } \lambda \text{ 为 } X^H X \text{ 的最大特征值}</script><p>4) $\infty$-范数</p>
-<script type="math/tex; mode=display">\|X\|_\infty = \max_{i} \sum_{j=1}^{n} |x_{ij}|</script><p>其中，$X^H$ 为 $X$ 的共轭转置矩阵。</p>
-<h1 id="第三章-确定性知识系统"><a href="#第三章-确定性知识系统" class="headerlink" title="第三章 确定性知识系统"></a>第三章 确定性知识系统</h1><ul>
-<li><strong>知识</strong>是改造客观世界中积累起来的认识和经验。</li>
-<li>知识 = 信息 + 关联</li>
-</ul>
-<h2 id="知识的类型"><a href="#知识的类型" class="headerlink" title="知识的类型"></a>知识的类型</h2><p><img src="2025-12-11-22-06-18.png" alt=""></p>
-<h2 id="知识的作用效果"><a href="#知识的作用效果" class="headerlink" title="知识的作用效果"></a>知识的作用效果</h2><p><img src="2025-12-11-22-08-05.png" alt=""></p>
-<h2 id="知识的表示要求"><a href="#知识的表示要求" class="headerlink" title="知识的表示要求"></a>知识的表示要求</h2><ul>
-<li>可组织性与可维护性</li>
-<li>可理解性与可实现性</li>
-</ul>
-<h2 id="知识的类型-1"><a href="#知识的类型-1" class="headerlink" title="知识的类型"></a>知识的类型</h2><p><img src="2025-12-11-22-15-11.png" alt=""></p>
-<h2 id="推理方法及其分类"><a href="#推理方法及其分类" class="headerlink" title="推理方法及其分类"></a>推理方法及其分类</h2><ol>
-<li>演绎推理：<br><img src="2025-12-11-22-17-36.png" alt=""></li>
-<li>归纳推理<br><img src="2025-12-11-22-22-55.png" alt=""><br><img src="2025-12-11-22-23-09.png" alt=""><br><strong>演绎推理 &amp; 归纳推理区别</strong>：<br><img src="2025-12-11-22-22-30.png" alt=""></li>
-</ol>
-<h2 id="推理控制策略"><a href="#推理控制策略" class="headerlink" title="推理控制策略"></a>推理控制策略</h2><ul>
-<li>推理的控制策略是使推理过程尽快达到目标。</li>
-<li>分为两类：推理策略和搜索策略</li>
-</ul>
-<p><strong>冲突消解策略</strong>：当推理过程有多条知识可用时，如何从这多条可用知识中选出一条<strong>最佳知识</strong>用于推理的策略，常用的冲突消解策略有<em>领域知识优先和新鲜知识优先</em>等。</p>
-<h1 id="第四章-不确定性知识系统"><a href="#第四章-不确定性知识系统" class="headerlink" title="第四章 不确定性知识系统"></a>第四章 不确定性知识系统</h1><h2 id="知识的不确定性表示"><a href="#知识的不确定性表示" class="headerlink" title="知识的不确定性表示"></a>知识的不确定性表示</h2><p><img src="2025-12-11-22-30-33.png" alt=""><br><img src="2025-12-11-22-30-45.png" alt=""></p>
-<h2 id="主观贝叶斯推理"><a href="#主观贝叶斯推理" class="headerlink" title="主观贝叶斯推理"></a>主观贝叶斯推理</h2><h2 id="贝叶斯网络原理"><a href="#贝叶斯网络原理" class="headerlink" title="贝叶斯网络原理"></a>贝叶斯网络原理</h2><p><img src="2025-12-11-22-31-50.png" alt=""></p>
-<h1 id="第五章-智能搜索技术"><a href="#第五章-智能搜索技术" class="headerlink" title="第五章 智能搜索技术"></a>第五章 智能搜索技术</h1><h2 id="状态空间问题的求解"><a href="#状态空间问题的求解" class="headerlink" title="状态空间问题的求解"></a>状态空间问题的求解</h2><p><img src="2025-12-12-18-20-32.png" alt=""><br><img src="2025-12-12-18-20-56.png" alt=""></p>
-<h2 id="与或树"><a href="#与或树" class="headerlink" title="与或树"></a>与或树</h2><ul>
-<li><strong>分解</strong>：$P 归纳为 P_i, P_i 都有解的时候，P 有解。$</li>
-<li><strong>等价变换</strong>：$P 可以等价变为 P_i，有一个 P_i 有解，P 有解。$</li>
-</ul>
-<p><img src="2025-12-12-18-28-38.png" alt=""></p>
-<ul>
-<li>本原问题：不能再进行分解或者变换，可以直接解答的问题</li>
-<li>端节点：没有子节点的节点</li>
-<li>终止节点：本原问题对应的节点 <em>（终止节点一定是端节点，端节点不一定是终止节点）</em></li>
-<li>可解问题：<ul>
-<li>任何终止节点</li>
-<li>或树中有一个可解</li>
-<li>与树中都有解</li>
-</ul>
-</li>
-</ul>
-<h2 id="进化搜索"><a href="#进化搜索" class="headerlink" title="进化搜索"></a>进化搜索</h2><p><img src="2025-12-12-18-36-12.png" alt=""><br><strong>进化计算的生物学基础</strong>：</p>
-<ol>
-<li>遗传理论</li>
-<li>变异理论</li>
-<li>进化论</li>
-</ol>
-<h2 id="启发式搜索"><a href="#启发式搜索" class="headerlink" title="启发式搜索"></a>启发式搜索</h2><p><img src="2025-12-12-18-38-36.png" alt=""></p>
-<ul>
-<li>八数码难题：</li>
-</ul>
-<p><img src="2025-12-12-18-39-09.png" alt=""></p>
-<h2 id="A-算法"><a href="#A-算法" class="headerlink" title="A 算法"></a>A 算法</h2><p><img src="2025-12-12-18-40-15.png" alt=""><br><img src="2025-12-12-18-41-00.png" alt=""><br><img src="2025-12-12-18-41-22.png" alt=""></p>
-<h2 id="与或树的启发式搜索"><a href="#与或树的启发式搜索" class="headerlink" title="与或树的启发式搜索"></a>与或树的启发式搜索</h2><p><img src="2025-12-12-18-41-55.png" alt=""></p>
-<h2 id="博弈树"><a href="#博弈树" class="headerlink" title="博弈树"></a>博弈树</h2><p><img src="2025-12-12-18-42-41.png" alt=""><br><img src="2025-12-12-18-43-02.png" alt=""></p>
-<h2 id="进化搜索（这一部分看PPT理解）"><a href="#进化搜索（这一部分看PPT理解）" class="headerlink" title="进化搜索（这一部分看PPT理解）"></a>进化搜索（这一部分看PPT理解）</h2><ul>
-<li>蚁群算法</li>
-<li>遗传算法</li>
-</ul>
-<ol>
-<li>基本步骤：<br><img src="2025-12-13-16-33-40.png" alt=""></li>
-<li>三角函数的遗传算法优化（重点看一下）（17-20课时）</li>
-<li>轮盘赌：<br><img src="2025-12-13-16-38-57.png" alt=""></li>
-</ol>
-<ul>
-<li>粒子群优化算法<br>看ppt（21-24课时），重点求解tsp问题的步骤。</li>
-</ul>
-<p><strong>群智能的优点</strong>：</p>
-<ol>
-<li>灵活性：群体可以随时适应变化的环境。</li>
-<li>稳健性：即使个体失败，群体仍可以完成任务；自我组织；活动既不受中央控制，也不受局部监督。</li>
-</ol>
-<h1 id="第六章-机器学习"><a href="#第六章-机器学习" class="headerlink" title="第六章 机器学习"></a>第六章 机器学习</h1><h2 id="信息熵与信息增益"><a href="#信息熵与信息增益" class="headerlink" title="信息熵与信息增益"></a>信息熵与信息增益</h2><p><img src="2025-12-13-16-44-14.png" alt=""><br><img src="2025-12-13-16-44-31.png" alt=""></p>
-<h2 id="ID3-算法"><a href="#ID3-算法" class="headerlink" title="ID3 算法"></a>ID3 算法</h2><ul>
-<li><strong>测试属性</strong>：<code>信息增益</code>  </li>
-</ul>
-<p><strong>具体计算流程</strong>：（设$C_1+C_2=D$）</p>
-<ol>
-<li><p><strong>计算不考虑特征的信息熵</strong>：</p>
-<script type="math/tex; mode=display">H(D) = -\sum_{k=1}^{K} p_k \log_2 p_k= -\sum_{k=1}^{K} \frac{|C_k|}{|D|} \log_2 \frac{|C_k|}{|D|}</script><p>其中 $|D|$ 为样本总数，$|C_k|$ 为属于第 $k$ 类的样本数(eg: <em>买/不买</em>)。</p>
-</li>
-<li><p><strong>计算条件熵</strong>：</p>
-<ul>
-<li>先选择一个 <strong>特征 $A_i$</strong>，将数据集 $D$ 根据特征 $A_i$ 的<strong>不同取值</strong>划分为 $n$ 个子集 $D_1, D_2, \dots, D_n$。</li>
-<li>计算特征 $A_i$ 下不同取值 $D_i$ 的信息熵 $H(D_i)$：<script type="math/tex; mode=display">H(D_i)= -\sum_{k=1}^{K} \frac{|C_k|}{|D_i|} \log_2 \frac{|C_k|}{|D_i|}</script>其中，$C_k$ 是在集合 $D_i$ 里的第 $k$ 种类别的数量 (eg: <em>买/不买</em>)。</li>
-<li>计算条件熵 $H(D|A_i)$：<script type="math/tex; mode=display">H(D|A_i) = \sum_{i=1}^{n} p_i H(D_i)= \sum_{i=1}^{n} \frac{|D_i|}{|D|} H(D_i)</script></li>
-</ul>
-</li>
-<li><p><strong>计算信息增益</strong>：</p>
-<script type="math/tex; mode=display">g(D, A_i) = H(D) - H(D|A_i)</script></li>
-<li><p><strong>特征选择</strong>：<br>选取 <strong>信息增益最大</strong> 的特征$A_i$作为当前的分裂节点（根节点或内部节点）。</p>
-</li>
-<li><p><strong>递归构建</strong>：<br>对子节点重复以上步骤，以此类推，直至分类完全（或满足停止条件）。</p>
-</li>
-</ol>
-<h2 id="集成学习（Boosting-Bagging）"><a href="#集成学习（Boosting-Bagging）" class="headerlink" title="集成学习（Boosting/Bagging）"></a>集成学习（Boosting/Bagging）</h2><p><img src="2025-12-13-16-47-29.png" alt=""><br><img src="2025-12-13-16-47-43.png" alt=""></p>
-<h2 id="回归的含义、思想"><a href="#回归的含义、思想" class="headerlink" title="回归的含义、思想"></a>回归的含义、思想</h2><p><img src="2025-12-13-16-50-09.png" alt=""><br><img src="2025-12-13-16-50-28.png" alt=""></p>
-<h2 id="总体回归函数"><a href="#总体回归函数" class="headerlink" title="总体回归函数"></a>总体回归函数</h2><p><img src="2025-12-13-16-51-14.png" alt=""><br><img src="2025-12-13-16-51-28.png" alt=""><br><img src="2025-12-13-16-51-39.png" alt=""></p>
-<h2 id="计算题：最小二乘估计-OLS"><a href="#计算题：最小二乘估计-OLS" class="headerlink" title="计算题：最小二乘估计 $OLS$"></a>计算题：最小二乘估计 $OLS$</h2><ul>
-<li>看ppt（25-28）</li>
-</ul>
-<h1 id="第七章-支持向量机"><a href="#第七章-支持向量机" class="headerlink" title="第七章 支持向量机"></a>第七章 支持向量机</h1><ul>
-<li>看模式识别的笔记。</li>
-</ul>
-<h1 id="第八章-人工神经网络与连接学习"><a href="#第八章-人工神经网络与连接学习" class="headerlink" title="第八章 人工神经网络与连接学习"></a>第八章 人工神经网络与连接学习</h1><p>后面看三个ppt吧。</p>
 ]]></content>
       <categories>
         <category>华理</category>
