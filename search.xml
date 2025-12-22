@@ -1,6 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>嵌入式系统原理</title>
+    <url>/2025/12/21/STM32/</url>
+    <content><![CDATA[<h1 id="第一章-导论"><a href="#第一章-导论" class="headerlink" title="第一章 导论"></a>第一章 导论</h1><blockquote>
+<p>嵌入式系统是一切非PC和大型计算机系统。</p>
+</blockquote>
+<h1 id="第二章-Cortex-M3-微处理器"><a href="#第二章-Cortex-M3-微处理器" class="headerlink" title="第二章 Cortex-M3 微处理器"></a>第二章 Cortex-M3 微处理器</h1><h2 id="1-内核结构"><a href="#1-内核结构" class="headerlink" title="1. 内核结构"></a>1. 内核结构</h2><ul>
+<li>核心架构：Cortex-M3 是基于 ARMv7-M 架构的 32 位处理器内核，采用高性能的<strong>哈佛结构</strong>，寻址能力为4GB。</li>
+</ul>
+<p><img src="2025-12-21-21-55-13.png" alt=""></p>
+<ul>
+<li>设计模式：ARM 公司设计内核，芯片制造商（如 ATMEL、NXP、TI）在此基础上添加不同的外设、存储器和 I/O，形成各类微控制器 (MCU)。</li>
+</ul>
+<h2 id="2-流水线技术"><a href="#2-流水线技术" class="headerlink" title="2. 流水线技术"></a>2. 流水线技术</h2><ul>
+<li>定义：将指令分解为多步并重叠执行，以实现并行处理。</li>
+</ul>
+<p><img src="2025-12-21-22-00-52.png" alt=""></p>
+<ul>
+<li>流水线技术三大指标：吞吐率、加速比、效率</li>
+</ul>
+<h3 id="（1）吞吐率"><a href="#（1）吞吐率" class="headerlink" title="（1）吞吐率"></a>（1）吞吐率</h3><ul>
+<li>单位时间内完成的指令条数<br><img src="2025-12-21-22-21-51.png" alt=""></li>
+<li>$流水时间 = 三个阶段总时间 + （指令条数 -1）\times 时间最长的阶段$</li>
+</ul>
+<p><strong>例题：</strong><br><img src="2025-12-21-22-24-19.png" alt=""></p>
+<h3 id="（2）加速比"><a href="#（2）加速比" class="headerlink" title="（2）加速比"></a>（2）加速比</h3><ul>
+<li>不使用流水线时间和使用流水线时间之比</li>
+</ul>
+<p>若流水线<strong>各段时间均为 $\Delta t$</strong>，流水线<strong>级数 $m$</strong>，<strong>指令数为 $n$</strong>：<br>分子：$nm\Delta t$<br>分母：$m\Delta t + (n-1)\Delta t$ <em>（流水线计算公式）</em><br>则加速比为：</p>
+<script type="math/tex; mode=display">S_p = \frac{nm\Delta t}{m\Delta t + (n-1)\Delta t}</script><p>注意：<strong>平衡的流水线效率更优</strong></p>
+<h2 id="3-系统总线"><a href="#3-系统总线" class="headerlink" title="3. 系统总线"></a>3. 系统总线</h2><ul>
+<li><strong>总线</strong>：计算机中，各个部件之间传送信息的公共通路</li>
+<li><strong>分类</strong>：数据总线、地址总线、控制总线</li>
+</ul>
+<h3 id="AMBA"><a href="#AMBA" class="headerlink" title="AMBA"></a>AMBA</h3><ul>
+<li>AMBA 是一种<strong>高级微控制器总线架构</strong><br>主要包含以下两种不同的标准：</li>
+</ul>
+<ol>
+<li>AHB（Advanced High-performance Bus）：高级高性能总线<ul>
+<li>多个主机和多个从机的连接<br><img src="2025-12-21-23-56-03.png" alt=""></li>
+<li>AHB-lite：单个主机和多个从机</li>
+</ul>
+</li>
+<li>APB（Advanced Peripheral Bus）：高级外设总线<ul>
+<li>低成本、低功耗、结构简单<br><img src="2025-12-21-23-54-52.png" alt=""></li>
+</ul>
+</li>
+</ol>
+<h3 id="Cortex-M3-总线结构"><a href="#Cortex-M3-总线结构" class="headerlink" title="Cortex-M3 总线结构"></a>Cortex-M3 总线结构</h3><p><img src="2025-12-21-23-52-52.png" alt=""></p>
+<h2 id="4-寄存器与储存结构"><a href="#4-寄存器与储存结构" class="headerlink" title="4. 寄存器与储存结构"></a>4. 寄存器与储存结构</h2><p><img src="2025-12-22-13-55-29.png" alt=""></p>
+<ul>
+<li><strong>堆栈</strong>：先进后出，由一块连续内存、一个栈顶指针组成</li>
+<li><strong>储存结构</strong>：Crtex-M3与外设<strong>统一编址</strong>，这种方式称为<strong>储存器地址映射</strong></li>
+</ul>
+<h2 id="5-工作模态"><a href="#5-工作模态" class="headerlink" title="5. 工作模态"></a>5. 工作模态</h2><h3 id="（1）两种模式与特权等级"><a href="#（1）两种模式与特权等级" class="headerlink" title="（1）两种模式与特权等级"></a>（1）两种模式与特权等级</h3><p><img src="2025-12-22-14-04-48.png" alt=""></p>
+<h3 id="（2）三种模态"><a href="#（2）三种模态" class="headerlink" title="（2）三种模态"></a>（2）三种模态</h3><p><img src="2025-12-22-14-06-26.png" alt=""></p>
+<h2 id="6-中断与异常"><a href="#6-中断与异常" class="headerlink" title="6. 中断与异常"></a>6. 中断与异常</h2><script type="math/tex; mode=display">
+保存现场（压栈）\rightarrow 取向量（查找 ISR 地址）\rightarrow 更新寄存器（跳入 ISR 执行）</script><h3 id="（1）中断悬起"><a href="#（1）中断悬起" class="headerlink" title="（1）中断悬起"></a>（1）中断悬起</h3><ul>
+<li>如果中断发生时，正在处理更高优先级异常/中断被屏蔽，此时<strong>中断被悬起</strong><br><img src="2025-12-22-14-12-58.png" alt=""><h3 id="（2）中断活跃"><a href="#（2）中断活跃" class="headerlink" title="（2）中断活跃"></a>（2）中断活跃</h3><img src="2025-12-22-14-15-04.png" alt=""><h3 id="（3）中断请求信号保持"><a href="#（3）中断请求信号保持" class="headerlink" title="（3）中断请求信号保持"></a>（3）中断请求信号保持</h3><img src="2025-12-22-14-16-00.png" alt=""></li>
+</ul>
+<h2 id="7-调试与跟踪"><a href="#7-调试与跟踪" class="headerlink" title="7. 调试与跟踪"></a>7. 调试与跟踪</h2><ul>
+<li>基于<strong>CoreSight</strong>架构实现以下两种模式<br><img src="2025-12-22-14-29-07.png" alt=""></li>
+<li>调试访问端口：DAP</li>
+<li>调试接口：DP（一端连接 DAP，一端连接到调试器）</li>
+<li>跟踪接口：CoreSight 架构还可以用于<strong>数据跟踪</strong></li>
+</ul>
+<h2 id="8-Cortex-M3-实用功能"><a href="#8-Cortex-M3-实用功能" class="headerlink" title="8. Cortex-M3 实用功能"></a>8. Cortex-M3 实用功能</h2><h3 id="（1）SysTick-定时器-SysTick-Timer"><a href="#（1）SysTick-定时器-SysTick-Timer" class="headerlink" title="（1）SysTick 定时器 (SysTick Timer)"></a>（1）SysTick 定时器 (SysTick Timer)</h3><p>SysTick 是集成在内核中的 24 位系统节拍定时器，对实时操作系统（RTOS）至关重要</p>
+<ul>
+<li><strong>基本机制</strong>：它是一个 24 位的倒计数定时器，当计数减到 0 时，会自动从 RELOAD 寄存器中重装定时初值 </li>
+<li><strong>运行状态</strong>：只要不清除 SysTick 控制及状态寄存器中的使能位，定时器就会持续运行 </li>
+<li><strong>核心寄存器</strong>：<ul>
+<li><strong>CTRL (0xE000E010)</strong>：控制和状态寄存器，用于设置时钟源、使能中断及查询计数标志 </li>
+<li><strong>RELOAD (0xE000E014)</strong>：重装载值寄存器，存储定时器溢出后自动加载的初值 </li>
+<li><strong>CURRENT (0xE000E018)</strong>：当前值寄存器，反映当前的计数值 </li>
+<li><strong>CALIB (0xE000E01C)</strong>：校准值寄存器，提供硬件参考时钟信息 </li>
+</ul>
+</li>
+<li><strong>主要用途</strong>：常用于产生操作系统所需的“滴答”中断，或作为基本的定时/计数工具 </li>
+</ul>
+<h3 id="（2）电源管理-Power-Management"><a href="#（2）电源管理-Power-Management" class="headerlink" title="（2）电源管理 (Power Management)"></a>（2）电源管理 (Power Management)</h3><p>Cortex-M3 在内核级别提供了功耗优化方案，支持两种主要的睡眠模式 </p>
+<ul>
+<li><strong>睡眠模式 (Sleep)</strong>：由内核的 <code>SLEEPING</code> 信号指示 </li>
+<li><strong>深度睡眠模式 (Deep Sleep)</strong>：由内核的 <code>SLEEPDEEP</code> 信号指示，用于更大幅度降低功耗 </li>
+<li><strong>唤醒机制</strong>：在睡眠状态下，系统时钟可以停止，但通常保持 FCLK 运行，以确保处理器能被 SysTick 异常或外部中断唤醒 </li>
+<li><strong>状态判定</strong>：开发者可以通过读取 NVIC（嵌套向量中断控制器）的相关系统控制寄存器来判定当前的睡眠模式及上下文 </li>
+</ul>
+<h3 id="（3）复位序列-Reset-Sequence"><a href="#（3）复位序列-Reset-Sequence" class="headerlink" title="（3）复位序列 (Reset Sequence)"></a>（3）复位序列 (Reset Sequence)</h3><p>复位是处理器通电或重启后的起始动作，Cortex-M3 有一套固定的操作流程来定栈和定位代码入口 </p>
+<ul>
+<li><strong>读取 MSP</strong>：处理器首先从地址 <code>0x00000000</code> 处读取 32 位整数，作为 <strong>主堆栈指针 (MSP)</strong> 的初始值，从而完成“定栈” </li>
+<li><strong>读取 PC</strong>：随后从地址 <code>0x00000004</code> 处读取 32 位整数，作为 <strong>程序计数器 (PC)</strong> 的初始值，即复位向量，决定代码执行的入口地址 </li>
+<li><strong>堆栈模型</strong>：在 Cortex-M3 中，堆栈是<strong>向下生长</strong>的（即从高地址向低地址方向压栈）</li>
+<li><strong>内存布局示例</strong>：例如复位向量指向地址 <code>0x00000101</code>，则处理器将从该处的启动引导代码开始运行 </li>
+</ul>
+]]></content>
+      <categories>
+        <category>华理</category>
+        <category>大三上</category>
+      </categories>
+  </entry>
+  <entry>
     <title>人工智能原理与应用</title>
     <url>/2025/12/11/AI/</url>
     <content><![CDATA[<h1 id="第一章-绪论"><a href="#第一章-绪论" class="headerlink" title="第一章 绪论"></a>第一章 绪论</h1><p>智能：智能指人类在认识客观世界中，由思维过程和脑<br>力活动所表现出的综合能力。</p>
@@ -147,105 +246,6 @@
 <li>看模式识别的笔记。</li>
 </ul>
 <h1 id="第八章-人工神经网络与连接学习"><a href="#第八章-人工神经网络与连接学习" class="headerlink" title="第八章 人工神经网络与连接学习"></a>第八章 人工神经网络与连接学习</h1><p>后面看三个ppt吧。</p>
-]]></content>
-      <categories>
-        <category>华理</category>
-        <category>大三上</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>嵌入式系统原理</title>
-    <url>/2025/12/21/STM32/</url>
-    <content><![CDATA[<h1 id="第一章-导论"><a href="#第一章-导论" class="headerlink" title="第一章 导论"></a>第一章 导论</h1><blockquote>
-<p>嵌入式系统是一切非PC和大型计算机系统。</p>
-</blockquote>
-<h1 id="第二章-Cortex-M3-微处理器"><a href="#第二章-Cortex-M3-微处理器" class="headerlink" title="第二章 Cortex-M3 微处理器"></a>第二章 Cortex-M3 微处理器</h1><h2 id="1-内核结构"><a href="#1-内核结构" class="headerlink" title="1. 内核结构"></a>1. 内核结构</h2><ul>
-<li>核心架构：Cortex-M3 是基于 ARMv7-M 架构的 32 位处理器内核，采用高性能的<strong>哈佛结构</strong>，寻址能力为4GB。</li>
-</ul>
-<p><img src="2025-12-21-21-55-13.png" alt=""></p>
-<ul>
-<li>设计模式：ARM 公司设计内核，芯片制造商（如 ATMEL、NXP、TI）在此基础上添加不同的外设、存储器和 I/O，形成各类微控制器 (MCU)。</li>
-</ul>
-<h2 id="2-流水线技术"><a href="#2-流水线技术" class="headerlink" title="2. 流水线技术"></a>2. 流水线技术</h2><ul>
-<li>定义：将指令分解为多步并重叠执行，以实现并行处理。</li>
-</ul>
-<p><img src="2025-12-21-22-00-52.png" alt=""></p>
-<ul>
-<li>流水线技术三大指标：吞吐率、加速比、效率</li>
-</ul>
-<h3 id="（1）吞吐率"><a href="#（1）吞吐率" class="headerlink" title="（1）吞吐率"></a>（1）吞吐率</h3><ul>
-<li>单位时间内完成的指令条数<br><img src="2025-12-21-22-21-51.png" alt=""></li>
-<li>$流水时间 = 三个阶段总时间 + （指令条数 -1）\times 时间最长的阶段$</li>
-</ul>
-<p><strong>例题：</strong><br><img src="2025-12-21-22-24-19.png" alt=""></p>
-<h3 id="（2）加速比"><a href="#（2）加速比" class="headerlink" title="（2）加速比"></a>（2）加速比</h3><ul>
-<li>不使用流水线时间和使用流水线时间之比</li>
-</ul>
-<p>若流水线<strong>各段时间均为 $\Delta t$</strong>，流水线<strong>级数 $m$</strong>，<strong>指令数为 $n$</strong>：<br>分子：$nm\Delta t$<br>分母：$m\Delta t + (n-1)\Delta t$ <em>（流水线计算公式）</em><br>则加速比为：</p>
-<script type="math/tex; mode=display">S_p = \frac{nm\Delta t}{m\Delta t + (n-1)\Delta t}</script><p>注意：<strong>平衡的流水线效率更优</strong></p>
-<h2 id="3-系统总线"><a href="#3-系统总线" class="headerlink" title="3. 系统总线"></a>3. 系统总线</h2><ul>
-<li><strong>总线</strong>：计算机中，各个部件之间传送信息的公共通路</li>
-<li><strong>分类</strong>：数据总线、地址总线、控制总线</li>
-</ul>
-<h3 id="AMBA"><a href="#AMBA" class="headerlink" title="AMBA"></a>AMBA</h3><ul>
-<li>AMBA 是一种<strong>高级微控制器总线架构</strong><br>主要包含以下两种不同的标准：</li>
-</ul>
-<ol>
-<li>AHB（Advanced High-performance Bus）：高级高性能总线<ul>
-<li>多个主机和多个从机的连接<br><img src="2025-12-21-23-56-03.png" alt=""></li>
-<li>AHB-lite：单个主机和多个从机</li>
-</ul>
-</li>
-<li>APB（Advanced Peripheral Bus）：高级外设总线<ul>
-<li>低成本、低功耗、结构简单<br><img src="2025-12-21-23-54-52.png" alt=""></li>
-</ul>
-</li>
-</ol>
-<h3 id="Cortex-M3-总线结构"><a href="#Cortex-M3-总线结构" class="headerlink" title="Cortex-M3 总线结构"></a>Cortex-M3 总线结构</h3><p><img src="2025-12-21-23-52-52.png" alt=""></p>
-<h2 id="4-寄存器与储存结构"><a href="#4-寄存器与储存结构" class="headerlink" title="4. 寄存器与储存结构"></a>4. 寄存器与储存结构</h2><p><img src="2025-12-22-13-55-29.png" alt=""></p>
-<ul>
-<li><strong>堆栈</strong>：先进后出，由一块连续内存、一个栈顶指针组成</li>
-<li><strong>储存结构</strong>：Crtex-M3与外设<strong>统一编址</strong>，这种方式称为<strong>储存器地址映射</strong></li>
-</ul>
-<h2 id="5-工作模态"><a href="#5-工作模态" class="headerlink" title="5. 工作模态"></a>5. 工作模态</h2><h3 id="（1）两种模式与特权等级"><a href="#（1）两种模式与特权等级" class="headerlink" title="（1）两种模式与特权等级"></a>（1）两种模式与特权等级</h3><p><img src="2025-12-22-14-04-48.png" alt=""></p>
-<h3 id="（2）三种模态"><a href="#（2）三种模态" class="headerlink" title="（2）三种模态"></a>（2）三种模态</h3><p><img src="2025-12-22-14-06-26.png" alt=""></p>
-<h2 id="6-中断与异常"><a href="#6-中断与异常" class="headerlink" title="6. 中断与异常"></a>6. 中断与异常</h2><script type="math/tex; mode=display">
-保存现场（压栈）\rightarrow 取向量（查找 ISR 地址）\rightarrow 更新寄存器（跳入 ISR 执行）</script><h3 id="（1）中断悬起"><a href="#（1）中断悬起" class="headerlink" title="（1）中断悬起"></a>（1）中断悬起</h3><ul>
-<li>如果中断发生时，正在处理更高优先级异常/中断被屏蔽，此时<strong>中断被悬起</strong><br><img src="2025-12-22-14-12-58.png" alt=""><h3 id="（2）中断活跃"><a href="#（2）中断活跃" class="headerlink" title="（2）中断活跃"></a>（2）中断活跃</h3><img src="2025-12-22-14-15-04.png" alt=""><h3 id="（3）中断请求信号保持"><a href="#（3）中断请求信号保持" class="headerlink" title="（3）中断请求信号保持"></a>（3）中断请求信号保持</h3><img src="2025-12-22-14-16-00.png" alt=""></li>
-</ul>
-<h2 id="7-调试与跟踪"><a href="#7-调试与跟踪" class="headerlink" title="7. 调试与跟踪"></a>7. 调试与跟踪</h2><ul>
-<li>基于<strong>CoreSight</strong>架构实现以下两种模式<br><img src="2025-12-22-14-29-07.png" alt=""></li>
-<li>调试访问端口：DAP</li>
-<li>调试接口：DP（一端连接 DAP，一端连接到调试器）</li>
-<li>跟踪接口：CoreSight 架构还可以用于<strong>数据跟踪</strong></li>
-</ul>
-<h2 id="8-Cortex-M3-实用功能"><a href="#8-Cortex-M3-实用功能" class="headerlink" title="8. Cortex-M3 实用功能"></a>8. Cortex-M3 实用功能</h2><h3 id="（1）SysTick-定时器-SysTick-Timer"><a href="#（1）SysTick-定时器-SysTick-Timer" class="headerlink" title="（1）SysTick 定时器 (SysTick Timer)"></a>（1）SysTick 定时器 (SysTick Timer)</h3><p>SysTick 是集成在内核中的 24 位系统节拍定时器，对实时操作系统（RTOS）至关重要</p>
-<ul>
-<li><strong>基本机制</strong>：它是一个 24 位的倒计数定时器，当计数减到 0 时，会自动从 RELOAD 寄存器中重装定时初值 </li>
-<li><strong>运行状态</strong>：只要不清除 SysTick 控制及状态寄存器中的使能位，定时器就会持续运行 </li>
-<li><strong>核心寄存器</strong>：<ul>
-<li><strong>CTRL (0xE000E010)</strong>：控制和状态寄存器，用于设置时钟源、使能中断及查询计数标志 </li>
-<li><strong>RELOAD (0xE000E014)</strong>：重装载值寄存器，存储定时器溢出后自动加载的初值 </li>
-<li><strong>CURRENT (0xE000E018)</strong>：当前值寄存器，反映当前的计数值 </li>
-<li><strong>CALIB (0xE000E01C)</strong>：校准值寄存器，提供硬件参考时钟信息 </li>
-</ul>
-</li>
-<li><strong>主要用途</strong>：常用于产生操作系统所需的“滴答”中断，或作为基本的定时/计数工具 </li>
-</ul>
-<h3 id="（2）电源管理-Power-Management"><a href="#（2）电源管理-Power-Management" class="headerlink" title="（2）电源管理 (Power Management)"></a>（2）电源管理 (Power Management)</h3><p>Cortex-M3 在内核级别提供了功耗优化方案，支持两种主要的睡眠模式 </p>
-<ul>
-<li><strong>睡眠模式 (Sleep)</strong>：由内核的 <code>SLEEPING</code> 信号指示 </li>
-<li><strong>深度睡眠模式 (Deep Sleep)</strong>：由内核的 <code>SLEEPDEEP</code> 信号指示，用于更大幅度降低功耗 </li>
-<li><strong>唤醒机制</strong>：在睡眠状态下，系统时钟可以停止，但通常保持 FCLK 运行，以确保处理器能被 SysTick 异常或外部中断唤醒 </li>
-<li><strong>状态判定</strong>：开发者可以通过读取 NVIC（嵌套向量中断控制器）的相关系统控制寄存器来判定当前的睡眠模式及上下文 </li>
-</ul>
-<h3 id="（3）复位序列-Reset-Sequence"><a href="#（3）复位序列-Reset-Sequence" class="headerlink" title="（3）复位序列 (Reset Sequence)"></a>（3）复位序列 (Reset Sequence)</h3><p>复位是处理器通电或重启后的起始动作，Cortex-M3 有一套固定的操作流程来定栈和定位代码入口 </p>
-<ul>
-<li><strong>读取 MSP</strong>：处理器首先从地址 <code>0x00000000</code> 处读取 32 位整数，作为 <strong>主堆栈指针 (MSP)</strong> 的初始值，从而完成“定栈” </li>
-<li><strong>读取 PC</strong>：随后从地址 <code>0x00000004</code> 处读取 32 位整数，作为 <strong>程序计数器 (PC)</strong> 的初始值，即复位向量，决定代码执行的入口地址 </li>
-<li><strong>堆栈模型</strong>：在 Cortex-M3 中，堆栈是<strong>向下生长</strong>的（即从高地址向低地址方向压栈）</li>
-<li><strong>内存布局示例</strong>：例如复位向量指向地址 <code>0x00000101</code>，则处理器将从该处的启动引导代码开始运行 </li>
-</ul>
 ]]></content>
       <categories>
         <category>华理</category>
