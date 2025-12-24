@@ -154,6 +154,17 @@
       </categories>
   </entry>
   <entry>
+    <title>智能无人系统</title>
+    <url>/2025/12/24/AutoDriving/</url>
+    <content><![CDATA[<h1 id="第一章-认识无人驾驶系统"><a href="#第一章-认识无人驾驶系统" class="headerlink" title="第一章 认识无人驾驶系统"></a>第一章 认识无人驾驶系统</h1><h2 id="1-无人驾驶分级标准"><a href="#1-无人驾驶分级标准" class="headerlink" title="1. 无人驾驶分级标准"></a>1. 无人驾驶分级标准</h2><p><img src="2025-12-24-05-17-53.png" alt=""><br><img src="2025-12-24-05-18-20.png" alt=""></p>
+<h2 id="2-无人驾驶系统框架"><a href="#2-无人驾驶系统框架" class="headerlink" title="2. 无人驾驶系统框架"></a>2. 无人驾驶系统框架</h2><p><img src="2025-12-24-05-23-00.png" alt=""></p>
+<h1 id="第二章-定位方法-amp-传感器应用"><a href="#第二章-定位方法-amp-传感器应用" class="headerlink" title="第二章 定位方法 &amp; 传感器应用"></a>第二章 定位方法 &amp; 传感器应用</h1>]]></content>
+      <categories>
+        <category>华理</category>
+        <category>大三上</category>
+      </categories>
+  </entry>
+  <entry>
     <title>嵌入式系统原理</title>
     <url>/2025/12/21/STM32/</url>
     <content><![CDATA[<h1 id="第一章-导论"><a href="#第一章-导论" class="headerlink" title="第一章 导论"></a>第一章 导论</h1><blockquote>
