@@ -1,773 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>人工智能原理与应用</title>
-    <url>/2025/12/11/AI/</url>
-    <content><![CDATA[<h1 id="第一章-绪论"><a href="#第一章-绪论" class="headerlink" title="第一章 绪论"></a>第一章 绪论</h1><p>智能：智能指人类在认识客观世界中，由思维过程和脑<br>力活动所表现出的综合能力。</p>
-<h2 id="智能包含的能力"><a href="#智能包含的能力" class="headerlink" title="智能包含的能力"></a>智能包含的能力</h2><p>  <img src="2025-12-11-19-04-02.png" alt=""></p>
-<h2 id="AI的研究目标"><a href="#AI的研究目标" class="headerlink" title="AI的研究目标"></a>AI的研究目标</h2><p>  <img src="2025-12-11-19-05-39.png" alt=""></p>
-<h2 id="三大学派"><a href="#三大学派" class="headerlink" title="三大学派"></a>三大学派</h2><p>  <img src="2025-12-11-19-07-05.png" alt=""><br>  <img src="2025-12-11-19-07-54.png" alt=""></p>
-<h2 id="新的发展"><a href="#新的发展" class="headerlink" title="新的发展"></a>新的发展</h2><p>  <img src="2025-12-11-19-08-50.png" alt=""></p>
-<h2 id="智能模拟方法"><a href="#智能模拟方法" class="headerlink" title="智能模拟方法"></a>智能模拟方法</h2><p>  <img src="2025-12-11-19-12-03.png" alt=""></p>
-<h2 id="推理"><a href="#推理" class="headerlink" title="推理"></a>推理</h2><p>  <strong>推理</strong>：是指按照某种策略从已知事实出发利用知识推出所需结论的过程。<br>  <strong>推理方法</strong>：归纳、演绎、（不）确定性推理</p>
-<h2 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h2><p>  <strong>搜索</strong>：依靠经验，利用已有知识，根据问题的实际情况，不断寻找可利用知识，从而构造一条代价最小的推理路线，使问题得以解决的过程。<br>  <strong>智能搜索</strong>：利用搜索过程中得到的信息来引导搜索向最优方向发展的算法。</p>
-<h2 id="神经元（画图）"><a href="#神经元（画图）" class="headerlink" title="神经元（画图）"></a>神经元（画图）</h2><p>  <img src="2025-12-11-19-17-46.png" alt=""></p>
-<h2 id="大数据的特性："><a href="#大数据的特性：" class="headerlink" title="大数据的特性："></a>大数据的特性：</h2><ul>
-<li><strong>规模性、多样性、实时性、价值性</strong></li>
-</ul>
-<h2 id="机器视觉的流程：图像获取-rightarrow-图像解释"><a href="#机器视觉的流程：图像获取-rightarrow-图像解释" class="headerlink" title="机器视觉的流程：图像获取$\rightarrow$图像解释"></a>机器视觉的流程：图像获取$\rightarrow$图像解释</h2><p>  <img src="2025-12-11-19-20-13.png" alt=""></p>
-<h2 id="模式识别"><a href="#模式识别" class="headerlink" title="模式识别"></a>模式识别</h2><p>  <img src="2025-12-11-19-21-05.png" alt=""></p>
-<h2 id="自然语言处理"><a href="#自然语言处理" class="headerlink" title="自然语言处理"></a>自然语言处理</h2><p>  <img src="2025-12-11-19-21-26.png" alt=""></p>
-<h2 id="智能控制"><a href="#智能控制" class="headerlink" title="智能控制"></a>智能控制</h2><p>  <img src="2025-12-11-19-21-48.png" alt=""></p>
-<h2 id="人工智能工程"><a href="#人工智能工程" class="headerlink" title="人工智能工程"></a>人工智能工程</h2><p>  <img src="2025-12-11-19-23-37.png" alt=""><br>  <img src="2025-12-11-19-24-19.png" alt=""></p>
-<h2 id="人工智能面临的问题"><a href="#人工智能面临的问题" class="headerlink" title="人工智能面临的问题"></a>人工智能面临的问题</h2><ol>
-<li>道德伦理问题</li>
-<li>法律法规的制定问题</li>
-<li>安全问题（信息安全、交通安全、人身安全）</li>
-<li>稀缺数据资源条件下的学习</li>
-<li>目前人工智能属于弱人工智能</li>
-</ol>
-<h2 id="未来发展趋势"><a href="#未来发展趋势" class="headerlink" title="未来发展趋势"></a>未来发展趋势</h2><ol>
-<li>从专用智能向通用是能发展</li>
-<li>从人工智能向人机融合发展</li>
-<li>自动化AI技术</li>
-<li>AI药物的研发</li>
-<li>减少对数据的需求</li>
-<li>可解释性和鲁棒性</li>
-</ol>
-<h1 id="第二章-数学基础"><a href="#第二章-数学基础" class="headerlink" title="第二章 数学基础"></a>第二章 数学基础</h1><h2 id="向量的范数"><a href="#向量的范数" class="headerlink" title="向量的范数"></a>向量的范数</h2><p>1) 1-范数</p>
-<script type="math/tex; mode=display">\|\alpha\|_1 = |\alpha_1| + |\alpha_2| + \cdots + |\alpha_n|</script><p>2) 2-范数</p>
-<script type="math/tex; mode=display">\|\alpha\|_2 = \sqrt{\alpha_1^2 + \alpha_2^2 + \cdots + \alpha_n^2}</script><p>3) $\infty$-范数</p>
-<script type="math/tex; mode=display">\|\alpha\|_\infty = \max\{|\alpha_1|, |\alpha_2|, \cdots, |\alpha_n|\}</script><p>4) p-范数</p>
-<script type="math/tex; mode=display">\|\alpha\|_p = \left( \sum_{i=1}^{n} |\alpha_i|^p \right)^{1/p}, \quad p \ge 1</script><h2 id="矩阵的范数"><a href="#矩阵的范数" class="headerlink" title="矩阵的范数"></a>矩阵的范数</h2><p>1) Frobenius 范数 (F-范数)</p>
-<script type="math/tex; mode=display">\|X\|_F = \left( \sum_{i,j=1}^{n} |x_{ij}|^2 \right)^{1/2} = \left( tr(X^H X) \right)^{1/2}</script><p>2) 1-范数</p>
-<script type="math/tex; mode=display">\|X\|_1 = \max_{j} \sum_{i=1}^{n} |x_{ij}|</script><p>3) 2-范数</p>
-<script type="math/tex; mode=display">\|X\|_2 = \sqrt{\lambda} \text{，其中 } \lambda \text{ 为 } X^H X \text{ 的最大特征值}</script><p>4) $\infty$-范数</p>
-<script type="math/tex; mode=display">\|X\|_\infty = \max_{i} \sum_{j=1}^{n} |x_{ij}|</script><p>其中，$X^H$ 为 $X$ 的共轭转置矩阵。</p>
-<h1 id="第三章-确定性知识系统"><a href="#第三章-确定性知识系统" class="headerlink" title="第三章 确定性知识系统"></a>第三章 确定性知识系统</h1><ul>
-<li><strong>知识</strong>是改造客观世界中积累起来的认识和经验。</li>
-<li>知识 = 信息 + 关联</li>
-</ul>
-<h2 id="知识的类型"><a href="#知识的类型" class="headerlink" title="知识的类型"></a>知识的类型</h2><p><img src="2025-12-11-22-06-18.png" alt=""></p>
-<h2 id="知识的作用效果"><a href="#知识的作用效果" class="headerlink" title="知识的作用效果"></a>知识的作用效果</h2><p><img src="2025-12-11-22-08-05.png" alt=""></p>
-<h2 id="知识的表示要求"><a href="#知识的表示要求" class="headerlink" title="知识的表示要求"></a>知识的表示要求</h2><ul>
-<li>可组织性与可维护性</li>
-<li>可理解性与可实现性</li>
-</ul>
-<h2 id="知识的类型-1"><a href="#知识的类型-1" class="headerlink" title="知识的类型"></a>知识的类型</h2><p><img src="2025-12-11-22-15-11.png" alt=""></p>
-<h2 id="推理方法及其分类"><a href="#推理方法及其分类" class="headerlink" title="推理方法及其分类"></a>推理方法及其分类</h2><ol>
-<li>演绎推理：<br><img src="2025-12-11-22-17-36.png" alt=""></li>
-<li>归纳推理<br><img src="2025-12-11-22-22-55.png" alt=""><br><img src="2025-12-11-22-23-09.png" alt=""><br><strong>演绎推理 &amp; 归纳推理区别</strong>：<br><img src="2025-12-11-22-22-30.png" alt=""></li>
-</ol>
-<h2 id="推理控制策略"><a href="#推理控制策略" class="headerlink" title="推理控制策略"></a>推理控制策略</h2><ul>
-<li>推理的控制策略是使推理过程尽快达到目标。</li>
-<li>分为两类：推理策略和搜索策略</li>
-</ul>
-<p><strong>冲突消解策略</strong>：当推理过程有多条知识可用时，如何从这多条可用知识中选出一条<strong>最佳知识</strong>用于推理的策略，常用的冲突消解策略有<em>领域知识优先和新鲜知识优先</em>等。</p>
-<h1 id="第四章-不确定性知识系统"><a href="#第四章-不确定性知识系统" class="headerlink" title="第四章 不确定性知识系统"></a>第四章 不确定性知识系统</h1><h2 id="知识的不确定性表示"><a href="#知识的不确定性表示" class="headerlink" title="知识的不确定性表示"></a>知识的不确定性表示</h2><p><img src="2025-12-11-22-30-33.png" alt=""><br><img src="2025-12-11-22-30-45.png" alt=""></p>
-<h2 id="主观贝叶斯推理"><a href="#主观贝叶斯推理" class="headerlink" title="主观贝叶斯推理"></a>主观贝叶斯推理</h2><h2 id="贝叶斯网络原理"><a href="#贝叶斯网络原理" class="headerlink" title="贝叶斯网络原理"></a>贝叶斯网络原理</h2><p><img src="2025-12-11-22-31-50.png" alt=""></p>
-<h1 id="第五章-智能搜索技术"><a href="#第五章-智能搜索技术" class="headerlink" title="第五章 智能搜索技术"></a>第五章 智能搜索技术</h1><h2 id="状态空间问题的求解"><a href="#状态空间问题的求解" class="headerlink" title="状态空间问题的求解"></a>状态空间问题的求解</h2><p><img src="2025-12-12-18-20-32.png" alt=""><br><img src="2025-12-12-18-20-56.png" alt=""></p>
-<h2 id="与或树"><a href="#与或树" class="headerlink" title="与或树"></a>与或树</h2><ul>
-<li><strong>分解</strong>：$P 归纳为 P_i, P_i 都有解的时候，P 有解。$</li>
-<li><strong>等价变换</strong>：$P 可以等价变为 P_i，有一个 P_i 有解，P 有解。$</li>
-</ul>
-<p><img src="2025-12-12-18-28-38.png" alt=""></p>
-<ul>
-<li>本原问题：不能再进行分解或者变换，可以直接解答的问题</li>
-<li>端节点：没有子节点的节点</li>
-<li>终止节点：本原问题对应的节点 <em>（终止节点一定是端节点，端节点不一定是终止节点）</em></li>
-<li>可解问题：<ul>
-<li>任何终止节点</li>
-<li>或树中有一个可解</li>
-<li>与树中都有解</li>
-</ul>
-</li>
-</ul>
-<h2 id="进化搜索"><a href="#进化搜索" class="headerlink" title="进化搜索"></a>进化搜索</h2><p><img src="2025-12-12-18-36-12.png" alt=""><br><strong>进化计算的生物学基础</strong>：</p>
-<ol>
-<li>遗传理论</li>
-<li>变异理论</li>
-<li>进化论</li>
-</ol>
-<h2 id="启发式搜索"><a href="#启发式搜索" class="headerlink" title="启发式搜索"></a>启发式搜索</h2><p><img src="2025-12-12-18-38-36.png" alt=""></p>
-<ul>
-<li>八数码难题：</li>
-</ul>
-<p><img src="2025-12-12-18-39-09.png" alt=""></p>
-<h2 id="A-算法"><a href="#A-算法" class="headerlink" title="A 算法"></a>A 算法</h2><p><img src="2025-12-12-18-40-15.png" alt=""><br><img src="2025-12-12-18-41-00.png" alt=""><br><img src="2025-12-12-18-41-22.png" alt=""></p>
-<h2 id="与或树的启发式搜索"><a href="#与或树的启发式搜索" class="headerlink" title="与或树的启发式搜索"></a>与或树的启发式搜索</h2><p><img src="2025-12-12-18-41-55.png" alt=""></p>
-<h2 id="博弈树"><a href="#博弈树" class="headerlink" title="博弈树"></a>博弈树</h2><p><img src="2025-12-12-18-42-41.png" alt=""><br><img src="2025-12-12-18-43-02.png" alt=""></p>
-<h2 id="进化搜索（这一部分看PPT理解）"><a href="#进化搜索（这一部分看PPT理解）" class="headerlink" title="进化搜索（这一部分看PPT理解）"></a>进化搜索（这一部分看PPT理解）</h2><ul>
-<li>蚁群算法</li>
-<li>遗传算法</li>
-</ul>
-<ol>
-<li>基本步骤：<br><img src="2025-12-13-16-33-40.png" alt=""></li>
-<li>三角函数的遗传算法优化（重点看一下）（17-20课时）</li>
-<li>轮盘赌：<br><img src="2025-12-13-16-38-57.png" alt=""></li>
-</ol>
-<ul>
-<li>粒子群优化算法<br>看ppt（21-24课时），重点求解tsp问题的步骤。</li>
-</ul>
-<p><strong>群智能的优点</strong>：</p>
-<ol>
-<li>灵活性：群体可以随时适应变化的环境。</li>
-<li>稳健性：即使个体失败，群体仍可以完成任务；自我组织；活动既不受中央控制，也不受局部监督。</li>
-</ol>
-<h1 id="第六章-机器学习"><a href="#第六章-机器学习" class="headerlink" title="第六章 机器学习"></a>第六章 机器学习</h1><h2 id="信息熵与信息增益"><a href="#信息熵与信息增益" class="headerlink" title="信息熵与信息增益"></a>信息熵与信息增益</h2><p><img src="2025-12-13-16-44-14.png" alt=""><br><img src="2025-12-13-16-44-31.png" alt=""></p>
-<h2 id="ID3-算法"><a href="#ID3-算法" class="headerlink" title="ID3 算法"></a>ID3 算法</h2><ul>
-<li><strong>测试属性</strong>：<code>信息增益</code>  </li>
-</ul>
-<p><strong>具体计算流程</strong>：（设$C_1+C_2=D$）</p>
-<ol>
-<li><p><strong>计算不考虑特征的信息熵</strong>：</p>
-<script type="math/tex; mode=display">H(D) = -\sum_{k=1}^{K} p_k \log_2 p_k= -\sum_{k=1}^{K} \frac{|C_k|}{|D|} \log_2 \frac{|C_k|}{|D|}</script><p>其中 $|D|$ 为样本总数，$|C_k|$ 为属于第 $k$ 类的样本数(eg: <em>买/不买</em>)。</p>
-</li>
-<li><p><strong>计算条件熵</strong>：</p>
-<ul>
-<li>先选择一个 <strong>特征 $A_i$</strong>，将数据集 $D$ 根据特征 $A_i$ 的<strong>不同取值</strong>划分为 $n$ 个子集 $D_1, D_2, \dots, D_n$。</li>
-<li>计算特征 $A_i$ 下不同取值 $D_i$ 的信息熵 $H(D_i)$：<script type="math/tex; mode=display">H(D_i)= -\sum_{k=1}^{K} \frac{|C_k|}{|D_i|} \log_2 \frac{|C_k|}{|D_i|}</script>其中，$C_k$ 是在集合 $D_i$ 里的第 $k$ 种类别的数量 (eg: <em>买/不买</em>)。</li>
-<li>计算条件熵 $H(D|A_i)$：<script type="math/tex; mode=display">H(D|A_i) = \sum_{i=1}^{n} p_i H(D_i)= \sum_{i=1}^{n} \frac{|D_i|}{|D|} H(D_i)</script></li>
-</ul>
-</li>
-<li><p><strong>计算信息增益</strong>：</p>
-<script type="math/tex; mode=display">g(D, A_i) = H(D) - H(D|A_i)</script></li>
-<li><p><strong>特征选择</strong>：<br>选取 <strong>信息增益最大</strong> 的特征$A_i$作为当前的分裂节点（根节点或内部节点）。</p>
-</li>
-<li><p><strong>递归构建</strong>：<br>对子节点重复以上步骤，以此类推，直至分类完全（或满足停止条件）。</p>
-</li>
-</ol>
-<h2 id="集成学习（Boosting-Bagging）"><a href="#集成学习（Boosting-Bagging）" class="headerlink" title="集成学习（Boosting/Bagging）"></a>集成学习（Boosting/Bagging）</h2><p><img src="2025-12-13-16-47-29.png" alt=""><br><img src="2025-12-13-16-47-43.png" alt=""></p>
-<h2 id="回归的含义、思想"><a href="#回归的含义、思想" class="headerlink" title="回归的含义、思想"></a>回归的含义、思想</h2><p><img src="2025-12-13-16-50-09.png" alt=""><br><img src="2025-12-13-16-50-28.png" alt=""></p>
-<h2 id="总体回归函数"><a href="#总体回归函数" class="headerlink" title="总体回归函数"></a>总体回归函数</h2><p><img src="2025-12-13-16-51-14.png" alt=""><br><img src="2025-12-13-16-51-28.png" alt=""><br><img src="2025-12-13-16-51-39.png" alt=""></p>
-<h2 id="计算题：最小二乘估计-OLS"><a href="#计算题：最小二乘估计-OLS" class="headerlink" title="计算题：最小二乘估计 $OLS$"></a>计算题：最小二乘估计 $OLS$</h2><ul>
-<li>看ppt（25-28）</li>
-</ul>
-<h1 id="第七章-支持向量机"><a href="#第七章-支持向量机" class="headerlink" title="第七章 支持向量机"></a>第七章 支持向量机</h1><ul>
-<li>看模式识别的笔记。</li>
-</ul>
-<h1 id="第八章-人工神经网络与连接学习"><a href="#第八章-人工神经网络与连接学习" class="headerlink" title="第八章 人工神经网络与连接学习"></a>第八章 人工神经网络与连接学习</h1><p>后面看三个ppt吧。</p>
-]]></content>
-      <categories>
-        <category>华理</category>
-        <category>大三上</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>智能无人系统</title>
-    <url>/2025/12/24/AutoDriving/</url>
-    <content><![CDATA[<h1 id="第一章-认识无人驾驶系统"><a href="#第一章-认识无人驾驶系统" class="headerlink" title="第一章 认识无人驾驶系统"></a>第一章 认识无人驾驶系统</h1><h2 id="1-无人驾驶分级标准"><a href="#1-无人驾驶分级标准" class="headerlink" title="1. 无人驾驶分级标准"></a>1. 无人驾驶分级标准</h2><p><img src="2025-12-24-05-17-53.png" alt=""><br><img src="2025-12-24-05-18-20.png" alt=""></p>
-<h2 id="2-无人驾驶系统框架"><a href="#2-无人驾驶系统框架" class="headerlink" title="2. 无人驾驶系统框架"></a>2. 无人驾驶系统框架</h2><p><img src="2025-12-24-05-23-00.png" alt=""></p>
-<h1 id="第二章-定位方法以及传感器应用"><a href="#第二章-定位方法以及传感器应用" class="headerlink" title="第二章 定位方法以及传感器应用"></a>第二章 定位方法以及传感器应用</h1><blockquote>
-<p><strong>章节核心逻辑</strong>：无人驾驶系统如何解决两个终极问题？</p>
-<ol>
-<li><strong>“感官”</strong>：用传感器感知周围环境（雷达、相机）。</li>
-<li><strong>“大脑”</strong>：用算法（定位、滤波）确定自己在哪、状态如何。</li>
-</ol>
-</blockquote>
-<p><strong>SLAN</strong>：同步定位与地图构建。主要有：激光SLAN &amp; 视觉SLAN</p>
-<h2 id="第一部分：硬件传感器"><a href="#第一部分：硬件传感器" class="headerlink" title="第一部分：硬件传感器"></a>第一部分：硬件传感器</h2><h3 id="1-激光雷达（激光SLAN）"><a href="#1-激光雷达（激光SLAN）" class="headerlink" title="1. 激光雷达（激光SLAN）"></a>1. 激光雷达（激光SLAN）</h3><ul>
-<li><strong>原理</strong>：<strong>飞行时间法 (ToF)</strong>。发射激光束，计算往返时间测距。<ul>
-<li>公式：$r = \frac{1}{2} c t$</li>
-</ul>
-</li>
-<li><strong>特性</strong>：<ul>
-<li>3D激光雷达采集到的信息叫做<strong>点云</strong>。将点云与全局地图进行迭代匹配（ICP）</li>
-<li>✅ <strong>精度极高</strong>，测距远，分辨率高，隐蔽性好，抗干扰能力强</li>
-<li>❌ <strong>成本高</strong>，易受<strong>雨雪雾</strong>天气干扰（噪声大）</li>
-</ul>
-</li>
-<li><strong>考点</strong>：它是L4/L5级自动驾驶的核心传感器。</li>
-</ul>
-<h3 id="2-摄像头"><a href="#2-摄像头" class="headerlink" title="2. 摄像头"></a>2. 摄像头</h3><ul>
-<li><strong>原理</strong>：被动接收环境光。</li>
-<li><strong>分类与应用</strong> (🎯 <strong>学长考题重点</strong>)：<ul>
-<li><strong>单目 (Monocular)</strong>：前视感知，识别人、车、车道线、红绿灯。</li>
-<li><strong>双目 (Stereo)</strong>：通过视差原理测距。</li>
-<li><strong>鱼眼 (Fisheye)</strong>：<strong>视野极大 (&gt;180°)</strong>，专门用于<strong>倒车影像、360°环视</strong>（图像有畸变）。</li>
-</ul>
-</li>
-<li><strong>特性</strong>：<ul>
-<li>✅ 纹理信息丰富，便宜。</li>
-<li>❌ 受光照影响大（逆光、黑夜致盲），测距精度不如雷达。</li>
-</ul>
-</li>
-</ul>
-<h3 id="3-毫米波雷达"><a href="#3-毫米波雷达" class="headerlink" title="3. 毫米波雷达"></a>3. 毫米波雷达</h3><ul>
-<li><strong>原理</strong>：多普勒效应。</li>
-<li><strong>特性</strong>：<ul>
-<li>✅ <strong>穿透力强</strong>（无视雨雪雾），<strong>测速</strong>特别准。</li>
-<li>❌ 分辨率低（看不清物体轮廓，只能知道“有东西”）。</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="第二部分：定位算法"><a href="#第二部分：定位算法" class="headerlink" title="第二部分：定位算法"></a>第二部分：定位算法</h2><h3 id="1-激光SLAN：ICP-vs-NDT-⭐⭐⭐-必考对比"><a href="#1-激光SLAN：ICP-vs-NDT-⭐⭐⭐-必考对比" class="headerlink" title="1. 激光SLAN：ICP vs NDT (⭐⭐⭐ 必考对比)"></a>1. 激光SLAN：ICP vs NDT (⭐⭐⭐ 必考对比)</h3><p><strong>（1）ICP</strong>：</p>
-<p><img src="2025-12-27-12-37-38.png" alt=""><br><img src="2025-12-27-12-43-15.png" alt=""></p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left">优点</th>
-<th style="text-align:left">缺点</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">效果精确</td>
-<td style="text-align:left">耗时大，效率低</td>
-</tr>
-<tr>
-<td style="text-align:left">不必数据处理</td>
-<td style="text-align:left">可能陷入局部最优</td>
-</tr>
-<tr>
-<td style="text-align:left">较好收敛性</td>
-<td style="text-align:left">需要噪声处理</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><strong>（2）NDT</strong>：</p>
-<p><img src="2025-12-27-12-55-49.png" alt=""><br><img src="2025-12-27-13-26-05.png" alt=""></p>
-<p><strong>总结</strong>：<br><em>把“刚才看到的”（实时点云）和“记忆中的”（高精地图）拼在一起。</em></p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left">特性</th>
-<th style="text-align:left"><strong>ICP (迭代最近点)</strong></th>
-<th style="text-align:left"><strong>NDT (正态分布变换)</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><strong>通俗理解</strong></td>
-<td style="text-align:left"><strong>硬碰硬</strong>。每个点都去找地图上离它最近的点，强行拉近。</td>
-<td style="text-align:left"><strong>概率流</strong>。把地图划成格子，看现在的点落在哪个概率最高的格子里。</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>核心原理</strong></td>
-<td style="text-align:left">最小化点对点欧氏距离。</td>
-<td style="text-align:left">计算网格内的高斯概率密度函数 (PDF)。</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>优点</strong></td>
-<td style="text-align:left">精度极高（前提是初值给得好）。</td>
-<td style="text-align:left"><strong>速度快</strong>，<strong>鲁棒性强</strong>（容错率高，初值差一点也能对上）。</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>缺点</strong></td>
-<td style="text-align:left">慢，容易拼错（陷入局部最优）。</td>
-<td style="text-align:left">精度略逊于精细的ICP。</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="2-视觉SLAM"><a href="#2-视觉SLAM" class="headerlink" title="2. 视觉SLAM"></a>2. 视觉SLAM</h3><p><img src="2025-12-27-14-30-03.png" alt=""></p>
-<ul>
-<li><strong>视觉前端特征</strong> (🎯 <strong>填空题重点</strong>)：<ul>
-<li><strong>角点 (Corner)</strong>：如 Harris, FAST。</li>
-<li><strong>斑点 (Blob)</strong>：如 SIFT（最准最慢）。</li>
-<li><strong>ORB特征</strong>：<strong>Oriented FAST</strong> (带方向角点) + <strong>BRIEF</strong> (二进制描述子)。<strong>速度极快</strong>，适合实时系统。</li>
-</ul>
-</li>
-<li><strong>回环检测 (Loop Closure)</strong>：<ul>
-<li>利用<strong>词袋模型 (BoW)</strong> 判断“我是否来过这里”，消除累积误差。</li>
-</ul>
-</li>
-</ul>
-<p><img src="2025-12-27-14-29-13.png" alt=""><br><img src="2025-12-27-14-29-25.png" alt=""></p>
-<h2 id="第三部分：定位系统"><a href="#第三部分：定位系统" class="headerlink" title="第三部分：定位系统"></a>第三部分：定位系统</h2><h3 id="1-坐标系转换-⚠️-判断题陷阱"><a href="#1-坐标系转换-⚠️-判断题陷阱" class="headerlink" title="1. 坐标系转换 (⚠️ 判断题陷阱)"></a>1. 坐标系转换 (⚠️ 判断题陷阱)</h3><p><img src="2025-12-27-13-04-52.png" alt=""><br><img src="2025-12-27-13-05-50.png" alt=""></p>
-<ul>
-<li><strong>转换链条</strong>：<br>  <code>GPS输出的经纬度信息</code> $\rightarrow$ <code>ECEF (地心地固)</code> $\rightarrow$ <code>导航坐标系 (ENU/NED)</code> $\rightarrow$ <code>车体坐标系 (Body)</code></li>
-<li><strong>关键点</strong>：<ul>
-<li><strong>ENU</strong>：东北天坐标系（指北坐标系）。</li>
-<li><strong>ECEF</strong>：随地球自转。</li>
-<li><em>考题避坑</em>：通常<strong>不能</strong>直接从 ECEF 旋转得到车体坐标系，中间必须经过局部切平面（导航坐标系），否则无法描述“东南西北”。</li>
-</ul>
-</li>
-</ul>
-<h3 id="2-基于GPS-惯性组合（IMU）导航的定位系统"><a href="#2-基于GPS-惯性组合（IMU）导航的定位系统" class="headerlink" title="2. 基于GPS +惯性组合（IMU）导航的定位系统"></a>2. 基于GPS +惯性组合（IMU）导航的定位系统</h3><p><strong>（1）GPS</strong>：</p>
-<p><img src="2025-12-27-13-27-04.png" alt=""></p>
-<ul>
-<li>RTK：载波相位动态实时差分，定位误差在城市中也可达到10～50m（一般GPS为10～100m）</li>
-<li>差分GPS定位：通过在一个精确的已知位置（基准站）上安装GPS监测接收机，计算得到基准站与GPS卫星的距离，然后再根据误差修正结果，从而提高了定位精度。</li>
-<li>伪距法定位：<ul>
-<li>优点：速度快、无多值性问题、虽然精度低，但是满足大部分需求。 </li>
-</ul>
-</li>
-</ul>
-<p><img src="2025-12-27-13-32-18.png" alt=""></p>
-<p><img src="2025-12-27-13-35-15.png" alt=""></p>
-<p><strong>（2）惯性测量单元</strong>：</p>
-<script type="math/tex; mode=display">
-陀螺仪 + 加速度计</script><p><img src="2025-12-27-14-19-52.png" alt=""><br><img src="2025-12-27-14-21-05.png" alt=""></p>
-<p><strong>总结</strong>：</p>
-<ul>
-<li><strong>GPS (全球定位系统)</strong>：提供<strong>绝对位置</strong>。<ul>
-<li><em>缺点</em>：更新慢 (10Hz)，易被遮挡（隧道、高楼峡谷）。</li>
-<li><em>RTK技术</em>：利用基准站差分，将精度提升至<strong>厘米级</strong>。</li>
-</ul>
-</li>
-<li><strong>IMU (惯性测量单元)</strong>：提供<strong>相对推算</strong>。<ul>
-<li><em>组成</em>：<strong>加速度计</strong>（测比力/加速度）+ <strong>陀螺仪</strong>（测角速度）。</li>
-<li><em>原理</em>：航位推算。</li>
-<li><em>缺点</em>：<strong>误差随时间累积</strong>（积分漂移）。</li>
-</ul>
-</li>
-<li><strong>融合逻辑</strong>：<strong>GPS负责“纠偏”</strong>（消除累计误差），<strong>IMU负责“填空”</strong>（高频输出，保证信号不断）。</li>
-</ul>
-<p><strong>（3）惯性导航系统（INS）</strong>：<br><img src="2025-12-27-14-23-24.png" alt=""><br><img src="2025-12-27-14-23-36.png" alt=""><br><img src="2025-12-27-14-23-47.png" alt=""></p>
-<h2 id="第四部分：卡尔曼滤波"><a href="#第四部分：卡尔曼滤波" class="headerlink" title="第四部分：卡尔曼滤波"></a>第四部分：卡尔曼滤波</h2><p>这一部分数学最难，重点掌握<strong>逻辑</strong>和<strong>公式</strong>。</p>
-<ul>
-<li><strong>卡尔曼滤波</strong>：是一种利用<strong>线性系统</strong>状态方程，通过系统输入输出观测数据，对系统状态进行最优估计的算法。</li>
-<li><strong>基本思想</strong>：利用<code>前一时刻的估计值</code>和<code>现时刻的观测值</code>来更新对状态变量的估计，求出<code>现在时刻的估计值</code>。</li>
-</ul>
-<h3 id="1-卡尔曼滤波-KF-——-线性系统的最优估计"><a href="#1-卡尔曼滤波-KF-——-线性系统的最优估计" class="headerlink" title="1. 卡尔曼滤波 (KF) —— 线性系统的最优估计"></a>1. 卡尔曼滤波 (KF) —— 线性系统的最优估计</h3><ul>
-<li><strong>核心逻辑</strong>：<strong>加权平均</strong>。<ul>
-<li>模型算出一个值（预测），传感器测出一个值（测量）。</li>
-<li><strong>谁方差小（谁靠谱），我就信谁多一点</strong>。</li>
-</ul>
-</li>
-<li><strong>五大核心公式 (📝 建议默写)</strong>：<ol>
-<li><strong>预测状态</strong>：$\hat{x}_k^- = A \hat{x}_{k-1} + B u_k$</li>
-<li><strong>预测协方差</strong>：$P_k^- = A P_{k-1} A^T + Q$  <em>(Q: 模型噪声)</em></li>
-<li><strong>卡尔曼增益</strong>：$K_k = P_k^- H^T (H P_k^- H^T + R)^{-1}$ <em>(R: 测量噪声)</em><ul>
-<li><em>理解</em>：$R$ 越大（测量烂），$K$ 越小（不信测量）；$Q$ 越大（模型烂），$K$ 越大（信测量）。</li>
-</ul>
-</li>
-<li><strong>状态更新</strong>：$\hat{x}_k = \hat{x}_k^- + K_k (z_k - H \hat{x}_k^-)$</li>
-<li><strong>协方差更新</strong>：$P_k = (I - K_k H) P_k^-$</li>
-</ol>
-</li>
-</ul>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left">局限性</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">实时性不能满足</td>
-</tr>
-<tr>
-<td style="text-align:left">可靠性降低</td>
-</tr>
-<tr>
-<td style="text-align:left">对于<strong>非线性</strong>系统效果不佳</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="2-进阶滤波：EKF-vs-UKF-⭐⭐-简答题"><a href="#2-进阶滤波：EKF-vs-UKF-⭐⭐-简答题" class="headerlink" title="2. 进阶滤波：EKF vs UKF (⭐⭐ 简答题)"></a>2. 进阶滤波：EKF vs UKF (⭐⭐ 简答题)</h3><p><em>解决非线性问题（如车在转弯、雷达测距是弧线）。</em></p>
-<ul>
-<li><strong>扩展卡尔曼滤波 (EKF)</strong>：<ul>
-<li><strong>方法</strong>：<strong>线性化</strong>:用线性变换近似非线性变换。用<strong>泰勒级数展开</strong>（保留一阶导数），算出<strong>雅可比矩阵 (Jacobian)</strong>。</li>
-<li><em>缺点</em>：雅可比矩阵难算，忽略高阶项有精度损失。</li>
-<li><em>考点</em>：EKF近似的是<strong>非线性函数本身</strong>。</li>
-</ul>
-</li>
-<li><strong>无损卡尔曼滤波 (UKF)</strong>：<ul>
-<li><strong>方法</strong>：<strong>无损变换</strong>。选几个代表点（Sigma Points）去通过非线性函数，近似出新的<strong>概率分布</strong>。</li>
-<li><em>优点</em>：不用算雅可比，精度通常更高。</li>
-</ul>
-</li>
-</ul>
-<h3 id="3-运动模型"><a href="#3-运动模型" class="headerlink" title="3. 运动模型"></a>3. 运动模型</h3><ul>
-<li><strong>CTRV</strong> (Constant Turn Rate and Velocity)：<strong>恒定转弯率和速度</strong>。这是描述车辆运动最常用的模型。</li>
-</ul>
-<h3 id="4-传感器融合架构"><a href="#4-传感器融合架构" class="headerlink" title="4. 传感器融合架构"></a>4. 传感器融合架构</h3><ul>
-<li><strong>顺序滤波 (Sequential Filtering)</strong>：<ul>
-<li><strong>逻辑</strong>：一次预测，多次更新。</li>
-<li><em>场景</em>：激光雷达和毫米波雷达的数据不同时到达。先用激光更新卡尔曼滤波，结果作为初值，马上再用毫米波更新。</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="📝-考前抢分-CheckList-必背"><a href="#📝-考前抢分-CheckList-必背" class="headerlink" title="📝 考前抢分 CheckList (必背)"></a>📝 考前抢分 CheckList (必背)</h2><ol>
-<li><strong>倒车影像</strong>用什么镜头？ $\rightarrow$ <strong>鱼眼 (Fisheye)</strong></li>
-<li><strong>指北坐标系</strong>通常指什么？ $\rightarrow$ <strong>ENU (东北天)</strong></li>
-<li><strong>ICP和NDT</strong>谁更快更鲁棒？ $\rightarrow$ <strong>NDT</strong></li>
-<li><strong>EKF</strong>的核心数学操作是什么？ $\rightarrow$ <strong>泰勒展开 / 计算雅可比矩阵</strong></li>
-<li><strong>SLAM</strong>常用视觉特征？ $\rightarrow$ <strong>ORB, SIFT, 角点</strong></li>
-<li><strong>卡尔曼增益K</strong>变大说明什么？ $\rightarrow$ 说明更相信<strong>测量值</strong> (或者模型预测的不确定性Q变大了)。</li>
-</ol>
-<h1 id="第三章-深度学习和视觉感知"><a href="#第三章-深度学习和视觉感知" class="headerlink" title="第三章 深度学习和视觉感知"></a>第三章 深度学习和视觉感知</h1><h2 id="第一部分：路缘石检测"><a href="#第一部分：路缘石检测" class="headerlink" title="第一部分：路缘石检测"></a>第一部分：路缘石检测</h2><h3 id="1-ROI提取-感兴趣区域-："><a href="#1-ROI提取-感兴趣区域-：" class="headerlink" title="1. ROI提取 (感兴趣区域)："></a>1. <strong>ROI提取 (感兴趣区域)</strong>：</h3><ul>
-<li>获取原始点云，只保留车身周围一定范围内的点（去除无关背景）。</li>
-</ul>
-<h3 id="2-点集左右划分："><a href="#2-点集左右划分：" class="headerlink" title="2. 点集左右划分："></a>2. <strong>点集左右划分</strong>：</h3><ul>
-<li>将点云按照激光雷达的扫描线（车身前向射线）进行划分。</li>
-</ul>
-<p><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /></p>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-<style>
-  .swiper {
-    width: 100%;
-    height: 500px; /* 如果图片觉得太小，可以把这里改成 500px 或 600px */
-    border-radius: 8px; /* 圆角 */
-  }
-  .swiper-slide {
-    text-align: center;
-    background: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .swiper-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* 保持图片原有比例，不拉伸变形 */
-  }
-</style>
-
-<div class="swiper mySwiper">
-  <div class="swiper-wrapper">
-    <div class="swiper-slide">
-      <img src="2025-12-28-19-05-37.png" alt="Image 1">
-    </div>
-    <div class="swiper-slide">
-      <img src="2025-12-28-19-05-49.png" alt="Image 2">
-    </div>
-    <div class="swiper-slide">
-      <img src="2025-12-28-19-06-01.png" alt="Image 3">
-    </div>
-  </div>
-
-  <div class="swiper-button-next"></div>
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-pagination"></div>
-</div>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    var swiper = new Swiper(".mySwiper", {
-      loop: true,               // 循环播放
-      autoHeight: true,         // 自动适应高度
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,        // 允许点击小圆点切换
-      },
-    });
-  });
-</script>
-
-<h3 id="3-路缘石点提取："><a href="#3-路缘石点提取：" class="headerlink" title="3. 路缘石点提取："></a>3. <strong>路缘石点提取</strong>：</h3><ul>
-<li>在每一条射线上，利用几何特征（如高度突变、坡度变化）找到疑似路缘的点。</li>
-<li>左右子点集划分：将找到的点分为“左侧路缘点集”和“右侧路缘点集”。</li>
-</ul>
-<p><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /></p>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-<style>
-  .swiper {
-    width: 100%;
-    height: 450px; /* 如果图片较高，可以将这里改成 500px 或 600px */
-    border-radius: 8px;
-  }
-  .swiper-slide {
-    text-align: center;
-    background: transparent;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .swiper-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* 保持图片完整显示，不裁剪 */
-  }
-</style>
-
-<div class="swiper mySwiper">
-  <div class="swiper-wrapper">
-    <div class="swiper-slide">
-      <img src="2025-12-28-19-09-06.png" alt="Image 1">
-    </div>
-    <div class="swiper-slide">
-      <img src="2025-12-28-19-09-13.png" alt="Image 2">
-    </div>
-    <div class="swiper-slide">
-      <img src="2025-12-28-19-09-23.png" alt="Image 3">
-    </div>
-    <div class="swiper-slide">
-      <img src="2025-12-28-19-09-33.png" alt="Image 4">
-    </div>
-  </div>
-
-  <div class="swiper-button-next"></div>
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-pagination"></div>
-</div>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    var swiper = new Swiper(".mySwiper", {
-      loop: true,               // 循环播放
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,        // 允许点击圆点切换
-      },
-    });
-  });
-</script>
-
-<h3 id="4-提取与拟合："><a href="#4-提取与拟合：" class="headerlink" title="4. 提取与拟合："></a>4. <strong>提取与拟合</strong>：</h3><ul>
-<li>利用最小二乘法或RANSAC算法，将点拟合成平滑的曲线（通常是三次样条曲线），得到最终的路缘线。</li>
-</ul>
-<p><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /></p>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-<style>
-  .swiper {
-    width: 100%;
-    height: 450px; /* 高度可按需调整 */
-    border-radius: 8px;
-    margin-bottom: 20px; /* 增加一点底部间距 */
-  }
-  .swiper-slide {
-    text-align: center;
-    background: transparent;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .swiper-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-</style>
-
-<div class="swiper mySwiper3">
-  <div class="swiper-wrapper">
-    <div class="swiper-slide"><img src="2025-12-28-19-11-56.png"></div>
-    <div class="swiper-slide"><img src="2025-12-28-19-12-11.png"></div>
-    <div class="swiper-slide"><img src="2025-12-28-19-12-28.png"></div>
-    <div class="swiper-slide"><img src="2025-12-28-19-12-37.png"></div>
-    <div class="swiper-slide"><img src="2025-12-28-19-12-47.png"></div>
-    <div class="swiper-slide"><img src="2025-12-28-19-12-59.png"></div>
-    <div class="swiper-slide"><img src="2025-12-28-19-13-10.png"></div>
-  </div>
-
-  <div class="swiper-button-next"></div>
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-pagination"></div>
-</div>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    var swiper3 = new Swiper(".mySwiper3", {
-      loop: true,
-      navigation: {
-        nextEl: ".mySwiper3 .swiper-button-next", // 指定只控制这一组的箭头
-        prevEl: ".mySwiper3 .swiper-button-prev",
-      },
-      pagination: {
-        el: ".mySwiper3 .swiper-pagination", // 指定只控制这一组的分页器
-        clickable: true,
-      },
-    });
-  });
-</script>
-
-<p><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /></p>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-<style>
-  .swiper {
-    width: 100%;
-    height: 450px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-  }
-  .swiper-slide {
-    text-align: center;
-    background: transparent;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .swiper-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-</style>
-
-<div class="swiper mySwiper4">
-  <div class="swiper-wrapper">
-    <div class="swiper-slide"><img src="2025-12-28-19-13-46.png"></div>
-    <div class="swiper-slide"><img src="2025-12-28-19-13-57.png"></div>
-    <div class="swiper-slide"><img src="2025-12-28-19-14-07.png"></div>
-  </div>
-
-  <div class="swiper-button-next"></div>
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-pagination"></div>
-</div>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    var swiper4 = new Swiper(".mySwiper4", {
-      loop: true,
-      navigation: {
-        nextEl: ".mySwiper4 .swiper-button-next", // 锁定只控制这一组
-        prevEl: ".mySwiper4 .swiper-button-prev",
-      },
-      pagination: {
-        el: ".mySwiper4 .swiper-pagination",
-        clickable: true,
-      },
-    });
-  });
-</script>
-
-<p><strong>补充</strong>：坐标系变换<br><img src="2025-12-28-19-15-03.png" alt=""></p>
-<h2 id="第二部分：卷积神经网络（CNN）"><a href="#第二部分：卷积神经网络（CNN）" class="headerlink" title="第二部分：卷积神经网络（CNN）"></a>第二部分：卷积神经网络（CNN）</h2><ol>
-<li><p><strong>卷积与前馈神经网络区别</strong>：</p>
-<ul>
-<li>用卷积运算代替矩阵乘法运算</li>
-<li>传统全连接神经网络不足：<em>计算/储存要求高（参数大）、易过拟合</em></li>
-<li><strong>CNN优势</strong>：<em>稀疏交互、权重共享、等变表示</em></li>
-</ul>
-</li>
-<li><p><strong>CNN的三大特性</strong>：</p>
-<ul>
-<li><strong>稀疏交互</strong>：卷积核大小远小于输入图像，每个输出神经元只与局部输入连接（效率高）。</li>
-<li><strong>参数共享</strong>：同一个卷积核在整张图上滑动，用的是同一组参数（储存空间少）。</li>
-<li><strong>等变表示</strong>：输入平移，输出也跟着平移。</li>
-</ul>
-</li>
-<li><p><strong>核心组件</strong>：</p>
-<ul>
-<li><strong>卷积层</strong>：提取特征。</li>
-<li><strong>池化层</strong>：用相邻位置的<strong>总体统计特征</strong>来替换该位置的值，起到降维、减少参数、防止过拟合的作用。<em>（最大池化、平均池化）</em></li>
-<li><strong>激活函数</strong>：引入非线性（如 ReLU）。</li>
-</ul>
-</li>
-</ol>
-<h2 id="第三部分：YOLO"><a href="#第三部分：YOLO" class="headerlink" title="第三部分：YOLO"></a>第三部分：YOLO</h2><p><img src="2025-12-28-20-29-46.png" alt=""></p>
-<h3 id="1-YOLO的核心思想："><a href="#1-YOLO的核心思想：" class="headerlink" title="1. YOLO的核心思想："></a>1. <strong>YOLO的核心思想</strong>：</h3><ul>
-<li>不需要生成候选区域，直接把图像划分成 S×S 的网格，每个网格负责预测中心落在该格子里面的物体。</li>
-<li>速度快，适合无人驾驶实时感知。</li>
-</ul>
-<h3 id="2-YOLOv3的特征提取："><a href="#2-YOLOv3的特征提取：" class="headerlink" title="2. YOLOv3的特征提取："></a>2. <strong>YOLOv3的特征提取</strong>：</h3><p><strong>特点</strong>：</p>
-<ul>
-<li>有53个卷积层</li>
-<li>输出图像尺寸：416x416x3 </li>
-<li>连续使用卷积层和跳跃连接层</li>
-</ul>
-<p><strong>图像金字塔</strong>：<br><img src="2025-12-28-20-44-17.png" alt=""></p>
-<ul>
-<li><strong>图像金字塔-向下采样</strong>：删除图像偶数行列，大小变为四分之一。</li>
-<li><strong>图像金字塔-向上采样</strong>：补充大量像素点0，大小变为四倍。<br><em>（注意：两种操作互相是<strong>不可逆</strong>的。）</em></li>
-</ul>
-<p><strong>多尺度特征预测</strong>：<br><img src="2025-12-28-20-52-14.png" alt=""><br><img src="2025-12-28-20-48-17.png" alt=""></p>
-<p><strong>交并比</strong>：<br><img src="2025-12-28-20-56-57.png" alt=""></p>
-<p><strong>边界框坐标计算</strong>：<br><img src="2025-12-28-20-59-15.png" alt=""></p>
-<ul>
-<li>$(b_x,b_y)$为<strong>中心坐标</strong>。</li>
-<li>$b_w,b_h$进行了尺度缩放。</li>
-<li><ul>
-<li><strong>Sigmoid函数作用</strong>：将$t_x,t_y$压缩到[0,1]区间内，<strong>确保预测边界在网格内，防止偏移过多</strong>。</li>
-</ul>
-</li>
-<li><strong>指数函数e的作用</strong>：确保<strong>缩放后的宽高为正</strong>。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>华理</category>
-        <category>大三上</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>专业前沿讲座报告</title>
-    <url>/2025/11/26/lecture-report/</url>
-    <content><![CDATA[<blockquote>
-<p><strong>课程信息</strong></p>
-<ul>
-<li><strong>课程名称：</strong> 专业前沿讲座</li>
-<li><strong>学期：</strong> 2025—2026学年第 1 学期</li>
-<li><strong>作者：</strong> 宋文韬 (智机试验2305 / 23013361)</li>
-</ul>
-</blockquote>
-<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>当前，人工智能与机器人技术正经历高速发展，多智能体协同、复杂系统优化等成为研究热点。文章结合《专业前沿讲座》课程内容及相关文献研读，梳理与分析了多智能体感知决策、大规模全局优化、工业互联网信息融合与安全以及机器学习在科学探索中的前沿应用。通过对这些技术在原理、实例及前沿研究上的综合分析，本报告总结了当前人工智能技术发展的内在规律与主流趋势，进一步形成了对未来研究方向与科研方法的初步认识与思考。</p>
-<p><strong>关键词：</strong> 人工智能与机器人、多智能体、全局优化、工业互联网、机器学习</p>
-<hr>
-<h2 id="1-引言"><a href="#1-引言" class="headerlink" title="1. 引言"></a>1. 引言</h2><p>当今世界，新一轮科技革命和产业变革正在深入发展，人工智能与机器人技术已成为国际竞争的新高地，也是推动经济社会发展的核心引擎。从自动驾驶车队的协同作业到智慧工厂的精准制造，从复杂系统的调度优化到基础科学领域的突破性发现，智能科学技术正在以前所未有的速度重塑着我们对世界的认知与改造能力。作为信息学院的学生，置身于这一时代的浪潮中，不仅需要掌握扎实的工程基础，更需要具备广阔的国际视野，深刻理解技术演进的内在逻辑与未来趋势。</p>
-<p>本报告将结合课程讲授内容与相关前沿文献的研读体会，分为三个部分展开：首先，探讨从单体智能向多智能体协同跨越的技术逻辑，以及大规模全局优化算法在其中的核心作用；其次，分析工业互联网背景下，信息融合技术如何赋能实体经济，以及随之而来的信息安全挑战与伦理责任；最后，展望机器学习在科学探索与增进民生福祉中的革命性应用。通过对这些前沿技术的综合阐述，本报告旨在总结当前人工智能技术发展的规律，并结合个人思考，形成对未来科研方向与职业规范的初步认识与体会。</p>
-<h2 id="2-群体智能与复杂系统的优化决策"><a href="#2-群体智能与复杂系统的优化决策" class="headerlink" title="2. 群体智能与复杂系统的优化决策"></a>2. 群体智能与复杂系统的优化决策</h2><h3 id="2-1-多智能体系统的协同感知与决策"><a href="#2-1-多智能体系统的协同感知与决策" class="headerlink" title="2.1 多智能体系统的协同感知与决策"></a>2.1 多智能体系统的协同感知与决策</h3><p>在面对动态、非结构化或大规模任务环境如无人机集群协同、智慧交通调度等时，单体智能往往受限于感知范围与执行能力。多智能体系统（MAS）通过多个智能体间的交互与协作，能够涌现出超越个体之和的群体智能。</p>
-<h4 id="2-1-1-分布式感知与博弈决策"><a href="#2-1-1-分布式感知与博弈决策" class="headerlink" title="2.1.1 分布式感知与博弈决策"></a>2.1.1 分布式感知与博弈决策</h4><p>智能感知与决策是多智能体系统的核心要素。与单体系统不同，多智能体面临着环境的“非平稳性”挑战——即一个智能体的策略更新会改变其他智能体面临的环境状态。根据 Zhang 等人（2021）的研究 [1]，解决这一问题的关键在于引入博弈论框架与多智能体强化学习（MARL）算法。通过建立纳什均衡（Nash Equilibrium）或相关均衡机制，智能体能够在竞争或合作中找到最优策略组合。</p>
-<img src="/2025/11/26/lecture-report/1.png" class="" title="图 1 从单体决策到多智能体博弈的模型演变 [1]">
-<blockquote>
-<p><strong>图 1 说明：</strong> (a) 单体智能体面临的马尔可夫决策过程 (MDP)；(b) 多智能体系统中的马尔可夫博弈 (Markov Game) 模型，展示了多个智能体在共享环境中通过联合动作与环境交互并获取反馈的过程。这种从“中心化控制”向“分布式协同决策”的转变，是当前无人系统发展的必然趋势，也体现了智能时代的核心技术特征。</p>
-</blockquote>
-<h4 id="2-1-2-协同控制的实现路径"><a href="#2-1-2-协同控制的实现路径" class="headerlink" title="2.1.2 协同控制的实现路径"></a>2.1.2 协同控制的实现路径</h4><p>在具体的工程实践中，多智能体协同不仅需要算法支撑，还依赖于高效的通信拓扑与共识机制。通过对“智能感知与决策关键技术”的学习，我认识到，如何在大规模群体中实现低延迟的信息交互，并基于局部信息达成全局一致性，是目前工业界与学术界共同关注的热点。</p>
-<h3 id="2-2-基于分解的大规模全局优化策略"><a href="#2-2-基于分解的大规模全局优化策略" class="headerlink" title="2.2 基于分解的大规模全局优化策略"></a>2.2 基于分解的大规模全局优化策略</h3><p>随着智能体数量的增加和系统精度的提升，优化问题的决策变量往往会膨胀至数千甚至上万维。课程第二章重点讲授了“基于分解的大规模全局优化新思考”，这为解决高维复杂系统的“维数灾难”提供了核心方法论。</p>
-<h4 id="2-2-1-分解策略"><a href="#2-2-1-分解策略" class="headerlink" title="2.2.1 分解策略"></a>2.2.1 分解策略</h4><p>面对大规模全局优化（LSGO）问题，传统的进化算法往往因搜索空间过大而陷入局部最优。解决这一难题的关键在于“分解”。协同进化算法（CCEA）是处理此类问题的经典范式 [2]。其核心思想是将一个高维的大规模优化问题分解为若干个低维的子问题（Sub-components），针对每个子问题分别进行进化求解，最后协同组合成全局最优解。</p>
-<h4 id="2-2-2-工程与科学思维的统一"><a href="#2-2-2-工程与科学思维的统一" class="headerlink" title="2.2.2 工程与科学思维的统一"></a>2.2.2 工程与科学思维的统一</h4><p>通过对“基于分解的大规模全局优化应用实例”的学习，我深刻体会到，优化不仅是数学计算，更是一种系统工程思维。无论是在工业制造的过程控制中，还是在物流网络的路径规划中，利用分解策略将复杂系统模块化、层次化，是提升系统运行效率、降低计算代价的根本途径。这不仅锻炼了我们解决复杂工程问题的能力，也加深了对“工程素养”这一思政要点的理解。</p>
-<h2 id="3-工业互联背景下的信息融合与安全防线"><a href="#3-工业互联背景下的信息融合与安全防线" class="headerlink" title="3. 工业互联背景下的信息融合与安全防线"></a>3. 工业互联背景下的信息融合与安全防线</h2><h3 id="3-1-多源异构信息的深度融合"><a href="#3-1-多源异构信息的深度融合" class="headerlink" title="3.1 多源异构信息的深度融合"></a>3.1 多源异构信息的深度融合</h3><p>课程讲授中提到，大数据的处理分析与挖掘是理解智能时代的关键。通过学习“信息融合简介及应用”，我理解到信息融合不仅仅是数据的简单叠加，而是对多源信息进行多级别、多层次的处理。例如，在高端装备的运维中，需要将物理量与文本信息进行融合。这种融合往往需要结合“过程机理”与“大数据建模”。即利用深度学习算法挖掘数据特征的同时，必须引入物理机理模型作为约束，才能在工业场景下实现精准的状态监测与故障诊断。这不仅提升了系统的感知精度，也为辅助决策提供了可靠依据。</p>
-<h3 id="3-2-工业控制系统的安全策略"><a href="#3-2-工业控制系统的安全策略" class="headerlink" title="3.2 工业控制系统的安全策略"></a>3.2 工业控制系统的安全策略</h3><p>随着信息技术与运营技术的深度融合，封闭的工业控制系统逐渐开放，随之而来的是暴露面的扩大和安全风险的剧增。课程强调了“信息安全算法”与“科学伦理”的重要性，这引发了我对工程师社会责任的深层思考。</p>
-<h4 id="3-2-1-工业安全的特殊性和严峻挑战"><a href="#3-2-1-工业安全的特殊性和严峻挑战" class="headerlink" title="3.2.1 工业安全的特殊性和严峻挑战"></a>3.2.1 工业安全的特殊性和严峻挑战</h4><p>与传统互联网安全仅关注数据隐私不同，工业互联网安全直接关系到物理世界的安全。根据 Sadeghi 等人（2020）在《IEEE工业电子汇刊》上的分析，工业物联网（IIoT）面临着特有的安全与隐私挑战 [3]。一次针对化工控制系统的恶意攻击，不仅会导致商业机密的泄露，更可能引发设备损坏、环境污染甚至人员伤亡。因此，在设计智能系统时，我们必须遵循“Security by Design”（设计内建安全）的原则。不仅要研究异常检测与加密算法等技术防御手段，更要从系统架构层面考虑功能的安全性。</p>
-<h4 id="3-2-2-工程伦理与社会责任"><a href="#3-2-2-工程伦理与社会责任" class="headerlink" title="3.2.2 工程伦理与社会责任"></a>3.2.2 工程伦理与社会责任</h4><p>我们不仅要追求算法的效率，更要时刻关注工程实践对公众安全、健康及环境的影响。在构建工业互联网平台时，必须自觉履行保护数据隐私、维护国家基础设施安全的社会责任，将科学伦理融入技术研发的每一个环节。这部分的学习使我对“职业规范”有了更具象的理解。</p>
-<h2 id="4-从经典机器学习算法到科技前沿"><a href="#4-从经典机器学习算法到科技前沿" class="headerlink" title="4. 从经典机器学习算法到科技前沿"></a>4. 从经典机器学习算法到科技前沿</h2><h3 id="4-1-经典机器学习模型的科学适用性"><a href="#4-1-经典机器学习模型的科学适用性" class="headerlink" title="4.1 经典机器学习模型的科学适用性"></a>4.1 经典机器学习模型的科学适用性</h3><p>在本课程的学习过程中，我经历了一个由浅入深、从经典统计模型向深度神经网络进阶的认知过程。</p>
-<p>最初，我从基于统计学习理论的支持向量机（SVM）入手，理解了如何通过数学变换处理小样本数据；随后，接触了以随机森林为代表的集成学习算法，领悟了通过“群体决策”降低模型方差的智慧；最后，探究了以卷积神经网络（CNN）为核心的深度学习架构，掌握了处理高维非结构化数据的关键技术。这一学习路径不仅夯实了我的算法基础，也让我深刻认识到不同模型在科学探索中独特的适用场景。</p>
-<h4 id="4-1-1-支持向量机-SVM"><a href="#4-1-1-支持向量机-SVM" class="headerlink" title="4.1.1 支持向量机 (SVM)"></a>4.1.1 支持向量机 (SVM)</h4><p>作为基于统计学习理论的经典算法，SVM 在处理小样本、高维度的科学实验数据时表现出色。在课程讨论中，我们了解到在某些材料分类或生物标记物检测的场景下，由于实验数据获取昂贵且稀缺，深度学习难以收敛，而SVM 通过核函数将数据映射到高维空间寻找最优超平面的能力，使其依然具有不可替代的价值 [4]。</p>
-<img src="/2025/11/26/lecture-report/2.png" class="" title="图 2 Kernel Function: 将低维数据映射到高维空间">
-<h4 id="4-1-2-集成学习-Ensemble-Learning"><a href="#4-1-2-集成学习-Ensemble-Learning" class="headerlink" title="4.1.2 集成学习 (Ensemble Learning)"></a>4.1.2 集成学习 (Ensemble Learning)</h4><p>以随机森林（Random Forest）为代表的集成算法，通过构建多棵决策树来降低模型的方差。在涉及多变量耦合的复杂物理实验数据分析中，这类算法不仅能提供较高的预测精度，还能输出“特征重要性”排序 [5]。这种可解释性对于科学家理解哪些物理量对实验结果影响最大至关重要。</p>
-<h4 id="4-1-3-深度神经网络-Deep-Learning"><a href="#4-1-3-深度神经网络-Deep-Learning" class="headerlink" title="4.1.3 深度神经网络 (Deep Learning)"></a>4.1.3 深度神经网络 (Deep Learning)</h4><p>从经典的感知机发展而来的深度学习算法是本课程课外自主学习的重点。特别是卷积神经网络（CNN），作为当前处理网格结构数据（如天文望远镜拍摄的星系图、电子显微镜下的材料微观结构）的主流架构，展现了强大的特征提取能力 [6]。该算法突破了传统方法的局限，能够自动从原始像素中学习到从边缘到纹理再到语义的高层特征，实现了端到端的智能感知。</p>
-<img src="/2025/11/26/lecture-report/3.png" class="" title="图 3 深度卷积神经网络的典型架构">
-<blockquote>
-<p><strong>图 3 说明：</strong> 该图展示了网络处理图像的完整流程：输入图像经过多个卷积层（Convolutions）与池化层（Pooling）的交替处理，逐层提取从低级几何特征到高级语义概念的层级化表示，最终实现精准分类。</p>
-</blockquote>
-<h3 id="4-2-从传统科学到新的科学探索"><a href="#4-2-从传统科学到新的科学探索" class="headerlink" title="4.2 从传统科学到新的科学探索"></a>4.2 从传统科学到新的科学探索</h3><p>传统的科学研究模式往往依赖于“观察—假设—实验”的线性循环，但在面对高维非线性问题时，人类的认知直觉与传统计算模拟（如第一性原理计算）的效率均遭遇了显著瓶颈。</p>
-<p>根据相关前沿学术综述研究 [7]，深度学习模型通过学习海量科学数据中的高维分布特征，能够构建出逼近自然界物理定律的代理模型（Surrogate Models）。这一过程并非简单的数据插值与拟合，而是利用神经网络强大的泛化能力，在高维参数空间中寻找隐藏的科学规律。例如，生成式人工智能（Generative AI）目前已能自动生成符合特定物理化学约束的新分子结构，这种技术成功实现了“假设生成—验证”闭环的自动化，将科学发现的周期大大缩短，确立了全新的科学探索范式。</p>
-<img src="/2025/11/26/lecture-report/4.png" class="" title="图 4 人工智能驱动的科学发现闭环与应用版图">
-<blockquote>
-<p><strong>图 4 说明：</strong> 该图展示了AI for Science的核心范式：通过加速“观察—假设—实验”的迭代闭环，人工智能打破了学科壁垒，被广泛应用于天气预报、电池材料优化、核聚变控制及生物医疗序列建模等前沿领域，确立了区别于传统实验与理论计算的第四种科学范式。</p>
-</blockquote>
-<h3 id="4-3-机器学习应用趋势"><a href="#4-3-机器学习应用趋势" class="headerlink" title="4.3 机器学习应用趋势"></a>4.3 机器学习应用趋势</h3><p>结合当前的社会现实，我深刻感受到，人类的日常生活以及离不开智能技术的辅助。未来的智能技术将不仅仅追求算力的突破，更将致力于提升人类的生活质量，实现真正的“科技向善”。目前，机器学习已经渗透进人类生活的方方面面：</p>
-<ul>
-<li><strong>个性化推荐系统：</strong> 当我们打开购物软件或短视频平台时，背后的推荐算法（Recommendation Systems）正在利用机器学习技术分析我们的历史行为与偏好。它帮助我们在海量信息中快速筛选出感兴趣的内容，极大地降低了信息检索的成本，提升了生活效率。</li>
-<li><strong>智能语音与交互：</strong> 从手机里的智能助手（如 Siri、小爱同学）到智能家居系统，自然语言处理（NLP）技术让机器能够“听懂”人类的指令。未来的智能家居将不再是简单的遥控，而是通过感知用户的习惯自动调节环境（如温度、灯光），提供更加人性化的居住体验。</li>
-<li><strong>自动驾驶辅助：</strong> 在出行领域，计算机视觉技术正在让汽车变得更加智能。目前的 L2+ 级辅助驾驶功能已经能够实现车道保持、自适应巡航，有效降低了驾驶疲劳与交通事故的发生率。</li>
-<li><strong>生成式协作：</strong> 同时，以 ChatGPT 为代表的生成式大模型（Generative AI）的兴起，标志着人工智能从“感知”走向了“生成”。在我们的日常学习与工作中，AI 正在成为最得力的工具。它不仅能帮助我们快速梳理文献、润色邮件、编写代码，还能在创意枯竭时提供灵感。这种人机协作的模式并没有取代人类，而是赋予了我们更强大的信息处理能力与创造力，让我们能够将精力集中在更具价值的逻辑思考与决策上。</li>
-</ul>
-<h2 id="5-结语与体会"><a href="#5-结语与体会" class="headerlink" title="5. 结语与体会"></a>5. 结语与体会</h2><p>通过本学期《专业前沿讲座》的学习，我完成了从人工智能基础概念到机器人工程前沿应用，再到机器学习赋能科学发现的知识图谱构建。课程讲授的多智能体协同、大规模全局优化、工业互联网信息安全以及机器学习科学应用等模块，并非孤立的技术点，而是构成智能系统的有机整体。</p>
-<p>我深刻体会到，现代智能科学正朝着“群体化、复杂化、落地化”演进：多智能体解决了感知广度问题，分解优化策略突破了计算维度限制，而工业互联网与信息安全则保障了技术的稳健落地。这种从系统工程高度审视技术脉络的宏观视角，不仅极大增强了我的专业学习兴趣，更让我对未来的科研方向与职业规范有了清晰认识。</p>
-<p>我认识到，单纯的算法优化已遭遇边际效应递减，真正的创新往往源于“AI+X”的跨学科交叉融合。无论是利用深度学习加速新材料研发，还是解决复杂的物流调度，都要求我们具备开阔的国际视野，打破学科壁垒，将智能技术作为解决国计民生核心难题的通用工具。同时，技术是把双刃剑，强大的算力必须配合正确的价值观。面对全球老龄化等严峻挑战，融合机器学习的智慧医疗与养老系统虽能解决社会痛点，但其底线必须建立在安全可控之上。作为未来的工程师，我们既要利用先进算法实现精准筛查与情感陪伴，更要时刻警惕隐私泄露与算法歧视等风险，坚定推动“负责任的人工智能”建设，确保技术在严守伦理规范的前提下真正赋能人类的美好生活，让科技的光辉温暖社会的每一个角落。</p>
-<hr>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol>
-<li>K. Zhang, Z. Yang, and T. Başar, “Multi-agent reinforcement learning: A selective overview of theories and algorithms,” <em>IEEE Transactions on Automatic Control</em>, vol. 66, no. [cite_start]12, pp. 5690–5708, 2021. [cite: 56, 57]</li>
-<li>X. Li, K. Tang, M. N. Omidvar, Z. Yang, and K. Qin, “A survey on cooperative co-evolutionary algorithms,” <em>IEEE Transactions on Evolutionary Computation</em>, vol. 17, no. [cite_start]4, pp. 471–496, 2013. [cite: 58, 59]</li>
-<li>A.-R. Sadeghi, C. Wachsmann, and M. Waidner, “Security and privacy in industrial internet of things: Current status and potential future challenges,” <em>ACM Transactions on Embedded Computing Systems</em>, vol. 14, no. [cite_start]4, pp. 76:1–76:27, 2015. [cite: 60, 61]</li>
-<li>C. Cortes and V. Vapnik, “Support-vector networks,” <em>Machine Learning</em>, vol. 20, no. [cite_start]3, pp. 273–297, 1995. [cite: 62]</li>
-<li>G. Biau, “Analysis of a random forests model,” <em>Journal of Machine Learning Research</em>, vol. [cite_start]13, pp. 1063–1095, 2012. [cite: 63]</li>
-<li>Y. LeCun, Y. Bengio, and G. Hinton, “Deep learning,” <em>Nature</em>, vol. 521, no. [cite_start]7553, pp. 436–444, 2015. [cite: 64]</li>
-<li>H. Wang, T. Fu, Y. Du, W. Gao, K. Huang, Z. Liu, P. Chandak, S. Liu, P. Van Katwyk, A. Deac, A. Anandkumar, K. Bergen, C. P. Gomes, S. Ho, P. Kohli, J. Lasenby, J. Leskovec, T. Liu, A. Manrai, D. Marks, B. Ramsundar, L. Song, J. Sun, J. Tang, P. Veličković, M. Zitnik, and M. Zitnik, “Scientific discovery in the age of artificial intelligence,” <em>Nature</em>, vol. 620, no. [cite_start]7972, pp. 47–60, 2023. [cite: 65, 66]</li>
-</ol>
-<blockquote>
-<p><strong>附件下载：</strong> <a href="report.docx">📄 点击下载完整 Word 课程报告</a></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>华理</category>
-        <category>大三上</category>
-      </categories>
-  </entry>
-  <entry>
     <title>嵌入式系统原理</title>
     <url>/2025/12/21/STM32/</url>
     <content><![CDATA[<h1 id="第一章-导论"><a href="#第一章-导论" class="headerlink" title="第一章 导论"></a>第一章 导论</h1><blockquote>
@@ -1199,7 +432,7 @@
 <li>9600</li>
 <li>115200（<em>调试用、速度快</em>）<br><em>注意：异步通信双方波特率要一致</em></li>
 </ul>
-<h2 id="第三部分：异步串口通信协议（波形分析）"><a href="#第三部分：异步串口通信协议（波形分析）" class="headerlink" title="第三部分：异步串口通信协议（波形分析）"></a>第三部分：异步串口通信协议（波形分析）</h2><p><img src="2025-12-28-14-31-00.png" alt=""></p>
+<h2 id="第三部分：异步串行通信协议（波形分析）"><a href="#第三部分：异步串行通信协议（波形分析）" class="headerlink" title="第三部分：异步串行通信协议（波形分析）"></a>第三部分：异步串行通信协议（波形分析）</h2><p><img src="2025-12-28-14-31-00.png" alt=""></p>
 <ul>
 <li><code>注意：数据位要从右向左读</code>  </li>
 </ul>
@@ -1218,7 +451,340 @@
 <li><strong>USART4～5</strong>:除去<em>同步模式、硬件流控制、智能卡</em></li>
 </ul>
 <p><img src="2025-12-28-14-50-23.png" alt=""></p>
-<h1 id="第九章-DMA控制器"><a href="#第九章-DMA控制器" class="headerlink" title="第九章 DMA控制器"></a>第九章 DMA控制器</h1>]]></content>
+<h1 id="第九章-DMA控制器"><a href="#第九章-DMA控制器" class="headerlink" title="第九章 DMA控制器"></a>第九章 DMA控制器</h1><h2 id="第一部分：基础概念"><a href="#第一部分：基础概念" class="headerlink" title="第一部分：基础概念"></a>第一部分：基础概念</h2><p><strong>DMA（Direct Memory Access）</strong>：直接内存访问。</p>
+<ul>
+<li><strong>作用</strong>：允许外设设备直接与储存器进行数据交换，<strong>无需cpu介入</strong>。</li>
+<li><strong>优势</strong>：<strong>解放cpu、提高传输效率、降低功耗</strong>。</li>
+</ul>
+<p><img src="2025-12-29-12-42-37.png" alt=""></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">DMA适用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>储存设备I/O</strong>：硬盘与内存间的大量数据交换</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>高速通信通道</strong>：网络接口、光纤通信</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>数据采集系统</strong></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>图像处理</strong></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>多处理机系统</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="第二部分：STM32多DMA架构"><a href="#第二部分：STM32多DMA架构" class="headerlink" title="第二部分：STM32多DMA架构"></a>第二部分：STM32多DMA架构</h2><p><img src="2025-12-29-13-22-16.png" alt=""></p>
+<p><img src="2025-12-29-13-22-38.png" alt=""></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">关键配置参数</th>
+<th style="text-align:left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>传输方向</strong></td>
+<td style="text-align:left"><strong>外设/内存</strong>之间相互传输（4种情况的排列组合）</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>数据宽度</code></td>
+<td style="text-align:left">8/16/32 （<strong>如果源和目标位数不匹配，DMA会自动帮你补位</strong>）</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>地址递增</strong></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>传输模式</strong></td>
+<td style="text-align:left">单次模式、循环模式</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>中断请求</strong></td>
+<td style="text-align:left">传输完成、半传输、传输错误</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>传输模式</strong>：</p>
+<ul>
+<li>单次模式：DMA传输结束后不再产生新的DMA操作。</li>
+<li>循环模式：每轮传输结束时，要传输的数据数量将自动用设置的初始值进行加载，并继续响应DMA请求。<em>（ADC扫描模式）</em></li>
+</ul>
+<h2 id="第三部分：通道映射"><a href="#第三部分：通道映射" class="headerlink" title="第三部分：通道映射"></a>第三部分：通道映射</h2><h3 id="DMA优先级"><a href="#DMA优先级" class="headerlink" title="DMA优先级"></a>DMA优先级</h3><p><img src="2025-12-29-13-41-55.png" alt=""></p>
+<h3 id="DMA请求通道"><a href="#DMA请求通道" class="headerlink" title="DMA请求通道"></a>DMA请求通道</h3><p><img src="2025-12-29-13-43-34.png" alt=""><br><img src="2025-12-29-13-43-45.png" alt=""></p>
+<h3 id="DMA中断请求"><a href="#DMA中断请求" class="headerlink" title="DMA中断请求"></a>DMA中断请求</h3><p><img src="2025-12-29-13-44-50.png" alt=""></p>
+<h1 id="第十章-同步串行通信协议"><a href="#第十章-同步串行通信协议" class="headerlink" title="第十章 同步串行通信协议"></a>第十章 同步串行通信协议</h1><h2 id="第一部分：SPI通信协议"><a href="#第一部分：SPI通信协议" class="headerlink" title="第一部分：SPI通信协议"></a>第一部分：SPI通信协议</h2><h3 id="1-基础概念"><a href="#1-基础概念" class="headerlink" title="1. 基础概念"></a>1. 基础概念</h3><ul>
+<li><strong>SPI（Serial Peripheral interface）</strong>：串行外围设备接口。</li>
+<li><p><strong>特点</strong>：</p>
+<ul>
+<li>高速、全双工、同步</li>
+<li>在芯片管脚上只占用四根线</li>
+<li><em>主要应用：EEPROM、FLASH、实时时钟、AD转换器、数字信号处理器</em></li>
+</ul>
+</li>
+<li><p><strong>主从模式</strong>：</p>
+<ul>
+<li>SPI通讯系统包含一个（只能一个）主设备、多个或一个从设备。</li>
+<li>主设备<strong>提供时钟</strong>，从设备<strong>接收时钟</strong>。</li>
+<li>多个从设备<strong>通过各自片选信号管理</strong>。</li>
+<li>读写操作都是由主设备发起。</li>
+<li>通信速度一般能达到10Mbps。</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-四根信号线"><a href="#2-四根信号线" class="headerlink" title="2. 四根信号线"></a>2. 四根信号线</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">引脚名称</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">MOSI（master output slave input）</td>
+<td style="text-align:left">主设备输出/从设备输入。即：在主模式下发送数据，从模式下接收数据</td>
+</tr>
+<tr>
+<td style="text-align:left">MISO（master input slave output）</td>
+<td style="text-align:left">主设备输入/从设备输出。即：在主模式下接收数据，从模式下发送数据</td>
+</tr>
+<tr>
+<td style="text-align:left">SCLK</td>
+<td style="text-align:left">主设备产生的串行时钟信号。</td>
+</tr>
+<tr>
+<td style="text-align:left">CS/SS</td>
+<td style="text-align:left">从设备的<strong>片选信号</strong>，低电平有效。让主设备可以单独与指定从设备通讯$\rightarrow$避免冲突。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><img src="2025-12-29-15-28-07.png" alt=""></p>
+<p><img src="2025-12-29-15-30-32.png" alt=""></p>
+<h3 id="3-四种配置模式"><a href="#3-四种配置模式" class="headerlink" title="3. 四种配置模式"></a>3. 四种配置模式</h3><ul>
+<li>通信双方必须在同一模式下才可以通信。</li>
+<li>通过<code>CPOL（时钟极性）</code>和<code>CPHA（时钟相位）</code>来配置主设备的通信模式。</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">SPI模式</th>
+<th style="text-align:left">CPOL</th>
+<th style="text-align:left">CPHA</th>
+<th style="text-align:left">空闲时SCK时钟</th>
+<th style="text-align:left">采样时刻</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">0（最常用）</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">低电平</td>
+<td style="text-align:left">奇数边沿</td>
+</tr>
+<tr>
+<td style="text-align:left">1</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">低电平</td>
+<td style="text-align:left">偶数边沿</td>
+</tr>
+<tr>
+<td style="text-align:left">2</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">高电平</td>
+<td style="text-align:left">奇数边沿</td>
+</tr>
+<tr>
+<td style="text-align:left">3</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">高电平</td>
+<td style="text-align:left">偶数边沿</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li><strong>CPOL（clock polarity）</strong>：=0:SLK低电平/=1:SLK高电平</li>
+<li><strong>CPHA（clock phase）</strong>：=0:奇数沿采样/=1:偶数沿采样</li>
+</ul>
+<p><img src="2025-12-29-15-46-11.png" alt=""></p>
+<ul>
+<li>SCK一开始是低电平$\rightarrow$CPOL=0</li>
+<li>偶数沿采样（注意不要看图片里的数标）$\rightarrow$CPAL=1</li>
+<li>得到$\longrightarrow$模式=1</li>
+</ul>
+]]></content>
+      <categories>
+        <category>华理</category>
+        <category>大三上</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>人工智能原理与应用</title>
+    <url>/2025/12/11/AI/</url>
+    <content><![CDATA[<h1 id="第一章-绪论"><a href="#第一章-绪论" class="headerlink" title="第一章 绪论"></a>第一章 绪论</h1><p>智能：智能指人类在认识客观世界中，由思维过程和脑<br>力活动所表现出的综合能力。</p>
+<h2 id="智能包含的能力"><a href="#智能包含的能力" class="headerlink" title="智能包含的能力"></a>智能包含的能力</h2><p>  <img src="2025-12-11-19-04-02.png" alt=""></p>
+<h2 id="AI的研究目标"><a href="#AI的研究目标" class="headerlink" title="AI的研究目标"></a>AI的研究目标</h2><p>  <img src="2025-12-11-19-05-39.png" alt=""></p>
+<h2 id="三大学派"><a href="#三大学派" class="headerlink" title="三大学派"></a>三大学派</h2><p>  <img src="2025-12-11-19-07-05.png" alt=""><br>  <img src="2025-12-11-19-07-54.png" alt=""></p>
+<h2 id="新的发展"><a href="#新的发展" class="headerlink" title="新的发展"></a>新的发展</h2><p>  <img src="2025-12-11-19-08-50.png" alt=""></p>
+<h2 id="智能模拟方法"><a href="#智能模拟方法" class="headerlink" title="智能模拟方法"></a>智能模拟方法</h2><p>  <img src="2025-12-11-19-12-03.png" alt=""></p>
+<h2 id="推理"><a href="#推理" class="headerlink" title="推理"></a>推理</h2><p>  <strong>推理</strong>：是指按照某种策略从已知事实出发利用知识推出所需结论的过程。<br>  <strong>推理方法</strong>：归纳、演绎、（不）确定性推理</p>
+<h2 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h2><p>  <strong>搜索</strong>：依靠经验，利用已有知识，根据问题的实际情况，不断寻找可利用知识，从而构造一条代价最小的推理路线，使问题得以解决的过程。<br>  <strong>智能搜索</strong>：利用搜索过程中得到的信息来引导搜索向最优方向发展的算法。</p>
+<h2 id="神经元（画图）"><a href="#神经元（画图）" class="headerlink" title="神经元（画图）"></a>神经元（画图）</h2><p>  <img src="2025-12-11-19-17-46.png" alt=""></p>
+<h2 id="大数据的特性："><a href="#大数据的特性：" class="headerlink" title="大数据的特性："></a>大数据的特性：</h2><ul>
+<li><strong>规模性、多样性、实时性、价值性</strong></li>
+</ul>
+<h2 id="机器视觉的流程：图像获取-rightarrow-图像解释"><a href="#机器视觉的流程：图像获取-rightarrow-图像解释" class="headerlink" title="机器视觉的流程：图像获取$\rightarrow$图像解释"></a>机器视觉的流程：图像获取$\rightarrow$图像解释</h2><p>  <img src="2025-12-11-19-20-13.png" alt=""></p>
+<h2 id="模式识别"><a href="#模式识别" class="headerlink" title="模式识别"></a>模式识别</h2><p>  <img src="2025-12-11-19-21-05.png" alt=""></p>
+<h2 id="自然语言处理"><a href="#自然语言处理" class="headerlink" title="自然语言处理"></a>自然语言处理</h2><p>  <img src="2025-12-11-19-21-26.png" alt=""></p>
+<h2 id="智能控制"><a href="#智能控制" class="headerlink" title="智能控制"></a>智能控制</h2><p>  <img src="2025-12-11-19-21-48.png" alt=""></p>
+<h2 id="人工智能工程"><a href="#人工智能工程" class="headerlink" title="人工智能工程"></a>人工智能工程</h2><p>  <img src="2025-12-11-19-23-37.png" alt=""><br>  <img src="2025-12-11-19-24-19.png" alt=""></p>
+<h2 id="人工智能面临的问题"><a href="#人工智能面临的问题" class="headerlink" title="人工智能面临的问题"></a>人工智能面临的问题</h2><ol>
+<li>道德伦理问题</li>
+<li>法律法规的制定问题</li>
+<li>安全问题（信息安全、交通安全、人身安全）</li>
+<li>稀缺数据资源条件下的学习</li>
+<li>目前人工智能属于弱人工智能</li>
+</ol>
+<h2 id="未来发展趋势"><a href="#未来发展趋势" class="headerlink" title="未来发展趋势"></a>未来发展趋势</h2><ol>
+<li>从专用智能向通用是能发展</li>
+<li>从人工智能向人机融合发展</li>
+<li>自动化AI技术</li>
+<li>AI药物的研发</li>
+<li>减少对数据的需求</li>
+<li>可解释性和鲁棒性</li>
+</ol>
+<h1 id="第二章-数学基础"><a href="#第二章-数学基础" class="headerlink" title="第二章 数学基础"></a>第二章 数学基础</h1><h2 id="向量的范数"><a href="#向量的范数" class="headerlink" title="向量的范数"></a>向量的范数</h2><p>1) 1-范数</p>
+<script type="math/tex; mode=display">\|\alpha\|_1 = |\alpha_1| + |\alpha_2| + \cdots + |\alpha_n|</script><p>2) 2-范数</p>
+<script type="math/tex; mode=display">\|\alpha\|_2 = \sqrt{\alpha_1^2 + \alpha_2^2 + \cdots + \alpha_n^2}</script><p>3) $\infty$-范数</p>
+<script type="math/tex; mode=display">\|\alpha\|_\infty = \max\{|\alpha_1|, |\alpha_2|, \cdots, |\alpha_n|\}</script><p>4) p-范数</p>
+<script type="math/tex; mode=display">\|\alpha\|_p = \left( \sum_{i=1}^{n} |\alpha_i|^p \right)^{1/p}, \quad p \ge 1</script><h2 id="矩阵的范数"><a href="#矩阵的范数" class="headerlink" title="矩阵的范数"></a>矩阵的范数</h2><p>1) Frobenius 范数 (F-范数)</p>
+<script type="math/tex; mode=display">\|X\|_F = \left( \sum_{i,j=1}^{n} |x_{ij}|^2 \right)^{1/2} = \left( tr(X^H X) \right)^{1/2}</script><p>2) 1-范数</p>
+<script type="math/tex; mode=display">\|X\|_1 = \max_{j} \sum_{i=1}^{n} |x_{ij}|</script><p>3) 2-范数</p>
+<script type="math/tex; mode=display">\|X\|_2 = \sqrt{\lambda} \text{，其中 } \lambda \text{ 为 } X^H X \text{ 的最大特征值}</script><p>4) $\infty$-范数</p>
+<script type="math/tex; mode=display">\|X\|_\infty = \max_{i} \sum_{j=1}^{n} |x_{ij}|</script><p>其中，$X^H$ 为 $X$ 的共轭转置矩阵。</p>
+<h1 id="第三章-确定性知识系统"><a href="#第三章-确定性知识系统" class="headerlink" title="第三章 确定性知识系统"></a>第三章 确定性知识系统</h1><ul>
+<li><strong>知识</strong>是改造客观世界中积累起来的认识和经验。</li>
+<li>知识 = 信息 + 关联</li>
+</ul>
+<h2 id="知识的类型"><a href="#知识的类型" class="headerlink" title="知识的类型"></a>知识的类型</h2><p><img src="2025-12-11-22-06-18.png" alt=""></p>
+<h2 id="知识的作用效果"><a href="#知识的作用效果" class="headerlink" title="知识的作用效果"></a>知识的作用效果</h2><p><img src="2025-12-11-22-08-05.png" alt=""></p>
+<h2 id="知识的表示要求"><a href="#知识的表示要求" class="headerlink" title="知识的表示要求"></a>知识的表示要求</h2><ul>
+<li>可组织性与可维护性</li>
+<li>可理解性与可实现性</li>
+</ul>
+<h2 id="知识的类型-1"><a href="#知识的类型-1" class="headerlink" title="知识的类型"></a>知识的类型</h2><p><img src="2025-12-11-22-15-11.png" alt=""></p>
+<h2 id="推理方法及其分类"><a href="#推理方法及其分类" class="headerlink" title="推理方法及其分类"></a>推理方法及其分类</h2><ol>
+<li>演绎推理：<br><img src="2025-12-11-22-17-36.png" alt=""></li>
+<li>归纳推理<br><img src="2025-12-11-22-22-55.png" alt=""><br><img src="2025-12-11-22-23-09.png" alt=""><br><strong>演绎推理 &amp; 归纳推理区别</strong>：<br><img src="2025-12-11-22-22-30.png" alt=""></li>
+</ol>
+<h2 id="推理控制策略"><a href="#推理控制策略" class="headerlink" title="推理控制策略"></a>推理控制策略</h2><ul>
+<li>推理的控制策略是使推理过程尽快达到目标。</li>
+<li>分为两类：推理策略和搜索策略</li>
+</ul>
+<p><strong>冲突消解策略</strong>：当推理过程有多条知识可用时，如何从这多条可用知识中选出一条<strong>最佳知识</strong>用于推理的策略，常用的冲突消解策略有<em>领域知识优先和新鲜知识优先</em>等。</p>
+<h1 id="第四章-不确定性知识系统"><a href="#第四章-不确定性知识系统" class="headerlink" title="第四章 不确定性知识系统"></a>第四章 不确定性知识系统</h1><h2 id="知识的不确定性表示"><a href="#知识的不确定性表示" class="headerlink" title="知识的不确定性表示"></a>知识的不确定性表示</h2><p><img src="2025-12-11-22-30-33.png" alt=""><br><img src="2025-12-11-22-30-45.png" alt=""></p>
+<h2 id="主观贝叶斯推理"><a href="#主观贝叶斯推理" class="headerlink" title="主观贝叶斯推理"></a>主观贝叶斯推理</h2><h2 id="贝叶斯网络原理"><a href="#贝叶斯网络原理" class="headerlink" title="贝叶斯网络原理"></a>贝叶斯网络原理</h2><p><img src="2025-12-11-22-31-50.png" alt=""></p>
+<h1 id="第五章-智能搜索技术"><a href="#第五章-智能搜索技术" class="headerlink" title="第五章 智能搜索技术"></a>第五章 智能搜索技术</h1><h2 id="状态空间问题的求解"><a href="#状态空间问题的求解" class="headerlink" title="状态空间问题的求解"></a>状态空间问题的求解</h2><p><img src="2025-12-12-18-20-32.png" alt=""><br><img src="2025-12-12-18-20-56.png" alt=""></p>
+<h2 id="与或树"><a href="#与或树" class="headerlink" title="与或树"></a>与或树</h2><ul>
+<li><strong>分解</strong>：$P 归纳为 P_i, P_i 都有解的时候，P 有解。$</li>
+<li><strong>等价变换</strong>：$P 可以等价变为 P_i，有一个 P_i 有解，P 有解。$</li>
+</ul>
+<p><img src="2025-12-12-18-28-38.png" alt=""></p>
+<ul>
+<li>本原问题：不能再进行分解或者变换，可以直接解答的问题</li>
+<li>端节点：没有子节点的节点</li>
+<li>终止节点：本原问题对应的节点 <em>（终止节点一定是端节点，端节点不一定是终止节点）</em></li>
+<li>可解问题：<ul>
+<li>任何终止节点</li>
+<li>或树中有一个可解</li>
+<li>与树中都有解</li>
+</ul>
+</li>
+</ul>
+<h2 id="进化搜索"><a href="#进化搜索" class="headerlink" title="进化搜索"></a>进化搜索</h2><p><img src="2025-12-12-18-36-12.png" alt=""><br><strong>进化计算的生物学基础</strong>：</p>
+<ol>
+<li>遗传理论</li>
+<li>变异理论</li>
+<li>进化论</li>
+</ol>
+<h2 id="启发式搜索"><a href="#启发式搜索" class="headerlink" title="启发式搜索"></a>启发式搜索</h2><p><img src="2025-12-12-18-38-36.png" alt=""></p>
+<ul>
+<li>八数码难题：</li>
+</ul>
+<p><img src="2025-12-12-18-39-09.png" alt=""></p>
+<h2 id="A-算法"><a href="#A-算法" class="headerlink" title="A 算法"></a>A 算法</h2><p><img src="2025-12-12-18-40-15.png" alt=""><br><img src="2025-12-12-18-41-00.png" alt=""><br><img src="2025-12-12-18-41-22.png" alt=""></p>
+<h2 id="与或树的启发式搜索"><a href="#与或树的启发式搜索" class="headerlink" title="与或树的启发式搜索"></a>与或树的启发式搜索</h2><p><img src="2025-12-12-18-41-55.png" alt=""></p>
+<h2 id="博弈树"><a href="#博弈树" class="headerlink" title="博弈树"></a>博弈树</h2><p><img src="2025-12-12-18-42-41.png" alt=""><br><img src="2025-12-12-18-43-02.png" alt=""></p>
+<h2 id="进化搜索（这一部分看PPT理解）"><a href="#进化搜索（这一部分看PPT理解）" class="headerlink" title="进化搜索（这一部分看PPT理解）"></a>进化搜索（这一部分看PPT理解）</h2><ul>
+<li>蚁群算法</li>
+<li>遗传算法</li>
+</ul>
+<ol>
+<li>基本步骤：<br><img src="2025-12-13-16-33-40.png" alt=""></li>
+<li>三角函数的遗传算法优化（重点看一下）（17-20课时）</li>
+<li>轮盘赌：<br><img src="2025-12-13-16-38-57.png" alt=""></li>
+</ol>
+<ul>
+<li>粒子群优化算法<br>看ppt（21-24课时），重点求解tsp问题的步骤。</li>
+</ul>
+<p><strong>群智能的优点</strong>：</p>
+<ol>
+<li>灵活性：群体可以随时适应变化的环境。</li>
+<li>稳健性：即使个体失败，群体仍可以完成任务；自我组织；活动既不受中央控制，也不受局部监督。</li>
+</ol>
+<h1 id="第六章-机器学习"><a href="#第六章-机器学习" class="headerlink" title="第六章 机器学习"></a>第六章 机器学习</h1><h2 id="信息熵与信息增益"><a href="#信息熵与信息增益" class="headerlink" title="信息熵与信息增益"></a>信息熵与信息增益</h2><p><img src="2025-12-13-16-44-14.png" alt=""><br><img src="2025-12-13-16-44-31.png" alt=""></p>
+<h2 id="ID3-算法"><a href="#ID3-算法" class="headerlink" title="ID3 算法"></a>ID3 算法</h2><ul>
+<li><strong>测试属性</strong>：<code>信息增益</code>  </li>
+</ul>
+<p><strong>具体计算流程</strong>：（设$C_1+C_2=D$）</p>
+<ol>
+<li><p><strong>计算不考虑特征的信息熵</strong>：</p>
+<script type="math/tex; mode=display">H(D) = -\sum_{k=1}^{K} p_k \log_2 p_k= -\sum_{k=1}^{K} \frac{|C_k|}{|D|} \log_2 \frac{|C_k|}{|D|}</script><p>其中 $|D|$ 为样本总数，$|C_k|$ 为属于第 $k$ 类的样本数(eg: <em>买/不买</em>)。</p>
+</li>
+<li><p><strong>计算条件熵</strong>：</p>
+<ul>
+<li>先选择一个 <strong>特征 $A_i$</strong>，将数据集 $D$ 根据特征 $A_i$ 的<strong>不同取值</strong>划分为 $n$ 个子集 $D_1, D_2, \dots, D_n$。</li>
+<li>计算特征 $A_i$ 下不同取值 $D_i$ 的信息熵 $H(D_i)$：<script type="math/tex; mode=display">H(D_i)= -\sum_{k=1}^{K} \frac{|C_k|}{|D_i|} \log_2 \frac{|C_k|}{|D_i|}</script>其中，$C_k$ 是在集合 $D_i$ 里的第 $k$ 种类别的数量 (eg: <em>买/不买</em>)。</li>
+<li>计算条件熵 $H(D|A_i)$：<script type="math/tex; mode=display">H(D|A_i) = \sum_{i=1}^{n} p_i H(D_i)= \sum_{i=1}^{n} \frac{|D_i|}{|D|} H(D_i)</script></li>
+</ul>
+</li>
+<li><p><strong>计算信息增益</strong>：</p>
+<script type="math/tex; mode=display">g(D, A_i) = H(D) - H(D|A_i)</script></li>
+<li><p><strong>特征选择</strong>：<br>选取 <strong>信息增益最大</strong> 的特征$A_i$作为当前的分裂节点（根节点或内部节点）。</p>
+</li>
+<li><p><strong>递归构建</strong>：<br>对子节点重复以上步骤，以此类推，直至分类完全（或满足停止条件）。</p>
+</li>
+</ol>
+<h2 id="集成学习（Boosting-Bagging）"><a href="#集成学习（Boosting-Bagging）" class="headerlink" title="集成学习（Boosting/Bagging）"></a>集成学习（Boosting/Bagging）</h2><p><img src="2025-12-13-16-47-29.png" alt=""><br><img src="2025-12-13-16-47-43.png" alt=""></p>
+<h2 id="回归的含义、思想"><a href="#回归的含义、思想" class="headerlink" title="回归的含义、思想"></a>回归的含义、思想</h2><p><img src="2025-12-13-16-50-09.png" alt=""><br><img src="2025-12-13-16-50-28.png" alt=""></p>
+<h2 id="总体回归函数"><a href="#总体回归函数" class="headerlink" title="总体回归函数"></a>总体回归函数</h2><p><img src="2025-12-13-16-51-14.png" alt=""><br><img src="2025-12-13-16-51-28.png" alt=""><br><img src="2025-12-13-16-51-39.png" alt=""></p>
+<h2 id="计算题：最小二乘估计-OLS"><a href="#计算题：最小二乘估计-OLS" class="headerlink" title="计算题：最小二乘估计 $OLS$"></a>计算题：最小二乘估计 $OLS$</h2><ul>
+<li>看ppt（25-28）</li>
+</ul>
+<h1 id="第七章-支持向量机"><a href="#第七章-支持向量机" class="headerlink" title="第七章 支持向量机"></a>第七章 支持向量机</h1><ul>
+<li>看模式识别的笔记。</li>
+</ul>
+<h1 id="第八章-人工神经网络与连接学习"><a href="#第八章-人工神经网络与连接学习" class="headerlink" title="第八章 人工神经网络与连接学习"></a>第八章 人工神经网络与连接学习</h1><p>后面看三个ppt吧。</p>
+]]></content>
       <categories>
         <category>华理</category>
         <category>大三上</category>
@@ -2580,6 +2146,617 @@ A = U\Sigma V^T, \Sigma = \text{diag}(\sigma_1, \sigma_2, \cdots, \sigma_p)</scr
 <li>未知相关系数矩阵 R 的情况：</li>
 </ul>
 <p><img src="2025-12-11-15-44-54.png" alt=""></p>
+]]></content>
+      <categories>
+        <category>华理</category>
+        <category>大三上</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>智能无人系统</title>
+    <url>/2025/12/24/AutoDriving/</url>
+    <content><![CDATA[<h1 id="第一章-认识无人驾驶系统"><a href="#第一章-认识无人驾驶系统" class="headerlink" title="第一章 认识无人驾驶系统"></a>第一章 认识无人驾驶系统</h1><h2 id="1-无人驾驶分级标准"><a href="#1-无人驾驶分级标准" class="headerlink" title="1. 无人驾驶分级标准"></a>1. 无人驾驶分级标准</h2><p><img src="2025-12-24-05-17-53.png" alt=""><br><img src="2025-12-24-05-18-20.png" alt=""></p>
+<h2 id="2-无人驾驶系统框架"><a href="#2-无人驾驶系统框架" class="headerlink" title="2. 无人驾驶系统框架"></a>2. 无人驾驶系统框架</h2><p><img src="2025-12-24-05-23-00.png" alt=""></p>
+<h1 id="第二章-定位方法以及传感器应用"><a href="#第二章-定位方法以及传感器应用" class="headerlink" title="第二章 定位方法以及传感器应用"></a>第二章 定位方法以及传感器应用</h1><blockquote>
+<p><strong>章节核心逻辑</strong>：无人驾驶系统如何解决两个终极问题？</p>
+<ol>
+<li><strong>“感官”</strong>：用传感器感知周围环境（雷达、相机）。</li>
+<li><strong>“大脑”</strong>：用算法（定位、滤波）确定自己在哪、状态如何。</li>
+</ol>
+</blockquote>
+<p><strong>SLAN</strong>：同步定位与地图构建。主要有：激光SLAN &amp; 视觉SLAN</p>
+<h2 id="第一部分：硬件传感器"><a href="#第一部分：硬件传感器" class="headerlink" title="第一部分：硬件传感器"></a>第一部分：硬件传感器</h2><h3 id="1-激光雷达（激光SLAN）"><a href="#1-激光雷达（激光SLAN）" class="headerlink" title="1. 激光雷达（激光SLAN）"></a>1. 激光雷达（激光SLAN）</h3><ul>
+<li><strong>原理</strong>：<strong>飞行时间法 (ToF)</strong>。发射激光束，计算往返时间测距。<ul>
+<li>公式：$r = \frac{1}{2} c t$</li>
+</ul>
+</li>
+<li><strong>特性</strong>：<ul>
+<li>3D激光雷达采集到的信息叫做<strong>点云</strong>。将点云与全局地图进行迭代匹配（ICP）</li>
+<li>✅ <strong>精度极高</strong>，测距远，分辨率高，隐蔽性好，抗干扰能力强</li>
+<li>❌ <strong>成本高</strong>，易受<strong>雨雪雾</strong>天气干扰（噪声大）</li>
+</ul>
+</li>
+<li><strong>考点</strong>：它是L4/L5级自动驾驶的核心传感器。</li>
+</ul>
+<h3 id="2-摄像头"><a href="#2-摄像头" class="headerlink" title="2. 摄像头"></a>2. 摄像头</h3><ul>
+<li><strong>原理</strong>：被动接收环境光。</li>
+<li><strong>分类与应用</strong> (🎯 <strong>学长考题重点</strong>)：<ul>
+<li><strong>单目 (Monocular)</strong>：前视感知，识别人、车、车道线、红绿灯。</li>
+<li><strong>双目 (Stereo)</strong>：通过视差原理测距。</li>
+<li><strong>鱼眼 (Fisheye)</strong>：<strong>视野极大 (&gt;180°)</strong>，专门用于<strong>倒车影像、360°环视</strong>（图像有畸变）。</li>
+</ul>
+</li>
+<li><strong>特性</strong>：<ul>
+<li>✅ 纹理信息丰富，便宜。</li>
+<li>❌ 受光照影响大（逆光、黑夜致盲），测距精度不如雷达。</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-毫米波雷达"><a href="#3-毫米波雷达" class="headerlink" title="3. 毫米波雷达"></a>3. 毫米波雷达</h3><ul>
+<li><strong>原理</strong>：多普勒效应。</li>
+<li><strong>特性</strong>：<ul>
+<li>✅ <strong>穿透力强</strong>（无视雨雪雾），<strong>测速</strong>特别准。</li>
+<li>❌ 分辨率低（看不清物体轮廓，只能知道“有东西”）。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="第二部分：定位算法"><a href="#第二部分：定位算法" class="headerlink" title="第二部分：定位算法"></a>第二部分：定位算法</h2><h3 id="1-激光SLAN：ICP-vs-NDT-⭐⭐⭐-必考对比"><a href="#1-激光SLAN：ICP-vs-NDT-⭐⭐⭐-必考对比" class="headerlink" title="1. 激光SLAN：ICP vs NDT (⭐⭐⭐ 必考对比)"></a>1. 激光SLAN：ICP vs NDT (⭐⭐⭐ 必考对比)</h3><p><strong>（1）ICP</strong>：</p>
+<p><img src="2025-12-27-12-37-38.png" alt=""><br><img src="2025-12-27-12-43-15.png" alt=""></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">优点</th>
+<th style="text-align:left">缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">效果精确</td>
+<td style="text-align:left">耗时大，效率低</td>
+</tr>
+<tr>
+<td style="text-align:left">不必数据处理</td>
+<td style="text-align:left">可能陷入局部最优</td>
+</tr>
+<tr>
+<td style="text-align:left">较好收敛性</td>
+<td style="text-align:left">需要噪声处理</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>（2）NDT</strong>：</p>
+<p><img src="2025-12-27-12-55-49.png" alt=""><br><img src="2025-12-27-13-26-05.png" alt=""></p>
+<p><strong>总结</strong>：<br><em>把“刚才看到的”（实时点云）和“记忆中的”（高精地图）拼在一起。</em></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">特性</th>
+<th style="text-align:left"><strong>ICP (迭代最近点)</strong></th>
+<th style="text-align:left"><strong>NDT (正态分布变换)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>通俗理解</strong></td>
+<td style="text-align:left"><strong>硬碰硬</strong>。每个点都去找地图上离它最近的点，强行拉近。</td>
+<td style="text-align:left"><strong>概率流</strong>。把地图划成格子，看现在的点落在哪个概率最高的格子里。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>核心原理</strong></td>
+<td style="text-align:left">最小化点对点欧氏距离。</td>
+<td style="text-align:left">计算网格内的高斯概率密度函数 (PDF)。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>优点</strong></td>
+<td style="text-align:left">精度极高（前提是初值给得好）。</td>
+<td style="text-align:left"><strong>速度快</strong>，<strong>鲁棒性强</strong>（容错率高，初值差一点也能对上）。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>缺点</strong></td>
+<td style="text-align:left">慢，容易拼错（陷入局部最优）。</td>
+<td style="text-align:left">精度略逊于精细的ICP。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="2-视觉SLAM"><a href="#2-视觉SLAM" class="headerlink" title="2. 视觉SLAM"></a>2. 视觉SLAM</h3><p><img src="2025-12-27-14-30-03.png" alt=""></p>
+<ul>
+<li><strong>视觉前端特征</strong> (🎯 <strong>填空题重点</strong>)：<ul>
+<li><strong>角点 (Corner)</strong>：如 Harris, FAST。</li>
+<li><strong>斑点 (Blob)</strong>：如 SIFT（最准最慢）。</li>
+<li><strong>ORB特征</strong>：<strong>Oriented FAST</strong> (带方向角点) + <strong>BRIEF</strong> (二进制描述子)。<strong>速度极快</strong>，适合实时系统。</li>
+</ul>
+</li>
+<li><strong>回环检测 (Loop Closure)</strong>：<ul>
+<li>利用<strong>词袋模型 (BoW)</strong> 判断“我是否来过这里”，消除累积误差。</li>
+</ul>
+</li>
+</ul>
+<p><img src="2025-12-27-14-29-13.png" alt=""><br><img src="2025-12-27-14-29-25.png" alt=""></p>
+<h2 id="第三部分：定位系统"><a href="#第三部分：定位系统" class="headerlink" title="第三部分：定位系统"></a>第三部分：定位系统</h2><h3 id="1-坐标系转换-⚠️-判断题陷阱"><a href="#1-坐标系转换-⚠️-判断题陷阱" class="headerlink" title="1. 坐标系转换 (⚠️ 判断题陷阱)"></a>1. 坐标系转换 (⚠️ 判断题陷阱)</h3><p><img src="2025-12-27-13-04-52.png" alt=""><br><img src="2025-12-27-13-05-50.png" alt=""></p>
+<ul>
+<li><strong>转换链条</strong>：<br>  <code>GPS输出的经纬度信息</code> $\rightarrow$ <code>ECEF (地心地固)</code> $\rightarrow$ <code>导航坐标系 (ENU/NED)</code> $\rightarrow$ <code>车体坐标系 (Body)</code></li>
+<li><strong>关键点</strong>：<ul>
+<li><strong>ENU</strong>：东北天坐标系（指北坐标系）。</li>
+<li><strong>ECEF</strong>：随地球自转。</li>
+<li><em>考题避坑</em>：通常<strong>不能</strong>直接从 ECEF 旋转得到车体坐标系，中间必须经过局部切平面（导航坐标系），否则无法描述“东南西北”。</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-基于GPS-惯性组合（IMU）导航的定位系统"><a href="#2-基于GPS-惯性组合（IMU）导航的定位系统" class="headerlink" title="2. 基于GPS +惯性组合（IMU）导航的定位系统"></a>2. 基于GPS +惯性组合（IMU）导航的定位系统</h3><p><strong>（1）GPS</strong>：</p>
+<p><img src="2025-12-27-13-27-04.png" alt=""></p>
+<ul>
+<li>RTK：载波相位动态实时差分，定位误差在城市中也可达到10～50m（一般GPS为10～100m）</li>
+<li>差分GPS定位：通过在一个精确的已知位置（基准站）上安装GPS监测接收机，计算得到基准站与GPS卫星的距离，然后再根据误差修正结果，从而提高了定位精度。</li>
+<li>伪距法定位：<ul>
+<li>优点：速度快、无多值性问题、虽然精度低，但是满足大部分需求。 </li>
+</ul>
+</li>
+</ul>
+<p><img src="2025-12-27-13-32-18.png" alt=""></p>
+<p><img src="2025-12-27-13-35-15.png" alt=""></p>
+<p><strong>（2）惯性测量单元</strong>：</p>
+<script type="math/tex; mode=display">
+陀螺仪 + 加速度计</script><p><img src="2025-12-27-14-19-52.png" alt=""><br><img src="2025-12-27-14-21-05.png" alt=""></p>
+<p><strong>总结</strong>：</p>
+<ul>
+<li><strong>GPS (全球定位系统)</strong>：提供<strong>绝对位置</strong>。<ul>
+<li><em>缺点</em>：更新慢 (10Hz)，易被遮挡（隧道、高楼峡谷）。</li>
+<li><em>RTK技术</em>：利用基准站差分，将精度提升至<strong>厘米级</strong>。</li>
+</ul>
+</li>
+<li><strong>IMU (惯性测量单元)</strong>：提供<strong>相对推算</strong>。<ul>
+<li><em>组成</em>：<strong>加速度计</strong>（测比力/加速度）+ <strong>陀螺仪</strong>（测角速度）。</li>
+<li><em>原理</em>：航位推算。</li>
+<li><em>缺点</em>：<strong>误差随时间累积</strong>（积分漂移）。</li>
+</ul>
+</li>
+<li><strong>融合逻辑</strong>：<strong>GPS负责“纠偏”</strong>（消除累计误差），<strong>IMU负责“填空”</strong>（高频输出，保证信号不断）。</li>
+</ul>
+<p><strong>（3）惯性导航系统（INS）</strong>：<br><img src="2025-12-27-14-23-24.png" alt=""><br><img src="2025-12-27-14-23-36.png" alt=""><br><img src="2025-12-27-14-23-47.png" alt=""></p>
+<h2 id="第四部分：卡尔曼滤波"><a href="#第四部分：卡尔曼滤波" class="headerlink" title="第四部分：卡尔曼滤波"></a>第四部分：卡尔曼滤波</h2><p>这一部分数学最难，重点掌握<strong>逻辑</strong>和<strong>公式</strong>。</p>
+<ul>
+<li><strong>卡尔曼滤波</strong>：是一种利用<strong>线性系统</strong>状态方程，通过系统输入输出观测数据，对系统状态进行最优估计的算法。</li>
+<li><strong>基本思想</strong>：利用<code>前一时刻的估计值</code>和<code>现时刻的观测值</code>来更新对状态变量的估计，求出<code>现在时刻的估计值</code>。</li>
+</ul>
+<h3 id="1-卡尔曼滤波-KF-——-线性系统的最优估计"><a href="#1-卡尔曼滤波-KF-——-线性系统的最优估计" class="headerlink" title="1. 卡尔曼滤波 (KF) —— 线性系统的最优估计"></a>1. 卡尔曼滤波 (KF) —— 线性系统的最优估计</h3><ul>
+<li><strong>核心逻辑</strong>：<strong>加权平均</strong>。<ul>
+<li>模型算出一个值（预测），传感器测出一个值（测量）。</li>
+<li><strong>谁方差小（谁靠谱），我就信谁多一点</strong>。</li>
+</ul>
+</li>
+<li><strong>五大核心公式 (📝 建议默写)</strong>：<ol>
+<li><strong>预测状态</strong>：$\hat{x}_k^- = A \hat{x}_{k-1} + B u_k$</li>
+<li><strong>预测协方差</strong>：$P_k^- = A P_{k-1} A^T + Q$  <em>(Q: 模型噪声)</em></li>
+<li><strong>卡尔曼增益</strong>：$K_k = P_k^- H^T (H P_k^- H^T + R)^{-1}$ <em>(R: 测量噪声)</em><ul>
+<li><em>理解</em>：$R$ 越大（测量烂），$K$ 越小（不信测量）；$Q$ 越大（模型烂），$K$ 越大（信测量）。</li>
+</ul>
+</li>
+<li><strong>状态更新</strong>：$\hat{x}_k = \hat{x}_k^- + K_k (z_k - H \hat{x}_k^-)$</li>
+<li><strong>协方差更新</strong>：$P_k = (I - K_k H) P_k^-$</li>
+</ol>
+</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">局限性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">实时性不能满足</td>
+</tr>
+<tr>
+<td style="text-align:left">可靠性降低</td>
+</tr>
+<tr>
+<td style="text-align:left">对于<strong>非线性</strong>系统效果不佳</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="2-进阶滤波：EKF-vs-UKF-⭐⭐-简答题"><a href="#2-进阶滤波：EKF-vs-UKF-⭐⭐-简答题" class="headerlink" title="2. 进阶滤波：EKF vs UKF (⭐⭐ 简答题)"></a>2. 进阶滤波：EKF vs UKF (⭐⭐ 简答题)</h3><p><em>解决非线性问题（如车在转弯、雷达测距是弧线）。</em></p>
+<ul>
+<li><strong>扩展卡尔曼滤波 (EKF)</strong>：<ul>
+<li><strong>方法</strong>：<strong>线性化</strong>:用线性变换近似非线性变换。用<strong>泰勒级数展开</strong>（保留一阶导数），算出<strong>雅可比矩阵 (Jacobian)</strong>。</li>
+<li><em>缺点</em>：雅可比矩阵难算，忽略高阶项有精度损失。</li>
+<li><em>考点</em>：EKF近似的是<strong>非线性函数本身</strong>。</li>
+</ul>
+</li>
+<li><strong>无损卡尔曼滤波 (UKF)</strong>：<ul>
+<li><strong>方法</strong>：<strong>无损变换</strong>。选几个代表点（Sigma Points）去通过非线性函数，近似出新的<strong>概率分布</strong>。</li>
+<li><em>优点</em>：不用算雅可比，精度通常更高。</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-运动模型"><a href="#3-运动模型" class="headerlink" title="3. 运动模型"></a>3. 运动模型</h3><ul>
+<li><strong>CTRV</strong> (Constant Turn Rate and Velocity)：<strong>恒定转弯率和速度</strong>。这是描述车辆运动最常用的模型。</li>
+</ul>
+<h3 id="4-传感器融合架构"><a href="#4-传感器融合架构" class="headerlink" title="4. 传感器融合架构"></a>4. 传感器融合架构</h3><ul>
+<li><strong>顺序滤波 (Sequential Filtering)</strong>：<ul>
+<li><strong>逻辑</strong>：一次预测，多次更新。</li>
+<li><em>场景</em>：激光雷达和毫米波雷达的数据不同时到达。先用激光更新卡尔曼滤波，结果作为初值，马上再用毫米波更新。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="📝-考前抢分-CheckList-必背"><a href="#📝-考前抢分-CheckList-必背" class="headerlink" title="📝 考前抢分 CheckList (必背)"></a>📝 考前抢分 CheckList (必背)</h2><ol>
+<li><strong>倒车影像</strong>用什么镜头？ $\rightarrow$ <strong>鱼眼 (Fisheye)</strong></li>
+<li><strong>指北坐标系</strong>通常指什么？ $\rightarrow$ <strong>ENU (东北天)</strong></li>
+<li><strong>ICP和NDT</strong>谁更快更鲁棒？ $\rightarrow$ <strong>NDT</strong></li>
+<li><strong>EKF</strong>的核心数学操作是什么？ $\rightarrow$ <strong>泰勒展开 / 计算雅可比矩阵</strong></li>
+<li><strong>SLAM</strong>常用视觉特征？ $\rightarrow$ <strong>ORB, SIFT, 角点</strong></li>
+<li><strong>卡尔曼增益K</strong>变大说明什么？ $\rightarrow$ 说明更相信<strong>测量值</strong> (或者模型预测的不确定性Q变大了)。</li>
+</ol>
+<h1 id="第三章-深度学习和视觉感知"><a href="#第三章-深度学习和视觉感知" class="headerlink" title="第三章 深度学习和视觉感知"></a>第三章 深度学习和视觉感知</h1><h2 id="第一部分：路缘石检测"><a href="#第一部分：路缘石检测" class="headerlink" title="第一部分：路缘石检测"></a>第一部分：路缘石检测</h2><h3 id="1-ROI提取-感兴趣区域"><a href="#1-ROI提取-感兴趣区域" class="headerlink" title="1. ROI提取 (感兴趣区域)"></a>1. <strong>ROI提取 (感兴趣区域)</strong></h3><ul>
+<li>获取原始点云，只保留车身周围一定范围内的点（去除无关背景）。</li>
+</ul>
+<h3 id="2-点集左右划分"><a href="#2-点集左右划分" class="headerlink" title="2. 点集左右划分"></a>2. <strong>点集左右划分</strong></h3><ul>
+<li>将点云按照激光雷达的扫描线（车身前向射线）进行划分。</li>
+</ul>
+<p><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /></p>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<style>
+  .swiper {
+    width: 100%;
+    height: 500px; /* 如果图片觉得太小，可以把这里改成 500px 或 600px */
+    border-radius: 8px; /* 圆角 */
+  }
+  .swiper-slide {
+    text-align: center;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* 保持图片原有比例，不拉伸变形 */
+  }
+</style>
+
+<div class="swiper mySwiper">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide">
+      <img src="2025-12-28-19-05-37.png" alt="Image 1">
+    </div>
+    <div class="swiper-slide">
+      <img src="2025-12-28-19-05-49.png" alt="Image 2">
+    </div>
+    <div class="swiper-slide">
+      <img src="2025-12-28-19-06-01.png" alt="Image 3">
+    </div>
+  </div>
+
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-pagination"></div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var swiper = new Swiper(".mySwiper", {
+      loop: true,               // 循环播放
+      autoHeight: true,         // 自动适应高度
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,        // 允许点击小圆点切换
+      },
+    });
+  });
+</script>
+
+<h3 id="3-路缘石点提取"><a href="#3-路缘石点提取" class="headerlink" title="3. 路缘石点提取"></a>3. <strong>路缘石点提取</strong></h3><ul>
+<li>在每一条射线上，利用几何特征（如高度突变、坡度变化）找到疑似路缘的点。</li>
+<li>左右子点集划分：将找到的点分为“左侧路缘点集”和“右侧路缘点集”。</li>
+</ul>
+<p><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /></p>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<style>
+  .swiper {
+    width: 100%;
+    height: 450px; /* 如果图片较高，可以将这里改成 500px 或 600px */
+    border-radius: 8px;
+  }
+  .swiper-slide {
+    text-align: center;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* 保持图片完整显示，不裁剪 */
+  }
+</style>
+
+<div class="swiper mySwiper">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide">
+      <img src="2025-12-28-19-09-06.png" alt="Image 1">
+    </div>
+    <div class="swiper-slide">
+      <img src="2025-12-28-19-09-13.png" alt="Image 2">
+    </div>
+    <div class="swiper-slide">
+      <img src="2025-12-28-19-09-23.png" alt="Image 3">
+    </div>
+    <div class="swiper-slide">
+      <img src="2025-12-28-19-09-33.png" alt="Image 4">
+    </div>
+  </div>
+
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-pagination"></div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var swiper = new Swiper(".mySwiper", {
+      loop: true,               // 循环播放
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,        // 允许点击圆点切换
+      },
+    });
+  });
+</script>
+
+<h3 id="4-提取与拟合"><a href="#4-提取与拟合" class="headerlink" title="4. 提取与拟合"></a>4. <strong>提取与拟合</strong></h3><ul>
+<li>利用最小二乘法或RANSAC算法，将点拟合成平滑的曲线（通常是三次样条曲线），得到最终的路缘线。</li>
+</ul>
+<p><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /></p>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<style>
+  .swiper {
+    width: 100%;
+    height: 450px; /* 高度可按需调整 */
+    border-radius: 8px;
+    margin-bottom: 20px; /* 增加一点底部间距 */
+  }
+  .swiper-slide {
+    text-align: center;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+</style>
+
+<div class="swiper mySwiper3">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide"><img src="2025-12-28-19-11-56.png"></div>
+    <div class="swiper-slide"><img src="2025-12-28-19-12-11.png"></div>
+    <div class="swiper-slide"><img src="2025-12-28-19-12-28.png"></div>
+    <div class="swiper-slide"><img src="2025-12-28-19-12-37.png"></div>
+    <div class="swiper-slide"><img src="2025-12-28-19-12-47.png"></div>
+    <div class="swiper-slide"><img src="2025-12-28-19-12-59.png"></div>
+    <div class="swiper-slide"><img src="2025-12-28-19-13-10.png"></div>
+  </div>
+
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-pagination"></div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var swiper3 = new Swiper(".mySwiper3", {
+      loop: true,
+      navigation: {
+        nextEl: ".mySwiper3 .swiper-button-next", // 指定只控制这一组的箭头
+        prevEl: ".mySwiper3 .swiper-button-prev",
+      },
+      pagination: {
+        el: ".mySwiper3 .swiper-pagination", // 指定只控制这一组的分页器
+        clickable: true,
+      },
+    });
+  });
+</script>
+
+<p><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /></p>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<style>
+  .swiper {
+    width: 100%;
+    height: 450px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  .swiper-slide {
+    text-align: center;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+</style>
+
+<div class="swiper mySwiper4">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide"><img src="2025-12-28-19-13-46.png"></div>
+    <div class="swiper-slide"><img src="2025-12-28-19-13-57.png"></div>
+    <div class="swiper-slide"><img src="2025-12-28-19-14-07.png"></div>
+  </div>
+
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-pagination"></div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var swiper4 = new Swiper(".mySwiper4", {
+      loop: true,
+      navigation: {
+        nextEl: ".mySwiper4 .swiper-button-next", // 锁定只控制这一组
+        prevEl: ".mySwiper4 .swiper-button-prev",
+      },
+      pagination: {
+        el: ".mySwiper4 .swiper-pagination",
+        clickable: true,
+      },
+    });
+  });
+</script>
+
+<p><strong>补充</strong>：坐标系变换<br><img src="2025-12-28-19-15-03.png" alt=""></p>
+<h2 id="第二部分：卷积神经网络（CNN）"><a href="#第二部分：卷积神经网络（CNN）" class="headerlink" title="第二部分：卷积神经网络（CNN）"></a>第二部分：卷积神经网络（CNN）</h2><ol>
+<li><p><strong>卷积与前馈神经网络区别</strong>：</p>
+<ul>
+<li>用卷积运算代替矩阵乘法运算</li>
+<li>传统全连接神经网络不足：<em>计算/储存要求高（参数大）、易过拟合</em></li>
+<li><strong>CNN优势</strong>：<em>稀疏交互、权重共享、等变表示</em></li>
+</ul>
+</li>
+<li><p><strong>CNN的三大特性</strong>：</p>
+<ul>
+<li><strong>稀疏交互</strong>：卷积核大小远小于输入图像，每个输出神经元只与局部输入连接（效率高）。</li>
+<li><strong>参数共享</strong>：同一个卷积核在整张图上滑动，用的是同一组参数（储存空间少）。</li>
+<li><strong>等变表示</strong>：输入平移，输出也跟着平移。</li>
+</ul>
+</li>
+<li><p><strong>核心组件</strong>：</p>
+<ul>
+<li><strong>卷积层</strong>：提取特征。</li>
+<li><strong>池化层</strong>：用相邻位置的<strong>总体统计特征</strong>来替换该位置的值，起到降维、减少参数、防止过拟合的作用。<em>（最大池化、平均池化）</em></li>
+<li><strong>激活函数</strong>：引入非线性（如 ReLU）。</li>
+</ul>
+</li>
+</ol>
+<h2 id="第三部分：YOLO"><a href="#第三部分：YOLO" class="headerlink" title="第三部分：YOLO"></a>第三部分：YOLO</h2><p><img src="2025-12-28-20-29-46.png" alt=""></p>
+<h3 id="1-YOLO的核心思想"><a href="#1-YOLO的核心思想" class="headerlink" title="1. YOLO的核心思想"></a>1. <strong>YOLO的核心思想</strong></h3><ul>
+<li>不需要生成候选区域，直接把图像划分成 S×S 的网格，每个网格负责预测中心落在该格子里面的物体。</li>
+<li>速度快，适合无人驾驶实时感知。</li>
+</ul>
+<h3 id="2-YOLOv3的特征提取"><a href="#2-YOLOv3的特征提取" class="headerlink" title="2. YOLOv3的特征提取"></a>2. <strong>YOLOv3的特征提取</strong></h3><p><strong>特点</strong>：</p>
+<ul>
+<li>有53个卷积层</li>
+<li>输出图像尺寸：416x416x3 </li>
+<li>连续使用卷积层和跳跃连接层</li>
+</ul>
+<p><strong>图像金字塔</strong>：<br><img src="2025-12-28-20-44-17.png" alt=""></p>
+<ul>
+<li><strong>图像金字塔-向下采样</strong>：删除图像偶数行列，大小变为四分之一。</li>
+<li><strong>图像金字塔-向上采样</strong>：补充大量像素点0，大小变为四倍。<br><em>（注意：两种操作互相是<strong>不可逆</strong>的。）</em></li>
+</ul>
+<p><strong>多尺度特征预测</strong>：<br><img src="2025-12-28-20-52-14.png" alt=""><br><img src="2025-12-28-20-48-17.png" alt=""></p>
+<p><strong>交并比</strong>：<br><img src="2025-12-28-20-56-57.png" alt=""></p>
+<p><strong>边界框坐标计算</strong>：<br><img src="2025-12-28-20-59-15.png" alt=""></p>
+<ul>
+<li>$(b_x,b_y)$为<strong>中心坐标</strong>。</li>
+<li>$b_w,b_h$进行了<strong>尺度缩放</strong>。</li>
+<li><strong>Sigmoid函数作用</strong>：将$t_x,t_y$压缩到[0,1]区间内，<strong>确保预测边界在网格内，防止偏移过多</strong>。</li>
+<li><strong>指数函数e的作用</strong>：确保<strong>缩放后的宽高为正</strong>。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>华理</category>
+        <category>大三上</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>专业前沿讲座报告</title>
+    <url>/2025/11/26/lecture-report/</url>
+    <content><![CDATA[<blockquote>
+<p><strong>课程信息</strong></p>
+<ul>
+<li><strong>课程名称：</strong> 专业前沿讲座</li>
+<li><strong>学期：</strong> 2025—2026学年第 1 学期</li>
+<li><strong>作者：</strong> 宋文韬 (智机试验2305 / 23013361)</li>
+</ul>
+</blockquote>
+<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>当前，人工智能与机器人技术正经历高速发展，多智能体协同、复杂系统优化等成为研究热点。文章结合《专业前沿讲座》课程内容及相关文献研读，梳理与分析了多智能体感知决策、大规模全局优化、工业互联网信息融合与安全以及机器学习在科学探索中的前沿应用。通过对这些技术在原理、实例及前沿研究上的综合分析，本报告总结了当前人工智能技术发展的内在规律与主流趋势，进一步形成了对未来研究方向与科研方法的初步认识与思考。</p>
+<p><strong>关键词：</strong> 人工智能与机器人、多智能体、全局优化、工业互联网、机器学习</p>
+<hr>
+<h2 id="1-引言"><a href="#1-引言" class="headerlink" title="1. 引言"></a>1. 引言</h2><p>当今世界，新一轮科技革命和产业变革正在深入发展，人工智能与机器人技术已成为国际竞争的新高地，也是推动经济社会发展的核心引擎。从自动驾驶车队的协同作业到智慧工厂的精准制造，从复杂系统的调度优化到基础科学领域的突破性发现，智能科学技术正在以前所未有的速度重塑着我们对世界的认知与改造能力。作为信息学院的学生，置身于这一时代的浪潮中，不仅需要掌握扎实的工程基础，更需要具备广阔的国际视野，深刻理解技术演进的内在逻辑与未来趋势。</p>
+<p>本报告将结合课程讲授内容与相关前沿文献的研读体会，分为三个部分展开：首先，探讨从单体智能向多智能体协同跨越的技术逻辑，以及大规模全局优化算法在其中的核心作用；其次，分析工业互联网背景下，信息融合技术如何赋能实体经济，以及随之而来的信息安全挑战与伦理责任；最后，展望机器学习在科学探索与增进民生福祉中的革命性应用。通过对这些前沿技术的综合阐述，本报告旨在总结当前人工智能技术发展的规律，并结合个人思考，形成对未来科研方向与职业规范的初步认识与体会。</p>
+<h2 id="2-群体智能与复杂系统的优化决策"><a href="#2-群体智能与复杂系统的优化决策" class="headerlink" title="2. 群体智能与复杂系统的优化决策"></a>2. 群体智能与复杂系统的优化决策</h2><h3 id="2-1-多智能体系统的协同感知与决策"><a href="#2-1-多智能体系统的协同感知与决策" class="headerlink" title="2.1 多智能体系统的协同感知与决策"></a>2.1 多智能体系统的协同感知与决策</h3><p>在面对动态、非结构化或大规模任务环境如无人机集群协同、智慧交通调度等时，单体智能往往受限于感知范围与执行能力。多智能体系统（MAS）通过多个智能体间的交互与协作，能够涌现出超越个体之和的群体智能。</p>
+<h4 id="2-1-1-分布式感知与博弈决策"><a href="#2-1-1-分布式感知与博弈决策" class="headerlink" title="2.1.1 分布式感知与博弈决策"></a>2.1.1 分布式感知与博弈决策</h4><p>智能感知与决策是多智能体系统的核心要素。与单体系统不同，多智能体面临着环境的“非平稳性”挑战——即一个智能体的策略更新会改变其他智能体面临的环境状态。根据 Zhang 等人（2021）的研究 [1]，解决这一问题的关键在于引入博弈论框架与多智能体强化学习（MARL）算法。通过建立纳什均衡（Nash Equilibrium）或相关均衡机制，智能体能够在竞争或合作中找到最优策略组合。</p>
+<img src="/2025/11/26/lecture-report/1.png" class="" title="图 1 从单体决策到多智能体博弈的模型演变 [1]">
+<blockquote>
+<p><strong>图 1 说明：</strong> (a) 单体智能体面临的马尔可夫决策过程 (MDP)；(b) 多智能体系统中的马尔可夫博弈 (Markov Game) 模型，展示了多个智能体在共享环境中通过联合动作与环境交互并获取反馈的过程。这种从“中心化控制”向“分布式协同决策”的转变，是当前无人系统发展的必然趋势，也体现了智能时代的核心技术特征。</p>
+</blockquote>
+<h4 id="2-1-2-协同控制的实现路径"><a href="#2-1-2-协同控制的实现路径" class="headerlink" title="2.1.2 协同控制的实现路径"></a>2.1.2 协同控制的实现路径</h4><p>在具体的工程实践中，多智能体协同不仅需要算法支撑，还依赖于高效的通信拓扑与共识机制。通过对“智能感知与决策关键技术”的学习，我认识到，如何在大规模群体中实现低延迟的信息交互，并基于局部信息达成全局一致性，是目前工业界与学术界共同关注的热点。</p>
+<h3 id="2-2-基于分解的大规模全局优化策略"><a href="#2-2-基于分解的大规模全局优化策略" class="headerlink" title="2.2 基于分解的大规模全局优化策略"></a>2.2 基于分解的大规模全局优化策略</h3><p>随着智能体数量的增加和系统精度的提升，优化问题的决策变量往往会膨胀至数千甚至上万维。课程第二章重点讲授了“基于分解的大规模全局优化新思考”，这为解决高维复杂系统的“维数灾难”提供了核心方法论。</p>
+<h4 id="2-2-1-分解策略"><a href="#2-2-1-分解策略" class="headerlink" title="2.2.1 分解策略"></a>2.2.1 分解策略</h4><p>面对大规模全局优化（LSGO）问题，传统的进化算法往往因搜索空间过大而陷入局部最优。解决这一难题的关键在于“分解”。协同进化算法（CCEA）是处理此类问题的经典范式 [2]。其核心思想是将一个高维的大规模优化问题分解为若干个低维的子问题（Sub-components），针对每个子问题分别进行进化求解，最后协同组合成全局最优解。</p>
+<h4 id="2-2-2-工程与科学思维的统一"><a href="#2-2-2-工程与科学思维的统一" class="headerlink" title="2.2.2 工程与科学思维的统一"></a>2.2.2 工程与科学思维的统一</h4><p>通过对“基于分解的大规模全局优化应用实例”的学习，我深刻体会到，优化不仅是数学计算，更是一种系统工程思维。无论是在工业制造的过程控制中，还是在物流网络的路径规划中，利用分解策略将复杂系统模块化、层次化，是提升系统运行效率、降低计算代价的根本途径。这不仅锻炼了我们解决复杂工程问题的能力，也加深了对“工程素养”这一思政要点的理解。</p>
+<h2 id="3-工业互联背景下的信息融合与安全防线"><a href="#3-工业互联背景下的信息融合与安全防线" class="headerlink" title="3. 工业互联背景下的信息融合与安全防线"></a>3. 工业互联背景下的信息融合与安全防线</h2><h3 id="3-1-多源异构信息的深度融合"><a href="#3-1-多源异构信息的深度融合" class="headerlink" title="3.1 多源异构信息的深度融合"></a>3.1 多源异构信息的深度融合</h3><p>课程讲授中提到，大数据的处理分析与挖掘是理解智能时代的关键。通过学习“信息融合简介及应用”，我理解到信息融合不仅仅是数据的简单叠加，而是对多源信息进行多级别、多层次的处理。例如，在高端装备的运维中，需要将物理量与文本信息进行融合。这种融合往往需要结合“过程机理”与“大数据建模”。即利用深度学习算法挖掘数据特征的同时，必须引入物理机理模型作为约束，才能在工业场景下实现精准的状态监测与故障诊断。这不仅提升了系统的感知精度，也为辅助决策提供了可靠依据。</p>
+<h3 id="3-2-工业控制系统的安全策略"><a href="#3-2-工业控制系统的安全策略" class="headerlink" title="3.2 工业控制系统的安全策略"></a>3.2 工业控制系统的安全策略</h3><p>随着信息技术与运营技术的深度融合，封闭的工业控制系统逐渐开放，随之而来的是暴露面的扩大和安全风险的剧增。课程强调了“信息安全算法”与“科学伦理”的重要性，这引发了我对工程师社会责任的深层思考。</p>
+<h4 id="3-2-1-工业安全的特殊性和严峻挑战"><a href="#3-2-1-工业安全的特殊性和严峻挑战" class="headerlink" title="3.2.1 工业安全的特殊性和严峻挑战"></a>3.2.1 工业安全的特殊性和严峻挑战</h4><p>与传统互联网安全仅关注数据隐私不同，工业互联网安全直接关系到物理世界的安全。根据 Sadeghi 等人（2020）在《IEEE工业电子汇刊》上的分析，工业物联网（IIoT）面临着特有的安全与隐私挑战 [3]。一次针对化工控制系统的恶意攻击，不仅会导致商业机密的泄露，更可能引发设备损坏、环境污染甚至人员伤亡。因此，在设计智能系统时，我们必须遵循“Security by Design”（设计内建安全）的原则。不仅要研究异常检测与加密算法等技术防御手段，更要从系统架构层面考虑功能的安全性。</p>
+<h4 id="3-2-2-工程伦理与社会责任"><a href="#3-2-2-工程伦理与社会责任" class="headerlink" title="3.2.2 工程伦理与社会责任"></a>3.2.2 工程伦理与社会责任</h4><p>我们不仅要追求算法的效率，更要时刻关注工程实践对公众安全、健康及环境的影响。在构建工业互联网平台时，必须自觉履行保护数据隐私、维护国家基础设施安全的社会责任，将科学伦理融入技术研发的每一个环节。这部分的学习使我对“职业规范”有了更具象的理解。</p>
+<h2 id="4-从经典机器学习算法到科技前沿"><a href="#4-从经典机器学习算法到科技前沿" class="headerlink" title="4. 从经典机器学习算法到科技前沿"></a>4. 从经典机器学习算法到科技前沿</h2><h3 id="4-1-经典机器学习模型的科学适用性"><a href="#4-1-经典机器学习模型的科学适用性" class="headerlink" title="4.1 经典机器学习模型的科学适用性"></a>4.1 经典机器学习模型的科学适用性</h3><p>在本课程的学习过程中，我经历了一个由浅入深、从经典统计模型向深度神经网络进阶的认知过程。</p>
+<p>最初，我从基于统计学习理论的支持向量机（SVM）入手，理解了如何通过数学变换处理小样本数据；随后，接触了以随机森林为代表的集成学习算法，领悟了通过“群体决策”降低模型方差的智慧；最后，探究了以卷积神经网络（CNN）为核心的深度学习架构，掌握了处理高维非结构化数据的关键技术。这一学习路径不仅夯实了我的算法基础，也让我深刻认识到不同模型在科学探索中独特的适用场景。</p>
+<h4 id="4-1-1-支持向量机-SVM"><a href="#4-1-1-支持向量机-SVM" class="headerlink" title="4.1.1 支持向量机 (SVM)"></a>4.1.1 支持向量机 (SVM)</h4><p>作为基于统计学习理论的经典算法，SVM 在处理小样本、高维度的科学实验数据时表现出色。在课程讨论中，我们了解到在某些材料分类或生物标记物检测的场景下，由于实验数据获取昂贵且稀缺，深度学习难以收敛，而SVM 通过核函数将数据映射到高维空间寻找最优超平面的能力，使其依然具有不可替代的价值 [4]。</p>
+<img src="/2025/11/26/lecture-report/2.png" class="" title="图 2 Kernel Function: 将低维数据映射到高维空间">
+<h4 id="4-1-2-集成学习-Ensemble-Learning"><a href="#4-1-2-集成学习-Ensemble-Learning" class="headerlink" title="4.1.2 集成学习 (Ensemble Learning)"></a>4.1.2 集成学习 (Ensemble Learning)</h4><p>以随机森林（Random Forest）为代表的集成算法，通过构建多棵决策树来降低模型的方差。在涉及多变量耦合的复杂物理实验数据分析中，这类算法不仅能提供较高的预测精度，还能输出“特征重要性”排序 [5]。这种可解释性对于科学家理解哪些物理量对实验结果影响最大至关重要。</p>
+<h4 id="4-1-3-深度神经网络-Deep-Learning"><a href="#4-1-3-深度神经网络-Deep-Learning" class="headerlink" title="4.1.3 深度神经网络 (Deep Learning)"></a>4.1.3 深度神经网络 (Deep Learning)</h4><p>从经典的感知机发展而来的深度学习算法是本课程课外自主学习的重点。特别是卷积神经网络（CNN），作为当前处理网格结构数据（如天文望远镜拍摄的星系图、电子显微镜下的材料微观结构）的主流架构，展现了强大的特征提取能力 [6]。该算法突破了传统方法的局限，能够自动从原始像素中学习到从边缘到纹理再到语义的高层特征，实现了端到端的智能感知。</p>
+<img src="/2025/11/26/lecture-report/3.png" class="" title="图 3 深度卷积神经网络的典型架构">
+<blockquote>
+<p><strong>图 3 说明：</strong> 该图展示了网络处理图像的完整流程：输入图像经过多个卷积层（Convolutions）与池化层（Pooling）的交替处理，逐层提取从低级几何特征到高级语义概念的层级化表示，最终实现精准分类。</p>
+</blockquote>
+<h3 id="4-2-从传统科学到新的科学探索"><a href="#4-2-从传统科学到新的科学探索" class="headerlink" title="4.2 从传统科学到新的科学探索"></a>4.2 从传统科学到新的科学探索</h3><p>传统的科学研究模式往往依赖于“观察—假设—实验”的线性循环，但在面对高维非线性问题时，人类的认知直觉与传统计算模拟（如第一性原理计算）的效率均遭遇了显著瓶颈。</p>
+<p>根据相关前沿学术综述研究 [7]，深度学习模型通过学习海量科学数据中的高维分布特征，能够构建出逼近自然界物理定律的代理模型（Surrogate Models）。这一过程并非简单的数据插值与拟合，而是利用神经网络强大的泛化能力，在高维参数空间中寻找隐藏的科学规律。例如，生成式人工智能（Generative AI）目前已能自动生成符合特定物理化学约束的新分子结构，这种技术成功实现了“假设生成—验证”闭环的自动化，将科学发现的周期大大缩短，确立了全新的科学探索范式。</p>
+<img src="/2025/11/26/lecture-report/4.png" class="" title="图 4 人工智能驱动的科学发现闭环与应用版图">
+<blockquote>
+<p><strong>图 4 说明：</strong> 该图展示了AI for Science的核心范式：通过加速“观察—假设—实验”的迭代闭环，人工智能打破了学科壁垒，被广泛应用于天气预报、电池材料优化、核聚变控制及生物医疗序列建模等前沿领域，确立了区别于传统实验与理论计算的第四种科学范式。</p>
+</blockquote>
+<h3 id="4-3-机器学习应用趋势"><a href="#4-3-机器学习应用趋势" class="headerlink" title="4.3 机器学习应用趋势"></a>4.3 机器学习应用趋势</h3><p>结合当前的社会现实，我深刻感受到，人类的日常生活以及离不开智能技术的辅助。未来的智能技术将不仅仅追求算力的突破，更将致力于提升人类的生活质量，实现真正的“科技向善”。目前，机器学习已经渗透进人类生活的方方面面：</p>
+<ul>
+<li><strong>个性化推荐系统：</strong> 当我们打开购物软件或短视频平台时，背后的推荐算法（Recommendation Systems）正在利用机器学习技术分析我们的历史行为与偏好。它帮助我们在海量信息中快速筛选出感兴趣的内容，极大地降低了信息检索的成本，提升了生活效率。</li>
+<li><strong>智能语音与交互：</strong> 从手机里的智能助手（如 Siri、小爱同学）到智能家居系统，自然语言处理（NLP）技术让机器能够“听懂”人类的指令。未来的智能家居将不再是简单的遥控，而是通过感知用户的习惯自动调节环境（如温度、灯光），提供更加人性化的居住体验。</li>
+<li><strong>自动驾驶辅助：</strong> 在出行领域，计算机视觉技术正在让汽车变得更加智能。目前的 L2+ 级辅助驾驶功能已经能够实现车道保持、自适应巡航，有效降低了驾驶疲劳与交通事故的发生率。</li>
+<li><strong>生成式协作：</strong> 同时，以 ChatGPT 为代表的生成式大模型（Generative AI）的兴起，标志着人工智能从“感知”走向了“生成”。在我们的日常学习与工作中，AI 正在成为最得力的工具。它不仅能帮助我们快速梳理文献、润色邮件、编写代码，还能在创意枯竭时提供灵感。这种人机协作的模式并没有取代人类，而是赋予了我们更强大的信息处理能力与创造力，让我们能够将精力集中在更具价值的逻辑思考与决策上。</li>
+</ul>
+<h2 id="5-结语与体会"><a href="#5-结语与体会" class="headerlink" title="5. 结语与体会"></a>5. 结语与体会</h2><p>通过本学期《专业前沿讲座》的学习，我完成了从人工智能基础概念到机器人工程前沿应用，再到机器学习赋能科学发现的知识图谱构建。课程讲授的多智能体协同、大规模全局优化、工业互联网信息安全以及机器学习科学应用等模块，并非孤立的技术点，而是构成智能系统的有机整体。</p>
+<p>我深刻体会到，现代智能科学正朝着“群体化、复杂化、落地化”演进：多智能体解决了感知广度问题，分解优化策略突破了计算维度限制，而工业互联网与信息安全则保障了技术的稳健落地。这种从系统工程高度审视技术脉络的宏观视角，不仅极大增强了我的专业学习兴趣，更让我对未来的科研方向与职业规范有了清晰认识。</p>
+<p>我认识到，单纯的算法优化已遭遇边际效应递减，真正的创新往往源于“AI+X”的跨学科交叉融合。无论是利用深度学习加速新材料研发，还是解决复杂的物流调度，都要求我们具备开阔的国际视野，打破学科壁垒，将智能技术作为解决国计民生核心难题的通用工具。同时，技术是把双刃剑，强大的算力必须配合正确的价值观。面对全球老龄化等严峻挑战，融合机器学习的智慧医疗与养老系统虽能解决社会痛点，但其底线必须建立在安全可控之上。作为未来的工程师，我们既要利用先进算法实现精准筛查与情感陪伴，更要时刻警惕隐私泄露与算法歧视等风险，坚定推动“负责任的人工智能”建设，确保技术在严守伦理规范的前提下真正赋能人类的美好生活，让科技的光辉温暖社会的每一个角落。</p>
+<hr>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol>
+<li>K. Zhang, Z. Yang, and T. Başar, “Multi-agent reinforcement learning: A selective overview of theories and algorithms,” <em>IEEE Transactions on Automatic Control</em>, vol. 66, no. [cite_start]12, pp. 5690–5708, 2021. [cite: 56, 57]</li>
+<li>X. Li, K. Tang, M. N. Omidvar, Z. Yang, and K. Qin, “A survey on cooperative co-evolutionary algorithms,” <em>IEEE Transactions on Evolutionary Computation</em>, vol. 17, no. [cite_start]4, pp. 471–496, 2013. [cite: 58, 59]</li>
+<li>A.-R. Sadeghi, C. Wachsmann, and M. Waidner, “Security and privacy in industrial internet of things: Current status and potential future challenges,” <em>ACM Transactions on Embedded Computing Systems</em>, vol. 14, no. [cite_start]4, pp. 76:1–76:27, 2015. [cite: 60, 61]</li>
+<li>C. Cortes and V. Vapnik, “Support-vector networks,” <em>Machine Learning</em>, vol. 20, no. [cite_start]3, pp. 273–297, 1995. [cite: 62]</li>
+<li>G. Biau, “Analysis of a random forests model,” <em>Journal of Machine Learning Research</em>, vol. [cite_start]13, pp. 1063–1095, 2012. [cite: 63]</li>
+<li>Y. LeCun, Y. Bengio, and G. Hinton, “Deep learning,” <em>Nature</em>, vol. 521, no. [cite_start]7553, pp. 436–444, 2015. [cite: 64]</li>
+<li>H. Wang, T. Fu, Y. Du, W. Gao, K. Huang, Z. Liu, P. Chandak, S. Liu, P. Van Katwyk, A. Deac, A. Anandkumar, K. Bergen, C. P. Gomes, S. Ho, P. Kohli, J. Lasenby, J. Leskovec, T. Liu, A. Manrai, D. Marks, B. Ramsundar, L. Song, J. Sun, J. Tang, P. Veličković, M. Zitnik, and M. Zitnik, “Scientific discovery in the age of artificial intelligence,” <em>Nature</em>, vol. 620, no. [cite_start]7972, pp. 47–60, 2023. [cite: 65, 66]</li>
+</ol>
+<blockquote>
+<p><strong>附件下载：</strong> <a href="report.docx">📄 点击下载完整 Word 课程报告</a></p>
+</blockquote>
 ]]></content>
       <categories>
         <category>华理</category>
