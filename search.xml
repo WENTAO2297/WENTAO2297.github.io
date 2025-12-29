@@ -154,6 +154,542 @@
       </categories>
   </entry>
   <entry>
+    <title>智能无人系统</title>
+    <url>/2025/12/24/AutoDriving/</url>
+    <content><![CDATA[<h1 id="第一章-认识无人驾驶系统"><a href="#第一章-认识无人驾驶系统" class="headerlink" title="第一章 认识无人驾驶系统"></a>第一章 认识无人驾驶系统</h1><h2 id="1-无人驾驶分级标准"><a href="#1-无人驾驶分级标准" class="headerlink" title="1. 无人驾驶分级标准"></a>1. 无人驾驶分级标准</h2><p><img src="2025-12-24-05-17-53.png" alt=""><br><img src="2025-12-24-05-18-20.png" alt=""></p>
+<h2 id="2-无人驾驶系统框架"><a href="#2-无人驾驶系统框架" class="headerlink" title="2. 无人驾驶系统框架"></a>2. 无人驾驶系统框架</h2><p><img src="2025-12-24-05-23-00.png" alt=""></p>
+<h1 id="第二章-定位方法以及传感器应用"><a href="#第二章-定位方法以及传感器应用" class="headerlink" title="第二章 定位方法以及传感器应用"></a>第二章 定位方法以及传感器应用</h1><blockquote>
+<p><strong>章节核心逻辑</strong>：无人驾驶系统如何解决两个终极问题？</p>
+<ol>
+<li><strong>“感官”</strong>：用传感器感知周围环境（雷达、相机）。</li>
+<li><strong>“大脑”</strong>：用算法（定位、滤波）确定自己在哪、状态如何。</li>
+</ol>
+</blockquote>
+<p><strong>SLAN</strong>：同步定位与地图构建。主要有：激光SLAN &amp; 视觉SLAN</p>
+<h2 id="第一部分：硬件传感器"><a href="#第一部分：硬件传感器" class="headerlink" title="第一部分：硬件传感器"></a>第一部分：硬件传感器</h2><h3 id="1-激光雷达（激光SLAN）"><a href="#1-激光雷达（激光SLAN）" class="headerlink" title="1. 激光雷达（激光SLAN）"></a>1. 激光雷达（激光SLAN）</h3><ul>
+<li><strong>原理</strong>：<strong>飞行时间法 (ToF)</strong>。发射激光束，计算往返时间测距。<ul>
+<li>公式：$r = \frac{1}{2} c t$</li>
+</ul>
+</li>
+<li><strong>特性</strong>：<ul>
+<li>3D激光雷达采集到的信息叫做<strong>点云</strong>。将点云与全局地图进行迭代匹配（ICP）</li>
+<li>✅ <strong>精度极高</strong>，测距远，分辨率高，隐蔽性好，抗干扰能力强</li>
+<li>❌ <strong>成本高</strong>，易受<strong>雨雪雾</strong>天气干扰（噪声大）</li>
+</ul>
+</li>
+<li><strong>考点</strong>：它是L4/L5级自动驾驶的核心传感器。</li>
+</ul>
+<h3 id="2-摄像头"><a href="#2-摄像头" class="headerlink" title="2. 摄像头"></a>2. 摄像头</h3><ul>
+<li><strong>原理</strong>：被动接收环境光。</li>
+<li><strong>分类与应用</strong> (🎯 <strong>学长考题重点</strong>)：<ul>
+<li><strong>单目 (Monocular)</strong>：前视感知，识别人、车、车道线、红绿灯。</li>
+<li><strong>双目 (Stereo)</strong>：通过视差原理测距。</li>
+<li><strong>鱼眼 (Fisheye)</strong>：<strong>视野极大 (&gt;180°)</strong>，专门用于<strong>倒车影像、360°环视</strong>（图像有畸变）。</li>
+</ul>
+</li>
+<li><strong>特性</strong>：<ul>
+<li>✅ 纹理信息丰富，便宜。</li>
+<li>❌ 受光照影响大（逆光、黑夜致盲），测距精度不如雷达。</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-毫米波雷达"><a href="#3-毫米波雷达" class="headerlink" title="3. 毫米波雷达"></a>3. 毫米波雷达</h3><ul>
+<li><strong>原理</strong>：多普勒效应。</li>
+<li><strong>特性</strong>：<ul>
+<li>✅ <strong>穿透力强</strong>（无视雨雪雾），<strong>测速</strong>特别准。</li>
+<li>❌ 分辨率低（看不清物体轮廓，只能知道“有东西”）。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="第二部分：定位算法"><a href="#第二部分：定位算法" class="headerlink" title="第二部分：定位算法"></a>第二部分：定位算法</h2><h3 id="1-激光SLAN：ICP-vs-NDT-⭐⭐⭐-必考对比"><a href="#1-激光SLAN：ICP-vs-NDT-⭐⭐⭐-必考对比" class="headerlink" title="1. 激光SLAN：ICP vs NDT (⭐⭐⭐ 必考对比)"></a>1. 激光SLAN：ICP vs NDT (⭐⭐⭐ 必考对比)</h3><p><strong>（1）ICP</strong>：</p>
+<p><img src="2025-12-27-12-37-38.png" alt=""><br><img src="2025-12-27-12-43-15.png" alt=""></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">优点</th>
+<th style="text-align:left">缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">效果精确</td>
+<td style="text-align:left">耗时大，效率低</td>
+</tr>
+<tr>
+<td style="text-align:left">不必数据处理</td>
+<td style="text-align:left">可能陷入局部最优</td>
+</tr>
+<tr>
+<td style="text-align:left">较好收敛性</td>
+<td style="text-align:left">需要噪声处理</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>（2）NDT</strong>：</p>
+<p><img src="2025-12-27-12-55-49.png" alt=""><br><img src="2025-12-27-13-26-05.png" alt=""></p>
+<p><strong>总结</strong>：<br><em>把“刚才看到的”（实时点云）和“记忆中的”（高精地图）拼在一起。</em></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">特性</th>
+<th style="text-align:left"><strong>ICP (迭代最近点)</strong></th>
+<th style="text-align:left"><strong>NDT (正态分布变换)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>通俗理解</strong></td>
+<td style="text-align:left"><strong>硬碰硬</strong>。每个点都去找地图上离它最近的点，强行拉近。</td>
+<td style="text-align:left"><strong>概率流</strong>。把地图划成格子，看现在的点落在哪个概率最高的格子里。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>核心原理</strong></td>
+<td style="text-align:left">最小化点对点欧氏距离。</td>
+<td style="text-align:left">计算网格内的高斯概率密度函数 (PDF)。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>优点</strong></td>
+<td style="text-align:left">精度极高（前提是初值给得好）。</td>
+<td style="text-align:left"><strong>速度快</strong>，<strong>鲁棒性强</strong>（容错率高，初值差一点也能对上）。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>缺点</strong></td>
+<td style="text-align:left">慢，容易拼错（陷入局部最优）。</td>
+<td style="text-align:left">精度略逊于精细的ICP。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="2-视觉SLAM"><a href="#2-视觉SLAM" class="headerlink" title="2. 视觉SLAM"></a>2. 视觉SLAM</h3><p><img src="2025-12-27-14-30-03.png" alt=""></p>
+<ul>
+<li><strong>视觉前端特征</strong> (🎯 <strong>填空题重点</strong>)：<ul>
+<li><strong>角点 (Corner)</strong>：如 Harris, FAST。</li>
+<li><strong>斑点 (Blob)</strong>：如 SIFT（最准最慢）。</li>
+<li><strong>ORB特征</strong>：<strong>Oriented FAST</strong> (带方向角点) + <strong>BRIEF</strong> (二进制描述子)。<strong>速度极快</strong>，适合实时系统。</li>
+</ul>
+</li>
+<li><strong>回环检测 (Loop Closure)</strong>：<ul>
+<li>利用<strong>词袋模型 (BoW)</strong> 判断“我是否来过这里”，消除累积误差。</li>
+</ul>
+</li>
+</ul>
+<p><img src="2025-12-27-14-29-13.png" alt=""><br><img src="2025-12-27-14-29-25.png" alt=""></p>
+<h2 id="第三部分：定位系统"><a href="#第三部分：定位系统" class="headerlink" title="第三部分：定位系统"></a>第三部分：定位系统</h2><h3 id="1-坐标系转换-⚠️-判断题陷阱"><a href="#1-坐标系转换-⚠️-判断题陷阱" class="headerlink" title="1. 坐标系转换 (⚠️ 判断题陷阱)"></a>1. 坐标系转换 (⚠️ 判断题陷阱)</h3><p><img src="2025-12-27-13-04-52.png" alt=""><br><img src="2025-12-27-13-05-50.png" alt=""></p>
+<ul>
+<li><strong>转换链条</strong>：<br>  <code>GPS输出的经纬度信息</code> $\rightarrow$ <code>ECEF (地心地固)</code> $\rightarrow$ <code>导航坐标系 (ENU/NED)</code> $\rightarrow$ <code>车体坐标系 (Body)</code></li>
+<li><strong>关键点</strong>：<ul>
+<li><strong>ENU</strong>：东北天坐标系（指北坐标系）。</li>
+<li><strong>ECEF</strong>：随地球自转。</li>
+<li><em>考题避坑</em>：通常<strong>不能</strong>直接从 ECEF 旋转得到车体坐标系，中间必须经过局部切平面（导航坐标系），否则无法描述“东南西北”。</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-基于GPS-惯性组合（IMU）导航的定位系统"><a href="#2-基于GPS-惯性组合（IMU）导航的定位系统" class="headerlink" title="2. 基于GPS +惯性组合（IMU）导航的定位系统"></a>2. 基于GPS +惯性组合（IMU）导航的定位系统</h3><p><strong>（1）GPS</strong>：</p>
+<p><img src="2025-12-27-13-27-04.png" alt=""></p>
+<ul>
+<li>RTK：载波相位动态实时差分，定位误差在城市中也可达到10～50m（一般GPS为10～100m）</li>
+<li>差分GPS定位：通过在一个精确的已知位置（基准站）上安装GPS监测接收机，计算得到基准站与GPS卫星的距离，然后再根据误差修正结果，从而提高了定位精度。</li>
+<li>伪距法定位：<ul>
+<li>优点：速度快、无多值性问题、虽然精度低，但是满足大部分需求。 </li>
+</ul>
+</li>
+</ul>
+<p><img src="2025-12-27-13-32-18.png" alt=""></p>
+<p><img src="2025-12-27-13-35-15.png" alt=""></p>
+<p><strong>（2）惯性测量单元</strong>：</p>
+<script type="math/tex; mode=display">
+陀螺仪 + 加速度计</script><p><img src="2025-12-27-14-19-52.png" alt=""><br><img src="2025-12-27-14-21-05.png" alt=""></p>
+<p><strong>总结</strong>：</p>
+<ul>
+<li><strong>GPS (全球定位系统)</strong>：提供<strong>绝对位置</strong>。<ul>
+<li><em>缺点</em>：更新慢 (10Hz)，易被遮挡（隧道、高楼峡谷）。</li>
+<li><em>RTK技术</em>：利用基准站差分，将精度提升至<strong>厘米级</strong>。</li>
+</ul>
+</li>
+<li><strong>IMU (惯性测量单元)</strong>：提供<strong>相对推算</strong>。<ul>
+<li><em>组成</em>：<strong>加速度计</strong>（测比力/加速度）+ <strong>陀螺仪</strong>（测角速度）。</li>
+<li><em>原理</em>：航位推算。</li>
+<li><em>缺点</em>：<strong>误差随时间累积</strong>（积分漂移）。</li>
+</ul>
+</li>
+<li><strong>融合逻辑</strong>：<strong>GPS负责“纠偏”</strong>（消除累计误差），<strong>IMU负责“填空”</strong>（高频输出，保证信号不断）。</li>
+</ul>
+<p><strong>（3）惯性导航系统（INS）</strong>：<br><img src="2025-12-27-14-23-24.png" alt=""><br><img src="2025-12-27-14-23-36.png" alt=""><br><img src="2025-12-27-14-23-47.png" alt=""></p>
+<h2 id="第四部分：卡尔曼滤波"><a href="#第四部分：卡尔曼滤波" class="headerlink" title="第四部分：卡尔曼滤波"></a>第四部分：卡尔曼滤波</h2><p>这一部分数学最难，重点掌握<strong>逻辑</strong>和<strong>公式</strong>。</p>
+<ul>
+<li><strong>卡尔曼滤波</strong>：是一种利用<strong>线性系统</strong>状态方程，通过系统输入输出观测数据，对系统状态进行最优估计的算法。</li>
+<li><strong>基本思想</strong>：利用<code>前一时刻的估计值</code>和<code>现时刻的观测值</code>来更新对状态变量的估计，求出<code>现在时刻的估计值</code>。</li>
+</ul>
+<h3 id="1-卡尔曼滤波-KF-——-线性系统的最优估计"><a href="#1-卡尔曼滤波-KF-——-线性系统的最优估计" class="headerlink" title="1. 卡尔曼滤波 (KF) —— 线性系统的最优估计"></a>1. 卡尔曼滤波 (KF) —— 线性系统的最优估计</h3><ul>
+<li><strong>核心逻辑</strong>：<strong>加权平均</strong>。<ul>
+<li>模型算出一个值（预测），传感器测出一个值（测量）。</li>
+<li><strong>谁方差小（谁靠谱），我就信谁多一点</strong>。</li>
+</ul>
+</li>
+<li><strong>五大核心公式 (📝 建议默写)</strong>：<ol>
+<li><strong>预测状态</strong>：$\hat{x}_k^- = A \hat{x}_{k-1} + B u_k$</li>
+<li><strong>预测协方差</strong>：$P_k^- = A P_{k-1} A^T + Q$  <em>(Q: 模型噪声)</em></li>
+<li><strong>卡尔曼增益</strong>：$K_k = P_k^- H^T (H P_k^- H^T + R)^{-1}$ <em>(R: 测量噪声)</em><ul>
+<li><em>理解</em>：$R$ 越大（测量烂），$K$ 越小（不信测量）；$Q$ 越大（模型烂），$K$ 越大（信测量）。</li>
+</ul>
+</li>
+<li><strong>状态更新</strong>：$\hat{x}_k = \hat{x}_k^- + K_k (z_k - H \hat{x}_k^-)$</li>
+<li><strong>协方差更新</strong>：$P_k = (I - K_k H) P_k^-$</li>
+</ol>
+</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">局限性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">实时性不能满足</td>
+</tr>
+<tr>
+<td style="text-align:left">可靠性降低</td>
+</tr>
+<tr>
+<td style="text-align:left">对于<strong>非线性</strong>系统效果不佳</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="2-进阶滤波：EKF-vs-UKF-⭐⭐-简答题"><a href="#2-进阶滤波：EKF-vs-UKF-⭐⭐-简答题" class="headerlink" title="2. 进阶滤波：EKF vs UKF (⭐⭐ 简答题)"></a>2. 进阶滤波：EKF vs UKF (⭐⭐ 简答题)</h3><p><em>解决非线性问题（如车在转弯、雷达测距是弧线）。</em></p>
+<ul>
+<li><strong>扩展卡尔曼滤波 (EKF)</strong>：<ul>
+<li><strong>方法</strong>：<strong>线性化</strong>:用线性变换近似非线性变换。用<strong>泰勒级数展开</strong>（保留一阶导数），算出<strong>雅可比矩阵 (Jacobian)</strong>。</li>
+<li><em>缺点</em>：雅可比矩阵难算，忽略高阶项有精度损失。</li>
+<li><em>考点</em>：EKF近似的是<strong>非线性函数本身</strong>。</li>
+</ul>
+</li>
+<li><strong>无损卡尔曼滤波 (UKF)</strong>：<ul>
+<li><strong>方法</strong>：<strong>无损变换</strong>。选几个代表点（Sigma Points）去通过非线性函数，近似出新的<strong>概率分布</strong>。</li>
+<li><em>优点</em>：不用算雅可比，精度通常更高。</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-运动模型"><a href="#3-运动模型" class="headerlink" title="3. 运动模型"></a>3. 运动模型</h3><ul>
+<li><strong>CTRV</strong> (Constant Turn Rate and Velocity)：<strong>恒定转弯率和速度</strong>。这是描述车辆运动最常用的模型。</li>
+</ul>
+<h3 id="4-传感器融合架构"><a href="#4-传感器融合架构" class="headerlink" title="4. 传感器融合架构"></a>4. 传感器融合架构</h3><ul>
+<li><strong>顺序滤波 (Sequential Filtering)</strong>：<ul>
+<li><strong>逻辑</strong>：一次预测，多次更新。</li>
+<li><em>场景</em>：激光雷达和毫米波雷达的数据不同时到达。先用激光更新卡尔曼滤波，结果作为初值，马上再用毫米波更新。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="📝-考前抢分-CheckList-必背"><a href="#📝-考前抢分-CheckList-必背" class="headerlink" title="📝 考前抢分 CheckList (必背)"></a>📝 考前抢分 CheckList (必背)</h2><ol>
+<li><strong>倒车影像</strong>用什么镜头？ $\rightarrow$ <strong>鱼眼 (Fisheye)</strong></li>
+<li><strong>指北坐标系</strong>通常指什么？ $\rightarrow$ <strong>ENU (东北天)</strong></li>
+<li><strong>ICP和NDT</strong>谁更快更鲁棒？ $\rightarrow$ <strong>NDT</strong></li>
+<li><strong>EKF</strong>的核心数学操作是什么？ $\rightarrow$ <strong>泰勒展开 / 计算雅可比矩阵</strong></li>
+<li><strong>SLAM</strong>常用视觉特征？ $\rightarrow$ <strong>ORB, SIFT, 角点</strong></li>
+<li><strong>卡尔曼增益K</strong>变大说明什么？ $\rightarrow$ 说明更相信<strong>测量值</strong> (或者模型预测的不确定性Q变大了)。</li>
+</ol>
+<h1 id="第三章-深度学习和视觉感知"><a href="#第三章-深度学习和视觉感知" class="headerlink" title="第三章 深度学习和视觉感知"></a>第三章 深度学习和视觉感知</h1><h2 id="第一部分：路缘石检测"><a href="#第一部分：路缘石检测" class="headerlink" title="第一部分：路缘石检测"></a>第一部分：路缘石检测</h2><h3 id="1-ROI提取-感兴趣区域"><a href="#1-ROI提取-感兴趣区域" class="headerlink" title="1. ROI提取 (感兴趣区域)"></a>1. <strong>ROI提取 (感兴趣区域)</strong></h3><ul>
+<li>获取原始点云，只保留车身周围一定范围内的点（去除无关背景）。</li>
+</ul>
+<h3 id="2-点集左右划分"><a href="#2-点集左右划分" class="headerlink" title="2. 点集左右划分"></a>2. <strong>点集左右划分</strong></h3><ul>
+<li>将点云按照激光雷达的扫描线（车身前向射线）进行划分。</li>
+</ul>
+<p><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /></p>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<style>
+  .swiper {
+    width: 100%;
+    height: 500px; /* 如果图片觉得太小，可以把这里改成 500px 或 600px */
+    border-radius: 8px; /* 圆角 */
+  }
+  .swiper-slide {
+    text-align: center;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* 保持图片原有比例，不拉伸变形 */
+  }
+</style>
+
+<div class="swiper mySwiper">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide">
+      <img src="2025-12-28-19-05-37.png" alt="Image 1">
+    </div>
+    <div class="swiper-slide">
+      <img src="2025-12-28-19-05-49.png" alt="Image 2">
+    </div>
+    <div class="swiper-slide">
+      <img src="2025-12-28-19-06-01.png" alt="Image 3">
+    </div>
+  </div>
+
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-pagination"></div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var swiper = new Swiper(".mySwiper", {
+      loop: true,               // 循环播放
+      autoHeight: true,         // 自动适应高度
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,        // 允许点击小圆点切换
+      },
+    });
+  });
+</script>
+
+<h3 id="3-路缘石点提取"><a href="#3-路缘石点提取" class="headerlink" title="3. 路缘石点提取"></a>3. <strong>路缘石点提取</strong></h3><ul>
+<li>在每一条射线上，利用几何特征（如高度突变、坡度变化）找到疑似路缘的点。</li>
+<li>左右子点集划分：将找到的点分为“左侧路缘点集”和“右侧路缘点集”。</li>
+</ul>
+<p><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /></p>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<style>
+  .swiper {
+    width: 100%;
+    height: 450px; /* 如果图片较高，可以将这里改成 500px 或 600px */
+    border-radius: 8px;
+  }
+  .swiper-slide {
+    text-align: center;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* 保持图片完整显示，不裁剪 */
+  }
+</style>
+
+<div class="swiper mySwiper">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide">
+      <img src="2025-12-28-19-09-06.png" alt="Image 1">
+    </div>
+    <div class="swiper-slide">
+      <img src="2025-12-28-19-09-13.png" alt="Image 2">
+    </div>
+    <div class="swiper-slide">
+      <img src="2025-12-28-19-09-23.png" alt="Image 3">
+    </div>
+    <div class="swiper-slide">
+      <img src="2025-12-28-19-09-33.png" alt="Image 4">
+    </div>
+  </div>
+
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-pagination"></div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var swiper = new Swiper(".mySwiper", {
+      loop: true,               // 循环播放
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,        // 允许点击圆点切换
+      },
+    });
+  });
+</script>
+
+<h3 id="4-提取与拟合"><a href="#4-提取与拟合" class="headerlink" title="4. 提取与拟合"></a>4. <strong>提取与拟合</strong></h3><ul>
+<li>利用最小二乘法或RANSAC算法，将点拟合成平滑的曲线（通常是三次样条曲线），得到最终的路缘线。</li>
+</ul>
+<p><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /></p>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<style>
+  .swiper {
+    width: 100%;
+    height: 450px; /* 高度可按需调整 */
+    border-radius: 8px;
+    margin-bottom: 20px; /* 增加一点底部间距 */
+  }
+  .swiper-slide {
+    text-align: center;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+</style>
+
+<div class="swiper mySwiper3">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide"><img src="2025-12-28-19-11-56.png"></div>
+    <div class="swiper-slide"><img src="2025-12-28-19-12-11.png"></div>
+    <div class="swiper-slide"><img src="2025-12-28-19-12-28.png"></div>
+    <div class="swiper-slide"><img src="2025-12-28-19-12-37.png"></div>
+    <div class="swiper-slide"><img src="2025-12-28-19-12-47.png"></div>
+    <div class="swiper-slide"><img src="2025-12-28-19-12-59.png"></div>
+    <div class="swiper-slide"><img src="2025-12-28-19-13-10.png"></div>
+  </div>
+
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-pagination"></div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var swiper3 = new Swiper(".mySwiper3", {
+      loop: true,
+      navigation: {
+        nextEl: ".mySwiper3 .swiper-button-next", // 指定只控制这一组的箭头
+        prevEl: ".mySwiper3 .swiper-button-prev",
+      },
+      pagination: {
+        el: ".mySwiper3 .swiper-pagination", // 指定只控制这一组的分页器
+        clickable: true,
+      },
+    });
+  });
+</script>
+
+<p><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /></p>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<style>
+  .swiper {
+    width: 100%;
+    height: 450px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  .swiper-slide {
+    text-align: center;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+</style>
+
+<div class="swiper mySwiper4">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide"><img src="2025-12-28-19-13-46.png"></div>
+    <div class="swiper-slide"><img src="2025-12-28-19-13-57.png"></div>
+    <div class="swiper-slide"><img src="2025-12-28-19-14-07.png"></div>
+  </div>
+
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-pagination"></div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var swiper4 = new Swiper(".mySwiper4", {
+      loop: true,
+      navigation: {
+        nextEl: ".mySwiper4 .swiper-button-next", // 锁定只控制这一组
+        prevEl: ".mySwiper4 .swiper-button-prev",
+      },
+      pagination: {
+        el: ".mySwiper4 .swiper-pagination",
+        clickable: true,
+      },
+    });
+  });
+</script>
+
+<p><strong>补充</strong>：坐标系变换<br><img src="2025-12-28-19-15-03.png" alt=""></p>
+<h2 id="第二部分：卷积神经网络（CNN）"><a href="#第二部分：卷积神经网络（CNN）" class="headerlink" title="第二部分：卷积神经网络（CNN）"></a>第二部分：卷积神经网络（CNN）</h2><ol>
+<li><p><strong>卷积与前馈神经网络区别</strong>：</p>
+<ul>
+<li>用卷积运算代替矩阵乘法运算</li>
+<li>传统全连接神经网络不足：<em>计算/储存要求高（参数大）、易过拟合</em></li>
+<li><strong>CNN优势</strong>：<em>稀疏交互、权重共享、等变表示</em></li>
+</ul>
+</li>
+<li><p><strong>CNN的三大特性</strong>：</p>
+<ul>
+<li><strong>稀疏交互</strong>：卷积核大小远小于输入图像，每个输出神经元只与局部输入连接（效率高）。</li>
+<li><strong>参数共享</strong>：同一个卷积核在整张图上滑动，用的是同一组参数（储存空间少）。</li>
+<li><strong>等变表示</strong>：输入平移，输出也跟着平移。</li>
+</ul>
+</li>
+<li><p><strong>核心组件</strong>：</p>
+<ul>
+<li><strong>卷积层</strong>：提取特征。</li>
+<li><strong>池化层</strong>：用相邻位置的<strong>总体统计特征</strong>来替换该位置的值，起到降维、减少参数、防止过拟合的作用。<em>（最大池化、平均池化）</em></li>
+<li><strong>激活函数</strong>：引入非线性（如 ReLU）。</li>
+</ul>
+</li>
+</ol>
+<h2 id="第三部分：YOLO"><a href="#第三部分：YOLO" class="headerlink" title="第三部分：YOLO"></a>第三部分：YOLO</h2><p><img src="2025-12-28-20-29-46.png" alt=""></p>
+<h3 id="1-YOLO的核心思想"><a href="#1-YOLO的核心思想" class="headerlink" title="1. YOLO的核心思想"></a>1. <strong>YOLO的核心思想</strong></h3><ul>
+<li>不需要生成候选区域，直接把图像划分成 S×S 的网格，每个网格负责预测中心落在该格子里面的物体。</li>
+<li>速度快，适合无人驾驶实时感知。</li>
+</ul>
+<h3 id="2-YOLOv3的特征提取"><a href="#2-YOLOv3的特征提取" class="headerlink" title="2. YOLOv3的特征提取"></a>2. <strong>YOLOv3的特征提取</strong></h3><p><strong>特点</strong>：</p>
+<ul>
+<li>有53个卷积层</li>
+<li>输出图像尺寸：416x416x3 </li>
+<li>连续使用卷积层和跳跃连接层</li>
+</ul>
+<p><strong>图像金字塔</strong>：<br><img src="2025-12-28-20-44-17.png" alt=""></p>
+<ul>
+<li><strong>图像金字塔-向下采样</strong>：删除图像偶数行列，大小变为四分之一。</li>
+<li><strong>图像金字塔-向上采样</strong>：补充大量像素点0，大小变为四倍。<br><em>（注意：两种操作互相是<strong>不可逆</strong>的。）</em></li>
+</ul>
+<p><strong>多尺度特征预测</strong>：<br><img src="2025-12-28-20-52-14.png" alt=""><br><img src="2025-12-28-20-48-17.png" alt=""></p>
+<p><strong>交并比</strong>：<br><img src="2025-12-28-20-56-57.png" alt=""></p>
+<p><strong>边界框坐标计算</strong>：<br><img src="2025-12-28-20-59-15.png" alt=""></p>
+<ul>
+<li>$(b_x,b_y)$为<strong>中心坐标</strong>。</li>
+<li>$b_w,b_h$进行了<strong>尺度缩放</strong>。</li>
+<li><strong>Sigmoid函数作用</strong>：将$t_x,t_y$压缩到[0,1]区间内，<strong>确保预测边界在网格内，防止偏移过多</strong>。</li>
+<li><strong>指数函数e的作用</strong>：确保<strong>缩放后的宽高为正</strong>。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>华理</category>
+        <category>大三上</category>
+      </categories>
+  </entry>
+  <entry>
     <title>专业前沿讲座报告</title>
     <url>/2025/11/26/lecture-report/</url>
     <content><![CDATA[<blockquote>
@@ -222,6 +758,739 @@
 <blockquote>
 <p><strong>附件下载：</strong> <a href="report.docx">📄 点击下载完整 Word 课程报告</a></p>
 </blockquote>
+]]></content>
+      <categories>
+        <category>华理</category>
+        <category>大三上</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>嵌入式系统原理</title>
+    <url>/2025/12/21/STM32/</url>
+    <content><![CDATA[<h1 id="第一章-导论"><a href="#第一章-导论" class="headerlink" title="第一章 导论"></a>第一章 导论</h1><blockquote>
+<p>嵌入式系统是一切非PC和大型计算机系统。</p>
+</blockquote>
+<h1 id="第二章-Cortex-M3-微处理器"><a href="#第二章-Cortex-M3-微处理器" class="headerlink" title="第二章 Cortex-M3 微处理器"></a>第二章 Cortex-M3 微处理器</h1><h2 id="1-内核结构"><a href="#1-内核结构" class="headerlink" title="1. 内核结构"></a>1. 内核结构</h2><ul>
+<li>核心架构：Cortex-M3 是基于 ARMv7-M 架构的 32 位处理器内核，采用高性能的<strong>哈佛结构</strong>，寻址能力为4GB。</li>
+</ul>
+<p><img src="2025-12-21-21-55-13.png" alt=""></p>
+<ul>
+<li>设计模式：ARM 公司设计内核，芯片制造商（如 ATMEL、NXP、TI）在此基础上添加不同的外设、存储器和 I/O，形成各类微控制器 (MCU)。</li>
+</ul>
+<h2 id="2-流水线技术"><a href="#2-流水线技术" class="headerlink" title="2. 流水线技术"></a>2. 流水线技术</h2><ul>
+<li>定义：将指令分解为多步并重叠执行，以实现并行处理。</li>
+</ul>
+<p><img src="2025-12-21-22-00-52.png" alt=""></p>
+<ul>
+<li>流水线技术三大指标：吞吐率、加速比、效率</li>
+</ul>
+<h3 id="（1）吞吐率"><a href="#（1）吞吐率" class="headerlink" title="（1）吞吐率"></a>（1）吞吐率</h3><ul>
+<li>单位时间内完成的指令条数<br><img src="2025-12-21-22-21-51.png" alt=""></li>
+<li>$流水时间 = 三个阶段总时间 + （指令条数 -1）\times 时间最长的阶段$</li>
+</ul>
+<p><strong>例题</strong>：<br><img src="2025-12-21-22-24-19.png" alt=""></p>
+<h3 id="（2）加速比"><a href="#（2）加速比" class="headerlink" title="（2）加速比"></a>（2）加速比</h3><ul>
+<li>不使用流水线时间和使用流水线时间之比</li>
+</ul>
+<p>若流水线<strong>各段时间均为 $\Delta t$</strong>，流水线<strong>级数 $m$</strong>，<strong>指令数为 $n$</strong>：<br>分子：$nm\Delta t$<br>分母：$m\Delta t + (n-1)\Delta t$ <em>（流水线计算公式）</em><br>则加速比为：</p>
+<script type="math/tex; mode=display">S_p = \frac{nm\Delta t}{m\Delta t + (n-1)\Delta t}</script><p>注意：<strong>平衡的流水线效率更优</strong></p>
+<h2 id="3-系统总线"><a href="#3-系统总线" class="headerlink" title="3. 系统总线"></a>3. 系统总线</h2><ul>
+<li><strong>总线</strong>：计算机中，各个部件之间传送信息的公共通路</li>
+<li><strong>分类</strong>：数据总线、地址总线、控制总线</li>
+</ul>
+<h3 id="AMBA"><a href="#AMBA" class="headerlink" title="AMBA"></a>AMBA</h3><ul>
+<li>AMBA 是一种<strong>高级微控制器总线架构</strong><br>主要包含以下两种不同的标准：</li>
+</ul>
+<ol>
+<li>AHB（Advanced High-performance Bus）：高级高性能总线<ul>
+<li>多个主机和多个从机的连接<br><img src="2025-12-21-23-56-03.png" alt=""></li>
+<li>AHB-lite：单个主机和多个从机</li>
+</ul>
+</li>
+<li>APB（Advanced Peripheral Bus）：高级外设总线<ul>
+<li>低成本、低功耗、结构简单<br><img src="2025-12-21-23-54-52.png" alt=""></li>
+</ul>
+</li>
+</ol>
+<h3 id="Cortex-M3-总线结构"><a href="#Cortex-M3-总线结构" class="headerlink" title="Cortex-M3 总线结构"></a>Cortex-M3 总线结构</h3><p><img src="2025-12-21-23-52-52.png" alt=""></p>
+<h2 id="4-寄存器与储存结构"><a href="#4-寄存器与储存结构" class="headerlink" title="4. 寄存器与储存结构"></a>4. 寄存器与储存结构</h2><p><img src="2025-12-22-13-55-29.png" alt=""></p>
+<ul>
+<li><strong>堆栈</strong>：先进后出，由一块连续内存、一个栈顶指针组成</li>
+<li><strong>储存结构</strong>：Crtex-M3与外设<strong>统一编址</strong>，这种方式称为<strong>储存器地址映射</strong></li>
+</ul>
+<h2 id="5-工作模态"><a href="#5-工作模态" class="headerlink" title="5. 工作模态"></a>5. 工作模态</h2><h3 id="（1）两种模式与特权等级"><a href="#（1）两种模式与特权等级" class="headerlink" title="（1）两种模式与特权等级"></a>（1）两种模式与特权等级</h3><p><img src="2025-12-22-14-04-48.png" alt=""></p>
+<h3 id="（2）三种模态"><a href="#（2）三种模态" class="headerlink" title="（2）三种模态"></a>（2）三种模态</h3><p><img src="2025-12-22-14-06-26.png" alt=""></p>
+<h2 id="6-中断与异常"><a href="#6-中断与异常" class="headerlink" title="6. 中断与异常"></a>6. 中断与异常</h2><script type="math/tex; mode=display">
+保存现场（压栈）\rightarrow 取向量（查找 ISR 地址）\rightarrow 更新寄存器（跳入 ISR 执行）</script><h3 id="（1）中断悬起"><a href="#（1）中断悬起" class="headerlink" title="（1）中断悬起"></a>（1）中断悬起</h3><ul>
+<li>如果中断发生时，正在处理更高优先级异常/中断被屏蔽，此时<strong>中断被悬起</strong><br><img src="2025-12-22-14-12-58.png" alt=""></li>
+</ul>
+<h3 id="（2）中断活跃"><a href="#（2）中断活跃" class="headerlink" title="（2）中断活跃"></a>（2）中断活跃</h3><p><img src="2025-12-22-14-15-04.png" alt=""></p>
+<h3 id="（3）中断请求信号保持"><a href="#（3）中断请求信号保持" class="headerlink" title="（3）中断请求信号保持"></a>（3）中断请求信号保持</h3><p><img src="2025-12-22-14-16-00.png" alt=""></p>
+<h2 id="7-调试与跟踪"><a href="#7-调试与跟踪" class="headerlink" title="7. 调试与跟踪"></a>7. 调试与跟踪</h2><ul>
+<li>基于<strong>CoreSight</strong>架构实现以下两种模式<br><img src="2025-12-22-14-29-07.png" alt=""></li>
+<li>调试访问端口：DAP</li>
+<li>调试接口：DP（一端连接 DAP，一端连接到调试器）</li>
+<li>跟踪接口：CoreSight 架构还可以用于<strong>数据跟踪</strong></li>
+</ul>
+<h2 id="8-Cortex-M3-实用功能"><a href="#8-Cortex-M3-实用功能" class="headerlink" title="8. Cortex-M3 实用功能"></a>8. Cortex-M3 实用功能</h2><h3 id="（1）SysTick-定时器"><a href="#（1）SysTick-定时器" class="headerlink" title="（1）SysTick 定时器"></a>（1）SysTick 定时器</h3><p>SysTick 是集成在内核中的 24 位系统节拍定时器，对实时操作系统（RTOS）至关重要</p>
+<ul>
+<li><strong>基本机制</strong>：它是一个 24 位的倒计数定时器，当计数减到 0 时，会自动从 RELOAD 寄存器中重装定时初值 </li>
+<li><strong>运行状态</strong>：只要不清除 SysTick 控制及状态寄存器中的使能位，定时器就会持续运行 </li>
+<li><strong>核心寄存器</strong>：<ul>
+<li><strong>CTRL (0xE000E010)</strong>：控制和状态寄存器，用于设置时钟源、使能中断及查询计数标志 </li>
+<li><strong>RELOAD (0xE000E014)</strong>：重装载值寄存器，存储定时器溢出后自动加载的初值 </li>
+<li><strong>CURRENT (0xE000E018)</strong>：当前值寄存器，反映当前的计数值 </li>
+<li><strong>CALIB (0xE000E01C)</strong>：校准值寄存器，提供硬件参考时钟信息 </li>
+</ul>
+</li>
+<li><strong>主要用途</strong>：常用于产生操作系统所需的“滴答”中断，或作为基本的定时/计数工具 </li>
+</ul>
+<h3 id="（2）电源管理"><a href="#（2）电源管理" class="headerlink" title="（2）电源管理"></a>（2）电源管理</h3><p>Cortex-M3 在内核级别提供了功耗优化方案，支持两种主要的睡眠模式 </p>
+<ul>
+<li><strong>睡眠模式 (Sleep)</strong>：由内核的 <code>SLEEPING</code> 信号指示 </li>
+<li><strong>深度睡眠模式 (Deep Sleep)</strong>：由内核的 <code>SLEEPDEEP</code> 信号指示，用于更大幅度降低功耗 </li>
+<li><strong>唤醒机制</strong>：在睡眠状态下，系统时钟可以停止，但通常保持 FCLK 运行，以确保处理器能被 SysTick 异常或外部中断唤醒 </li>
+<li><strong>状态判定</strong>：开发者可以通过读取 NVIC（嵌套向量中断控制器）的相关系统控制寄存器来判定当前的睡眠模式及上下文 </li>
+</ul>
+<h3 id="（3）复位序列"><a href="#（3）复位序列" class="headerlink" title="（3）复位序列"></a>（3）复位序列</h3><p>复位是处理器通电或重启后的起始动作，Cortex-M3 有一套固定的操作流程来定栈和定位代码入口 </p>
+<ul>
+<li><strong>读取 MSP</strong>：处理器首先从地址 <code>0x00000000</code> 处读取 32 位整数，作为 <strong>主堆栈指针 (MSP)</strong> 的初始值，从而完成“定栈” </li>
+<li><strong>读取 PC</strong>：随后从地址 <code>0x00000004</code> 处读取 32 位整数，作为 <strong>程序计数器 (PC)</strong> 的初始值，即复位向量，决定代码执行的入口地址 </li>
+<li><strong>堆栈模型</strong>：在 Cortex-M3 中，堆栈是<strong>向下生长</strong>的（即从高地址向低地址方向压栈）</li>
+<li><strong>内存布局示例</strong>：例如复位向量指向地址 <code>0x00000101</code>，则处理器将从该处的启动引导代码开始运行</li>
+</ul>
+<h1 id="第三章-STM32-最小系统及开发环境"><a href="#第三章-STM32-最小系统及开发环境" class="headerlink" title="第三章 STM32 最小系统及开发环境"></a>第三章 STM32 最小系统及开发环境</h1><h2 id="1-系统组成"><a href="#1-系统组成" class="headerlink" title="1. 系统组成"></a>1. 系统组成</h2><ul>
+<li><strong>最小系统</strong>：用最少的元件组成微控制器可以工作的系统。<h3 id="（1）微控制器"><a href="#（1）微控制器" class="headerlink" title="（1）微控制器"></a>（1）微控制器</h3></li>
+<li>核心芯片工作电压通常为 <strong>2.0V～3.6V</strong><br><img src="2025-12-23-14-58-40.png" alt=""></li>
+</ul>
+<h3 id="（2）电源电路"><a href="#（2）电源电路" class="headerlink" title="（2）电源电路"></a>（2）电源电路</h3><p><img src="2025-12-23-14-55-05.png" alt=""></p>
+<ul>
+<li>常用 AMS1117 芯片将 5V 电压降至 3.3V 供 VDD 使用。</li>
+<li>STM32 内部的电压调节器将外部 3.3V 的电压转化为 1.8V 提供给 Cortex-M3、内存以及外设使用。</li>
+<li>C1、C2 是输入电容，防止断电后电压倒置。</li>
+<li>C3、C4 是输出滤波电容，抑制自激振章 &amp; 稳定输出电压。</li>
+</ul>
+<h3 id="（3）时钟电路"><a href="#（3）时钟电路" class="headerlink" title="（3）时钟电路"></a>（3）时钟电路</h3><ul>
+<li>时钟频率越高，单片机运行速度越快，功耗越大。<br><img src="2025-12-23-15-01-33.png" alt=""></li>
+<li><strong>高速外部时钟 (HSE)</strong>：通常外接 8MHz 晶振，通过 PLL 倍频最高可达 72MHz 作为系统主时钟。</li>
+<li><strong>低速外部时钟 (LSE)</strong>：外接 32.768kHz 晶振，主要用于 RTC 精准计时。</li>
+</ul>
+<h3 id="（4）复位电路"><a href="#（4）复位电路" class="headerlink" title="（4）复位电路"></a>（4）复位电路</h3><ul>
+<li><strong>上电自动复位</strong><ul>
+<li>依靠 RC 电路产生的 ~1ms 延迟。</li>
+<li>上电瞬间电容两端电压不能突变，Reset 出现短暂低电平。之后芯片复位，进入充电时间：<br>$t=1.1R\times C$（电阻、电容）</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><strong>手动按键复位</strong><ul>
+<li>按键按下时，Reset 短暂接地，产生低电平</li>
+</ul>
+</li>
+</ul>
+<h3 id="（5）调试和下载电路"><a href="#（5）调试和下载电路" class="headerlink" title="（5）调试和下载电路"></a>（5）调试和下载电路</h3><p><strong>调试接口</strong>：JTAG（5引脚）、SWD（2引脚，更常用）<br><strong>Cortex-M3 的三种启动方式，主要依靠不同电平组合：</strong></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">BOOT0</th>
+<th style="text-align:center">BOOT1</th>
+<th style="text-align:left">启动模式</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>0</strong></td>
+<td style="text-align:center"><strong>X</strong></td>
+<td style="text-align:left">用户闪存 (Flash)</td>
+<td style="text-align:left">最常用的正常运行模式（从 <code>0x08000000</code> 启动）</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>1</strong></td>
+<td style="text-align:center"><strong>0</strong></td>
+<td style="text-align:left">系统存储器</td>
+<td style="text-align:left">用于串口下载程序（ISP）</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>1</strong></td>
+<td style="text-align:center"><strong>1</strong></td>
+<td style="text-align:left">内置 SRAM</td>
+<td style="text-align:left">用于在内存中调试代码</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="2-开发环境-amp-基础配置"><a href="#2-开发环境-amp-基础配置" class="headerlink" title="2. 开发环境 &amp; 基础配置"></a>2. 开发环境 &amp; 基础配置</h2><p><strong>HAL库开发</strong>： STM32CubeMX+Keil 5</p>
+<p><img src="2025-12-23-15-36-48.png" alt=""></p>
+<ul>
+<li>下载工具：<br> J-Link：通用型，支持多种内核及 IDE 。<br> ST-Link：ST 公司专用于 STM8/STM32，支持全速运行和单步调试 。</li>
+</ul>
+<h1 id="第四章-嵌入式C语言"><a href="#第四章-嵌入式C语言" class="headerlink" title="第四章 嵌入式C语言"></a>第四章 嵌入式C语言</h1><p><strong>C语言的优势</strong>：汇编语言操作底层、功能性强<br><strong>外设功能模块化设计</strong>：包含一个源文件（.c文件）和一个头文件（.h文件）</p>
+<p><img src="2025-12-23-16-49-29.png" alt=""></p>
+<h2 id="1-数据类型-amp-运算符"><a href="#1-数据类型-amp-运算符" class="headerlink" title="1. 数据类型 &amp; 运算符"></a>1. 数据类型 &amp; 运算符</h2><h3 id="（1）数据类型"><a href="#（1）数据类型" class="headerlink" title="（1）数据类型"></a>（1）数据类型</h3><ul>
+<li>STM32 是32位处理器，与一般64位电脑不同。</li>
+</ul>
+<p><img src="2025-12-23-17-02-22.png" alt=""></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">数据类型</th>
+<th style="text-align:center">字节数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">char</td>
+<td style="text-align:center"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">short</td>
+<td style="text-align:center"><strong>2</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">int/long/float/<strong>指针</strong></td>
+<td style="text-align:center"><strong>4</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">double</td>
+<td style="text-align:center"><strong>8</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>1字节 = 8 bit</li>
+</ul>
+<p><img src="2025-12-23-17-08-26.png" alt=""></p>
+<h3 id="（2）运算符"><a href="#（2）运算符" class="headerlink" title="（2）运算符"></a>（2）运算符</h3><p><img src="2025-12-23-17-42-19.png" alt=""></p>
+<ul>
+<li>三大战术 (背下来)：<ol>
+<li>置1 (Set)：用 |。 例如 Reg |= (1 &lt;&lt; 3); (第3位置1)</li>
+<li>清0 (Clear)：用 &amp; ~。 例如 Reg &amp;= ~(1 &lt;&lt; 3); (第3位清0)</li>
+<li>翻转 (Toggle)：用 ^。 例如 Reg ^= (1 &lt;&lt; 3); (第3位翻转)</li>
+</ol>
+</li>
+</ul>
+<p><strong>注意</strong>：“异或”是<strong>不同取1，相同取0</strong>。</p>
+<p><img src="2025-12-23-17-45-27.png" alt=""></p>
+<h2 id="2-四大核心修饰符"><a href="#2-四大核心修饰符" class="headerlink" title="2. 四大核心修饰符"></a>2. 四大核心修饰符</h2><h3 id="（1）const（只读）"><a href="#（1）const（只读）" class="headerlink" title="（1）const（只读）"></a>（1）const（只读）</h3><ul>
+<li><strong>作用</strong>：定义<strong>只读</strong>变量，保证其值在编译时不能改变。</li>
+<li><strong>目的</strong>：<strong>防止变量的值被误改</strong>。</li>
+<li><strong>要求</strong>：const关键词修饰的变量在声明时<strong>必须初始化</strong>。</li>
+<li><strong>属性</strong>：变量是<strong>全局</strong>定义的。</li>
+<li><strong>格式</strong>：` const uint32_t(此处为初始化) a = 0xffff1111;</li>
+</ul>
+<h3 id="（2）static（静态）"><a href="#（2）static（静态）" class="headerlink" title="（2）static（静态）"></a>（2）static（静态）</h3><p><strong>修饰局部变量</strong>：修饰后的变量称为<strong>静态变量</strong>，存储在静态区，函数结束后不销毁，<strong>下次调用保留上次的值</strong>。<br><strong>修饰全局变量/函数</strong>：限制作用域，只在当前.c文件中可见（私有化），其它源文件不能引用，避免了<strong>相同变量名而引发的错误</strong>。</p>
+<h3 id="（3）volatile（易变）"><a href="#（3）volatile（易变）" class="headerlink" title="（3）volatile（易变）"></a>（3）volatile（易变）</h3><ul>
+<li><strong>作用</strong>：每次<strong>读取</strong>或者<strong>修改</strong>变量值的时候，必须<strong>从内存中重新读取</strong>，而不是使用保存在寄存器里的备份。</li>
+</ul>
+<p><img src="2025-12-23-17-22-25.png" alt=""></p>
+<p><img src="2025-12-23-17-25-16.png" alt=""></p>
+<h3 id="（4）extern（外部）"><a href="#（4）extern（外部）" class="headerlink" title="（4）extern（外部）"></a>（4）extern（外部）</h3><p><strong>注意</strong>：extern是一个重新声明，而不是定义。</p>
+<ul>
+<li><strong>含义</strong>：声明变量/函数是在别的文件定义的。例如：main.c要调用led.c里的变量，必须在main.c里用extern声明。</li>
+</ul>
+<h2 id="3-struct结构体"><a href="#3-struct结构体" class="headerlink" title="3. struct结构体"></a>3. struct结构体</h2><p><img src="2025-12-24-19-41-44.png" alt=""></p>
+<h1 id="第五章-GPIO"><a href="#第五章-GPIO" class="headerlink" title="第五章 GPIO"></a>第五章 GPIO</h1><ul>
+<li>GPIO ：General-Purpose Input/Output，即<strong>通用输入/输出</strong>模块。</li>
+<li>实现与外部设备的<strong>数字信号交互</strong>，可以通过软件配置输入/输出模式。</li>
+</ul>
+<h2 id="1-GPIO-内部结构"><a href="#1-GPIO-内部结构" class="headerlink" title="1. GPIO 内部结构"></a>1. GPIO 内部结构</h2><h2 id="2-四种输入模式"><a href="#2-四种输入模式" class="headerlink" title="2. 四种输入模式"></a>2. 四种输入模式</h2><h3 id="（1）上拉输入（Pull-up）"><a href="#（1）上拉输入（Pull-up）" class="headerlink" title="（1）上拉输入（Pull-up）"></a>（1）上拉输入（Pull-up）</h3><ul>
+<li>内部接一个上拉电阻到VDD。外部悬空（I/O引脚无信号）时，默认输入<strong>高电平</strong>。</li>
+</ul>
+<h3 id="（2）下拉输入（Pull-down）"><a href="#（2）下拉输入（Pull-down）" class="headerlink" title="（2）下拉输入（Pull-down）"></a>（2）下拉输入（Pull-down）</h3><ul>
+<li>接一个下拉电阻。外部悬空时，默认输入<strong>低电平</strong>。</li>
+<li>应用：接按键（按键另一端接地）</li>
+</ul>
+<h3 id="（3）浮空输入（Floating）"><a href="#（3）浮空输入（Floating）" class="headerlink" title="（3）浮空输入（Floating）"></a>（3）浮空输入（Floating）</h3><ul>
+<li>浮空输入模式下引脚内部既不接上拉电阻也不连接下拉电阻（但是不关闭施密特触发器），<strong>直接经施密特触发器输入I/O引脚的信号</strong>。</li>
+<li>即：<strong>电平完全由外部电路决定</strong>，如果外部悬空，读到电平会乱跳。</li>
+<li>应用：通信协议的接收端（如UART_RX），或者按键检测（外部有电阻时）</li>
+</ul>
+<h3 id="（4）模拟输入（Analog）"><a href="#（4）模拟输入（Analog）" class="headerlink" title="（4）模拟输入（Analog）"></a>（4）模拟输入（Analog）</h3><ul>
+<li>模拟输入模式下，施密特触发器关闭，既不接上拉电阻也不连接下拉电阻，引脚信号连接到芯片内部的片上外设，其典型应用是<strong>A/D模拟输入</strong>，对外部信号进行采集。</li>
+<li>应用：ADC采集电压（生物传感器那道大题就用这个！）</li>
+</ul>
+<h2 id="3-四种输出模式"><a href="#3-四种输出模式" class="headerlink" title="3. 四种输出模式"></a>3. 四种输出模式</h2><h3 id="（1）推挽输出（PP）"><a href="#（1）推挽输出（PP）" class="headerlink" title="（1）推挽输出（PP）"></a>（1）推挽输出（PP）</h3><ul>
+<li>两个MOS管按<strong>互补对称</strong>的方式连接。</li>
+<li><strong>目的</strong>：增大输出电流，输出能力强；提高电路负载能力和开关速度</li>
+<li>高电平3.3V，低电平0V。</li>
+<li>应用：点亮LED，驱动蜂鸣器</li>
+</ul>
+<h3 id="（2）开漏输出（OD）"><a href="#（2）开漏输出（OD）" class="headerlink" title="（2）开漏输出（OD）"></a>（2）开漏输出（OD）</h3><ul>
+<li>只有下拉MOS管，没有上拉MOS管。</li>
+<li>不与电源连接，处于悬空状态，只能输出低电平。</li>
+<li><strong>目的</strong>：减少芯片内部驱动。</li>
+<li><strong>特点</strong>：想输出高电平，只能外接上拉电阻。</li>
+<li><strong>重点</strong>：方便实现“逻辑与”功能。<code>I2C总线</code>（必考关联点）</li>
+<li>应用：I2C总线 (必考关联点)</li>
+</ul>
+<h3 id="（3）复用推挽输出（AF-PP）"><a href="#（3）复用推挽输出（AF-PP）" class="headerlink" title="（3）复用推挽输出（AF_PP）"></a>（3）复用推挽输出（AF_PP）</h3><ul>
+<li>GPIO引脚除了作为通用IO引脚外，还可作为片上外设的I/O引脚，即<strong>一个引脚可以作为多个外设引脚使用</strong>，称为复用I/O端口 AFIO。</li>
+<li>一个引脚某一时刻<strong>只能使用复用功能中的一个</strong>。</li>
+</ul>
+<h3 id="（4）复用开漏输出（AF-OD）"><a href="#（4）复用开漏输出（AF-OD）" class="headerlink" title="（4）复用开漏输出（AF_OD）"></a>（4）复用开漏输出（AF_OD）</h3><p>同上。</p>
+<h1 id="第六章-中断和异常"><a href="#第六章-中断和异常" class="headerlink" title="第六章 中断和异常"></a>第六章 中断和异常</h1><blockquote>
+<p>本质：改变处理器执行指令的顺序。</p>
+</blockquote>
+<ul>
+<li>区别：<ul>
+<li>中断：响应外部事件</li>
+<li>异常：内部程序错误</li>
+</ul>
+</li>
+</ul>
+<p><code>目的</code>：</p>
+<ol>
+<li>提高cpu效率</li>
+<li>实时处理</li>
+<li>异常处理</li>
+<li>数据传输</li>
+<li>不占用cpu资源</li>
+</ol>
+<h2 id="1-中断处理流程"><a href="#1-中断处理流程" class="headerlink" title="1. 中断处理流程"></a>1. 中断处理流程</h2><p><img src="2025-12-26-14-01-22.png" alt=""><br><img src="2025-12-26-14-01-48.png" alt=""></p>
+<h2 id="Cortex-M3-内嵌中断控制器——NVIC"><a href="#Cortex-M3-内嵌中断控制器——NVIC" class="headerlink" title="Cortex-M3 内嵌中断控制器——NVIC"></a>Cortex-M3 内嵌中断控制器——NVIC</h2><p><img src="2025-12-26-14-04-06.png" alt=""></p>
+<h3 id="（1）中断优先级"><a href="#（1）中断优先级" class="headerlink" title="（1）中断优先级"></a>（1）中断优先级</h3><p><img src="2025-12-26-14-11-52.png" alt=""></p>
+<ul>
+<li>抢占优先级 &gt; 响应优先级</li>
+<li>数值越小，优先级别越高</li>
+<li>Reset，NMI（不可屏蔽中断 ） ， Hard Fault 的优先级为负，且不可修改，高于普通的中断优先级</li>
+</ul>
+<p><strong>中断优先级判断</strong>：</p>
+<ol>
+<li>先判断抢占优先级的大小</li>
+<li>如果抢占优先级相同，则比较响应优先级的大小</li>
+<li>若抢占优先级和响应优先级均相同，则根据<strong>中断向量表</strong>中的顺序来决定<br><img src="2025-12-26-14-16-21.png" alt=""></li>
+</ol>
+<h3 id="（2）外部中断EXTI"><a href="#（2）外部中断EXTI" class="headerlink" title="（2）外部中断EXTI"></a>（2）外部中断EXTI</h3><p><img src="2025-12-26-14-22-12.png" alt=""><br><img src="2025-12-26-14-22-23.png" alt=""></p>
+<ul>
+<li>映射关系：STM32的引脚很多，但中断线只有 16+N 条。<br>规则：所有 Pin x 共用一条中断线 EXTI x<ul>
+<li>PA0, PB0, PC0 … -&gt; EXTI0</li>
+<li>PA5, PB5, PC5 … -&gt; EXTI5</li>
+</ul>
+</li>
+</ul>
+<p><em>考点：不能同时开启 PA0 和 PB0 的中断！因为它们都要抢 EXTI0 这条线。</em></p>
+<ul>
+<li>触发方式<ul>
+<li>上升沿触发：电平 0 -&gt; 1 瞬间触发（如按键松开）。</li>
+<li>下降沿触发：电平 1 -&gt; 0 瞬间触发（如按键按下）。</li>
+<li>双边沿触发：变高变低都触发。</li>
+</ul>
+</li>
+</ul>
+<h1 id="第七章-定时器"><a href="#第七章-定时器" class="headerlink" title="第七章 定时器"></a>第七章 定时器</h1><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">定时器主要功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>定时</strong>：时钟脉冲计数</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>计数</strong>：固定周期的脉冲信号</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>输入捕获</strong>：对脉冲信号宽度测量</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>输出比较</strong>：控制输出波形</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="第一部分：STM32定时器模块"><a href="#第一部分：STM32定时器模块" class="headerlink" title="第一部分：STM32定时器模块"></a>第一部分：STM32定时器模块</h2><p><img src="2025-12-28-11-32-59.png" alt=""></p>
+<p><em>注意分辨不同定时器的<strong>功能</strong>、引脚</em></p>
+<ul>
+<li><p><strong>基本定时器 (TIM6, TIM7)</strong></p>
+<ul>
+<li>能力：只能用来定时（数数），没有 GPIO 引脚，不能 产生 PWM。</li>
+<li><em>就像个纯粹的闹钟。</em></li>
+</ul>
+</li>
+<li><p><strong>通用定时器 (TIM2 ~ TIM5)</strong></p>
+<ul>
+<li>能力：定时 + 输入捕获 (测脉宽) + 输出比较 (PWM)。</li>
+<li><em>这是最常用的主力。</em></li>
+</ul>
+</li>
+<li><p><strong>高级定时器 (TIM1, TIM8)</strong></p>
+<ul>
+<li>能力：通用功能 + 死区控制 (Dead-time) + 互补输出。</li>
+<li><em>这是给电机控制专用的。</em></li>
+</ul>
+</li>
+</ul>
+<h3 id="1-定时时间计算"><a href="#1-定时时间计算" class="headerlink" title="1. 定时时间计算"></a>1. 定时时间计算</h3><script type="math/tex; mode=display">
+时钟源+预分频器PSC+计数器CNT+自动装载寄存器ARR</script><p><code>核心公式</code>：</p>
+<script type="math/tex; mode=display">
+定时时间 =\frac{(ARR+1)\times(PSC+1)}{时钟频率}</script><ul>
+<li><em>注意：PSC 和 ARR 的输入范围为（1，65536），因为最高16位。</em></li>
+</ul>
+<p><strong>例题</strong>：<br><img src="2025-12-28-11-46-51.png" alt=""></p>
+<h3 id="2-PWM-相关分析题"><a href="#2-PWM-相关分析题" class="headerlink" title="2. PWM 相关分析题"></a>2. PWM 相关分析题</h3><p><img src="2025-12-28-11-55-12.png" alt=""><br><img src="2025-12-28-11-57-21.png" alt=""></p>
+<script type="math/tex; mode=display">
+占空比 =\frac{CCR}{ARR+1}\times 100\%</script><p><img src="2025-12-28-11-59-12.png" alt=""><br><img src="2025-12-28-11-59-26.png" alt=""></p>
+<ul>
+<li>只要 <strong>CNT&gt;CCR</strong> ，就输出高电平。</li>
+<li>ARR 是阈值，达到后<strong>重新计数</strong>。</li>
+<li><strong>ARR 决定PWM的周期，CCR 决定占空比</strong>。</li>
+</ul>
+<h2 id="第二部分：SysTick定时器"><a href="#第二部分：SysTick定时器" class="headerlink" title="第二部分：SysTick定时器"></a>第二部分：SysTick定时器</h2><p><strong>1. 基础属性 (填空/判断题核心)</strong></p>
+<ul>
+<li><strong>归属</strong>：属于 <strong>Cortex-M3 内核 (Core)</strong>，<strong>不属于</strong> 片上外设 (Peripheral)。</li>
+<li><strong>位数</strong>：<strong>24位</strong> (注意：通用定时器通常是 16 位)。</li>
+<li><strong>计数方式</strong>：<strong>向下计数</strong> (Down-counter)，从设定值 (LOAD) 减到 0。</li>
+</ul>
+<p><strong>2. 核心用途 (考干什么)</strong></p>
+<ul>
+<li><strong>操作系统心跳</strong>：为 RTOS (如 FreeRTOS, uCOS) 提供任务调度的基准时钟。</li>
+<li><strong>精准延时</strong>：<strong>HAL_Delay()</strong> 函数就是基于 SysTick 实现的。<ul>
+<li><em>注：如果不开启 SysTick 中断，HAL_Delay 函数将无法工作。</em></li>
+</ul>
+</li>
+</ul>
+<p><strong>3. 关键寄存器 (眼熟即可)</strong></p>
+<ul>
+<li><strong>CTRL (Control)</strong>：控制寄存器，用于使能定时器、开启中断。</li>
+<li><strong>LOAD (Reload)</strong>：重装载数值寄存器，决定了定时器的溢出周期。</li>
+<li><strong>VAL (Value)</strong>：当前数值寄存器，实时显示当前的计数值。</li>
+</ul>
+<p><strong>4. 考点辨析：SysTick vs 通用定时器</strong></p>
+<ul>
+<li><strong>位置区别</strong>：SysTick 在内核；通用定时器在芯片外设区。</li>
+<li><strong>位数区别</strong>：SysTick 是 24 位；通用定时器通常是 16 位。</li>
+<li><strong>方向区别</strong>：SysTick 只能向下计数；通用定时器可以向上/向下/中心对齐。</li>
+<li><strong>功能区别</strong>：SysTick 专注延时/心跳；通用定时器专注 PWM、输入捕获、脉冲计数。</li>
+</ul>
+<p><strong>看门狗</strong>：确保系统可靠稳定运行，可使得应用程序脱离正常执行流程时复位。<br><img src="2025-12-28-12-21-39.png" alt=""></p>
+<h1 id="第八章-USART通信协议技术"><a href="#第八章-USART通信协议技术" class="headerlink" title="第八章 USART通信协议技术"></a>第八章 USART通信协议技术</h1><h2 id="第一部分-基础概念"><a href="#第一部分-基础概念" class="headerlink" title="第一部分 基础概念"></a>第一部分 基础概念</h2><p><strong>按传输格式划分</strong>：</p>
+<ul>
+<li><strong>并行</strong>：多条独立数据线同时传输。</li>
+<li><strong>串行</strong>：单条/两条数据线逐位传输。（<em>最为流行，eg.U盘、USB接口设备、<code>USART</code></em>）</li>
+</ul>
+<p><strong>按同步方式划分</strong>：</p>
+<ul>
+<li><strong>异步</strong>：发送方&amp;接收方 无统一时钟线。</li>
+<li><strong>同步</strong>：发送方&amp;接收方 统一时钟线。</li>
+</ul>
+<p><strong>按传输方式划分</strong>：</p>
+<ul>
+<li><strong>单工通信</strong>：数据传输时单向的。（<em>广播、电视、打印机、BB机</em>）</li>
+<li><strong>半双工通信</strong>：可以双向，但不能同时。（<em>对讲机</em>）</li>
+<li><strong>全双工通信</strong>：可以同时双向传输。（<em>电话、以太网、<code>USART</code></em>）</li>
+</ul>
+<h2 id="第二部分：波特率"><a href="#第二部分：波特率" class="headerlink" title="第二部分：波特率"></a>第二部分：波特率</h2><p><strong>波特率</strong>：每秒传输的二进制位数（bit/s），衡量<strong>传输速度快慢</strong>。</p>
+<script type="math/tex; mode=display">
+波特率 =字符速率（每秒传输字符数）\times 每个字符包含位数 =\frac{f_{PCLK}}{16\times 分频系数}</script><ul>
+<li><em>其中 $f_{PCLK}$为外设<strong>时钟频率</strong></em>。</li>
+</ul>
+<p><strong>例题</strong>：<br><img src="2025-12-28-14-13-16.png" alt=""></p>
+<p><strong>常用波特率</strong>：</p>
+<ul>
+<li>9600</li>
+<li>115200（<em>调试用、速度快</em>）<br><em>注意：异步通信双方波特率要一致</em></li>
+</ul>
+<h2 id="第三部分：异步串行通信协议（波形分析）"><a href="#第三部分：异步串行通信协议（波形分析）" class="headerlink" title="第三部分：异步串行通信协议（波形分析）"></a>第三部分：异步串行通信协议（波形分析）</h2><p><img src="2025-12-28-14-31-00.png" alt=""></p>
+<ul>
+<li><code>注意：数据位要从右向左读</code>  </li>
+</ul>
+<p><img src="2025-12-28-14-33-40.png" alt=""></p>
+<blockquote>
+<p>UART：全双工、异步、串行。<br><img src="2025-12-28-14-35-57.png" alt=""></p>
+</blockquote>
+<h2 id="第四部分：USART内部结构"><a href="#第四部分：USART内部结构" class="headerlink" title="第四部分：USART内部结构"></a>第四部分：USART内部结构</h2><ol>
+<li><strong>波特率发生器</strong>：提供同步时钟信号。<br>$波特率时钟频率 =波特率\times 采样倍数$</li>
+<li><strong>发送器</strong>：将并行数据转化为串行数据，并按照（起始位、数据位、校验位、停止位）发送到<strong>TX引脚</strong>。</li>
+<li><strong>接收器</strong>：从<strong>RX引脚</strong>接收串行数据，转化为并行数据。</li>
+</ol>
+<p><img src="2025-12-28-14-46-41.png" alt=""></p>
+<ul>
+<li><strong>USART1～3</strong>:全支持</li>
+<li><strong>USART4～5</strong>:除去<em>同步模式、硬件流控制、智能卡</em></li>
+</ul>
+<p><img src="2025-12-28-14-50-23.png" alt=""></p>
+<h1 id="第九章-DMA控制器"><a href="#第九章-DMA控制器" class="headerlink" title="第九章 DMA控制器"></a>第九章 DMA控制器</h1><h2 id="第一部分：基础概念"><a href="#第一部分：基础概念" class="headerlink" title="第一部分：基础概念"></a>第一部分：基础概念</h2><p><strong>DMA（Direct Memory Access）</strong>：直接内存访问。</p>
+<ul>
+<li><strong>作用</strong>：允许外设设备直接与储存器进行数据交换，<strong>无需cpu介入</strong>。</li>
+<li><strong>优势</strong>：<strong>解放cpu、提高传输效率、降低功耗</strong>。</li>
+</ul>
+<p><img src="2025-12-29-12-42-37.png" alt=""></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">DMA适用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>储存设备I/O</strong>：硬盘与内存间的大量数据交换</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>高速通信通道</strong>：网络接口、光纤通信</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>数据采集系统</strong></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>图像处理</strong></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>多处理机系统</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="第二部分：STM32多DMA架构"><a href="#第二部分：STM32多DMA架构" class="headerlink" title="第二部分：STM32多DMA架构"></a>第二部分：STM32多DMA架构</h2><p><img src="2025-12-29-13-22-16.png" alt=""></p>
+<p><img src="2025-12-29-13-22-38.png" alt=""></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">关键配置参数</th>
+<th style="text-align:left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>传输方向</strong></td>
+<td style="text-align:left"><strong>外设/内存</strong>之间相互传输（4种情况的排列组合）</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>数据宽度</code></td>
+<td style="text-align:left">8/16/32 （<strong>如果源和目标位数不匹配，DMA会自动帮你补位</strong>）</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>地址递增</strong></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>传输模式</strong></td>
+<td style="text-align:left">单次模式、循环模式</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>中断请求</strong></td>
+<td style="text-align:left">传输完成、半传输、传输错误</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>传输模式</strong>：</p>
+<ul>
+<li>单次模式：DMA传输结束后不再产生新的DMA操作。</li>
+<li>循环模式：每轮传输结束时，要传输的数据数量将自动用设置的初始值进行加载，并继续响应DMA请求。<em>（ADC扫描模式）</em></li>
+</ul>
+<h2 id="第三部分：通道映射"><a href="#第三部分：通道映射" class="headerlink" title="第三部分：通道映射"></a>第三部分：通道映射</h2><h3 id="DMA优先级"><a href="#DMA优先级" class="headerlink" title="DMA优先级"></a>DMA优先级</h3><p><img src="2025-12-29-13-41-55.png" alt=""></p>
+<h3 id="DMA请求通道"><a href="#DMA请求通道" class="headerlink" title="DMA请求通道"></a>DMA请求通道</h3><p><img src="2025-12-29-13-43-34.png" alt=""><br><img src="2025-12-29-13-43-45.png" alt=""></p>
+<h3 id="DMA中断请求"><a href="#DMA中断请求" class="headerlink" title="DMA中断请求"></a>DMA中断请求</h3><p><img src="2025-12-29-13-44-50.png" alt=""></p>
+<h1 id="第十章-同步串行通信协议"><a href="#第十章-同步串行通信协议" class="headerlink" title="第十章 同步串行通信协议"></a>第十章 同步串行通信协议</h1><h2 id="第一部分：SPI通信协议"><a href="#第一部分：SPI通信协议" class="headerlink" title="第一部分：SPI通信协议"></a>第一部分：SPI通信协议</h2><h3 id="1-基础概念"><a href="#1-基础概念" class="headerlink" title="1. 基础概念"></a>1. 基础概念</h3><ul>
+<li><strong>SPI（Serial Peripheral interface）</strong>：串行外围设备接口。</li>
+<li><p><strong>特点</strong>：</p>
+<ul>
+<li><code>高速</code>、全双工、同步</li>
+<li>在芯片管脚上只占用四根线</li>
+<li><em>主要应用：EEPROM、FLASH、实时时钟、AD转换器、数字信号处理器</em></li>
+</ul>
+</li>
+<li><p><strong>主从模式</strong>：</p>
+<ul>
+<li>SPI通讯系统包含一个（只能一个）主设备、多个或一个从设备。</li>
+<li>主设备<strong>提供时钟</strong>，从设备<strong>接收时钟</strong>。</li>
+<li>多个从设备<strong>通过各自片选信号管理</strong>。</li>
+<li>读写操作都是由主设备发起。</li>
+<li>通信速度一般能达到10Mbps。</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-四根信号线"><a href="#2-四根信号线" class="headerlink" title="2. 四根信号线"></a>2. 四根信号线</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">引脚名称</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">MOSI（master output slave input）</td>
+<td style="text-align:left">主设备输出/从设备输入。即：在主模式下发送数据，从模式下接收数据</td>
+</tr>
+<tr>
+<td style="text-align:left">MISO（master input slave output）</td>
+<td style="text-align:left">主设备输入/从设备输出。即：在主模式下接收数据，从模式下发送数据</td>
+</tr>
+<tr>
+<td style="text-align:left">SCLK</td>
+<td style="text-align:left">主设备产生的串行时钟信号。</td>
+</tr>
+<tr>
+<td style="text-align:left">CS/SS</td>
+<td style="text-align:left">从设备的<strong>片选信号</strong>，低电平有效。让主设备可以单独与指定从设备通讯$\rightarrow$避免冲突。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><img src="2025-12-29-15-28-07.png" alt=""></p>
+<p><img src="2025-12-29-15-30-32.png" alt=""></p>
+<h3 id="3-四种配置模式"><a href="#3-四种配置模式" class="headerlink" title="3. 四种配置模式"></a>3. 四种配置模式</h3><ul>
+<li>通信双方必须在同一模式下才可以通信。</li>
+<li>通过<code>CPOL（时钟极性）</code>和<code>CPHA（时钟相位）</code>来配置主设备的通信模式。</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">SPI模式</th>
+<th style="text-align:left">CPOL</th>
+<th style="text-align:left">CPHA</th>
+<th style="text-align:left">空闲时SCK时钟</th>
+<th style="text-align:left">采样时刻</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">0（最常用）</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">低电平</td>
+<td style="text-align:left">奇数边沿</td>
+</tr>
+<tr>
+<td style="text-align:left">1</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">低电平</td>
+<td style="text-align:left">偶数边沿</td>
+</tr>
+<tr>
+<td style="text-align:left">2</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">高电平</td>
+<td style="text-align:left">奇数边沿</td>
+</tr>
+<tr>
+<td style="text-align:left">3</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">高电平</td>
+<td style="text-align:left">偶数边沿</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li><strong>CPOL（clock polarity）</strong>：=0:SLK低电平/=1:SLK高电平</li>
+<li><strong>CPHA（clock phase）</strong>：=0:奇数沿采样/=1:偶数沿采样</li>
+</ul>
+<p><img src="2025-12-29-15-46-11.png" alt=""></p>
+<ul>
+<li>SCK刚开始是低电平$\rightarrow$CPOL=0</li>
+<li>偶数沿采样（注意不要看图片里的数标）$\rightarrow$CPAL=1</li>
+<li>得到$\longrightarrow$模式=1</li>
+</ul>
+<p><img src="2025-12-29-16-13-53.png" alt=""></p>
+<h2 id="第二部分：I2C通信协议"><a href="#第二部分：I2C通信协议" class="headerlink" title="第二部分：I2C通信协议"></a>第二部分：I2C通信协议</h2><h3 id="1-基础概念-1"><a href="#1-基础概念-1" class="headerlink" title="1. 基础概念"></a>1. 基础概念</h3><ul>
+<li><p><strong>特点</strong>：</p>
+<ul>
+<li><code>低速、近距离</code>、半双工、同步。</li>
+<li>结构简单、降低系统成本、提高了可靠性。</li>
+<li>总线具有<strong>极低的电流消耗，抗噪声能力强</strong>。</li>
+</ul>
+</li>
+<li><p><strong>主从模式</strong>：</p>
+<ul>
+<li><code>多主机总线</code>：每个器件都可以作为主机/从机，<strong>但同一时刻只能有一个主机</strong>。</li>
+<li>所有设备都接在一根总线上，所以只要有一个拉低，总线就是低电平。</li>
+<li><strong>开漏输出</strong>：必须外接<strong>上拉电阻</strong>。</li>
+<li>每个连接到I2C总线的器件都有<strong>唯一地址（7bit）</strong>。</li>
+<li>总线上增加和删除器件不影响其它器件工作。</li>
+<li>从机只能被动呼叫。</li>
+<li>传输速率：100Kbps、400Kbps、3.4Mbps。</li>
+</ul>
+</li>
+</ul>
+<p><img src="2025-12-29-16-24-00.png" alt=""></p>
+<h3 id="2-两根信号线"><a href="#2-两根信号线" class="headerlink" title="2. 两根信号线"></a>2. 两根信号线</h3><ul>
+<li><strong>SDA（serial data）</strong>：收发数据。</li>
+<li><strong>SCL（serial clock）</strong>：时钟信号同步。</li>
+</ul>
+<h3 id="3-通信过程"><a href="#3-通信过程" class="headerlink" title="3. 通信过程"></a>3. 通信过程</h3><p><img src="2025-12-29-16-33-34.png" alt=""></p>
+<p>先明确以下几点：</p>
+<ol>
+<li>主机发送<strong>起始信号</strong>后必须先发送一个字节的数据（<strong>高7位为从机地址</strong>，最后一位表示传输方向）。<ul>
+<li>0 ：主机$\rightarrow$从机</li>
+<li>1 ：从机$\rightarrow$主机</li>
+</ul>
+</li>
+<li>从机先比较地址是不是跟自己相同，若相同，再判断自己是发送器/接收器。</li>
+<li>发送完一个字节数据后，接收器会发送1bit的数据来应答发送器。</li>
+<li>所以<strong>I2C每次发送的数据必然是8bit</strong>。</li>
+<li>空闲时，<strong>SCL和SDA都是高电平</strong>。</li>
+</ol>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+<th style="text-align:left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>起始信号</strong></td>
+<td style="text-align:left">SCL=1时，SDA由高变低</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>停止信号</strong></td>
+<td style="text-align:left">SCL=1时，SDA由低变高</td>
+</tr>
+<tr>
+<td style="text-align:left">应答信号</td>
+<td style="text-align:left">接收器在第9位拉低SDA，表示收到（若SDA没被拉低则表示没收到）</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 id="第十一章-数模转换"><a href="#第十一章-数模转换" class="headerlink" title="第十一章 数模转换"></a>第十一章 数模转换</h1><h2 id="第一部分：基础概念-1"><a href="#第一部分：基础概念-1" class="headerlink" title="第一部分：基础概念"></a>第一部分：基础概念</h2><ul>
+<li><strong>ADC</strong>：数模转换器。</li>
+<li><strong>作用</strong>：将<strong>模拟信号</strong>转化为<strong>数字信号</strong>。</li>
+<li><p><strong>主要过程</strong>：<code>采样、保持、量化、编码</code></p>
+<ol>
+<li>采样：连续的模拟信号$\rightarrow$离散数据点（切片作用）。</li>
+<li>保持：将采样值保持在一个稳定状态。</li>
+<li>量化：连续的电压值<strong>映射</strong>到有限的数字。</li>
+<li>编码：转化为二进制。</li>
+</ol>
+</li>
+<li><p><code>Nyquist采样定理</code>：采样频率 &gt; $2\times$最高频率</p>
+</li>
+<li><p><strong>主要参数</strong>：</p>
+<ol>
+<li>参考电压：影响转换精度、对量化的映射也有影响。</li>
+<li>分辨率：对输入模拟量微小变化的分辨能力，级数用2的次方（STM32是$2^{12}$</li>
+<li>量化误差：分辨率不够精细就会引起量化误差。<img src="2025-12-29-19-32-03.png" alt=""></li>
+<li>转换时间 =采样保持时间+量化编码时间</li>
+</ol>
+</li>
+</ul>
+<h2 id="第二部分：STM32的ADC架构"><a href="#第二部分：STM32的ADC架构" class="headerlink" title="第二部分：STM32的ADC架构"></a>第二部分：STM32的ADC架构</h2><ul>
+<li><strong>常用4种ADC</strong>：<br><img src="2025-12-29-19-34-16.png" alt=""></li>
+<li>逐位比较：内部 DAC 生成参考电压，与输入信号比较，确定每一位二进制值（从最高位到最低位）</li>
+<li>$\Delta-\Sigma$:过采样、噪声整形</li>
+<li>流水线：多级量化，每级完成低精度量化</li>
+<li>FLASH：基于比较器和多个参考电压模拟信号转换</li>
+</ul>
+<p><img src="2025-12-29-20-09-10.png" alt=""></p>
+<h3 id="1-STM32的ADC"><a href="#1-STM32的ADC" class="headerlink" title="1. STM32的ADC"></a>1. STM32的ADC</h3><p><img src="2025-12-29-20-10-23.png" alt=""><br><img src="2025-12-29-20-11-15.png" alt=""></p>
+<p>重点：规则组 &amp; 注入组<br><img src="2025-12-29-20-14-24.png" alt=""><br><img src="2025-12-29-20-14-58.png" alt=""></p>
+<h3 id="2-ADC转换时间"><a href="#2-ADC转换时间" class="headerlink" title="2. ADC转换时间"></a>2. ADC转换时间</h3><p><img src="2025-12-29-20-16-49.png" alt=""></p>
 ]]></content>
       <categories>
         <category>华理</category>
@@ -1585,1242 +2854,6 @@ A = U\Sigma V^T, \Sigma = \text{diag}(\sigma_1, \sigma_2, \cdots, \sigma_p)</scr
 </ul>
 <p><img src="2025-12-11-15-44-54.png" alt=""></p>
 ]]></content>
-      <categories>
-        <category>华理</category>
-        <category>大三上</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>智能无人系统</title>
-    <url>/2025/12/24/AutoDriving/</url>
-    <content><![CDATA[<h1 id="第一章-认识无人驾驶系统"><a href="#第一章-认识无人驾驶系统" class="headerlink" title="第一章 认识无人驾驶系统"></a>第一章 认识无人驾驶系统</h1><h2 id="1-无人驾驶分级标准"><a href="#1-无人驾驶分级标准" class="headerlink" title="1. 无人驾驶分级标准"></a>1. 无人驾驶分级标准</h2><p><img src="2025-12-24-05-17-53.png" alt=""><br><img src="2025-12-24-05-18-20.png" alt=""></p>
-<h2 id="2-无人驾驶系统框架"><a href="#2-无人驾驶系统框架" class="headerlink" title="2. 无人驾驶系统框架"></a>2. 无人驾驶系统框架</h2><p><img src="2025-12-24-05-23-00.png" alt=""></p>
-<h1 id="第二章-定位方法以及传感器应用"><a href="#第二章-定位方法以及传感器应用" class="headerlink" title="第二章 定位方法以及传感器应用"></a>第二章 定位方法以及传感器应用</h1><blockquote>
-<p><strong>章节核心逻辑</strong>：无人驾驶系统如何解决两个终极问题？</p>
-<ol>
-<li><strong>“感官”</strong>：用传感器感知周围环境（雷达、相机）。</li>
-<li><strong>“大脑”</strong>：用算法（定位、滤波）确定自己在哪、状态如何。</li>
-</ol>
-</blockquote>
-<p><strong>SLAN</strong>：同步定位与地图构建。主要有：激光SLAN &amp; 视觉SLAN</p>
-<h2 id="第一部分：硬件传感器"><a href="#第一部分：硬件传感器" class="headerlink" title="第一部分：硬件传感器"></a>第一部分：硬件传感器</h2><h3 id="1-激光雷达（激光SLAN）"><a href="#1-激光雷达（激光SLAN）" class="headerlink" title="1. 激光雷达（激光SLAN）"></a>1. 激光雷达（激光SLAN）</h3><ul>
-<li><strong>原理</strong>：<strong>飞行时间法 (ToF)</strong>。发射激光束，计算往返时间测距。<ul>
-<li>公式：$r = \frac{1}{2} c t$</li>
-</ul>
-</li>
-<li><strong>特性</strong>：<ul>
-<li>3D激光雷达采集到的信息叫做<strong>点云</strong>。将点云与全局地图进行迭代匹配（ICP）</li>
-<li>✅ <strong>精度极高</strong>，测距远，分辨率高，隐蔽性好，抗干扰能力强</li>
-<li>❌ <strong>成本高</strong>，易受<strong>雨雪雾</strong>天气干扰（噪声大）</li>
-</ul>
-</li>
-<li><strong>考点</strong>：它是L4/L5级自动驾驶的核心传感器。</li>
-</ul>
-<h3 id="2-摄像头"><a href="#2-摄像头" class="headerlink" title="2. 摄像头"></a>2. 摄像头</h3><ul>
-<li><strong>原理</strong>：被动接收环境光。</li>
-<li><strong>分类与应用</strong> (🎯 <strong>学长考题重点</strong>)：<ul>
-<li><strong>单目 (Monocular)</strong>：前视感知，识别人、车、车道线、红绿灯。</li>
-<li><strong>双目 (Stereo)</strong>：通过视差原理测距。</li>
-<li><strong>鱼眼 (Fisheye)</strong>：<strong>视野极大 (&gt;180°)</strong>，专门用于<strong>倒车影像、360°环视</strong>（图像有畸变）。</li>
-</ul>
-</li>
-<li><strong>特性</strong>：<ul>
-<li>✅ 纹理信息丰富，便宜。</li>
-<li>❌ 受光照影响大（逆光、黑夜致盲），测距精度不如雷达。</li>
-</ul>
-</li>
-</ul>
-<h3 id="3-毫米波雷达"><a href="#3-毫米波雷达" class="headerlink" title="3. 毫米波雷达"></a>3. 毫米波雷达</h3><ul>
-<li><strong>原理</strong>：多普勒效应。</li>
-<li><strong>特性</strong>：<ul>
-<li>✅ <strong>穿透力强</strong>（无视雨雪雾），<strong>测速</strong>特别准。</li>
-<li>❌ 分辨率低（看不清物体轮廓，只能知道“有东西”）。</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="第二部分：定位算法"><a href="#第二部分：定位算法" class="headerlink" title="第二部分：定位算法"></a>第二部分：定位算法</h2><h3 id="1-激光SLAN：ICP-vs-NDT-⭐⭐⭐-必考对比"><a href="#1-激光SLAN：ICP-vs-NDT-⭐⭐⭐-必考对比" class="headerlink" title="1. 激光SLAN：ICP vs NDT (⭐⭐⭐ 必考对比)"></a>1. 激光SLAN：ICP vs NDT (⭐⭐⭐ 必考对比)</h3><p><strong>（1）ICP</strong>：</p>
-<p><img src="2025-12-27-12-37-38.png" alt=""><br><img src="2025-12-27-12-43-15.png" alt=""></p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left">优点</th>
-<th style="text-align:left">缺点</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">效果精确</td>
-<td style="text-align:left">耗时大，效率低</td>
-</tr>
-<tr>
-<td style="text-align:left">不必数据处理</td>
-<td style="text-align:left">可能陷入局部最优</td>
-</tr>
-<tr>
-<td style="text-align:left">较好收敛性</td>
-<td style="text-align:left">需要噪声处理</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><strong>（2）NDT</strong>：</p>
-<p><img src="2025-12-27-12-55-49.png" alt=""><br><img src="2025-12-27-13-26-05.png" alt=""></p>
-<p><strong>总结</strong>：<br><em>把“刚才看到的”（实时点云）和“记忆中的”（高精地图）拼在一起。</em></p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left">特性</th>
-<th style="text-align:left"><strong>ICP (迭代最近点)</strong></th>
-<th style="text-align:left"><strong>NDT (正态分布变换)</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><strong>通俗理解</strong></td>
-<td style="text-align:left"><strong>硬碰硬</strong>。每个点都去找地图上离它最近的点，强行拉近。</td>
-<td style="text-align:left"><strong>概率流</strong>。把地图划成格子，看现在的点落在哪个概率最高的格子里。</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>核心原理</strong></td>
-<td style="text-align:left">最小化点对点欧氏距离。</td>
-<td style="text-align:left">计算网格内的高斯概率密度函数 (PDF)。</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>优点</strong></td>
-<td style="text-align:left">精度极高（前提是初值给得好）。</td>
-<td style="text-align:left"><strong>速度快</strong>，<strong>鲁棒性强</strong>（容错率高，初值差一点也能对上）。</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>缺点</strong></td>
-<td style="text-align:left">慢，容易拼错（陷入局部最优）。</td>
-<td style="text-align:left">精度略逊于精细的ICP。</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="2-视觉SLAM"><a href="#2-视觉SLAM" class="headerlink" title="2. 视觉SLAM"></a>2. 视觉SLAM</h3><p><img src="2025-12-27-14-30-03.png" alt=""></p>
-<ul>
-<li><strong>视觉前端特征</strong> (🎯 <strong>填空题重点</strong>)：<ul>
-<li><strong>角点 (Corner)</strong>：如 Harris, FAST。</li>
-<li><strong>斑点 (Blob)</strong>：如 SIFT（最准最慢）。</li>
-<li><strong>ORB特征</strong>：<strong>Oriented FAST</strong> (带方向角点) + <strong>BRIEF</strong> (二进制描述子)。<strong>速度极快</strong>，适合实时系统。</li>
-</ul>
-</li>
-<li><strong>回环检测 (Loop Closure)</strong>：<ul>
-<li>利用<strong>词袋模型 (BoW)</strong> 判断“我是否来过这里”，消除累积误差。</li>
-</ul>
-</li>
-</ul>
-<p><img src="2025-12-27-14-29-13.png" alt=""><br><img src="2025-12-27-14-29-25.png" alt=""></p>
-<h2 id="第三部分：定位系统"><a href="#第三部分：定位系统" class="headerlink" title="第三部分：定位系统"></a>第三部分：定位系统</h2><h3 id="1-坐标系转换-⚠️-判断题陷阱"><a href="#1-坐标系转换-⚠️-判断题陷阱" class="headerlink" title="1. 坐标系转换 (⚠️ 判断题陷阱)"></a>1. 坐标系转换 (⚠️ 判断题陷阱)</h3><p><img src="2025-12-27-13-04-52.png" alt=""><br><img src="2025-12-27-13-05-50.png" alt=""></p>
-<ul>
-<li><strong>转换链条</strong>：<br>  <code>GPS输出的经纬度信息</code> $\rightarrow$ <code>ECEF (地心地固)</code> $\rightarrow$ <code>导航坐标系 (ENU/NED)</code> $\rightarrow$ <code>车体坐标系 (Body)</code></li>
-<li><strong>关键点</strong>：<ul>
-<li><strong>ENU</strong>：东北天坐标系（指北坐标系）。</li>
-<li><strong>ECEF</strong>：随地球自转。</li>
-<li><em>考题避坑</em>：通常<strong>不能</strong>直接从 ECEF 旋转得到车体坐标系，中间必须经过局部切平面（导航坐标系），否则无法描述“东南西北”。</li>
-</ul>
-</li>
-</ul>
-<h3 id="2-基于GPS-惯性组合（IMU）导航的定位系统"><a href="#2-基于GPS-惯性组合（IMU）导航的定位系统" class="headerlink" title="2. 基于GPS +惯性组合（IMU）导航的定位系统"></a>2. 基于GPS +惯性组合（IMU）导航的定位系统</h3><p><strong>（1）GPS</strong>：</p>
-<p><img src="2025-12-27-13-27-04.png" alt=""></p>
-<ul>
-<li>RTK：载波相位动态实时差分，定位误差在城市中也可达到10～50m（一般GPS为10～100m）</li>
-<li>差分GPS定位：通过在一个精确的已知位置（基准站）上安装GPS监测接收机，计算得到基准站与GPS卫星的距离，然后再根据误差修正结果，从而提高了定位精度。</li>
-<li>伪距法定位：<ul>
-<li>优点：速度快、无多值性问题、虽然精度低，但是满足大部分需求。 </li>
-</ul>
-</li>
-</ul>
-<p><img src="2025-12-27-13-32-18.png" alt=""></p>
-<p><img src="2025-12-27-13-35-15.png" alt=""></p>
-<p><strong>（2）惯性测量单元</strong>：</p>
-<script type="math/tex; mode=display">
-陀螺仪 + 加速度计</script><p><img src="2025-12-27-14-19-52.png" alt=""><br><img src="2025-12-27-14-21-05.png" alt=""></p>
-<p><strong>总结</strong>：</p>
-<ul>
-<li><strong>GPS (全球定位系统)</strong>：提供<strong>绝对位置</strong>。<ul>
-<li><em>缺点</em>：更新慢 (10Hz)，易被遮挡（隧道、高楼峡谷）。</li>
-<li><em>RTK技术</em>：利用基准站差分，将精度提升至<strong>厘米级</strong>。</li>
-</ul>
-</li>
-<li><strong>IMU (惯性测量单元)</strong>：提供<strong>相对推算</strong>。<ul>
-<li><em>组成</em>：<strong>加速度计</strong>（测比力/加速度）+ <strong>陀螺仪</strong>（测角速度）。</li>
-<li><em>原理</em>：航位推算。</li>
-<li><em>缺点</em>：<strong>误差随时间累积</strong>（积分漂移）。</li>
-</ul>
-</li>
-<li><strong>融合逻辑</strong>：<strong>GPS负责“纠偏”</strong>（消除累计误差），<strong>IMU负责“填空”</strong>（高频输出，保证信号不断）。</li>
-</ul>
-<p><strong>（3）惯性导航系统（INS）</strong>：<br><img src="2025-12-27-14-23-24.png" alt=""><br><img src="2025-12-27-14-23-36.png" alt=""><br><img src="2025-12-27-14-23-47.png" alt=""></p>
-<h2 id="第四部分：卡尔曼滤波"><a href="#第四部分：卡尔曼滤波" class="headerlink" title="第四部分：卡尔曼滤波"></a>第四部分：卡尔曼滤波</h2><p>这一部分数学最难，重点掌握<strong>逻辑</strong>和<strong>公式</strong>。</p>
-<ul>
-<li><strong>卡尔曼滤波</strong>：是一种利用<strong>线性系统</strong>状态方程，通过系统输入输出观测数据，对系统状态进行最优估计的算法。</li>
-<li><strong>基本思想</strong>：利用<code>前一时刻的估计值</code>和<code>现时刻的观测值</code>来更新对状态变量的估计，求出<code>现在时刻的估计值</code>。</li>
-</ul>
-<h3 id="1-卡尔曼滤波-KF-——-线性系统的最优估计"><a href="#1-卡尔曼滤波-KF-——-线性系统的最优估计" class="headerlink" title="1. 卡尔曼滤波 (KF) —— 线性系统的最优估计"></a>1. 卡尔曼滤波 (KF) —— 线性系统的最优估计</h3><ul>
-<li><strong>核心逻辑</strong>：<strong>加权平均</strong>。<ul>
-<li>模型算出一个值（预测），传感器测出一个值（测量）。</li>
-<li><strong>谁方差小（谁靠谱），我就信谁多一点</strong>。</li>
-</ul>
-</li>
-<li><strong>五大核心公式 (📝 建议默写)</strong>：<ol>
-<li><strong>预测状态</strong>：$\hat{x}_k^- = A \hat{x}_{k-1} + B u_k$</li>
-<li><strong>预测协方差</strong>：$P_k^- = A P_{k-1} A^T + Q$  <em>(Q: 模型噪声)</em></li>
-<li><strong>卡尔曼增益</strong>：$K_k = P_k^- H^T (H P_k^- H^T + R)^{-1}$ <em>(R: 测量噪声)</em><ul>
-<li><em>理解</em>：$R$ 越大（测量烂），$K$ 越小（不信测量）；$Q$ 越大（模型烂），$K$ 越大（信测量）。</li>
-</ul>
-</li>
-<li><strong>状态更新</strong>：$\hat{x}_k = \hat{x}_k^- + K_k (z_k - H \hat{x}_k^-)$</li>
-<li><strong>协方差更新</strong>：$P_k = (I - K_k H) P_k^-$</li>
-</ol>
-</li>
-</ul>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left">局限性</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">实时性不能满足</td>
-</tr>
-<tr>
-<td style="text-align:left">可靠性降低</td>
-</tr>
-<tr>
-<td style="text-align:left">对于<strong>非线性</strong>系统效果不佳</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="2-进阶滤波：EKF-vs-UKF-⭐⭐-简答题"><a href="#2-进阶滤波：EKF-vs-UKF-⭐⭐-简答题" class="headerlink" title="2. 进阶滤波：EKF vs UKF (⭐⭐ 简答题)"></a>2. 进阶滤波：EKF vs UKF (⭐⭐ 简答题)</h3><p><em>解决非线性问题（如车在转弯、雷达测距是弧线）。</em></p>
-<ul>
-<li><strong>扩展卡尔曼滤波 (EKF)</strong>：<ul>
-<li><strong>方法</strong>：<strong>线性化</strong>:用线性变换近似非线性变换。用<strong>泰勒级数展开</strong>（保留一阶导数），算出<strong>雅可比矩阵 (Jacobian)</strong>。</li>
-<li><em>缺点</em>：雅可比矩阵难算，忽略高阶项有精度损失。</li>
-<li><em>考点</em>：EKF近似的是<strong>非线性函数本身</strong>。</li>
-</ul>
-</li>
-<li><strong>无损卡尔曼滤波 (UKF)</strong>：<ul>
-<li><strong>方法</strong>：<strong>无损变换</strong>。选几个代表点（Sigma Points）去通过非线性函数，近似出新的<strong>概率分布</strong>。</li>
-<li><em>优点</em>：不用算雅可比，精度通常更高。</li>
-</ul>
-</li>
-</ul>
-<h3 id="3-运动模型"><a href="#3-运动模型" class="headerlink" title="3. 运动模型"></a>3. 运动模型</h3><ul>
-<li><strong>CTRV</strong> (Constant Turn Rate and Velocity)：<strong>恒定转弯率和速度</strong>。这是描述车辆运动最常用的模型。</li>
-</ul>
-<h3 id="4-传感器融合架构"><a href="#4-传感器融合架构" class="headerlink" title="4. 传感器融合架构"></a>4. 传感器融合架构</h3><ul>
-<li><strong>顺序滤波 (Sequential Filtering)</strong>：<ul>
-<li><strong>逻辑</strong>：一次预测，多次更新。</li>
-<li><em>场景</em>：激光雷达和毫米波雷达的数据不同时到达。先用激光更新卡尔曼滤波，结果作为初值，马上再用毫米波更新。</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="📝-考前抢分-CheckList-必背"><a href="#📝-考前抢分-CheckList-必背" class="headerlink" title="📝 考前抢分 CheckList (必背)"></a>📝 考前抢分 CheckList (必背)</h2><ol>
-<li><strong>倒车影像</strong>用什么镜头？ $\rightarrow$ <strong>鱼眼 (Fisheye)</strong></li>
-<li><strong>指北坐标系</strong>通常指什么？ $\rightarrow$ <strong>ENU (东北天)</strong></li>
-<li><strong>ICP和NDT</strong>谁更快更鲁棒？ $\rightarrow$ <strong>NDT</strong></li>
-<li><strong>EKF</strong>的核心数学操作是什么？ $\rightarrow$ <strong>泰勒展开 / 计算雅可比矩阵</strong></li>
-<li><strong>SLAM</strong>常用视觉特征？ $\rightarrow$ <strong>ORB, SIFT, 角点</strong></li>
-<li><strong>卡尔曼增益K</strong>变大说明什么？ $\rightarrow$ 说明更相信<strong>测量值</strong> (或者模型预测的不确定性Q变大了)。</li>
-</ol>
-<h1 id="第三章-深度学习和视觉感知"><a href="#第三章-深度学习和视觉感知" class="headerlink" title="第三章 深度学习和视觉感知"></a>第三章 深度学习和视觉感知</h1><h2 id="第一部分：路缘石检测"><a href="#第一部分：路缘石检测" class="headerlink" title="第一部分：路缘石检测"></a>第一部分：路缘石检测</h2><h3 id="1-ROI提取-感兴趣区域"><a href="#1-ROI提取-感兴趣区域" class="headerlink" title="1. ROI提取 (感兴趣区域)"></a>1. <strong>ROI提取 (感兴趣区域)</strong></h3><ul>
-<li>获取原始点云，只保留车身周围一定范围内的点（去除无关背景）。</li>
-</ul>
-<h3 id="2-点集左右划分"><a href="#2-点集左右划分" class="headerlink" title="2. 点集左右划分"></a>2. <strong>点集左右划分</strong></h3><ul>
-<li>将点云按照激光雷达的扫描线（车身前向射线）进行划分。</li>
-</ul>
-<p><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /></p>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-<style>
-  .swiper {
-    width: 100%;
-    height: 500px; /* 如果图片觉得太小，可以把这里改成 500px 或 600px */
-    border-radius: 8px; /* 圆角 */
-  }
-  .swiper-slide {
-    text-align: center;
-    background: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .swiper-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* 保持图片原有比例，不拉伸变形 */
-  }
-</style>
-
-<div class="swiper mySwiper">
-  <div class="swiper-wrapper">
-    <div class="swiper-slide">
-      <img src="2025-12-28-19-05-37.png" alt="Image 1">
-    </div>
-    <div class="swiper-slide">
-      <img src="2025-12-28-19-05-49.png" alt="Image 2">
-    </div>
-    <div class="swiper-slide">
-      <img src="2025-12-28-19-06-01.png" alt="Image 3">
-    </div>
-  </div>
-
-  <div class="swiper-button-next"></div>
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-pagination"></div>
-</div>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    var swiper = new Swiper(".mySwiper", {
-      loop: true,               // 循环播放
-      autoHeight: true,         // 自动适应高度
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,        // 允许点击小圆点切换
-      },
-    });
-  });
-</script>
-
-<h3 id="3-路缘石点提取"><a href="#3-路缘石点提取" class="headerlink" title="3. 路缘石点提取"></a>3. <strong>路缘石点提取</strong></h3><ul>
-<li>在每一条射线上，利用几何特征（如高度突变、坡度变化）找到疑似路缘的点。</li>
-<li>左右子点集划分：将找到的点分为“左侧路缘点集”和“右侧路缘点集”。</li>
-</ul>
-<p><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /></p>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-<style>
-  .swiper {
-    width: 100%;
-    height: 450px; /* 如果图片较高，可以将这里改成 500px 或 600px */
-    border-radius: 8px;
-  }
-  .swiper-slide {
-    text-align: center;
-    background: transparent;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .swiper-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* 保持图片完整显示，不裁剪 */
-  }
-</style>
-
-<div class="swiper mySwiper">
-  <div class="swiper-wrapper">
-    <div class="swiper-slide">
-      <img src="2025-12-28-19-09-06.png" alt="Image 1">
-    </div>
-    <div class="swiper-slide">
-      <img src="2025-12-28-19-09-13.png" alt="Image 2">
-    </div>
-    <div class="swiper-slide">
-      <img src="2025-12-28-19-09-23.png" alt="Image 3">
-    </div>
-    <div class="swiper-slide">
-      <img src="2025-12-28-19-09-33.png" alt="Image 4">
-    </div>
-  </div>
-
-  <div class="swiper-button-next"></div>
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-pagination"></div>
-</div>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    var swiper = new Swiper(".mySwiper", {
-      loop: true,               // 循环播放
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,        // 允许点击圆点切换
-      },
-    });
-  });
-</script>
-
-<h3 id="4-提取与拟合"><a href="#4-提取与拟合" class="headerlink" title="4. 提取与拟合"></a>4. <strong>提取与拟合</strong></h3><ul>
-<li>利用最小二乘法或RANSAC算法，将点拟合成平滑的曲线（通常是三次样条曲线），得到最终的路缘线。</li>
-</ul>
-<p><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /></p>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-<style>
-  .swiper {
-    width: 100%;
-    height: 450px; /* 高度可按需调整 */
-    border-radius: 8px;
-    margin-bottom: 20px; /* 增加一点底部间距 */
-  }
-  .swiper-slide {
-    text-align: center;
-    background: transparent;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .swiper-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-</style>
-
-<div class="swiper mySwiper3">
-  <div class="swiper-wrapper">
-    <div class="swiper-slide"><img src="2025-12-28-19-11-56.png"></div>
-    <div class="swiper-slide"><img src="2025-12-28-19-12-11.png"></div>
-    <div class="swiper-slide"><img src="2025-12-28-19-12-28.png"></div>
-    <div class="swiper-slide"><img src="2025-12-28-19-12-37.png"></div>
-    <div class="swiper-slide"><img src="2025-12-28-19-12-47.png"></div>
-    <div class="swiper-slide"><img src="2025-12-28-19-12-59.png"></div>
-    <div class="swiper-slide"><img src="2025-12-28-19-13-10.png"></div>
-  </div>
-
-  <div class="swiper-button-next"></div>
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-pagination"></div>
-</div>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    var swiper3 = new Swiper(".mySwiper3", {
-      loop: true,
-      navigation: {
-        nextEl: ".mySwiper3 .swiper-button-next", // 指定只控制这一组的箭头
-        prevEl: ".mySwiper3 .swiper-button-prev",
-      },
-      pagination: {
-        el: ".mySwiper3 .swiper-pagination", // 指定只控制这一组的分页器
-        clickable: true,
-      },
-    });
-  });
-</script>
-
-<p><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /></p>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-<style>
-  .swiper {
-    width: 100%;
-    height: 450px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-  }
-  .swiper-slide {
-    text-align: center;
-    background: transparent;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .swiper-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-</style>
-
-<div class="swiper mySwiper4">
-  <div class="swiper-wrapper">
-    <div class="swiper-slide"><img src="2025-12-28-19-13-46.png"></div>
-    <div class="swiper-slide"><img src="2025-12-28-19-13-57.png"></div>
-    <div class="swiper-slide"><img src="2025-12-28-19-14-07.png"></div>
-  </div>
-
-  <div class="swiper-button-next"></div>
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-pagination"></div>
-</div>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    var swiper4 = new Swiper(".mySwiper4", {
-      loop: true,
-      navigation: {
-        nextEl: ".mySwiper4 .swiper-button-next", // 锁定只控制这一组
-        prevEl: ".mySwiper4 .swiper-button-prev",
-      },
-      pagination: {
-        el: ".mySwiper4 .swiper-pagination",
-        clickable: true,
-      },
-    });
-  });
-</script>
-
-<p><strong>补充</strong>：坐标系变换<br><img src="2025-12-28-19-15-03.png" alt=""></p>
-<h2 id="第二部分：卷积神经网络（CNN）"><a href="#第二部分：卷积神经网络（CNN）" class="headerlink" title="第二部分：卷积神经网络（CNN）"></a>第二部分：卷积神经网络（CNN）</h2><ol>
-<li><p><strong>卷积与前馈神经网络区别</strong>：</p>
-<ul>
-<li>用卷积运算代替矩阵乘法运算</li>
-<li>传统全连接神经网络不足：<em>计算/储存要求高（参数大）、易过拟合</em></li>
-<li><strong>CNN优势</strong>：<em>稀疏交互、权重共享、等变表示</em></li>
-</ul>
-</li>
-<li><p><strong>CNN的三大特性</strong>：</p>
-<ul>
-<li><strong>稀疏交互</strong>：卷积核大小远小于输入图像，每个输出神经元只与局部输入连接（效率高）。</li>
-<li><strong>参数共享</strong>：同一个卷积核在整张图上滑动，用的是同一组参数（储存空间少）。</li>
-<li><strong>等变表示</strong>：输入平移，输出也跟着平移。</li>
-</ul>
-</li>
-<li><p><strong>核心组件</strong>：</p>
-<ul>
-<li><strong>卷积层</strong>：提取特征。</li>
-<li><strong>池化层</strong>：用相邻位置的<strong>总体统计特征</strong>来替换该位置的值，起到降维、减少参数、防止过拟合的作用。<em>（最大池化、平均池化）</em></li>
-<li><strong>激活函数</strong>：引入非线性（如 ReLU）。</li>
-</ul>
-</li>
-</ol>
-<h2 id="第三部分：YOLO"><a href="#第三部分：YOLO" class="headerlink" title="第三部分：YOLO"></a>第三部分：YOLO</h2><p><img src="2025-12-28-20-29-46.png" alt=""></p>
-<h3 id="1-YOLO的核心思想"><a href="#1-YOLO的核心思想" class="headerlink" title="1. YOLO的核心思想"></a>1. <strong>YOLO的核心思想</strong></h3><ul>
-<li>不需要生成候选区域，直接把图像划分成 S×S 的网格，每个网格负责预测中心落在该格子里面的物体。</li>
-<li>速度快，适合无人驾驶实时感知。</li>
-</ul>
-<h3 id="2-YOLOv3的特征提取"><a href="#2-YOLOv3的特征提取" class="headerlink" title="2. YOLOv3的特征提取"></a>2. <strong>YOLOv3的特征提取</strong></h3><p><strong>特点</strong>：</p>
-<ul>
-<li>有53个卷积层</li>
-<li>输出图像尺寸：416x416x3 </li>
-<li>连续使用卷积层和跳跃连接层</li>
-</ul>
-<p><strong>图像金字塔</strong>：<br><img src="2025-12-28-20-44-17.png" alt=""></p>
-<ul>
-<li><strong>图像金字塔-向下采样</strong>：删除图像偶数行列，大小变为四分之一。</li>
-<li><strong>图像金字塔-向上采样</strong>：补充大量像素点0，大小变为四倍。<br><em>（注意：两种操作互相是<strong>不可逆</strong>的。）</em></li>
-</ul>
-<p><strong>多尺度特征预测</strong>：<br><img src="2025-12-28-20-52-14.png" alt=""><br><img src="2025-12-28-20-48-17.png" alt=""></p>
-<p><strong>交并比</strong>：<br><img src="2025-12-28-20-56-57.png" alt=""></p>
-<p><strong>边界框坐标计算</strong>：<br><img src="2025-12-28-20-59-15.png" alt=""></p>
-<ul>
-<li>$(b_x,b_y)$为<strong>中心坐标</strong>。</li>
-<li>$b_w,b_h$进行了<strong>尺度缩放</strong>。</li>
-<li><strong>Sigmoid函数作用</strong>：将$t_x,t_y$压缩到[0,1]区间内，<strong>确保预测边界在网格内，防止偏移过多</strong>。</li>
-<li><strong>指数函数e的作用</strong>：确保<strong>缩放后的宽高为正</strong>。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>华理</category>
-        <category>大三上</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>嵌入式系统原理</title>
-    <url>/2025/12/21/STM32/</url>
-    <content><![CDATA[<h1 id="第一章-导论"><a href="#第一章-导论" class="headerlink" title="第一章 导论"></a>第一章 导论</h1><blockquote>
-<p>嵌入式系统是一切非PC和大型计算机系统。</p>
-</blockquote>
-<h1 id="第二章-Cortex-M3-微处理器"><a href="#第二章-Cortex-M3-微处理器" class="headerlink" title="第二章 Cortex-M3 微处理器"></a>第二章 Cortex-M3 微处理器</h1><h2 id="1-内核结构"><a href="#1-内核结构" class="headerlink" title="1. 内核结构"></a>1. 内核结构</h2><ul>
-<li>核心架构：Cortex-M3 是基于 ARMv7-M 架构的 32 位处理器内核，采用高性能的<strong>哈佛结构</strong>，寻址能力为4GB。</li>
-</ul>
-<p><img src="2025-12-21-21-55-13.png" alt=""></p>
-<ul>
-<li>设计模式：ARM 公司设计内核，芯片制造商（如 ATMEL、NXP、TI）在此基础上添加不同的外设、存储器和 I/O，形成各类微控制器 (MCU)。</li>
-</ul>
-<h2 id="2-流水线技术"><a href="#2-流水线技术" class="headerlink" title="2. 流水线技术"></a>2. 流水线技术</h2><ul>
-<li>定义：将指令分解为多步并重叠执行，以实现并行处理。</li>
-</ul>
-<p><img src="2025-12-21-22-00-52.png" alt=""></p>
-<ul>
-<li>流水线技术三大指标：吞吐率、加速比、效率</li>
-</ul>
-<h3 id="（1）吞吐率"><a href="#（1）吞吐率" class="headerlink" title="（1）吞吐率"></a>（1）吞吐率</h3><ul>
-<li>单位时间内完成的指令条数<br><img src="2025-12-21-22-21-51.png" alt=""></li>
-<li>$流水时间 = 三个阶段总时间 + （指令条数 -1）\times 时间最长的阶段$</li>
-</ul>
-<p><strong>例题</strong>：<br><img src="2025-12-21-22-24-19.png" alt=""></p>
-<h3 id="（2）加速比"><a href="#（2）加速比" class="headerlink" title="（2）加速比"></a>（2）加速比</h3><ul>
-<li>不使用流水线时间和使用流水线时间之比</li>
-</ul>
-<p>若流水线<strong>各段时间均为 $\Delta t$</strong>，流水线<strong>级数 $m$</strong>，<strong>指令数为 $n$</strong>：<br>分子：$nm\Delta t$<br>分母：$m\Delta t + (n-1)\Delta t$ <em>（流水线计算公式）</em><br>则加速比为：</p>
-<script type="math/tex; mode=display">S_p = \frac{nm\Delta t}{m\Delta t + (n-1)\Delta t}</script><p>注意：<strong>平衡的流水线效率更优</strong></p>
-<h2 id="3-系统总线"><a href="#3-系统总线" class="headerlink" title="3. 系统总线"></a>3. 系统总线</h2><ul>
-<li><strong>总线</strong>：计算机中，各个部件之间传送信息的公共通路</li>
-<li><strong>分类</strong>：数据总线、地址总线、控制总线</li>
-</ul>
-<h3 id="AMBA"><a href="#AMBA" class="headerlink" title="AMBA"></a>AMBA</h3><ul>
-<li>AMBA 是一种<strong>高级微控制器总线架构</strong><br>主要包含以下两种不同的标准：</li>
-</ul>
-<ol>
-<li>AHB（Advanced High-performance Bus）：高级高性能总线<ul>
-<li>多个主机和多个从机的连接<br><img src="2025-12-21-23-56-03.png" alt=""></li>
-<li>AHB-lite：单个主机和多个从机</li>
-</ul>
-</li>
-<li>APB（Advanced Peripheral Bus）：高级外设总线<ul>
-<li>低成本、低功耗、结构简单<br><img src="2025-12-21-23-54-52.png" alt=""></li>
-</ul>
-</li>
-</ol>
-<h3 id="Cortex-M3-总线结构"><a href="#Cortex-M3-总线结构" class="headerlink" title="Cortex-M3 总线结构"></a>Cortex-M3 总线结构</h3><p><img src="2025-12-21-23-52-52.png" alt=""></p>
-<h2 id="4-寄存器与储存结构"><a href="#4-寄存器与储存结构" class="headerlink" title="4. 寄存器与储存结构"></a>4. 寄存器与储存结构</h2><p><img src="2025-12-22-13-55-29.png" alt=""></p>
-<ul>
-<li><strong>堆栈</strong>：先进后出，由一块连续内存、一个栈顶指针组成</li>
-<li><strong>储存结构</strong>：Crtex-M3与外设<strong>统一编址</strong>，这种方式称为<strong>储存器地址映射</strong></li>
-</ul>
-<h2 id="5-工作模态"><a href="#5-工作模态" class="headerlink" title="5. 工作模态"></a>5. 工作模态</h2><h3 id="（1）两种模式与特权等级"><a href="#（1）两种模式与特权等级" class="headerlink" title="（1）两种模式与特权等级"></a>（1）两种模式与特权等级</h3><p><img src="2025-12-22-14-04-48.png" alt=""></p>
-<h3 id="（2）三种模态"><a href="#（2）三种模态" class="headerlink" title="（2）三种模态"></a>（2）三种模态</h3><p><img src="2025-12-22-14-06-26.png" alt=""></p>
-<h2 id="6-中断与异常"><a href="#6-中断与异常" class="headerlink" title="6. 中断与异常"></a>6. 中断与异常</h2><script type="math/tex; mode=display">
-保存现场（压栈）\rightarrow 取向量（查找 ISR 地址）\rightarrow 更新寄存器（跳入 ISR 执行）</script><h3 id="（1）中断悬起"><a href="#（1）中断悬起" class="headerlink" title="（1）中断悬起"></a>（1）中断悬起</h3><ul>
-<li>如果中断发生时，正在处理更高优先级异常/中断被屏蔽，此时<strong>中断被悬起</strong><br><img src="2025-12-22-14-12-58.png" alt=""></li>
-</ul>
-<h3 id="（2）中断活跃"><a href="#（2）中断活跃" class="headerlink" title="（2）中断活跃"></a>（2）中断活跃</h3><p><img src="2025-12-22-14-15-04.png" alt=""></p>
-<h3 id="（3）中断请求信号保持"><a href="#（3）中断请求信号保持" class="headerlink" title="（3）中断请求信号保持"></a>（3）中断请求信号保持</h3><p><img src="2025-12-22-14-16-00.png" alt=""></p>
-<h2 id="7-调试与跟踪"><a href="#7-调试与跟踪" class="headerlink" title="7. 调试与跟踪"></a>7. 调试与跟踪</h2><ul>
-<li>基于<strong>CoreSight</strong>架构实现以下两种模式<br><img src="2025-12-22-14-29-07.png" alt=""></li>
-<li>调试访问端口：DAP</li>
-<li>调试接口：DP（一端连接 DAP，一端连接到调试器）</li>
-<li>跟踪接口：CoreSight 架构还可以用于<strong>数据跟踪</strong></li>
-</ul>
-<h2 id="8-Cortex-M3-实用功能"><a href="#8-Cortex-M3-实用功能" class="headerlink" title="8. Cortex-M3 实用功能"></a>8. Cortex-M3 实用功能</h2><h3 id="（1）SysTick-定时器"><a href="#（1）SysTick-定时器" class="headerlink" title="（1）SysTick 定时器"></a>（1）SysTick 定时器</h3><p>SysTick 是集成在内核中的 24 位系统节拍定时器，对实时操作系统（RTOS）至关重要</p>
-<ul>
-<li><strong>基本机制</strong>：它是一个 24 位的倒计数定时器，当计数减到 0 时，会自动从 RELOAD 寄存器中重装定时初值 </li>
-<li><strong>运行状态</strong>：只要不清除 SysTick 控制及状态寄存器中的使能位，定时器就会持续运行 </li>
-<li><strong>核心寄存器</strong>：<ul>
-<li><strong>CTRL (0xE000E010)</strong>：控制和状态寄存器，用于设置时钟源、使能中断及查询计数标志 </li>
-<li><strong>RELOAD (0xE000E014)</strong>：重装载值寄存器，存储定时器溢出后自动加载的初值 </li>
-<li><strong>CURRENT (0xE000E018)</strong>：当前值寄存器，反映当前的计数值 </li>
-<li><strong>CALIB (0xE000E01C)</strong>：校准值寄存器，提供硬件参考时钟信息 </li>
-</ul>
-</li>
-<li><strong>主要用途</strong>：常用于产生操作系统所需的“滴答”中断，或作为基本的定时/计数工具 </li>
-</ul>
-<h3 id="（2）电源管理"><a href="#（2）电源管理" class="headerlink" title="（2）电源管理"></a>（2）电源管理</h3><p>Cortex-M3 在内核级别提供了功耗优化方案，支持两种主要的睡眠模式 </p>
-<ul>
-<li><strong>睡眠模式 (Sleep)</strong>：由内核的 <code>SLEEPING</code> 信号指示 </li>
-<li><strong>深度睡眠模式 (Deep Sleep)</strong>：由内核的 <code>SLEEPDEEP</code> 信号指示，用于更大幅度降低功耗 </li>
-<li><strong>唤醒机制</strong>：在睡眠状态下，系统时钟可以停止，但通常保持 FCLK 运行，以确保处理器能被 SysTick 异常或外部中断唤醒 </li>
-<li><strong>状态判定</strong>：开发者可以通过读取 NVIC（嵌套向量中断控制器）的相关系统控制寄存器来判定当前的睡眠模式及上下文 </li>
-</ul>
-<h3 id="（3）复位序列"><a href="#（3）复位序列" class="headerlink" title="（3）复位序列"></a>（3）复位序列</h3><p>复位是处理器通电或重启后的起始动作，Cortex-M3 有一套固定的操作流程来定栈和定位代码入口 </p>
-<ul>
-<li><strong>读取 MSP</strong>：处理器首先从地址 <code>0x00000000</code> 处读取 32 位整数，作为 <strong>主堆栈指针 (MSP)</strong> 的初始值，从而完成“定栈” </li>
-<li><strong>读取 PC</strong>：随后从地址 <code>0x00000004</code> 处读取 32 位整数，作为 <strong>程序计数器 (PC)</strong> 的初始值，即复位向量，决定代码执行的入口地址 </li>
-<li><strong>堆栈模型</strong>：在 Cortex-M3 中，堆栈是<strong>向下生长</strong>的（即从高地址向低地址方向压栈）</li>
-<li><strong>内存布局示例</strong>：例如复位向量指向地址 <code>0x00000101</code>，则处理器将从该处的启动引导代码开始运行</li>
-</ul>
-<h1 id="第三章-STM32-最小系统及开发环境"><a href="#第三章-STM32-最小系统及开发环境" class="headerlink" title="第三章 STM32 最小系统及开发环境"></a>第三章 STM32 最小系统及开发环境</h1><h2 id="1-系统组成"><a href="#1-系统组成" class="headerlink" title="1. 系统组成"></a>1. 系统组成</h2><ul>
-<li><strong>最小系统</strong>：用最少的元件组成微控制器可以工作的系统。<h3 id="（1）微控制器"><a href="#（1）微控制器" class="headerlink" title="（1）微控制器"></a>（1）微控制器</h3></li>
-<li>核心芯片工作电压通常为 <strong>2.0V～3.6V</strong><br><img src="2025-12-23-14-58-40.png" alt=""></li>
-</ul>
-<h3 id="（2）电源电路"><a href="#（2）电源电路" class="headerlink" title="（2）电源电路"></a>（2）电源电路</h3><p><img src="2025-12-23-14-55-05.png" alt=""></p>
-<ul>
-<li>常用 AMS1117 芯片将 5V 电压降至 3.3V 供 VDD 使用。</li>
-<li>STM32 内部的电压调节器将外部 3.3V 的电压转化为 1.8V 提供给 Cortex-M3、内存以及外设使用。</li>
-<li>C1、C2 是输入电容，防止断电后电压倒置。</li>
-<li>C3、C4 是输出滤波电容，抑制自激振章 &amp; 稳定输出电压。</li>
-</ul>
-<h3 id="（3）时钟电路"><a href="#（3）时钟电路" class="headerlink" title="（3）时钟电路"></a>（3）时钟电路</h3><ul>
-<li>时钟频率越高，单片机运行速度越快，功耗越大。<br><img src="2025-12-23-15-01-33.png" alt=""></li>
-<li><strong>高速外部时钟 (HSE)</strong>：通常外接 8MHz 晶振，通过 PLL 倍频最高可达 72MHz 作为系统主时钟。</li>
-<li><strong>低速外部时钟 (LSE)</strong>：外接 32.768kHz 晶振，主要用于 RTC 精准计时。</li>
-</ul>
-<h3 id="（4）复位电路"><a href="#（4）复位电路" class="headerlink" title="（4）复位电路"></a>（4）复位电路</h3><ul>
-<li><strong>上电自动复位</strong><ul>
-<li>依靠 RC 电路产生的 ~1ms 延迟。</li>
-<li>上电瞬间电容两端电压不能突变，Reset 出现短暂低电平。之后芯片复位，进入充电时间：<br>$t=1.1R\times C$（电阻、电容）</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><strong>手动按键复位</strong><ul>
-<li>按键按下时，Reset 短暂接地，产生低电平</li>
-</ul>
-</li>
-</ul>
-<h3 id="（5）调试和下载电路"><a href="#（5）调试和下载电路" class="headerlink" title="（5）调试和下载电路"></a>（5）调试和下载电路</h3><p><strong>调试接口</strong>：JTAG（5引脚）、SWD（2引脚，更常用）<br><strong>Cortex-M3 的三种启动方式，主要依靠不同电平组合：</strong></p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:center">BOOT0</th>
-<th style="text-align:center">BOOT1</th>
-<th style="text-align:left">启动模式</th>
-<th style="text-align:left">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><strong>0</strong></td>
-<td style="text-align:center"><strong>X</strong></td>
-<td style="text-align:left">用户闪存 (Flash)</td>
-<td style="text-align:left">最常用的正常运行模式（从 <code>0x08000000</code> 启动）</td>
-</tr>
-<tr>
-<td style="text-align:center"><strong>1</strong></td>
-<td style="text-align:center"><strong>0</strong></td>
-<td style="text-align:left">系统存储器</td>
-<td style="text-align:left">用于串口下载程序（ISP）</td>
-</tr>
-<tr>
-<td style="text-align:center"><strong>1</strong></td>
-<td style="text-align:center"><strong>1</strong></td>
-<td style="text-align:left">内置 SRAM</td>
-<td style="text-align:left">用于在内存中调试代码</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h2 id="2-开发环境-amp-基础配置"><a href="#2-开发环境-amp-基础配置" class="headerlink" title="2. 开发环境 &amp; 基础配置"></a>2. 开发环境 &amp; 基础配置</h2><p><strong>HAL库开发</strong>： STM32CubeMX+Keil 5</p>
-<p><img src="2025-12-23-15-36-48.png" alt=""></p>
-<ul>
-<li>下载工具：<br> J-Link：通用型，支持多种内核及 IDE 。<br> ST-Link：ST 公司专用于 STM8/STM32，支持全速运行和单步调试 。</li>
-</ul>
-<h1 id="第四章-嵌入式C语言"><a href="#第四章-嵌入式C语言" class="headerlink" title="第四章 嵌入式C语言"></a>第四章 嵌入式C语言</h1><p><strong>C语言的优势</strong>：汇编语言操作底层、功能性强<br><strong>外设功能模块化设计</strong>：包含一个源文件（.c文件）和一个头文件（.h文件）</p>
-<p><img src="2025-12-23-16-49-29.png" alt=""></p>
-<h2 id="1-数据类型-amp-运算符"><a href="#1-数据类型-amp-运算符" class="headerlink" title="1. 数据类型 &amp; 运算符"></a>1. 数据类型 &amp; 运算符</h2><h3 id="（1）数据类型"><a href="#（1）数据类型" class="headerlink" title="（1）数据类型"></a>（1）数据类型</h3><ul>
-<li>STM32 是32位处理器，与一般64位电脑不同。</li>
-</ul>
-<p><img src="2025-12-23-17-02-22.png" alt=""></p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:center">数据类型</th>
-<th style="text-align:center">字节数</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">char</td>
-<td style="text-align:center"><strong>1</strong></td>
-</tr>
-<tr>
-<td style="text-align:center">short</td>
-<td style="text-align:center"><strong>2</strong></td>
-</tr>
-<tr>
-<td style="text-align:center">int/long/float/<strong>指针</strong></td>
-<td style="text-align:center"><strong>4</strong></td>
-</tr>
-<tr>
-<td style="text-align:center">double</td>
-<td style="text-align:center"><strong>8</strong></td>
-</tr>
-</tbody>
-</table>
-</div>
-<ul>
-<li>1字节 = 8 bit</li>
-</ul>
-<p><img src="2025-12-23-17-08-26.png" alt=""></p>
-<h3 id="（2）运算符"><a href="#（2）运算符" class="headerlink" title="（2）运算符"></a>（2）运算符</h3><p><img src="2025-12-23-17-42-19.png" alt=""></p>
-<ul>
-<li>三大战术 (背下来)：<ol>
-<li>置1 (Set)：用 |。 例如 Reg |= (1 &lt;&lt; 3); (第3位置1)</li>
-<li>清0 (Clear)：用 &amp; ~。 例如 Reg &amp;= ~(1 &lt;&lt; 3); (第3位清0)</li>
-<li>翻转 (Toggle)：用 ^。 例如 Reg ^= (1 &lt;&lt; 3); (第3位翻转)</li>
-</ol>
-</li>
-</ul>
-<p><strong>注意</strong>：“异或”是<strong>不同取1，相同取0</strong>。</p>
-<p><img src="2025-12-23-17-45-27.png" alt=""></p>
-<h2 id="2-四大核心修饰符"><a href="#2-四大核心修饰符" class="headerlink" title="2. 四大核心修饰符"></a>2. 四大核心修饰符</h2><h3 id="（1）const（只读）"><a href="#（1）const（只读）" class="headerlink" title="（1）const（只读）"></a>（1）const（只读）</h3><ul>
-<li><strong>作用</strong>：定义<strong>只读</strong>变量，保证其值在编译时不能改变。</li>
-<li><strong>目的</strong>：<strong>防止变量的值被误改</strong>。</li>
-<li><strong>要求</strong>：const关键词修饰的变量在声明时<strong>必须初始化</strong>。</li>
-<li><strong>属性</strong>：变量是<strong>全局</strong>定义的。</li>
-<li><strong>格式</strong>：` const uint32_t(此处为初始化) a = 0xffff1111;</li>
-</ul>
-<h3 id="（2）static（静态）"><a href="#（2）static（静态）" class="headerlink" title="（2）static（静态）"></a>（2）static（静态）</h3><p><strong>修饰局部变量</strong>：修饰后的变量称为<strong>静态变量</strong>，存储在静态区，函数结束后不销毁，<strong>下次调用保留上次的值</strong>。<br><strong>修饰全局变量/函数</strong>：限制作用域，只在当前.c文件中可见（私有化），其它源文件不能引用，避免了<strong>相同变量名而引发的错误</strong>。</p>
-<h3 id="（3）volatile（易变）"><a href="#（3）volatile（易变）" class="headerlink" title="（3）volatile（易变）"></a>（3）volatile（易变）</h3><ul>
-<li><strong>作用</strong>：每次<strong>读取</strong>或者<strong>修改</strong>变量值的时候，必须<strong>从内存中重新读取</strong>，而不是使用保存在寄存器里的备份。</li>
-</ul>
-<p><img src="2025-12-23-17-22-25.png" alt=""></p>
-<p><img src="2025-12-23-17-25-16.png" alt=""></p>
-<h3 id="（4）extern（外部）"><a href="#（4）extern（外部）" class="headerlink" title="（4）extern（外部）"></a>（4）extern（外部）</h3><p><strong>注意</strong>：extern是一个重新声明，而不是定义。</p>
-<ul>
-<li><strong>含义</strong>：声明变量/函数是在别的文件定义的。例如：main.c要调用led.c里的变量，必须在main.c里用extern声明。</li>
-</ul>
-<h2 id="3-struct结构体"><a href="#3-struct结构体" class="headerlink" title="3. struct结构体"></a>3. struct结构体</h2><p><img src="2025-12-24-19-41-44.png" alt=""></p>
-<h1 id="第五章-GPIO"><a href="#第五章-GPIO" class="headerlink" title="第五章 GPIO"></a>第五章 GPIO</h1><ul>
-<li>GPIO ：General-Purpose Input/Output，即<strong>通用输入/输出</strong>模块。</li>
-<li>实现与外部设备的<strong>数字信号交互</strong>，可以通过软件配置输入/输出模式。</li>
-</ul>
-<h2 id="1-GPIO-内部结构"><a href="#1-GPIO-内部结构" class="headerlink" title="1. GPIO 内部结构"></a>1. GPIO 内部结构</h2><h2 id="2-四种输入模式"><a href="#2-四种输入模式" class="headerlink" title="2. 四种输入模式"></a>2. 四种输入模式</h2><h3 id="（1）上拉输入（Pull-up）"><a href="#（1）上拉输入（Pull-up）" class="headerlink" title="（1）上拉输入（Pull-up）"></a>（1）上拉输入（Pull-up）</h3><ul>
-<li>内部接一个上拉电阻到VDD。外部悬空（I/O引脚无信号）时，默认输入<strong>高电平</strong>。</li>
-</ul>
-<h3 id="（2）下拉输入（Pull-down）"><a href="#（2）下拉输入（Pull-down）" class="headerlink" title="（2）下拉输入（Pull-down）"></a>（2）下拉输入（Pull-down）</h3><ul>
-<li>接一个下拉电阻。外部悬空时，默认输入<strong>低电平</strong>。</li>
-<li>应用：接按键（按键另一端接地）</li>
-</ul>
-<h3 id="（3）浮空输入（Floating）"><a href="#（3）浮空输入（Floating）" class="headerlink" title="（3）浮空输入（Floating）"></a>（3）浮空输入（Floating）</h3><ul>
-<li>浮空输入模式下引脚内部既不接上拉电阻也不连接下拉电阻（但是不关闭施密特触发器），<strong>直接经施密特触发器输入I/O引脚的信号</strong>。</li>
-<li>即：<strong>电平完全由外部电路决定</strong>，如果外部悬空，读到电平会乱跳。</li>
-<li>应用：通信协议的接收端（如UART_RX），或者按键检测（外部有电阻时）</li>
-</ul>
-<h3 id="（4）模拟输入（Analog）"><a href="#（4）模拟输入（Analog）" class="headerlink" title="（4）模拟输入（Analog）"></a>（4）模拟输入（Analog）</h3><ul>
-<li>模拟输入模式下，施密特触发器关闭，既不接上拉电阻也不连接下拉电阻，引脚信号连接到芯片内部的片上外设，其典型应用是<strong>A/D模拟输入</strong>，对外部信号进行采集。</li>
-<li>应用：ADC采集电压（生物传感器那道大题就用这个！）</li>
-</ul>
-<h2 id="3-四种输出模式"><a href="#3-四种输出模式" class="headerlink" title="3. 四种输出模式"></a>3. 四种输出模式</h2><h3 id="（1）推挽输出（PP）"><a href="#（1）推挽输出（PP）" class="headerlink" title="（1）推挽输出（PP）"></a>（1）推挽输出（PP）</h3><ul>
-<li>两个MOS管按<strong>互补对称</strong>的方式连接。</li>
-<li><strong>目的</strong>：增大输出电流，输出能力强；提高电路负载能力和开关速度</li>
-<li>高电平3.3V，低电平0V。</li>
-<li>应用：点亮LED，驱动蜂鸣器</li>
-</ul>
-<h3 id="（2）开漏输出（OD）"><a href="#（2）开漏输出（OD）" class="headerlink" title="（2）开漏输出（OD）"></a>（2）开漏输出（OD）</h3><ul>
-<li>只有下拉MOS管，没有上拉MOS管。</li>
-<li>不与电源连接，处于悬空状态，只能输出低电平。</li>
-<li><strong>目的</strong>：减少芯片内部驱动。</li>
-<li><strong>特点</strong>：想输出高电平，只能外接上拉电阻。</li>
-<li><strong>重点</strong>：方便实现“逻辑与”功能。<code>I2C总线</code>（必考关联点）</li>
-<li>应用：I2C总线 (必考关联点)</li>
-</ul>
-<h3 id="（3）复用推挽输出（AF-PP）"><a href="#（3）复用推挽输出（AF-PP）" class="headerlink" title="（3）复用推挽输出（AF_PP）"></a>（3）复用推挽输出（AF_PP）</h3><ul>
-<li>GPIO引脚除了作为通用IO引脚外，还可作为片上外设的I/O引脚，即<strong>一个引脚可以作为多个外设引脚使用</strong>，称为复用I/O端口 AFIO。</li>
-<li>一个引脚某一时刻<strong>只能使用复用功能中的一个</strong>。</li>
-</ul>
-<h3 id="（4）复用开漏输出（AF-OD）"><a href="#（4）复用开漏输出（AF-OD）" class="headerlink" title="（4）复用开漏输出（AF_OD）"></a>（4）复用开漏输出（AF_OD）</h3><p>同上。</p>
-<h1 id="第六章-中断和异常"><a href="#第六章-中断和异常" class="headerlink" title="第六章 中断和异常"></a>第六章 中断和异常</h1><blockquote>
-<p>本质：改变处理器执行指令的顺序。</p>
-</blockquote>
-<ul>
-<li>区别：<ul>
-<li>中断：响应外部事件</li>
-<li>异常：内部程序错误</li>
-</ul>
-</li>
-</ul>
-<p><code>目的</code>：</p>
-<ol>
-<li>提高cpu效率</li>
-<li>实时处理</li>
-<li>异常处理</li>
-<li>数据传输</li>
-<li>不占用cpu资源</li>
-</ol>
-<h2 id="1-中断处理流程"><a href="#1-中断处理流程" class="headerlink" title="1. 中断处理流程"></a>1. 中断处理流程</h2><p><img src="2025-12-26-14-01-22.png" alt=""><br><img src="2025-12-26-14-01-48.png" alt=""></p>
-<h2 id="Cortex-M3-内嵌中断控制器——NVIC"><a href="#Cortex-M3-内嵌中断控制器——NVIC" class="headerlink" title="Cortex-M3 内嵌中断控制器——NVIC"></a>Cortex-M3 内嵌中断控制器——NVIC</h2><p><img src="2025-12-26-14-04-06.png" alt=""></p>
-<h3 id="（1）中断优先级"><a href="#（1）中断优先级" class="headerlink" title="（1）中断优先级"></a>（1）中断优先级</h3><p><img src="2025-12-26-14-11-52.png" alt=""></p>
-<ul>
-<li>抢占优先级 &gt; 响应优先级</li>
-<li>数值越小，优先级别越高</li>
-<li>Reset，NMI（不可屏蔽中断 ） ， Hard Fault 的优先级为负，且不可修改，高于普通的中断优先级</li>
-</ul>
-<p><strong>中断优先级判断</strong>：</p>
-<ol>
-<li>先判断抢占优先级的大小</li>
-<li>如果抢占优先级相同，则比较响应优先级的大小</li>
-<li>若抢占优先级和响应优先级均相同，则根据<strong>中断向量表</strong>中的顺序来决定<br><img src="2025-12-26-14-16-21.png" alt=""></li>
-</ol>
-<h3 id="（2）外部中断EXTI"><a href="#（2）外部中断EXTI" class="headerlink" title="（2）外部中断EXTI"></a>（2）外部中断EXTI</h3><p><img src="2025-12-26-14-22-12.png" alt=""><br><img src="2025-12-26-14-22-23.png" alt=""></p>
-<ul>
-<li>映射关系：STM32的引脚很多，但中断线只有 16+N 条。<br>规则：所有 Pin x 共用一条中断线 EXTI x<ul>
-<li>PA0, PB0, PC0 … -&gt; EXTI0</li>
-<li>PA5, PB5, PC5 … -&gt; EXTI5</li>
-</ul>
-</li>
-</ul>
-<p><em>考点：不能同时开启 PA0 和 PB0 的中断！因为它们都要抢 EXTI0 这条线。</em></p>
-<ul>
-<li>触发方式<ul>
-<li>上升沿触发：电平 0 -&gt; 1 瞬间触发（如按键松开）。</li>
-<li>下降沿触发：电平 1 -&gt; 0 瞬间触发（如按键按下）。</li>
-<li>双边沿触发：变高变低都触发。</li>
-</ul>
-</li>
-</ul>
-<h1 id="第七章-定时器"><a href="#第七章-定时器" class="headerlink" title="第七章 定时器"></a>第七章 定时器</h1><div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left">定时器主要功能</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><strong>定时</strong>：时钟脉冲计数</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>计数</strong>：固定周期的脉冲信号</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>输入捕获</strong>：对脉冲信号宽度测量</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>输出比较</strong>：控制输出波形</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h2 id="第一部分：STM32定时器模块"><a href="#第一部分：STM32定时器模块" class="headerlink" title="第一部分：STM32定时器模块"></a>第一部分：STM32定时器模块</h2><p><img src="2025-12-28-11-32-59.png" alt=""></p>
-<p><em>注意分辨不同定时器的<strong>功能</strong>、引脚</em></p>
-<ul>
-<li><p><strong>基本定时器 (TIM6, TIM7)</strong></p>
-<ul>
-<li>能力：只能用来定时（数数），没有 GPIO 引脚，不能 产生 PWM。</li>
-<li><em>就像个纯粹的闹钟。</em></li>
-</ul>
-</li>
-<li><p><strong>通用定时器 (TIM2 ~ TIM5)</strong></p>
-<ul>
-<li>能力：定时 + 输入捕获 (测脉宽) + 输出比较 (PWM)。</li>
-<li><em>这是最常用的主力。</em></li>
-</ul>
-</li>
-<li><p><strong>高级定时器 (TIM1, TIM8)</strong></p>
-<ul>
-<li>能力：通用功能 + 死区控制 (Dead-time) + 互补输出。</li>
-<li><em>这是给电机控制专用的。</em></li>
-</ul>
-</li>
-</ul>
-<h3 id="1-定时时间计算"><a href="#1-定时时间计算" class="headerlink" title="1. 定时时间计算"></a>1. 定时时间计算</h3><script type="math/tex; mode=display">
-时钟源+预分频器PSC+计数器CNT+自动装载寄存器ARR</script><p><code>核心公式</code>：</p>
-<script type="math/tex; mode=display">
-定时时间 =\frac{(ARR+1)\times(PSC+1)}{时钟频率}</script><ul>
-<li><em>注意：PSC 和 ARR 的输入范围为（1，65536），因为最高16位。</em></li>
-</ul>
-<p><strong>例题</strong>：<br><img src="2025-12-28-11-46-51.png" alt=""></p>
-<h3 id="2-PWM-相关分析题"><a href="#2-PWM-相关分析题" class="headerlink" title="2. PWM 相关分析题"></a>2. PWM 相关分析题</h3><p><img src="2025-12-28-11-55-12.png" alt=""><br><img src="2025-12-28-11-57-21.png" alt=""></p>
-<script type="math/tex; mode=display">
-占空比 =\frac{CCR}{ARR+1}\times 100\%</script><p><img src="2025-12-28-11-59-12.png" alt=""><br><img src="2025-12-28-11-59-26.png" alt=""></p>
-<ul>
-<li>只要 <strong>CNT&gt;CCR</strong> ，就输出高电平。</li>
-<li>ARR 是阈值，达到后<strong>重新计数</strong>。</li>
-<li><strong>ARR 决定PWM的周期，CCR 决定占空比</strong>。</li>
-</ul>
-<h2 id="第二部分：SysTick定时器"><a href="#第二部分：SysTick定时器" class="headerlink" title="第二部分：SysTick定时器"></a>第二部分：SysTick定时器</h2><p><strong>1. 基础属性 (填空/判断题核心)</strong></p>
-<ul>
-<li><strong>归属</strong>：属于 <strong>Cortex-M3 内核 (Core)</strong>，<strong>不属于</strong> 片上外设 (Peripheral)。</li>
-<li><strong>位数</strong>：<strong>24位</strong> (注意：通用定时器通常是 16 位)。</li>
-<li><strong>计数方式</strong>：<strong>向下计数</strong> (Down-counter)，从设定值 (LOAD) 减到 0。</li>
-</ul>
-<p><strong>2. 核心用途 (考干什么)</strong></p>
-<ul>
-<li><strong>操作系统心跳</strong>：为 RTOS (如 FreeRTOS, uCOS) 提供任务调度的基准时钟。</li>
-<li><strong>精准延时</strong>：<strong>HAL_Delay()</strong> 函数就是基于 SysTick 实现的。<ul>
-<li><em>注：如果不开启 SysTick 中断，HAL_Delay 函数将无法工作。</em></li>
-</ul>
-</li>
-</ul>
-<p><strong>3. 关键寄存器 (眼熟即可)</strong></p>
-<ul>
-<li><strong>CTRL (Control)</strong>：控制寄存器，用于使能定时器、开启中断。</li>
-<li><strong>LOAD (Reload)</strong>：重装载数值寄存器，决定了定时器的溢出周期。</li>
-<li><strong>VAL (Value)</strong>：当前数值寄存器，实时显示当前的计数值。</li>
-</ul>
-<p><strong>4. 考点辨析：SysTick vs 通用定时器</strong></p>
-<ul>
-<li><strong>位置区别</strong>：SysTick 在内核；通用定时器在芯片外设区。</li>
-<li><strong>位数区别</strong>：SysTick 是 24 位；通用定时器通常是 16 位。</li>
-<li><strong>方向区别</strong>：SysTick 只能向下计数；通用定时器可以向上/向下/中心对齐。</li>
-<li><strong>功能区别</strong>：SysTick 专注延时/心跳；通用定时器专注 PWM、输入捕获、脉冲计数。</li>
-</ul>
-<p><strong>看门狗</strong>：确保系统可靠稳定运行，可使得应用程序脱离正常执行流程时复位。<br><img src="2025-12-28-12-21-39.png" alt=""></p>
-<h1 id="第八章-USART通信协议技术"><a href="#第八章-USART通信协议技术" class="headerlink" title="第八章 USART通信协议技术"></a>第八章 USART通信协议技术</h1><h2 id="第一部分-基础概念"><a href="#第一部分-基础概念" class="headerlink" title="第一部分 基础概念"></a>第一部分 基础概念</h2><p><strong>按传输格式划分</strong>：</p>
-<ul>
-<li><strong>并行</strong>：多条独立数据线同时传输。</li>
-<li><strong>串行</strong>：单条/两条数据线逐位传输。（<em>最为流行，eg.U盘、USB接口设备、<code>USART</code></em>）</li>
-</ul>
-<p><strong>按同步方式划分</strong>：</p>
-<ul>
-<li><strong>异步</strong>：发送方&amp;接收方 无统一时钟线。</li>
-<li><strong>同步</strong>：发送方&amp;接收方 统一时钟线。</li>
-</ul>
-<p><strong>按传输方式划分</strong>：</p>
-<ul>
-<li><strong>单工通信</strong>：数据传输时单向的。（<em>广播、电视、打印机、BB机</em>）</li>
-<li><strong>半双工通信</strong>：可以双向，但不能同时。（<em>对讲机</em>）</li>
-<li><strong>全双工通信</strong>：可以同时双向传输。（<em>电话、以太网、<code>USART</code></em>）</li>
-</ul>
-<h2 id="第二部分：波特率"><a href="#第二部分：波特率" class="headerlink" title="第二部分：波特率"></a>第二部分：波特率</h2><p><strong>波特率</strong>：每秒传输的二进制位数（bit/s），衡量<strong>传输速度快慢</strong>。</p>
-<script type="math/tex; mode=display">
-波特率 =字符速率（每秒传输字符数）\times 每个字符包含位数 =\frac{f_{PCLK}}{16\times 分频系数}</script><ul>
-<li><em>其中 $f_{PCLK}$为外设<strong>时钟频率</strong></em>。</li>
-</ul>
-<p><strong>例题</strong>：<br><img src="2025-12-28-14-13-16.png" alt=""></p>
-<p><strong>常用波特率</strong>：</p>
-<ul>
-<li>9600</li>
-<li>115200（<em>调试用、速度快</em>）<br><em>注意：异步通信双方波特率要一致</em></li>
-</ul>
-<h2 id="第三部分：异步串行通信协议（波形分析）"><a href="#第三部分：异步串行通信协议（波形分析）" class="headerlink" title="第三部分：异步串行通信协议（波形分析）"></a>第三部分：异步串行通信协议（波形分析）</h2><p><img src="2025-12-28-14-31-00.png" alt=""></p>
-<ul>
-<li><code>注意：数据位要从右向左读</code>  </li>
-</ul>
-<p><img src="2025-12-28-14-33-40.png" alt=""></p>
-<blockquote>
-<p>UART：全双工、异步、串行。<br><img src="2025-12-28-14-35-57.png" alt=""></p>
-</blockquote>
-<h2 id="第四部分：USART内部结构"><a href="#第四部分：USART内部结构" class="headerlink" title="第四部分：USART内部结构"></a>第四部分：USART内部结构</h2><ol>
-<li><strong>波特率发生器</strong>：提供同步时钟信号。<br>$波特率时钟频率 =波特率\times 采样倍数$</li>
-<li><strong>发送器</strong>：将并行数据转化为串行数据，并按照（起始位、数据位、校验位、停止位）发送到<strong>TX引脚</strong>。</li>
-<li><strong>接收器</strong>：从<strong>RX引脚</strong>接收串行数据，转化为并行数据。</li>
-</ol>
-<p><img src="2025-12-28-14-46-41.png" alt=""></p>
-<ul>
-<li><strong>USART1～3</strong>:全支持</li>
-<li><strong>USART4～5</strong>:除去<em>同步模式、硬件流控制、智能卡</em></li>
-</ul>
-<p><img src="2025-12-28-14-50-23.png" alt=""></p>
-<h1 id="第九章-DMA控制器"><a href="#第九章-DMA控制器" class="headerlink" title="第九章 DMA控制器"></a>第九章 DMA控制器</h1><h2 id="第一部分：基础概念"><a href="#第一部分：基础概念" class="headerlink" title="第一部分：基础概念"></a>第一部分：基础概念</h2><p><strong>DMA（Direct Memory Access）</strong>：直接内存访问。</p>
-<ul>
-<li><strong>作用</strong>：允许外设设备直接与储存器进行数据交换，<strong>无需cpu介入</strong>。</li>
-<li><strong>优势</strong>：<strong>解放cpu、提高传输效率、降低功耗</strong>。</li>
-</ul>
-<p><img src="2025-12-29-12-42-37.png" alt=""></p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left">DMA适用场景</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><strong>储存设备I/O</strong>：硬盘与内存间的大量数据交换</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>高速通信通道</strong>：网络接口、光纤通信</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>数据采集系统</strong></td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>图像处理</strong></td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>多处理机系统</strong></td>
-</tr>
-</tbody>
-</table>
-</div>
-<h2 id="第二部分：STM32多DMA架构"><a href="#第二部分：STM32多DMA架构" class="headerlink" title="第二部分：STM32多DMA架构"></a>第二部分：STM32多DMA架构</h2><p><img src="2025-12-29-13-22-16.png" alt=""></p>
-<p><img src="2025-12-29-13-22-38.png" alt=""></p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left">关键配置参数</th>
-<th style="text-align:left"></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><strong>传输方向</strong></td>
-<td style="text-align:left"><strong>外设/内存</strong>之间相互传输（4种情况的排列组合）</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>数据宽度</code></td>
-<td style="text-align:left">8/16/32 （<strong>如果源和目标位数不匹配，DMA会自动帮你补位</strong>）</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>地址递增</strong></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>传输模式</strong></td>
-<td style="text-align:left">单次模式、循环模式</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>中断请求</strong></td>
-<td style="text-align:left">传输完成、半传输、传输错误</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><strong>传输模式</strong>：</p>
-<ul>
-<li>单次模式：DMA传输结束后不再产生新的DMA操作。</li>
-<li>循环模式：每轮传输结束时，要传输的数据数量将自动用设置的初始值进行加载，并继续响应DMA请求。<em>（ADC扫描模式）</em></li>
-</ul>
-<h2 id="第三部分：通道映射"><a href="#第三部分：通道映射" class="headerlink" title="第三部分：通道映射"></a>第三部分：通道映射</h2><h3 id="DMA优先级"><a href="#DMA优先级" class="headerlink" title="DMA优先级"></a>DMA优先级</h3><p><img src="2025-12-29-13-41-55.png" alt=""></p>
-<h3 id="DMA请求通道"><a href="#DMA请求通道" class="headerlink" title="DMA请求通道"></a>DMA请求通道</h3><p><img src="2025-12-29-13-43-34.png" alt=""><br><img src="2025-12-29-13-43-45.png" alt=""></p>
-<h3 id="DMA中断请求"><a href="#DMA中断请求" class="headerlink" title="DMA中断请求"></a>DMA中断请求</h3><p><img src="2025-12-29-13-44-50.png" alt=""></p>
-<h1 id="第十章-同步串行通信协议"><a href="#第十章-同步串行通信协议" class="headerlink" title="第十章 同步串行通信协议"></a>第十章 同步串行通信协议</h1><h2 id="第一部分：SPI通信协议"><a href="#第一部分：SPI通信协议" class="headerlink" title="第一部分：SPI通信协议"></a>第一部分：SPI通信协议</h2><h3 id="1-基础概念"><a href="#1-基础概念" class="headerlink" title="1. 基础概念"></a>1. 基础概念</h3><ul>
-<li><strong>SPI（Serial Peripheral interface）</strong>：串行外围设备接口。</li>
-<li><p><strong>特点</strong>：</p>
-<ul>
-<li><code>高速</code>、全双工、同步</li>
-<li>在芯片管脚上只占用四根线</li>
-<li><em>主要应用：EEPROM、FLASH、实时时钟、AD转换器、数字信号处理器</em></li>
-</ul>
-</li>
-<li><p><strong>主从模式</strong>：</p>
-<ul>
-<li>SPI通讯系统包含一个（只能一个）主设备、多个或一个从设备。</li>
-<li>主设备<strong>提供时钟</strong>，从设备<strong>接收时钟</strong>。</li>
-<li>多个从设备<strong>通过各自片选信号管理</strong>。</li>
-<li>读写操作都是由主设备发起。</li>
-<li>通信速度一般能达到10Mbps。</li>
-</ul>
-</li>
-</ul>
-<h3 id="2-四根信号线"><a href="#2-四根信号线" class="headerlink" title="2. 四根信号线"></a>2. 四根信号线</h3><div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left">引脚名称</th>
-<th style="text-align:left">作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">MOSI（master output slave input）</td>
-<td style="text-align:left">主设备输出/从设备输入。即：在主模式下发送数据，从模式下接收数据</td>
-</tr>
-<tr>
-<td style="text-align:left">MISO（master input slave output）</td>
-<td style="text-align:left">主设备输入/从设备输出。即：在主模式下接收数据，从模式下发送数据</td>
-</tr>
-<tr>
-<td style="text-align:left">SCLK</td>
-<td style="text-align:left">主设备产生的串行时钟信号。</td>
-</tr>
-<tr>
-<td style="text-align:left">CS/SS</td>
-<td style="text-align:left">从设备的<strong>片选信号</strong>，低电平有效。让主设备可以单独与指定从设备通讯$\rightarrow$避免冲突。</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><img src="2025-12-29-15-28-07.png" alt=""></p>
-<p><img src="2025-12-29-15-30-32.png" alt=""></p>
-<h3 id="3-四种配置模式"><a href="#3-四种配置模式" class="headerlink" title="3. 四种配置模式"></a>3. 四种配置模式</h3><ul>
-<li>通信双方必须在同一模式下才可以通信。</li>
-<li>通过<code>CPOL（时钟极性）</code>和<code>CPHA（时钟相位）</code>来配置主设备的通信模式。</li>
-</ul>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left">SPI模式</th>
-<th style="text-align:left">CPOL</th>
-<th style="text-align:left">CPHA</th>
-<th style="text-align:left">空闲时SCK时钟</th>
-<th style="text-align:left">采样时刻</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">0（最常用）</td>
-<td style="text-align:left">0</td>
-<td style="text-align:left">0</td>
-<td style="text-align:left">低电平</td>
-<td style="text-align:left">奇数边沿</td>
-</tr>
-<tr>
-<td style="text-align:left">1</td>
-<td style="text-align:left">0</td>
-<td style="text-align:left">1</td>
-<td style="text-align:left">低电平</td>
-<td style="text-align:left">偶数边沿</td>
-</tr>
-<tr>
-<td style="text-align:left">2</td>
-<td style="text-align:left">1</td>
-<td style="text-align:left">0</td>
-<td style="text-align:left">高电平</td>
-<td style="text-align:left">奇数边沿</td>
-</tr>
-<tr>
-<td style="text-align:left">3</td>
-<td style="text-align:left">1</td>
-<td style="text-align:left">1</td>
-<td style="text-align:left">高电平</td>
-<td style="text-align:left">偶数边沿</td>
-</tr>
-</tbody>
-</table>
-</div>
-<ul>
-<li><strong>CPOL（clock polarity）</strong>：=0:SLK低电平/=1:SLK高电平</li>
-<li><strong>CPHA（clock phase）</strong>：=0:奇数沿采样/=1:偶数沿采样</li>
-</ul>
-<p><img src="2025-12-29-15-46-11.png" alt=""></p>
-<ul>
-<li>SCK一开始是低电平$\rightarrow$CPOL=0</li>
-<li>偶数沿采样（注意不要看图片里的数标）$\rightarrow$CPAL=1</li>
-<li>得到$\longrightarrow$模式=1</li>
-</ul>
-<p><img src="2025-12-29-16-13-53.png" alt=""></p>
-<h2 id="第二部分：I2C通信协议"><a href="#第二部分：I2C通信协议" class="headerlink" title="第二部分：I2C通信协议"></a>第二部分：I2C通信协议</h2><h3 id="1-基础概念-1"><a href="#1-基础概念-1" class="headerlink" title="1. 基础概念"></a>1. 基础概念</h3><ul>
-<li><p><strong>特点</strong>：</p>
-<ul>
-<li><code>低速、近距离</code>、半双工、同步。</li>
-<li>结构简单、降低系统成本、提高了可靠性。</li>
-<li>总线具有<strong>极低的电流消耗，抗噪声能力强</strong>。</li>
-</ul>
-</li>
-<li><p><strong>主从模式</strong>：</p>
-<ul>
-<li><code>多主机总线</code>：每个器件都可以作为主机/从机，<strong>但同一时刻只能有一个主机</strong>。</li>
-<li>所有设备都接在一根总线上，所以只要有一个拉低，总线就是低电平。</li>
-<li><strong>开漏输出</strong>：必须外接<strong>上拉电阻</strong>。</li>
-<li>每个连接到I2C总线的器件都有<strong>唯一地址（7bit）</strong>。</li>
-<li>总线上增加和删除器件不影响其它器件工作。</li>
-<li>从机只能被动呼叫。</li>
-<li>传输速率：100Kbps、400Kbps、3.4Mbps。</li>
-</ul>
-</li>
-</ul>
-<p><img src="2025-12-29-16-24-00.png" alt=""></p>
-<h3 id="2-两根信号线"><a href="#2-两根信号线" class="headerlink" title="2. 两根信号线"></a>2. 两根信号线</h3><ul>
-<li><strong>SDA（serial data）</strong>：收发数据。</li>
-<li><strong>SCL（serial clock）</strong>：时钟信号同步。</li>
-</ul>
-<h3 id="3-通信过程"><a href="#3-通信过程" class="headerlink" title="3. 通信过程"></a>3. 通信过程</h3><p><img src="2025-12-29-16-33-34.png" alt=""></p>
-<p>先明确以下几点：</p>
-<ol>
-<li>主机发送<strong>起始信号</strong>后必须先发送一个字节的数据（<strong>高7位为从机地址</strong>，最后一位表示传输方向）。<ul>
-<li>0 ：主机$\rightarrow$从机</li>
-<li>1 ：从机$\rightarrow$主机</li>
-</ul>
-</li>
-<li>从机先比较地址是不是跟自己相同，若相同，再判断自己是发送器/接收器。</li>
-<li>发送完一个字节数据后，接收器会发送1bit的数据来应答发送器。</li>
-<li>所以<strong>I2C每次发送的数据必然是8bit</strong>。</li>
-<li>空闲时，<strong>SCL和SDA都是高电平</strong>。</li>
-</ol>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left"></th>
-<th style="text-align:left"></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><strong>起始信号</strong></td>
-<td style="text-align:left">SCL=1时，SDA由高变低</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>停止信号</strong></td>
-<td style="text-align:left">SCL=1时，SDA由低变高</td>
-</tr>
-<tr>
-<td style="text-align:left">应答信号</td>
-<td style="text-align:left">接收器在第9位拉低SDA，表示收到（若SDA没被拉低则表示没收到）</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h1 id="第十一章-数模转换"><a href="#第十一章-数模转换" class="headerlink" title="第十一章 数模转换"></a>第十一章 数模转换</h1>]]></content>
       <categories>
         <category>华理</category>
         <category>大三上</category>
