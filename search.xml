@@ -1,6 +1,892 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>人工智能原理与应用</title>
+    <url>/2025/12/11/AI/</url>
+    <content><![CDATA[<h1 id="第一章-绪论"><a href="#第一章-绪论" class="headerlink" title="第一章 绪论"></a>第一章 绪论</h1><p>智能：智能指人类在认识客观世界中，由思维过程和脑<br>力活动所表现出的综合能力。</p>
+<h2 id="智能包含的能力"><a href="#智能包含的能力" class="headerlink" title="智能包含的能力"></a>智能包含的能力</h2><p>  <img src="2025-12-11-19-04-02.png" alt=""></p>
+<h2 id="AI的研究目标"><a href="#AI的研究目标" class="headerlink" title="AI的研究目标"></a>AI的研究目标</h2><p>  <img src="2025-12-11-19-05-39.png" alt=""></p>
+<h2 id="三大学派"><a href="#三大学派" class="headerlink" title="三大学派"></a>三大学派</h2><p>  <img src="2025-12-11-19-07-05.png" alt=""><br>  <img src="2025-12-11-19-07-54.png" alt=""></p>
+<h2 id="新的发展"><a href="#新的发展" class="headerlink" title="新的发展"></a>新的发展</h2><p>  <img src="2025-12-11-19-08-50.png" alt=""></p>
+<h2 id="智能模拟方法"><a href="#智能模拟方法" class="headerlink" title="智能模拟方法"></a>智能模拟方法</h2><p>  <img src="2025-12-11-19-12-03.png" alt=""></p>
+<h2 id="推理"><a href="#推理" class="headerlink" title="推理"></a>推理</h2><p>  <strong>推理</strong>：是指按照某种策略从已知事实出发利用知识推出所需结论的过程。<br>  <strong>推理方法</strong>：归纳、演绎、（不）确定性推理</p>
+<h2 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h2><p>  <strong>搜索</strong>：依靠经验，利用已有知识，根据问题的实际情况，不断寻找可利用知识，从而构造一条代价最小的推理路线，使问题得以解决的过程。<br>  <strong>智能搜索</strong>：利用搜索过程中得到的信息来引导搜索向最优方向发展的算法。</p>
+<h2 id="神经元（画图）"><a href="#神经元（画图）" class="headerlink" title="神经元（画图）"></a>神经元（画图）</h2><p>  <img src="2025-12-11-19-17-46.png" alt=""></p>
+<h2 id="大数据的特性："><a href="#大数据的特性：" class="headerlink" title="大数据的特性："></a>大数据的特性：</h2><ul>
+<li><strong>规模性、多样性、实时性、价值性</strong></li>
+</ul>
+<h2 id="机器视觉的流程：图像获取-rightarrow-图像解释"><a href="#机器视觉的流程：图像获取-rightarrow-图像解释" class="headerlink" title="机器视觉的流程：图像获取$\rightarrow$图像解释"></a>机器视觉的流程：图像获取$\rightarrow$图像解释</h2><p>  <img src="2025-12-11-19-20-13.png" alt=""></p>
+<h2 id="模式识别"><a href="#模式识别" class="headerlink" title="模式识别"></a>模式识别</h2><p>  <img src="2025-12-11-19-21-05.png" alt=""></p>
+<h2 id="自然语言处理"><a href="#自然语言处理" class="headerlink" title="自然语言处理"></a>自然语言处理</h2><p>  <img src="2025-12-11-19-21-26.png" alt=""></p>
+<h2 id="智能控制"><a href="#智能控制" class="headerlink" title="智能控制"></a>智能控制</h2><p>  <img src="2025-12-11-19-21-48.png" alt=""></p>
+<h2 id="人工智能工程"><a href="#人工智能工程" class="headerlink" title="人工智能工程"></a>人工智能工程</h2><p>  <img src="2025-12-11-19-23-37.png" alt=""><br>  <img src="2025-12-11-19-24-19.png" alt=""></p>
+<h2 id="人工智能面临的问题"><a href="#人工智能面临的问题" class="headerlink" title="人工智能面临的问题"></a>人工智能面临的问题</h2><ol>
+<li>道德伦理问题</li>
+<li>法律法规的制定问题</li>
+<li>安全问题（信息安全、交通安全、人身安全）</li>
+<li>稀缺数据资源条件下的学习</li>
+<li>目前人工智能属于弱人工智能</li>
+</ol>
+<h2 id="未来发展趋势"><a href="#未来发展趋势" class="headerlink" title="未来发展趋势"></a>未来发展趋势</h2><ol>
+<li>从专用智能向通用是能发展</li>
+<li>从人工智能向人机融合发展</li>
+<li>自动化AI技术</li>
+<li>AI药物的研发</li>
+<li>减少对数据的需求</li>
+<li>可解释性和鲁棒性</li>
+</ol>
+<h1 id="第二章-数学基础"><a href="#第二章-数学基础" class="headerlink" title="第二章 数学基础"></a>第二章 数学基础</h1><h2 id="向量的范数"><a href="#向量的范数" class="headerlink" title="向量的范数"></a>向量的范数</h2><p>1) 1-范数</p>
+<script type="math/tex; mode=display">\|\alpha\|_1 = |\alpha_1| + |\alpha_2| + \cdots + |\alpha_n|</script><p>2) 2-范数</p>
+<script type="math/tex; mode=display">\|\alpha\|_2 = \sqrt{\alpha_1^2 + \alpha_2^2 + \cdots + \alpha_n^2}</script><p>3) $\infty$-范数</p>
+<script type="math/tex; mode=display">\|\alpha\|_\infty = \max\{|\alpha_1|, |\alpha_2|, \cdots, |\alpha_n|\}</script><p>4) p-范数</p>
+<script type="math/tex; mode=display">\|\alpha\|_p = \left( \sum_{i=1}^{n} |\alpha_i|^p \right)^{1/p}, \quad p \ge 1</script><h2 id="矩阵的范数"><a href="#矩阵的范数" class="headerlink" title="矩阵的范数"></a>矩阵的范数</h2><p>1) Frobenius 范数 (F-范数)</p>
+<script type="math/tex; mode=display">\|X\|_F = \left( \sum_{i,j=1}^{n} |x_{ij}|^2 \right)^{1/2} = \left( tr(X^H X) \right)^{1/2}</script><p>2) 1-范数</p>
+<script type="math/tex; mode=display">\|X\|_1 = \max_{j} \sum_{i=1}^{n} |x_{ij}|</script><p>3) 2-范数</p>
+<script type="math/tex; mode=display">\|X\|_2 = \sqrt{\lambda} \text{，其中 } \lambda \text{ 为 } X^H X \text{ 的最大特征值}</script><p>4) $\infty$-范数</p>
+<script type="math/tex; mode=display">\|X\|_\infty = \max_{i} \sum_{j=1}^{n} |x_{ij}|</script><p>其中，$X^H$ 为 $X$ 的共轭转置矩阵。</p>
+<h1 id="第三章-确定性知识系统"><a href="#第三章-确定性知识系统" class="headerlink" title="第三章 确定性知识系统"></a>第三章 确定性知识系统</h1><ul>
+<li><strong>知识</strong>是改造客观世界中积累起来的认识和经验。</li>
+<li>知识 = 信息 + 关联</li>
+</ul>
+<h2 id="知识的类型"><a href="#知识的类型" class="headerlink" title="知识的类型"></a>知识的类型</h2><p><img src="2025-12-11-22-06-18.png" alt=""></p>
+<h2 id="知识的作用效果"><a href="#知识的作用效果" class="headerlink" title="知识的作用效果"></a>知识的作用效果</h2><p><img src="2025-12-11-22-08-05.png" alt=""></p>
+<h2 id="知识的表示要求"><a href="#知识的表示要求" class="headerlink" title="知识的表示要求"></a>知识的表示要求</h2><ul>
+<li>可组织性与可维护性</li>
+<li>可理解性与可实现性</li>
+</ul>
+<h2 id="知识的类型-1"><a href="#知识的类型-1" class="headerlink" title="知识的类型"></a>知识的类型</h2><p><img src="2025-12-11-22-15-11.png" alt=""></p>
+<h2 id="推理方法及其分类"><a href="#推理方法及其分类" class="headerlink" title="推理方法及其分类"></a>推理方法及其分类</h2><ol>
+<li>演绎推理：<br><img src="2025-12-11-22-17-36.png" alt=""></li>
+<li>归纳推理<br><img src="2025-12-11-22-22-55.png" alt=""><br><img src="2025-12-11-22-23-09.png" alt=""><br><strong>演绎推理 &amp; 归纳推理区别</strong>：<br><img src="2025-12-11-22-22-30.png" alt=""></li>
+</ol>
+<h2 id="推理控制策略"><a href="#推理控制策略" class="headerlink" title="推理控制策略"></a>推理控制策略</h2><ul>
+<li>推理的控制策略是使推理过程尽快达到目标。</li>
+<li>分为两类：推理策略和搜索策略</li>
+</ul>
+<p><strong>冲突消解策略</strong>：当推理过程有多条知识可用时，如何从这多条可用知识中选出一条<strong>最佳知识</strong>用于推理的策略，常用的冲突消解策略有<em>领域知识优先和新鲜知识优先</em>等。</p>
+<h1 id="第四章-不确定性知识系统"><a href="#第四章-不确定性知识系统" class="headerlink" title="第四章 不确定性知识系统"></a>第四章 不确定性知识系统</h1><h2 id="知识的不确定性表示"><a href="#知识的不确定性表示" class="headerlink" title="知识的不确定性表示"></a>知识的不确定性表示</h2><p><img src="2025-12-11-22-30-33.png" alt=""><br><img src="2025-12-11-22-30-45.png" alt=""></p>
+<h2 id="主观贝叶斯推理"><a href="#主观贝叶斯推理" class="headerlink" title="主观贝叶斯推理"></a>主观贝叶斯推理</h2><h2 id="贝叶斯网络原理"><a href="#贝叶斯网络原理" class="headerlink" title="贝叶斯网络原理"></a>贝叶斯网络原理</h2><p><img src="2025-12-11-22-31-50.png" alt=""></p>
+<h1 id="第五章-智能搜索技术"><a href="#第五章-智能搜索技术" class="headerlink" title="第五章 智能搜索技术"></a>第五章 智能搜索技术</h1><h2 id="状态空间问题的求解"><a href="#状态空间问题的求解" class="headerlink" title="状态空间问题的求解"></a>状态空间问题的求解</h2><p><img src="2025-12-12-18-20-32.png" alt=""><br><img src="2025-12-12-18-20-56.png" alt=""></p>
+<h2 id="与或树"><a href="#与或树" class="headerlink" title="与或树"></a>与或树</h2><ul>
+<li><strong>分解</strong>：$P 归纳为 P_i, P_i 都有解的时候，P 有解。$</li>
+<li><strong>等价变换</strong>：$P 可以等价变为 P_i，有一个 P_i 有解，P 有解。$</li>
+</ul>
+<p><img src="2025-12-12-18-28-38.png" alt=""></p>
+<ul>
+<li>本原问题：不能再进行分解或者变换，可以直接解答的问题</li>
+<li>端节点：没有子节点的节点</li>
+<li>终止节点：本原问题对应的节点 <em>（终止节点一定是端节点，端节点不一定是终止节点）</em></li>
+<li>可解问题：<ul>
+<li>任何终止节点</li>
+<li>或树中有一个可解</li>
+<li>与树中都有解</li>
+</ul>
+</li>
+</ul>
+<h2 id="进化搜索"><a href="#进化搜索" class="headerlink" title="进化搜索"></a>进化搜索</h2><p><img src="2025-12-12-18-36-12.png" alt=""><br><strong>进化计算的生物学基础</strong>：</p>
+<ol>
+<li>遗传理论</li>
+<li>变异理论</li>
+<li>进化论</li>
+</ol>
+<h2 id="启发式搜索"><a href="#启发式搜索" class="headerlink" title="启发式搜索"></a>启发式搜索</h2><p><img src="2025-12-12-18-38-36.png" alt=""></p>
+<ul>
+<li>八数码难题：</li>
+</ul>
+<p><img src="2025-12-12-18-39-09.png" alt=""></p>
+<h2 id="A-算法"><a href="#A-算法" class="headerlink" title="A 算法"></a>A 算法</h2><p><img src="2025-12-12-18-40-15.png" alt=""><br><img src="2025-12-12-18-41-00.png" alt=""><br><img src="2025-12-12-18-41-22.png" alt=""></p>
+<h2 id="与或树的启发式搜索"><a href="#与或树的启发式搜索" class="headerlink" title="与或树的启发式搜索"></a>与或树的启发式搜索</h2><p><img src="2025-12-12-18-41-55.png" alt=""></p>
+<h2 id="博弈树"><a href="#博弈树" class="headerlink" title="博弈树"></a>博弈树</h2><p><img src="2025-12-12-18-42-41.png" alt=""><br><img src="2025-12-12-18-43-02.png" alt=""></p>
+<h2 id="进化搜索（这一部分看PPT理解）"><a href="#进化搜索（这一部分看PPT理解）" class="headerlink" title="进化搜索（这一部分看PPT理解）"></a>进化搜索（这一部分看PPT理解）</h2><ul>
+<li>蚁群算法</li>
+<li>遗传算法</li>
+</ul>
+<ol>
+<li>基本步骤：<br><img src="2025-12-13-16-33-40.png" alt=""></li>
+<li>三角函数的遗传算法优化（重点看一下）（17-20课时）</li>
+<li>轮盘赌：<br><img src="2025-12-13-16-38-57.png" alt=""></li>
+</ol>
+<ul>
+<li>粒子群优化算法<br>看ppt（21-24课时），重点求解tsp问题的步骤。</li>
+</ul>
+<p><strong>群智能的优点</strong>：</p>
+<ol>
+<li>灵活性：群体可以随时适应变化的环境。</li>
+<li>稳健性：即使个体失败，群体仍可以完成任务；自我组织；活动既不受中央控制，也不受局部监督。</li>
+</ol>
+<h1 id="第六章-机器学习"><a href="#第六章-机器学习" class="headerlink" title="第六章 机器学习"></a>第六章 机器学习</h1><h2 id="信息熵与信息增益"><a href="#信息熵与信息增益" class="headerlink" title="信息熵与信息增益"></a>信息熵与信息增益</h2><p><img src="2025-12-13-16-44-14.png" alt=""><br><img src="2025-12-13-16-44-31.png" alt=""></p>
+<h2 id="ID3-算法"><a href="#ID3-算法" class="headerlink" title="ID3 算法"></a>ID3 算法</h2><ul>
+<li><strong>测试属性</strong>：<code>信息增益</code>  </li>
+</ul>
+<p><strong>具体计算流程</strong>：（设$C_1+C_2=D$）</p>
+<ol>
+<li><p><strong>计算不考虑特征的信息熵</strong>：</p>
+<script type="math/tex; mode=display">H(D) = -\sum_{k=1}^{K} p_k \log_2 p_k= -\sum_{k=1}^{K} \frac{|C_k|}{|D|} \log_2 \frac{|C_k|}{|D|}</script><p>其中 $|D|$ 为样本总数，$|C_k|$ 为属于第 $k$ 类的样本数(eg: <em>买/不买</em>)。</p>
+</li>
+<li><p><strong>计算条件熵</strong>：</p>
+<ul>
+<li>先选择一个 <strong>特征 $A_i$</strong>，将数据集 $D$ 根据特征 $A_i$ 的<strong>不同取值</strong>划分为 $n$ 个子集 $D_1, D_2, \dots, D_n$。</li>
+<li>计算特征 $A_i$ 下不同取值 $D_i$ 的信息熵 $H(D_i)$：<script type="math/tex; mode=display">H(D_i)= -\sum_{k=1}^{K} \frac{|C_k|}{|D_i|} \log_2 \frac{|C_k|}{|D_i|}</script>其中，$C_k$ 是在集合 $D_i$ 里的第 $k$ 种类别的数量 (eg: <em>买/不买</em>)。</li>
+<li>计算条件熵 $H(D|A_i)$：<script type="math/tex; mode=display">H(D|A_i) = \sum_{i=1}^{n} p_i H(D_i)= \sum_{i=1}^{n} \frac{|D_i|}{|D|} H(D_i)</script></li>
+</ul>
+</li>
+<li><p><strong>计算信息增益</strong>：</p>
+<script type="math/tex; mode=display">g(D, A_i) = H(D) - H(D|A_i)</script></li>
+<li><p><strong>特征选择</strong>：<br>选取 <strong>信息增益最大</strong> 的特征$A_i$作为当前的分裂节点（根节点或内部节点）。</p>
+</li>
+<li><p><strong>递归构建</strong>：<br>对子节点重复以上步骤，以此类推，直至分类完全（或满足停止条件）。</p>
+</li>
+</ol>
+<h2 id="集成学习（Boosting-Bagging）"><a href="#集成学习（Boosting-Bagging）" class="headerlink" title="集成学习（Boosting/Bagging）"></a>集成学习（Boosting/Bagging）</h2><p><img src="2025-12-13-16-47-29.png" alt=""><br><img src="2025-12-13-16-47-43.png" alt=""></p>
+<h2 id="回归的含义、思想"><a href="#回归的含义、思想" class="headerlink" title="回归的含义、思想"></a>回归的含义、思想</h2><p><img src="2025-12-13-16-50-09.png" alt=""><br><img src="2025-12-13-16-50-28.png" alt=""></p>
+<h2 id="总体回归函数"><a href="#总体回归函数" class="headerlink" title="总体回归函数"></a>总体回归函数</h2><p><img src="2025-12-13-16-51-14.png" alt=""><br><img src="2025-12-13-16-51-28.png" alt=""><br><img src="2025-12-13-16-51-39.png" alt=""></p>
+<h2 id="计算题：最小二乘估计-OLS"><a href="#计算题：最小二乘估计-OLS" class="headerlink" title="计算题：最小二乘估计 $OLS$"></a>计算题：最小二乘估计 $OLS$</h2><ul>
+<li>看ppt（25-28）</li>
+</ul>
+<h1 id="第七章-支持向量机"><a href="#第七章-支持向量机" class="headerlink" title="第七章 支持向量机"></a>第七章 支持向量机</h1><ul>
+<li>看模式识别的笔记。</li>
+</ul>
+<h1 id="第八章-人工神经网络与连接学习"><a href="#第八章-人工神经网络与连接学习" class="headerlink" title="第八章 人工神经网络与连接学习"></a>第八章 人工神经网络与连接学习</h1><p>后面看三个ppt吧。</p>
+]]></content>
+      <categories>
+        <category>华理</category>
+        <category>大三上</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>嵌入式系统原理</title>
+    <url>/2025/12/21/STM32/</url>
+    <content><![CDATA[<h1 id="第一章-导论"><a href="#第一章-导论" class="headerlink" title="第一章 导论"></a>第一章 导论</h1><blockquote>
+<p>嵌入式系统是一切非PC和大型计算机系统。</p>
+</blockquote>
+<h1 id="第二章-Cortex-M3-微处理器"><a href="#第二章-Cortex-M3-微处理器" class="headerlink" title="第二章 Cortex-M3 微处理器"></a>第二章 Cortex-M3 微处理器</h1><h2 id="1-内核结构"><a href="#1-内核结构" class="headerlink" title="1. 内核结构"></a>1. 内核结构</h2><ul>
+<li>核心架构：Cortex-M3 是基于 ARMv7-M 架构的 32 位处理器内核，采用高性能的<strong>哈佛结构</strong>，寻址能力为4GB。</li>
+</ul>
+<p><img src="2025-12-21-21-55-13.png" alt=""></p>
+<ul>
+<li>设计模式：ARM 公司设计内核，芯片制造商（如 ATMEL、NXP、TI）在此基础上添加不同的外设、存储器和 I/O，形成各类微控制器 (MCU)。</li>
+</ul>
+<h2 id="2-流水线技术"><a href="#2-流水线技术" class="headerlink" title="2. 流水线技术"></a>2. 流水线技术</h2><ul>
+<li>定义：将指令分解为多步并重叠执行，以实现并行处理。</li>
+</ul>
+<p><img src="2025-12-21-22-00-52.png" alt=""></p>
+<ul>
+<li>流水线技术三大指标：吞吐率、加速比、效率</li>
+</ul>
+<h3 id="（1）吞吐率"><a href="#（1）吞吐率" class="headerlink" title="（1）吞吐率"></a>（1）吞吐率</h3><ul>
+<li>单位时间内完成的指令条数<br><img src="2025-12-21-22-21-51.png" alt=""></li>
+<li>$流水时间 = 三个阶段总时间 + （指令条数 -1）\times 时间最长的阶段$</li>
+</ul>
+<p><strong>例题</strong>：<br><img src="2025-12-21-22-24-19.png" alt=""></p>
+<h3 id="（2）加速比"><a href="#（2）加速比" class="headerlink" title="（2）加速比"></a>（2）加速比</h3><ul>
+<li>不使用流水线时间和使用流水线时间之比</li>
+</ul>
+<p>若流水线<strong>各段时间均为 $\Delta t$</strong>，流水线<strong>级数 $m$</strong>，<strong>指令数为 $n$</strong>：<br>分子：$nm\Delta t$<br>分母：$m\Delta t + (n-1)\Delta t$ <em>（流水线计算公式）</em><br>则加速比为：</p>
+<script type="math/tex; mode=display">S_p = \frac{nm\Delta t}{m\Delta t + (n-1)\Delta t}</script><p>注意：<strong>平衡的流水线效率更优</strong></p>
+<h2 id="3-系统总线"><a href="#3-系统总线" class="headerlink" title="3. 系统总线"></a>3. 系统总线</h2><ul>
+<li><strong>总线</strong>：计算机中，各个部件之间传送信息的公共通路</li>
+<li><strong>分类</strong>：数据总线、地址总线、控制总线</li>
+</ul>
+<h3 id="AMBA"><a href="#AMBA" class="headerlink" title="AMBA"></a>AMBA</h3><ul>
+<li>AMBA 是一种<strong>高级微控制器总线架构</strong><br>主要包含以下两种不同的标准：</li>
+</ul>
+<ol>
+<li>AHB（Advanced High-performance Bus）：高级高性能总线<ul>
+<li>多个主机和多个从机的连接<br><img src="2025-12-21-23-56-03.png" alt=""></li>
+<li>AHB-lite：单个主机和多个从机</li>
+</ul>
+</li>
+<li>APB（Advanced Peripheral Bus）：高级外设总线<ul>
+<li>低成本、低功耗、结构简单<br><img src="2025-12-21-23-54-52.png" alt=""></li>
+</ul>
+</li>
+</ol>
+<h3 id="Cortex-M3-总线结构"><a href="#Cortex-M3-总线结构" class="headerlink" title="Cortex-M3 总线结构"></a>Cortex-M3 总线结构</h3><p><img src="2025-12-21-23-52-52.png" alt=""></p>
+<h2 id="4-寄存器与储存结构"><a href="#4-寄存器与储存结构" class="headerlink" title="4. 寄存器与储存结构"></a>4. 寄存器与储存结构</h2><p><img src="2025-12-22-13-55-29.png" alt=""></p>
+<ul>
+<li><strong>堆栈</strong>：先进后出，由一块连续内存、一个栈顶指针组成</li>
+<li><strong>储存结构</strong>：Crtex-M3与外设<strong>统一编址</strong>，这种方式称为<strong>储存器地址映射</strong></li>
+</ul>
+<h2 id="5-工作模态"><a href="#5-工作模态" class="headerlink" title="5. 工作模态"></a>5. 工作模态</h2><h3 id="（1）两种模式与特权等级"><a href="#（1）两种模式与特权等级" class="headerlink" title="（1）两种模式与特权等级"></a>（1）两种模式与特权等级</h3><p><img src="2025-12-22-14-04-48.png" alt=""></p>
+<h3 id="（2）三种模态"><a href="#（2）三种模态" class="headerlink" title="（2）三种模态"></a>（2）三种模态</h3><p><img src="2025-12-22-14-06-26.png" alt=""></p>
+<h2 id="6-中断与异常"><a href="#6-中断与异常" class="headerlink" title="6. 中断与异常"></a>6. 中断与异常</h2><script type="math/tex; mode=display">
+保存现场（压栈）\rightarrow 取向量（查找 ISR 地址）\rightarrow 更新寄存器（跳入 ISR 执行）</script><h3 id="（1）中断悬起"><a href="#（1）中断悬起" class="headerlink" title="（1）中断悬起"></a>（1）中断悬起</h3><ul>
+<li>如果中断发生时，正在处理更高优先级异常/中断被屏蔽，此时<strong>中断被悬起</strong><br><img src="2025-12-22-14-12-58.png" alt=""></li>
+</ul>
+<h3 id="（2）中断活跃"><a href="#（2）中断活跃" class="headerlink" title="（2）中断活跃"></a>（2）中断活跃</h3><p><img src="2025-12-22-14-15-04.png" alt=""></p>
+<h3 id="（3）中断请求信号保持"><a href="#（3）中断请求信号保持" class="headerlink" title="（3）中断请求信号保持"></a>（3）中断请求信号保持</h3><p><img src="2025-12-22-14-16-00.png" alt=""></p>
+<h2 id="7-调试与跟踪"><a href="#7-调试与跟踪" class="headerlink" title="7. 调试与跟踪"></a>7. 调试与跟踪</h2><ul>
+<li>基于<strong>CoreSight</strong>架构实现以下两种模式<br><img src="2025-12-22-14-29-07.png" alt=""></li>
+<li>调试访问端口：DAP</li>
+<li>调试接口：DP（一端连接 DAP，一端连接到调试器）</li>
+<li>跟踪接口：CoreSight 架构还可以用于<strong>数据跟踪</strong></li>
+</ul>
+<h2 id="8-Cortex-M3-实用功能"><a href="#8-Cortex-M3-实用功能" class="headerlink" title="8. Cortex-M3 实用功能"></a>8. Cortex-M3 实用功能</h2><h3 id="（1）SysTick-定时器"><a href="#（1）SysTick-定时器" class="headerlink" title="（1）SysTick 定时器"></a>（1）SysTick 定时器</h3><p>SysTick 是集成在内核中的 24 位系统节拍定时器，对实时操作系统（RTOS）至关重要</p>
+<ul>
+<li><strong>基本机制</strong>：它是一个 24 位的倒计数定时器，当计数减到 0 时，会自动从 RELOAD 寄存器中重装定时初值 </li>
+<li><strong>运行状态</strong>：只要不清除 SysTick 控制及状态寄存器中的使能位，定时器就会持续运行 </li>
+<li><strong>核心寄存器</strong>：<ul>
+<li><strong>CTRL (0xE000E010)</strong>：控制和状态寄存器，用于设置时钟源、使能中断及查询计数标志 </li>
+<li><strong>RELOAD (0xE000E014)</strong>：重装载值寄存器，存储定时器溢出后自动加载的初值 </li>
+<li><strong>CURRENT (0xE000E018)</strong>：当前值寄存器，反映当前的计数值 </li>
+<li><strong>CALIB (0xE000E01C)</strong>：校准值寄存器，提供硬件参考时钟信息 </li>
+</ul>
+</li>
+<li><strong>主要用途</strong>：常用于产生操作系统所需的“滴答”中断，或作为基本的定时/计数工具 </li>
+</ul>
+<h3 id="（2）电源管理"><a href="#（2）电源管理" class="headerlink" title="（2）电源管理"></a>（2）电源管理</h3><p>Cortex-M3 在内核级别提供了功耗优化方案，支持两种主要的睡眠模式 </p>
+<ul>
+<li><strong>睡眠模式 (Sleep)</strong>：由内核的 <code>SLEEPING</code> 信号指示 </li>
+<li><strong>深度睡眠模式 (Deep Sleep)</strong>：由内核的 <code>SLEEPDEEP</code> 信号指示，用于更大幅度降低功耗 </li>
+<li><strong>唤醒机制</strong>：在睡眠状态下，系统时钟可以停止，但通常保持 FCLK 运行，以确保处理器能被 SysTick 异常或外部中断唤醒 </li>
+<li><strong>状态判定</strong>：开发者可以通过读取 NVIC（嵌套向量中断控制器）的相关系统控制寄存器来判定当前的睡眠模式及上下文 </li>
+</ul>
+<h3 id="（3）复位序列"><a href="#（3）复位序列" class="headerlink" title="（3）复位序列"></a>（3）复位序列</h3><p>复位是处理器通电或重启后的起始动作，Cortex-M3 有一套固定的操作流程来定栈和定位代码入口 </p>
+<ul>
+<li><strong>读取 MSP</strong>：处理器首先从地址 <code>0x00000000</code> 处读取 32 位整数，作为 <strong>主堆栈指针 (MSP)</strong> 的初始值，从而完成“定栈” </li>
+<li><strong>读取 PC</strong>：随后从地址 <code>0x00000004</code> 处读取 32 位整数，作为 <strong>程序计数器 (PC)</strong> 的初始值，即复位向量，决定代码执行的入口地址 </li>
+<li><strong>堆栈模型</strong>：在 Cortex-M3 中，堆栈是<strong>向下生长</strong>的（即从高地址向低地址方向压栈）</li>
+<li><strong>内存布局示例</strong>：例如复位向量指向地址 <code>0x00000101</code>，则处理器将从该处的启动引导代码开始运行</li>
+</ul>
+<h1 id="第三章-STM32-最小系统及开发环境"><a href="#第三章-STM32-最小系统及开发环境" class="headerlink" title="第三章 STM32 最小系统及开发环境"></a>第三章 STM32 最小系统及开发环境</h1><h2 id="1-系统组成"><a href="#1-系统组成" class="headerlink" title="1. 系统组成"></a>1. 系统组成</h2><ul>
+<li><strong>最小系统</strong>：用最少的元件组成微控制器可以工作的系统。<h3 id="（1）微控制器"><a href="#（1）微控制器" class="headerlink" title="（1）微控制器"></a>（1）微控制器</h3></li>
+<li>核心芯片工作电压通常为 <strong>2.0V～3.6V</strong><br><img src="2025-12-23-14-58-40.png" alt=""></li>
+</ul>
+<h3 id="（2）电源电路"><a href="#（2）电源电路" class="headerlink" title="（2）电源电路"></a>（2）电源电路</h3><p><img src="2025-12-23-14-55-05.png" alt=""></p>
+<ul>
+<li>常用 AMS1117 芯片将 5V 电压降至 3.3V 供 VDD 使用。</li>
+<li>STM32 内部的电压调节器将外部 3.3V 的电压转化为 1.8V 提供给 Cortex-M3、内存以及外设使用。</li>
+<li>C1、C2 是输入电容，防止断电后电压倒置。</li>
+<li>C3、C4 是输出滤波电容，抑制自激振章 &amp; 稳定输出电压。</li>
+</ul>
+<h3 id="（3）时钟电路"><a href="#（3）时钟电路" class="headerlink" title="（3）时钟电路"></a>（3）时钟电路</h3><ul>
+<li>时钟频率越高，单片机运行速度越快，功耗越大。<br><img src="2025-12-23-15-01-33.png" alt=""></li>
+<li><strong>高速外部时钟 (HSE)</strong>：通常外接 8MHz 晶振，通过 PLL 倍频最高可达 72MHz 作为系统主时钟。</li>
+<li><strong>低速外部时钟 (LSE)</strong>：外接 32.768kHz 晶振，主要用于 RTC 精准计时。</li>
+</ul>
+<h3 id="（4）复位电路"><a href="#（4）复位电路" class="headerlink" title="（4）复位电路"></a>（4）复位电路</h3><ul>
+<li><strong>上电自动复位</strong><ul>
+<li>依靠 RC 电路产生的 ~1ms 延迟。</li>
+<li>上电瞬间电容两端电压不能突变，Reset 出现短暂低电平。之后芯片复位，进入充电时间：<br>$t=1.1R\times C$（电阻、电容）</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><strong>手动按键复位</strong><ul>
+<li>按键按下时，Reset 短暂接地，产生低电平</li>
+</ul>
+</li>
+</ul>
+<h3 id="（5）调试和下载电路"><a href="#（5）调试和下载电路" class="headerlink" title="（5）调试和下载电路"></a>（5）调试和下载电路</h3><p><strong>调试接口</strong>：JTAG（5引脚）、SWD（2引脚，更常用）<br><strong>Cortex-M3 的三种启动方式，主要依靠不同电平组合：</strong></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">BOOT0</th>
+<th style="text-align:center">BOOT1</th>
+<th style="text-align:left">启动模式</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>0</strong></td>
+<td style="text-align:center"><strong>X</strong></td>
+<td style="text-align:left">用户闪存 (Flash)</td>
+<td style="text-align:left">最常用的正常运行模式（从 <code>0x08000000</code> 启动）</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>1</strong></td>
+<td style="text-align:center"><strong>0</strong></td>
+<td style="text-align:left">系统存储器</td>
+<td style="text-align:left">用于串口下载程序（ISP）</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>1</strong></td>
+<td style="text-align:center"><strong>1</strong></td>
+<td style="text-align:left">内置 SRAM</td>
+<td style="text-align:left">用于在内存中调试代码</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="2-开发环境-amp-基础配置"><a href="#2-开发环境-amp-基础配置" class="headerlink" title="2. 开发环境 &amp; 基础配置"></a>2. 开发环境 &amp; 基础配置</h2><p><strong>HAL库开发</strong>： STM32CubeMX+Keil 5</p>
+<p><img src="2025-12-23-15-36-48.png" alt=""></p>
+<ul>
+<li>下载工具：<br> J-Link：通用型，支持多种内核及 IDE 。<br> ST-Link：ST 公司专用于 STM8/STM32，支持全速运行和单步调试 。</li>
+</ul>
+<h1 id="第四章-嵌入式C语言"><a href="#第四章-嵌入式C语言" class="headerlink" title="第四章 嵌入式C语言"></a>第四章 嵌入式C语言</h1><p><strong>C语言的优势</strong>：汇编语言操作底层、功能性强<br><strong>外设功能模块化设计</strong>：包含一个源文件（.c文件）和一个头文件（.h文件）</p>
+<p><img src="2025-12-23-16-49-29.png" alt=""></p>
+<h2 id="1-数据类型-amp-运算符"><a href="#1-数据类型-amp-运算符" class="headerlink" title="1. 数据类型 &amp; 运算符"></a>1. 数据类型 &amp; 运算符</h2><h3 id="（1）数据类型"><a href="#（1）数据类型" class="headerlink" title="（1）数据类型"></a>（1）数据类型</h3><ul>
+<li>STM32 是32位处理器，与一般64位电脑不同。</li>
+</ul>
+<p><img src="2025-12-23-17-02-22.png" alt=""></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">数据类型</th>
+<th style="text-align:center">字节数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">char</td>
+<td style="text-align:center"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">short</td>
+<td style="text-align:center"><strong>2</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">int/long/float/<strong>指针</strong></td>
+<td style="text-align:center"><strong>4</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">double</td>
+<td style="text-align:center"><strong>8</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>1字节 = 8 bit</li>
+</ul>
+<p><img src="2025-12-23-17-08-26.png" alt=""></p>
+<h3 id="（2）运算符"><a href="#（2）运算符" class="headerlink" title="（2）运算符"></a>（2）运算符</h3><p><img src="2025-12-23-17-42-19.png" alt=""></p>
+<ul>
+<li>三大战术 (背下来)：<ol>
+<li>置1 (Set)：用 |。 例如 Reg |= (1 &lt;&lt; 3); (第3位置1)</li>
+<li>清0 (Clear)：用 &amp; ~。 例如 Reg &amp;= ~(1 &lt;&lt; 3); (第3位清0)</li>
+<li>翻转 (Toggle)：用 ^。 例如 Reg ^= (1 &lt;&lt; 3); (第3位翻转)</li>
+</ol>
+</li>
+</ul>
+<p><strong>注意</strong>：“异或”是<strong>不同取1，相同取0</strong>。</p>
+<p><img src="2025-12-23-17-45-27.png" alt=""></p>
+<h2 id="2-四大核心修饰符"><a href="#2-四大核心修饰符" class="headerlink" title="2. 四大核心修饰符"></a>2. 四大核心修饰符</h2><h3 id="（1）const（只读）"><a href="#（1）const（只读）" class="headerlink" title="（1）const（只读）"></a>（1）const（只读）</h3><ul>
+<li><strong>作用</strong>：定义<strong>只读</strong>变量，保证其值在编译时不能改变。</li>
+<li><strong>目的</strong>：<strong>防止变量的值被误改</strong>。</li>
+<li><strong>要求</strong>：const关键词修饰的变量在声明时<strong>必须初始化</strong>。</li>
+<li><strong>属性</strong>：变量是<strong>全局</strong>定义的。</li>
+<li><strong>格式</strong>：` const uint32_t(此处为初始化) a = 0xffff1111;</li>
+</ul>
+<h3 id="（2）static（静态）"><a href="#（2）static（静态）" class="headerlink" title="（2）static（静态）"></a>（2）static（静态）</h3><p><strong>修饰局部变量</strong>：修饰后的变量称为<strong>静态变量</strong>，存储在静态区，函数结束后不销毁，<strong>下次调用保留上次的值</strong>。<br><strong>修饰全局变量/函数</strong>：限制作用域，只在当前.c文件中可见（私有化），其它源文件不能引用，避免了<strong>相同变量名而引发的错误</strong>。</p>
+<h3 id="（3）volatile（易变）"><a href="#（3）volatile（易变）" class="headerlink" title="（3）volatile（易变）"></a>（3）volatile（易变）</h3><ul>
+<li><strong>作用</strong>：每次<strong>读取</strong>或者<strong>修改</strong>变量值的时候，必须<strong>从内存中重新读取</strong>，而不是使用保存在寄存器里的备份。</li>
+</ul>
+<p><img src="2025-12-23-17-22-25.png" alt=""></p>
+<p><img src="2025-12-23-17-25-16.png" alt=""></p>
+<h3 id="（4）extern（外部）"><a href="#（4）extern（外部）" class="headerlink" title="（4）extern（外部）"></a>（4）extern（外部）</h3><p><strong>注意</strong>：extern是一个重新声明，而不是定义。</p>
+<ul>
+<li><strong>含义</strong>：声明变量/函数是在别的文件定义的。例如：main.c要调用led.c里的变量，必须在main.c里用extern声明。</li>
+</ul>
+<h2 id="3-struct结构体"><a href="#3-struct结构体" class="headerlink" title="3. struct结构体"></a>3. struct结构体</h2><p><img src="2025-12-24-19-41-44.png" alt=""></p>
+<h1 id="第五章-GPIO"><a href="#第五章-GPIO" class="headerlink" title="第五章 GPIO"></a>第五章 GPIO</h1><ul>
+<li>GPIO ：General-Purpose Input/Output，即<strong>通用输入/输出</strong>模块。</li>
+<li>实现与外部设备的<strong>数字信号交互</strong>，可以通过软件配置输入/输出模式。</li>
+</ul>
+<h2 id="1-GPIO-内部结构"><a href="#1-GPIO-内部结构" class="headerlink" title="1. GPIO 内部结构"></a>1. GPIO 内部结构</h2><h2 id="2-四种输入模式"><a href="#2-四种输入模式" class="headerlink" title="2. 四种输入模式"></a>2. 四种输入模式</h2><h3 id="（1）上拉输入（Pull-up）"><a href="#（1）上拉输入（Pull-up）" class="headerlink" title="（1）上拉输入（Pull-up）"></a>（1）上拉输入（Pull-up）</h3><ul>
+<li>内部接一个上拉电阻到VDD。外部悬空（I/O引脚无信号）时，默认输入<strong>高电平</strong>。</li>
+</ul>
+<h3 id="（2）下拉输入（Pull-down）"><a href="#（2）下拉输入（Pull-down）" class="headerlink" title="（2）下拉输入（Pull-down）"></a>（2）下拉输入（Pull-down）</h3><ul>
+<li>接一个下拉电阻。外部悬空时，默认输入<strong>低电平</strong>。</li>
+<li>应用：接按键（按键另一端接地）</li>
+</ul>
+<h3 id="（3）浮空输入（Floating）"><a href="#（3）浮空输入（Floating）" class="headerlink" title="（3）浮空输入（Floating）"></a>（3）浮空输入（Floating）</h3><ul>
+<li>浮空输入模式下引脚内部既不接上拉电阻也不连接下拉电阻（但是不关闭施密特触发器），<strong>直接经施密特触发器输入I/O引脚的信号</strong>。</li>
+<li>即：<strong>电平完全由外部电路决定</strong>，如果外部悬空，读到电平会乱跳。</li>
+<li>应用：通信协议的接收端（如UART_RX），或者按键检测（外部有电阻时）</li>
+</ul>
+<h3 id="（4）模拟输入（Analog）"><a href="#（4）模拟输入（Analog）" class="headerlink" title="（4）模拟输入（Analog）"></a>（4）模拟输入（Analog）</h3><ul>
+<li>模拟输入模式下，施密特触发器关闭，既不接上拉电阻也不连接下拉电阻，引脚信号连接到芯片内部的片上外设，其典型应用是<strong>A/D模拟输入</strong>，对外部信号进行采集。</li>
+<li>应用：ADC采集电压（生物传感器那道大题就用这个！）</li>
+</ul>
+<h2 id="3-四种输出模式"><a href="#3-四种输出模式" class="headerlink" title="3. 四种输出模式"></a>3. 四种输出模式</h2><h3 id="（1）推挽输出（PP）"><a href="#（1）推挽输出（PP）" class="headerlink" title="（1）推挽输出（PP）"></a>（1）推挽输出（PP）</h3><ul>
+<li>两个MOS管按<strong>互补对称</strong>的方式连接。</li>
+<li><strong>目的</strong>：增大输出电流，输出能力强；提高电路负载能力和开关速度</li>
+<li>高电平3.3V，低电平0V。</li>
+<li>应用：点亮LED，驱动蜂鸣器</li>
+</ul>
+<h3 id="（2）开漏输出（OD）"><a href="#（2）开漏输出（OD）" class="headerlink" title="（2）开漏输出（OD）"></a>（2）开漏输出（OD）</h3><ul>
+<li>只有下拉MOS管，没有上拉MOS管。</li>
+<li>不与电源连接，处于悬空状态，只能输出低电平。</li>
+<li><strong>目的</strong>：减少芯片内部驱动。</li>
+<li><strong>特点</strong>：想输出高电平，只能外接上拉电阻。</li>
+<li><strong>重点</strong>：方便实现“逻辑与”功能。<code>I2C总线</code>（必考关联点）</li>
+<li>应用：I2C总线 (必考关联点)</li>
+</ul>
+<h3 id="（3）复用推挽输出（AF-PP）"><a href="#（3）复用推挽输出（AF-PP）" class="headerlink" title="（3）复用推挽输出（AF_PP）"></a>（3）复用推挽输出（AF_PP）</h3><ul>
+<li>GPIO引脚除了作为通用IO引脚外，还可作为片上外设的I/O引脚，即<strong>一个引脚可以作为多个外设引脚使用</strong>，称为复用I/O端口 AFIO。</li>
+<li>一个引脚某一时刻<strong>只能使用复用功能中的一个</strong>。</li>
+</ul>
+<h3 id="（4）复用开漏输出（AF-OD）"><a href="#（4）复用开漏输出（AF-OD）" class="headerlink" title="（4）复用开漏输出（AF_OD）"></a>（4）复用开漏输出（AF_OD）</h3><p>同上。</p>
+<h1 id="第六章-中断和异常"><a href="#第六章-中断和异常" class="headerlink" title="第六章 中断和异常"></a>第六章 中断和异常</h1><blockquote>
+<p>本质：改变处理器执行指令的顺序。</p>
+</blockquote>
+<ul>
+<li>区别：<ul>
+<li>中断：响应外部事件</li>
+<li>异常：内部程序错误</li>
+</ul>
+</li>
+</ul>
+<p><code>目的</code>：</p>
+<ol>
+<li>提高cpu效率</li>
+<li>实时处理</li>
+<li>异常处理</li>
+<li>数据传输</li>
+<li>不占用cpu资源</li>
+</ol>
+<h2 id="1-中断处理流程"><a href="#1-中断处理流程" class="headerlink" title="1. 中断处理流程"></a>1. 中断处理流程</h2><p><img src="2025-12-26-14-01-22.png" alt=""><br><img src="2025-12-26-14-01-48.png" alt=""></p>
+<h2 id="Cortex-M3-内嵌中断控制器——NVIC"><a href="#Cortex-M3-内嵌中断控制器——NVIC" class="headerlink" title="Cortex-M3 内嵌中断控制器——NVIC"></a>Cortex-M3 内嵌中断控制器——NVIC</h2><p><img src="2025-12-26-14-04-06.png" alt=""></p>
+<h3 id="（1）中断优先级"><a href="#（1）中断优先级" class="headerlink" title="（1）中断优先级"></a>（1）中断优先级</h3><p><img src="2025-12-26-14-11-52.png" alt=""></p>
+<ul>
+<li>抢占优先级 &gt; 响应优先级</li>
+<li>数值越小，优先级别越高</li>
+<li>Reset，NMI（不可屏蔽中断 ） ， Hard Fault 的优先级为负，且不可修改，高于普通的中断优先级</li>
+</ul>
+<p><strong>中断优先级判断</strong>：</p>
+<ol>
+<li>先判断抢占优先级的大小</li>
+<li>如果抢占优先级相同，则比较响应优先级的大小</li>
+<li>若抢占优先级和响应优先级均相同，则根据<strong>中断向量表</strong>中的顺序来决定<br><img src="2025-12-26-14-16-21.png" alt=""></li>
+</ol>
+<h3 id="（2）外部中断EXTI"><a href="#（2）外部中断EXTI" class="headerlink" title="（2）外部中断EXTI"></a>（2）外部中断EXTI</h3><p><img src="2025-12-26-14-22-12.png" alt=""><br><img src="2025-12-26-14-22-23.png" alt=""></p>
+<ul>
+<li>映射关系：STM32的引脚很多，但中断线只有 16+N 条。<br>规则：所有 Pin x 共用一条中断线 EXTI x<ul>
+<li>PA0, PB0, PC0 … -&gt; EXTI0</li>
+<li>PA5, PB5, PC5 … -&gt; EXTI5</li>
+</ul>
+</li>
+</ul>
+<p><em>考点：不能同时开启 PA0 和 PB0 的中断！因为它们都要抢 EXTI0 这条线。</em></p>
+<ul>
+<li>触发方式<ul>
+<li>上升沿触发：电平 0 -&gt; 1 瞬间触发（如按键松开）。</li>
+<li>下降沿触发：电平 1 -&gt; 0 瞬间触发（如按键按下）。</li>
+<li>双边沿触发：变高变低都触发。</li>
+</ul>
+</li>
+</ul>
+<h1 id="第七章-定时器"><a href="#第七章-定时器" class="headerlink" title="第七章 定时器"></a>第七章 定时器</h1><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">定时器主要功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>定时</strong>：时钟脉冲计数</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>计数</strong>：固定周期的脉冲信号</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>输入捕获</strong>：对脉冲信号宽度测量</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>输出比较</strong>：控制输出波形</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="第一部分：STM32定时器模块"><a href="#第一部分：STM32定时器模块" class="headerlink" title="第一部分：STM32定时器模块"></a>第一部分：STM32定时器模块</h2><p><img src="2025-12-28-11-32-59.png" alt=""></p>
+<p><em>注意分辨不同定时器的<strong>功能</strong>、引脚</em></p>
+<ul>
+<li><p><strong>基本定时器 (TIM6, TIM7)</strong></p>
+<ul>
+<li>能力：只能用来定时（数数），没有 GPIO 引脚，不能 产生 PWM。</li>
+<li><em>就像个纯粹的闹钟。</em></li>
+</ul>
+</li>
+<li><p><strong>通用定时器 (TIM2 ~ TIM5)</strong></p>
+<ul>
+<li>能力：定时 + 输入捕获 (测脉宽) + 输出比较 (PWM)。</li>
+<li><em>这是最常用的主力。</em></li>
+</ul>
+</li>
+<li><p><strong>高级定时器 (TIM1, TIM8)</strong></p>
+<ul>
+<li>能力：通用功能 + 死区控制 (Dead-time) + 互补输出。</li>
+<li><em>这是给电机控制专用的。</em></li>
+</ul>
+</li>
+</ul>
+<h3 id="1-定时时间计算"><a href="#1-定时时间计算" class="headerlink" title="1. 定时时间计算"></a>1. 定时时间计算</h3><script type="math/tex; mode=display">
+时钟源+预分频器PSC+计数器CNT+自动装载寄存器ARR</script><p><code>核心公式</code>：</p>
+<script type="math/tex; mode=display">
+定时时间 =\frac{(ARR+1)\times(PSC+1)}{时钟频率}</script><ul>
+<li><em>注意：PSC 和 ARR 的输入范围为（1，65536），因为最高16位。</em></li>
+</ul>
+<p><strong>例题</strong>：<br><img src="2025-12-28-11-46-51.png" alt=""></p>
+<h3 id="2-PWM-相关分析题"><a href="#2-PWM-相关分析题" class="headerlink" title="2. PWM 相关分析题"></a>2. PWM 相关分析题</h3><p><img src="2025-12-28-11-55-12.png" alt=""><br><img src="2025-12-28-11-57-21.png" alt=""></p>
+<script type="math/tex; mode=display">
+占空比 =\frac{CCR}{ARR+1}\times 100\%</script><p><img src="2025-12-28-11-59-12.png" alt=""><br><img src="2025-12-28-11-59-26.png" alt=""></p>
+<ul>
+<li>只要 <strong>CNT&gt;CCR</strong> ，就输出高电平。</li>
+<li>ARR 是阈值，达到后<strong>重新计数</strong>。</li>
+<li><strong>ARR 决定PWM的周期，CCR 决定占空比</strong>。</li>
+</ul>
+<h2 id="第二部分：SysTick定时器"><a href="#第二部分：SysTick定时器" class="headerlink" title="第二部分：SysTick定时器"></a>第二部分：SysTick定时器</h2><p><strong>1. 基础属性 (填空/判断题核心)</strong></p>
+<ul>
+<li><strong>归属</strong>：属于 <strong>Cortex-M3 内核 (Core)</strong>，<strong>不属于</strong> 片上外设 (Peripheral)。</li>
+<li><strong>位数</strong>：<strong>24位</strong> (注意：通用定时器通常是 16 位)。</li>
+<li><strong>计数方式</strong>：<strong>向下计数</strong> (Down-counter)，从设定值 (LOAD) 减到 0。</li>
+</ul>
+<p><strong>2. 核心用途 (考干什么)</strong></p>
+<ul>
+<li><strong>操作系统心跳</strong>：为 RTOS (如 FreeRTOS, uCOS) 提供任务调度的基准时钟。</li>
+<li><strong>精准延时</strong>：<strong>HAL_Delay()</strong> 函数就是基于 SysTick 实现的。<ul>
+<li><em>注：如果不开启 SysTick 中断，HAL_Delay 函数将无法工作。</em></li>
+</ul>
+</li>
+</ul>
+<p><strong>3. 关键寄存器 (眼熟即可)</strong></p>
+<ul>
+<li><strong>CTRL (Control)</strong>：控制寄存器，用于使能定时器、开启中断。</li>
+<li><strong>LOAD (Reload)</strong>：重装载数值寄存器，决定了定时器的溢出周期。</li>
+<li><strong>VAL (Value)</strong>：当前数值寄存器，实时显示当前的计数值。</li>
+</ul>
+<p><strong>4. 考点辨析：SysTick vs 通用定时器</strong></p>
+<ul>
+<li><strong>位置区别</strong>：SysTick 在内核；通用定时器在芯片外设区。</li>
+<li><strong>位数区别</strong>：SysTick 是 24 位；通用定时器通常是 16 位。</li>
+<li><strong>方向区别</strong>：SysTick 只能向下计数；通用定时器可以向上/向下/中心对齐。</li>
+<li><strong>功能区别</strong>：SysTick 专注延时/心跳；通用定时器专注 PWM、输入捕获、脉冲计数。</li>
+</ul>
+<p><strong>看门狗</strong>：确保系统可靠稳定运行，可使得应用程序脱离正常执行流程时复位。<br><img src="2025-12-28-12-21-39.png" alt=""></p>
+<h1 id="第八章-USART通信协议技术"><a href="#第八章-USART通信协议技术" class="headerlink" title="第八章 USART通信协议技术"></a>第八章 USART通信协议技术</h1><h2 id="第一部分-基础概念"><a href="#第一部分-基础概念" class="headerlink" title="第一部分 基础概念"></a>第一部分 基础概念</h2><p><strong>按传输格式划分</strong>：</p>
+<ul>
+<li><strong>并行</strong>：多条独立数据线同时传输。</li>
+<li><strong>串行</strong>：单条/两条数据线逐位传输。（<em>最为流行，eg.U盘、USB接口设备、<code>USART</code></em>）</li>
+</ul>
+<p><strong>按同步方式划分</strong>：</p>
+<ul>
+<li><strong>异步</strong>：发送方&amp;接收方 无统一时钟线。</li>
+<li><strong>同步</strong>：发送方&amp;接收方 统一时钟线。</li>
+</ul>
+<p><strong>按传输方式划分</strong>：</p>
+<ul>
+<li><strong>单工通信</strong>：数据传输时单向的。（<em>广播、电视、打印机、BB机</em>）</li>
+<li><strong>半双工通信</strong>：可以双向，但不能同时。（<em>对讲机</em>）</li>
+<li><strong>全双工通信</strong>：可以同时双向传输。（<em>电话、以太网、<code>USART</code></em>）</li>
+</ul>
+<h2 id="第二部分：波特率"><a href="#第二部分：波特率" class="headerlink" title="第二部分：波特率"></a>第二部分：波特率</h2><p><strong>波特率</strong>：每秒传输的二进制位数（bit/s），衡量<strong>传输速度快慢</strong>。</p>
+<script type="math/tex; mode=display">
+波特率 =字符速率（每秒传输字符数）\times 每个字符包含位数 =\frac{f_{PCLK}}{16\times 分频系数}</script><ul>
+<li><em>其中 $f_{PCLK}$为外设<strong>时钟频率</strong></em>。</li>
+</ul>
+<p><strong>例题</strong>：<br><img src="2025-12-28-14-13-16.png" alt=""></p>
+<p><strong>常用波特率</strong>：</p>
+<ul>
+<li>9600</li>
+<li>115200（<em>调试用、速度快</em>）<br><em>注意：异步通信双方波特率要一致</em></li>
+</ul>
+<h2 id="第三部分：异步串行通信协议（波形分析）"><a href="#第三部分：异步串行通信协议（波形分析）" class="headerlink" title="第三部分：异步串行通信协议（波形分析）"></a>第三部分：异步串行通信协议（波形分析）</h2><p><img src="2025-12-28-14-31-00.png" alt=""></p>
+<ul>
+<li><code>注意：数据位要从右向左读</code>  </li>
+</ul>
+<p><img src="2025-12-28-14-33-40.png" alt=""></p>
+<blockquote>
+<p>UART：全双工、异步、串行。<br><img src="2025-12-28-14-35-57.png" alt=""></p>
+</blockquote>
+<h2 id="第四部分：USART内部结构"><a href="#第四部分：USART内部结构" class="headerlink" title="第四部分：USART内部结构"></a>第四部分：USART内部结构</h2><ol>
+<li><strong>波特率发生器</strong>：提供同步时钟信号。<br>$波特率时钟频率 =波特率\times 采样倍数$</li>
+<li><strong>发送器</strong>：将并行数据转化为串行数据，并按照（起始位、数据位、校验位、停止位）发送到<strong>TX引脚</strong>。</li>
+<li><strong>接收器</strong>：从<strong>RX引脚</strong>接收串行数据，转化为并行数据。</li>
+</ol>
+<p><img src="2025-12-28-14-46-41.png" alt=""></p>
+<ul>
+<li><strong>USART1～3</strong>:全支持</li>
+<li><strong>USART4～5</strong>:除去<em>同步模式、硬件流控制、智能卡</em></li>
+</ul>
+<p><img src="2025-12-28-14-50-23.png" alt=""></p>
+<h1 id="第九章-DMA控制器"><a href="#第九章-DMA控制器" class="headerlink" title="第九章 DMA控制器"></a>第九章 DMA控制器</h1><h2 id="第一部分：基础概念"><a href="#第一部分：基础概念" class="headerlink" title="第一部分：基础概念"></a>第一部分：基础概念</h2><p><strong>DMA（Direct Memory Access）</strong>：直接内存访问。</p>
+<ul>
+<li><strong>作用</strong>：允许外设设备直接与储存器进行数据交换，<strong>无需cpu介入</strong>。</li>
+<li><strong>优势</strong>：<strong>解放cpu、提高传输效率、降低功耗</strong>。</li>
+</ul>
+<p><img src="2025-12-29-12-42-37.png" alt=""></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">DMA适用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>储存设备I/O</strong>：硬盘与内存间的大量数据交换</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>高速通信通道</strong>：网络接口、光纤通信</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>数据采集系统</strong></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>图像处理</strong></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>多处理机系统</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="第二部分：STM32多DMA架构"><a href="#第二部分：STM32多DMA架构" class="headerlink" title="第二部分：STM32多DMA架构"></a>第二部分：STM32多DMA架构</h2><p><img src="2025-12-29-13-22-16.png" alt=""></p>
+<p><img src="2025-12-29-13-22-38.png" alt=""></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">关键配置参数</th>
+<th style="text-align:left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>传输方向</strong></td>
+<td style="text-align:left"><strong>外设/内存</strong>之间相互传输（4种情况的排列组合）</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>数据宽度</code></td>
+<td style="text-align:left">8/16/32 （<strong>如果源和目标位数不匹配，DMA会自动帮你补位</strong>）</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>地址递增</strong></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>传输模式</strong></td>
+<td style="text-align:left">单次模式、循环模式</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>中断请求</strong></td>
+<td style="text-align:left">传输完成、半传输、传输错误</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>传输模式</strong>：</p>
+<ul>
+<li>单次模式：DMA传输结束后不再产生新的DMA操作。</li>
+<li>循环模式：每轮传输结束时，要传输的数据数量将自动用设置的初始值进行加载，并继续响应DMA请求。<em>（ADC扫描模式）</em></li>
+</ul>
+<h2 id="第三部分：通道映射"><a href="#第三部分：通道映射" class="headerlink" title="第三部分：通道映射"></a>第三部分：通道映射</h2><h3 id="DMA优先级"><a href="#DMA优先级" class="headerlink" title="DMA优先级"></a>DMA优先级</h3><p><img src="2025-12-29-13-41-55.png" alt=""></p>
+<h3 id="DMA请求通道"><a href="#DMA请求通道" class="headerlink" title="DMA请求通道"></a>DMA请求通道</h3><p><img src="2025-12-29-13-43-34.png" alt=""><br><img src="2025-12-29-13-43-45.png" alt=""></p>
+<h3 id="DMA中断请求"><a href="#DMA中断请求" class="headerlink" title="DMA中断请求"></a>DMA中断请求</h3><p><img src="2025-12-29-13-44-50.png" alt=""></p>
+<h1 id="第十章-同步串行通信协议"><a href="#第十章-同步串行通信协议" class="headerlink" title="第十章 同步串行通信协议"></a>第十章 同步串行通信协议</h1><h2 id="第一部分：SPI通信协议"><a href="#第一部分：SPI通信协议" class="headerlink" title="第一部分：SPI通信协议"></a>第一部分：SPI通信协议</h2><h3 id="1-基础概念"><a href="#1-基础概念" class="headerlink" title="1. 基础概念"></a>1. 基础概念</h3><ul>
+<li><strong>SPI（Serial Peripheral interface）</strong>：串行外围设备接口。</li>
+<li><p><strong>特点</strong>：</p>
+<ul>
+<li><code>高速</code>、全双工、同步</li>
+<li>在芯片管脚上只占用四根线</li>
+<li><em>主要应用：EEPROM、FLASH、实时时钟、AD转换器、数字信号处理器</em></li>
+</ul>
+</li>
+<li><p><strong>主从模式</strong>：</p>
+<ul>
+<li>SPI通讯系统包含一个（只能一个）主设备、多个或一个从设备。</li>
+<li>主设备<strong>提供时钟</strong>，从设备<strong>接收时钟</strong>。</li>
+<li>多个从设备<strong>通过各自片选信号管理</strong>。</li>
+<li>读写操作都是由主设备发起。</li>
+<li>通信速度一般能达到10Mbps。</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-四根信号线"><a href="#2-四根信号线" class="headerlink" title="2. 四根信号线"></a>2. 四根信号线</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">引脚名称</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">MOSI（master output slave input）</td>
+<td style="text-align:left">主设备输出/从设备输入。即：在主模式下发送数据，从模式下接收数据</td>
+</tr>
+<tr>
+<td style="text-align:left">MISO（master input slave output）</td>
+<td style="text-align:left">主设备输入/从设备输出。即：在主模式下接收数据，从模式下发送数据</td>
+</tr>
+<tr>
+<td style="text-align:left">SCLK</td>
+<td style="text-align:left">主设备产生的串行时钟信号。</td>
+</tr>
+<tr>
+<td style="text-align:left">CS/SS</td>
+<td style="text-align:left">从设备的<strong>片选信号</strong>，低电平有效。让主设备可以单独与指定从设备通讯$\rightarrow$避免冲突。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><img src="2025-12-29-15-28-07.png" alt=""></p>
+<p><img src="2025-12-29-15-30-32.png" alt=""></p>
+<h3 id="3-四种配置模式"><a href="#3-四种配置模式" class="headerlink" title="3. 四种配置模式"></a>3. 四种配置模式</h3><ul>
+<li>通信双方必须在同一模式下才可以通信。</li>
+<li>通过<code>CPOL（时钟极性）</code>和<code>CPHA（时钟相位）</code>来配置主设备的通信模式。</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">SPI模式</th>
+<th style="text-align:left">CPOL</th>
+<th style="text-align:left">CPHA</th>
+<th style="text-align:left">空闲时SCK时钟</th>
+<th style="text-align:left">采样时刻</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">0（最常用）</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">低电平</td>
+<td style="text-align:left">奇数边沿</td>
+</tr>
+<tr>
+<td style="text-align:left">1</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">低电平</td>
+<td style="text-align:left">偶数边沿</td>
+</tr>
+<tr>
+<td style="text-align:left">2</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">高电平</td>
+<td style="text-align:left">奇数边沿</td>
+</tr>
+<tr>
+<td style="text-align:left">3</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">高电平</td>
+<td style="text-align:left">偶数边沿</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li><strong>CPOL（clock polarity）</strong>：=0:SLK低电平/=1:SLK高电平</li>
+<li><strong>CPHA（clock phase）</strong>：=0:奇数沿采样/=1:偶数沿采样</li>
+</ul>
+<p><img src="2025-12-29-15-46-11.png" alt=""></p>
+<ul>
+<li>SCK刚开始是低电平$\rightarrow$CPOL=0</li>
+<li>偶数沿采样（注意不要看图片里的数标）$\rightarrow$CPAL=1</li>
+<li>得到$\longrightarrow$模式=1</li>
+</ul>
+<p><img src="2025-12-29-16-13-53.png" alt=""></p>
+<h2 id="第二部分：I2C通信协议"><a href="#第二部分：I2C通信协议" class="headerlink" title="第二部分：I2C通信协议"></a>第二部分：I2C通信协议</h2><h3 id="1-基础概念-1"><a href="#1-基础概念-1" class="headerlink" title="1. 基础概念"></a>1. 基础概念</h3><ul>
+<li><p><strong>特点</strong>：</p>
+<ul>
+<li><code>低速、近距离</code>、半双工、同步。</li>
+<li>结构简单、降低系统成本、提高了可靠性。</li>
+<li>总线具有<strong>极低的电流消耗，抗噪声能力强</strong>。</li>
+</ul>
+</li>
+<li><p><strong>主从模式</strong>：</p>
+<ul>
+<li><code>多主机总线</code>：每个器件都可以作为主机/从机，<strong>但同一时刻只能有一个主机</strong>。</li>
+<li>所有设备都接在一根总线上，所以只要有一个拉低，总线就是低电平。</li>
+<li><strong>开漏输出</strong>：必须外接<strong>上拉电阻</strong>。</li>
+<li>每个连接到I2C总线的器件都有<strong>唯一地址（7bit）</strong>。</li>
+<li>总线上增加和删除器件不影响其它器件工作。</li>
+<li>从机只能被动呼叫。</li>
+<li>传输速率：100Kbps、400Kbps、3.4Mbps。</li>
+</ul>
+</li>
+</ul>
+<p><img src="2025-12-29-16-24-00.png" alt=""></p>
+<h3 id="2-两根信号线"><a href="#2-两根信号线" class="headerlink" title="2. 两根信号线"></a>2. 两根信号线</h3><ul>
+<li><strong>SDA（serial data）</strong>：收发数据。</li>
+<li><strong>SCL（serial clock）</strong>：时钟信号同步。</li>
+</ul>
+<h3 id="3-通信过程"><a href="#3-通信过程" class="headerlink" title="3. 通信过程"></a>3. 通信过程</h3><p><img src="2025-12-29-16-33-34.png" alt=""></p>
+<p>先明确以下几点：</p>
+<ol>
+<li>主机发送<strong>起始信号</strong>后必须先发送一个字节的数据（<strong>高7位为从机地址</strong>，最后一位表示传输方向）。<ul>
+<li>0 ：主机$\rightarrow$从机</li>
+<li>1 ：从机$\rightarrow$主机</li>
+</ul>
+</li>
+<li>从机先比较地址是不是跟自己相同，若相同，再判断自己是发送器/接收器。</li>
+<li>发送完一个字节数据后，接收器会发送1bit的数据来应答发送器。</li>
+<li>所以<strong>I2C每次发送的数据必然是8bit</strong>。</li>
+<li>空闲时，<strong>SCL和SDA都是高电平</strong>。</li>
+</ol>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+<th style="text-align:left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>起始信号</strong></td>
+<td style="text-align:left">SCL=1时，SDA由高变低</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>停止信号</strong></td>
+<td style="text-align:left">SCL=1时，SDA由低变高</td>
+</tr>
+<tr>
+<td style="text-align:left">应答信号</td>
+<td style="text-align:left">接收器在第9位拉低SDA，表示收到（若SDA没被拉低则表示没收到）</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 id="第十一章-数模转换"><a href="#第十一章-数模转换" class="headerlink" title="第十一章 数模转换"></a>第十一章 数模转换</h1><h2 id="第一部分：基础概念-1"><a href="#第一部分：基础概念-1" class="headerlink" title="第一部分：基础概念"></a>第一部分：基础概念</h2><ul>
+<li><strong>ADC</strong>：数模转换器。</li>
+<li><strong>作用</strong>：将<strong>模拟信号</strong>转化为<strong>数字信号</strong>。</li>
+<li><p><strong>主要过程</strong>：<code>采样、保持、量化、编码</code></p>
+<ol>
+<li>采样：连续的模拟信号$\rightarrow$离散数据点（切片作用）。</li>
+<li>保持：将采样值保持在一个稳定状态。</li>
+<li>量化：连续的电压值<strong>映射</strong>到有限的数字。</li>
+<li>编码：转化为二进制。</li>
+</ol>
+</li>
+<li><p><code>Nyquist采样定理</code>：采样频率 &gt; $2\times$最高频率</p>
+</li>
+<li><p><strong>主要参数</strong>：</p>
+<ol>
+<li>参考电压：影响转换精度、对量化的映射也有影响。</li>
+<li>分辨率：对输入模拟量微小变化的分辨能力，级数用2的次方（STM32是$2^{12}$</li>
+<li>量化误差：分辨率不够精细就会引起量化误差。<img src="2025-12-29-19-32-03.png" alt=""></li>
+<li>转换时间 =采样保持时间+量化编码时间</li>
+</ol>
+</li>
+</ul>
+<h2 id="第二部分：STM32的ADC架构"><a href="#第二部分：STM32的ADC架构" class="headerlink" title="第二部分：STM32的ADC架构"></a>第二部分：STM32的ADC架构</h2><ul>
+<li><strong>常用4种ADC</strong>：<br><img src="2025-12-29-19-34-16.png" alt=""></li>
+<li>逐位比较：内部 DAC 生成参考电压，与输入信号比较，确定每一位二进制值（从最高位到最低位）</li>
+<li>$\Delta-\Sigma$:过采样、噪声整形</li>
+<li>流水线：多级量化，每级完成低精度量化</li>
+<li>FLASH：基于比较器和多个参考电压模拟信号转换</li>
+</ul>
+<p><img src="2025-12-29-20-09-10.png" alt=""></p>
+<h3 id="1-STM32的ADC"><a href="#1-STM32的ADC" class="headerlink" title="1. STM32的ADC"></a>1. STM32的ADC</h3><p><img src="2025-12-29-20-10-23.png" alt=""><br><img src="2025-12-29-20-11-15.png" alt=""></p>
+<p>重点：规则组 &amp; 注入组<br><img src="2025-12-29-20-14-24.png" alt=""><br><img src="2025-12-29-20-14-58.png" alt=""></p>
+<h3 id="2-ADC转换时间"><a href="#2-ADC转换时间" class="headerlink" title="2. ADC转换时间"></a>2. ADC转换时间</h3><p><img src="2025-12-29-20-16-49.png" alt=""></p>
+]]></content>
+      <categories>
+        <category>华理</category>
+        <category>大三上</category>
+      </categories>
+  </entry>
+  <entry>
     <title>智能无人系统</title>
     <url>/2025/12/24/AutoDriving/</url>
     <content><![CDATA[<h1 id="第一章-认识无人驾驶系统"><a href="#第一章-认识无人驾驶系统" class="headerlink" title="第一章 认识无人驾驶系统"></a>第一章 认识无人驾驶系统</h1><h2 id="1-无人驾驶分级标准"><a href="#1-无人驾驶分级标准" class="headerlink" title="1. 无人驾驶分级标准"></a>1. 无人驾驶分级标准</h2><p><img src="2025-12-24-05-17-53.png" alt=""><br><img src="2025-12-24-05-18-20.png" alt=""></p>
@@ -993,892 +1879,6 @@ f(n) =g(n) +h(n)</script><ul>
 </li>
 </ul>
 <h3 id="碰撞避免"><a href="#碰撞避免" class="headerlink" title="碰撞避免"></a>碰撞避免</h3><p><img src="2025-12-30-22-02-24.png" alt=""></p>
-]]></content>
-      <categories>
-        <category>华理</category>
-        <category>大三上</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>嵌入式系统原理</title>
-    <url>/2025/12/21/STM32/</url>
-    <content><![CDATA[<h1 id="第一章-导论"><a href="#第一章-导论" class="headerlink" title="第一章 导论"></a>第一章 导论</h1><blockquote>
-<p>嵌入式系统是一切非PC和大型计算机系统。</p>
-</blockquote>
-<h1 id="第二章-Cortex-M3-微处理器"><a href="#第二章-Cortex-M3-微处理器" class="headerlink" title="第二章 Cortex-M3 微处理器"></a>第二章 Cortex-M3 微处理器</h1><h2 id="1-内核结构"><a href="#1-内核结构" class="headerlink" title="1. 内核结构"></a>1. 内核结构</h2><ul>
-<li>核心架构：Cortex-M3 是基于 ARMv7-M 架构的 32 位处理器内核，采用高性能的<strong>哈佛结构</strong>，寻址能力为4GB。</li>
-</ul>
-<p><img src="2025-12-21-21-55-13.png" alt=""></p>
-<ul>
-<li>设计模式：ARM 公司设计内核，芯片制造商（如 ATMEL、NXP、TI）在此基础上添加不同的外设、存储器和 I/O，形成各类微控制器 (MCU)。</li>
-</ul>
-<h2 id="2-流水线技术"><a href="#2-流水线技术" class="headerlink" title="2. 流水线技术"></a>2. 流水线技术</h2><ul>
-<li>定义：将指令分解为多步并重叠执行，以实现并行处理。</li>
-</ul>
-<p><img src="2025-12-21-22-00-52.png" alt=""></p>
-<ul>
-<li>流水线技术三大指标：吞吐率、加速比、效率</li>
-</ul>
-<h3 id="（1）吞吐率"><a href="#（1）吞吐率" class="headerlink" title="（1）吞吐率"></a>（1）吞吐率</h3><ul>
-<li>单位时间内完成的指令条数<br><img src="2025-12-21-22-21-51.png" alt=""></li>
-<li>$流水时间 = 三个阶段总时间 + （指令条数 -1）\times 时间最长的阶段$</li>
-</ul>
-<p><strong>例题</strong>：<br><img src="2025-12-21-22-24-19.png" alt=""></p>
-<h3 id="（2）加速比"><a href="#（2）加速比" class="headerlink" title="（2）加速比"></a>（2）加速比</h3><ul>
-<li>不使用流水线时间和使用流水线时间之比</li>
-</ul>
-<p>若流水线<strong>各段时间均为 $\Delta t$</strong>，流水线<strong>级数 $m$</strong>，<strong>指令数为 $n$</strong>：<br>分子：$nm\Delta t$<br>分母：$m\Delta t + (n-1)\Delta t$ <em>（流水线计算公式）</em><br>则加速比为：</p>
-<script type="math/tex; mode=display">S_p = \frac{nm\Delta t}{m\Delta t + (n-1)\Delta t}</script><p>注意：<strong>平衡的流水线效率更优</strong></p>
-<h2 id="3-系统总线"><a href="#3-系统总线" class="headerlink" title="3. 系统总线"></a>3. 系统总线</h2><ul>
-<li><strong>总线</strong>：计算机中，各个部件之间传送信息的公共通路</li>
-<li><strong>分类</strong>：数据总线、地址总线、控制总线</li>
-</ul>
-<h3 id="AMBA"><a href="#AMBA" class="headerlink" title="AMBA"></a>AMBA</h3><ul>
-<li>AMBA 是一种<strong>高级微控制器总线架构</strong><br>主要包含以下两种不同的标准：</li>
-</ul>
-<ol>
-<li>AHB（Advanced High-performance Bus）：高级高性能总线<ul>
-<li>多个主机和多个从机的连接<br><img src="2025-12-21-23-56-03.png" alt=""></li>
-<li>AHB-lite：单个主机和多个从机</li>
-</ul>
-</li>
-<li>APB（Advanced Peripheral Bus）：高级外设总线<ul>
-<li>低成本、低功耗、结构简单<br><img src="2025-12-21-23-54-52.png" alt=""></li>
-</ul>
-</li>
-</ol>
-<h3 id="Cortex-M3-总线结构"><a href="#Cortex-M3-总线结构" class="headerlink" title="Cortex-M3 总线结构"></a>Cortex-M3 总线结构</h3><p><img src="2025-12-21-23-52-52.png" alt=""></p>
-<h2 id="4-寄存器与储存结构"><a href="#4-寄存器与储存结构" class="headerlink" title="4. 寄存器与储存结构"></a>4. 寄存器与储存结构</h2><p><img src="2025-12-22-13-55-29.png" alt=""></p>
-<ul>
-<li><strong>堆栈</strong>：先进后出，由一块连续内存、一个栈顶指针组成</li>
-<li><strong>储存结构</strong>：Crtex-M3与外设<strong>统一编址</strong>，这种方式称为<strong>储存器地址映射</strong></li>
-</ul>
-<h2 id="5-工作模态"><a href="#5-工作模态" class="headerlink" title="5. 工作模态"></a>5. 工作模态</h2><h3 id="（1）两种模式与特权等级"><a href="#（1）两种模式与特权等级" class="headerlink" title="（1）两种模式与特权等级"></a>（1）两种模式与特权等级</h3><p><img src="2025-12-22-14-04-48.png" alt=""></p>
-<h3 id="（2）三种模态"><a href="#（2）三种模态" class="headerlink" title="（2）三种模态"></a>（2）三种模态</h3><p><img src="2025-12-22-14-06-26.png" alt=""></p>
-<h2 id="6-中断与异常"><a href="#6-中断与异常" class="headerlink" title="6. 中断与异常"></a>6. 中断与异常</h2><script type="math/tex; mode=display">
-保存现场（压栈）\rightarrow 取向量（查找 ISR 地址）\rightarrow 更新寄存器（跳入 ISR 执行）</script><h3 id="（1）中断悬起"><a href="#（1）中断悬起" class="headerlink" title="（1）中断悬起"></a>（1）中断悬起</h3><ul>
-<li>如果中断发生时，正在处理更高优先级异常/中断被屏蔽，此时<strong>中断被悬起</strong><br><img src="2025-12-22-14-12-58.png" alt=""></li>
-</ul>
-<h3 id="（2）中断活跃"><a href="#（2）中断活跃" class="headerlink" title="（2）中断活跃"></a>（2）中断活跃</h3><p><img src="2025-12-22-14-15-04.png" alt=""></p>
-<h3 id="（3）中断请求信号保持"><a href="#（3）中断请求信号保持" class="headerlink" title="（3）中断请求信号保持"></a>（3）中断请求信号保持</h3><p><img src="2025-12-22-14-16-00.png" alt=""></p>
-<h2 id="7-调试与跟踪"><a href="#7-调试与跟踪" class="headerlink" title="7. 调试与跟踪"></a>7. 调试与跟踪</h2><ul>
-<li>基于<strong>CoreSight</strong>架构实现以下两种模式<br><img src="2025-12-22-14-29-07.png" alt=""></li>
-<li>调试访问端口：DAP</li>
-<li>调试接口：DP（一端连接 DAP，一端连接到调试器）</li>
-<li>跟踪接口：CoreSight 架构还可以用于<strong>数据跟踪</strong></li>
-</ul>
-<h2 id="8-Cortex-M3-实用功能"><a href="#8-Cortex-M3-实用功能" class="headerlink" title="8. Cortex-M3 实用功能"></a>8. Cortex-M3 实用功能</h2><h3 id="（1）SysTick-定时器"><a href="#（1）SysTick-定时器" class="headerlink" title="（1）SysTick 定时器"></a>（1）SysTick 定时器</h3><p>SysTick 是集成在内核中的 24 位系统节拍定时器，对实时操作系统（RTOS）至关重要</p>
-<ul>
-<li><strong>基本机制</strong>：它是一个 24 位的倒计数定时器，当计数减到 0 时，会自动从 RELOAD 寄存器中重装定时初值 </li>
-<li><strong>运行状态</strong>：只要不清除 SysTick 控制及状态寄存器中的使能位，定时器就会持续运行 </li>
-<li><strong>核心寄存器</strong>：<ul>
-<li><strong>CTRL (0xE000E010)</strong>：控制和状态寄存器，用于设置时钟源、使能中断及查询计数标志 </li>
-<li><strong>RELOAD (0xE000E014)</strong>：重装载值寄存器，存储定时器溢出后自动加载的初值 </li>
-<li><strong>CURRENT (0xE000E018)</strong>：当前值寄存器，反映当前的计数值 </li>
-<li><strong>CALIB (0xE000E01C)</strong>：校准值寄存器，提供硬件参考时钟信息 </li>
-</ul>
-</li>
-<li><strong>主要用途</strong>：常用于产生操作系统所需的“滴答”中断，或作为基本的定时/计数工具 </li>
-</ul>
-<h3 id="（2）电源管理"><a href="#（2）电源管理" class="headerlink" title="（2）电源管理"></a>（2）电源管理</h3><p>Cortex-M3 在内核级别提供了功耗优化方案，支持两种主要的睡眠模式 </p>
-<ul>
-<li><strong>睡眠模式 (Sleep)</strong>：由内核的 <code>SLEEPING</code> 信号指示 </li>
-<li><strong>深度睡眠模式 (Deep Sleep)</strong>：由内核的 <code>SLEEPDEEP</code> 信号指示，用于更大幅度降低功耗 </li>
-<li><strong>唤醒机制</strong>：在睡眠状态下，系统时钟可以停止，但通常保持 FCLK 运行，以确保处理器能被 SysTick 异常或外部中断唤醒 </li>
-<li><strong>状态判定</strong>：开发者可以通过读取 NVIC（嵌套向量中断控制器）的相关系统控制寄存器来判定当前的睡眠模式及上下文 </li>
-</ul>
-<h3 id="（3）复位序列"><a href="#（3）复位序列" class="headerlink" title="（3）复位序列"></a>（3）复位序列</h3><p>复位是处理器通电或重启后的起始动作，Cortex-M3 有一套固定的操作流程来定栈和定位代码入口 </p>
-<ul>
-<li><strong>读取 MSP</strong>：处理器首先从地址 <code>0x00000000</code> 处读取 32 位整数，作为 <strong>主堆栈指针 (MSP)</strong> 的初始值，从而完成“定栈” </li>
-<li><strong>读取 PC</strong>：随后从地址 <code>0x00000004</code> 处读取 32 位整数，作为 <strong>程序计数器 (PC)</strong> 的初始值，即复位向量，决定代码执行的入口地址 </li>
-<li><strong>堆栈模型</strong>：在 Cortex-M3 中，堆栈是<strong>向下生长</strong>的（即从高地址向低地址方向压栈）</li>
-<li><strong>内存布局示例</strong>：例如复位向量指向地址 <code>0x00000101</code>，则处理器将从该处的启动引导代码开始运行</li>
-</ul>
-<h1 id="第三章-STM32-最小系统及开发环境"><a href="#第三章-STM32-最小系统及开发环境" class="headerlink" title="第三章 STM32 最小系统及开发环境"></a>第三章 STM32 最小系统及开发环境</h1><h2 id="1-系统组成"><a href="#1-系统组成" class="headerlink" title="1. 系统组成"></a>1. 系统组成</h2><ul>
-<li><strong>最小系统</strong>：用最少的元件组成微控制器可以工作的系统。<h3 id="（1）微控制器"><a href="#（1）微控制器" class="headerlink" title="（1）微控制器"></a>（1）微控制器</h3></li>
-<li>核心芯片工作电压通常为 <strong>2.0V～3.6V</strong><br><img src="2025-12-23-14-58-40.png" alt=""></li>
-</ul>
-<h3 id="（2）电源电路"><a href="#（2）电源电路" class="headerlink" title="（2）电源电路"></a>（2）电源电路</h3><p><img src="2025-12-23-14-55-05.png" alt=""></p>
-<ul>
-<li>常用 AMS1117 芯片将 5V 电压降至 3.3V 供 VDD 使用。</li>
-<li>STM32 内部的电压调节器将外部 3.3V 的电压转化为 1.8V 提供给 Cortex-M3、内存以及外设使用。</li>
-<li>C1、C2 是输入电容，防止断电后电压倒置。</li>
-<li>C3、C4 是输出滤波电容，抑制自激振章 &amp; 稳定输出电压。</li>
-</ul>
-<h3 id="（3）时钟电路"><a href="#（3）时钟电路" class="headerlink" title="（3）时钟电路"></a>（3）时钟电路</h3><ul>
-<li>时钟频率越高，单片机运行速度越快，功耗越大。<br><img src="2025-12-23-15-01-33.png" alt=""></li>
-<li><strong>高速外部时钟 (HSE)</strong>：通常外接 8MHz 晶振，通过 PLL 倍频最高可达 72MHz 作为系统主时钟。</li>
-<li><strong>低速外部时钟 (LSE)</strong>：外接 32.768kHz 晶振，主要用于 RTC 精准计时。</li>
-</ul>
-<h3 id="（4）复位电路"><a href="#（4）复位电路" class="headerlink" title="（4）复位电路"></a>（4）复位电路</h3><ul>
-<li><strong>上电自动复位</strong><ul>
-<li>依靠 RC 电路产生的 ~1ms 延迟。</li>
-<li>上电瞬间电容两端电压不能突变，Reset 出现短暂低电平。之后芯片复位，进入充电时间：<br>$t=1.1R\times C$（电阻、电容）</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><strong>手动按键复位</strong><ul>
-<li>按键按下时，Reset 短暂接地，产生低电平</li>
-</ul>
-</li>
-</ul>
-<h3 id="（5）调试和下载电路"><a href="#（5）调试和下载电路" class="headerlink" title="（5）调试和下载电路"></a>（5）调试和下载电路</h3><p><strong>调试接口</strong>：JTAG（5引脚）、SWD（2引脚，更常用）<br><strong>Cortex-M3 的三种启动方式，主要依靠不同电平组合：</strong></p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:center">BOOT0</th>
-<th style="text-align:center">BOOT1</th>
-<th style="text-align:left">启动模式</th>
-<th style="text-align:left">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><strong>0</strong></td>
-<td style="text-align:center"><strong>X</strong></td>
-<td style="text-align:left">用户闪存 (Flash)</td>
-<td style="text-align:left">最常用的正常运行模式（从 <code>0x08000000</code> 启动）</td>
-</tr>
-<tr>
-<td style="text-align:center"><strong>1</strong></td>
-<td style="text-align:center"><strong>0</strong></td>
-<td style="text-align:left">系统存储器</td>
-<td style="text-align:left">用于串口下载程序（ISP）</td>
-</tr>
-<tr>
-<td style="text-align:center"><strong>1</strong></td>
-<td style="text-align:center"><strong>1</strong></td>
-<td style="text-align:left">内置 SRAM</td>
-<td style="text-align:left">用于在内存中调试代码</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h2 id="2-开发环境-amp-基础配置"><a href="#2-开发环境-amp-基础配置" class="headerlink" title="2. 开发环境 &amp; 基础配置"></a>2. 开发环境 &amp; 基础配置</h2><p><strong>HAL库开发</strong>： STM32CubeMX+Keil 5</p>
-<p><img src="2025-12-23-15-36-48.png" alt=""></p>
-<ul>
-<li>下载工具：<br> J-Link：通用型，支持多种内核及 IDE 。<br> ST-Link：ST 公司专用于 STM8/STM32，支持全速运行和单步调试 。</li>
-</ul>
-<h1 id="第四章-嵌入式C语言"><a href="#第四章-嵌入式C语言" class="headerlink" title="第四章 嵌入式C语言"></a>第四章 嵌入式C语言</h1><p><strong>C语言的优势</strong>：汇编语言操作底层、功能性强<br><strong>外设功能模块化设计</strong>：包含一个源文件（.c文件）和一个头文件（.h文件）</p>
-<p><img src="2025-12-23-16-49-29.png" alt=""></p>
-<h2 id="1-数据类型-amp-运算符"><a href="#1-数据类型-amp-运算符" class="headerlink" title="1. 数据类型 &amp; 运算符"></a>1. 数据类型 &amp; 运算符</h2><h3 id="（1）数据类型"><a href="#（1）数据类型" class="headerlink" title="（1）数据类型"></a>（1）数据类型</h3><ul>
-<li>STM32 是32位处理器，与一般64位电脑不同。</li>
-</ul>
-<p><img src="2025-12-23-17-02-22.png" alt=""></p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:center">数据类型</th>
-<th style="text-align:center">字节数</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">char</td>
-<td style="text-align:center"><strong>1</strong></td>
-</tr>
-<tr>
-<td style="text-align:center">short</td>
-<td style="text-align:center"><strong>2</strong></td>
-</tr>
-<tr>
-<td style="text-align:center">int/long/float/<strong>指针</strong></td>
-<td style="text-align:center"><strong>4</strong></td>
-</tr>
-<tr>
-<td style="text-align:center">double</td>
-<td style="text-align:center"><strong>8</strong></td>
-</tr>
-</tbody>
-</table>
-</div>
-<ul>
-<li>1字节 = 8 bit</li>
-</ul>
-<p><img src="2025-12-23-17-08-26.png" alt=""></p>
-<h3 id="（2）运算符"><a href="#（2）运算符" class="headerlink" title="（2）运算符"></a>（2）运算符</h3><p><img src="2025-12-23-17-42-19.png" alt=""></p>
-<ul>
-<li>三大战术 (背下来)：<ol>
-<li>置1 (Set)：用 |。 例如 Reg |= (1 &lt;&lt; 3); (第3位置1)</li>
-<li>清0 (Clear)：用 &amp; ~。 例如 Reg &amp;= ~(1 &lt;&lt; 3); (第3位清0)</li>
-<li>翻转 (Toggle)：用 ^。 例如 Reg ^= (1 &lt;&lt; 3); (第3位翻转)</li>
-</ol>
-</li>
-</ul>
-<p><strong>注意</strong>：“异或”是<strong>不同取1，相同取0</strong>。</p>
-<p><img src="2025-12-23-17-45-27.png" alt=""></p>
-<h2 id="2-四大核心修饰符"><a href="#2-四大核心修饰符" class="headerlink" title="2. 四大核心修饰符"></a>2. 四大核心修饰符</h2><h3 id="（1）const（只读）"><a href="#（1）const（只读）" class="headerlink" title="（1）const（只读）"></a>（1）const（只读）</h3><ul>
-<li><strong>作用</strong>：定义<strong>只读</strong>变量，保证其值在编译时不能改变。</li>
-<li><strong>目的</strong>：<strong>防止变量的值被误改</strong>。</li>
-<li><strong>要求</strong>：const关键词修饰的变量在声明时<strong>必须初始化</strong>。</li>
-<li><strong>属性</strong>：变量是<strong>全局</strong>定义的。</li>
-<li><strong>格式</strong>：` const uint32_t(此处为初始化) a = 0xffff1111;</li>
-</ul>
-<h3 id="（2）static（静态）"><a href="#（2）static（静态）" class="headerlink" title="（2）static（静态）"></a>（2）static（静态）</h3><p><strong>修饰局部变量</strong>：修饰后的变量称为<strong>静态变量</strong>，存储在静态区，函数结束后不销毁，<strong>下次调用保留上次的值</strong>。<br><strong>修饰全局变量/函数</strong>：限制作用域，只在当前.c文件中可见（私有化），其它源文件不能引用，避免了<strong>相同变量名而引发的错误</strong>。</p>
-<h3 id="（3）volatile（易变）"><a href="#（3）volatile（易变）" class="headerlink" title="（3）volatile（易变）"></a>（3）volatile（易变）</h3><ul>
-<li><strong>作用</strong>：每次<strong>读取</strong>或者<strong>修改</strong>变量值的时候，必须<strong>从内存中重新读取</strong>，而不是使用保存在寄存器里的备份。</li>
-</ul>
-<p><img src="2025-12-23-17-22-25.png" alt=""></p>
-<p><img src="2025-12-23-17-25-16.png" alt=""></p>
-<h3 id="（4）extern（外部）"><a href="#（4）extern（外部）" class="headerlink" title="（4）extern（外部）"></a>（4）extern（外部）</h3><p><strong>注意</strong>：extern是一个重新声明，而不是定义。</p>
-<ul>
-<li><strong>含义</strong>：声明变量/函数是在别的文件定义的。例如：main.c要调用led.c里的变量，必须在main.c里用extern声明。</li>
-</ul>
-<h2 id="3-struct结构体"><a href="#3-struct结构体" class="headerlink" title="3. struct结构体"></a>3. struct结构体</h2><p><img src="2025-12-24-19-41-44.png" alt=""></p>
-<h1 id="第五章-GPIO"><a href="#第五章-GPIO" class="headerlink" title="第五章 GPIO"></a>第五章 GPIO</h1><ul>
-<li>GPIO ：General-Purpose Input/Output，即<strong>通用输入/输出</strong>模块。</li>
-<li>实现与外部设备的<strong>数字信号交互</strong>，可以通过软件配置输入/输出模式。</li>
-</ul>
-<h2 id="1-GPIO-内部结构"><a href="#1-GPIO-内部结构" class="headerlink" title="1. GPIO 内部结构"></a>1. GPIO 内部结构</h2><h2 id="2-四种输入模式"><a href="#2-四种输入模式" class="headerlink" title="2. 四种输入模式"></a>2. 四种输入模式</h2><h3 id="（1）上拉输入（Pull-up）"><a href="#（1）上拉输入（Pull-up）" class="headerlink" title="（1）上拉输入（Pull-up）"></a>（1）上拉输入（Pull-up）</h3><ul>
-<li>内部接一个上拉电阻到VDD。外部悬空（I/O引脚无信号）时，默认输入<strong>高电平</strong>。</li>
-</ul>
-<h3 id="（2）下拉输入（Pull-down）"><a href="#（2）下拉输入（Pull-down）" class="headerlink" title="（2）下拉输入（Pull-down）"></a>（2）下拉输入（Pull-down）</h3><ul>
-<li>接一个下拉电阻。外部悬空时，默认输入<strong>低电平</strong>。</li>
-<li>应用：接按键（按键另一端接地）</li>
-</ul>
-<h3 id="（3）浮空输入（Floating）"><a href="#（3）浮空输入（Floating）" class="headerlink" title="（3）浮空输入（Floating）"></a>（3）浮空输入（Floating）</h3><ul>
-<li>浮空输入模式下引脚内部既不接上拉电阻也不连接下拉电阻（但是不关闭施密特触发器），<strong>直接经施密特触发器输入I/O引脚的信号</strong>。</li>
-<li>即：<strong>电平完全由外部电路决定</strong>，如果外部悬空，读到电平会乱跳。</li>
-<li>应用：通信协议的接收端（如UART_RX），或者按键检测（外部有电阻时）</li>
-</ul>
-<h3 id="（4）模拟输入（Analog）"><a href="#（4）模拟输入（Analog）" class="headerlink" title="（4）模拟输入（Analog）"></a>（4）模拟输入（Analog）</h3><ul>
-<li>模拟输入模式下，施密特触发器关闭，既不接上拉电阻也不连接下拉电阻，引脚信号连接到芯片内部的片上外设，其典型应用是<strong>A/D模拟输入</strong>，对外部信号进行采集。</li>
-<li>应用：ADC采集电压（生物传感器那道大题就用这个！）</li>
-</ul>
-<h2 id="3-四种输出模式"><a href="#3-四种输出模式" class="headerlink" title="3. 四种输出模式"></a>3. 四种输出模式</h2><h3 id="（1）推挽输出（PP）"><a href="#（1）推挽输出（PP）" class="headerlink" title="（1）推挽输出（PP）"></a>（1）推挽输出（PP）</h3><ul>
-<li>两个MOS管按<strong>互补对称</strong>的方式连接。</li>
-<li><strong>目的</strong>：增大输出电流，输出能力强；提高电路负载能力和开关速度</li>
-<li>高电平3.3V，低电平0V。</li>
-<li>应用：点亮LED，驱动蜂鸣器</li>
-</ul>
-<h3 id="（2）开漏输出（OD）"><a href="#（2）开漏输出（OD）" class="headerlink" title="（2）开漏输出（OD）"></a>（2）开漏输出（OD）</h3><ul>
-<li>只有下拉MOS管，没有上拉MOS管。</li>
-<li>不与电源连接，处于悬空状态，只能输出低电平。</li>
-<li><strong>目的</strong>：减少芯片内部驱动。</li>
-<li><strong>特点</strong>：想输出高电平，只能外接上拉电阻。</li>
-<li><strong>重点</strong>：方便实现“逻辑与”功能。<code>I2C总线</code>（必考关联点）</li>
-<li>应用：I2C总线 (必考关联点)</li>
-</ul>
-<h3 id="（3）复用推挽输出（AF-PP）"><a href="#（3）复用推挽输出（AF-PP）" class="headerlink" title="（3）复用推挽输出（AF_PP）"></a>（3）复用推挽输出（AF_PP）</h3><ul>
-<li>GPIO引脚除了作为通用IO引脚外，还可作为片上外设的I/O引脚，即<strong>一个引脚可以作为多个外设引脚使用</strong>，称为复用I/O端口 AFIO。</li>
-<li>一个引脚某一时刻<strong>只能使用复用功能中的一个</strong>。</li>
-</ul>
-<h3 id="（4）复用开漏输出（AF-OD）"><a href="#（4）复用开漏输出（AF-OD）" class="headerlink" title="（4）复用开漏输出（AF_OD）"></a>（4）复用开漏输出（AF_OD）</h3><p>同上。</p>
-<h1 id="第六章-中断和异常"><a href="#第六章-中断和异常" class="headerlink" title="第六章 中断和异常"></a>第六章 中断和异常</h1><blockquote>
-<p>本质：改变处理器执行指令的顺序。</p>
-</blockquote>
-<ul>
-<li>区别：<ul>
-<li>中断：响应外部事件</li>
-<li>异常：内部程序错误</li>
-</ul>
-</li>
-</ul>
-<p><code>目的</code>：</p>
-<ol>
-<li>提高cpu效率</li>
-<li>实时处理</li>
-<li>异常处理</li>
-<li>数据传输</li>
-<li>不占用cpu资源</li>
-</ol>
-<h2 id="1-中断处理流程"><a href="#1-中断处理流程" class="headerlink" title="1. 中断处理流程"></a>1. 中断处理流程</h2><p><img src="2025-12-26-14-01-22.png" alt=""><br><img src="2025-12-26-14-01-48.png" alt=""></p>
-<h2 id="Cortex-M3-内嵌中断控制器——NVIC"><a href="#Cortex-M3-内嵌中断控制器——NVIC" class="headerlink" title="Cortex-M3 内嵌中断控制器——NVIC"></a>Cortex-M3 内嵌中断控制器——NVIC</h2><p><img src="2025-12-26-14-04-06.png" alt=""></p>
-<h3 id="（1）中断优先级"><a href="#（1）中断优先级" class="headerlink" title="（1）中断优先级"></a>（1）中断优先级</h3><p><img src="2025-12-26-14-11-52.png" alt=""></p>
-<ul>
-<li>抢占优先级 &gt; 响应优先级</li>
-<li>数值越小，优先级别越高</li>
-<li>Reset，NMI（不可屏蔽中断 ） ， Hard Fault 的优先级为负，且不可修改，高于普通的中断优先级</li>
-</ul>
-<p><strong>中断优先级判断</strong>：</p>
-<ol>
-<li>先判断抢占优先级的大小</li>
-<li>如果抢占优先级相同，则比较响应优先级的大小</li>
-<li>若抢占优先级和响应优先级均相同，则根据<strong>中断向量表</strong>中的顺序来决定<br><img src="2025-12-26-14-16-21.png" alt=""></li>
-</ol>
-<h3 id="（2）外部中断EXTI"><a href="#（2）外部中断EXTI" class="headerlink" title="（2）外部中断EXTI"></a>（2）外部中断EXTI</h3><p><img src="2025-12-26-14-22-12.png" alt=""><br><img src="2025-12-26-14-22-23.png" alt=""></p>
-<ul>
-<li>映射关系：STM32的引脚很多，但中断线只有 16+N 条。<br>规则：所有 Pin x 共用一条中断线 EXTI x<ul>
-<li>PA0, PB0, PC0 … -&gt; EXTI0</li>
-<li>PA5, PB5, PC5 … -&gt; EXTI5</li>
-</ul>
-</li>
-</ul>
-<p><em>考点：不能同时开启 PA0 和 PB0 的中断！因为它们都要抢 EXTI0 这条线。</em></p>
-<ul>
-<li>触发方式<ul>
-<li>上升沿触发：电平 0 -&gt; 1 瞬间触发（如按键松开）。</li>
-<li>下降沿触发：电平 1 -&gt; 0 瞬间触发（如按键按下）。</li>
-<li>双边沿触发：变高变低都触发。</li>
-</ul>
-</li>
-</ul>
-<h1 id="第七章-定时器"><a href="#第七章-定时器" class="headerlink" title="第七章 定时器"></a>第七章 定时器</h1><div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left">定时器主要功能</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><strong>定时</strong>：时钟脉冲计数</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>计数</strong>：固定周期的脉冲信号</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>输入捕获</strong>：对脉冲信号宽度测量</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>输出比较</strong>：控制输出波形</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h2 id="第一部分：STM32定时器模块"><a href="#第一部分：STM32定时器模块" class="headerlink" title="第一部分：STM32定时器模块"></a>第一部分：STM32定时器模块</h2><p><img src="2025-12-28-11-32-59.png" alt=""></p>
-<p><em>注意分辨不同定时器的<strong>功能</strong>、引脚</em></p>
-<ul>
-<li><p><strong>基本定时器 (TIM6, TIM7)</strong></p>
-<ul>
-<li>能力：只能用来定时（数数），没有 GPIO 引脚，不能 产生 PWM。</li>
-<li><em>就像个纯粹的闹钟。</em></li>
-</ul>
-</li>
-<li><p><strong>通用定时器 (TIM2 ~ TIM5)</strong></p>
-<ul>
-<li>能力：定时 + 输入捕获 (测脉宽) + 输出比较 (PWM)。</li>
-<li><em>这是最常用的主力。</em></li>
-</ul>
-</li>
-<li><p><strong>高级定时器 (TIM1, TIM8)</strong></p>
-<ul>
-<li>能力：通用功能 + 死区控制 (Dead-time) + 互补输出。</li>
-<li><em>这是给电机控制专用的。</em></li>
-</ul>
-</li>
-</ul>
-<h3 id="1-定时时间计算"><a href="#1-定时时间计算" class="headerlink" title="1. 定时时间计算"></a>1. 定时时间计算</h3><script type="math/tex; mode=display">
-时钟源+预分频器PSC+计数器CNT+自动装载寄存器ARR</script><p><code>核心公式</code>：</p>
-<script type="math/tex; mode=display">
-定时时间 =\frac{(ARR+1)\times(PSC+1)}{时钟频率}</script><ul>
-<li><em>注意：PSC 和 ARR 的输入范围为（1，65536），因为最高16位。</em></li>
-</ul>
-<p><strong>例题</strong>：<br><img src="2025-12-28-11-46-51.png" alt=""></p>
-<h3 id="2-PWM-相关分析题"><a href="#2-PWM-相关分析题" class="headerlink" title="2. PWM 相关分析题"></a>2. PWM 相关分析题</h3><p><img src="2025-12-28-11-55-12.png" alt=""><br><img src="2025-12-28-11-57-21.png" alt=""></p>
-<script type="math/tex; mode=display">
-占空比 =\frac{CCR}{ARR+1}\times 100\%</script><p><img src="2025-12-28-11-59-12.png" alt=""><br><img src="2025-12-28-11-59-26.png" alt=""></p>
-<ul>
-<li>只要 <strong>CNT&gt;CCR</strong> ，就输出高电平。</li>
-<li>ARR 是阈值，达到后<strong>重新计数</strong>。</li>
-<li><strong>ARR 决定PWM的周期，CCR 决定占空比</strong>。</li>
-</ul>
-<h2 id="第二部分：SysTick定时器"><a href="#第二部分：SysTick定时器" class="headerlink" title="第二部分：SysTick定时器"></a>第二部分：SysTick定时器</h2><p><strong>1. 基础属性 (填空/判断题核心)</strong></p>
-<ul>
-<li><strong>归属</strong>：属于 <strong>Cortex-M3 内核 (Core)</strong>，<strong>不属于</strong> 片上外设 (Peripheral)。</li>
-<li><strong>位数</strong>：<strong>24位</strong> (注意：通用定时器通常是 16 位)。</li>
-<li><strong>计数方式</strong>：<strong>向下计数</strong> (Down-counter)，从设定值 (LOAD) 减到 0。</li>
-</ul>
-<p><strong>2. 核心用途 (考干什么)</strong></p>
-<ul>
-<li><strong>操作系统心跳</strong>：为 RTOS (如 FreeRTOS, uCOS) 提供任务调度的基准时钟。</li>
-<li><strong>精准延时</strong>：<strong>HAL_Delay()</strong> 函数就是基于 SysTick 实现的。<ul>
-<li><em>注：如果不开启 SysTick 中断，HAL_Delay 函数将无法工作。</em></li>
-</ul>
-</li>
-</ul>
-<p><strong>3. 关键寄存器 (眼熟即可)</strong></p>
-<ul>
-<li><strong>CTRL (Control)</strong>：控制寄存器，用于使能定时器、开启中断。</li>
-<li><strong>LOAD (Reload)</strong>：重装载数值寄存器，决定了定时器的溢出周期。</li>
-<li><strong>VAL (Value)</strong>：当前数值寄存器，实时显示当前的计数值。</li>
-</ul>
-<p><strong>4. 考点辨析：SysTick vs 通用定时器</strong></p>
-<ul>
-<li><strong>位置区别</strong>：SysTick 在内核；通用定时器在芯片外设区。</li>
-<li><strong>位数区别</strong>：SysTick 是 24 位；通用定时器通常是 16 位。</li>
-<li><strong>方向区别</strong>：SysTick 只能向下计数；通用定时器可以向上/向下/中心对齐。</li>
-<li><strong>功能区别</strong>：SysTick 专注延时/心跳；通用定时器专注 PWM、输入捕获、脉冲计数。</li>
-</ul>
-<p><strong>看门狗</strong>：确保系统可靠稳定运行，可使得应用程序脱离正常执行流程时复位。<br><img src="2025-12-28-12-21-39.png" alt=""></p>
-<h1 id="第八章-USART通信协议技术"><a href="#第八章-USART通信协议技术" class="headerlink" title="第八章 USART通信协议技术"></a>第八章 USART通信协议技术</h1><h2 id="第一部分-基础概念"><a href="#第一部分-基础概念" class="headerlink" title="第一部分 基础概念"></a>第一部分 基础概念</h2><p><strong>按传输格式划分</strong>：</p>
-<ul>
-<li><strong>并行</strong>：多条独立数据线同时传输。</li>
-<li><strong>串行</strong>：单条/两条数据线逐位传输。（<em>最为流行，eg.U盘、USB接口设备、<code>USART</code></em>）</li>
-</ul>
-<p><strong>按同步方式划分</strong>：</p>
-<ul>
-<li><strong>异步</strong>：发送方&amp;接收方 无统一时钟线。</li>
-<li><strong>同步</strong>：发送方&amp;接收方 统一时钟线。</li>
-</ul>
-<p><strong>按传输方式划分</strong>：</p>
-<ul>
-<li><strong>单工通信</strong>：数据传输时单向的。（<em>广播、电视、打印机、BB机</em>）</li>
-<li><strong>半双工通信</strong>：可以双向，但不能同时。（<em>对讲机</em>）</li>
-<li><strong>全双工通信</strong>：可以同时双向传输。（<em>电话、以太网、<code>USART</code></em>）</li>
-</ul>
-<h2 id="第二部分：波特率"><a href="#第二部分：波特率" class="headerlink" title="第二部分：波特率"></a>第二部分：波特率</h2><p><strong>波特率</strong>：每秒传输的二进制位数（bit/s），衡量<strong>传输速度快慢</strong>。</p>
-<script type="math/tex; mode=display">
-波特率 =字符速率（每秒传输字符数）\times 每个字符包含位数 =\frac{f_{PCLK}}{16\times 分频系数}</script><ul>
-<li><em>其中 $f_{PCLK}$为外设<strong>时钟频率</strong></em>。</li>
-</ul>
-<p><strong>例题</strong>：<br><img src="2025-12-28-14-13-16.png" alt=""></p>
-<p><strong>常用波特率</strong>：</p>
-<ul>
-<li>9600</li>
-<li>115200（<em>调试用、速度快</em>）<br><em>注意：异步通信双方波特率要一致</em></li>
-</ul>
-<h2 id="第三部分：异步串行通信协议（波形分析）"><a href="#第三部分：异步串行通信协议（波形分析）" class="headerlink" title="第三部分：异步串行通信协议（波形分析）"></a>第三部分：异步串行通信协议（波形分析）</h2><p><img src="2025-12-28-14-31-00.png" alt=""></p>
-<ul>
-<li><code>注意：数据位要从右向左读</code>  </li>
-</ul>
-<p><img src="2025-12-28-14-33-40.png" alt=""></p>
-<blockquote>
-<p>UART：全双工、异步、串行。<br><img src="2025-12-28-14-35-57.png" alt=""></p>
-</blockquote>
-<h2 id="第四部分：USART内部结构"><a href="#第四部分：USART内部结构" class="headerlink" title="第四部分：USART内部结构"></a>第四部分：USART内部结构</h2><ol>
-<li><strong>波特率发生器</strong>：提供同步时钟信号。<br>$波特率时钟频率 =波特率\times 采样倍数$</li>
-<li><strong>发送器</strong>：将并行数据转化为串行数据，并按照（起始位、数据位、校验位、停止位）发送到<strong>TX引脚</strong>。</li>
-<li><strong>接收器</strong>：从<strong>RX引脚</strong>接收串行数据，转化为并行数据。</li>
-</ol>
-<p><img src="2025-12-28-14-46-41.png" alt=""></p>
-<ul>
-<li><strong>USART1～3</strong>:全支持</li>
-<li><strong>USART4～5</strong>:除去<em>同步模式、硬件流控制、智能卡</em></li>
-</ul>
-<p><img src="2025-12-28-14-50-23.png" alt=""></p>
-<h1 id="第九章-DMA控制器"><a href="#第九章-DMA控制器" class="headerlink" title="第九章 DMA控制器"></a>第九章 DMA控制器</h1><h2 id="第一部分：基础概念"><a href="#第一部分：基础概念" class="headerlink" title="第一部分：基础概念"></a>第一部分：基础概念</h2><p><strong>DMA（Direct Memory Access）</strong>：直接内存访问。</p>
-<ul>
-<li><strong>作用</strong>：允许外设设备直接与储存器进行数据交换，<strong>无需cpu介入</strong>。</li>
-<li><strong>优势</strong>：<strong>解放cpu、提高传输效率、降低功耗</strong>。</li>
-</ul>
-<p><img src="2025-12-29-12-42-37.png" alt=""></p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left">DMA适用场景</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><strong>储存设备I/O</strong>：硬盘与内存间的大量数据交换</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>高速通信通道</strong>：网络接口、光纤通信</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>数据采集系统</strong></td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>图像处理</strong></td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>多处理机系统</strong></td>
-</tr>
-</tbody>
-</table>
-</div>
-<h2 id="第二部分：STM32多DMA架构"><a href="#第二部分：STM32多DMA架构" class="headerlink" title="第二部分：STM32多DMA架构"></a>第二部分：STM32多DMA架构</h2><p><img src="2025-12-29-13-22-16.png" alt=""></p>
-<p><img src="2025-12-29-13-22-38.png" alt=""></p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left">关键配置参数</th>
-<th style="text-align:left"></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><strong>传输方向</strong></td>
-<td style="text-align:left"><strong>外设/内存</strong>之间相互传输（4种情况的排列组合）</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>数据宽度</code></td>
-<td style="text-align:left">8/16/32 （<strong>如果源和目标位数不匹配，DMA会自动帮你补位</strong>）</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>地址递增</strong></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>传输模式</strong></td>
-<td style="text-align:left">单次模式、循环模式</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>中断请求</strong></td>
-<td style="text-align:left">传输完成、半传输、传输错误</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><strong>传输模式</strong>：</p>
-<ul>
-<li>单次模式：DMA传输结束后不再产生新的DMA操作。</li>
-<li>循环模式：每轮传输结束时，要传输的数据数量将自动用设置的初始值进行加载，并继续响应DMA请求。<em>（ADC扫描模式）</em></li>
-</ul>
-<h2 id="第三部分：通道映射"><a href="#第三部分：通道映射" class="headerlink" title="第三部分：通道映射"></a>第三部分：通道映射</h2><h3 id="DMA优先级"><a href="#DMA优先级" class="headerlink" title="DMA优先级"></a>DMA优先级</h3><p><img src="2025-12-29-13-41-55.png" alt=""></p>
-<h3 id="DMA请求通道"><a href="#DMA请求通道" class="headerlink" title="DMA请求通道"></a>DMA请求通道</h3><p><img src="2025-12-29-13-43-34.png" alt=""><br><img src="2025-12-29-13-43-45.png" alt=""></p>
-<h3 id="DMA中断请求"><a href="#DMA中断请求" class="headerlink" title="DMA中断请求"></a>DMA中断请求</h3><p><img src="2025-12-29-13-44-50.png" alt=""></p>
-<h1 id="第十章-同步串行通信协议"><a href="#第十章-同步串行通信协议" class="headerlink" title="第十章 同步串行通信协议"></a>第十章 同步串行通信协议</h1><h2 id="第一部分：SPI通信协议"><a href="#第一部分：SPI通信协议" class="headerlink" title="第一部分：SPI通信协议"></a>第一部分：SPI通信协议</h2><h3 id="1-基础概念"><a href="#1-基础概念" class="headerlink" title="1. 基础概念"></a>1. 基础概念</h3><ul>
-<li><strong>SPI（Serial Peripheral interface）</strong>：串行外围设备接口。</li>
-<li><p><strong>特点</strong>：</p>
-<ul>
-<li><code>高速</code>、全双工、同步</li>
-<li>在芯片管脚上只占用四根线</li>
-<li><em>主要应用：EEPROM、FLASH、实时时钟、AD转换器、数字信号处理器</em></li>
-</ul>
-</li>
-<li><p><strong>主从模式</strong>：</p>
-<ul>
-<li>SPI通讯系统包含一个（只能一个）主设备、多个或一个从设备。</li>
-<li>主设备<strong>提供时钟</strong>，从设备<strong>接收时钟</strong>。</li>
-<li>多个从设备<strong>通过各自片选信号管理</strong>。</li>
-<li>读写操作都是由主设备发起。</li>
-<li>通信速度一般能达到10Mbps。</li>
-</ul>
-</li>
-</ul>
-<h3 id="2-四根信号线"><a href="#2-四根信号线" class="headerlink" title="2. 四根信号线"></a>2. 四根信号线</h3><div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left">引脚名称</th>
-<th style="text-align:left">作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">MOSI（master output slave input）</td>
-<td style="text-align:left">主设备输出/从设备输入。即：在主模式下发送数据，从模式下接收数据</td>
-</tr>
-<tr>
-<td style="text-align:left">MISO（master input slave output）</td>
-<td style="text-align:left">主设备输入/从设备输出。即：在主模式下接收数据，从模式下发送数据</td>
-</tr>
-<tr>
-<td style="text-align:left">SCLK</td>
-<td style="text-align:left">主设备产生的串行时钟信号。</td>
-</tr>
-<tr>
-<td style="text-align:left">CS/SS</td>
-<td style="text-align:left">从设备的<strong>片选信号</strong>，低电平有效。让主设备可以单独与指定从设备通讯$\rightarrow$避免冲突。</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><img src="2025-12-29-15-28-07.png" alt=""></p>
-<p><img src="2025-12-29-15-30-32.png" alt=""></p>
-<h3 id="3-四种配置模式"><a href="#3-四种配置模式" class="headerlink" title="3. 四种配置模式"></a>3. 四种配置模式</h3><ul>
-<li>通信双方必须在同一模式下才可以通信。</li>
-<li>通过<code>CPOL（时钟极性）</code>和<code>CPHA（时钟相位）</code>来配置主设备的通信模式。</li>
-</ul>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left">SPI模式</th>
-<th style="text-align:left">CPOL</th>
-<th style="text-align:left">CPHA</th>
-<th style="text-align:left">空闲时SCK时钟</th>
-<th style="text-align:left">采样时刻</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">0（最常用）</td>
-<td style="text-align:left">0</td>
-<td style="text-align:left">0</td>
-<td style="text-align:left">低电平</td>
-<td style="text-align:left">奇数边沿</td>
-</tr>
-<tr>
-<td style="text-align:left">1</td>
-<td style="text-align:left">0</td>
-<td style="text-align:left">1</td>
-<td style="text-align:left">低电平</td>
-<td style="text-align:left">偶数边沿</td>
-</tr>
-<tr>
-<td style="text-align:left">2</td>
-<td style="text-align:left">1</td>
-<td style="text-align:left">0</td>
-<td style="text-align:left">高电平</td>
-<td style="text-align:left">奇数边沿</td>
-</tr>
-<tr>
-<td style="text-align:left">3</td>
-<td style="text-align:left">1</td>
-<td style="text-align:left">1</td>
-<td style="text-align:left">高电平</td>
-<td style="text-align:left">偶数边沿</td>
-</tr>
-</tbody>
-</table>
-</div>
-<ul>
-<li><strong>CPOL（clock polarity）</strong>：=0:SLK低电平/=1:SLK高电平</li>
-<li><strong>CPHA（clock phase）</strong>：=0:奇数沿采样/=1:偶数沿采样</li>
-</ul>
-<p><img src="2025-12-29-15-46-11.png" alt=""></p>
-<ul>
-<li>SCK刚开始是低电平$\rightarrow$CPOL=0</li>
-<li>偶数沿采样（注意不要看图片里的数标）$\rightarrow$CPAL=1</li>
-<li>得到$\longrightarrow$模式=1</li>
-</ul>
-<p><img src="2025-12-29-16-13-53.png" alt=""></p>
-<h2 id="第二部分：I2C通信协议"><a href="#第二部分：I2C通信协议" class="headerlink" title="第二部分：I2C通信协议"></a>第二部分：I2C通信协议</h2><h3 id="1-基础概念-1"><a href="#1-基础概念-1" class="headerlink" title="1. 基础概念"></a>1. 基础概念</h3><ul>
-<li><p><strong>特点</strong>：</p>
-<ul>
-<li><code>低速、近距离</code>、半双工、同步。</li>
-<li>结构简单、降低系统成本、提高了可靠性。</li>
-<li>总线具有<strong>极低的电流消耗，抗噪声能力强</strong>。</li>
-</ul>
-</li>
-<li><p><strong>主从模式</strong>：</p>
-<ul>
-<li><code>多主机总线</code>：每个器件都可以作为主机/从机，<strong>但同一时刻只能有一个主机</strong>。</li>
-<li>所有设备都接在一根总线上，所以只要有一个拉低，总线就是低电平。</li>
-<li><strong>开漏输出</strong>：必须外接<strong>上拉电阻</strong>。</li>
-<li>每个连接到I2C总线的器件都有<strong>唯一地址（7bit）</strong>。</li>
-<li>总线上增加和删除器件不影响其它器件工作。</li>
-<li>从机只能被动呼叫。</li>
-<li>传输速率：100Kbps、400Kbps、3.4Mbps。</li>
-</ul>
-</li>
-</ul>
-<p><img src="2025-12-29-16-24-00.png" alt=""></p>
-<h3 id="2-两根信号线"><a href="#2-两根信号线" class="headerlink" title="2. 两根信号线"></a>2. 两根信号线</h3><ul>
-<li><strong>SDA（serial data）</strong>：收发数据。</li>
-<li><strong>SCL（serial clock）</strong>：时钟信号同步。</li>
-</ul>
-<h3 id="3-通信过程"><a href="#3-通信过程" class="headerlink" title="3. 通信过程"></a>3. 通信过程</h3><p><img src="2025-12-29-16-33-34.png" alt=""></p>
-<p>先明确以下几点：</p>
-<ol>
-<li>主机发送<strong>起始信号</strong>后必须先发送一个字节的数据（<strong>高7位为从机地址</strong>，最后一位表示传输方向）。<ul>
-<li>0 ：主机$\rightarrow$从机</li>
-<li>1 ：从机$\rightarrow$主机</li>
-</ul>
-</li>
-<li>从机先比较地址是不是跟自己相同，若相同，再判断自己是发送器/接收器。</li>
-<li>发送完一个字节数据后，接收器会发送1bit的数据来应答发送器。</li>
-<li>所以<strong>I2C每次发送的数据必然是8bit</strong>。</li>
-<li>空闲时，<strong>SCL和SDA都是高电平</strong>。</li>
-</ol>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left"></th>
-<th style="text-align:left"></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><strong>起始信号</strong></td>
-<td style="text-align:left">SCL=1时，SDA由高变低</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>停止信号</strong></td>
-<td style="text-align:left">SCL=1时，SDA由低变高</td>
-</tr>
-<tr>
-<td style="text-align:left">应答信号</td>
-<td style="text-align:left">接收器在第9位拉低SDA，表示收到（若SDA没被拉低则表示没收到）</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h1 id="第十一章-数模转换"><a href="#第十一章-数模转换" class="headerlink" title="第十一章 数模转换"></a>第十一章 数模转换</h1><h2 id="第一部分：基础概念-1"><a href="#第一部分：基础概念-1" class="headerlink" title="第一部分：基础概念"></a>第一部分：基础概念</h2><ul>
-<li><strong>ADC</strong>：数模转换器。</li>
-<li><strong>作用</strong>：将<strong>模拟信号</strong>转化为<strong>数字信号</strong>。</li>
-<li><p><strong>主要过程</strong>：<code>采样、保持、量化、编码</code></p>
-<ol>
-<li>采样：连续的模拟信号$\rightarrow$离散数据点（切片作用）。</li>
-<li>保持：将采样值保持在一个稳定状态。</li>
-<li>量化：连续的电压值<strong>映射</strong>到有限的数字。</li>
-<li>编码：转化为二进制。</li>
-</ol>
-</li>
-<li><p><code>Nyquist采样定理</code>：采样频率 &gt; $2\times$最高频率</p>
-</li>
-<li><p><strong>主要参数</strong>：</p>
-<ol>
-<li>参考电压：影响转换精度、对量化的映射也有影响。</li>
-<li>分辨率：对输入模拟量微小变化的分辨能力，级数用2的次方（STM32是$2^{12}$</li>
-<li>量化误差：分辨率不够精细就会引起量化误差。<img src="2025-12-29-19-32-03.png" alt=""></li>
-<li>转换时间 =采样保持时间+量化编码时间</li>
-</ol>
-</li>
-</ul>
-<h2 id="第二部分：STM32的ADC架构"><a href="#第二部分：STM32的ADC架构" class="headerlink" title="第二部分：STM32的ADC架构"></a>第二部分：STM32的ADC架构</h2><ul>
-<li><strong>常用4种ADC</strong>：<br><img src="2025-12-29-19-34-16.png" alt=""></li>
-<li>逐位比较：内部 DAC 生成参考电压，与输入信号比较，确定每一位二进制值（从最高位到最低位）</li>
-<li>$\Delta-\Sigma$:过采样、噪声整形</li>
-<li>流水线：多级量化，每级完成低精度量化</li>
-<li>FLASH：基于比较器和多个参考电压模拟信号转换</li>
-</ul>
-<p><img src="2025-12-29-20-09-10.png" alt=""></p>
-<h3 id="1-STM32的ADC"><a href="#1-STM32的ADC" class="headerlink" title="1. STM32的ADC"></a>1. STM32的ADC</h3><p><img src="2025-12-29-20-10-23.png" alt=""><br><img src="2025-12-29-20-11-15.png" alt=""></p>
-<p>重点：规则组 &amp; 注入组<br><img src="2025-12-29-20-14-24.png" alt=""><br><img src="2025-12-29-20-14-58.png" alt=""></p>
-<h3 id="2-ADC转换时间"><a href="#2-ADC转换时间" class="headerlink" title="2. ADC转换时间"></a>2. ADC转换时间</h3><p><img src="2025-12-29-20-16-49.png" alt=""></p>
-]]></content>
-      <categories>
-        <category>华理</category>
-        <category>大三上</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>人工智能原理与应用</title>
-    <url>/2025/12/11/AI/</url>
-    <content><![CDATA[<h1 id="第一章-绪论"><a href="#第一章-绪论" class="headerlink" title="第一章 绪论"></a>第一章 绪论</h1><p>智能：智能指人类在认识客观世界中，由思维过程和脑<br>力活动所表现出的综合能力。</p>
-<h2 id="智能包含的能力"><a href="#智能包含的能力" class="headerlink" title="智能包含的能力"></a>智能包含的能力</h2><p>  <img src="2025-12-11-19-04-02.png" alt=""></p>
-<h2 id="AI的研究目标"><a href="#AI的研究目标" class="headerlink" title="AI的研究目标"></a>AI的研究目标</h2><p>  <img src="2025-12-11-19-05-39.png" alt=""></p>
-<h2 id="三大学派"><a href="#三大学派" class="headerlink" title="三大学派"></a>三大学派</h2><p>  <img src="2025-12-11-19-07-05.png" alt=""><br>  <img src="2025-12-11-19-07-54.png" alt=""></p>
-<h2 id="新的发展"><a href="#新的发展" class="headerlink" title="新的发展"></a>新的发展</h2><p>  <img src="2025-12-11-19-08-50.png" alt=""></p>
-<h2 id="智能模拟方法"><a href="#智能模拟方法" class="headerlink" title="智能模拟方法"></a>智能模拟方法</h2><p>  <img src="2025-12-11-19-12-03.png" alt=""></p>
-<h2 id="推理"><a href="#推理" class="headerlink" title="推理"></a>推理</h2><p>  <strong>推理</strong>：是指按照某种策略从已知事实出发利用知识推出所需结论的过程。<br>  <strong>推理方法</strong>：归纳、演绎、（不）确定性推理</p>
-<h2 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h2><p>  <strong>搜索</strong>：依靠经验，利用已有知识，根据问题的实际情况，不断寻找可利用知识，从而构造一条代价最小的推理路线，使问题得以解决的过程。<br>  <strong>智能搜索</strong>：利用搜索过程中得到的信息来引导搜索向最优方向发展的算法。</p>
-<h2 id="神经元（画图）"><a href="#神经元（画图）" class="headerlink" title="神经元（画图）"></a>神经元（画图）</h2><p>  <img src="2025-12-11-19-17-46.png" alt=""></p>
-<h2 id="大数据的特性："><a href="#大数据的特性：" class="headerlink" title="大数据的特性："></a>大数据的特性：</h2><ul>
-<li><strong>规模性、多样性、实时性、价值性</strong></li>
-</ul>
-<h2 id="机器视觉的流程：图像获取-rightarrow-图像解释"><a href="#机器视觉的流程：图像获取-rightarrow-图像解释" class="headerlink" title="机器视觉的流程：图像获取$\rightarrow$图像解释"></a>机器视觉的流程：图像获取$\rightarrow$图像解释</h2><p>  <img src="2025-12-11-19-20-13.png" alt=""></p>
-<h2 id="模式识别"><a href="#模式识别" class="headerlink" title="模式识别"></a>模式识别</h2><p>  <img src="2025-12-11-19-21-05.png" alt=""></p>
-<h2 id="自然语言处理"><a href="#自然语言处理" class="headerlink" title="自然语言处理"></a>自然语言处理</h2><p>  <img src="2025-12-11-19-21-26.png" alt=""></p>
-<h2 id="智能控制"><a href="#智能控制" class="headerlink" title="智能控制"></a>智能控制</h2><p>  <img src="2025-12-11-19-21-48.png" alt=""></p>
-<h2 id="人工智能工程"><a href="#人工智能工程" class="headerlink" title="人工智能工程"></a>人工智能工程</h2><p>  <img src="2025-12-11-19-23-37.png" alt=""><br>  <img src="2025-12-11-19-24-19.png" alt=""></p>
-<h2 id="人工智能面临的问题"><a href="#人工智能面临的问题" class="headerlink" title="人工智能面临的问题"></a>人工智能面临的问题</h2><ol>
-<li>道德伦理问题</li>
-<li>法律法规的制定问题</li>
-<li>安全问题（信息安全、交通安全、人身安全）</li>
-<li>稀缺数据资源条件下的学习</li>
-<li>目前人工智能属于弱人工智能</li>
-</ol>
-<h2 id="未来发展趋势"><a href="#未来发展趋势" class="headerlink" title="未来发展趋势"></a>未来发展趋势</h2><ol>
-<li>从专用智能向通用是能发展</li>
-<li>从人工智能向人机融合发展</li>
-<li>自动化AI技术</li>
-<li>AI药物的研发</li>
-<li>减少对数据的需求</li>
-<li>可解释性和鲁棒性</li>
-</ol>
-<h1 id="第二章-数学基础"><a href="#第二章-数学基础" class="headerlink" title="第二章 数学基础"></a>第二章 数学基础</h1><h2 id="向量的范数"><a href="#向量的范数" class="headerlink" title="向量的范数"></a>向量的范数</h2><p>1) 1-范数</p>
-<script type="math/tex; mode=display">\|\alpha\|_1 = |\alpha_1| + |\alpha_2| + \cdots + |\alpha_n|</script><p>2) 2-范数</p>
-<script type="math/tex; mode=display">\|\alpha\|_2 = \sqrt{\alpha_1^2 + \alpha_2^2 + \cdots + \alpha_n^2}</script><p>3) $\infty$-范数</p>
-<script type="math/tex; mode=display">\|\alpha\|_\infty = \max\{|\alpha_1|, |\alpha_2|, \cdots, |\alpha_n|\}</script><p>4) p-范数</p>
-<script type="math/tex; mode=display">\|\alpha\|_p = \left( \sum_{i=1}^{n} |\alpha_i|^p \right)^{1/p}, \quad p \ge 1</script><h2 id="矩阵的范数"><a href="#矩阵的范数" class="headerlink" title="矩阵的范数"></a>矩阵的范数</h2><p>1) Frobenius 范数 (F-范数)</p>
-<script type="math/tex; mode=display">\|X\|_F = \left( \sum_{i,j=1}^{n} |x_{ij}|^2 \right)^{1/2} = \left( tr(X^H X) \right)^{1/2}</script><p>2) 1-范数</p>
-<script type="math/tex; mode=display">\|X\|_1 = \max_{j} \sum_{i=1}^{n} |x_{ij}|</script><p>3) 2-范数</p>
-<script type="math/tex; mode=display">\|X\|_2 = \sqrt{\lambda} \text{，其中 } \lambda \text{ 为 } X^H X \text{ 的最大特征值}</script><p>4) $\infty$-范数</p>
-<script type="math/tex; mode=display">\|X\|_\infty = \max_{i} \sum_{j=1}^{n} |x_{ij}|</script><p>其中，$X^H$ 为 $X$ 的共轭转置矩阵。</p>
-<h1 id="第三章-确定性知识系统"><a href="#第三章-确定性知识系统" class="headerlink" title="第三章 确定性知识系统"></a>第三章 确定性知识系统</h1><ul>
-<li><strong>知识</strong>是改造客观世界中积累起来的认识和经验。</li>
-<li>知识 = 信息 + 关联</li>
-</ul>
-<h2 id="知识的类型"><a href="#知识的类型" class="headerlink" title="知识的类型"></a>知识的类型</h2><p><img src="2025-12-11-22-06-18.png" alt=""></p>
-<h2 id="知识的作用效果"><a href="#知识的作用效果" class="headerlink" title="知识的作用效果"></a>知识的作用效果</h2><p><img src="2025-12-11-22-08-05.png" alt=""></p>
-<h2 id="知识的表示要求"><a href="#知识的表示要求" class="headerlink" title="知识的表示要求"></a>知识的表示要求</h2><ul>
-<li>可组织性与可维护性</li>
-<li>可理解性与可实现性</li>
-</ul>
-<h2 id="知识的类型-1"><a href="#知识的类型-1" class="headerlink" title="知识的类型"></a>知识的类型</h2><p><img src="2025-12-11-22-15-11.png" alt=""></p>
-<h2 id="推理方法及其分类"><a href="#推理方法及其分类" class="headerlink" title="推理方法及其分类"></a>推理方法及其分类</h2><ol>
-<li>演绎推理：<br><img src="2025-12-11-22-17-36.png" alt=""></li>
-<li>归纳推理<br><img src="2025-12-11-22-22-55.png" alt=""><br><img src="2025-12-11-22-23-09.png" alt=""><br><strong>演绎推理 &amp; 归纳推理区别</strong>：<br><img src="2025-12-11-22-22-30.png" alt=""></li>
-</ol>
-<h2 id="推理控制策略"><a href="#推理控制策略" class="headerlink" title="推理控制策略"></a>推理控制策略</h2><ul>
-<li>推理的控制策略是使推理过程尽快达到目标。</li>
-<li>分为两类：推理策略和搜索策略</li>
-</ul>
-<p><strong>冲突消解策略</strong>：当推理过程有多条知识可用时，如何从这多条可用知识中选出一条<strong>最佳知识</strong>用于推理的策略，常用的冲突消解策略有<em>领域知识优先和新鲜知识优先</em>等。</p>
-<h1 id="第四章-不确定性知识系统"><a href="#第四章-不确定性知识系统" class="headerlink" title="第四章 不确定性知识系统"></a>第四章 不确定性知识系统</h1><h2 id="知识的不确定性表示"><a href="#知识的不确定性表示" class="headerlink" title="知识的不确定性表示"></a>知识的不确定性表示</h2><p><img src="2025-12-11-22-30-33.png" alt=""><br><img src="2025-12-11-22-30-45.png" alt=""></p>
-<h2 id="主观贝叶斯推理"><a href="#主观贝叶斯推理" class="headerlink" title="主观贝叶斯推理"></a>主观贝叶斯推理</h2><h2 id="贝叶斯网络原理"><a href="#贝叶斯网络原理" class="headerlink" title="贝叶斯网络原理"></a>贝叶斯网络原理</h2><p><img src="2025-12-11-22-31-50.png" alt=""></p>
-<h1 id="第五章-智能搜索技术"><a href="#第五章-智能搜索技术" class="headerlink" title="第五章 智能搜索技术"></a>第五章 智能搜索技术</h1><h2 id="状态空间问题的求解"><a href="#状态空间问题的求解" class="headerlink" title="状态空间问题的求解"></a>状态空间问题的求解</h2><p><img src="2025-12-12-18-20-32.png" alt=""><br><img src="2025-12-12-18-20-56.png" alt=""></p>
-<h2 id="与或树"><a href="#与或树" class="headerlink" title="与或树"></a>与或树</h2><ul>
-<li><strong>分解</strong>：$P 归纳为 P_i, P_i 都有解的时候，P 有解。$</li>
-<li><strong>等价变换</strong>：$P 可以等价变为 P_i，有一个 P_i 有解，P 有解。$</li>
-</ul>
-<p><img src="2025-12-12-18-28-38.png" alt=""></p>
-<ul>
-<li>本原问题：不能再进行分解或者变换，可以直接解答的问题</li>
-<li>端节点：没有子节点的节点</li>
-<li>终止节点：本原问题对应的节点 <em>（终止节点一定是端节点，端节点不一定是终止节点）</em></li>
-<li>可解问题：<ul>
-<li>任何终止节点</li>
-<li>或树中有一个可解</li>
-<li>与树中都有解</li>
-</ul>
-</li>
-</ul>
-<h2 id="进化搜索"><a href="#进化搜索" class="headerlink" title="进化搜索"></a>进化搜索</h2><p><img src="2025-12-12-18-36-12.png" alt=""><br><strong>进化计算的生物学基础</strong>：</p>
-<ol>
-<li>遗传理论</li>
-<li>变异理论</li>
-<li>进化论</li>
-</ol>
-<h2 id="启发式搜索"><a href="#启发式搜索" class="headerlink" title="启发式搜索"></a>启发式搜索</h2><p><img src="2025-12-12-18-38-36.png" alt=""></p>
-<ul>
-<li>八数码难题：</li>
-</ul>
-<p><img src="2025-12-12-18-39-09.png" alt=""></p>
-<h2 id="A-算法"><a href="#A-算法" class="headerlink" title="A 算法"></a>A 算法</h2><p><img src="2025-12-12-18-40-15.png" alt=""><br><img src="2025-12-12-18-41-00.png" alt=""><br><img src="2025-12-12-18-41-22.png" alt=""></p>
-<h2 id="与或树的启发式搜索"><a href="#与或树的启发式搜索" class="headerlink" title="与或树的启发式搜索"></a>与或树的启发式搜索</h2><p><img src="2025-12-12-18-41-55.png" alt=""></p>
-<h2 id="博弈树"><a href="#博弈树" class="headerlink" title="博弈树"></a>博弈树</h2><p><img src="2025-12-12-18-42-41.png" alt=""><br><img src="2025-12-12-18-43-02.png" alt=""></p>
-<h2 id="进化搜索（这一部分看PPT理解）"><a href="#进化搜索（这一部分看PPT理解）" class="headerlink" title="进化搜索（这一部分看PPT理解）"></a>进化搜索（这一部分看PPT理解）</h2><ul>
-<li>蚁群算法</li>
-<li>遗传算法</li>
-</ul>
-<ol>
-<li>基本步骤：<br><img src="2025-12-13-16-33-40.png" alt=""></li>
-<li>三角函数的遗传算法优化（重点看一下）（17-20课时）</li>
-<li>轮盘赌：<br><img src="2025-12-13-16-38-57.png" alt=""></li>
-</ol>
-<ul>
-<li>粒子群优化算法<br>看ppt（21-24课时），重点求解tsp问题的步骤。</li>
-</ul>
-<p><strong>群智能的优点</strong>：</p>
-<ol>
-<li>灵活性：群体可以随时适应变化的环境。</li>
-<li>稳健性：即使个体失败，群体仍可以完成任务；自我组织；活动既不受中央控制，也不受局部监督。</li>
-</ol>
-<h1 id="第六章-机器学习"><a href="#第六章-机器学习" class="headerlink" title="第六章 机器学习"></a>第六章 机器学习</h1><h2 id="信息熵与信息增益"><a href="#信息熵与信息增益" class="headerlink" title="信息熵与信息增益"></a>信息熵与信息增益</h2><p><img src="2025-12-13-16-44-14.png" alt=""><br><img src="2025-12-13-16-44-31.png" alt=""></p>
-<h2 id="ID3-算法"><a href="#ID3-算法" class="headerlink" title="ID3 算法"></a>ID3 算法</h2><ul>
-<li><strong>测试属性</strong>：<code>信息增益</code>  </li>
-</ul>
-<p><strong>具体计算流程</strong>：（设$C_1+C_2=D$）</p>
-<ol>
-<li><p><strong>计算不考虑特征的信息熵</strong>：</p>
-<script type="math/tex; mode=display">H(D) = -\sum_{k=1}^{K} p_k \log_2 p_k= -\sum_{k=1}^{K} \frac{|C_k|}{|D|} \log_2 \frac{|C_k|}{|D|}</script><p>其中 $|D|$ 为样本总数，$|C_k|$ 为属于第 $k$ 类的样本数(eg: <em>买/不买</em>)。</p>
-</li>
-<li><p><strong>计算条件熵</strong>：</p>
-<ul>
-<li>先选择一个 <strong>特征 $A_i$</strong>，将数据集 $D$ 根据特征 $A_i$ 的<strong>不同取值</strong>划分为 $n$ 个子集 $D_1, D_2, \dots, D_n$。</li>
-<li>计算特征 $A_i$ 下不同取值 $D_i$ 的信息熵 $H(D_i)$：<script type="math/tex; mode=display">H(D_i)= -\sum_{k=1}^{K} \frac{|C_k|}{|D_i|} \log_2 \frac{|C_k|}{|D_i|}</script>其中，$C_k$ 是在集合 $D_i$ 里的第 $k$ 种类别的数量 (eg: <em>买/不买</em>)。</li>
-<li>计算条件熵 $H(D|A_i)$：<script type="math/tex; mode=display">H(D|A_i) = \sum_{i=1}^{n} p_i H(D_i)= \sum_{i=1}^{n} \frac{|D_i|}{|D|} H(D_i)</script></li>
-</ul>
-</li>
-<li><p><strong>计算信息增益</strong>：</p>
-<script type="math/tex; mode=display">g(D, A_i) = H(D) - H(D|A_i)</script></li>
-<li><p><strong>特征选择</strong>：<br>选取 <strong>信息增益最大</strong> 的特征$A_i$作为当前的分裂节点（根节点或内部节点）。</p>
-</li>
-<li><p><strong>递归构建</strong>：<br>对子节点重复以上步骤，以此类推，直至分类完全（或满足停止条件）。</p>
-</li>
-</ol>
-<h2 id="集成学习（Boosting-Bagging）"><a href="#集成学习（Boosting-Bagging）" class="headerlink" title="集成学习（Boosting/Bagging）"></a>集成学习（Boosting/Bagging）</h2><p><img src="2025-12-13-16-47-29.png" alt=""><br><img src="2025-12-13-16-47-43.png" alt=""></p>
-<h2 id="回归的含义、思想"><a href="#回归的含义、思想" class="headerlink" title="回归的含义、思想"></a>回归的含义、思想</h2><p><img src="2025-12-13-16-50-09.png" alt=""><br><img src="2025-12-13-16-50-28.png" alt=""></p>
-<h2 id="总体回归函数"><a href="#总体回归函数" class="headerlink" title="总体回归函数"></a>总体回归函数</h2><p><img src="2025-12-13-16-51-14.png" alt=""><br><img src="2025-12-13-16-51-28.png" alt=""><br><img src="2025-12-13-16-51-39.png" alt=""></p>
-<h2 id="计算题：最小二乘估计-OLS"><a href="#计算题：最小二乘估计-OLS" class="headerlink" title="计算题：最小二乘估计 $OLS$"></a>计算题：最小二乘估计 $OLS$</h2><ul>
-<li>看ppt（25-28）</li>
-</ul>
-<h1 id="第七章-支持向量机"><a href="#第七章-支持向量机" class="headerlink" title="第七章 支持向量机"></a>第七章 支持向量机</h1><ul>
-<li>看模式识别的笔记。</li>
-</ul>
-<h1 id="第八章-人工神经网络与连接学习"><a href="#第八章-人工神经网络与连接学习" class="headerlink" title="第八章 人工神经网络与连接学习"></a>第八章 人工神经网络与连接学习</h1><p>后面看三个ppt吧。</p>
 ]]></content>
       <categories>
         <category>华理</category>
