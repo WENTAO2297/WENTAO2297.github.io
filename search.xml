@@ -1,6 +1,169 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>写于2025最后一天</title>
+    <url>/2025/12/31/2025-12-31/</url>
+    <content><![CDATA[<p>“普鲁斯特提出了足以对抗统一时间的无数个瞬间，并赋予了它意义，记忆足以对抗线性时间，也就是说我们在记忆中得到永恒。当岁月流逝，所有的东西都消失殆尽时，唯有空中飘荡的气味、耳畔传来的声音、手中实在的触感还恋恋不散，让往事历历在目，如同昨日重现。”</p>
+<p>又是一年，希望明年可以更好，完成自己的目标。</p>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>人工智能原理与应用</title>
+    <url>/2025/12/11/AI/</url>
+    <content><![CDATA[<h1 id="第一章-绪论"><a href="#第一章-绪论" class="headerlink" title="第一章 绪论"></a>第一章 绪论</h1><p>智能：智能指人类在认识客观世界中，由思维过程和脑<br>力活动所表现出的综合能力。</p>
+<h2 id="智能包含的能力"><a href="#智能包含的能力" class="headerlink" title="智能包含的能力"></a>智能包含的能力</h2><p>  <img src="2025-12-11-19-04-02.png" alt=""></p>
+<h2 id="AI的研究目标"><a href="#AI的研究目标" class="headerlink" title="AI的研究目标"></a>AI的研究目标</h2><p>  <img src="2025-12-11-19-05-39.png" alt=""></p>
+<h2 id="三大学派"><a href="#三大学派" class="headerlink" title="三大学派"></a>三大学派</h2><p>  <img src="2025-12-11-19-07-05.png" alt=""><br>  <img src="2025-12-11-19-07-54.png" alt=""></p>
+<h2 id="新的发展"><a href="#新的发展" class="headerlink" title="新的发展"></a>新的发展</h2><p>  <img src="2025-12-11-19-08-50.png" alt=""></p>
+<h2 id="智能模拟方法"><a href="#智能模拟方法" class="headerlink" title="智能模拟方法"></a>智能模拟方法</h2><p>  <img src="2025-12-11-19-12-03.png" alt=""></p>
+<h2 id="推理"><a href="#推理" class="headerlink" title="推理"></a>推理</h2><p>  <strong>推理</strong>：是指按照某种策略从已知事实出发利用知识推出所需结论的过程。<br>  <strong>推理方法</strong>：归纳、演绎、（不）确定性推理</p>
+<h2 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h2><p>  <strong>搜索</strong>：依靠经验，利用已有知识，根据问题的实际情况，不断寻找可利用知识，从而构造一条代价最小的推理路线，使问题得以解决的过程。<br>  <strong>智能搜索</strong>：利用搜索过程中得到的信息来引导搜索向最优方向发展的算法。</p>
+<h2 id="神经元（画图）"><a href="#神经元（画图）" class="headerlink" title="神经元（画图）"></a>神经元（画图）</h2><p>  <img src="2025-12-11-19-17-46.png" alt=""></p>
+<h2 id="大数据的特性："><a href="#大数据的特性：" class="headerlink" title="大数据的特性："></a>大数据的特性：</h2><ul>
+<li><strong>规模性、多样性、实时性、价值性</strong></li>
+</ul>
+<h2 id="机器视觉的流程：图像获取-rightarrow-图像解释"><a href="#机器视觉的流程：图像获取-rightarrow-图像解释" class="headerlink" title="机器视觉的流程：图像获取$\rightarrow$图像解释"></a>机器视觉的流程：图像获取$\rightarrow$图像解释</h2><p>  <img src="2025-12-11-19-20-13.png" alt=""></p>
+<h2 id="模式识别"><a href="#模式识别" class="headerlink" title="模式识别"></a>模式识别</h2><p>  <img src="2025-12-11-19-21-05.png" alt=""></p>
+<h2 id="自然语言处理"><a href="#自然语言处理" class="headerlink" title="自然语言处理"></a>自然语言处理</h2><p>  <img src="2025-12-11-19-21-26.png" alt=""></p>
+<h2 id="智能控制"><a href="#智能控制" class="headerlink" title="智能控制"></a>智能控制</h2><p>  <img src="2025-12-11-19-21-48.png" alt=""></p>
+<h2 id="人工智能工程"><a href="#人工智能工程" class="headerlink" title="人工智能工程"></a>人工智能工程</h2><p>  <img src="2025-12-11-19-23-37.png" alt=""><br>  <img src="2025-12-11-19-24-19.png" alt=""></p>
+<h2 id="人工智能面临的问题"><a href="#人工智能面临的问题" class="headerlink" title="人工智能面临的问题"></a>人工智能面临的问题</h2><ol>
+<li>道德伦理问题</li>
+<li>法律法规的制定问题</li>
+<li>安全问题（信息安全、交通安全、人身安全）</li>
+<li>稀缺数据资源条件下的学习</li>
+<li>目前人工智能属于弱人工智能</li>
+</ol>
+<h2 id="未来发展趋势"><a href="#未来发展趋势" class="headerlink" title="未来发展趋势"></a>未来发展趋势</h2><ol>
+<li>从专用智能向通用是能发展</li>
+<li>从人工智能向人机融合发展</li>
+<li>自动化AI技术</li>
+<li>AI药物的研发</li>
+<li>减少对数据的需求</li>
+<li>可解释性和鲁棒性</li>
+</ol>
+<h1 id="第二章-数学基础"><a href="#第二章-数学基础" class="headerlink" title="第二章 数学基础"></a>第二章 数学基础</h1><h2 id="向量的范数"><a href="#向量的范数" class="headerlink" title="向量的范数"></a>向量的范数</h2><p>1) 1-范数</p>
+<script type="math/tex; mode=display">\|\alpha\|_1 = |\alpha_1| + |\alpha_2| + \cdots + |\alpha_n|</script><p>2) 2-范数</p>
+<script type="math/tex; mode=display">\|\alpha\|_2 = \sqrt{\alpha_1^2 + \alpha_2^2 + \cdots + \alpha_n^2}</script><p>3) $\infty$-范数</p>
+<script type="math/tex; mode=display">\|\alpha\|_\infty = \max\{|\alpha_1|, |\alpha_2|, \cdots, |\alpha_n|\}</script><p>4) p-范数</p>
+<script type="math/tex; mode=display">\|\alpha\|_p = \left( \sum_{i=1}^{n} |\alpha_i|^p \right)^{1/p}, \quad p \ge 1</script><h2 id="矩阵的范数"><a href="#矩阵的范数" class="headerlink" title="矩阵的范数"></a>矩阵的范数</h2><p>1) Frobenius 范数 (F-范数)</p>
+<script type="math/tex; mode=display">\|X\|_F = \left( \sum_{i,j=1}^{n} |x_{ij}|^2 \right)^{1/2} = \left( tr(X^H X) \right)^{1/2}</script><p>2) 1-范数</p>
+<script type="math/tex; mode=display">\|X\|_1 = \max_{j} \sum_{i=1}^{n} |x_{ij}|</script><p>3) 2-范数</p>
+<script type="math/tex; mode=display">\|X\|_2 = \sqrt{\lambda} \text{，其中 } \lambda \text{ 为 } X^H X \text{ 的最大特征值}</script><p>4) $\infty$-范数</p>
+<script type="math/tex; mode=display">\|X\|_\infty = \max_{i} \sum_{j=1}^{n} |x_{ij}|</script><p>其中，$X^H$ 为 $X$ 的共轭转置矩阵。</p>
+<h1 id="第三章-确定性知识系统"><a href="#第三章-确定性知识系统" class="headerlink" title="第三章 确定性知识系统"></a>第三章 确定性知识系统</h1><ul>
+<li><strong>知识</strong>是改造客观世界中积累起来的认识和经验。</li>
+<li>知识 = 信息 + 关联</li>
+</ul>
+<h2 id="知识的类型"><a href="#知识的类型" class="headerlink" title="知识的类型"></a>知识的类型</h2><p><img src="2025-12-11-22-06-18.png" alt=""></p>
+<h2 id="知识的作用效果"><a href="#知识的作用效果" class="headerlink" title="知识的作用效果"></a>知识的作用效果</h2><p><img src="2025-12-11-22-08-05.png" alt=""></p>
+<h2 id="知识的表示要求"><a href="#知识的表示要求" class="headerlink" title="知识的表示要求"></a>知识的表示要求</h2><ul>
+<li>可组织性与可维护性</li>
+<li>可理解性与可实现性</li>
+</ul>
+<h2 id="知识的类型-1"><a href="#知识的类型-1" class="headerlink" title="知识的类型"></a>知识的类型</h2><p><img src="2025-12-11-22-15-11.png" alt=""></p>
+<h2 id="推理方法及其分类"><a href="#推理方法及其分类" class="headerlink" title="推理方法及其分类"></a>推理方法及其分类</h2><ol>
+<li>演绎推理：<br><img src="2025-12-11-22-17-36.png" alt=""></li>
+<li>归纳推理<br><img src="2025-12-11-22-22-55.png" alt=""><br><img src="2025-12-11-22-23-09.png" alt=""><br><strong>演绎推理 &amp; 归纳推理区别</strong>：<br><img src="2025-12-11-22-22-30.png" alt=""></li>
+</ol>
+<h2 id="推理控制策略"><a href="#推理控制策略" class="headerlink" title="推理控制策略"></a>推理控制策略</h2><ul>
+<li>推理的控制策略是使推理过程尽快达到目标。</li>
+<li>分为两类：推理策略和搜索策略</li>
+</ul>
+<p><strong>冲突消解策略</strong>：当推理过程有多条知识可用时，如何从这多条可用知识中选出一条<strong>最佳知识</strong>用于推理的策略，常用的冲突消解策略有<em>领域知识优先和新鲜知识优先</em>等。</p>
+<h1 id="第四章-不确定性知识系统"><a href="#第四章-不确定性知识系统" class="headerlink" title="第四章 不确定性知识系统"></a>第四章 不确定性知识系统</h1><h2 id="知识的不确定性表示"><a href="#知识的不确定性表示" class="headerlink" title="知识的不确定性表示"></a>知识的不确定性表示</h2><p><img src="2025-12-11-22-30-33.png" alt=""><br><img src="2025-12-11-22-30-45.png" alt=""></p>
+<h2 id="主观贝叶斯推理"><a href="#主观贝叶斯推理" class="headerlink" title="主观贝叶斯推理"></a>主观贝叶斯推理</h2><h2 id="贝叶斯网络原理"><a href="#贝叶斯网络原理" class="headerlink" title="贝叶斯网络原理"></a>贝叶斯网络原理</h2><p><img src="2025-12-11-22-31-50.png" alt=""></p>
+<h1 id="第五章-智能搜索技术"><a href="#第五章-智能搜索技术" class="headerlink" title="第五章 智能搜索技术"></a>第五章 智能搜索技术</h1><h2 id="状态空间问题的求解"><a href="#状态空间问题的求解" class="headerlink" title="状态空间问题的求解"></a>状态空间问题的求解</h2><p><img src="2025-12-12-18-20-32.png" alt=""><br><img src="2025-12-12-18-20-56.png" alt=""></p>
+<h2 id="与或树"><a href="#与或树" class="headerlink" title="与或树"></a>与或树</h2><ul>
+<li><strong>分解</strong>：$P 归纳为 P_i, P_i 都有解的时候，P 有解。$</li>
+<li><strong>等价变换</strong>：$P 可以等价变为 P_i，有一个 P_i 有解，P 有解。$</li>
+</ul>
+<p><img src="2025-12-12-18-28-38.png" alt=""></p>
+<ul>
+<li>本原问题：不能再进行分解或者变换，可以直接解答的问题</li>
+<li>端节点：没有子节点的节点</li>
+<li>终止节点：本原问题对应的节点 <em>（终止节点一定是端节点，端节点不一定是终止节点）</em></li>
+<li>可解问题：<ul>
+<li>任何终止节点</li>
+<li>或树中有一个可解</li>
+<li>与树中都有解</li>
+</ul>
+</li>
+</ul>
+<h2 id="进化搜索"><a href="#进化搜索" class="headerlink" title="进化搜索"></a>进化搜索</h2><p><img src="2025-12-12-18-36-12.png" alt=""><br><strong>进化计算的生物学基础</strong>：</p>
+<ol>
+<li>遗传理论</li>
+<li>变异理论</li>
+<li>进化论</li>
+</ol>
+<h2 id="启发式搜索"><a href="#启发式搜索" class="headerlink" title="启发式搜索"></a>启发式搜索</h2><p><img src="2025-12-12-18-38-36.png" alt=""></p>
+<ul>
+<li>八数码难题：</li>
+</ul>
+<p><img src="2025-12-12-18-39-09.png" alt=""></p>
+<h2 id="A-算法"><a href="#A-算法" class="headerlink" title="A 算法"></a>A 算法</h2><p><img src="2025-12-12-18-40-15.png" alt=""><br><img src="2025-12-12-18-41-00.png" alt=""><br><img src="2025-12-12-18-41-22.png" alt=""></p>
+<h2 id="与或树的启发式搜索"><a href="#与或树的启发式搜索" class="headerlink" title="与或树的启发式搜索"></a>与或树的启发式搜索</h2><p><img src="2025-12-12-18-41-55.png" alt=""></p>
+<h2 id="博弈树"><a href="#博弈树" class="headerlink" title="博弈树"></a>博弈树</h2><p><img src="2025-12-12-18-42-41.png" alt=""><br><img src="2025-12-12-18-43-02.png" alt=""></p>
+<h2 id="进化搜索（这一部分看PPT理解）"><a href="#进化搜索（这一部分看PPT理解）" class="headerlink" title="进化搜索（这一部分看PPT理解）"></a>进化搜索（这一部分看PPT理解）</h2><ul>
+<li>蚁群算法</li>
+<li>遗传算法</li>
+</ul>
+<ol>
+<li>基本步骤：<br><img src="2025-12-13-16-33-40.png" alt=""></li>
+<li>三角函数的遗传算法优化（重点看一下）（17-20课时）</li>
+<li>轮盘赌：<br><img src="2025-12-13-16-38-57.png" alt=""></li>
+</ol>
+<ul>
+<li>粒子群优化算法<br>看ppt（21-24课时），重点求解tsp问题的步骤。</li>
+</ul>
+<p><strong>群智能的优点</strong>：</p>
+<ol>
+<li>灵活性：群体可以随时适应变化的环境。</li>
+<li>稳健性：即使个体失败，群体仍可以完成任务；自我组织；活动既不受中央控制，也不受局部监督。</li>
+</ol>
+<h1 id="第六章-机器学习"><a href="#第六章-机器学习" class="headerlink" title="第六章 机器学习"></a>第六章 机器学习</h1><h2 id="信息熵与信息增益"><a href="#信息熵与信息增益" class="headerlink" title="信息熵与信息增益"></a>信息熵与信息增益</h2><p><img src="2025-12-13-16-44-14.png" alt=""><br><img src="2025-12-13-16-44-31.png" alt=""></p>
+<h2 id="ID3-算法"><a href="#ID3-算法" class="headerlink" title="ID3 算法"></a>ID3 算法</h2><ul>
+<li><strong>测试属性</strong>：<code>信息增益</code>  </li>
+</ul>
+<p><strong>具体计算流程</strong>：（设$C_1+C_2=D$）</p>
+<ol>
+<li><p><strong>计算不考虑特征的信息熵</strong>：</p>
+<script type="math/tex; mode=display">H(D) = -\sum_{k=1}^{K} p_k \log_2 p_k= -\sum_{k=1}^{K} \frac{|C_k|}{|D|} \log_2 \frac{|C_k|}{|D|}</script><p>其中 $|D|$ 为样本总数，$|C_k|$ 为属于第 $k$ 类的样本数(eg: <em>买/不买</em>)。</p>
+</li>
+<li><p><strong>计算条件熵</strong>：</p>
+<ul>
+<li>先选择一个 <strong>特征 $A_i$</strong>，将数据集 $D$ 根据特征 $A_i$ 的<strong>不同取值</strong>划分为 $n$ 个子集 $D_1, D_2, \dots, D_n$。</li>
+<li>计算特征 $A_i$ 下不同取值 $D_i$ 的信息熵 $H(D_i)$：<script type="math/tex; mode=display">H(D_i)= -\sum_{k=1}^{K} \frac{|C_k|}{|D_i|} \log_2 \frac{|C_k|}{|D_i|}</script>其中，$C_k$ 是在集合 $D_i$ 里的第 $k$ 种类别的数量 (eg: <em>买/不买</em>)。</li>
+<li>计算条件熵 $H(D|A_i)$：<script type="math/tex; mode=display">H(D|A_i) = \sum_{i=1}^{n} p_i H(D_i)= \sum_{i=1}^{n} \frac{|D_i|}{|D|} H(D_i)</script></li>
+</ul>
+</li>
+<li><p><strong>计算信息增益</strong>：</p>
+<script type="math/tex; mode=display">g(D, A_i) = H(D) - H(D|A_i)</script></li>
+<li><p><strong>特征选择</strong>：<br>选取 <strong>信息增益最大</strong> 的特征$A_i$作为当前的分裂节点（根节点或内部节点）。</p>
+</li>
+<li><p><strong>递归构建</strong>：<br>对子节点重复以上步骤，以此类推，直至分类完全（或满足停止条件）。</p>
+</li>
+</ol>
+<h2 id="集成学习（Boosting-Bagging）"><a href="#集成学习（Boosting-Bagging）" class="headerlink" title="集成学习（Boosting/Bagging）"></a>集成学习（Boosting/Bagging）</h2><p><img src="2025-12-13-16-47-29.png" alt=""><br><img src="2025-12-13-16-47-43.png" alt=""></p>
+<h2 id="回归的含义、思想"><a href="#回归的含义、思想" class="headerlink" title="回归的含义、思想"></a>回归的含义、思想</h2><p><img src="2025-12-13-16-50-09.png" alt=""><br><img src="2025-12-13-16-50-28.png" alt=""></p>
+<h2 id="总体回归函数"><a href="#总体回归函数" class="headerlink" title="总体回归函数"></a>总体回归函数</h2><p><img src="2025-12-13-16-51-14.png" alt=""><br><img src="2025-12-13-16-51-28.png" alt=""><br><img src="2025-12-13-16-51-39.png" alt=""></p>
+<h2 id="计算题：最小二乘估计-OLS"><a href="#计算题：最小二乘估计-OLS" class="headerlink" title="计算题：最小二乘估计 $OLS$"></a>计算题：最小二乘估计 $OLS$</h2><ul>
+<li>看ppt（25-28）</li>
+</ul>
+<h1 id="第七章-支持向量机"><a href="#第七章-支持向量机" class="headerlink" title="第七章 支持向量机"></a>第七章 支持向量机</h1><ul>
+<li>看模式识别的笔记。</li>
+</ul>
+<h1 id="第八章-人工神经网络与连接学习"><a href="#第八章-人工神经网络与连接学习" class="headerlink" title="第八章 人工神经网络与连接学习"></a>第八章 人工神经网络与连接学习</h1><p>后面看三个ppt吧。</p>
+]]></content>
+      <categories>
+        <category>华理</category>
+        <category>大三上</category>
+      </categories>
+  </entry>
+  <entry>
     <title>嵌入式系统原理</title>
     <url>/2025/12/21/STM32/</url>
     <content><![CDATA[<h1 id="第一章-导论"><a href="#第一章-导论" class="headerlink" title="第一章 导论"></a>第一章 导论</h1><blockquote>
@@ -741,16 +904,6 @@
       </categories>
   </entry>
   <entry>
-    <title>写于2025最后一天</title>
-    <url>/2025/12/31/2025-12-31/</url>
-    <content><![CDATA[<p>“普鲁斯特提出了足以对抗统一时间的无数个瞬间，并赋予了它意义，记忆足以对抗线性时间，也就是说我们在记忆中得到永恒。当岁月流逝，所有的东西都消失殆尽时，唯有空中飘荡的气味、耳畔传来的声音、手中实在的触感还恋恋不散，让往事历历在目，如同昨日重现。”</p>
-<p>又是一年，希望明年可以更好，完成自己的目标。</p>
-]]></content>
-      <categories>
-        <category>随笔</category>
-      </categories>
-  </entry>
-  <entry>
     <title>专业前沿讲座报告</title>
     <url>/2025/11/26/lecture-report/</url>
     <content><![CDATA[<blockquote>
@@ -819,1521 +972,6 @@
 <blockquote>
 <p><strong>附件下载：</strong> <a href="report.docx">📄 点击下载完整 Word 课程报告</a></p>
 </blockquote>
-]]></content>
-      <categories>
-        <category>华理</category>
-        <category>大三上</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>人工智能原理与应用</title>
-    <url>/2025/12/11/AI/</url>
-    <content><![CDATA[<h1 id="第一章-绪论"><a href="#第一章-绪论" class="headerlink" title="第一章 绪论"></a>第一章 绪论</h1><p>智能：智能指人类在认识客观世界中，由思维过程和脑<br>力活动所表现出的综合能力。</p>
-<h2 id="智能包含的能力"><a href="#智能包含的能力" class="headerlink" title="智能包含的能力"></a>智能包含的能力</h2><p>  <img src="2025-12-11-19-04-02.png" alt=""></p>
-<h2 id="AI的研究目标"><a href="#AI的研究目标" class="headerlink" title="AI的研究目标"></a>AI的研究目标</h2><p>  <img src="2025-12-11-19-05-39.png" alt=""></p>
-<h2 id="三大学派"><a href="#三大学派" class="headerlink" title="三大学派"></a>三大学派</h2><p>  <img src="2025-12-11-19-07-05.png" alt=""><br>  <img src="2025-12-11-19-07-54.png" alt=""></p>
-<h2 id="新的发展"><a href="#新的发展" class="headerlink" title="新的发展"></a>新的发展</h2><p>  <img src="2025-12-11-19-08-50.png" alt=""></p>
-<h2 id="智能模拟方法"><a href="#智能模拟方法" class="headerlink" title="智能模拟方法"></a>智能模拟方法</h2><p>  <img src="2025-12-11-19-12-03.png" alt=""></p>
-<h2 id="推理"><a href="#推理" class="headerlink" title="推理"></a>推理</h2><p>  <strong>推理</strong>：是指按照某种策略从已知事实出发利用知识推出所需结论的过程。<br>  <strong>推理方法</strong>：归纳、演绎、（不）确定性推理</p>
-<h2 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h2><p>  <strong>搜索</strong>：依靠经验，利用已有知识，根据问题的实际情况，不断寻找可利用知识，从而构造一条代价最小的推理路线，使问题得以解决的过程。<br>  <strong>智能搜索</strong>：利用搜索过程中得到的信息来引导搜索向最优方向发展的算法。</p>
-<h2 id="神经元（画图）"><a href="#神经元（画图）" class="headerlink" title="神经元（画图）"></a>神经元（画图）</h2><p>  <img src="2025-12-11-19-17-46.png" alt=""></p>
-<h2 id="大数据的特性："><a href="#大数据的特性：" class="headerlink" title="大数据的特性："></a>大数据的特性：</h2><ul>
-<li><strong>规模性、多样性、实时性、价值性</strong></li>
-</ul>
-<h2 id="机器视觉的流程：图像获取-rightarrow-图像解释"><a href="#机器视觉的流程：图像获取-rightarrow-图像解释" class="headerlink" title="机器视觉的流程：图像获取$\rightarrow$图像解释"></a>机器视觉的流程：图像获取$\rightarrow$图像解释</h2><p>  <img src="2025-12-11-19-20-13.png" alt=""></p>
-<h2 id="模式识别"><a href="#模式识别" class="headerlink" title="模式识别"></a>模式识别</h2><p>  <img src="2025-12-11-19-21-05.png" alt=""></p>
-<h2 id="自然语言处理"><a href="#自然语言处理" class="headerlink" title="自然语言处理"></a>自然语言处理</h2><p>  <img src="2025-12-11-19-21-26.png" alt=""></p>
-<h2 id="智能控制"><a href="#智能控制" class="headerlink" title="智能控制"></a>智能控制</h2><p>  <img src="2025-12-11-19-21-48.png" alt=""></p>
-<h2 id="人工智能工程"><a href="#人工智能工程" class="headerlink" title="人工智能工程"></a>人工智能工程</h2><p>  <img src="2025-12-11-19-23-37.png" alt=""><br>  <img src="2025-12-11-19-24-19.png" alt=""></p>
-<h2 id="人工智能面临的问题"><a href="#人工智能面临的问题" class="headerlink" title="人工智能面临的问题"></a>人工智能面临的问题</h2><ol>
-<li>道德伦理问题</li>
-<li>法律法规的制定问题</li>
-<li>安全问题（信息安全、交通安全、人身安全）</li>
-<li>稀缺数据资源条件下的学习</li>
-<li>目前人工智能属于弱人工智能</li>
-</ol>
-<h2 id="未来发展趋势"><a href="#未来发展趋势" class="headerlink" title="未来发展趋势"></a>未来发展趋势</h2><ol>
-<li>从专用智能向通用是能发展</li>
-<li>从人工智能向人机融合发展</li>
-<li>自动化AI技术</li>
-<li>AI药物的研发</li>
-<li>减少对数据的需求</li>
-<li>可解释性和鲁棒性</li>
-</ol>
-<h1 id="第二章-数学基础"><a href="#第二章-数学基础" class="headerlink" title="第二章 数学基础"></a>第二章 数学基础</h1><h2 id="向量的范数"><a href="#向量的范数" class="headerlink" title="向量的范数"></a>向量的范数</h2><p>1) 1-范数</p>
-<script type="math/tex; mode=display">\|\alpha\|_1 = |\alpha_1| + |\alpha_2| + \cdots + |\alpha_n|</script><p>2) 2-范数</p>
-<script type="math/tex; mode=display">\|\alpha\|_2 = \sqrt{\alpha_1^2 + \alpha_2^2 + \cdots + \alpha_n^2}</script><p>3) $\infty$-范数</p>
-<script type="math/tex; mode=display">\|\alpha\|_\infty = \max\{|\alpha_1|, |\alpha_2|, \cdots, |\alpha_n|\}</script><p>4) p-范数</p>
-<script type="math/tex; mode=display">\|\alpha\|_p = \left( \sum_{i=1}^{n} |\alpha_i|^p \right)^{1/p}, \quad p \ge 1</script><h2 id="矩阵的范数"><a href="#矩阵的范数" class="headerlink" title="矩阵的范数"></a>矩阵的范数</h2><p>1) Frobenius 范数 (F-范数)</p>
-<script type="math/tex; mode=display">\|X\|_F = \left( \sum_{i,j=1}^{n} |x_{ij}|^2 \right)^{1/2} = \left( tr(X^H X) \right)^{1/2}</script><p>2) 1-范数</p>
-<script type="math/tex; mode=display">\|X\|_1 = \max_{j} \sum_{i=1}^{n} |x_{ij}|</script><p>3) 2-范数</p>
-<script type="math/tex; mode=display">\|X\|_2 = \sqrt{\lambda} \text{，其中 } \lambda \text{ 为 } X^H X \text{ 的最大特征值}</script><p>4) $\infty$-范数</p>
-<script type="math/tex; mode=display">\|X\|_\infty = \max_{i} \sum_{j=1}^{n} |x_{ij}|</script><p>其中，$X^H$ 为 $X$ 的共轭转置矩阵。</p>
-<h1 id="第三章-确定性知识系统"><a href="#第三章-确定性知识系统" class="headerlink" title="第三章 确定性知识系统"></a>第三章 确定性知识系统</h1><ul>
-<li><strong>知识</strong>是改造客观世界中积累起来的认识和经验。</li>
-<li>知识 = 信息 + 关联</li>
-</ul>
-<h2 id="知识的类型"><a href="#知识的类型" class="headerlink" title="知识的类型"></a>知识的类型</h2><p><img src="2025-12-11-22-06-18.png" alt=""></p>
-<h2 id="知识的作用效果"><a href="#知识的作用效果" class="headerlink" title="知识的作用效果"></a>知识的作用效果</h2><p><img src="2025-12-11-22-08-05.png" alt=""></p>
-<h2 id="知识的表示要求"><a href="#知识的表示要求" class="headerlink" title="知识的表示要求"></a>知识的表示要求</h2><ul>
-<li>可组织性与可维护性</li>
-<li>可理解性与可实现性</li>
-</ul>
-<h2 id="知识的类型-1"><a href="#知识的类型-1" class="headerlink" title="知识的类型"></a>知识的类型</h2><p><img src="2025-12-11-22-15-11.png" alt=""></p>
-<h2 id="推理方法及其分类"><a href="#推理方法及其分类" class="headerlink" title="推理方法及其分类"></a>推理方法及其分类</h2><ol>
-<li>演绎推理：<br><img src="2025-12-11-22-17-36.png" alt=""></li>
-<li>归纳推理<br><img src="2025-12-11-22-22-55.png" alt=""><br><img src="2025-12-11-22-23-09.png" alt=""><br><strong>演绎推理 &amp; 归纳推理区别</strong>：<br><img src="2025-12-11-22-22-30.png" alt=""></li>
-</ol>
-<h2 id="推理控制策略"><a href="#推理控制策略" class="headerlink" title="推理控制策略"></a>推理控制策略</h2><ul>
-<li>推理的控制策略是使推理过程尽快达到目标。</li>
-<li>分为两类：推理策略和搜索策略</li>
-</ul>
-<p><strong>冲突消解策略</strong>：当推理过程有多条知识可用时，如何从这多条可用知识中选出一条<strong>最佳知识</strong>用于推理的策略，常用的冲突消解策略有<em>领域知识优先和新鲜知识优先</em>等。</p>
-<h1 id="第四章-不确定性知识系统"><a href="#第四章-不确定性知识系统" class="headerlink" title="第四章 不确定性知识系统"></a>第四章 不确定性知识系统</h1><h2 id="知识的不确定性表示"><a href="#知识的不确定性表示" class="headerlink" title="知识的不确定性表示"></a>知识的不确定性表示</h2><p><img src="2025-12-11-22-30-33.png" alt=""><br><img src="2025-12-11-22-30-45.png" alt=""></p>
-<h2 id="主观贝叶斯推理"><a href="#主观贝叶斯推理" class="headerlink" title="主观贝叶斯推理"></a>主观贝叶斯推理</h2><h2 id="贝叶斯网络原理"><a href="#贝叶斯网络原理" class="headerlink" title="贝叶斯网络原理"></a>贝叶斯网络原理</h2><p><img src="2025-12-11-22-31-50.png" alt=""></p>
-<h1 id="第五章-智能搜索技术"><a href="#第五章-智能搜索技术" class="headerlink" title="第五章 智能搜索技术"></a>第五章 智能搜索技术</h1><h2 id="状态空间问题的求解"><a href="#状态空间问题的求解" class="headerlink" title="状态空间问题的求解"></a>状态空间问题的求解</h2><p><img src="2025-12-12-18-20-32.png" alt=""><br><img src="2025-12-12-18-20-56.png" alt=""></p>
-<h2 id="与或树"><a href="#与或树" class="headerlink" title="与或树"></a>与或树</h2><ul>
-<li><strong>分解</strong>：$P 归纳为 P_i, P_i 都有解的时候，P 有解。$</li>
-<li><strong>等价变换</strong>：$P 可以等价变为 P_i，有一个 P_i 有解，P 有解。$</li>
-</ul>
-<p><img src="2025-12-12-18-28-38.png" alt=""></p>
-<ul>
-<li>本原问题：不能再进行分解或者变换，可以直接解答的问题</li>
-<li>端节点：没有子节点的节点</li>
-<li>终止节点：本原问题对应的节点 <em>（终止节点一定是端节点，端节点不一定是终止节点）</em></li>
-<li>可解问题：<ul>
-<li>任何终止节点</li>
-<li>或树中有一个可解</li>
-<li>与树中都有解</li>
-</ul>
-</li>
-</ul>
-<h2 id="进化搜索"><a href="#进化搜索" class="headerlink" title="进化搜索"></a>进化搜索</h2><p><img src="2025-12-12-18-36-12.png" alt=""><br><strong>进化计算的生物学基础</strong>：</p>
-<ol>
-<li>遗传理论</li>
-<li>变异理论</li>
-<li>进化论</li>
-</ol>
-<h2 id="启发式搜索"><a href="#启发式搜索" class="headerlink" title="启发式搜索"></a>启发式搜索</h2><p><img src="2025-12-12-18-38-36.png" alt=""></p>
-<ul>
-<li>八数码难题：</li>
-</ul>
-<p><img src="2025-12-12-18-39-09.png" alt=""></p>
-<h2 id="A-算法"><a href="#A-算法" class="headerlink" title="A 算法"></a>A 算法</h2><p><img src="2025-12-12-18-40-15.png" alt=""><br><img src="2025-12-12-18-41-00.png" alt=""><br><img src="2025-12-12-18-41-22.png" alt=""></p>
-<h2 id="与或树的启发式搜索"><a href="#与或树的启发式搜索" class="headerlink" title="与或树的启发式搜索"></a>与或树的启发式搜索</h2><p><img src="2025-12-12-18-41-55.png" alt=""></p>
-<h2 id="博弈树"><a href="#博弈树" class="headerlink" title="博弈树"></a>博弈树</h2><p><img src="2025-12-12-18-42-41.png" alt=""><br><img src="2025-12-12-18-43-02.png" alt=""></p>
-<h2 id="进化搜索（这一部分看PPT理解）"><a href="#进化搜索（这一部分看PPT理解）" class="headerlink" title="进化搜索（这一部分看PPT理解）"></a>进化搜索（这一部分看PPT理解）</h2><ul>
-<li>蚁群算法</li>
-<li>遗传算法</li>
-</ul>
-<ol>
-<li>基本步骤：<br><img src="2025-12-13-16-33-40.png" alt=""></li>
-<li>三角函数的遗传算法优化（重点看一下）（17-20课时）</li>
-<li>轮盘赌：<br><img src="2025-12-13-16-38-57.png" alt=""></li>
-</ol>
-<ul>
-<li>粒子群优化算法<br>看ppt（21-24课时），重点求解tsp问题的步骤。</li>
-</ul>
-<p><strong>群智能的优点</strong>：</p>
-<ol>
-<li>灵活性：群体可以随时适应变化的环境。</li>
-<li>稳健性：即使个体失败，群体仍可以完成任务；自我组织；活动既不受中央控制，也不受局部监督。</li>
-</ol>
-<h1 id="第六章-机器学习"><a href="#第六章-机器学习" class="headerlink" title="第六章 机器学习"></a>第六章 机器学习</h1><h2 id="信息熵与信息增益"><a href="#信息熵与信息增益" class="headerlink" title="信息熵与信息增益"></a>信息熵与信息增益</h2><p><img src="2025-12-13-16-44-14.png" alt=""><br><img src="2025-12-13-16-44-31.png" alt=""></p>
-<h2 id="ID3-算法"><a href="#ID3-算法" class="headerlink" title="ID3 算法"></a>ID3 算法</h2><ul>
-<li><strong>测试属性</strong>：<code>信息增益</code>  </li>
-</ul>
-<p><strong>具体计算流程</strong>：（设$C_1+C_2=D$）</p>
-<ol>
-<li><p><strong>计算不考虑特征的信息熵</strong>：</p>
-<script type="math/tex; mode=display">H(D) = -\sum_{k=1}^{K} p_k \log_2 p_k= -\sum_{k=1}^{K} \frac{|C_k|}{|D|} \log_2 \frac{|C_k|}{|D|}</script><p>其中 $|D|$ 为样本总数，$|C_k|$ 为属于第 $k$ 类的样本数(eg: <em>买/不买</em>)。</p>
-</li>
-<li><p><strong>计算条件熵</strong>：</p>
-<ul>
-<li>先选择一个 <strong>特征 $A_i$</strong>，将数据集 $D$ 根据特征 $A_i$ 的<strong>不同取值</strong>划分为 $n$ 个子集 $D_1, D_2, \dots, D_n$。</li>
-<li>计算特征 $A_i$ 下不同取值 $D_i$ 的信息熵 $H(D_i)$：<script type="math/tex; mode=display">H(D_i)= -\sum_{k=1}^{K} \frac{|C_k|}{|D_i|} \log_2 \frac{|C_k|}{|D_i|}</script>其中，$C_k$ 是在集合 $D_i$ 里的第 $k$ 种类别的数量 (eg: <em>买/不买</em>)。</li>
-<li>计算条件熵 $H(D|A_i)$：<script type="math/tex; mode=display">H(D|A_i) = \sum_{i=1}^{n} p_i H(D_i)= \sum_{i=1}^{n} \frac{|D_i|}{|D|} H(D_i)</script></li>
-</ul>
-</li>
-<li><p><strong>计算信息增益</strong>：</p>
-<script type="math/tex; mode=display">g(D, A_i) = H(D) - H(D|A_i)</script></li>
-<li><p><strong>特征选择</strong>：<br>选取 <strong>信息增益最大</strong> 的特征$A_i$作为当前的分裂节点（根节点或内部节点）。</p>
-</li>
-<li><p><strong>递归构建</strong>：<br>对子节点重复以上步骤，以此类推，直至分类完全（或满足停止条件）。</p>
-</li>
-</ol>
-<h2 id="集成学习（Boosting-Bagging）"><a href="#集成学习（Boosting-Bagging）" class="headerlink" title="集成学习（Boosting/Bagging）"></a>集成学习（Boosting/Bagging）</h2><p><img src="2025-12-13-16-47-29.png" alt=""><br><img src="2025-12-13-16-47-43.png" alt=""></p>
-<h2 id="回归的含义、思想"><a href="#回归的含义、思想" class="headerlink" title="回归的含义、思想"></a>回归的含义、思想</h2><p><img src="2025-12-13-16-50-09.png" alt=""><br><img src="2025-12-13-16-50-28.png" alt=""></p>
-<h2 id="总体回归函数"><a href="#总体回归函数" class="headerlink" title="总体回归函数"></a>总体回归函数</h2><p><img src="2025-12-13-16-51-14.png" alt=""><br><img src="2025-12-13-16-51-28.png" alt=""><br><img src="2025-12-13-16-51-39.png" alt=""></p>
-<h2 id="计算题：最小二乘估计-OLS"><a href="#计算题：最小二乘估计-OLS" class="headerlink" title="计算题：最小二乘估计 $OLS$"></a>计算题：最小二乘估计 $OLS$</h2><ul>
-<li>看ppt（25-28）</li>
-</ul>
-<h1 id="第七章-支持向量机"><a href="#第七章-支持向量机" class="headerlink" title="第七章 支持向量机"></a>第七章 支持向量机</h1><ul>
-<li>看模式识别的笔记。</li>
-</ul>
-<h1 id="第八章-人工神经网络与连接学习"><a href="#第八章-人工神经网络与连接学习" class="headerlink" title="第八章 人工神经网络与连接学习"></a>第八章 人工神经网络与连接学习</h1><p>后面看三个ppt吧。</p>
-]]></content>
-      <categories>
-        <category>华理</category>
-        <category>大三上</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>模式识别与统计学习</title>
-    <url>/2025/11/27/statistical-learning/</url>
-    <content><![CDATA[<p>考试心得：</p>
-<ul>
-<li><strong>考的很简单，完全没必要花很多精力复习</strong></li>
-</ul>
-<h1 id="第一章-统计学习方法概述"><a href="#第一章-统计学习方法概述" class="headerlink" title="第一章 统计学习方法概述"></a>第一章 统计学习方法概述</h1><blockquote>
-<p>❝ 机器学习是一门人工智能的科学, 该领域的主要研究对象是人工智能, 特别是如何在经验学习中改善具体算法的性能。 ❞</p>
-<p>—— 机器学习是对能通过经验自动改进的计算机算法的研究。</p>
-</blockquote>
-<h2 id="统计学习"><a href="#统计学习" class="headerlink" title="统计学习"></a>统计学习</h2><ul>
-<li><strong>概念</strong>：计算机基于数据构建概率统计<strong>模型</strong>，运用<strong>模型</strong>对数据进行预测和分析。</li>
-<li><strong>研究对象</strong>：数据、基本假设。</li>
-<li><strong>目的</strong>：对数据（特别是未知数据）进行预测和分析。</li>
-</ul>
-<p><strong>🤔 为什么需要机器学习？</strong></p>
-<ol>
-<li><strong>数据量太大</strong>：人脑无法处理海量维度。</li>
-<li><strong>知识盲区</strong>：人类无法解释专业知识，或专业知识本身不存在。</li>
-</ol>
-<hr>
-<h3 id="发展历程与三要素"><a href="#发展历程与三要素" class="headerlink" title="发展历程与三要素"></a>发展历程与三要素</h3><p>模式识别与机器学习发展历程：<br><img src="2025-11-27-15-37-49.png" alt=""></p>
-<h3 id="核心：统计学三要素"><a href="#核心：统计学三要素" class="headerlink" title="核心：统计学三要素"></a>核心：统计学三要素</h3><script type="math/tex; mode=display">\text{方法} = \text{模型} + \text{策略} + \text{算法}</script><p><strong>1. 模型 (Model)</strong></p>
-<ul>
-<li><strong>非概率模型</strong>：<ul>
-<li>假设空间：决策函数 $F=\{f \mid Y=f(X)\}$</li>
-<li>参数空间：$F=\{f \mid Y=f_\theta(X), \theta \in \mathbb{R}^n\}$</li>
-</ul>
-</li>
-<li><strong>概率模型</strong>：<ul>
-<li>假设空间：条件概率 $F=\{P \mid P(Y|X)\}$</li>
-<li>参数空间：$F=\{P \mid P_\theta(Y|X), \theta \in \mathbb{R}^n\}$</li>
-</ul>
-</li>
-</ul>
-<p><strong>2. 策略 (Strategy)</strong></p>
-<ul>
-<li><strong>损失函数</strong>：度量<strong>一次</strong>预测的好坏。</li>
-<li><strong>风险函数</strong>：度量平均意义下的好坏（损失函数的期望）。<script type="math/tex; mode=display">R(f)=E_P[L(Y,f(X))]=\int L(y,f(x))P(x,y)dxdy</script></li>
-</ul>
-<p><strong>3. 算法 (Algorithm)</strong></p>
-<ul>
-<li>求解得到最优模型（通常指最优化问题的求解算法）。</li>
-</ul>
-<hr>
-<h3 id="分类体系"><a href="#分类体系" class="headerlink" title="分类体系"></a>分类体系</h3><ul>
-<li><strong>学习分类</strong>：监督学习、无监督学习、强化学习 （具体概念）</li>
-<li><strong>模型分类</strong>：(非)概率、(非)线性、(非)参数、生成/判别<br><img src="2025-12-16-14-01-34.png" alt=""><br><img src="2025-12-16-14-01-48.png" alt=""></li>
-</ul>
-<hr>
-<h2 id="混淆矩阵"><a href="#混淆矩阵" class="headerlink" title="混淆矩阵"></a>混淆矩阵</h2><p><strong>⚡️ 快速记忆口诀：</strong></p>
-<blockquote>
-<p><span style="background-color:#fff5f5; color:#ff5050; padding:2px 6px; border-radius:4px;">先看预测，再看结果</span></p>
-<ul>
-<li>预测为<strong>真</strong> $\rightarrow$ <strong>P</strong> (Positive)；预测为<strong>假</strong> $\rightarrow$ <strong>N</strong> (Negative)</li>
-<li>预测<strong>正确</strong> $\rightarrow$ <strong>T</strong> (True)；预测<strong>错误</strong> $\rightarrow$ <strong>F</strong> (False)</li>
-</ul>
-</blockquote>
-<p><strong>核心指标：</strong></p>
-<ul>
-<li><strong>精确率 (Precision)</strong>：$P=\frac{TP}{TP+FP}$ <em>（你认为是对的里面，有多少真是对的？）</em></li>
-<li><strong>召回率 (Recall)</strong>：$R=\frac{TP}{TP+FN}$ <em>（把精确率的 FP 换成 FN）</em></li>
-<li><strong>F1值</strong>：$\frac{2}{F_1} = \frac{1}{P} + \frac{1}{R}$</li>
-</ul>
-<hr>
-<h2 id="过拟合-Overfitting"><a href="#过拟合-Overfitting" class="headerlink" title="过拟合 (Overfitting)"></a>过拟合 (Overfitting)</h2><p>在<strong>训练数据</strong>上表现很好（把噪声也学进去了），对于<strong>未知数据</strong>表现很差。</p>
-<p><strong>解决办法：</strong></p>
-<ul>
-<li>正则化</li>
-<li>增大数据集</li>
-<li>早停机制</li>
-<li>减少模型参数</li>
-</ul>
-<h2 id="欠拟合-Underfitting"><a href="#欠拟合-Underfitting" class="headerlink" title="欠拟合 (Underfitting)"></a>欠拟合 (Underfitting)</h2><p><strong>模型过于简单</strong>，未能学习到数据中的基本规律，导致在<strong>训练集和未知数据</strong>上表现均不理想。</p>
-<p><strong>解决办法：</strong></p>
-<ul>
-<li>增加模型复杂度</li>
-<li>增加特征数量</li>
-<li>减少或移除正则化参数</li>
-<li>延长训练时间/充分训练  </li>
-</ul>
-<h1 id="第二章-线性感知机"><a href="#第二章-线性感知机" class="headerlink" title="第二章 线性感知机"></a>第二章 线性感知机</h1><h2 id="1-超平面-Hyperplane"><a href="#1-超平面-Hyperplane" class="headerlink" title="1. 超平面 (Hyperplane)"></a>1. 超平面 (Hyperplane)</h2><h3 id="怎么理解？"><a href="#怎么理解？" class="headerlink" title="怎么理解？"></a>怎么理解？</h3><blockquote>
-<p><strong>定义</strong>：在 $n$ 维空间中，将空间一分为二的 $n-1$ 维子空间。</p>
-</blockquote>
-<ul>
-<li><strong>超平面方程</strong>：<script type="math/tex; mode=display">w \cdot x + b = 0</script></li>
-</ul>
-<h3 id="点到超平面的几何距离"><a href="#点到超平面的几何距离" class="headerlink" title="点到超平面的几何距离"></a>点到超平面的几何距离</h3><script type="math/tex; mode=display">d = \frac{|w \cdot x + b|}{\|w\|}</script><hr>
-<h2 id="2-感知机模型-Perceptron"><a href="#2-感知机模型-Perceptron" class="headerlink" title="2. 感知机模型 (Perceptron)"></a>2. 感知机模型 (Perceptron)</h2><blockquote>
-<p><strong>关键词</strong>：<code>线性二分模型、判别模型</code></p>
-</blockquote>
-<h3 id="1-模型"><a href="#1-模型" class="headerlink" title="(1) 模型"></a>(1) 模型</h3><ul>
-<li><strong>输入空间</strong>：$x \in R^n$</li>
-<li><strong>输出空间</strong>：$y \in \{+1, -1\}$</li>
-<li><p><strong>假设空间</strong>：</p>
-<script type="math/tex; mode=display">f(x) = sign(w \cdot x + b)</script><p><strong>符号函数 (Sign Function)</strong>：</p>
-<script type="math/tex; mode=display">
-sign(x) =
-\begin{cases}
-+1, & x \geq 0 \\
--1, & x < 0
-\end{cases}</script></li>
-<li><p><strong>模型参数</strong>：</p>
-<ul>
-<li>$w$：权值向量</li>
-<li>$b$：偏置</li>
-<li>$w \cdot x$：内积</li>
-</ul>
-</li>
-</ul>
-<h3 id="2-策略"><a href="#2-策略" class="headerlink" title="(2) 策略"></a>(2) 策略</h3><p>感知机的目标是<strong>最小化误分类点到超平面的总距离。</strong></p>
-<ul>
-<li><strong>损失函数</strong>（误分类点集合 $M$）：<script type="math/tex; mode=display">
-  L(w, b) = - \sum_{x_i \in M} y_i (w \cdot x_i + b)</script>  <em>(注：由于 $\frac{1}{|w|}$ 不影响梯度方向，为了计算简便，在损失函数中省略)</em></li>
-</ul>
-<h3 id="3-算法"><a href="#3-算法" class="headerlink" title="(3) 算法"></a>(3) 算法</h3><p>转化为求解最优化问题：</p>
-<script type="math/tex; mode=display">
-\min_{w, b} L(w, b) = - \sum_{x_i \in M} y_i (w \cdot x_i + b)</script><hr>
-<h2 id="3-算法实现形式"><a href="#3-算法实现形式" class="headerlink" title="3. 算法实现形式"></a>3. 算法实现形式</h2><h3 id="1-梯度下降法"><a href="#1-梯度下降法" class="headerlink" title="(1) 梯度下降法"></a>(1) 梯度下降法</h3><ul>
-<li><strong>输入</strong>：训练数据集 $T = {(x_1, y_1), \dots, (x_N, y_N)}$，学习率 $\eta$ ($0 &lt; \eta \le 1$)</li>
-<li><strong>输出</strong>：$w, b$</li>
-</ul>
-<p><strong>算法步骤</strong>：</p>
-<ol>
-<li><strong>初始化</strong>：$w_0 \leftarrow 0, b_0 \leftarrow 0$，$\eta$看题目</li>
-<li><strong>选取数据</strong>：$(x_i, y_i)$</li>
-<li><strong>判断误分类</strong>：<br>如果满足条件 $y_i (w \cdot x_i + b) \le 0$，则更新参数：<script type="math/tex; mode=display">
-\begin{aligned}
-w &\leftarrow w + \eta y_i x_i \\
-b &\leftarrow b + \eta y_i
-\end{aligned}</script></li>
-<li><strong>循环</strong>：转至 (2)，直至训练集中没有误分类点。</li>
-</ol>
-<blockquote>
-<p><strong>特点</strong>：直观，但如果数据量大或维度高，计算量大。</p>
-</blockquote>
-<h3 id="2-对偶形式"><a href="#2-对偶形式" class="headerlink" title="(2) 对偶形式"></a>(2) 对偶形式</h3><ul>
-<li><strong>核心思想</strong>：将 $w$ 表示为实例 $x_i$ 和标记 $y_i$ 的线性组合。</li>
-<li><strong>输出</strong>：$\alpha, b$</li>
-<li><strong>假设空间变为</strong>：<script type="math/tex; mode=display">f(x) = sign\left(\sum_{j=1}^{N} \alpha_j y_j (x_j \cdot x_i) + b\right)</script>  <em>(其中 $\alpha = (\alpha_1, \alpha_2, \dots, \alpha_N)^T$)</em></li>
-</ul>
-<p><strong>算法步骤</strong>：</p>
-<ol>
-<li><strong>初始化</strong>：$\alpha \leftarrow 0, b \leftarrow 0$</li>
-<li><strong>选取数据</strong>：$(x_i, y_i)$</li>
-<li><strong>判断误分类</strong>：<br>如果满足条件：<script type="math/tex; mode=display">
-y_i \left(\sum_{j=1}^{N} \alpha_j y_j (x_j \cdot x_i) + b\right) \le 0</script>则更新参数：<script type="math/tex; mode=display">
-\begin{aligned}
-\alpha_i &\leftarrow \alpha_i + \eta \\
-b &\leftarrow b + \eta y_i
-\end{aligned}</script>（$b$和梯度下降一样）</li>
-<li><strong>循环</strong>：转至 (2) 直到无误分类数据。</li>
-</ol>
-<h4 id="💡-重点：如何计算判别式："><a href="#💡-重点：如何计算判别式：" class="headerlink" title="💡 重点：如何计算判别式："></a>💡 重点：如何计算判别式：</h4><p>在对偶形式中，样本之间的内积计算非常频繁，通常预先计算 <strong>Gram 矩阵</strong> 并存储：</p>
-<script type="math/tex; mode=display">
-G = [x_i \cdot x_j]_{N \times N} =
-\begin{bmatrix}
-x_1 \cdot x_1 & x_1 \cdot x_2 & \cdots & x_1 \cdot x_N \\
-x_2 \cdot x_1 & x_2 \cdot x_2 & \cdots & x_2 \cdot x_N \\
-\vdots & \vdots & \ddots & \vdots \\
-x_N \cdot x_1 & x_N \cdot x_2 & \cdots & x_N \cdot x_N \\
-\end{bmatrix}</script><p><strong>注意：$x_i$ 有几个，$\alpha_i$ 就有几个 $=0$（初始化）</strong><br><strong>做题技巧（表格法迭代）</strong>：<br><img src="2025-11-30-18-07-41.png" alt=""></p>
-<hr>
-<h2 id="4-感知机算法收敛性定理"><a href="#4-感知机算法收敛性定理" class="headerlink" title="4. 感知机算法收敛性定理"></a>4. 感知机算法收敛性定理</h2><ul>
-<li><p><strong>收敛定理 (Novikoff)</strong>：<br>  误分类次数 $k$ 有上界。这意味着，<strong>只要训练数据集是线性可分的，感知机算法一定能收敛</strong>（在有限步内找到解）。</p>
-</li>
-<li><p><strong>局限性</strong>：</p>
-<ol>
-<li><strong>解不唯一</strong>：解依赖于初值的选择，也依赖于误分类点的选择顺序。</li>
-<li><strong>震荡</strong>：如果数据集<strong>线性不可分</strong>，算法会一直震荡，无法做到完全正确分类。</li>
-</ol>
-</li>
-<li><p><strong>下一步引申</strong>：<br>  为了得到<strong>唯一</strong>且<strong>最优</strong>的分离超平面，我们需要引入更强的约束 —— 这就是 <strong>SVM (支持向量机)</strong> 的由来。  </p>
-</li>
-</ul>
-<h1 id="第三章-K-近邻"><a href="#第三章-K-近邻" class="headerlink" title="第三章 $K$近邻"></a>第三章 $K$近邻</h1><h2 id="1-算法简介"><a href="#1-算法简介" class="headerlink" title="1. 算法简介"></a>1. 算法简介</h2><blockquote>
-<p><strong>关键词</strong>：<code>分类模型、回归模型、适用于(数值型、标称型)数据、1-NN训练错误率=0</code></p>
-</blockquote>
-<h3 id="算法特点及优缺点"><a href="#算法特点及优缺点" class="headerlink" title="算法特点及优缺点"></a>算法特点及优缺点</h3><h4 id="懒惰学习-Lazy-Learning"><a href="#懒惰学习-Lazy-Learning" class="headerlink" title="懒惰学习 (Lazy Learning)"></a>懒惰学习 (Lazy Learning)</h4><blockquote>
-<p><strong>定义</strong>：<strong>无实质性模型训练</strong>，利用训练集数据对特征空间进行划分。测试时，要计算输入实例距每个样本的距离。</p>
-</blockquote>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left">优点 (Pros)</th>
-<th style="text-align:left">缺点 (Cons)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><strong>精确度高</strong></td>
-<td style="text-align:left"><strong>时间复杂度高</strong>（花时间）</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>对异常值不敏感</strong></td>
-<td style="text-align:left"><strong>空间复杂度高</strong>（耗内存）</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>无数据输入假定</strong>（无训练阶段）</td>
-<td style="text-align:left">-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="K-值的选择"><a href="#K-值的选择" class="headerlink" title="$K$ 值的选择"></a>$K$ 值的选择</h3><ul>
-<li><p><strong>$K$ 值较小</strong> (模型复杂)</p>
-<ul>
-<li>近似误差（<em>偏差</em>）减小 $\rightarrow$ 估计误差（<em>方差</em>）增大（对噪声敏感）</li>
-<li><strong>噪声敏感</strong></li>
-<li>整体模型变得复杂，容易发生<strong>过拟合</strong></li>
-</ul>
-</li>
-<li><p><strong>$K$ 值较大</strong> (模型简单)</p>
-<ul>
-<li>近似误差增大 $\rightarrow$ 估计误差减小</li>
-<li>整体的模型变得简单，但容易发生<strong>欠拟合</strong></li>
-</ul>
-</li>
-<li><p><strong>通过交叉验证选择 $K$ 值</strong></p>
-<ul>
-<li>模型准确率随 $K$ 值的变化<strong>非单调</strong></li>
-<li>$K$ 一般低于训练集样本容量的平方根：$k &lt; \sqrt{N}$</li>
-<li>经验上，$k$ 值一般不超过 20：$k &lt; 20$</li>
-</ul>
-</li>
-</ul>
-<h3 id="kNN-算法的应用挑战"><a href="#kNN-算法的应用挑战" class="headerlink" title="$kNN$ 算法的应用挑战"></a>$kNN$ 算法的应用挑战</h3><ul>
-<li><strong>距离函数确定</strong><ul>
-<li>距离度量方式众多</li>
-</ul>
-</li>
-<li><strong>$k$ 值确定</strong><ul>
-<li>$k$ 值对模型精度的影响<strong>非单调</strong></li>
-<li>边界易出错 (软分类)</li>
-</ul>
-</li>
-<li><strong>特征的选择</strong><ul>
-<li>不同特征的影响程度不同</li>
-</ul>
-</li>
-<li><strong>复杂度</strong><ul>
-<li>需要计算测试例 $x’$ 与所有训练数据的距离</li>
-<li>计算复杂度正比于训练样本容量</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="2-距离度量"><a href="#2-距离度量" class="headerlink" title="2. 距离度量"></a>2. 距离度量</h2><h3 id="L-p-距离"><a href="#L-p-距离" class="headerlink" title="$L_p$ 距离"></a>$L_p$ 距离</h3><ul>
-<li><p><strong>欧氏距离 ($L_2$)</strong>：</p>
-<script type="math/tex; mode=display">L_2(x_i, x_j) = \left(\sum_{l=1}^{n} |x_i^{(l)} - x_j^{(l)}|^2\right)^{\frac{1}{2}}</script></li>
-<li><p><strong>曼哈顿距离 ($L_1$)</strong>：</p>
-<script type="math/tex; mode=display">L_1(x_i, x_j) = \sum_{l=1}^{n} |x_i^{(l)} - x_j^{(l)}|</script></li>
-<li><p><strong>切比雪夫距离 ($L_{\infty}$)</strong>：（取同维度坐标差最大者）</p>
-<script type="math/tex; mode=display">L_{\infty}(x_i, x_j) = \max_{l} |x_i^{(l)} - x_j^{(l)}|</script></li>
-</ul>
-<h3 id="马氏距离"><a href="#马氏距离" class="headerlink" title="马氏距离"></a>马氏距离</h3><ul>
-<li>了解即可</li>
-</ul>
-<h3 id="距离度量的性质"><a href="#距离度量的性质" class="headerlink" title="距离度量的性质"></a>距离度量的性质</h3><ul>
-<li><strong>非负性 (non-negativity)</strong>:<script type="math/tex; mode=display">D(a, b) \ge 0</script></li>
-<li><strong>自反性 (reflexivity)</strong>:<script type="math/tex; mode=display">D(a, b) = 0 \iff a = b</script></li>
-<li><strong>对称性 (symmetry)</strong>:<script type="math/tex; mode=display">D(a, b) = D(b, a)</script></li>
-<li><strong>三角不等式 (triangle inequality)</strong>:<script type="math/tex; mode=display">D(a, b) + D(b, c) \ge D(a, c)</script></li>
-</ul>
-<hr>
-<h2 id="3-分类决策规则"><a href="#3-分类决策规则" class="headerlink" title="3. 分类决策规则"></a>3. 分类决策规则</h2><ul>
-<li><strong>核心规则</strong>：多数表决规则。</li>
-<li><strong>理论意义</strong>：等价于 $0-1$ 损失函数下的<strong>经验风险最小化</strong>。</li>
-<li><strong>误分类概率</strong>：在一个领域中，与领域样本特征不同的总数 $\div$ 领域样本总数。</li>
-</ul>
-<hr>
-<h2 id="4-kd-树"><a href="#4-kd-树" class="headerlink" title="4. kd 树"></a><del>4. kd 树</del></h2><h3 id="搜索方法"><a href="#搜索方法" class="headerlink" title="搜索方法"></a>搜索方法</h3><p><img src="2025-12-01-15-48-55.png" alt=""></p>
-<p><em>(注：$kd$ 树是二叉树)</em>  </p>
-<ol>
-<li>先在 $x$ 轴找到中位数，垂直划分。</li>
-<li>再在划分的两块区域里找 $y$ 轴中位数，继续划分。</li>
-<li>直至划分完毕。</li>
-</ol>
-<h3 id="kd-树计算复杂度"><a href="#kd-树计算复杂度" class="headerlink" title="$kd$ 树计算复杂度"></a>$kd$ 树计算复杂度</h3><ul>
-<li><strong>一般情况</strong>：时间复杂度为 $O(\log N)$</li>
-<li><strong>最坏情况</strong>：时间复杂度 $O(N)$</li>
-<li><strong>适用场景</strong>：更适用于<strong>训练实例维度远大于空间维度</strong>时的搜索。~~</li>
-</ul>
-<h1 id="第四章-贝叶斯方法"><a href="#第四章-贝叶斯方法" class="headerlink" title="第四章 贝叶斯方法"></a>第四章 贝叶斯方法</h1><h2 id="1-概率统计基础知识"><a href="#1-概率统计基础知识" class="headerlink" title="1. 概率统计基础知识"></a>1. 概率统计基础知识</h2><h3 id="pmf-amp-pdf"><a href="#pmf-amp-pdf" class="headerlink" title="$pmf$ &amp; $pdf$"></a>$pmf$ &amp; $pdf$</h3><p><strong>概率质量函数（Probability mass function）</strong><br>定义：$P(X=x_i)$，即<strong>离散随机变量</strong>在各特定取值上的概率。</p>
-<ul>
-<li>$\sum_{i} P(X=x_i) = 1$</li>
-<li>$P(X=x_i \cap X=x_j) = 0 \text{ if } i \neq j$</li>
-<li>$P(X=x_i \cup X=x_j) = P(X=x_i) + P(X=x_j) \text{ if } i \neq j$</li>
-<li>$P(X=x_1 \cup X=x_2 \cup \dots \cup X=x_k) = 1$</li>
-</ul>
-<p><strong>概率密度函数（Probability density function）</strong><br>定义：描述了<strong>连续随机变量</strong> $x$ 的概率密度。</p>
-<ul>
-<li>$f(x) \ge 0, \forall x$</li>
-<li>$\int_{-\infty}^{+\infty} f(x) = 1$</li>
-<li>真实概率通过 pdf 的积分得到</li>
-<li>e.g. $X$ 取 0-1 的概率为：<script type="math/tex; mode=display">P(0 \le X \le 1) = \int_{0}^{1} f(x) dx</script></li>
-</ul>
-<h3 id="联合概率分布"><a href="#联合概率分布" class="headerlink" title="联合概率分布"></a>联合概率分布</h3><p>描述两个或多个随机变量<strong>同时</strong>发生的概率。</p>
-<ul>
-<li><strong>离散型</strong>：$P(X=x, Y=y)$<ul>
-<li>性质：$\sum_x \sum_y P(X=x, Y=y) = 1$</li>
-</ul>
-</li>
-<li><strong>连续型</strong>：$f(x, y)$<ul>
-<li>性质：$\iint f(x, y) dx dy = 1$</li>
-</ul>
-</li>
-<li><strong>边缘分布 (Marginalization)</strong>：从联合分布中求出单个变量的分布。<script type="math/tex; mode=display">P(X=x) = \sum_y P(X=x, Y=y)</script></li>
-<li><strong>独立性</strong>：若 $X$ 与 $Y$ 相互独立，则：<script type="math/tex; mode=display">P(X, Y) = P(X)P(Y)</script></li>
-</ul>
-<h3 id="条件概率"><a href="#条件概率" class="headerlink" title="条件概率"></a>条件概率</h3><p>定义：在事件 $B$ 已经发生的条件下，事件 $A$ 发生的概率。</p>
-<script type="math/tex; mode=display">P(A|B) = \frac{P(A, B)}{P(B)}</script><p>（其中 $P(A, B)$ 是联合概率，$P(B)$ 是边缘概率）</p>
-<h3 id="链式法则"><a href="#链式法则" class="headerlink" title="链式法则"></a>链式法则</h3><p>将联合概率分解为条件概率的乘积。<br>对于两个变量：</p>
-<script type="math/tex; mode=display">P(A, B) = P(A|B)P(B) = P(B|A)P(A)</script><p>推广到 $n$ 个变量：</p>
-<script type="math/tex; mode=display">P(X_1, X_2, \dots, X_n) = P(X_1) \prod_{i=2}^{n} P(X_i | X_1, \dots, X_{i-1})</script><h3 id="全概率公式"><a href="#全概率公式" class="headerlink" title="全概率公式"></a>全概率公式</h3><p>如果事件组 $B_1, B_2, \dots, B_n$ 构成样本空间的一个划分（互斥且完备），则对于任意事件 $A$：</p>
-<script type="math/tex; mode=display">P(A) = \sum_{i=1}^{n} P(A|B_i)P(B_i)</script><ul>
-<li><strong>直观理解</strong>：求 $A$ 发生的概率，等于把 $A$ 在各种不同情况（$B_i$）下发生的概率加权求和。</li>
-</ul>
-<h3 id="均值与方差"><a href="#均值与方差" class="headerlink" title="均值与方差"></a>均值与方差</h3><ul>
-<li><strong>期望 (Expectation / Mean)</strong> $\mu$：<ul>
-<li>离散：$E[X] = \sum x_i P(x_i)$</li>
-<li>连续：$E[X] = \int_{-\infty}^{+\infty} x f(x) dx$</li>
-<li>性质：$E[aX + b] = aE[X] + b$</li>
-</ul>
-</li>
-<li><strong>方差 (Variance)</strong> $\sigma^2$：衡量数据的离散程度。<script type="math/tex; mode=display">Var(X) = E[(X - \mu)^2] = E[X^2] - (E[X])^2</script></li>
-</ul>
-<h3 id="协方差"><a href="#协方差" class="headerlink" title="协方差"></a>协方差</h3><p>定义：衡量两个变量 $X$ 和 $Y$ 总体误差的期望，反映它们之间变化的<strong>方向</strong>。</p>
-<script type="math/tex; mode=display">Cov(X, Y) = E[(X - \mu_x)(Y - \mu_y)]</script><ul>
-<li><strong>$Cov &gt; 0$</strong>：正相关</li>
-<li><strong>$Cov &lt; 0$</strong>：负相关</li>
-<li><strong>$Cov = 0$</strong>：不相关（线性无关）</li>
-</ul>
-<h3 id="相关性"><a href="#相关性" class="headerlink" title="相关性"></a>相关性</h3><p><strong>皮尔逊相关系数 (Correlation Coefficient)</strong> $\rho$：<br>将协方差归一化，消除了量纲的影响，衡量线性相关的强度。</p>
-<script type="math/tex; mode=display">\rho_{X,Y} = \frac{Cov(X, Y)}{\sigma_x \sigma_y}</script><ul>
-<li>取值范围：$[-1, 1]$。<br>（$1$ 为完全正相关，$-1$ 为完全负相关，$0$ 为无线性相关）</li>
-</ul>
-<h2 id="2-朴素贝叶斯"><a href="#2-朴素贝叶斯" class="headerlink" title="2. 朴素贝叶斯"></a>2. 朴素贝叶斯</h2><h3 id="贝叶斯"><a href="#贝叶斯" class="headerlink" title="贝叶斯"></a>贝叶斯</h3><ul>
-<li><strong><code>贝叶斯公式 (Bayes&#39; Theorem)</code></strong>：<script type="math/tex; mode=display">P(Y|X) = \frac{P(X|Y)P(Y)}{P(X)}</script><ul>
-<li>$P(Y|X)$: 后验概率 (Posterior)</li>
-<li>$P(X|Y)$: 似然 (Likelihood)</li>
-<li>$P(Y)$: 先验概率 (Prior)</li>
-<li>$P(X)$: 证据 (Evidence)</li>
-</ul>
-</li>
-<li><strong>贝叶斯决策</strong>：<ul>
-<li>已知<strong>类条件概率密度</strong>参数表达式和<strong>先验概率</strong></li>
-<li>利用<strong>贝叶斯公式</strong>转换成<strong>后验概率</strong></li>
-<li>根据<strong>后验概率</strong>大小进行决策分类</li>
-</ul>
-</li>
-</ul>
-<h3 id="朴素贝叶斯"><a href="#朴素贝叶斯" class="headerlink" title="朴素贝叶斯"></a>朴素贝叶斯</h3><p>基于贝叶斯定理与特征条件独立假设的分类算法。</p>
-<ul>
-<li><strong>“朴素” (Naive) 的含义</strong>：假设样本的各个特征之间<strong>相互独立</strong>。<script type="math/tex; mode=display">P(x_1, x_2, \dots, x_n | y) = \prod_{i=1}^{n} P(x_i | y)</script></li>
-</ul>
-<h3 id="朴素贝叶斯分类器"><a href="#朴素贝叶斯分类器" class="headerlink" title="朴素贝叶斯分类器"></a>朴素贝叶斯分类器</h3><p>给定输入特征向量 $\mathbf{x} = (x_1, x_2, \dots, x_n)$，预测类别 $y$。<br>我们只需最大化分子部分<code>(这个公式考试一定要写)</code>：</p>
-<script type="math/tex; mode=display">\hat{y} = \arg\max_{y} P(y) \prod_{i=1}^{n} P(x_i | y)</script><ul>
-<li>$P(y)$：先验概率，即类别的频率。</li>
-<li>$P(x_i|y)$：条件概率（似然），即在某类中观察到该特征的概率。</li>
-</ul>
-<h3 id="朴素贝叶斯参数估计"><a href="#朴素贝叶斯参数估计" class="headerlink" title="朴素贝叶斯参数估计"></a>朴素贝叶斯参数估计</h3><ol>
-<li><strong>极大似然估计 (MLE)</strong><br>直接使用频率来估计概率。<ul>
-<li>$P(y = c_k) = \frac{N_{c_k}}{N}$</li>
-<li>$P(x_i = a | y = c_k) = \frac{N_{ik}}{N_{c_k}}$</li>
-<li>$\hat{\theta} = \frac{\sum_{i=1}^{N} x_i}{N}$</li>
-</ul>
-</li>
-<li><strong>贝叶斯估计 (Bayes)</strong><br>引入平滑项（如拉普拉斯平滑）解决零概率问题。<ul>
-<li>$P(x_i = a | y = c_k) = \frac{N_{ik} + \lambda}{N_{c_k} + \lambda S_i}$</li>
-<li>其中 $\lambda \ge 0$ 为平滑系数（常取 1），$S_i$ 为特征 $x_i$ 可能取值的个数。</li>
-<li>$\hat{\theta} = \frac{\sum_{i=1}^{N} x_i+\alpha}{N+\alpha+\beta}$ ($\hat{\theta}$ ~ $Beta(\alpha,\beta)$)</li>
-</ul>
-</li>
-<li><strong>拉普拉斯平滑 (Laplace Smoothing)</strong><br>解决零概率问题（即某个特征在训练集中未出现导致概率为0）。<script type="math/tex; mode=display">P(x_i = a | y = c_k) = \frac{N_{ik} + \lambda}{N_{c_k} + \lambda S_i}</script><ul>
-<li>$\lambda$: 平滑系数（通常取 1）。</li>
-<li>$S_i$: 特征 $x_i$ 可能取值的个数。</li>
-</ul>
-</li>
-</ol>
-<h1 id="第五章-决策树"><a href="#第五章-决策树" class="headerlink" title="第五章 决策树"></a>第五章 决策树</h1><h2 id="1-决策树模型"><a href="#1-决策树模型" class="headerlink" title="1. 决策树模型"></a>1. 决策树模型</h2><h3 id="决策树的表示"><a href="#决策树的表示" class="headerlink" title="决策树的表示"></a>决策树的表示</h3><ul>
-<li>一种描述对实例分类的 <strong>树形结构</strong>，包含：<ul>
-<li><strong>根结点 (Root Node)</strong>：最上面的结点，是整个决策树的开始。</li>
-<li><strong>内部结点 (Internal Node)</strong>：代表一个<strong>问题</strong>或者<strong>决策</strong>，通常对应待<strong>分类对象的属性</strong>。</li>
-<li><strong>叶结点 (Leaf Node)</strong>：代表一种可能的<strong>分类结果</strong>。</li>
-<li><strong>有向边</strong>：连接各个结点。</li>
-</ul>
-</li>
-</ul>
-<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ul>
-<li><strong>可解释性强</strong>：推理过程容易理解，可以表示成 <code>If-Then</code> 形式。</li>
-<li><strong>依赖属性取值</strong>：推理过程完全依赖于属性变量的取值特点。</li>
-<li><strong>特征筛选</strong>：可自动忽略对目标变量<strong>没有贡献的属性变量</strong>，为判断属性重要性、减少变量数目提供参考。</li>
-</ul>
-<h3 id="学习目的"><a href="#学习目的" class="headerlink" title="学习目的"></a>学习目的</h3><ul>
-<li><strong>理想的决策树</strong>（通常有以下3种目标）：<ol>
-<li>叶结点数最少</li>
-<li>叶结点深度最小</li>
-<li>叶结点数最少且叶结点深度最小</li>
-</ol>
-</li>
-<li><strong>现实困境</strong>：找到这种绝对最优的决策树是 <strong>NP难题</strong>。</li>
-<li><strong>实际目标</strong>：找到 <strong>尽可能</strong> 趋向于最优的决策树。</li>
-</ul>
-<hr>
-<h2 id="2-特征选择与信息熵"><a href="#2-特征选择与信息熵" class="headerlink" title="2. 特征选择与信息熵"></a>2. 特征选择与信息熵</h2><h3 id="熵（Entropy）"><a href="#熵（Entropy）" class="headerlink" title="熵（Entropy）"></a>熵（Entropy）</h3><ul>
-<li><strong>定义</strong>：度量样本集合 <strong>纯度 (Purity)</strong> 最常用的一种指标，代表随机变量<strong>不确定性的度量</strong>。<blockquote>
-<p><strong>规律</strong>：熵越大，随机变量的不确定性就越大。</p>
-</blockquote>
-</li>
-<li><strong>计算公式</strong>：<br>  设 $X$ 是一个取有限个值的离散随机变量，其概率分布为 $P(X=x_i) = p_i, \quad i=1,2,\dots,n$，则随机变量 $X$ 的熵 $H(X)$ 定义为：<script type="math/tex; mode=display">H(X) = -\sum_{i=1}^{n} p_i \log_2 p_i</script>  <strong>注</strong>：若 $p_i=0$，则定义 $0 \log 0 = 0$。</li>
-</ul>
-<h3 id="条件熵-Conditional-Entropy"><a href="#条件熵-Conditional-Entropy" class="headerlink" title="条件熵 (Conditional Entropy)"></a>条件熵 (Conditional Entropy)</h3><ul>
-<li><strong>定义</strong>：表示在已知随机变量 $X$ 的条件下，随机变量 $Y$ 的不确定性。</li>
-<li><strong>计算公式</strong>：<script type="math/tex; mode=display">H(Y|X) = \sum_{i=1}^{n} p_i H(Y|X=x_i)</script>  其中 $p_i = P(X=x_i)$。</li>
-</ul>
-<h3 id="信息增益-Information-Gain"><a href="#信息增益-Information-Gain" class="headerlink" title="信息增益 (Information Gain)"></a>信息增益 (Information Gain)</h3><ul>
-<li><strong>定义</strong>：特征 $A$ 对训练数据集 $D$ 的信息增益 $g(D, A)$，定义为集合 $D$ 的经验熵 $H(D)$ 与特征 $A$ 给定条件下 $D$ 的经验条件熵 $H(D|A)$ 之差。<script type="math/tex; mode=display">g(D, A) = H(D) - H(D|A)</script></li>
-<li><strong>物理意义</strong>：由于特征 $A$ 而使得对数据集 $D$ 的分类不确定性减少的程度。<strong>信息增益大的特征具有更强的分类能力。</strong></li>
-</ul>
-<h3 id="信息增益比-Gain-Ratio"><a href="#信息增益比-Gain-Ratio" class="headerlink" title="信息增益比 (Gain Ratio)"></a>信息增益比 (Gain Ratio)</h3><ul>
-<li><strong>背景</strong>：信息增益倾向于选择 <strong>取值较多</strong> 的特征（例如唯一的 ID 号），这往往不是我们想要的。</li>
-<li><strong>定义</strong>：特征 $A$ 对训练数据集 $D$ 的信息增益比 $g_R(D, A)$ 定义为信息增益 $g(D, A)$ 与训练数据集 $D$ 关于特征 $A$ 的值的熵 $H_A(D)$ 之比：<script type="math/tex; mode=display">g_R(D, A) = \frac{g(D, A)}{H_A(D)}</script>  其中，<script type="math/tex; mode=display">H_A(D) = -\sum_{i=1}^{n} \frac{|D_i|}{|D|} \log_2 \frac{|D_i|}{|D|}</script>   $n$ 是特征 $A$ 取值的个数。</li>
-</ul>
-<hr>
-<h2 id="3-经典算法"><a href="#3-经典算法" class="headerlink" title="3. 经典算法"></a>3. 经典算法</h2><h3 id="ID3-算法"><a href="#ID3-算法" class="headerlink" title="$ID3$ 算法"></a>$ID3$ 算法</h3><ul>
-<li><strong>测试属性</strong>：<code>信息增益</code>  </li>
-</ul>
-<p><strong>具体计算流程</strong>：（设$C_1+C_2=D$）</p>
-<ol>
-<li><p><strong>计算不考虑特征的信息熵</strong>：</p>
-<script type="math/tex; mode=display">H(D) = -\sum_{k=1}^{K} p_k \log_2 p_k= -\sum_{k=1}^{K} \frac{|C_k|}{|D|} \log_2 \frac{|C_k|}{|D|}</script><p>其中 $|D|$ 为样本总数，$|C_k|$ 为属于第 $k$ 类的样本数(eg: <em>买/不买</em>)。</p>
-</li>
-<li><p><strong>计算条件熵</strong>：</p>
-<ul>
-<li>先选择一个 <strong>特征 $A_i$</strong>，将数据集 $D$ 根据特征 $A_i$ 的<strong>不同取值</strong>划分为 $n$ 个子集 $D_1, D_2, \dots, D_n$。</li>
-<li>计算特征 $A_i$ 下不同取值 $D_i$ 的信息熵 $H(D_i)$：<script type="math/tex; mode=display">H(D_i)= -\sum_{k=1}^{K} \frac{|C_k|}{|D_i|} \log_2 \frac{|C_k|}{|D_i|}</script>其中，$C_k$ 是在集合 $D_i$ 里的第 $k$ 种类别的数量 (eg: <em>买/不买</em>)。</li>
-<li>计算条件熵 $H(D|A_i)$：<script type="math/tex; mode=display">H(D|A_i) = \sum_{i=1}^{n} p_i H(D_i)= \sum_{i=1}^{n} \frac{|D_i|}{|D|} H(D_i)</script></li>
-</ul>
-</li>
-<li><p><strong>计算信息增益</strong>：</p>
-<script type="math/tex; mode=display">g(D, A_i) = H(D) - H(D|A_i)</script></li>
-<li><p><strong>特征选择</strong>：<br>选取 <strong>信息增益最大</strong> 的特征$A_i$作为当前的分裂节点（根节点或内部节点）。</p>
-</li>
-<li><p><strong>递归构建</strong>：<br>对子节点重复以上步骤，以此类推，直至分类完全（或满足停止条件）。</p>
-</li>
-</ol>
-<h3 id="C4-5-算法"><a href="#C4-5-算法" class="headerlink" title="$C4.5$ 算法"></a>$C4.5$ 算法</h3><ul>
-<li><strong>测试属性</strong>：<code>信息增益比</code> （除<strong>选择特征的标准不同</strong>外，其余步骤与 $ID3$ <strong>一致</strong>）。</li>
-<li>计算完<strong>信息增益</strong>后，计算<strong>信息增益比</strong>：<script type="math/tex; mode=display">g_R(D, A) = \frac{g(D, A)}{H_A(D)}</script>其中，<strong>特征固有值</strong>：<script type="math/tex; mode=display">H_A(D) = -\sum_{i=1}^{n} \frac{|D_i|}{|D|} \log_2 \frac{|D_i|}{|D|}</script>这里 $|D|$ 是样本总数，注意和 $H(D_i)$ 的计算区分。</li>
-</ul>
-<h3 id="过拟合"><a href="#过拟合" class="headerlink" title="过拟合"></a>过拟合</h3><ul>
-<li><strong>现象</strong>：决策树算法增长树的每一个分支的深度，直到恰好能对训练样例比较完美地分类。</li>
-<li><strong>原因</strong>：当数据中 <strong>有噪声</strong> 或 <strong>训练样例数量太少</strong>，以至于不能产生目标函数的有代表性的采样时，简单算法产生的树会过拟合训练样例。</li>
-</ul>
-<hr>
-<h2 id="4-CART-算法"><a href="#4-CART-算法" class="headerlink" title="4. $CART$算法"></a>4. $CART$算法</h2><h3 id="基尼指数-Gini-Index"><a href="#基尼指数-Gini-Index" class="headerlink" title="基尼指数 (Gini Index)"></a>基尼指数 (Gini Index)</h3><ul>
-<li><strong>定义</strong>：度量数据纯度的指标。<strong>基尼指数越小，模型的不确定性越小，纯度越高</strong>。</li>
-<li><p><strong>计算公式</strong>：<br>  假设有 $K$ 个类，样本点属于第 $k$ 类的概率为 $p_k$，则概率分布的基尼指数为：</p>
-<script type="math/tex; mode=display">Gini(p) = \sum_{k=1}^{K} p_k(1-p_k) = 1 - \sum_{k=1}^{K} p_k^2</script><p>  对于给定的样本集合 $D$，其基尼指数为：</p>
-<script type="math/tex; mode=display">Gini(D) = 1 - \sum_{k=1}^{K} \left(\frac{|C_k|}{|D|}\right)^2</script><p>  其中 $C_k$ 是 $D$ 中属于第 $k$ 类的样本子集。</p>
-</li>
-<li><p><strong>特征下的基尼指数</strong>：（一分为二的划分问题）<br>  如果特征 $A$ 的取值将集合 $D$ 划分成 $D_1$ 和 $D_2$ 两部分（<strong>注意：CART 生成的是二叉树</strong>），则在特征 $A$ 的条件下，集合 $D$ 的基尼指数为：</p>
-<script type="math/tex; mode=display">Gini(D, A) = \frac{|D_1|}{|D|} Gini(D_1) + \frac{|D_2|}{|D|} Gini(D_2)</script><p>  <img src="2025-12-04-20-06-28.png" alt=""><br>  <img src="2025-12-04-20-06-41.png" alt=""><br>  <img src="2025-12-04-20-06-57.png" alt=""></p>
-</li>
-<li><strong>选择标准</strong>：选择使得 <strong>基尼指数最小</strong> 的<strong>特征</strong>及其<strong>划分点</strong>作为最优特征和最优切分点。<img src="2025-12-04-20-08-35.png" alt=""><img src="2025-12-04-20-10-08.png" alt=""></li>
-</ul>
-<h3 id="决策树生成"><a href="#决策树生成" class="headerlink" title="决策树生成"></a>决策树生成</h3><ul>
-<li><del><strong>回归树</strong>：使用 <strong>平方误差最小化</strong> 准则。</del></li>
-<li><strong>分类树</strong>：使用 <strong>基尼指数最小化</strong> 准则。</li>
-<li><strong>具体生成流程 (分类树)</strong>：<em>（上一部分的图片例子可以帮助理解）</em><ol>
-<li>对训练数据集 $D$ 的每个特征 $A$，以及该特征的每个可能取值 $a$，根据 $A=a$ 与 $A \neq a$ 将 $D$ 分割为 $D_1$ 和 $D_2$。</li>
-<li>计算该切分下的 $Gini(D, A)$。</li>
-<li>在所有可能的特征 $A$ 以及它们所有可能的切分点 $a$ 中，选择 <strong>基尼指数最小</strong> 的特征及其切分点作为最优特征与最优切分点。</li>
-<li>生成两个子结点，将训练数据集依特征分配到两个子结点中。</li>
-<li>对子结点递归地调用上述步骤，直到满足停止条件（如结点样本数小于阈值、基尼指数小于阈值或没有更多特征）。</li>
-</ol>
-</li>
-</ul>
-<h3 id="决策树剪枝"><a href="#决策树剪枝" class="headerlink" title="决策树剪枝"></a>决策树剪枝</h3><ul>
-<li><strong>目的</strong>：防止过拟合。</li>
-<li><strong>手段</strong>：剪枝，限定叶节点最小样本数，强制决策树最大深度，交叉验证（$CART$剪枝）。</li>
-</ul>
-<h4 id="预剪枝"><a href="#预剪枝" class="headerlink" title="预剪枝"></a>预剪枝</h4><ul>
-<li>在决策树生成过程中，对每个结点在 <strong>划分前先进行估计</strong>。</li>
-<li>若当前结点的划分不能带来决策树 <strong>泛化性能提升</strong>，则停止划分，并标记当前结点为叶结点。</li>
-</ul>
-<h4 id="后剪枝"><a href="#后剪枝" class="headerlink" title="后剪枝"></a>后剪枝</h4><ul>
-<li>从训练集先生成一棵 <strong>完整的决策树</strong>。</li>
-<li>自底而上地考察非叶结点，若将该结点对应的子树替换为叶结点能带来决策树 <strong>泛化性能提升</strong>，则 <strong>将该子树替换为叶结点</strong>。</li>
-<li>CART 常用 <strong>CCP (Cost-Complexity Pruning, 代价复杂度剪枝)</strong> 方法。</li>
-</ul>
-<blockquote>
-<p><strong>对比</strong>：一般情形下，后剪枝决策树的欠拟合风险很小，泛化性能优于预剪枝决策树。但训练时间开销比未剪枝决策树和预剪枝决策树要大得多。</p>
-</blockquote>
-<hr>
-<h2 id="5-随机森林-Random-Forest"><a href="#5-随机森林-Random-Forest" class="headerlink" title="5. 随机森林 (Random Forest)"></a><del>5. 随机森林 (Random Forest)</del></h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><ul>
-<li>一种基于 <strong>Bagging</strong>（装袋法）的集成学习方法。</li>
-<li>通过构建多棵决策树，并将它们的预测结果进行汇总（分类问题用 <strong>多数投票</strong>，回归问题用 <strong>平均值</strong>）来输出最终结果。</li>
-<li><strong>“随机”的含义</strong>：体现在 <strong>样本选择的随机性</strong> 和 <strong>特征选择的随机性</strong>。</li>
-</ul>
-<h3 id="构建流程"><a href="#构建流程" class="headerlink" title="构建流程"></a>构建流程</h3><ol>
-<li><p><strong>Bootstrap 采样 (样本随机)</strong>：</p>
-<ul>
-<li>对于 $N$ 个样本的训练集，有放回地随机抽取 $N$ 次，得到一个新的训练集。</li>
-<li>未被抽到的样本称为 <strong>袋外数据 (Out-of-Bag, OOB)</strong>，可用于验证模型泛化能力。</li>
-<li>重复上述步骤 $k$ 次，生成 $k$ 个独立的训练集。</li>
-</ul>
-</li>
-<li><p><strong>特征随机选择 (特征随机)</strong>：</p>
-<ul>
-<li>在构建每棵树的每个分裂结点时，不是从所有 $M$ 个特征中选择最优特征，而是随机从 $M$ 个特征中选取 $m$ 个特征 ($m \ll M$) 作为一个子集。</li>
-<li>从这 $m$ 个特征中选择最优的分裂属性。</li>
-</ul>
-</li>
-<li><p><strong>生成决策树</strong>：</p>
-<ul>
-<li>利用上述采样和特征子集，完全生长决策树（通常 <strong>不剪枝</strong>）。</li>
-</ul>
-</li>
-<li><p><strong>集成输出</strong>：</p>
-<ul>
-<li><strong>分类</strong>：所有树投票，票数最多的类别为最终结果。</li>
-<li><strong>回归</strong>：所有树预测值的简单算术平均。</li>
-</ul>
-</li>
-</ol>
-<h3 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h3><ul>
-<li><strong>准确率高</strong>：在许多数据集上表现良好，抗过拟合能力强（因为引入了双重随机性）。</li>
-<li><strong>并行处理</strong>：每棵树互不依赖，可以并行训练，速度快。</li>
-<li><strong>高维数据友好</strong>：能够处理具有成千上万个特征的输入矩阵，而无需进行特征降维。</li>
-<li><strong>自带评估</strong>：可以使用 OOB 数据进行内部评估，无需额外的验证集。</li>
-</ul>
-<h1 id="第六章-Logistic-回归"><a href="#第六章-Logistic-回归" class="headerlink" title="第六章 $Logistic$回归"></a>第六章 $Logistic$回归</h1><p>关键词：<code>映射到[0,1]、分类（虽然叫回归）、判别模型</code></p>
-<ul>
-<li>思想：利用线性回归的思路去拟合数据，通过一个函数将预测结果“压缩”到 $[0,1]$，从而表示某种类别发生的概率。</li>
-</ul>
-<p><strong>几何意义与决策</strong>：</p>
-<ul>
-<li><strong>二项逻辑回归</strong>在几何上是在特征空间中寻找一个<strong>超平面</strong>（Decision Boundary）来分割两类数据。（通常以 <strong>0.5</strong> 为概率阈值）：</li>
-<li>若 $P(Y=1|x) \ge 0.5$，预测为 <strong>1 (正类)</strong>。</li>
-<li>若 $P(Y=1|x) &lt; 0.5$，预测为 <strong>0 (负类)</strong>。</li>
-</ul>
-<h2 id="1-二项-Logistic-回归"><a href="#1-二项-Logistic-回归" class="headerlink" title="1. 二项$Logistic$回归"></a>1. 二项$Logistic$回归</h2><h3 id="事件的几率"><a href="#事件的几率" class="headerlink" title="事件的几率"></a>事件的几率</h3><ul>
-<li><p><strong>事件的几率 (odds)</strong>：事件发生与事件不发生的概率之比为</p>
-<script type="math/tex; mode=display">\frac{p}{1 - p}</script><p>  称为事件的发生比 (the odds of experiencing an event)。</p>
-</li>
-<li><p><strong>对数几率 (log odds)</strong>：</p>
-<script type="math/tex; mode=display">\text{logit}(p) = \log \frac{p}{1 - p}</script></li>
-<li><p><strong>Logistic 回归 (对数几率回归)</strong>：</p>
-<script type="math/tex; mode=display">\log \frac{P(Y = 1|x)}{1 - P(Y = 1|x)} = w \cdot x</script></li>
-</ul>
-<h3 id="模型构建"><a href="#模型构建" class="headerlink" title="模型构建"></a>模型构建</h3><ol>
-<li><p><strong>线性预测</strong>：<br>  首先，模型根据输入特征 $x$ 计算一个线性得分（Logits）：</p>
-<script type="math/tex; mode=display">z = w \cdot x + b</script></li>
-<li><p><strong>$Sigmoid$ 映射</strong>：<br>  为了将 $z \in (-\infty, +\infty)$ 映射为概率 $[0,1]$，引入 <strong>Sigmoid 函数</strong>：</p>
-<script type="math/tex; mode=display">g(z) = \frac{1}{1 + e^{-z}}</script></li>
-</ol>
-<p>在数学表达上，它有两种等价形式（这也是教科书与PPT中常见的两种写法）：</p>
-<ul>
-<li><strong>标准倒数形式</strong>：<script type="math/tex; mode=display">P(Y=1|x) = \frac{1}{1 + e^{-(w \cdot x + b)}}</script></li>
-<li><strong>指数形式</strong>（分子分母同时乘以 $e^z$）：<script type="math/tex; mode=display">P(Y=1|x) = \frac{\exp(w \cdot x + b)}{1 + \exp(w \cdot x + b)}</script></li>
-</ul>
-<p>对应地，预测为负类（$Y=0$）的概率为：</p>
-<script type="math/tex; mode=display">P(Y=0|x) = 1 - P(Y=1|x) = \frac{1}{1 + \exp(w \cdot x + b)}</script><ul>
-<li><strong>参数的向量化表示 (Bias Trick)</strong></li>
-</ul>
-<p>在李航《统计学习方法》等教材中，为了简化公式推导，通常会将偏置项 $b$ 并入权重向量 $w$ 中。</p>
-<ul>
-<li><strong>扩充权重向量</strong>：$w = (w^{(1)}, w^{(2)}, \dots, w^{(n)}, b)^T$</li>
-<li><strong>扩充输入向量</strong>：$x = (x^{(1)}, x^{(2)}, \dots, x^{(n)}, 1)^T$</li>
-</ul>
-<p>通过这种方式，线性项 $w \cdot x + b$ 就变成了单纯的向量点积 $w \cdot x$。最终模型公式简化为：</p>
-<script type="math/tex; mode=display">P(Y=1|x) = \frac{\exp(w \cdot x)}{1 + \exp(w \cdot x)}</script><h3 id="模型特点"><a href="#模型特点" class="headerlink" title="模型特点"></a>模型特点</h3><ul>
-<li>名为“回归”，实际是<strong>分类算法</strong>。</li>
-<li><code>输入变量与输出变量之间不存在线性关系</code>。</li>
-<li>直接对分类可能进行建模。</li>
-<li>给出类别的近似概率。</li>
-<li>任意阶可导凸函数。</li>
-</ul>
-<h3 id="多项-Logistic-回归"><a href="#多项-Logistic-回归" class="headerlink" title="多项 $Logistic$ 回归"></a>多项 $Logistic$ 回归</h3><ul>
-<li>设 $Y$ 的取值集合为 ${1, 2, \cdots, K}$</li>
-<li>多项 logistic 回归模型：</li>
-</ul>
-<script type="math/tex; mode=display">
-P(Y=k|x) = \frac{\exp(\boldsymbol{w}_k \cdot \boldsymbol{x})}{1 + \sum_{k=1}^{K-1} \exp(\boldsymbol{w}_k \cdot \boldsymbol{x})}, \quad k = 1, 2, \cdots, K-1</script><script type="math/tex; mode=display">
-P(Y=K|x) = \frac{1}{1 + \sum_{k=1}^{K-1} \exp(\boldsymbol{w}_k \cdot \boldsymbol{x})}</script><script type="math/tex; mode=display">
-\boldsymbol{x} \in R^{n+1} \quad \boldsymbol{w}_k \in R^{n+1}</script><h2 id="2-极大似然函数"><a href="#2-极大似然函数" class="headerlink" title="2. 极大似然函数"></a>2. 极大似然函数</h2><p>通过<strong>极大似然估计</strong>获得 $Logistic$ 分类器由一组权值系数 $\omega$。  </p>
-<ul>
-<li>对于 $N$ 个观测事件：<script type="math/tex; mode=display">
-\{(x_i, y_i)\}_{i=1}^N, \quad \mathbf{x}_i \in \mathbb{R}^n, y_i \in \{0, 1\}</script>设：<script type="math/tex; mode=display">
-P(Y = 1|\mathbf{x}) = \pi(\mathbf{x}), \quad P(Y = 0|\mathbf{x}) = 1 - \pi(\mathbf{x})</script></li>
-<li>其联合概率密度函数，即似然函数为：<script type="math/tex; mode=display">
-\begin{aligned}
-L &= \prod_{i=1}^N P(X=\boldsymbol{x}_i)P(Y=y_i|X=\boldsymbol{x}_i) \\
-&\propto \prod_{i=1}^N ([\pi(\boldsymbol{x}_i)]^{y_i} [1 - \pi(\boldsymbol{x}_i)]^{1-y_i})
-\end{aligned}</script></li>
-<li>取对数，得到<code>损失函数</code> $L(\omega)$：<script type="math/tex; mode=display">
-\begin{aligned}
-L(\mathbf{w}) &= \sum_{i=1}^{N} [y_i \log \pi (\mathbf{x}_i) + (1 - y_i) \log ( 1 - \pi(\mathbf{x}_i))] \\
-&= \sum_{i=1}^{N} \left[y_i \log \frac{\pi(\mathbf{x}_i)}{1 - \pi(\mathbf{x}_i)} + \log ( 1 - \pi(\mathbf{x}_i)) \right] \\
-&= \sum_{i=1}^{N} [y_i (\mathbf{w} \cdot \mathbf{x}_i) - \log ( 1 + \exp ( \mathbf{w} \cdot \mathbf{x}_i))]
-\end{aligned}</script>注意：第三个等号是代入 $\pi(\boldsymbol{x})= P(Y=1|\boldsymbol{x})= \frac{\exp(w \cdot x)}{1 + \exp(w \cdot x)}…$</li>
-<li>最后，对 $L(\omega)$ 求极大值（梯度下降-<strong>求导</strong>）, 得到 $\omega$ 的估计值。  </li>
-</ul>
-<p><strong>三种函数图示</strong>：<br><img src="2025-12-05-17-55-15.png" alt=""></p>
-<h2 id="3-最大熵模型"><a href="#3-最大熵模型" class="headerlink" title="3. 最大熵模型"></a>3. 最大熵模型</h2><ul>
-<li><strong>熵最大的模型是最好的模型</strong></li>
-</ul>
-<h2 id="4-模型学习最优化算法"><a href="#4-模型学习最优化算法" class="headerlink" title="4. 模型学习最优化算法"></a>4. 模型学习最优化算法</h2><ul>
-<li>梯度下降法<br><img src="2025-12-05-17-51-09.png" alt=""><br><img src="2025-12-05-17-51-25.png" alt=""></li>
-<li>牛顿法</li>
-<li>拟牛顿法</li>
-<li>改进的迭代尺度法</li>
-</ul>
-<h2 id="5-Logistic-Regression-（推导）"><a href="#5-Logistic-Regression-（推导）" class="headerlink" title="5. $Logistic Regression$（推导）"></a>5. $Logistic Regression$（推导）</h2><p><img src="2025-12-05-20-35-01.png" alt=""><br><strong>推导过程</strong>：<br><img src="2025-12-05-21-04-01.png" alt=""><br><strong>三个关键点</strong>：</p>
-<ul>
-<li>$Sigmoid$函数的导数</li>
-<li>构造概率似然函数</li>
-<li>把求导拆分成两个求导</li>
-</ul>
-<h1 id="第七章-支持向量机"><a href="#第七章-支持向量机" class="headerlink" title="第七章 支持向量机"></a>第七章 支持向量机</h1><ul>
-<li>定义：在特征空间上的<strong>间隔最大线性分类器</strong>（与感知机的不同）</li>
-<li><strong>核技巧</strong>，所以存在<strong>非线性分类器</strong></li>
-<li>学习策略：间隔最大化$\longrightarrow$正则化的<strong>合页损失函数</strong>最小化问题</li>
-</ul>
-<h2 id="1-线性可分-SVM-（硬间隔）"><a href="#1-线性可分-SVM-（硬间隔）" class="headerlink" title="1. 线性可分 SVM （硬间隔）"></a>1. 线性可分 SVM （硬间隔）</h2><blockquote>
-<ul>
-<li>所有样本必须线性可分，对噪音敏感，容易过拟合。</li>
-</ul>
-</blockquote>
-<h3 id="（1）原始算法"><a href="#（1）原始算法" class="headerlink" title="（1）原始算法"></a>（1）原始算法</h3><ol>
-<li>构造并求解最优化问题：<script type="math/tex; mode=display">
-\left\{
-\begin{aligned}
-& \min_{w,b} \;\; \frac{1}{2}\|w\|^2 \\
-& \text{s.t.} \;\; y_i(w \cdot x_i + b) - 1 \ge 0, \quad i = 1, 2, \cdots, N
-\end{aligned}
-\right.</script></li>
-<li>得到分离超平面：<script type="math/tex; mode=display">w^*\cdot x+b^*=0</script></li>
-<li>分类决策函数<script type="math/tex; mode=display">f(x)=sign(w^*\cdot x+b^*=0)</script></li>
-</ol>
-<h3 id="（2）对偶问题（KKT条件）"><a href="#（2）对偶问题（KKT条件）" class="headerlink" title="（2）对偶问题（KKT条件）"></a>（2）对偶问题（KKT条件）</h3><h4 id="原始问题"><a href="#原始问题" class="headerlink" title="原始问题"></a>原始问题</h4><p>SVM 的基本型是一个凸二次规划问题。我们的目标是最小化参数的范数（最大化间隔），同时满足分类约束。</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-\min_{w,b} \quad & \frac{1}{2}\|w\|^2 \\
-\text{s.t.} \quad & 1 - y_i(w \cdot x_i + b) \le 0, \quad i=1,\dots,N
-\end{aligned}</script><h4 id="A-构造拉格朗日函数"><a href="#A-构造拉格朗日函数" class="headerlink" title="A.构造拉格朗日函数"></a>A.构造拉格朗日函数</h4><p>引入拉格朗日乘子 $\alpha = (\alpha_1, \alpha_2, \dots, \alpha_N)^T$，且 $\alpha_i \ge 0$。将<strong>约束条件融合到目标函数中</strong>：</p>
-<script type="math/tex; mode=display">
-L(w, b, \alpha) = \frac{1}{2}\|w\|^2 + \sum_{i=1}^{N} \alpha_i \left( 1 - y_i(w \cdot x_i + b) \right)</script><p>根据拉格朗日对偶性，原始问题等价于极小极大问题：</p>
-<script type="math/tex; mode=display">\min_{w,b} \max_{\alpha \ge 0} L(w, b, \alpha)</script><p>其对偶问题则是交换顺序（满足kkt条件），变为极大极小问题：</p>
-<script type="math/tex; mode=display">\max_{\alpha \ge 0} \min_{w,b} L(w, b, \alpha)</script><h4 id="B-求解对偶问题"><a href="#B-求解对偶问题" class="headerlink" title="B.求解对偶问题"></a>B.求解对偶问题</h4><ul>
-<li>第一步：求内层最小值 $\min_{w,b} L(w, b, \alpha)$</li>
-</ul>
-<p>对 $w$ 和 $b$ 分别求偏导并令其为 0：</p>
-<ol>
-<li><strong>对 $w$ 求导：</strong><script type="math/tex; mode=display">\nabla_w L = w - \sum_{i=1}^{N} \alpha_i y_i x_i = 0 \implies \mathbf{w = \sum_{i=1}^{N} \alpha_i y_i x_i}</script></li>
-<li><strong>对 $b$ 求导：</strong><script type="math/tex; mode=display">\nabla_b L = - \sum_{i=1}^{N} \alpha_i y_i = 0 \implies \mathbf{\sum_{i=1}^{N} \alpha_i y_i = 0}</script></li>
-</ol>
-<ul>
-<li>第二步：代回拉格朗日函数</li>
-</ul>
-<p>将上述两个关系式代回 $L(w, b, \alpha)$：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-L(w, b, \alpha) &= \frac{1}{2} \underbrace{w \cdot w}_{\|w\|^2} - w \cdot \underbrace{\sum_{i=1}^{N} \alpha_i y_i x_i}_{w} - b \underbrace{\sum_{i=1}^{N} \alpha_i y_i}_{0} + \sum_{i=1}^{N} \alpha_i \\
-&= \frac{1}{2} \|w\|^2 - \|w\|^2 + \sum_{i=1}^{N} \alpha_i \\
-&= \sum_{i=1}^{N} \alpha_i - \frac{1}{2} \|w\|^2
-\end{aligned}</script><p>展开 $|w|^2$ 项：</p>
-<script type="math/tex; mode=display">\|w\|^2 = \left( \sum_{i=1}^{N} \alpha_i y_i x_i \right) \cdot \left( \sum_{j=1}^{N} \alpha_j y_j x_j \right) = \sum_{i=1}^{N}\sum_{j=1}^{N} \alpha_i \alpha_j y_i y_j (x_i \cdot x_j)</script><ul>
-<li>第三步：最终的对偶问题</li>
-</ul>
-<p>此时目标是 $\max_{\alpha}$，通常我们习惯转换为 $\min_{\alpha}$ (取负号)。</p>
-<p><strong>最终对偶形式 (Dual Form)：</strong></p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-\min_{\alpha} \quad & \frac{1}{2} \sum_{i=1}^{N}\sum_{j=1}^{N} \alpha_i \alpha_j y_i y_j (x_i \cdot x_j) - \sum_{i=1}^{N} \alpha_i \\
-\text{s.t.} \quad & \sum_{i=1}^{N} \alpha_i y_i = 0 \\
-& \alpha_i \ge 0 \quad (\text{硬间隔}) \\
-& 0 \le \alpha_i \le C \quad (\text{软间隔})
-\end{aligned}</script><hr>
-<h4 id="C-KKT-条件"><a href="#C-KKT-条件" class="headerlink" title="C.KKT 条件"></a>C.KKT 条件</h4><p>为了保证对偶问题的解（Dual Optimal）同时也确实是原始问题（Primal Optimal）的解，必须满足 KKT 条件。这是 SVM 具有“稀疏性”（支持向量特性）的数学根源。</p>
-<p>对于最优解 $w^{\ast}, b^{\ast}, \alpha^{\ast}$ 必须满足以下四个条件：</p>
-<p><strong>1. 稳定性条件 (Stationarity):</strong><br>即导数为 0：</p>
-<script type="math/tex; mode=display">w^* = \sum_{i=1}^{N} \alpha_i^* y_i x_i</script><script type="math/tex; mode=display">\sum_{i=1}^{N} \alpha_i^* y_i = 0</script><p><strong>2. <code>互补松弛性 (Complementary Slackness)</code> [核心]:</strong></p>
-<script type="math/tex; mode=display">\alpha_i^* (1 - y_i(w^* \cdot x_i + b^*)) = 0</script><p><strong>互补松弛性的物理意义：</strong><br>这个条件告诉我们，对于任意样本 $i$ ，或者 $\alpha_i^{\ast} = 0$ ，或者 $1 - y_i(w^{\ast} \cdot x_i + b^{\ast}) = 0$ 。</p>
-<ul>
-<li>如果 $\alpha_i^{\ast} = 0$ ，该样本对模型没有贡献（非支持向量）。</li>
-<li>如果 $\alpha_i^{\ast} &gt; 0$ ，则必须满足 $y_i(w^{\ast} \cdot x_i + b^{\ast}) = 1$ ，即样本点必须位于 <strong>间隔边界</strong> 上。这些点就是 <strong>支持向量</strong>。</li>
-</ul>
-<p><strong>3. 原始可行性 (Primal Feasibility):</strong><br>样本必须满足分类间隔约束：</p>
-<script type="math/tex; mode=display">1 - y_i(w^* \cdot x_i + b^*) \le 0</script><p><strong>4. 对偶可行性 (Dual Feasibility):</strong><br>拉格朗日乘子必须非负：</p>
-<script type="math/tex; mode=display">\alpha_i^* \ge 0</script><h2 id=""><a href="#" class="headerlink" title=""></a><img src="2025-12-06-15-09-54.png" alt=""></h2><p><strong>关键点总结</strong></p>
-<p><strong>1. 为什么要做对偶？</strong></p>
-<ul>
-<li><strong>计算效率：</strong> 摆脱了对特征维度 $d$ 的依赖，计算复杂度仅与样本数量 $N$ 有关。</li>
-<li><strong>核技巧 (Kernel Trick)：</strong> 最终公式中只包含内积 $(x_i \cdot x_j)$。我们可以直接用核函数 $K(x_i, x_j)$ 替换它，从而在不显式增加维度的情况下解决非线性分类问题。</li>
-</ul>
-<p><strong>2. 软间隔 (Soft Margin) 的变化</strong></p>
-<ul>
-<li>如果是软间隔 SVM，KKT 条件中的对偶可行性变为 $0 \le \alpha_i \le C$。</li>
-<li>当 $\alpha_i = C$ 时，样本点可能是一个异常点（位于间隔内部或分错）。</li>
-</ul>
-<hr>
-<h2 id="2-线性-SVM-（软间隔）"><a href="#2-线性-SVM-（软间隔）" class="headerlink" title="2. 线性 SVM （软间隔）"></a>2. 线性 SVM （软间隔）</h2><blockquote>
-<ul>
-<li>允许样本存在噪声，有较好的鲁棒性。</li>
-</ul>
-</blockquote>
-<h3 id="（1）核心思想与动机"><a href="#（1）核心思想与动机" class="headerlink" title="（1）核心思想与动机"></a><strong>（1）核心思想与动机</strong></h3><ul>
-<li><strong>动机：</strong> 现实中的数据往往不是完全线性可分的，或者包含噪声（异常点）。硬间隔 SVM 强行划分会导致过拟合或无解。</li>
-<li><strong>解决：</strong> 引入<strong>松弛变量 (Slack Variable)</strong>，允许部分样本点不满足严格的间隔约束（即允许犯错），以换取更大的间隔和更好的模型泛化能力。</li>
-</ul>
-<h3 id="（2）原始问题的数学表达"><a href="#（2）原始问题的数学表达" class="headerlink" title="（2）原始问题的数学表达"></a><strong>（2）原始问题的数学表达</strong></h3><ul>
-<li><p><strong>引入松弛变量 $\xi_i$ (Xi)：</strong><br>  为了容忍错误，约束条件由原来的硬性限制改为软性限制：</p>
-<script type="math/tex; mode=display">y_i(w \cdot x_i + b) \ge 1 - \xi_i</script><p>  其中 $\xi_i \ge 0$。</p>
-</li>
-<li><p><strong>几何意义：</strong>（这个最好别看）</p>
-<ul>
-<li>$\xi_i = 0$：样本分类正确且在间隔边界外（理想情况）。</li>
-<li>$0 &lt; \xi_i &lt; 1$：样本分类正确，但落入间隔带内部（违背了最大间隔，但在正确的一侧）。</li>
-<li>$\xi_i = 1$：样本落在决策边界（超平面）上。</li>
-<li>$\xi_i &gt; 1$：样本被错误分类（跑到对面去了）。</li>
-</ul>
-</li>
-<li><p><strong>目标函数：</strong><br>  需要在“最大化间隔”（结构风险）和“最小化误分程度”（经验风险）之间做权衡：</p>
-<script type="math/tex; mode=display">\min_{w,b,\xi} \quad \frac{1}{2}\|w\|^2 + C \sum_{i=1}^{N} \xi_i</script></li>
-</ul>
-<h3 id="（3）核心参数-C-的物理意义"><a href="#（3）核心参数-C-的物理意义" class="headerlink" title="（3）核心参数 C 的物理意义"></a><strong>（3）核心参数 C 的物理意义</strong></h3><ul>
-<li><strong>定义：</strong> $C &gt; 0$ 是惩罚系数（正则化参数的倒数），由用户设定的超参数。</li>
-<li><strong>C 值较大：</strong> 对误分容忍度低。模型会迫使 $\xi_i$ 趋近于 0，追求训练集的高准确率。<ul>
-<li><em>后果：</em> 接近硬间隔，间隔变窄，容易<strong>过拟合</strong>。</li>
-</ul>
-</li>
-<li><strong>C 值较小：</strong> 对误分容忍度高。允许更多样本违背约束，更看重 $\frac{1}{2}|w|^2$（即间隔宽度）。<ul>
-<li><em>后果：</em> 间隔变宽，容易<strong>欠拟合</strong>（若太小），但泛化能力通常更强。</li>
-</ul>
-</li>
-</ul>
-<h3 id="（4）对偶问题与解的特性"><a href="#（4）对偶问题与解的特性" class="headerlink" title="（4）对偶问题与解的特性"></a><strong>（4）对偶问题与解的特性</strong></h3><ul>
-<li><p><strong>拉格朗日乘子范围的变化：</strong><br>  这是与硬间隔最直接的数学区别。在求解对偶问题时，乘子 $\alpha_i$ 的约束变为：</p>
-<script type="math/tex; mode=display">0 \le \alpha_i \le C</script><p>  （硬间隔是 $0 \le \alpha_i &lt; +\infty$）</p>
-</li>
-<li><p><strong>支持向量 (Support Vectors) 的判定：</strong><br>  根据 KKT 条件中的互补松弛性，只有 $\alpha_i &gt; 0$ 的样本是支持向量：</p>
-<ul>
-<li>若 $0 &lt; \alpha_i &lt; C$：对应的 $\xi_i = 0$，样本恰好落在<strong>间隔边界</strong>上（它是决定间隔宽度的核心力量）。</li>
-<li>若 $\alpha_i = C$， $0 &lt; \xi_i &lt; 1$，样本<strong>分类正确</strong>，在间隔边界与超平面之间。</li>
-<li>若 $\alpha_i = C$， $\xi_i = 1$，样本在超平面上。</li>
-<li>若 $\alpha_i = C$， $\xi_i &gt; 1$，样本<strong>误分类</strong>。</li>
-</ul>
-</li>
-</ul>
-<h3 id="（5）等价形式：合页损失函数-Hinge-Loss"><a href="#（5）等价形式：合页损失函数-Hinge-Loss" class="headerlink" title="（5）等价形式：合页损失函数 (Hinge Loss)"></a><strong>（5）等价形式：合页损失函数 (Hinge Loss)</strong></h3><ul>
-<li>软间隔 SVM 的优化目标等价于<code>合页损失函数</code>：<script type="math/tex; mode=display">\min_{w,b} \sum_{i=1}^{N} [1 - y_i(w \cdot x_i + b)]_+ + \lambda \|w\|^2</script></li>
-<li><strong>Hinge Loss 定义：</strong> $L(y, f(x)) = \max(0, 1 - y f(x))$</li>
-<li><strong>解释：</strong> 只有当样本不仅分对了，而且距离超平面距离足够远（函数间隔大于 1）时，损失才为 0；否则损失随着错误的程度线性增加。</li>
-</ul>
-<h2 id="3-支持向量是什么？"><a href="#3-支持向量是什么？" class="headerlink" title="3. 支持向量是什么？"></a>3. 支持向量是什么？</h2><ul>
-<li>支持向量是使得<strong>约束条件等号成立</strong>的点，即 $\text{s.t.} \;\; y_i(w \cdot x_i + b) - 1 = 0$</li>
-<li>直观地，大多数点对于边界在哪没有影响，支持向量是<strong>决定了决策边界在哪</strong>的样本点。<code>分离超平面完全由支持向量决定</code>。</li>
-<li>支持向量一定在间隔边界上。</li>
-</ul>
-<p><img src="2025-12-06-16-40-33.png" alt=""></p>
-<ol>
-<li>线性可分：与分离超平面<strong>距离最近</strong>的样本点</li>
-</ol>
-<h2 id="4-核函数与非线性-SVM"><a href="#4-核函数与非线性-SVM" class="headerlink" title="4. 核函数与非线性 SVM"></a>4. 核函数与非线性 SVM</h2><h3 id="（1）非线性-SVM-的核心直观"><a href="#（1）非线性-SVM-的核心直观" class="headerlink" title="（1）非线性 SVM 的核心直观"></a><strong>（1）非线性 SVM 的核心直观</strong></h3><ul>
-<li><strong>问题：</strong> 原始样本空间中，数据线性不可分（如异或问题、环形数据）。</li>
-<li><strong>策略：</strong> 将样本从低维空间映射到高维特征空间（Hilbert Space）。根据 Cover 定理，在足够高的维度中，数据更有可能是线性可分的。</li>
-<li><strong>映射函数：</strong> $\phi: \mathcal{X} \to \mathcal{H}$</li>
-</ul>
-<h3 id="（2）核技巧-Kernel-Trick"><a href="#（2）核技巧-Kernel-Trick" class="headerlink" title="（2）核技巧 (Kernel Trick)"></a><strong>（2）核技巧 (Kernel Trick)</strong></h3><ul>
-<li><strong>困境：</strong> 如果直接计算高维向量 $\phi(x)$，计算复杂度极高，甚至因维度无穷大而无法计算。</li>
-<li><strong>观察：</strong> 在 SVM 对偶问题中，样本仅以<strong>内积</strong>形式出现：$\langle x_i, x_j \rangle$。在高维空间中对应 $\langle \phi(x_i), \phi(x_j) \rangle$。</li>
-<li><strong>核函数定义：</strong> 设 $\mathcal{X}$ 是输入空间，$\mathcal{H}$ 是特征空间。如果存在函数 $K(x, z)$ 满足：<script type="math/tex; mode=display">K(x, z) = \phi(x) \cdot \phi(z)</script>  则称 $K$ 为核函数。</li>
-<li><strong>作用：</strong> 我们不需要显式知道 $\phi(x)$ 是什么，只需在低维空间计算 $K(x, z)$，就能等效达到在高维空间做超平面划分的效果。</li>
-</ul>
-<h3 id="（3）对偶问题的修改"><a href="#（3）对偶问题的修改" class="headerlink" title="（3）对偶问题的修改"></a><strong>（3）对偶问题的修改</strong></h3><p>引入核函数后，非线性 SVM 的优化目标变为：</p>
-<script type="math/tex; mode=display">
-\min_{\alpha} \frac{1}{2} \sum_{i=1}^{N}\sum_{j=1}^{N} \alpha_i \alpha_j y_i y_j K(x_i, x_j) - \sum_{i=1}^{N} \alpha_i</script><p>决策函数变为：</p>
-<script type="math/tex; mode=display">f(x) = \text{sign}\left( \sum_{i=1}^{N} \alpha_i y_i K(x_i, x) + b \right)</script><h3 id="（4）常用核函数"><a href="#（4）常用核函数" class="headerlink" title="（4）常用核函数"></a><strong>（4）常用核函数</strong></h3><div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left">核函数</th>
-<th style="text-align:left">公式 $K(x, z)$</th>
-<th style="text-align:left">特点与应用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><strong>线性核 (Linear)</strong></td>
-<td style="text-align:left">$x \cdot z$</td>
-<td style="text-align:left">无映射。适用于特征维数高的情况。</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>多项式核 (Poly)</strong></td>
-<td style="text-align:left">$(x \cdot z + 1)^d$</td>
-<td style="text-align:left">映射到 $d$ 阶多项式空间。参数多，计算稍慢。</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>高斯核 (RBF)</strong></td>
-<td style="text-align:left">$\exp(-\frac{\lVert x - z \rVert^2}{2\sigma^2})$</td>
-<td style="text-align:left"><strong>最常用</strong>。映射到无穷维空间。衡量样本相似度。$\gamma$ 越大，模型越复杂（易过拟合）。</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>Sigmoid 核</strong></td>
-<td style="text-align:left">$\tanh(\gamma x \cdot z + r)$</td>
-<td style="text-align:left">类似于神经网络中的激活函数。</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="（5）什么样的函数能做核函数？"><a href="#（5）什么样的函数能做核函数？" class="headerlink" title="（5）什么样的函数能做核函数？"></a><strong>（5）什么样的函数能做核函数？</strong></h3><ul>
-<li><strong>Mercer 定理 (Mercer’s Theorem)：</strong><br>  只要函数 $K$ 满足<strong>对称性</strong>，且对应的核矩阵（Gram Matrix）是<strong>半正定</strong>（所有特征值非负）的，它就是合法的核函数。</li>
-</ul>
-<p><img src="2025-12-06-16-32-38.png" alt=""></p>
-<h1 id="第八章-提升算法"><a href="#第八章-提升算法" class="headerlink" title="第八章 提升算法"></a>第八章 提升算法</h1><h2 id="基本思想"><a href="#基本思想" class="headerlink" title="基本思想"></a>基本思想</h2><h3 id="偏差和方差"><a href="#偏差和方差" class="headerlink" title="偏差和方差"></a>偏差和方差</h3><p><img src="2025-12-07-16-09-35.png" alt=""></p>
-<ul>
-<li>（b）是欠拟合（高偏差）</li>
-<li>（c）是过拟合（高方差）</li>
-</ul>
-<h3 id="集成学习方法"><a href="#集成学习方法" class="headerlink" title="集成学习方法"></a>集成学习方法</h3><ol>
-<li>并行化：不存在强依赖关系，关注<strong>降低方差</strong>。代表：<strong>随机森林，Bagging</strong></li>
-<li>序列化：又叫串行化，是强依赖关系，关注<strong>降低偏差</strong>。代表：<strong>Boosting</strong><ul>
-<li>思想：只要找到一个<strong>比随机猜测略好（分类误差 &lt;0.5）</strong>的弱学习算法，就可以直接将其提升为强学习算法。</li>
-</ul>
-</li>
-</ol>
-<h2 id="AdaBoost-算法"><a href="#AdaBoost-算法" class="headerlink" title="$AdaBoost$ 算法"></a>$AdaBoost$ 算法</h2><p>关键词：<code>加法模型、指数损失、前向分布算法</code><br><strong>注意点</strong>：</p>
-<ol>
-<li>计算 $G(m)$ 的训练误差 $e_m$</li>
-<li>计算系数 $\alpha_m =\frac{1}{2}ln\frac{1-e_m}{e_m}$ <code>&lt;0.5</code> （不考计算，但这一点要注意）</li>
-<li>正确分类权值更新：$\times e^{-\alpha}$ ；错误分类权值更新：$\times e^{\alpha}$ </li>
-<li>损失函数：<strong>指数损失</strong> $L(y,f(x)) =exp(-yf(x))$</li>
-<li><code>分错样本权值变大，分对样本权值变小</code>，权值和 =1（下图选 $B$）<br><img src="2025-12-07-16-31-16.png" alt=""><ul>
-<li><strong>注意</strong>：样本权重 $\omega$ 之和 $=1$，但是基分类器权重 $\alpha_m$ 之和 $\not ={1}$</li>
-</ul>
-</li>
-<li>为什么 $AdaBoost$ 对噪声敏感？<br>因为 AdaBoost 的机制是指数级地增加被分错样本的权重，是串行化模型，关住提高模型准确度（降低偏差），所以对噪声非常敏感。如果数据中存在标签错误的噪声点，模型会投入极大的资源去强行拟合这个噪声，导致正常样本被牺牲，从而过拟合。</li>
-</ol>
-<h1 id="第九章-EM算法"><a href="#第九章-EM算法" class="headerlink" title="第九章 EM算法"></a>第九章 EM算法</h1><h2 id="1-EM算法的导出"><a href="#1-EM算法的导出" class="headerlink" title="1. EM算法的导出"></a>1. EM算法的导出</h2><p><strong>输入</strong>：观测变量数据 $X$，隐变量 $Z$，联合分布 $P(X,Z|\theta)$<br><strong>输出</strong>：模型参数 $\theta$</p>
-<ol>
-<li><p><strong>初始化 (Initialization)</strong></p>
-<ul>
-<li>随机选取模型参数的初值 $\theta^{(0)}$。</li>
-<li><em>注：EM 算法对初值敏感，不同的初值可能导致收敛到不同的局部极值。</em></li>
-</ul>
-</li>
-<li><p><strong>E步 (Expectation Step)</strong></p>
-<ul>
-<li><strong>目的</strong>：利用当前参数推测隐变量的分布。</li>
-<li><strong>操作</strong>：基于当前参数 $\theta^{(t)}$ 和观测数据 $X$，计算隐变量 $Z$ 的条件概率（后验概率）。</li>
-<li><strong>构造 Q 函数</strong>（即完全数据对数似然函数的期望）：<script type="math/tex; mode=display">Q(\theta, \theta^{(t)}) = E_{Z|X, \theta^{(t)}}[\log P(X, Z | \theta)]</script></li>
-</ul>
-</li>
-<li><p><strong>M步 (Maximization Step)</strong></p>
-<ul>
-<li><strong>目的</strong>：根据推测的隐变量分布，更新模型参数。</li>
-<li><strong>操作</strong>：寻找一个新的参数 $\theta$，使得 Q 函数的值最大化：<script type="math/tex; mode=display">\theta^{(t+1)} = \arg \max_{\theta} Q(\theta, \theta^{(t)})</script></li>
-</ul>
-</li>
-<li><p><strong>收敛判断 (Convergence Check)</strong></p>
-<ul>
-<li><strong>操作</strong>：计算参数的更新幅度 $|\theta^{(t+1)} - \theta^{(t)}|$ 或对数似然函数的增量。</li>
-<li><strong>判断</strong>：<ul>
-<li>若变化量小于预设阈值 $\epsilon$（如 $1e-5$），则停止迭代，输出最终参数 $\hat{\theta} = \theta^{(t+1)}$。</li>
-<li>否则，令 $t \leftarrow t+1$，返回第 2 步继续迭代。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-<h2 id="2-EM算法的收敛性"><a href="#2-EM算法的收敛性" class="headerlink" title="2. EM算法的收敛性"></a>2. EM算法的收敛性</h2><h3 id="1-核心性质：单调递增"><a href="#1-核心性质：单调递增" class="headerlink" title="(1). 核心性质：单调递增"></a>(1). 核心性质：单调递增</h3><p>EM 算法保证每次迭代后，观测数据的对数似然函数值是非递减的。即：</p>
-<script type="math/tex; mode=display">L(\theta^{(t+1)}) \ge L(\theta^{(t)})</script><p>由于似然函数通常有上界（Bounded from above），单调递增且有上界的序列必然收敛。</p>
-<h3 id="2-数学原理：下界逼近"><a href="#2-数学原理：下界逼近" class="headerlink" title="(2). 数学原理：下界逼近"></a>(2). 数学原理：下界逼近</h3><ul>
-<li><strong>原理</strong>：EM 算法并不直接优化复杂的 $L(\theta)$，而是优化其<strong>下界</strong>。</li>
-<li><strong>工具</strong>：利用 <strong>Jensen 不等式 (Jensen’s Inequality)</strong> 构造下界函数 $B(\theta, \theta^{(t)})$。</li>
-<li><strong>过程</strong>：<script type="math/tex; mode=display">L(\theta) - L(\theta^{(t)}) \ge 0</script>通过最大化下界 Q 函数，间接推高了原目标函数 $L(\theta)$。</li>
-</ul>
-<h3 id="3-收敛目标：局部最优"><a href="#3-收敛目标：局部最优" class="headerlink" title="(3). 收敛目标：局部最优"></a>(3). 收敛目标：局部最优</h3><ul>
-<li>EM 算法<strong>不能保证</strong>收敛到全局最优解 (Global Maximum)。</li>
-<li>它通常收敛到似然函数的<strong>稳定点 (Stationary Point)</strong>，大多数情况下是<strong>局部极大值 (Local Maximum)</strong>。</li>
-<li>只有在目标函数是凸函数（Concave）等特殊情况下，才能保证全局最优。</li>
-</ul>
-<h3 id="4-工程启示"><a href="#4-工程启示" class="headerlink" title="(4). 工程启示"></a>(4). 工程启示</h3><ul>
-<li><strong>初值敏感性</strong>：由于存在多个局部极值，最终结果高度依赖于初始参数 $\theta^{(0)}$ 的选择。<ul>
-<li><em>解决方案</em>：采用多次随机初始化 (Random Restarts)，取结果最好的那一组；或使用 K-Means 等算法预热初始化。</li>
-</ul>
-</li>
-<li><strong>收敛速度</strong>：算法在迭代初期收敛较快，但在接近极值点时收敛速度变慢（通常为一阶线性收敛）。</li>
-</ul>
-<h2 id="3-高斯混合模型-GMM"><a href="#3-高斯混合模型-GMM" class="headerlink" title="3. 高斯混合模型 (GMM)"></a>3. 高斯混合模型 (GMM)</h2><p>在统计学习和模式识别中，<strong>高斯混合模型 (GMM)</strong> 和 <strong>EM 算法</strong> 通常是绑定出现的。简单来说：GMM 是我们要建立的<strong>模型</strong>（Model），而 EM 算法是用于训练该模型的<strong>优化方法</strong>（Optimization Method）。</p>
-<h3 id="1-高斯混合模型-GMM"><a href="#1-高斯混合模型-GMM" class="headerlink" title="(1). 高斯混合模型 (GMM)"></a>(1). 高斯混合模型 (GMM)</h3><h4 id="直观理解"><a href="#直观理解" class="headerlink" title="直观理解"></a>直观理解</h4><p>传统的聚类算法（如 K-Means）是<strong>硬聚类</strong>，即一个样本点要么属于 A 类，要么属于 B 类。但在实际应用中，很多数据具有模糊性（Ambiguity）。</p>
-<p><strong>GMM (Gaussian Mixture Model)</strong> 是一种<strong>软聚类</strong>模型。它假设数据是由 $K$ 个不同的高斯分布（正态分布）混合生成的。对于每一个数据点，模型给出的是它属于每个簇的<strong>概率</strong>。</p>
-<h4 id="数学定义"><a href="#数学定义" class="headerlink" title="数学定义"></a>数学定义</h4><p>GMM 的概率密度函数定义为 $K$ 个高斯密度的加权和：</p>
-<script type="math/tex; mode=display">
-P(x|\theta) = \sum_{k=1}^{K} \pi_k \mathcal{N}(x | \mu_k, \Sigma_k)</script><p>其中：</p>
-<ul>
-<li>$x$: 观测数据。</li>
-<li>$\pi_k$: <strong>混合系数</strong> (Mixing Coefficient)，即第 $k$ 个高斯分布被选中的概率，满足 $\sum \pi_k = 1$ 且 $\pi_k \ge 0$。</li>
-<li>$\mathcal{N}(x | \mu_k, \Sigma_k)$: 第 $k$ 个<strong>高斯分布密度函数</strong>，参数为均值 $\mu_k$ 和协方差矩阵 $\Sigma_k$。</li>
-</ul>
-<p>我们需要估计的参数集合为 $\theta = { \pi_1, \dots, \pi_K, \mu_1, \dots, \mu_K, \Sigma_1, \dots, \Sigma_K }$。</p>
-<hr>
-<h3 id="2-为什么需要-EM-算法？"><a href="#2-为什么需要-EM-算法？" class="headerlink" title="(2). 为什么需要 EM 算法？"></a>(2). 为什么需要 EM 算法？</h3><p>如果我们知道每个样本具体属于哪个高斯分布（即已知<strong>隐变量 Latent Variable</strong>），我们直接用<strong>极大似然估计 (MLE)</strong> 就可以算出 $\mu$ 和 $\Sigma$。</p>
-<p>但在非监督学习中，我们<strong>不知道</strong>样本的类别标签。这就陷入了一个“鸡生蛋，蛋生鸡”的循环：</p>
-<ol>
-<li>要算出参数 $\theta$，需要先知道每个样本属于哪个分布（隐变量）。</li>
-<li>要知道样本属于哪个分布，又需要先有准确的参数 $\theta$ 来计算概率。</li>
-</ol>
-<p><strong>EM 算法 (Expectation-Maximization Algorithm)</strong> 正是为了解决这种含有隐变量的概率模型参数估计问题。</p>
-<hr>
-<h3 id="3-EM-算法在-GMM-中的流程"><a href="#3-EM-算法在-GMM-中的流程" class="headerlink" title="(3). EM 算法在 GMM 中的流程"></a>(3). EM 算法在 GMM 中的流程</h3><p>EM 算法通过迭代的方式逼近最优解，主要分为两步：<strong>E步（期望步）</strong>和 <strong>M步（最大化步）</strong>。</p>
-<h4 id="Step-0-初始化"><a href="#Step-0-初始化" class="headerlink" title="Step 0: 初始化"></a>Step 0: 初始化</h4><p>随机初始化参数 $\mu_k, \Sigma_k, \pi_k$。</p>
-<h4 id="Step-1-E-step-计算责任-后验概率"><a href="#Step-1-E-step-计算责任-后验概率" class="headerlink" title="Step 1: E-step (计算责任/后验概率)"></a>Step 1: E-step (计算责任/后验概率)</h4><p>固定参数，计算第 $n$ 个样本来自第 $k$ 个分模型的概率（也称为“责任” $\gamma_{nk}$）：</p>
-<script type="math/tex; mode=display">
-\gamma_{nk} = P(z_n = k | x_n) = \frac{\pi_k \mathcal{N}(x_n | \mu_k, \Sigma_k)}{\sum_{j=1}^{K} \pi_j \mathcal{N}(x_n | \mu_j, \Sigma_j)}</script><blockquote>
-<p><strong>直观解释</strong>：看当前这个点，在第 $k$ 个分布里的相对密度有多大。</p>
-</blockquote>
-<h4 id="Step-2-M-step-更新参数"><a href="#Step-2-M-step-更新参数" class="headerlink" title="Step 2: M-step (更新参数)"></a>Step 2: M-step (更新参数)</h4><p>利用 E 步算出的 $\gamma_{nk}$ 作为权重，重新估计参数（最大化 Q 函数）：</p>
-<ol>
-<li><strong>更新均值 $\mu_k$</strong>（加权平均）：<script type="math/tex; mode=display">
-\mu_k^{new} = \frac{1}{N_k} \sum_{n=1}^{N} \gamma_{nk} x_n</script></li>
-<li><strong>更新协方差 $\Sigma_k$</strong>（加权协方差）：<script type="math/tex; mode=display">
-\Sigma_k^{new} = \frac{1}{N_k} \sum_{n=1}^{N} \gamma_{nk} (x_n - \mu_k^{new})(x_n - \mu_k^{new})^T</script></li>
-<li><strong>更新混合系数 $\pi_k$</strong>：<script type="math/tex; mode=display">
-\pi_k^{new} = \frac{N_k}{N}</script>其中 $N<em>k = \sum</em>{n=1}^{N} \gamma_{nk}$ 是第 $k$ 类权重的总和。</li>
-</ol>
-<h4 id="Step-3-收敛判断"><a href="#Step-3-收敛判断" class="headerlink" title="Step 3: 收敛判断"></a>Step 3: 收敛判断</h4><p>重复 E 步和 M 步，直到对数似然函数 (Log-Likelihood) 的增长小于阈值，或参数不再变化。</p>
-<hr>
-<h3 id="4-GMM-vs-K-Means"><a href="#4-GMM-vs-K-Means" class="headerlink" title="(4). GMM vs K-Means"></a>(4). GMM vs K-Means</h3><div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left">维度</th>
-<th style="text-align:left">K-Means</th>
-<th style="text-align:left">GMM (高斯混合模型)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><strong>聚类性质</strong></td>
-<td style="text-align:left"><strong>硬聚类</strong> (0 或 1)</td>
-<td style="text-align:left"><strong>软聚类</strong> (概率分布)</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>模型假设</strong></td>
-<td style="text-align:left">假设簇是球状的 (方差一致)</td>
-<td style="text-align:left">假设簇是高斯分布 (可通过协方差描述椭圆)</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>参数复杂度</strong></td>
-<td style="text-align:left">仅中心点 (Centroids)</td>
-<td style="text-align:left">中心点 + 协方差矩阵 + 混合系数</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>本质关系</strong></td>
-<td style="text-align:left">GMM 的一种特例</td>
-<td style="text-align:left">EM 算法的通用应用</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>对异常值</strong></td>
-<td style="text-align:left">敏感</td>
-<td style="text-align:left">相对鲁棒 (概率模型具有一定容错性)</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h2 id="推导"><a href="#推导" class="headerlink" title="推导"></a>推导</h2><h3 id="引理9-2"><a href="#引理9-2" class="headerlink" title="引理9.2"></a>引理9.2</h3><h3 id="Q函数"><a href="#Q函数" class="headerlink" title="Q函数"></a>Q函数</h3><h1 id="第十章-聚类方法"><a href="#第十章-聚类方法" class="headerlink" title="第十章 聚类方法"></a>第十章 聚类方法</h1><h2 id="1-层次聚类"><a href="#1-层次聚类" class="headerlink" title="1. 层次聚类"></a>1. 层次聚类</h2><ul>
-<li>聚类是<strong>无监督学习</strong></li>
-</ul>
-<h3 id="聚类的核心参数"><a href="#聚类的核心参数" class="headerlink" title="聚类的核心参数"></a>聚类的核心参数</h3><ol>
-<li>距离（马氏距离、L距离）<ul>
-<li>距离越小，样本越相似</li>
-</ul>
-</li>
-<li>相似度（夹角余弦、相关系数）<ul>
-<li>相似度越大，样本越相似</li>
-</ul>
-</li>
-</ol>
-<ul>
-<li>直接影响聚类结果，其选择是聚类的根本问题。</li>
-</ul>
-<h3 id="硬聚类-amp-软聚类"><a href="#硬聚类-amp-软聚类" class="headerlink" title="硬聚类 &amp; 软聚类"></a>硬聚类 &amp; 软聚类</h3><ul>
-<li>一个样本只能属于一个类，就叫<strong>硬聚类</strong>。</li>
-<li>一个样本可以属于多个类，就叫<strong>软聚类</strong>。</li>
-</ul>
-<h3 id="一些概念"><a href="#一些概念" class="headerlink" title="一些概念"></a>一些概念</h3><p><strong>假设有两个类：$G_p , G_q$</strong></p>
-<ul>
-<li>类的中心：一个类中所有样本的均值</li>
-<li>类的直径：两个距离最远的样本距离</li>
-<li><strong>单连接</strong>：两个类中最近样本的距离</li>
-<li><strong>完全连接</strong>：两个类中最远样本的距离</li>
-<li>中心距离：两个样本中心间的距离</li>
-<li>平均距离：两个样本中所有样本的平均距离</li>
-</ul>
-<p>注意：做层次聚类题目的时候注意要求是按照<strong>单连接/完全连接</strong>来聚类，画图的时候<strong>长度要按比例</strong>。</p>
-<h3 id="聚合聚类-amp-分裂聚类"><a href="#聚合聚类-amp-分裂聚类" class="headerlink" title="聚合聚类 &amp; 分裂聚类"></a>聚合聚类 &amp; 分裂聚类</h3><ul>
-<li><p><strong>聚合聚类（自下而上聚类）</strong></p>
-<ul>
-<li>开始将每个样本各自分到一个类</li>
-<li>之后将相距最近的两类合并，建立一个新的类</li>
-<li>重复此操作直到满足停止条件</li>
-</ul>
-</li>
-<li><p><strong>分裂聚类（自上而下聚类）</strong></p>
-<ul>
-<li>开始将所有样本分到一个类</li>
-<li>之后将已有类中相距最远的样本分到两个新的类</li>
-<li>重复此操作直到满足停止条件</li>
-</ul>
-</li>
-</ul>
-<h2 id="2-K-mean"><a href="#2-K-mean" class="headerlink" title="2. K-mean"></a>2. K-mean</h2><ul>
-<li>硬聚类、分成 k 个簇、非层次化、无监督学习</li>
-<li>时间复杂度：$O(nkm)$，n个样本点到k个中心的距离，维度为m。</li>
-</ul>
-<h3 id="1-核心原理"><a href="#1-核心原理" class="headerlink" title="(1). 核心原理"></a>(1). 核心原理</h3><p>算法的核心目标是将 $n$ 个样本点划分到 $K$ 个簇 (Cluster) 中，使得每个样本点到其所属簇的中心的距离平方和最小。</p>
-<ul>
-<li><strong>输入</strong>：样本集 $X$，聚类簇数 $K$。</li>
-<li><strong>输出</strong>：$K$ 个簇的质心向量 $\mu$ 及每个样本的类别标签。</li>
-</ul>
-<h3 id="2-损失函数"><a href="#2-损失函数" class="headerlink" title="(2). 损失函数"></a>(2). 损失函数</h3><p>最小化<strong>每个簇内样本点到中心的距离之和</strong>：</p>
-<script type="math/tex; mode=display">
-J = \sum_{k=1}^{K} \sum_{x \in C_k} || x - \mu_k ||^2</script><p>其中：</p>
-<ul>
-<li>$C_k$：第 $k$ 个簇。</li>
-<li>$\mu_k$：第 $k$ 个簇的中心。</li>
-<li>$|| x - \mu_k ||^2$：欧几里得距离的平方。</li>
-</ul>
-<h3 id="3-算法流程"><a href="#3-算法流程" class="headerlink" title="(3). 算法流程"></a>(3). 算法流程</h3><p>K-Means 的迭代过程体现了 EM (Expectation-Maximization) 的思想：</p>
-<ol>
-<li><p><strong>初始化</strong>：<br>随机选择 $K$ 个样本点作为初始中心 ${ \mu_1, \dots, \mu_K }$。</p>
-</li>
-<li><p><strong>分配阶段</strong> —— <em>对应 E-step</em><br>计算每个样本 $x^{(i)}$ 到各个中心的距离，将其分配给最近的中心：</p>
-<script type="math/tex; mode=display">
-c^{(i)} = \arg\min_k || x^{(i)} - \mu_k ||^2</script></li>
-<li><p><strong>更新阶段</strong> —— <em>对应 M-step</em><br>重新计算每个簇的<strong>中心</strong>：</p>
-<script type="math/tex; mode=display">
-\mu_k = \frac{1}{|C_k|} \sum_{x \in C_k} x</script></li>
-<li><p><strong>收敛判断</strong>：<br>重复步骤 2 和 3，直到中心位置不再变化或变化非常小（小于阈值）。</p>
-</li>
-</ol>
-<h3 id="4-初值选择的解决（K-means-）"><a href="#4-初值选择的解决（K-means-）" class="headerlink" title="(4). 初值选择的解决（K-means++）"></a>(4). 初值选择的解决（K-means++）</h3><ul>
-<li><strong>问题</strong>：传统的随机初始化可能导致陷入局部最优解。</li>
-<li><strong>解法：K-Means++</strong>：<ul>
-<li>第一个质心随机选。</li>
-<li>后续质心选择时，距离当前已有质心<strong>越远的点，被选中的概率越大</strong>。</li>
-<li>以此优化初始质心的分布。</li>
-</ul>
-</li>
-</ul>
-<p>（优点：减少局部最优风险，加快收敛速度，更好聚类效果）</p>
-<h3 id="5-优缺点分析"><a href="#5-优缺点分析" class="headerlink" title="(5). 优缺点分析"></a>(5). 优缺点分析</h3><div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left">优点</th>
-<th style="text-align:left">缺点</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><strong>原理简单</strong>，易于理解和实现。</td>
-<td style="text-align:left"><strong>需要预先指定 K 值（k-means++/elbow方法）</strong>，且 K 值对结果影响大。</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>收敛速度快</strong>，时间复杂度近乎线性 $O(N \cdot K \cdot M)$。</td>
-<td style="text-align:left"><strong>对初始中心选择敏感</strong>，可能陷入局部最优。</td>
-</tr>
-<tr>
-<td style="text-align:left">适合处理球状分布、密集的簇。</td>
-<td style="text-align:left"><strong>噪声敏感</strong>，噪声会拉偏均值。</td>
-</tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left"><strong>无法处理非凸形状，且高维数据处理能力差</strong> 。</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h1 id="第十一章-奇异值分解"><a href="#第十一章-奇异值分解" class="headerlink" title="第十一章 奇异值分解"></a>第十一章 奇异值分解</h1><h2 id="1-基础概念"><a href="#1-基础概念" class="headerlink" title="1. 基础概念"></a>1. 基础概念</h2><p><strong>矩阵分解的目的：</strong>方便计算、方便储存、数据压缩。</p>
-<script type="math/tex; mode=display">
-A_{m \times n} = U_{m \times m} \Sigma_{m \times n} V^T_{n \times n} =diag（\sigma_1,\sigma_2...\sigma_n）</script><p>其中，$U、V$ 都是正交矩阵，$\Sigma$ 是对角阵（从大到小排）；diag（ ）为奇异值的对角阵。</p>
-<ul>
-<li>奇异值分解不要求A是方阵。</li>
-<li><strong>奇异值分解基本定理</strong>：奇异值分解对任意实矩阵都存在。</li>
-</ul>
-<h3 id="1-奇异值分解基本定理证明"><a href="#1-奇异值分解基本定理证明" class="headerlink" title="(1). 奇异值分解基本定理证明"></a>(1). 奇异值分解基本定理证明</h3><ul>
-<li>证明不要求。</li>
-</ul>
-<h3 id="2-SVD-的几何意义"><a href="#2-SVD-的几何意义" class="headerlink" title="(2). SVD 的几何意义"></a>(2). SVD 的几何意义</h3><ul>
-<li>$m \times n$ 矩阵A: <strong>表示从 n 维空间 $R_n$ 到 m 维空间 $R_m$ 的一个线性变换</strong>。</li>
-</ul>
-<p>对于任意矩阵 $A = U \Sigma V^T$，其线性变换的几何过程可以分解为：</p>
-<ol>
-<li><strong>旋转 ($V^T$)</strong>：<ul>
-<li>在输入空间（$R_n$）中进行旋转。</li>
-<li>目的是找到一组正交基（主方向），将其对齐到坐标轴。</li>
-</ul>
-</li>
-<li><strong>拉伸 ($\Sigma$)</strong>：<ul>
-<li>沿坐标轴方向进行缩放。</li>
-<li>缩放倍率即为<strong>奇异值</strong> $\sigma_i$。</li>
-<li>这一步将“单位圆/球”变换为“椭圆/椭球”。</li>
-</ul>
-</li>
-<li><strong>旋转 ($U$)</strong>：<ul>
-<li>将拉伸后的椭圆旋转到输出空间（$R_m$）的目标方向。</li>
-<li>$U$ 的列向量即为椭圆的主轴方向。</li>
-</ul>
-</li>
-</ol>
-<p><strong>直观理解</strong>：任何线性变换本质上都是把一个圆（或球）拉伸成一个椭圆（或椭球），SVD 让这个过程直观化。</p>
-<h3 id="3-奇异值分解的不唯一性"><a href="#3-奇异值分解的不唯一性" class="headerlink" title="(3). 奇异值分解的不唯一性"></a>(3). 奇异值分解的不唯一性</h3><ul>
-<li>$\Sigma$ 是唯一的，但是 $U、V$ 是不唯一的。</li>
-</ul>
-<h2 id="2-紧奇异值分解-amp-截断奇异值分解"><a href="#2-紧奇异值分解-amp-截断奇异值分解" class="headerlink" title="2. 紧奇异值分解 &amp; 截断奇异值分解"></a>2. 紧奇异值分解 &amp; 截断奇异值分解</h2><h3 id="1-紧奇异值分解"><a href="#1-紧奇异值分解" class="headerlink" title="(1). 紧奇异值分解"></a>(1). 紧奇异值分解</h3><p><strong>核心概念</strong>：去伪存真。只保留<strong>非零</strong>奇异值及其对应的奇异向量（即秩 $r$）。</p>
-<ul>
-<li><strong>定义</strong>：去掉 $\Sigma$ 中为 0 的奇异值，以及 $U$ 和 $V$ 中对应的列（这些列对应于零空间，对重构 $A$ 没有贡献）。</li>
-<li><strong>公式</strong>：<script type="math/tex; mode=display">
-  A = U_r \Sigma_r V_r^T</script></li>
-<li><strong>维度</strong>：<ul>
-<li>$U_r$: $m \times r$</li>
-<li>$\Sigma_r$: $r \times r$ (无零元素的方阵)</li>
-<li>$V_r^T$: $r \times n$</li>
-</ul>
-</li>
-<li><strong>特点</strong>：<strong>无损分解</strong>。计算结果严格等于原矩阵 $A$，相比完整 SVD 更节省存储空间。</li>
-</ul>
-<h3 id="2-截断奇异值分解"><a href="#2-截断奇异值分解" class="headerlink" title="(2). 截断奇异值分解"></a>(2). 截断奇异值分解</h3><p><strong>核心概念</strong>：抓大放小。只保留<strong>前 $k$ 个</strong>最大的奇异值（$k &lt; r$）。</p>
-<ul>
-<li><strong>定义</strong>：人为设定超参数 $k$，认为较小的奇异值是噪音并将其舍弃，仅保留主要特征。</li>
-<li><strong>公式</strong>：<script type="math/tex; mode=display">
-  A \approx A_k = U_k \Sigma_k V_k^T</script></li>
-<li><strong>维度</strong>：<ul>
-<li>$U_k$: $m \times k$</li>
-<li>$\Sigma_k$: $k \times k$</li>
-<li>$V_k^T$: $k \times n$</li>
-</ul>
-</li>
-<li><strong>特点</strong>：<strong>有损近似</strong>。它是原矩阵 $A$ 的最佳低秩近似（Best Low-Rank Approximation），常用于<strong>LSA（潜在语义分析）</strong>、<strong>图像压缩</strong>和<strong>降噪</strong>。 </li>
-</ul>
-<h2 id="3-奇异值分解的计算"><a href="#3-奇异值分解的计算" class="headerlink" title="3. 奇异值分解的计算"></a>3. 奇异值分解的计算</h2><h3 id="1-计算流程"><a href="#1-计算流程" class="headerlink" title="(1). 计算流程"></a>(1). 计算流程</h3><ol>
-<li><p>求右奇异向量 $V$</p>
-<ul>
-<li><strong>构建对称阵</strong>：计算 $W = A^T A$。</li>
-<li><strong>特征分解</strong>：求 $W$ 的特征值 $\lambda_i$ 和特征向量 $v_i$。</li>
-<li><strong>排序</strong>：将特征值按降序排列 $\lambda_1 \ge \lambda_2 \ge \dots \ge 0$。</li>
-<li><strong>单位化</strong>：将特征向量归一化（长度为1）。</li>
-<li><strong>构造 $V$</strong>：$V = [v_1, v_2, \dots, v_n]$。</li>
-</ul>
-</li>
-<li><p>求奇异值矩阵 $\Sigma$</p>
-<ul>
-<li><strong>计算奇异值</strong>：$\sigma_i = \sqrt{\lambda_i}$。</li>
-<li><strong>构造 $\Sigma$</strong>：将 $\sigma_i$ 填入对角矩阵的主对角线，其余位置补 0。</li>
-</ul>
-</li>
-<li><p>求左奇异向量 $U$</p>
-<ul>
-<li><strong>非零奇异值部分</strong>：利用公式直接计算对应的 $u_i$：<script type="math/tex; mode=display">
-u_i = \frac{1}{\sigma_i} A v_i</script></li>
-<li><strong>零奇异值/维度缺失部分</strong>：若 $\sigma_i = 0$ （直接找与 $u_i$ 垂直的向量即可）或矩阵 $A$ 行数大于列数（$m &gt; n$），需利用 <strong>Gram-Schmidt 正交化</strong> 在 $U$ 的正交补空间中寻找剩余的单位向量，以补全标准正交基。</li>
-</ul>
-</li>
-</ol>
-<blockquote>
-<p><strong>注意</strong>：此方法（利用 $A^T A$）仅适用于手算练习。计算机数值计算通常采用 <strong>Golub-Kahan 双对角化算法</strong>，以避免 $A^T A$ 带来的条件数平方和精度损失。</p>
-</blockquote>
-<h3 id="2-矩阵的外积展开式（重点看一下）"><a href="#2-矩阵的外积展开式（重点看一下）" class="headerlink" title="(2). 矩阵的外积展开式（重点看一下）"></a>(2). 矩阵的外积展开式（重点看一下）</h3><script type="math/tex; mode=display">
-A = U\Sigma V^T, \Sigma = \text{diag}(\sigma_1, \sigma_2, \cdots, \sigma_p)</script><ul>
-<li>矩阵 $A$ 的奇异值分解 $U\Sigma V^T$ 也可以由 <strong>外积</strong> 形式表示</li>
-<li>将 $A$ 的奇异值分解看成矩阵 $U\Sigma$ 和 $V^T$ 的乘积</li>
-<li>将 $U\Sigma$ 按照列向量分块，将 $V^T$ 按行向量分块，即得<script type="math/tex; mode=display">
-  U\Sigma = [\sigma_1 u_1 \quad \sigma_2 u_2 \quad \cdots \quad \sigma_n u_n]</script><script type="math/tex; mode=display">
-  V^T = \begin{bmatrix} v_1^T \\ v_2^T \\ \vdots \\ v_n^T \end{bmatrix}</script></li>
-<li>则<script type="math/tex; mode=display">
-  A = (U\Sigma)V^T = \sigma_1 u_1 v_1^T + \sigma_2 u_2 v_2^T + \cdots + \sigma_n u_n v_n^T</script></li>
-</ul>
-<p><strong>最优近似矩阵：</strong></p>
-<ul>
-<li>若 $A$ 的秩为 $r$，则<script type="math/tex; mode=display">
-  A = \sigma_1 u_1 v_1^T + \sigma_2 u_2 v_2^T + \cdots + \sigma_r u_r v_r^T</script></li>
-<li>设矩阵<script type="math/tex; mode=display">
-  A_k = \sigma_1 u_1 v_1^T + \sigma_2 u_2 v_2^T + \cdots + \sigma_k u_k v_k^T</script></li>
-<li>矩阵 $A_k$ 就是 $A$ 的截断奇异值分解</li>
-<li>$A_k$ 的秩为 $k$，并且 $A_k$ 是秩为 $k$ 的矩阵中在 <strong>弗罗贝尼乌斯范数意义</strong> 下 $A$ 的 <strong>最优近似矩阵</strong></li>
-<li>由于通常奇异值递减很快，所以 $k$ 取很小值时，$A_k$ 也可以对 $A$ 有很好的近似</li>
-</ul>
-<p><strong>矩阵的 F 范数：</strong></p>
-<ul>
-<li>衡量两个矩阵的相似度。  </li>
-</ul>
-<p>设矩阵 $A \in R^{m \times n}$， $A$ 的奇异值分解为 $U \Sigma V^T$，其中 $\Sigma = \text{diag}(\sigma_1, \sigma_2, \dots, \sigma_n)$，则：</p>
-<script type="math/tex; mode=display">
-\|A\|_F = (\sigma_1^2 + \sigma_2^2 + \cdots + \sigma_n^2)^{\frac{1}{2}}</script><p><strong>定理15.3：</strong><br><img src="2025-12-09-21-02-32.png" alt=""></p>
-<ul>
-<li>$X$ 是 $A$ 的最优近似，因为它们的 F 范数最小。</li>
-<li>k 截断的矩阵等价于最优近似。</li>
-</ul>
-<h2 id="SVD的性质（5条）"><a href="#SVD的性质（5条）" class="headerlink" title="SVD的性质（5条）"></a>SVD的性质（5条）</h2><p><img src="2025-12-18-14-42-08.png" alt=""><br><img src="2025-12-18-14-41-12.png" alt=""><br><img src="2025-12-18-14-41-33.png" alt=""><br><img src="2025-12-18-14-42-29.png" alt=""></p>
-<h1 id="第十二章-主成分分析"><a href="#第十二章-主成分分析" class="headerlink" title="第十二章 主成分分析"></a>第十二章 主成分分析</h1><p>关键词：<code>无监督、降维、效率高、更好泛化能力</code></p>
-<ul>
-<li>尽量减少信息损失的情况下，把复杂高维数据压缩成简单低维数据。</li>
-<li>利用正交变换把由线性相关变量表示的观测数据转换为少数几个由<strong>线性无关</strong>变量 (主成分) 表示的数据。</li>
-</ul>
-<p><strong>在数据总体/有限样本上进行的主成分分析称为总体/样本主成分分析：</strong><br><em>总体主成分分析是样本主成分分析的基础</em></p>
-<h2 id="1-总体主成分分析"><a href="#1-总体主成分分析" class="headerlink" title="1. 总体主成分分析"></a>1. 总体主成分分析</h2><ul>
-<li>选择<strong>方差最大</strong>的方向 (第一主成分) 作为新坐标系的第一坐标轴, 即y1轴。</li>
-<li>选择与第一坐标轴正交, 且方差次之的方向 (第二主成分) 作为新坐标系的第二坐标轴, 即y2轴。</li>
-</ul>
-<p><img src="2025-12-11-15-37-07.png" alt=""></p>
-<h2 id="2-样本主成分分析"><a href="#2-样本主成分分析" class="headerlink" title="2. 样本主成分分析"></a>2. 样本主成分分析</h2><p><img src="2025-12-11-15-34-08.png" alt=""></p>
-<h2 id="3-定理-16-1"><a href="#3-定理-16-1" class="headerlink" title="3. 定理 16.1"></a>3. 定理 16.1</h2><p><strong>1. 定理 16.1</strong> 设 $x$ 是 $m$ 维随机变量，$\Sigma$ 是 $x$ 的协方差矩阵，$\Sigma$ 的特征值分别是 $\lambda_1 \ge \lambda_2 \ge \cdots \ge \lambda_m \ge 0$，特征值对应的单位特征向量分别是 $\alpha_1, \alpha_2, \cdots, \alpha_m$，则 $x$ 的第 $k$ 主成分是</p>
-<script type="math/tex; mode=display">y_k = \alpha_k^T x = \alpha_{1k}x_1 + \alpha_{2k}x_2 + \cdots + \alpha_{mk}x_m, k=1, 2, \cdots, m \quad (16.5)</script><p>$x$ 的第 $k$ 主成分的方差是</p>
-<script type="math/tex; mode=display">\text{var}(y_k) = \alpha_k^T \Sigma \alpha_k = \lambda_k, k=1, 2, \cdots, m \quad (16.6)</script><p>即协方差矩阵 $\Sigma$ 的第 $k$ 个特征值。</p>
-<p><strong>2. 例题 16.1：</strong></p>
-<p><strong>例 16.1</strong> 假设有 $n$ 个学生参加四门课程的考试，将学生们的考试成绩看作随机变量的取值，对考试成绩数据进行标准化处理，得到样本相关矩阵 $R$，列于表 16.1。</p>
-<p><strong>表 16.1 样本相关矩阵 $R$</strong></p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left">课程</th>
-<th style="text-align:center">语文</th>
-<th style="text-align:center">外语</th>
-<th style="text-align:center">数学</th>
-<th style="text-align:center">物理</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">语文</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0.44</td>
-<td style="text-align:center">0.29</td>
-<td style="text-align:center">0.33</td>
-</tr>
-<tr>
-<td style="text-align:left">外语</td>
-<td style="text-align:center">0.44</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0.35</td>
-<td style="text-align:center">0.32</td>
-</tr>
-<tr>
-<td style="text-align:left">数学</td>
-<td style="text-align:center">0.29</td>
-<td style="text-align:center">0.35</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0.60</td>
-</tr>
-<tr>
-<td style="text-align:left">物理</td>
-<td style="text-align:center">0.33</td>
-<td style="text-align:center">0.32</td>
-<td style="text-align:center">0.60</td>
-<td style="text-align:center">1</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>试对数据进行主成分分析。</p>
-<p><strong>解</strong> 设变量 $x_1, x_2, x_3, x_4$ 分别表示语文、外语、数学、物理的成绩。对样本相关矩阵进行特征值分解，得到相关矩阵的特征值，并按大小排序：</p>
-<script type="math/tex; mode=display">\lambda_1 = 2.17, \lambda_2 = 0.87, \lambda_3 = 0.57, \lambda_4 = 0.39</script><p>这些特征值就是各主成分的方差贡献率。假设要求主成分的累计方差贡献率大于 75%，那么只需取前两个主成分即可，即 $k=2$，因为</p>
-<script type="math/tex; mode=display">\frac{\lambda_1 + \lambda_2}{\sum_{j=1}^{4} \lambda_j} = 0.76</script><p>求出对应于特征值 $\lambda_1, \lambda_2$ 的单位特征向量，列于表 16.2，表中最后一列为主成分的方差贡献率。</p>
-<p><strong>表 16.2 单位特征向量和主成分的方差贡献率</strong></p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left">项目</th>
-<th style="text-align:center">$x_1$</th>
-<th style="text-align:center">$x_2$</th>
-<th style="text-align:center">$x_3$</th>
-<th style="text-align:center">$x_4$</th>
-<th style="text-align:center">方差贡献率</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">$y_1$</td>
-<td style="text-align:center">0.460</td>
-<td style="text-align:center">0.476</td>
-<td style="text-align:center">0.523</td>
-<td style="text-align:center">0.537</td>
-<td style="text-align:center">0.543</td>
-</tr>
-<tr>
-<td style="text-align:left">$y_2$</td>
-<td style="text-align:center">0.574</td>
-<td style="text-align:center">0.486</td>
-<td style="text-align:center">-0.476</td>
-<td style="text-align:center">-0.456</td>
-<td style="text-align:center">0.218</td>
-</tr>
-</tbody>
-</table>
-</div>
-<script type="math/tex; mode=display">
-\text{方差贡献率} =\frac{该成分特征值}{特征值总和}</script><p>由此按照式(16.50)可得第一、第二主成分：</p>
-<script type="math/tex; mode=display">y_1 = 0.460x_1 + 0.476x_2 + 0.523x_3 + 0.537x_4</script><script type="math/tex; mode=display">y_2 = 0.574x_1 + 0.486x_2 - 0.476x_3 - 0.456x_4</script><p>这就是主成分分析的结果。变量 $y_1$ 和 $y_2$ 表示第一、第二主成分。</p>
-<p>接下来由特征值和单位特征向量求出第一、第二主成分的因子负荷量，以及第一、第二主成分对变量 $x_i$ 的贡献率，列于表 16.3。</p>
-<p><strong>表 16.3 主成分的因子负荷量和贡献率</strong></p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left">项目</th>
-<th style="text-align:center">$x_1$</th>
-<th style="text-align:center">$x_2$</th>
-<th style="text-align:center">$x_3$</th>
-<th style="text-align:center">$x_4$</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">$y_1$</td>
-<td style="text-align:center">0.678</td>
-<td style="text-align:center">0.701</td>
-<td style="text-align:center">0.770</td>
-<td style="text-align:center">0.791</td>
-</tr>
-<tr>
-<td style="text-align:left">$y_2$</td>
-<td style="text-align:center">0.536</td>
-<td style="text-align:center">0.453</td>
-<td style="text-align:center">-0.444</td>
-<td style="text-align:center">-0.425</td>
-</tr>
-<tr>
-<td style="text-align:left">$y_1, y_2$ 对 $x_i$ 的贡献率</td>
-<td style="text-align:center">0.747</td>
-<td style="text-align:center">0.697</td>
-<td style="text-align:center">0.790</td>
-<td style="text-align:center">0.806</td>
-</tr>
-</tbody>
-</table>
-</div>
-<script type="math/tex; mode=display">
-\text{因子负荷量} = \sqrt{\text{特征值}} \times \text{对应特征向量分量}</script><script type="math/tex; mode=display">
-\text{贡献率}= \Sigma(\text{因子负荷量})^2</script><p>从表 16.3 中可以看出，第一主成分 $y_1$ 对应的因子负荷量 $\rho(y_1, x_i), i=1,2,3,4$，均为正数，表明各门课程成绩提高都可使 $y_1$ 提高，也就是说，第一主成分 $y_1$ 反映了学生的整体成绩，还可以看出，因子负荷量的数值相近，且 $\rho(y_1, x_4)$ 的数值最大，这表明物理成绩在整体成绩中占最重要位置。</p>
-<p>第二主成分 $y_2$ 对应的因子负荷量 $\rho(y_2, x_i), i=1,2,3,4$，有正有负，正的是语文和外语，负的是数学和物理，表明文科成绩提高都可使 $y_2$ 提高，而理科成绩提高都可使 $y_2$ 降低，也就是说，第二主成分 $y_2$ 反映了学生的文科成绩与理科成绩的关系。</p>
-<p>图 16.3 将原变量 $x_1, x_2, x_3, x_4$（分别表示语文、外语、数学、物理）和主成分 $y_1, y_2$（分别表示整体成绩、文科对理科成绩）的因子负荷量在平面坐标系中表示，可以看出变量之间的关系，4 个原变量聚成了两类：因子负荷量相近的语文、外语为一类，数学、物理为一类，前者反映文科课程成绩，后者反映理科课程成绩。</p>
-<p><img src="2025-12-11-14-44-52.png" alt=""><br>(横轴为 y1 整体成绩，纵轴为 y2 文科成绩)</p>
-<p><strong>图 16.3 因子负荷量的分布图</strong>  </p>
-<ul>
-<li>未知相关系数矩阵 R 的情况：</li>
-</ul>
-<p><img src="2025-12-11-15-44-54.png" alt=""></p>
 ]]></content>
       <categories>
         <category>华理</category>
@@ -2420,12 +1058,7 @@ A = U\Sigma V^T, \Sigma = \text{diag}(\sigma_1, \sigma_2, \cdots, \sigma_p)</scr
 <li><strong>局限</strong>：受光线影响大（怕黑、怕逆光），测距不如雷达。</li>
 </ul>
 </li>
-<li><strong>类型与位置</strong>：<ul>
-<li><strong>前视</strong>：挡风玻璃处，用于识别行人、车辆（ACC/AEB）。</li>
-<li><strong>环视</strong>：车身四周，用于全景泊车。</li>
-<li><strong>后视/侧视</strong>：用于倒车及盲区检测。</li>
-</ul>
-</li>
+<li><strong>类型与位置</strong>：<br>| 摄像头类型 | 应用场景 |<br>| :—- | :—- |<br>| <strong>单目</strong> | 自适应巡航、车道偏离预警、车道保持辅助、前向碰撞预警、自动紧急制动、交通标志识别、自动泊车、行人检测、驾驶员监控 |<br>| <strong>双目</strong> | 自适应巡航、车道偏离预警、车道保持辅助、前向碰撞预警、自动紧急制动、交通标志识别、自动泊车、行人检测、驾驶员监控 |<br>| <strong>环视摄像头</strong> | 自动泊车、全景环视系统 |<br>| <strong>后视</strong> | 自动泊车 |</li>
 </ul>
 <hr>
 <p><strong>3. GPS 与 IMU (组合导航)</strong>：</p>
@@ -3828,6 +2461,1368 @@ Steering angle = K_p \cdot e(t) + K_d \frac{\text{d}e(t)}{\text{d}t} + K_i \int_
 <ul>
 <li><strong>核心结论</strong>：前视距离的调整本质上是在<strong>“精确性”</strong>和<strong>“稳定性”</strong>之间做权衡。纯追踪算法的关键在于找到适合当前速度的最佳前视距离。</li>
 </ul>
+]]></content>
+      <categories>
+        <category>华理</category>
+        <category>大三上</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>模式识别与统计学习</title>
+    <url>/2025/11/27/statistical-learning/</url>
+    <content><![CDATA[<p>考试心得：</p>
+<ul>
+<li><strong>考的很简单，完全没必要花很多精力复习</strong></li>
+</ul>
+<h1 id="第一章-统计学习方法概述"><a href="#第一章-统计学习方法概述" class="headerlink" title="第一章 统计学习方法概述"></a>第一章 统计学习方法概述</h1><blockquote>
+<p>❝ 机器学习是一门人工智能的科学, 该领域的主要研究对象是人工智能, 特别是如何在经验学习中改善具体算法的性能。 ❞</p>
+<p>—— 机器学习是对能通过经验自动改进的计算机算法的研究。</p>
+</blockquote>
+<h2 id="统计学习"><a href="#统计学习" class="headerlink" title="统计学习"></a>统计学习</h2><ul>
+<li><strong>概念</strong>：计算机基于数据构建概率统计<strong>模型</strong>，运用<strong>模型</strong>对数据进行预测和分析。</li>
+<li><strong>研究对象</strong>：数据、基本假设。</li>
+<li><strong>目的</strong>：对数据（特别是未知数据）进行预测和分析。</li>
+</ul>
+<p><strong>🤔 为什么需要机器学习？</strong></p>
+<ol>
+<li><strong>数据量太大</strong>：人脑无法处理海量维度。</li>
+<li><strong>知识盲区</strong>：人类无法解释专业知识，或专业知识本身不存在。</li>
+</ol>
+<hr>
+<h3 id="发展历程与三要素"><a href="#发展历程与三要素" class="headerlink" title="发展历程与三要素"></a>发展历程与三要素</h3><p>模式识别与机器学习发展历程：<br><img src="2025-11-27-15-37-49.png" alt=""></p>
+<h3 id="核心：统计学三要素"><a href="#核心：统计学三要素" class="headerlink" title="核心：统计学三要素"></a>核心：统计学三要素</h3><script type="math/tex; mode=display">\text{方法} = \text{模型} + \text{策略} + \text{算法}</script><p><strong>1. 模型 (Model)</strong></p>
+<ul>
+<li><strong>非概率模型</strong>：<ul>
+<li>假设空间：决策函数 $F=\{f \mid Y=f(X)\}$</li>
+<li>参数空间：$F=\{f \mid Y=f_\theta(X), \theta \in \mathbb{R}^n\}$</li>
+</ul>
+</li>
+<li><strong>概率模型</strong>：<ul>
+<li>假设空间：条件概率 $F=\{P \mid P(Y|X)\}$</li>
+<li>参数空间：$F=\{P \mid P_\theta(Y|X), \theta \in \mathbb{R}^n\}$</li>
+</ul>
+</li>
+</ul>
+<p><strong>2. 策略 (Strategy)</strong></p>
+<ul>
+<li><strong>损失函数</strong>：度量<strong>一次</strong>预测的好坏。</li>
+<li><strong>风险函数</strong>：度量平均意义下的好坏（损失函数的期望）。<script type="math/tex; mode=display">R(f)=E_P[L(Y,f(X))]=\int L(y,f(x))P(x,y)dxdy</script></li>
+</ul>
+<p><strong>3. 算法 (Algorithm)</strong></p>
+<ul>
+<li>求解得到最优模型（通常指最优化问题的求解算法）。</li>
+</ul>
+<hr>
+<h3 id="分类体系"><a href="#分类体系" class="headerlink" title="分类体系"></a>分类体系</h3><ul>
+<li><strong>学习分类</strong>：监督学习、无监督学习、强化学习 （具体概念）</li>
+<li><strong>模型分类</strong>：(非)概率、(非)线性、(非)参数、生成/判别<br><img src="2025-12-16-14-01-34.png" alt=""><br><img src="2025-12-16-14-01-48.png" alt=""></li>
+</ul>
+<hr>
+<h2 id="混淆矩阵"><a href="#混淆矩阵" class="headerlink" title="混淆矩阵"></a>混淆矩阵</h2><p><strong>⚡️ 快速记忆口诀：</strong></p>
+<blockquote>
+<p><span style="background-color:#fff5f5; color:#ff5050; padding:2px 6px; border-radius:4px;">先看预测，再看结果</span></p>
+<ul>
+<li>预测为<strong>真</strong> $\rightarrow$ <strong>P</strong> (Positive)；预测为<strong>假</strong> $\rightarrow$ <strong>N</strong> (Negative)</li>
+<li>预测<strong>正确</strong> $\rightarrow$ <strong>T</strong> (True)；预测<strong>错误</strong> $\rightarrow$ <strong>F</strong> (False)</li>
+</ul>
+</blockquote>
+<p><strong>核心指标：</strong></p>
+<ul>
+<li><strong>精确率 (Precision)</strong>：$P=\frac{TP}{TP+FP}$ <em>（你认为是对的里面，有多少真是对的？）</em></li>
+<li><strong>召回率 (Recall)</strong>：$R=\frac{TP}{TP+FN}$ <em>（把精确率的 FP 换成 FN）</em></li>
+<li><strong>F1值</strong>：$\frac{2}{F_1} = \frac{1}{P} + \frac{1}{R}$</li>
+</ul>
+<hr>
+<h2 id="过拟合-Overfitting"><a href="#过拟合-Overfitting" class="headerlink" title="过拟合 (Overfitting)"></a>过拟合 (Overfitting)</h2><p>在<strong>训练数据</strong>上表现很好（把噪声也学进去了），对于<strong>未知数据</strong>表现很差。</p>
+<p><strong>解决办法：</strong></p>
+<ul>
+<li>正则化</li>
+<li>增大数据集</li>
+<li>早停机制</li>
+<li>减少模型参数</li>
+</ul>
+<h2 id="欠拟合-Underfitting"><a href="#欠拟合-Underfitting" class="headerlink" title="欠拟合 (Underfitting)"></a>欠拟合 (Underfitting)</h2><p><strong>模型过于简单</strong>，未能学习到数据中的基本规律，导致在<strong>训练集和未知数据</strong>上表现均不理想。</p>
+<p><strong>解决办法：</strong></p>
+<ul>
+<li>增加模型复杂度</li>
+<li>增加特征数量</li>
+<li>减少或移除正则化参数</li>
+<li>延长训练时间/充分训练  </li>
+</ul>
+<h1 id="第二章-线性感知机"><a href="#第二章-线性感知机" class="headerlink" title="第二章 线性感知机"></a>第二章 线性感知机</h1><h2 id="1-超平面-Hyperplane"><a href="#1-超平面-Hyperplane" class="headerlink" title="1. 超平面 (Hyperplane)"></a>1. 超平面 (Hyperplane)</h2><h3 id="怎么理解？"><a href="#怎么理解？" class="headerlink" title="怎么理解？"></a>怎么理解？</h3><blockquote>
+<p><strong>定义</strong>：在 $n$ 维空间中，将空间一分为二的 $n-1$ 维子空间。</p>
+</blockquote>
+<ul>
+<li><strong>超平面方程</strong>：<script type="math/tex; mode=display">w \cdot x + b = 0</script></li>
+</ul>
+<h3 id="点到超平面的几何距离"><a href="#点到超平面的几何距离" class="headerlink" title="点到超平面的几何距离"></a>点到超平面的几何距离</h3><script type="math/tex; mode=display">d = \frac{|w \cdot x + b|}{\|w\|}</script><hr>
+<h2 id="2-感知机模型-Perceptron"><a href="#2-感知机模型-Perceptron" class="headerlink" title="2. 感知机模型 (Perceptron)"></a>2. 感知机模型 (Perceptron)</h2><blockquote>
+<p><strong>关键词</strong>：<code>线性二分模型、判别模型</code></p>
+</blockquote>
+<h3 id="1-模型"><a href="#1-模型" class="headerlink" title="(1) 模型"></a>(1) 模型</h3><ul>
+<li><strong>输入空间</strong>：$x \in R^n$</li>
+<li><strong>输出空间</strong>：$y \in \{+1, -1\}$</li>
+<li><p><strong>假设空间</strong>：</p>
+<script type="math/tex; mode=display">f(x) = sign(w \cdot x + b)</script><p><strong>符号函数 (Sign Function)</strong>：</p>
+<script type="math/tex; mode=display">
+sign(x) =
+\begin{cases}
++1, & x \geq 0 \\
+-1, & x < 0
+\end{cases}</script></li>
+<li><p><strong>模型参数</strong>：</p>
+<ul>
+<li>$w$：权值向量</li>
+<li>$b$：偏置</li>
+<li>$w \cdot x$：内积</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-策略"><a href="#2-策略" class="headerlink" title="(2) 策略"></a>(2) 策略</h3><p>感知机的目标是<strong>最小化误分类点到超平面的总距离。</strong></p>
+<ul>
+<li><strong>损失函数</strong>（误分类点集合 $M$）：<script type="math/tex; mode=display">
+  L(w, b) = - \sum_{x_i \in M} y_i (w \cdot x_i + b)</script>  <em>(注：由于 $\frac{1}{|w|}$ 不影响梯度方向，为了计算简便，在损失函数中省略)</em></li>
+</ul>
+<h3 id="3-算法"><a href="#3-算法" class="headerlink" title="(3) 算法"></a>(3) 算法</h3><p>转化为求解最优化问题：</p>
+<script type="math/tex; mode=display">
+\min_{w, b} L(w, b) = - \sum_{x_i \in M} y_i (w \cdot x_i + b)</script><hr>
+<h2 id="3-算法实现形式"><a href="#3-算法实现形式" class="headerlink" title="3. 算法实现形式"></a>3. 算法实现形式</h2><h3 id="1-梯度下降法"><a href="#1-梯度下降法" class="headerlink" title="(1) 梯度下降法"></a>(1) 梯度下降法</h3><ul>
+<li><strong>输入</strong>：训练数据集 $T = {(x_1, y_1), \dots, (x_N, y_N)}$，学习率 $\eta$ ($0 &lt; \eta \le 1$)</li>
+<li><strong>输出</strong>：$w, b$</li>
+</ul>
+<p><strong>算法步骤</strong>：</p>
+<ol>
+<li><strong>初始化</strong>：$w_0 \leftarrow 0, b_0 \leftarrow 0$，$\eta$看题目</li>
+<li><strong>选取数据</strong>：$(x_i, y_i)$</li>
+<li><strong>判断误分类</strong>：<br>如果满足条件 $y_i (w \cdot x_i + b) \le 0$，则更新参数：<script type="math/tex; mode=display">
+\begin{aligned}
+w &\leftarrow w + \eta y_i x_i \\
+b &\leftarrow b + \eta y_i
+\end{aligned}</script></li>
+<li><strong>循环</strong>：转至 (2)，直至训练集中没有误分类点。</li>
+</ol>
+<blockquote>
+<p><strong>特点</strong>：直观，但如果数据量大或维度高，计算量大。</p>
+</blockquote>
+<h3 id="2-对偶形式"><a href="#2-对偶形式" class="headerlink" title="(2) 对偶形式"></a>(2) 对偶形式</h3><ul>
+<li><strong>核心思想</strong>：将 $w$ 表示为实例 $x_i$ 和标记 $y_i$ 的线性组合。</li>
+<li><strong>输出</strong>：$\alpha, b$</li>
+<li><strong>假设空间变为</strong>：<script type="math/tex; mode=display">f(x) = sign\left(\sum_{j=1}^{N} \alpha_j y_j (x_j \cdot x_i) + b\right)</script>  <em>(其中 $\alpha = (\alpha_1, \alpha_2, \dots, \alpha_N)^T$)</em></li>
+</ul>
+<p><strong>算法步骤</strong>：</p>
+<ol>
+<li><strong>初始化</strong>：$\alpha \leftarrow 0, b \leftarrow 0$</li>
+<li><strong>选取数据</strong>：$(x_i, y_i)$</li>
+<li><strong>判断误分类</strong>：<br>如果满足条件：<script type="math/tex; mode=display">
+y_i \left(\sum_{j=1}^{N} \alpha_j y_j (x_j \cdot x_i) + b\right) \le 0</script>则更新参数：<script type="math/tex; mode=display">
+\begin{aligned}
+\alpha_i &\leftarrow \alpha_i + \eta \\
+b &\leftarrow b + \eta y_i
+\end{aligned}</script>（$b$和梯度下降一样）</li>
+<li><strong>循环</strong>：转至 (2) 直到无误分类数据。</li>
+</ol>
+<h4 id="💡-重点：如何计算判别式："><a href="#💡-重点：如何计算判别式：" class="headerlink" title="💡 重点：如何计算判别式："></a>💡 重点：如何计算判别式：</h4><p>在对偶形式中，样本之间的内积计算非常频繁，通常预先计算 <strong>Gram 矩阵</strong> 并存储：</p>
+<script type="math/tex; mode=display">
+G = [x_i \cdot x_j]_{N \times N} =
+\begin{bmatrix}
+x_1 \cdot x_1 & x_1 \cdot x_2 & \cdots & x_1 \cdot x_N \\
+x_2 \cdot x_1 & x_2 \cdot x_2 & \cdots & x_2 \cdot x_N \\
+\vdots & \vdots & \ddots & \vdots \\
+x_N \cdot x_1 & x_N \cdot x_2 & \cdots & x_N \cdot x_N \\
+\end{bmatrix}</script><p><strong>注意：$x_i$ 有几个，$\alpha_i$ 就有几个 $=0$（初始化）</strong><br><strong>做题技巧（表格法迭代）</strong>：<br><img src="2025-11-30-18-07-41.png" alt=""></p>
+<hr>
+<h2 id="4-感知机算法收敛性定理"><a href="#4-感知机算法收敛性定理" class="headerlink" title="4. 感知机算法收敛性定理"></a>4. 感知机算法收敛性定理</h2><ul>
+<li><p><strong>收敛定理 (Novikoff)</strong>：<br>  误分类次数 $k$ 有上界。这意味着，<strong>只要训练数据集是线性可分的，感知机算法一定能收敛</strong>（在有限步内找到解）。</p>
+</li>
+<li><p><strong>局限性</strong>：</p>
+<ol>
+<li><strong>解不唯一</strong>：解依赖于初值的选择，也依赖于误分类点的选择顺序。</li>
+<li><strong>震荡</strong>：如果数据集<strong>线性不可分</strong>，算法会一直震荡，无法做到完全正确分类。</li>
+</ol>
+</li>
+<li><p><strong>下一步引申</strong>：<br>  为了得到<strong>唯一</strong>且<strong>最优</strong>的分离超平面，我们需要引入更强的约束 —— 这就是 <strong>SVM (支持向量机)</strong> 的由来。  </p>
+</li>
+</ul>
+<h1 id="第三章-K-近邻"><a href="#第三章-K-近邻" class="headerlink" title="第三章 $K$近邻"></a>第三章 $K$近邻</h1><h2 id="1-算法简介"><a href="#1-算法简介" class="headerlink" title="1. 算法简介"></a>1. 算法简介</h2><blockquote>
+<p><strong>关键词</strong>：<code>分类模型、回归模型、适用于(数值型、标称型)数据、1-NN训练错误率=0</code></p>
+</blockquote>
+<h3 id="算法特点及优缺点"><a href="#算法特点及优缺点" class="headerlink" title="算法特点及优缺点"></a>算法特点及优缺点</h3><h4 id="懒惰学习-Lazy-Learning"><a href="#懒惰学习-Lazy-Learning" class="headerlink" title="懒惰学习 (Lazy Learning)"></a>懒惰学习 (Lazy Learning)</h4><blockquote>
+<p><strong>定义</strong>：<strong>无实质性模型训练</strong>，利用训练集数据对特征空间进行划分。测试时，要计算输入实例距每个样本的距离。</p>
+</blockquote>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">优点 (Pros)</th>
+<th style="text-align:left">缺点 (Cons)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>精确度高</strong></td>
+<td style="text-align:left"><strong>时间复杂度高</strong>（花时间）</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>对异常值不敏感</strong></td>
+<td style="text-align:left"><strong>空间复杂度高</strong>（耗内存）</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>无数据输入假定</strong>（无训练阶段）</td>
+<td style="text-align:left">-</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="K-值的选择"><a href="#K-值的选择" class="headerlink" title="$K$ 值的选择"></a>$K$ 值的选择</h3><ul>
+<li><p><strong>$K$ 值较小</strong> (模型复杂)</p>
+<ul>
+<li>近似误差（<em>偏差</em>）减小 $\rightarrow$ 估计误差（<em>方差</em>）增大（对噪声敏感）</li>
+<li><strong>噪声敏感</strong></li>
+<li>整体模型变得复杂，容易发生<strong>过拟合</strong></li>
+</ul>
+</li>
+<li><p><strong>$K$ 值较大</strong> (模型简单)</p>
+<ul>
+<li>近似误差增大 $\rightarrow$ 估计误差减小</li>
+<li>整体的模型变得简单，但容易发生<strong>欠拟合</strong></li>
+</ul>
+</li>
+<li><p><strong>通过交叉验证选择 $K$ 值</strong></p>
+<ul>
+<li>模型准确率随 $K$ 值的变化<strong>非单调</strong></li>
+<li>$K$ 一般低于训练集样本容量的平方根：$k &lt; \sqrt{N}$</li>
+<li>经验上，$k$ 值一般不超过 20：$k &lt; 20$</li>
+</ul>
+</li>
+</ul>
+<h3 id="kNN-算法的应用挑战"><a href="#kNN-算法的应用挑战" class="headerlink" title="$kNN$ 算法的应用挑战"></a>$kNN$ 算法的应用挑战</h3><ul>
+<li><strong>距离函数确定</strong><ul>
+<li>距离度量方式众多</li>
+</ul>
+</li>
+<li><strong>$k$ 值确定</strong><ul>
+<li>$k$ 值对模型精度的影响<strong>非单调</strong></li>
+<li>边界易出错 (软分类)</li>
+</ul>
+</li>
+<li><strong>特征的选择</strong><ul>
+<li>不同特征的影响程度不同</li>
+</ul>
+</li>
+<li><strong>复杂度</strong><ul>
+<li>需要计算测试例 $x’$ 与所有训练数据的距离</li>
+<li>计算复杂度正比于训练样本容量</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="2-距离度量"><a href="#2-距离度量" class="headerlink" title="2. 距离度量"></a>2. 距离度量</h2><h3 id="L-p-距离"><a href="#L-p-距离" class="headerlink" title="$L_p$ 距离"></a>$L_p$ 距离</h3><ul>
+<li><p><strong>欧氏距离 ($L_2$)</strong>：</p>
+<script type="math/tex; mode=display">L_2(x_i, x_j) = \left(\sum_{l=1}^{n} |x_i^{(l)} - x_j^{(l)}|^2\right)^{\frac{1}{2}}</script></li>
+<li><p><strong>曼哈顿距离 ($L_1$)</strong>：</p>
+<script type="math/tex; mode=display">L_1(x_i, x_j) = \sum_{l=1}^{n} |x_i^{(l)} - x_j^{(l)}|</script></li>
+<li><p><strong>切比雪夫距离 ($L_{\infty}$)</strong>：（取同维度坐标差最大者）</p>
+<script type="math/tex; mode=display">L_{\infty}(x_i, x_j) = \max_{l} |x_i^{(l)} - x_j^{(l)}|</script></li>
+</ul>
+<h3 id="马氏距离"><a href="#马氏距离" class="headerlink" title="马氏距离"></a>马氏距离</h3><ul>
+<li>了解即可</li>
+</ul>
+<h3 id="距离度量的性质"><a href="#距离度量的性质" class="headerlink" title="距离度量的性质"></a>距离度量的性质</h3><ul>
+<li><strong>非负性 (non-negativity)</strong>:<script type="math/tex; mode=display">D(a, b) \ge 0</script></li>
+<li><strong>自反性 (reflexivity)</strong>:<script type="math/tex; mode=display">D(a, b) = 0 \iff a = b</script></li>
+<li><strong>对称性 (symmetry)</strong>:<script type="math/tex; mode=display">D(a, b) = D(b, a)</script></li>
+<li><strong>三角不等式 (triangle inequality)</strong>:<script type="math/tex; mode=display">D(a, b) + D(b, c) \ge D(a, c)</script></li>
+</ul>
+<hr>
+<h2 id="3-分类决策规则"><a href="#3-分类决策规则" class="headerlink" title="3. 分类决策规则"></a>3. 分类决策规则</h2><ul>
+<li><strong>核心规则</strong>：多数表决规则。</li>
+<li><strong>理论意义</strong>：等价于 $0-1$ 损失函数下的<strong>经验风险最小化</strong>。</li>
+<li><strong>误分类概率</strong>：在一个领域中，与领域样本特征不同的总数 $\div$ 领域样本总数。</li>
+</ul>
+<hr>
+<h2 id="4-kd-树"><a href="#4-kd-树" class="headerlink" title="4. kd 树"></a><del>4. kd 树</del></h2><h3 id="搜索方法"><a href="#搜索方法" class="headerlink" title="搜索方法"></a>搜索方法</h3><p><img src="2025-12-01-15-48-55.png" alt=""></p>
+<p><em>(注：$kd$ 树是二叉树)</em>  </p>
+<ol>
+<li>先在 $x$ 轴找到中位数，垂直划分。</li>
+<li>再在划分的两块区域里找 $y$ 轴中位数，继续划分。</li>
+<li>直至划分完毕。</li>
+</ol>
+<h3 id="kd-树计算复杂度"><a href="#kd-树计算复杂度" class="headerlink" title="$kd$ 树计算复杂度"></a>$kd$ 树计算复杂度</h3><ul>
+<li><strong>一般情况</strong>：时间复杂度为 $O(\log N)$</li>
+<li><strong>最坏情况</strong>：时间复杂度 $O(N)$</li>
+<li><strong>适用场景</strong>：更适用于<strong>训练实例维度远大于空间维度</strong>时的搜索。~~</li>
+</ul>
+<h1 id="第四章-贝叶斯方法"><a href="#第四章-贝叶斯方法" class="headerlink" title="第四章 贝叶斯方法"></a>第四章 贝叶斯方法</h1><h2 id="1-概率统计基础知识"><a href="#1-概率统计基础知识" class="headerlink" title="1. 概率统计基础知识"></a>1. 概率统计基础知识</h2><h3 id="pmf-amp-pdf"><a href="#pmf-amp-pdf" class="headerlink" title="$pmf$ &amp; $pdf$"></a>$pmf$ &amp; $pdf$</h3><p><strong>概率质量函数（Probability mass function）</strong><br>定义：$P(X=x_i)$，即<strong>离散随机变量</strong>在各特定取值上的概率。</p>
+<ul>
+<li>$\sum_{i} P(X=x_i) = 1$</li>
+<li>$P(X=x_i \cap X=x_j) = 0 \text{ if } i \neq j$</li>
+<li>$P(X=x_i \cup X=x_j) = P(X=x_i) + P(X=x_j) \text{ if } i \neq j$</li>
+<li>$P(X=x_1 \cup X=x_2 \cup \dots \cup X=x_k) = 1$</li>
+</ul>
+<p><strong>概率密度函数（Probability density function）</strong><br>定义：描述了<strong>连续随机变量</strong> $x$ 的概率密度。</p>
+<ul>
+<li>$f(x) \ge 0, \forall x$</li>
+<li>$\int_{-\infty}^{+\infty} f(x) = 1$</li>
+<li>真实概率通过 pdf 的积分得到</li>
+<li>e.g. $X$ 取 0-1 的概率为：<script type="math/tex; mode=display">P(0 \le X \le 1) = \int_{0}^{1} f(x) dx</script></li>
+</ul>
+<h3 id="联合概率分布"><a href="#联合概率分布" class="headerlink" title="联合概率分布"></a>联合概率分布</h3><p>描述两个或多个随机变量<strong>同时</strong>发生的概率。</p>
+<ul>
+<li><strong>离散型</strong>：$P(X=x, Y=y)$<ul>
+<li>性质：$\sum_x \sum_y P(X=x, Y=y) = 1$</li>
+</ul>
+</li>
+<li><strong>连续型</strong>：$f(x, y)$<ul>
+<li>性质：$\iint f(x, y) dx dy = 1$</li>
+</ul>
+</li>
+<li><strong>边缘分布 (Marginalization)</strong>：从联合分布中求出单个变量的分布。<script type="math/tex; mode=display">P(X=x) = \sum_y P(X=x, Y=y)</script></li>
+<li><strong>独立性</strong>：若 $X$ 与 $Y$ 相互独立，则：<script type="math/tex; mode=display">P(X, Y) = P(X)P(Y)</script></li>
+</ul>
+<h3 id="条件概率"><a href="#条件概率" class="headerlink" title="条件概率"></a>条件概率</h3><p>定义：在事件 $B$ 已经发生的条件下，事件 $A$ 发生的概率。</p>
+<script type="math/tex; mode=display">P(A|B) = \frac{P(A, B)}{P(B)}</script><p>（其中 $P(A, B)$ 是联合概率，$P(B)$ 是边缘概率）</p>
+<h3 id="链式法则"><a href="#链式法则" class="headerlink" title="链式法则"></a>链式法则</h3><p>将联合概率分解为条件概率的乘积。<br>对于两个变量：</p>
+<script type="math/tex; mode=display">P(A, B) = P(A|B)P(B) = P(B|A)P(A)</script><p>推广到 $n$ 个变量：</p>
+<script type="math/tex; mode=display">P(X_1, X_2, \dots, X_n) = P(X_1) \prod_{i=2}^{n} P(X_i | X_1, \dots, X_{i-1})</script><h3 id="全概率公式"><a href="#全概率公式" class="headerlink" title="全概率公式"></a>全概率公式</h3><p>如果事件组 $B_1, B_2, \dots, B_n$ 构成样本空间的一个划分（互斥且完备），则对于任意事件 $A$：</p>
+<script type="math/tex; mode=display">P(A) = \sum_{i=1}^{n} P(A|B_i)P(B_i)</script><ul>
+<li><strong>直观理解</strong>：求 $A$ 发生的概率，等于把 $A$ 在各种不同情况（$B_i$）下发生的概率加权求和。</li>
+</ul>
+<h3 id="均值与方差"><a href="#均值与方差" class="headerlink" title="均值与方差"></a>均值与方差</h3><ul>
+<li><strong>期望 (Expectation / Mean)</strong> $\mu$：<ul>
+<li>离散：$E[X] = \sum x_i P(x_i)$</li>
+<li>连续：$E[X] = \int_{-\infty}^{+\infty} x f(x) dx$</li>
+<li>性质：$E[aX + b] = aE[X] + b$</li>
+</ul>
+</li>
+<li><strong>方差 (Variance)</strong> $\sigma^2$：衡量数据的离散程度。<script type="math/tex; mode=display">Var(X) = E[(X - \mu)^2] = E[X^2] - (E[X])^2</script></li>
+</ul>
+<h3 id="协方差"><a href="#协方差" class="headerlink" title="协方差"></a>协方差</h3><p>定义：衡量两个变量 $X$ 和 $Y$ 总体误差的期望，反映它们之间变化的<strong>方向</strong>。</p>
+<script type="math/tex; mode=display">Cov(X, Y) = E[(X - \mu_x)(Y - \mu_y)]</script><ul>
+<li><strong>$Cov &gt; 0$</strong>：正相关</li>
+<li><strong>$Cov &lt; 0$</strong>：负相关</li>
+<li><strong>$Cov = 0$</strong>：不相关（线性无关）</li>
+</ul>
+<h3 id="相关性"><a href="#相关性" class="headerlink" title="相关性"></a>相关性</h3><p><strong>皮尔逊相关系数 (Correlation Coefficient)</strong> $\rho$：<br>将协方差归一化，消除了量纲的影响，衡量线性相关的强度。</p>
+<script type="math/tex; mode=display">\rho_{X,Y} = \frac{Cov(X, Y)}{\sigma_x \sigma_y}</script><ul>
+<li>取值范围：$[-1, 1]$。<br>（$1$ 为完全正相关，$-1$ 为完全负相关，$0$ 为无线性相关）</li>
+</ul>
+<h2 id="2-朴素贝叶斯"><a href="#2-朴素贝叶斯" class="headerlink" title="2. 朴素贝叶斯"></a>2. 朴素贝叶斯</h2><h3 id="贝叶斯"><a href="#贝叶斯" class="headerlink" title="贝叶斯"></a>贝叶斯</h3><ul>
+<li><strong><code>贝叶斯公式 (Bayes&#39; Theorem)</code></strong>：<script type="math/tex; mode=display">P(Y|X) = \frac{P(X|Y)P(Y)}{P(X)}</script><ul>
+<li>$P(Y|X)$: 后验概率 (Posterior)</li>
+<li>$P(X|Y)$: 似然 (Likelihood)</li>
+<li>$P(Y)$: 先验概率 (Prior)</li>
+<li>$P(X)$: 证据 (Evidence)</li>
+</ul>
+</li>
+<li><strong>贝叶斯决策</strong>：<ul>
+<li>已知<strong>类条件概率密度</strong>参数表达式和<strong>先验概率</strong></li>
+<li>利用<strong>贝叶斯公式</strong>转换成<strong>后验概率</strong></li>
+<li>根据<strong>后验概率</strong>大小进行决策分类</li>
+</ul>
+</li>
+</ul>
+<h3 id="朴素贝叶斯"><a href="#朴素贝叶斯" class="headerlink" title="朴素贝叶斯"></a>朴素贝叶斯</h3><p>基于贝叶斯定理与特征条件独立假设的分类算法。</p>
+<ul>
+<li><strong>“朴素” (Naive) 的含义</strong>：假设样本的各个特征之间<strong>相互独立</strong>。<script type="math/tex; mode=display">P(x_1, x_2, \dots, x_n | y) = \prod_{i=1}^{n} P(x_i | y)</script></li>
+</ul>
+<h3 id="朴素贝叶斯分类器"><a href="#朴素贝叶斯分类器" class="headerlink" title="朴素贝叶斯分类器"></a>朴素贝叶斯分类器</h3><p>给定输入特征向量 $\mathbf{x} = (x_1, x_2, \dots, x_n)$，预测类别 $y$。<br>我们只需最大化分子部分<code>(这个公式考试一定要写)</code>：</p>
+<script type="math/tex; mode=display">\hat{y} = \arg\max_{y} P(y) \prod_{i=1}^{n} P(x_i | y)</script><ul>
+<li>$P(y)$：先验概率，即类别的频率。</li>
+<li>$P(x_i|y)$：条件概率（似然），即在某类中观察到该特征的概率。</li>
+</ul>
+<h3 id="朴素贝叶斯参数估计"><a href="#朴素贝叶斯参数估计" class="headerlink" title="朴素贝叶斯参数估计"></a>朴素贝叶斯参数估计</h3><ol>
+<li><strong>极大似然估计 (MLE)</strong><br>直接使用频率来估计概率。<ul>
+<li>$P(y = c_k) = \frac{N_{c_k}}{N}$</li>
+<li>$P(x_i = a | y = c_k) = \frac{N_{ik}}{N_{c_k}}$</li>
+<li>$\hat{\theta} = \frac{\sum_{i=1}^{N} x_i}{N}$</li>
+</ul>
+</li>
+<li><strong>贝叶斯估计 (Bayes)</strong><br>引入平滑项（如拉普拉斯平滑）解决零概率问题。<ul>
+<li>$P(x_i = a | y = c_k) = \frac{N_{ik} + \lambda}{N_{c_k} + \lambda S_i}$</li>
+<li>其中 $\lambda \ge 0$ 为平滑系数（常取 1），$S_i$ 为特征 $x_i$ 可能取值的个数。</li>
+<li>$\hat{\theta} = \frac{\sum_{i=1}^{N} x_i+\alpha}{N+\alpha+\beta}$ ($\hat{\theta}$ ~ $Beta(\alpha,\beta)$)</li>
+</ul>
+</li>
+<li><strong>拉普拉斯平滑 (Laplace Smoothing)</strong><br>解决零概率问题（即某个特征在训练集中未出现导致概率为0）。<script type="math/tex; mode=display">P(x_i = a | y = c_k) = \frac{N_{ik} + \lambda}{N_{c_k} + \lambda S_i}</script><ul>
+<li>$\lambda$: 平滑系数（通常取 1）。</li>
+<li>$S_i$: 特征 $x_i$ 可能取值的个数。</li>
+</ul>
+</li>
+</ol>
+<h1 id="第五章-决策树"><a href="#第五章-决策树" class="headerlink" title="第五章 决策树"></a>第五章 决策树</h1><h2 id="1-决策树模型"><a href="#1-决策树模型" class="headerlink" title="1. 决策树模型"></a>1. 决策树模型</h2><h3 id="决策树的表示"><a href="#决策树的表示" class="headerlink" title="决策树的表示"></a>决策树的表示</h3><ul>
+<li>一种描述对实例分类的 <strong>树形结构</strong>，包含：<ul>
+<li><strong>根结点 (Root Node)</strong>：最上面的结点，是整个决策树的开始。</li>
+<li><strong>内部结点 (Internal Node)</strong>：代表一个<strong>问题</strong>或者<strong>决策</strong>，通常对应待<strong>分类对象的属性</strong>。</li>
+<li><strong>叶结点 (Leaf Node)</strong>：代表一种可能的<strong>分类结果</strong>。</li>
+<li><strong>有向边</strong>：连接各个结点。</li>
+</ul>
+</li>
+</ul>
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ul>
+<li><strong>可解释性强</strong>：推理过程容易理解，可以表示成 <code>If-Then</code> 形式。</li>
+<li><strong>依赖属性取值</strong>：推理过程完全依赖于属性变量的取值特点。</li>
+<li><strong>特征筛选</strong>：可自动忽略对目标变量<strong>没有贡献的属性变量</strong>，为判断属性重要性、减少变量数目提供参考。</li>
+</ul>
+<h3 id="学习目的"><a href="#学习目的" class="headerlink" title="学习目的"></a>学习目的</h3><ul>
+<li><strong>理想的决策树</strong>（通常有以下3种目标）：<ol>
+<li>叶结点数最少</li>
+<li>叶结点深度最小</li>
+<li>叶结点数最少且叶结点深度最小</li>
+</ol>
+</li>
+<li><strong>现实困境</strong>：找到这种绝对最优的决策树是 <strong>NP难题</strong>。</li>
+<li><strong>实际目标</strong>：找到 <strong>尽可能</strong> 趋向于最优的决策树。</li>
+</ul>
+<hr>
+<h2 id="2-特征选择与信息熵"><a href="#2-特征选择与信息熵" class="headerlink" title="2. 特征选择与信息熵"></a>2. 特征选择与信息熵</h2><h3 id="熵（Entropy）"><a href="#熵（Entropy）" class="headerlink" title="熵（Entropy）"></a>熵（Entropy）</h3><ul>
+<li><strong>定义</strong>：度量样本集合 <strong>纯度 (Purity)</strong> 最常用的一种指标，代表随机变量<strong>不确定性的度量</strong>。<blockquote>
+<p><strong>规律</strong>：熵越大，随机变量的不确定性就越大。</p>
+</blockquote>
+</li>
+<li><strong>计算公式</strong>：<br>  设 $X$ 是一个取有限个值的离散随机变量，其概率分布为 $P(X=x_i) = p_i, \quad i=1,2,\dots,n$，则随机变量 $X$ 的熵 $H(X)$ 定义为：<script type="math/tex; mode=display">H(X) = -\sum_{i=1}^{n} p_i \log_2 p_i</script>  <strong>注</strong>：若 $p_i=0$，则定义 $0 \log 0 = 0$。</li>
+</ul>
+<h3 id="条件熵-Conditional-Entropy"><a href="#条件熵-Conditional-Entropy" class="headerlink" title="条件熵 (Conditional Entropy)"></a>条件熵 (Conditional Entropy)</h3><ul>
+<li><strong>定义</strong>：表示在已知随机变量 $X$ 的条件下，随机变量 $Y$ 的不确定性。</li>
+<li><strong>计算公式</strong>：<script type="math/tex; mode=display">H(Y|X) = \sum_{i=1}^{n} p_i H(Y|X=x_i)</script>  其中 $p_i = P(X=x_i)$。</li>
+</ul>
+<h3 id="信息增益-Information-Gain"><a href="#信息增益-Information-Gain" class="headerlink" title="信息增益 (Information Gain)"></a>信息增益 (Information Gain)</h3><ul>
+<li><strong>定义</strong>：特征 $A$ 对训练数据集 $D$ 的信息增益 $g(D, A)$，定义为集合 $D$ 的经验熵 $H(D)$ 与特征 $A$ 给定条件下 $D$ 的经验条件熵 $H(D|A)$ 之差。<script type="math/tex; mode=display">g(D, A) = H(D) - H(D|A)</script></li>
+<li><strong>物理意义</strong>：由于特征 $A$ 而使得对数据集 $D$ 的分类不确定性减少的程度。<strong>信息增益大的特征具有更强的分类能力。</strong></li>
+</ul>
+<h3 id="信息增益比-Gain-Ratio"><a href="#信息增益比-Gain-Ratio" class="headerlink" title="信息增益比 (Gain Ratio)"></a>信息增益比 (Gain Ratio)</h3><ul>
+<li><strong>背景</strong>：信息增益倾向于选择 <strong>取值较多</strong> 的特征（例如唯一的 ID 号），这往往不是我们想要的。</li>
+<li><strong>定义</strong>：特征 $A$ 对训练数据集 $D$ 的信息增益比 $g_R(D, A)$ 定义为信息增益 $g(D, A)$ 与训练数据集 $D$ 关于特征 $A$ 的值的熵 $H_A(D)$ 之比：<script type="math/tex; mode=display">g_R(D, A) = \frac{g(D, A)}{H_A(D)}</script>  其中，<script type="math/tex; mode=display">H_A(D) = -\sum_{i=1}^{n} \frac{|D_i|}{|D|} \log_2 \frac{|D_i|}{|D|}</script>   $n$ 是特征 $A$ 取值的个数。</li>
+</ul>
+<hr>
+<h2 id="3-经典算法"><a href="#3-经典算法" class="headerlink" title="3. 经典算法"></a>3. 经典算法</h2><h3 id="ID3-算法"><a href="#ID3-算法" class="headerlink" title="$ID3$ 算法"></a>$ID3$ 算法</h3><ul>
+<li><strong>测试属性</strong>：<code>信息增益</code>  </li>
+</ul>
+<p><strong>具体计算流程</strong>：（设$C_1+C_2=D$）</p>
+<ol>
+<li><p><strong>计算不考虑特征的信息熵</strong>：</p>
+<script type="math/tex; mode=display">H(D) = -\sum_{k=1}^{K} p_k \log_2 p_k= -\sum_{k=1}^{K} \frac{|C_k|}{|D|} \log_2 \frac{|C_k|}{|D|}</script><p>其中 $|D|$ 为样本总数，$|C_k|$ 为属于第 $k$ 类的样本数(eg: <em>买/不买</em>)。</p>
+</li>
+<li><p><strong>计算条件熵</strong>：</p>
+<ul>
+<li>先选择一个 <strong>特征 $A_i$</strong>，将数据集 $D$ 根据特征 $A_i$ 的<strong>不同取值</strong>划分为 $n$ 个子集 $D_1, D_2, \dots, D_n$。</li>
+<li>计算特征 $A_i$ 下不同取值 $D_i$ 的信息熵 $H(D_i)$：<script type="math/tex; mode=display">H(D_i)= -\sum_{k=1}^{K} \frac{|C_k|}{|D_i|} \log_2 \frac{|C_k|}{|D_i|}</script>其中，$C_k$ 是在集合 $D_i$ 里的第 $k$ 种类别的数量 (eg: <em>买/不买</em>)。</li>
+<li>计算条件熵 $H(D|A_i)$：<script type="math/tex; mode=display">H(D|A_i) = \sum_{i=1}^{n} p_i H(D_i)= \sum_{i=1}^{n} \frac{|D_i|}{|D|} H(D_i)</script></li>
+</ul>
+</li>
+<li><p><strong>计算信息增益</strong>：</p>
+<script type="math/tex; mode=display">g(D, A_i) = H(D) - H(D|A_i)</script></li>
+<li><p><strong>特征选择</strong>：<br>选取 <strong>信息增益最大</strong> 的特征$A_i$作为当前的分裂节点（根节点或内部节点）。</p>
+</li>
+<li><p><strong>递归构建</strong>：<br>对子节点重复以上步骤，以此类推，直至分类完全（或满足停止条件）。</p>
+</li>
+</ol>
+<h3 id="C4-5-算法"><a href="#C4-5-算法" class="headerlink" title="$C4.5$ 算法"></a>$C4.5$ 算法</h3><ul>
+<li><strong>测试属性</strong>：<code>信息增益比</code> （除<strong>选择特征的标准不同</strong>外，其余步骤与 $ID3$ <strong>一致</strong>）。</li>
+<li>计算完<strong>信息增益</strong>后，计算<strong>信息增益比</strong>：<script type="math/tex; mode=display">g_R(D, A) = \frac{g(D, A)}{H_A(D)}</script>其中，<strong>特征固有值</strong>：<script type="math/tex; mode=display">H_A(D) = -\sum_{i=1}^{n} \frac{|D_i|}{|D|} \log_2 \frac{|D_i|}{|D|}</script>这里 $|D|$ 是样本总数，注意和 $H(D_i)$ 的计算区分。</li>
+</ul>
+<h3 id="过拟合"><a href="#过拟合" class="headerlink" title="过拟合"></a>过拟合</h3><ul>
+<li><strong>现象</strong>：决策树算法增长树的每一个分支的深度，直到恰好能对训练样例比较完美地分类。</li>
+<li><strong>原因</strong>：当数据中 <strong>有噪声</strong> 或 <strong>训练样例数量太少</strong>，以至于不能产生目标函数的有代表性的采样时，简单算法产生的树会过拟合训练样例。</li>
+</ul>
+<hr>
+<h2 id="4-CART-算法"><a href="#4-CART-算法" class="headerlink" title="4. $CART$算法"></a>4. $CART$算法</h2><h3 id="基尼指数-Gini-Index"><a href="#基尼指数-Gini-Index" class="headerlink" title="基尼指数 (Gini Index)"></a>基尼指数 (Gini Index)</h3><ul>
+<li><strong>定义</strong>：度量数据纯度的指标。<strong>基尼指数越小，模型的不确定性越小，纯度越高</strong>。</li>
+<li><p><strong>计算公式</strong>：<br>  假设有 $K$ 个类，样本点属于第 $k$ 类的概率为 $p_k$，则概率分布的基尼指数为：</p>
+<script type="math/tex; mode=display">Gini(p) = \sum_{k=1}^{K} p_k(1-p_k) = 1 - \sum_{k=1}^{K} p_k^2</script><p>  对于给定的样本集合 $D$，其基尼指数为：</p>
+<script type="math/tex; mode=display">Gini(D) = 1 - \sum_{k=1}^{K} \left(\frac{|C_k|}{|D|}\right)^2</script><p>  其中 $C_k$ 是 $D$ 中属于第 $k$ 类的样本子集。</p>
+</li>
+<li><p><strong>特征下的基尼指数</strong>：（一分为二的划分问题）<br>  如果特征 $A$ 的取值将集合 $D$ 划分成 $D_1$ 和 $D_2$ 两部分（<strong>注意：CART 生成的是二叉树</strong>），则在特征 $A$ 的条件下，集合 $D$ 的基尼指数为：</p>
+<script type="math/tex; mode=display">Gini(D, A) = \frac{|D_1|}{|D|} Gini(D_1) + \frac{|D_2|}{|D|} Gini(D_2)</script><p>  <img src="2025-12-04-20-06-28.png" alt=""><br>  <img src="2025-12-04-20-06-41.png" alt=""><br>  <img src="2025-12-04-20-06-57.png" alt=""></p>
+</li>
+<li><strong>选择标准</strong>：选择使得 <strong>基尼指数最小</strong> 的<strong>特征</strong>及其<strong>划分点</strong>作为最优特征和最优切分点。<img src="2025-12-04-20-08-35.png" alt=""><img src="2025-12-04-20-10-08.png" alt=""></li>
+</ul>
+<h3 id="决策树生成"><a href="#决策树生成" class="headerlink" title="决策树生成"></a>决策树生成</h3><ul>
+<li><del><strong>回归树</strong>：使用 <strong>平方误差最小化</strong> 准则。</del></li>
+<li><strong>分类树</strong>：使用 <strong>基尼指数最小化</strong> 准则。</li>
+<li><strong>具体生成流程 (分类树)</strong>：<em>（上一部分的图片例子可以帮助理解）</em><ol>
+<li>对训练数据集 $D$ 的每个特征 $A$，以及该特征的每个可能取值 $a$，根据 $A=a$ 与 $A \neq a$ 将 $D$ 分割为 $D_1$ 和 $D_2$。</li>
+<li>计算该切分下的 $Gini(D, A)$。</li>
+<li>在所有可能的特征 $A$ 以及它们所有可能的切分点 $a$ 中，选择 <strong>基尼指数最小</strong> 的特征及其切分点作为最优特征与最优切分点。</li>
+<li>生成两个子结点，将训练数据集依特征分配到两个子结点中。</li>
+<li>对子结点递归地调用上述步骤，直到满足停止条件（如结点样本数小于阈值、基尼指数小于阈值或没有更多特征）。</li>
+</ol>
+</li>
+</ul>
+<h3 id="决策树剪枝"><a href="#决策树剪枝" class="headerlink" title="决策树剪枝"></a>决策树剪枝</h3><ul>
+<li><strong>目的</strong>：防止过拟合。</li>
+<li><strong>手段</strong>：剪枝，限定叶节点最小样本数，强制决策树最大深度，交叉验证（$CART$剪枝）。</li>
+</ul>
+<h4 id="预剪枝"><a href="#预剪枝" class="headerlink" title="预剪枝"></a>预剪枝</h4><ul>
+<li>在决策树生成过程中，对每个结点在 <strong>划分前先进行估计</strong>。</li>
+<li>若当前结点的划分不能带来决策树 <strong>泛化性能提升</strong>，则停止划分，并标记当前结点为叶结点。</li>
+</ul>
+<h4 id="后剪枝"><a href="#后剪枝" class="headerlink" title="后剪枝"></a>后剪枝</h4><ul>
+<li>从训练集先生成一棵 <strong>完整的决策树</strong>。</li>
+<li>自底而上地考察非叶结点，若将该结点对应的子树替换为叶结点能带来决策树 <strong>泛化性能提升</strong>，则 <strong>将该子树替换为叶结点</strong>。</li>
+<li>CART 常用 <strong>CCP (Cost-Complexity Pruning, 代价复杂度剪枝)</strong> 方法。</li>
+</ul>
+<blockquote>
+<p><strong>对比</strong>：一般情形下，后剪枝决策树的欠拟合风险很小，泛化性能优于预剪枝决策树。但训练时间开销比未剪枝决策树和预剪枝决策树要大得多。</p>
+</blockquote>
+<hr>
+<h2 id="5-随机森林-Random-Forest"><a href="#5-随机森林-Random-Forest" class="headerlink" title="5. 随机森林 (Random Forest)"></a><del>5. 随机森林 (Random Forest)</del></h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><ul>
+<li>一种基于 <strong>Bagging</strong>（装袋法）的集成学习方法。</li>
+<li>通过构建多棵决策树，并将它们的预测结果进行汇总（分类问题用 <strong>多数投票</strong>，回归问题用 <strong>平均值</strong>）来输出最终结果。</li>
+<li><strong>“随机”的含义</strong>：体现在 <strong>样本选择的随机性</strong> 和 <strong>特征选择的随机性</strong>。</li>
+</ul>
+<h3 id="构建流程"><a href="#构建流程" class="headerlink" title="构建流程"></a>构建流程</h3><ol>
+<li><p><strong>Bootstrap 采样 (样本随机)</strong>：</p>
+<ul>
+<li>对于 $N$ 个样本的训练集，有放回地随机抽取 $N$ 次，得到一个新的训练集。</li>
+<li>未被抽到的样本称为 <strong>袋外数据 (Out-of-Bag, OOB)</strong>，可用于验证模型泛化能力。</li>
+<li>重复上述步骤 $k$ 次，生成 $k$ 个独立的训练集。</li>
+</ul>
+</li>
+<li><p><strong>特征随机选择 (特征随机)</strong>：</p>
+<ul>
+<li>在构建每棵树的每个分裂结点时，不是从所有 $M$ 个特征中选择最优特征，而是随机从 $M$ 个特征中选取 $m$ 个特征 ($m \ll M$) 作为一个子集。</li>
+<li>从这 $m$ 个特征中选择最优的分裂属性。</li>
+</ul>
+</li>
+<li><p><strong>生成决策树</strong>：</p>
+<ul>
+<li>利用上述采样和特征子集，完全生长决策树（通常 <strong>不剪枝</strong>）。</li>
+</ul>
+</li>
+<li><p><strong>集成输出</strong>：</p>
+<ul>
+<li><strong>分类</strong>：所有树投票，票数最多的类别为最终结果。</li>
+<li><strong>回归</strong>：所有树预测值的简单算术平均。</li>
+</ul>
+</li>
+</ol>
+<h3 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h3><ul>
+<li><strong>准确率高</strong>：在许多数据集上表现良好，抗过拟合能力强（因为引入了双重随机性）。</li>
+<li><strong>并行处理</strong>：每棵树互不依赖，可以并行训练，速度快。</li>
+<li><strong>高维数据友好</strong>：能够处理具有成千上万个特征的输入矩阵，而无需进行特征降维。</li>
+<li><strong>自带评估</strong>：可以使用 OOB 数据进行内部评估，无需额外的验证集。</li>
+</ul>
+<h1 id="第六章-Logistic-回归"><a href="#第六章-Logistic-回归" class="headerlink" title="第六章 $Logistic$回归"></a>第六章 $Logistic$回归</h1><p>关键词：<code>映射到[0,1]、分类（虽然叫回归）、判别模型</code></p>
+<ul>
+<li>思想：利用线性回归的思路去拟合数据，通过一个函数将预测结果“压缩”到 $[0,1]$，从而表示某种类别发生的概率。</li>
+</ul>
+<p><strong>几何意义与决策</strong>：</p>
+<ul>
+<li><strong>二项逻辑回归</strong>在几何上是在特征空间中寻找一个<strong>超平面</strong>（Decision Boundary）来分割两类数据。（通常以 <strong>0.5</strong> 为概率阈值）：</li>
+<li>若 $P(Y=1|x) \ge 0.5$，预测为 <strong>1 (正类)</strong>。</li>
+<li>若 $P(Y=1|x) &lt; 0.5$，预测为 <strong>0 (负类)</strong>。</li>
+</ul>
+<h2 id="1-二项-Logistic-回归"><a href="#1-二项-Logistic-回归" class="headerlink" title="1. 二项$Logistic$回归"></a>1. 二项$Logistic$回归</h2><h3 id="事件的几率"><a href="#事件的几率" class="headerlink" title="事件的几率"></a>事件的几率</h3><ul>
+<li><p><strong>事件的几率 (odds)</strong>：事件发生与事件不发生的概率之比为</p>
+<script type="math/tex; mode=display">\frac{p}{1 - p}</script><p>  称为事件的发生比 (the odds of experiencing an event)。</p>
+</li>
+<li><p><strong>对数几率 (log odds)</strong>：</p>
+<script type="math/tex; mode=display">\text{logit}(p) = \log \frac{p}{1 - p}</script></li>
+<li><p><strong>Logistic 回归 (对数几率回归)</strong>：</p>
+<script type="math/tex; mode=display">\log \frac{P(Y = 1|x)}{1 - P(Y = 1|x)} = w \cdot x</script></li>
+</ul>
+<h3 id="模型构建"><a href="#模型构建" class="headerlink" title="模型构建"></a>模型构建</h3><ol>
+<li><p><strong>线性预测</strong>：<br>  首先，模型根据输入特征 $x$ 计算一个线性得分（Logits）：</p>
+<script type="math/tex; mode=display">z = w \cdot x + b</script></li>
+<li><p><strong>$Sigmoid$ 映射</strong>：<br>  为了将 $z \in (-\infty, +\infty)$ 映射为概率 $[0,1]$，引入 <strong>Sigmoid 函数</strong>：</p>
+<script type="math/tex; mode=display">g(z) = \frac{1}{1 + e^{-z}}</script></li>
+</ol>
+<p>在数学表达上，它有两种等价形式（这也是教科书与PPT中常见的两种写法）：</p>
+<ul>
+<li><strong>标准倒数形式</strong>：<script type="math/tex; mode=display">P(Y=1|x) = \frac{1}{1 + e^{-(w \cdot x + b)}}</script></li>
+<li><strong>指数形式</strong>（分子分母同时乘以 $e^z$）：<script type="math/tex; mode=display">P(Y=1|x) = \frac{\exp(w \cdot x + b)}{1 + \exp(w \cdot x + b)}</script></li>
+</ul>
+<p>对应地，预测为负类（$Y=0$）的概率为：</p>
+<script type="math/tex; mode=display">P(Y=0|x) = 1 - P(Y=1|x) = \frac{1}{1 + \exp(w \cdot x + b)}</script><ul>
+<li><strong>参数的向量化表示 (Bias Trick)</strong></li>
+</ul>
+<p>在李航《统计学习方法》等教材中，为了简化公式推导，通常会将偏置项 $b$ 并入权重向量 $w$ 中。</p>
+<ul>
+<li><strong>扩充权重向量</strong>：$w = (w^{(1)}, w^{(2)}, \dots, w^{(n)}, b)^T$</li>
+<li><strong>扩充输入向量</strong>：$x = (x^{(1)}, x^{(2)}, \dots, x^{(n)}, 1)^T$</li>
+</ul>
+<p>通过这种方式，线性项 $w \cdot x + b$ 就变成了单纯的向量点积 $w \cdot x$。最终模型公式简化为：</p>
+<script type="math/tex; mode=display">P(Y=1|x) = \frac{\exp(w \cdot x)}{1 + \exp(w \cdot x)}</script><h3 id="模型特点"><a href="#模型特点" class="headerlink" title="模型特点"></a>模型特点</h3><ul>
+<li>名为“回归”，实际是<strong>分类算法</strong>。</li>
+<li><code>输入变量与输出变量之间不存在线性关系</code>。</li>
+<li>直接对分类可能进行建模。</li>
+<li>给出类别的近似概率。</li>
+<li>任意阶可导凸函数。</li>
+</ul>
+<h3 id="多项-Logistic-回归"><a href="#多项-Logistic-回归" class="headerlink" title="多项 $Logistic$ 回归"></a>多项 $Logistic$ 回归</h3><ul>
+<li>设 $Y$ 的取值集合为 ${1, 2, \cdots, K}$</li>
+<li>多项 logistic 回归模型：</li>
+</ul>
+<script type="math/tex; mode=display">
+P(Y=k|x) = \frac{\exp(\boldsymbol{w}_k \cdot \boldsymbol{x})}{1 + \sum_{k=1}^{K-1} \exp(\boldsymbol{w}_k \cdot \boldsymbol{x})}, \quad k = 1, 2, \cdots, K-1</script><script type="math/tex; mode=display">
+P(Y=K|x) = \frac{1}{1 + \sum_{k=1}^{K-1} \exp(\boldsymbol{w}_k \cdot \boldsymbol{x})}</script><script type="math/tex; mode=display">
+\boldsymbol{x} \in R^{n+1} \quad \boldsymbol{w}_k \in R^{n+1}</script><h2 id="2-极大似然函数"><a href="#2-极大似然函数" class="headerlink" title="2. 极大似然函数"></a>2. 极大似然函数</h2><p>通过<strong>极大似然估计</strong>获得 $Logistic$ 分类器由一组权值系数 $\omega$。  </p>
+<ul>
+<li>对于 $N$ 个观测事件：<script type="math/tex; mode=display">
+\{(x_i, y_i)\}_{i=1}^N, \quad \mathbf{x}_i \in \mathbb{R}^n, y_i \in \{0, 1\}</script>设：<script type="math/tex; mode=display">
+P(Y = 1|\mathbf{x}) = \pi(\mathbf{x}), \quad P(Y = 0|\mathbf{x}) = 1 - \pi(\mathbf{x})</script></li>
+<li>其联合概率密度函数，即似然函数为：<script type="math/tex; mode=display">
+\begin{aligned}
+L &= \prod_{i=1}^N P(X=\boldsymbol{x}_i)P(Y=y_i|X=\boldsymbol{x}_i) \\
+&\propto \prod_{i=1}^N ([\pi(\boldsymbol{x}_i)]^{y_i} [1 - \pi(\boldsymbol{x}_i)]^{1-y_i})
+\end{aligned}</script></li>
+<li>取对数，得到<code>损失函数</code> $L(\omega)$：<script type="math/tex; mode=display">
+\begin{aligned}
+L(\mathbf{w}) &= \sum_{i=1}^{N} [y_i \log \pi (\mathbf{x}_i) + (1 - y_i) \log ( 1 - \pi(\mathbf{x}_i))] \\
+&= \sum_{i=1}^{N} \left[y_i \log \frac{\pi(\mathbf{x}_i)}{1 - \pi(\mathbf{x}_i)} + \log ( 1 - \pi(\mathbf{x}_i)) \right] \\
+&= \sum_{i=1}^{N} [y_i (\mathbf{w} \cdot \mathbf{x}_i) - \log ( 1 + \exp ( \mathbf{w} \cdot \mathbf{x}_i))]
+\end{aligned}</script>注意：第三个等号是代入 $\pi(\boldsymbol{x})= P(Y=1|\boldsymbol{x})= \frac{\exp(w \cdot x)}{1 + \exp(w \cdot x)}…$</li>
+<li>最后，对 $L(\omega)$ 求极大值（梯度下降-<strong>求导</strong>）, 得到 $\omega$ 的估计值。  </li>
+</ul>
+<p><strong>三种函数图示</strong>：<br><img src="2025-12-05-17-55-15.png" alt=""></p>
+<h2 id="3-最大熵模型"><a href="#3-最大熵模型" class="headerlink" title="3. 最大熵模型"></a>3. 最大熵模型</h2><ul>
+<li><strong>熵最大的模型是最好的模型</strong></li>
+</ul>
+<h2 id="4-模型学习最优化算法"><a href="#4-模型学习最优化算法" class="headerlink" title="4. 模型学习最优化算法"></a>4. 模型学习最优化算法</h2><ul>
+<li>梯度下降法<br><img src="2025-12-05-17-51-09.png" alt=""><br><img src="2025-12-05-17-51-25.png" alt=""></li>
+<li>牛顿法</li>
+<li>拟牛顿法</li>
+<li>改进的迭代尺度法</li>
+</ul>
+<h2 id="5-Logistic-Regression-（推导）"><a href="#5-Logistic-Regression-（推导）" class="headerlink" title="5. $Logistic Regression$（推导）"></a>5. $Logistic Regression$（推导）</h2><p><img src="2025-12-05-20-35-01.png" alt=""><br><strong>推导过程</strong>：<br><img src="2025-12-05-21-04-01.png" alt=""><br><strong>三个关键点</strong>：</p>
+<ul>
+<li>$Sigmoid$函数的导数</li>
+<li>构造概率似然函数</li>
+<li>把求导拆分成两个求导</li>
+</ul>
+<h1 id="第七章-支持向量机"><a href="#第七章-支持向量机" class="headerlink" title="第七章 支持向量机"></a>第七章 支持向量机</h1><ul>
+<li>定义：在特征空间上的<strong>间隔最大线性分类器</strong>（与感知机的不同）</li>
+<li><strong>核技巧</strong>，所以存在<strong>非线性分类器</strong></li>
+<li>学习策略：间隔最大化$\longrightarrow$正则化的<strong>合页损失函数</strong>最小化问题</li>
+</ul>
+<h2 id="1-线性可分-SVM-（硬间隔）"><a href="#1-线性可分-SVM-（硬间隔）" class="headerlink" title="1. 线性可分 SVM （硬间隔）"></a>1. 线性可分 SVM （硬间隔）</h2><blockquote>
+<ul>
+<li>所有样本必须线性可分，对噪音敏感，容易过拟合。</li>
+</ul>
+</blockquote>
+<h3 id="（1）原始算法"><a href="#（1）原始算法" class="headerlink" title="（1）原始算法"></a>（1）原始算法</h3><ol>
+<li>构造并求解最优化问题：<script type="math/tex; mode=display">
+\left\{
+\begin{aligned}
+& \min_{w,b} \;\; \frac{1}{2}\|w\|^2 \\
+& \text{s.t.} \;\; y_i(w \cdot x_i + b) - 1 \ge 0, \quad i = 1, 2, \cdots, N
+\end{aligned}
+\right.</script></li>
+<li>得到分离超平面：<script type="math/tex; mode=display">w^*\cdot x+b^*=0</script></li>
+<li>分类决策函数<script type="math/tex; mode=display">f(x)=sign(w^*\cdot x+b^*=0)</script></li>
+</ol>
+<h3 id="（2）对偶问题（KKT条件）"><a href="#（2）对偶问题（KKT条件）" class="headerlink" title="（2）对偶问题（KKT条件）"></a>（2）对偶问题（KKT条件）</h3><h4 id="原始问题"><a href="#原始问题" class="headerlink" title="原始问题"></a>原始问题</h4><p>SVM 的基本型是一个凸二次规划问题。我们的目标是最小化参数的范数（最大化间隔），同时满足分类约束。</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\min_{w,b} \quad & \frac{1}{2}\|w\|^2 \\
+\text{s.t.} \quad & 1 - y_i(w \cdot x_i + b) \le 0, \quad i=1,\dots,N
+\end{aligned}</script><h4 id="A-构造拉格朗日函数"><a href="#A-构造拉格朗日函数" class="headerlink" title="A.构造拉格朗日函数"></a>A.构造拉格朗日函数</h4><p>引入拉格朗日乘子 $\alpha = (\alpha_1, \alpha_2, \dots, \alpha_N)^T$，且 $\alpha_i \ge 0$。将<strong>约束条件融合到目标函数中</strong>：</p>
+<script type="math/tex; mode=display">
+L(w, b, \alpha) = \frac{1}{2}\|w\|^2 + \sum_{i=1}^{N} \alpha_i \left( 1 - y_i(w \cdot x_i + b) \right)</script><p>根据拉格朗日对偶性，原始问题等价于极小极大问题：</p>
+<script type="math/tex; mode=display">\min_{w,b} \max_{\alpha \ge 0} L(w, b, \alpha)</script><p>其对偶问题则是交换顺序（满足kkt条件），变为极大极小问题：</p>
+<script type="math/tex; mode=display">\max_{\alpha \ge 0} \min_{w,b} L(w, b, \alpha)</script><h4 id="B-求解对偶问题"><a href="#B-求解对偶问题" class="headerlink" title="B.求解对偶问题"></a>B.求解对偶问题</h4><ul>
+<li>第一步：求内层最小值 $\min_{w,b} L(w, b, \alpha)$</li>
+</ul>
+<p>对 $w$ 和 $b$ 分别求偏导并令其为 0：</p>
+<ol>
+<li><strong>对 $w$ 求导：</strong><script type="math/tex; mode=display">\nabla_w L = w - \sum_{i=1}^{N} \alpha_i y_i x_i = 0 \implies \mathbf{w = \sum_{i=1}^{N} \alpha_i y_i x_i}</script></li>
+<li><strong>对 $b$ 求导：</strong><script type="math/tex; mode=display">\nabla_b L = - \sum_{i=1}^{N} \alpha_i y_i = 0 \implies \mathbf{\sum_{i=1}^{N} \alpha_i y_i = 0}</script></li>
+</ol>
+<ul>
+<li>第二步：代回拉格朗日函数</li>
+</ul>
+<p>将上述两个关系式代回 $L(w, b, \alpha)$：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+L(w, b, \alpha) &= \frac{1}{2} \underbrace{w \cdot w}_{\|w\|^2} - w \cdot \underbrace{\sum_{i=1}^{N} \alpha_i y_i x_i}_{w} - b \underbrace{\sum_{i=1}^{N} \alpha_i y_i}_{0} + \sum_{i=1}^{N} \alpha_i \\
+&= \frac{1}{2} \|w\|^2 - \|w\|^2 + \sum_{i=1}^{N} \alpha_i \\
+&= \sum_{i=1}^{N} \alpha_i - \frac{1}{2} \|w\|^2
+\end{aligned}</script><p>展开 $|w|^2$ 项：</p>
+<script type="math/tex; mode=display">\|w\|^2 = \left( \sum_{i=1}^{N} \alpha_i y_i x_i \right) \cdot \left( \sum_{j=1}^{N} \alpha_j y_j x_j \right) = \sum_{i=1}^{N}\sum_{j=1}^{N} \alpha_i \alpha_j y_i y_j (x_i \cdot x_j)</script><ul>
+<li>第三步：最终的对偶问题</li>
+</ul>
+<p>此时目标是 $\max_{\alpha}$，通常我们习惯转换为 $\min_{\alpha}$ (取负号)。</p>
+<p><strong>最终对偶形式 (Dual Form)：</strong></p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\min_{\alpha} \quad & \frac{1}{2} \sum_{i=1}^{N}\sum_{j=1}^{N} \alpha_i \alpha_j y_i y_j (x_i \cdot x_j) - \sum_{i=1}^{N} \alpha_i \\
+\text{s.t.} \quad & \sum_{i=1}^{N} \alpha_i y_i = 0 \\
+& \alpha_i \ge 0 \quad (\text{硬间隔}) \\
+& 0 \le \alpha_i \le C \quad (\text{软间隔})
+\end{aligned}</script><hr>
+<h4 id="C-KKT-条件"><a href="#C-KKT-条件" class="headerlink" title="C.KKT 条件"></a>C.KKT 条件</h4><p>为了保证对偶问题的解（Dual Optimal）同时也确实是原始问题（Primal Optimal）的解，必须满足 KKT 条件。这是 SVM 具有“稀疏性”（支持向量特性）的数学根源。</p>
+<p>对于最优解 $w^{\ast}, b^{\ast}, \alpha^{\ast}$ 必须满足以下四个条件：</p>
+<p><strong>1. 稳定性条件 (Stationarity):</strong><br>即导数为 0：</p>
+<script type="math/tex; mode=display">w^* = \sum_{i=1}^{N} \alpha_i^* y_i x_i</script><script type="math/tex; mode=display">\sum_{i=1}^{N} \alpha_i^* y_i = 0</script><p><strong>2. <code>互补松弛性 (Complementary Slackness)</code> [核心]:</strong></p>
+<script type="math/tex; mode=display">\alpha_i^* (1 - y_i(w^* \cdot x_i + b^*)) = 0</script><p><strong>互补松弛性的物理意义：</strong><br>这个条件告诉我们，对于任意样本 $i$ ，或者 $\alpha_i^{\ast} = 0$ ，或者 $1 - y_i(w^{\ast} \cdot x_i + b^{\ast}) = 0$ 。</p>
+<ul>
+<li>如果 $\alpha_i^{\ast} = 0$ ，该样本对模型没有贡献（非支持向量）。</li>
+<li>如果 $\alpha_i^{\ast} &gt; 0$ ，则必须满足 $y_i(w^{\ast} \cdot x_i + b^{\ast}) = 1$ ，即样本点必须位于 <strong>间隔边界</strong> 上。这些点就是 <strong>支持向量</strong>。</li>
+</ul>
+<p><strong>3. 原始可行性 (Primal Feasibility):</strong><br>样本必须满足分类间隔约束：</p>
+<script type="math/tex; mode=display">1 - y_i(w^* \cdot x_i + b^*) \le 0</script><p><strong>4. 对偶可行性 (Dual Feasibility):</strong><br>拉格朗日乘子必须非负：</p>
+<script type="math/tex; mode=display">\alpha_i^* \ge 0</script><h2 id=""><a href="#" class="headerlink" title=""></a><img src="2025-12-06-15-09-54.png" alt=""></h2><p><strong>关键点总结</strong></p>
+<p><strong>1. 为什么要做对偶？</strong></p>
+<ul>
+<li><strong>计算效率：</strong> 摆脱了对特征维度 $d$ 的依赖，计算复杂度仅与样本数量 $N$ 有关。</li>
+<li><strong>核技巧 (Kernel Trick)：</strong> 最终公式中只包含内积 $(x_i \cdot x_j)$。我们可以直接用核函数 $K(x_i, x_j)$ 替换它，从而在不显式增加维度的情况下解决非线性分类问题。</li>
+</ul>
+<p><strong>2. 软间隔 (Soft Margin) 的变化</strong></p>
+<ul>
+<li>如果是软间隔 SVM，KKT 条件中的对偶可行性变为 $0 \le \alpha_i \le C$。</li>
+<li>当 $\alpha_i = C$ 时，样本点可能是一个异常点（位于间隔内部或分错）。</li>
+</ul>
+<hr>
+<h2 id="2-线性-SVM-（软间隔）"><a href="#2-线性-SVM-（软间隔）" class="headerlink" title="2. 线性 SVM （软间隔）"></a>2. 线性 SVM （软间隔）</h2><blockquote>
+<ul>
+<li>允许样本存在噪声，有较好的鲁棒性。</li>
+</ul>
+</blockquote>
+<h3 id="（1）核心思想与动机"><a href="#（1）核心思想与动机" class="headerlink" title="（1）核心思想与动机"></a><strong>（1）核心思想与动机</strong></h3><ul>
+<li><strong>动机：</strong> 现实中的数据往往不是完全线性可分的，或者包含噪声（异常点）。硬间隔 SVM 强行划分会导致过拟合或无解。</li>
+<li><strong>解决：</strong> 引入<strong>松弛变量 (Slack Variable)</strong>，允许部分样本点不满足严格的间隔约束（即允许犯错），以换取更大的间隔和更好的模型泛化能力。</li>
+</ul>
+<h3 id="（2）原始问题的数学表达"><a href="#（2）原始问题的数学表达" class="headerlink" title="（2）原始问题的数学表达"></a><strong>（2）原始问题的数学表达</strong></h3><ul>
+<li><p><strong>引入松弛变量 $\xi_i$ (Xi)：</strong><br>  为了容忍错误，约束条件由原来的硬性限制改为软性限制：</p>
+<script type="math/tex; mode=display">y_i(w \cdot x_i + b) \ge 1 - \xi_i</script><p>  其中 $\xi_i \ge 0$。</p>
+</li>
+<li><p><strong>几何意义：</strong>（这个最好别看）</p>
+<ul>
+<li>$\xi_i = 0$：样本分类正确且在间隔边界外（理想情况）。</li>
+<li>$0 &lt; \xi_i &lt; 1$：样本分类正确，但落入间隔带内部（违背了最大间隔，但在正确的一侧）。</li>
+<li>$\xi_i = 1$：样本落在决策边界（超平面）上。</li>
+<li>$\xi_i &gt; 1$：样本被错误分类（跑到对面去了）。</li>
+</ul>
+</li>
+<li><p><strong>目标函数：</strong><br>  需要在“最大化间隔”（结构风险）和“最小化误分程度”（经验风险）之间做权衡：</p>
+<script type="math/tex; mode=display">\min_{w,b,\xi} \quad \frac{1}{2}\|w\|^2 + C \sum_{i=1}^{N} \xi_i</script></li>
+</ul>
+<h3 id="（3）核心参数-C-的物理意义"><a href="#（3）核心参数-C-的物理意义" class="headerlink" title="（3）核心参数 C 的物理意义"></a><strong>（3）核心参数 C 的物理意义</strong></h3><ul>
+<li><strong>定义：</strong> $C &gt; 0$ 是惩罚系数（正则化参数的倒数），由用户设定的超参数。</li>
+<li><strong>C 值较大：</strong> 对误分容忍度低。模型会迫使 $\xi_i$ 趋近于 0，追求训练集的高准确率。<ul>
+<li><em>后果：</em> 接近硬间隔，间隔变窄，容易<strong>过拟合</strong>。</li>
+</ul>
+</li>
+<li><strong>C 值较小：</strong> 对误分容忍度高。允许更多样本违背约束，更看重 $\frac{1}{2}|w|^2$（即间隔宽度）。<ul>
+<li><em>后果：</em> 间隔变宽，容易<strong>欠拟合</strong>（若太小），但泛化能力通常更强。</li>
+</ul>
+</li>
+</ul>
+<h3 id="（4）对偶问题与解的特性"><a href="#（4）对偶问题与解的特性" class="headerlink" title="（4）对偶问题与解的特性"></a><strong>（4）对偶问题与解的特性</strong></h3><ul>
+<li><p><strong>拉格朗日乘子范围的变化：</strong><br>  这是与硬间隔最直接的数学区别。在求解对偶问题时，乘子 $\alpha_i$ 的约束变为：</p>
+<script type="math/tex; mode=display">0 \le \alpha_i \le C</script><p>  （硬间隔是 $0 \le \alpha_i &lt; +\infty$）</p>
+</li>
+<li><p><strong>支持向量 (Support Vectors) 的判定：</strong><br>  根据 KKT 条件中的互补松弛性，只有 $\alpha_i &gt; 0$ 的样本是支持向量：</p>
+<ul>
+<li>若 $0 &lt; \alpha_i &lt; C$：对应的 $\xi_i = 0$，样本恰好落在<strong>间隔边界</strong>上（它是决定间隔宽度的核心力量）。</li>
+<li>若 $\alpha_i = C$， $0 &lt; \xi_i &lt; 1$，样本<strong>分类正确</strong>，在间隔边界与超平面之间。</li>
+<li>若 $\alpha_i = C$， $\xi_i = 1$，样本在超平面上。</li>
+<li>若 $\alpha_i = C$， $\xi_i &gt; 1$，样本<strong>误分类</strong>。</li>
+</ul>
+</li>
+</ul>
+<h3 id="（5）等价形式：合页损失函数-Hinge-Loss"><a href="#（5）等价形式：合页损失函数-Hinge-Loss" class="headerlink" title="（5）等价形式：合页损失函数 (Hinge Loss)"></a><strong>（5）等价形式：合页损失函数 (Hinge Loss)</strong></h3><ul>
+<li>软间隔 SVM 的优化目标等价于<code>合页损失函数</code>：<script type="math/tex; mode=display">\min_{w,b} \sum_{i=1}^{N} [1 - y_i(w \cdot x_i + b)]_+ + \lambda \|w\|^2</script></li>
+<li><strong>Hinge Loss 定义：</strong> $L(y, f(x)) = \max(0, 1 - y f(x))$</li>
+<li><strong>解释：</strong> 只有当样本不仅分对了，而且距离超平面距离足够远（函数间隔大于 1）时，损失才为 0；否则损失随着错误的程度线性增加。</li>
+</ul>
+<h2 id="3-支持向量是什么？"><a href="#3-支持向量是什么？" class="headerlink" title="3. 支持向量是什么？"></a>3. 支持向量是什么？</h2><ul>
+<li>支持向量是使得<strong>约束条件等号成立</strong>的点，即 $\text{s.t.} \;\; y_i(w \cdot x_i + b) - 1 = 0$</li>
+<li>直观地，大多数点对于边界在哪没有影响，支持向量是<strong>决定了决策边界在哪</strong>的样本点。<code>分离超平面完全由支持向量决定</code>。</li>
+<li>支持向量一定在间隔边界上。</li>
+</ul>
+<p><img src="2025-12-06-16-40-33.png" alt=""></p>
+<ol>
+<li>线性可分：与分离超平面<strong>距离最近</strong>的样本点</li>
+</ol>
+<h2 id="4-核函数与非线性-SVM"><a href="#4-核函数与非线性-SVM" class="headerlink" title="4. 核函数与非线性 SVM"></a>4. 核函数与非线性 SVM</h2><h3 id="（1）非线性-SVM-的核心直观"><a href="#（1）非线性-SVM-的核心直观" class="headerlink" title="（1）非线性 SVM 的核心直观"></a><strong>（1）非线性 SVM 的核心直观</strong></h3><ul>
+<li><strong>问题：</strong> 原始样本空间中，数据线性不可分（如异或问题、环形数据）。</li>
+<li><strong>策略：</strong> 将样本从低维空间映射到高维特征空间（Hilbert Space）。根据 Cover 定理，在足够高的维度中，数据更有可能是线性可分的。</li>
+<li><strong>映射函数：</strong> $\phi: \mathcal{X} \to \mathcal{H}$</li>
+</ul>
+<h3 id="（2）核技巧-Kernel-Trick"><a href="#（2）核技巧-Kernel-Trick" class="headerlink" title="（2）核技巧 (Kernel Trick)"></a><strong>（2）核技巧 (Kernel Trick)</strong></h3><ul>
+<li><strong>困境：</strong> 如果直接计算高维向量 $\phi(x)$，计算复杂度极高，甚至因维度无穷大而无法计算。</li>
+<li><strong>观察：</strong> 在 SVM 对偶问题中，样本仅以<strong>内积</strong>形式出现：$\langle x_i, x_j \rangle$。在高维空间中对应 $\langle \phi(x_i), \phi(x_j) \rangle$。</li>
+<li><strong>核函数定义：</strong> 设 $\mathcal{X}$ 是输入空间，$\mathcal{H}$ 是特征空间。如果存在函数 $K(x, z)$ 满足：<script type="math/tex; mode=display">K(x, z) = \phi(x) \cdot \phi(z)</script>  则称 $K$ 为核函数。</li>
+<li><strong>作用：</strong> 我们不需要显式知道 $\phi(x)$ 是什么，只需在低维空间计算 $K(x, z)$，就能等效达到在高维空间做超平面划分的效果。</li>
+</ul>
+<h3 id="（3）对偶问题的修改"><a href="#（3）对偶问题的修改" class="headerlink" title="（3）对偶问题的修改"></a><strong>（3）对偶问题的修改</strong></h3><p>引入核函数后，非线性 SVM 的优化目标变为：</p>
+<script type="math/tex; mode=display">
+\min_{\alpha} \frac{1}{2} \sum_{i=1}^{N}\sum_{j=1}^{N} \alpha_i \alpha_j y_i y_j K(x_i, x_j) - \sum_{i=1}^{N} \alpha_i</script><p>决策函数变为：</p>
+<script type="math/tex; mode=display">f(x) = \text{sign}\left( \sum_{i=1}^{N} \alpha_i y_i K(x_i, x) + b \right)</script><h3 id="（4）常用核函数"><a href="#（4）常用核函数" class="headerlink" title="（4）常用核函数"></a><strong>（4）常用核函数</strong></h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">核函数</th>
+<th style="text-align:left">公式 $K(x, z)$</th>
+<th style="text-align:left">特点与应用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>线性核 (Linear)</strong></td>
+<td style="text-align:left">$x \cdot z$</td>
+<td style="text-align:left">无映射。适用于特征维数高的情况。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>多项式核 (Poly)</strong></td>
+<td style="text-align:left">$(x \cdot z + 1)^d$</td>
+<td style="text-align:left">映射到 $d$ 阶多项式空间。参数多，计算稍慢。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>高斯核 (RBF)</strong></td>
+<td style="text-align:left">$\exp(-\frac{\lVert x - z \rVert^2}{2\sigma^2})$</td>
+<td style="text-align:left"><strong>最常用</strong>。映射到无穷维空间。衡量样本相似度。$\gamma$ 越大，模型越复杂（易过拟合）。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Sigmoid 核</strong></td>
+<td style="text-align:left">$\tanh(\gamma x \cdot z + r)$</td>
+<td style="text-align:left">类似于神经网络中的激活函数。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="（5）什么样的函数能做核函数？"><a href="#（5）什么样的函数能做核函数？" class="headerlink" title="（5）什么样的函数能做核函数？"></a><strong>（5）什么样的函数能做核函数？</strong></h3><ul>
+<li><strong>Mercer 定理 (Mercer’s Theorem)：</strong><br>  只要函数 $K$ 满足<strong>对称性</strong>，且对应的核矩阵（Gram Matrix）是<strong>半正定</strong>（所有特征值非负）的，它就是合法的核函数。</li>
+</ul>
+<p><img src="2025-12-06-16-32-38.png" alt=""></p>
+<h1 id="第八章-提升算法"><a href="#第八章-提升算法" class="headerlink" title="第八章 提升算法"></a>第八章 提升算法</h1><h2 id="基本思想"><a href="#基本思想" class="headerlink" title="基本思想"></a>基本思想</h2><h3 id="偏差和方差"><a href="#偏差和方差" class="headerlink" title="偏差和方差"></a>偏差和方差</h3><p><img src="2025-12-07-16-09-35.png" alt=""></p>
+<ul>
+<li>（b）是欠拟合（高偏差）</li>
+<li>（c）是过拟合（高方差）</li>
+</ul>
+<h3 id="集成学习方法"><a href="#集成学习方法" class="headerlink" title="集成学习方法"></a>集成学习方法</h3><ol>
+<li>并行化：不存在强依赖关系，关注<strong>降低方差</strong>。代表：<strong>随机森林，Bagging</strong></li>
+<li>序列化：又叫串行化，是强依赖关系，关注<strong>降低偏差</strong>。代表：<strong>Boosting</strong><ul>
+<li>思想：只要找到一个<strong>比随机猜测略好（分类误差 &lt;0.5）</strong>的弱学习算法，就可以直接将其提升为强学习算法。</li>
+</ul>
+</li>
+</ol>
+<h2 id="AdaBoost-算法"><a href="#AdaBoost-算法" class="headerlink" title="$AdaBoost$ 算法"></a>$AdaBoost$ 算法</h2><p>关键词：<code>加法模型、指数损失、前向分布算法</code><br><strong>注意点</strong>：</p>
+<ol>
+<li>计算 $G(m)$ 的训练误差 $e_m$</li>
+<li>计算系数 $\alpha_m =\frac{1}{2}ln\frac{1-e_m}{e_m}$ <code>&lt;0.5</code> （不考计算，但这一点要注意）</li>
+<li>正确分类权值更新：$\times e^{-\alpha}$ ；错误分类权值更新：$\times e^{\alpha}$ </li>
+<li>损失函数：<strong>指数损失</strong> $L(y,f(x)) =exp(-yf(x))$</li>
+<li><code>分错样本权值变大，分对样本权值变小</code>，权值和 =1（下图选 $B$）<br><img src="2025-12-07-16-31-16.png" alt=""><ul>
+<li><strong>注意</strong>：样本权重 $\omega$ 之和 $=1$，但是基分类器权重 $\alpha_m$ 之和 $\not ={1}$</li>
+</ul>
+</li>
+<li>为什么 $AdaBoost$ 对噪声敏感？<br>因为 AdaBoost 的机制是指数级地增加被分错样本的权重，是串行化模型，关住提高模型准确度（降低偏差），所以对噪声非常敏感。如果数据中存在标签错误的噪声点，模型会投入极大的资源去强行拟合这个噪声，导致正常样本被牺牲，从而过拟合。</li>
+</ol>
+<h1 id="第九章-EM算法"><a href="#第九章-EM算法" class="headerlink" title="第九章 EM算法"></a>第九章 EM算法</h1><h2 id="1-EM算法的导出"><a href="#1-EM算法的导出" class="headerlink" title="1. EM算法的导出"></a>1. EM算法的导出</h2><p><strong>输入</strong>：观测变量数据 $X$，隐变量 $Z$，联合分布 $P(X,Z|\theta)$<br><strong>输出</strong>：模型参数 $\theta$</p>
+<ol>
+<li><p><strong>初始化 (Initialization)</strong></p>
+<ul>
+<li>随机选取模型参数的初值 $\theta^{(0)}$。</li>
+<li><em>注：EM 算法对初值敏感，不同的初值可能导致收敛到不同的局部极值。</em></li>
+</ul>
+</li>
+<li><p><strong>E步 (Expectation Step)</strong></p>
+<ul>
+<li><strong>目的</strong>：利用当前参数推测隐变量的分布。</li>
+<li><strong>操作</strong>：基于当前参数 $\theta^{(t)}$ 和观测数据 $X$，计算隐变量 $Z$ 的条件概率（后验概率）。</li>
+<li><strong>构造 Q 函数</strong>（即完全数据对数似然函数的期望）：<script type="math/tex; mode=display">Q(\theta, \theta^{(t)}) = E_{Z|X, \theta^{(t)}}[\log P(X, Z | \theta)]</script></li>
+</ul>
+</li>
+<li><p><strong>M步 (Maximization Step)</strong></p>
+<ul>
+<li><strong>目的</strong>：根据推测的隐变量分布，更新模型参数。</li>
+<li><strong>操作</strong>：寻找一个新的参数 $\theta$，使得 Q 函数的值最大化：<script type="math/tex; mode=display">\theta^{(t+1)} = \arg \max_{\theta} Q(\theta, \theta^{(t)})</script></li>
+</ul>
+</li>
+<li><p><strong>收敛判断 (Convergence Check)</strong></p>
+<ul>
+<li><strong>操作</strong>：计算参数的更新幅度 $|\theta^{(t+1)} - \theta^{(t)}|$ 或对数似然函数的增量。</li>
+<li><strong>判断</strong>：<ul>
+<li>若变化量小于预设阈值 $\epsilon$（如 $1e-5$），则停止迭代，输出最终参数 $\hat{\theta} = \theta^{(t+1)}$。</li>
+<li>否则，令 $t \leftarrow t+1$，返回第 2 步继续迭代。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="2-EM算法的收敛性"><a href="#2-EM算法的收敛性" class="headerlink" title="2. EM算法的收敛性"></a>2. EM算法的收敛性</h2><h3 id="1-核心性质：单调递增"><a href="#1-核心性质：单调递增" class="headerlink" title="(1). 核心性质：单调递增"></a>(1). 核心性质：单调递增</h3><p>EM 算法保证每次迭代后，观测数据的对数似然函数值是非递减的。即：</p>
+<script type="math/tex; mode=display">L(\theta^{(t+1)}) \ge L(\theta^{(t)})</script><p>由于似然函数通常有上界（Bounded from above），单调递增且有上界的序列必然收敛。</p>
+<h3 id="2-数学原理：下界逼近"><a href="#2-数学原理：下界逼近" class="headerlink" title="(2). 数学原理：下界逼近"></a>(2). 数学原理：下界逼近</h3><ul>
+<li><strong>原理</strong>：EM 算法并不直接优化复杂的 $L(\theta)$，而是优化其<strong>下界</strong>。</li>
+<li><strong>工具</strong>：利用 <strong>Jensen 不等式 (Jensen’s Inequality)</strong> 构造下界函数 $B(\theta, \theta^{(t)})$。</li>
+<li><strong>过程</strong>：<script type="math/tex; mode=display">L(\theta) - L(\theta^{(t)}) \ge 0</script>通过最大化下界 Q 函数，间接推高了原目标函数 $L(\theta)$。</li>
+</ul>
+<h3 id="3-收敛目标：局部最优"><a href="#3-收敛目标：局部最优" class="headerlink" title="(3). 收敛目标：局部最优"></a>(3). 收敛目标：局部最优</h3><ul>
+<li>EM 算法<strong>不能保证</strong>收敛到全局最优解 (Global Maximum)。</li>
+<li>它通常收敛到似然函数的<strong>稳定点 (Stationary Point)</strong>，大多数情况下是<strong>局部极大值 (Local Maximum)</strong>。</li>
+<li>只有在目标函数是凸函数（Concave）等特殊情况下，才能保证全局最优。</li>
+</ul>
+<h3 id="4-工程启示"><a href="#4-工程启示" class="headerlink" title="(4). 工程启示"></a>(4). 工程启示</h3><ul>
+<li><strong>初值敏感性</strong>：由于存在多个局部极值，最终结果高度依赖于初始参数 $\theta^{(0)}$ 的选择。<ul>
+<li><em>解决方案</em>：采用多次随机初始化 (Random Restarts)，取结果最好的那一组；或使用 K-Means 等算法预热初始化。</li>
+</ul>
+</li>
+<li><strong>收敛速度</strong>：算法在迭代初期收敛较快，但在接近极值点时收敛速度变慢（通常为一阶线性收敛）。</li>
+</ul>
+<h2 id="3-高斯混合模型-GMM"><a href="#3-高斯混合模型-GMM" class="headerlink" title="3. 高斯混合模型 (GMM)"></a>3. 高斯混合模型 (GMM)</h2><p>在统计学习和模式识别中，<strong>高斯混合模型 (GMM)</strong> 和 <strong>EM 算法</strong> 通常是绑定出现的。简单来说：GMM 是我们要建立的<strong>模型</strong>（Model），而 EM 算法是用于训练该模型的<strong>优化方法</strong>（Optimization Method）。</p>
+<h3 id="1-高斯混合模型-GMM"><a href="#1-高斯混合模型-GMM" class="headerlink" title="(1). 高斯混合模型 (GMM)"></a>(1). 高斯混合模型 (GMM)</h3><h4 id="直观理解"><a href="#直观理解" class="headerlink" title="直观理解"></a>直观理解</h4><p>传统的聚类算法（如 K-Means）是<strong>硬聚类</strong>，即一个样本点要么属于 A 类，要么属于 B 类。但在实际应用中，很多数据具有模糊性（Ambiguity）。</p>
+<p><strong>GMM (Gaussian Mixture Model)</strong> 是一种<strong>软聚类</strong>模型。它假设数据是由 $K$ 个不同的高斯分布（正态分布）混合生成的。对于每一个数据点，模型给出的是它属于每个簇的<strong>概率</strong>。</p>
+<h4 id="数学定义"><a href="#数学定义" class="headerlink" title="数学定义"></a>数学定义</h4><p>GMM 的概率密度函数定义为 $K$ 个高斯密度的加权和：</p>
+<script type="math/tex; mode=display">
+P(x|\theta) = \sum_{k=1}^{K} \pi_k \mathcal{N}(x | \mu_k, \Sigma_k)</script><p>其中：</p>
+<ul>
+<li>$x$: 观测数据。</li>
+<li>$\pi_k$: <strong>混合系数</strong> (Mixing Coefficient)，即第 $k$ 个高斯分布被选中的概率，满足 $\sum \pi_k = 1$ 且 $\pi_k \ge 0$。</li>
+<li>$\mathcal{N}(x | \mu_k, \Sigma_k)$: 第 $k$ 个<strong>高斯分布密度函数</strong>，参数为均值 $\mu_k$ 和协方差矩阵 $\Sigma_k$。</li>
+</ul>
+<p>我们需要估计的参数集合为 $\theta = { \pi_1, \dots, \pi_K, \mu_1, \dots, \mu_K, \Sigma_1, \dots, \Sigma_K }$。</p>
+<hr>
+<h3 id="2-为什么需要-EM-算法？"><a href="#2-为什么需要-EM-算法？" class="headerlink" title="(2). 为什么需要 EM 算法？"></a>(2). 为什么需要 EM 算法？</h3><p>如果我们知道每个样本具体属于哪个高斯分布（即已知<strong>隐变量 Latent Variable</strong>），我们直接用<strong>极大似然估计 (MLE)</strong> 就可以算出 $\mu$ 和 $\Sigma$。</p>
+<p>但在非监督学习中，我们<strong>不知道</strong>样本的类别标签。这就陷入了一个“鸡生蛋，蛋生鸡”的循环：</p>
+<ol>
+<li>要算出参数 $\theta$，需要先知道每个样本属于哪个分布（隐变量）。</li>
+<li>要知道样本属于哪个分布，又需要先有准确的参数 $\theta$ 来计算概率。</li>
+</ol>
+<p><strong>EM 算法 (Expectation-Maximization Algorithm)</strong> 正是为了解决这种含有隐变量的概率模型参数估计问题。</p>
+<hr>
+<h3 id="3-EM-算法在-GMM-中的流程"><a href="#3-EM-算法在-GMM-中的流程" class="headerlink" title="(3). EM 算法在 GMM 中的流程"></a>(3). EM 算法在 GMM 中的流程</h3><p>EM 算法通过迭代的方式逼近最优解，主要分为两步：<strong>E步（期望步）</strong>和 <strong>M步（最大化步）</strong>。</p>
+<h4 id="Step-0-初始化"><a href="#Step-0-初始化" class="headerlink" title="Step 0: 初始化"></a>Step 0: 初始化</h4><p>随机初始化参数 $\mu_k, \Sigma_k, \pi_k$。</p>
+<h4 id="Step-1-E-step-计算责任-后验概率"><a href="#Step-1-E-step-计算责任-后验概率" class="headerlink" title="Step 1: E-step (计算责任/后验概率)"></a>Step 1: E-step (计算责任/后验概率)</h4><p>固定参数，计算第 $n$ 个样本来自第 $k$ 个分模型的概率（也称为“责任” $\gamma_{nk}$）：</p>
+<script type="math/tex; mode=display">
+\gamma_{nk} = P(z_n = k | x_n) = \frac{\pi_k \mathcal{N}(x_n | \mu_k, \Sigma_k)}{\sum_{j=1}^{K} \pi_j \mathcal{N}(x_n | \mu_j, \Sigma_j)}</script><blockquote>
+<p><strong>直观解释</strong>：看当前这个点，在第 $k$ 个分布里的相对密度有多大。</p>
+</blockquote>
+<h4 id="Step-2-M-step-更新参数"><a href="#Step-2-M-step-更新参数" class="headerlink" title="Step 2: M-step (更新参数)"></a>Step 2: M-step (更新参数)</h4><p>利用 E 步算出的 $\gamma_{nk}$ 作为权重，重新估计参数（最大化 Q 函数）：</p>
+<ol>
+<li><strong>更新均值 $\mu_k$</strong>（加权平均）：<script type="math/tex; mode=display">
+\mu_k^{new} = \frac{1}{N_k} \sum_{n=1}^{N} \gamma_{nk} x_n</script></li>
+<li><strong>更新协方差 $\Sigma_k$</strong>（加权协方差）：<script type="math/tex; mode=display">
+\Sigma_k^{new} = \frac{1}{N_k} \sum_{n=1}^{N} \gamma_{nk} (x_n - \mu_k^{new})(x_n - \mu_k^{new})^T</script></li>
+<li><strong>更新混合系数 $\pi_k$</strong>：<script type="math/tex; mode=display">
+\pi_k^{new} = \frac{N_k}{N}</script>其中 $N<em>k = \sum</em>{n=1}^{N} \gamma_{nk}$ 是第 $k$ 类权重的总和。</li>
+</ol>
+<h4 id="Step-3-收敛判断"><a href="#Step-3-收敛判断" class="headerlink" title="Step 3: 收敛判断"></a>Step 3: 收敛判断</h4><p>重复 E 步和 M 步，直到对数似然函数 (Log-Likelihood) 的增长小于阈值，或参数不再变化。</p>
+<hr>
+<h3 id="4-GMM-vs-K-Means"><a href="#4-GMM-vs-K-Means" class="headerlink" title="(4). GMM vs K-Means"></a>(4). GMM vs K-Means</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">维度</th>
+<th style="text-align:left">K-Means</th>
+<th style="text-align:left">GMM (高斯混合模型)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>聚类性质</strong></td>
+<td style="text-align:left"><strong>硬聚类</strong> (0 或 1)</td>
+<td style="text-align:left"><strong>软聚类</strong> (概率分布)</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>模型假设</strong></td>
+<td style="text-align:left">假设簇是球状的 (方差一致)</td>
+<td style="text-align:left">假设簇是高斯分布 (可通过协方差描述椭圆)</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>参数复杂度</strong></td>
+<td style="text-align:left">仅中心点 (Centroids)</td>
+<td style="text-align:left">中心点 + 协方差矩阵 + 混合系数</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>本质关系</strong></td>
+<td style="text-align:left">GMM 的一种特例</td>
+<td style="text-align:left">EM 算法的通用应用</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>对异常值</strong></td>
+<td style="text-align:left">敏感</td>
+<td style="text-align:left">相对鲁棒 (概率模型具有一定容错性)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="推导"><a href="#推导" class="headerlink" title="推导"></a>推导</h2><h3 id="引理9-2"><a href="#引理9-2" class="headerlink" title="引理9.2"></a>引理9.2</h3><h3 id="Q函数"><a href="#Q函数" class="headerlink" title="Q函数"></a>Q函数</h3><h1 id="第十章-聚类方法"><a href="#第十章-聚类方法" class="headerlink" title="第十章 聚类方法"></a>第十章 聚类方法</h1><h2 id="1-层次聚类"><a href="#1-层次聚类" class="headerlink" title="1. 层次聚类"></a>1. 层次聚类</h2><ul>
+<li>聚类是<strong>无监督学习</strong></li>
+</ul>
+<h3 id="聚类的核心参数"><a href="#聚类的核心参数" class="headerlink" title="聚类的核心参数"></a>聚类的核心参数</h3><ol>
+<li>距离（马氏距离、L距离）<ul>
+<li>距离越小，样本越相似</li>
+</ul>
+</li>
+<li>相似度（夹角余弦、相关系数）<ul>
+<li>相似度越大，样本越相似</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>直接影响聚类结果，其选择是聚类的根本问题。</li>
+</ul>
+<h3 id="硬聚类-amp-软聚类"><a href="#硬聚类-amp-软聚类" class="headerlink" title="硬聚类 &amp; 软聚类"></a>硬聚类 &amp; 软聚类</h3><ul>
+<li>一个样本只能属于一个类，就叫<strong>硬聚类</strong>。</li>
+<li>一个样本可以属于多个类，就叫<strong>软聚类</strong>。</li>
+</ul>
+<h3 id="一些概念"><a href="#一些概念" class="headerlink" title="一些概念"></a>一些概念</h3><p><strong>假设有两个类：$G_p , G_q$</strong></p>
+<ul>
+<li>类的中心：一个类中所有样本的均值</li>
+<li>类的直径：两个距离最远的样本距离</li>
+<li><strong>单连接</strong>：两个类中最近样本的距离</li>
+<li><strong>完全连接</strong>：两个类中最远样本的距离</li>
+<li>中心距离：两个样本中心间的距离</li>
+<li>平均距离：两个样本中所有样本的平均距离</li>
+</ul>
+<p>注意：做层次聚类题目的时候注意要求是按照<strong>单连接/完全连接</strong>来聚类，画图的时候<strong>长度要按比例</strong>。</p>
+<h3 id="聚合聚类-amp-分裂聚类"><a href="#聚合聚类-amp-分裂聚类" class="headerlink" title="聚合聚类 &amp; 分裂聚类"></a>聚合聚类 &amp; 分裂聚类</h3><ul>
+<li><p><strong>聚合聚类（自下而上聚类）</strong></p>
+<ul>
+<li>开始将每个样本各自分到一个类</li>
+<li>之后将相距最近的两类合并，建立一个新的类</li>
+<li>重复此操作直到满足停止条件</li>
+</ul>
+</li>
+<li><p><strong>分裂聚类（自上而下聚类）</strong></p>
+<ul>
+<li>开始将所有样本分到一个类</li>
+<li>之后将已有类中相距最远的样本分到两个新的类</li>
+<li>重复此操作直到满足停止条件</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-K-mean"><a href="#2-K-mean" class="headerlink" title="2. K-mean"></a>2. K-mean</h2><ul>
+<li>硬聚类、分成 k 个簇、非层次化、无监督学习</li>
+<li>时间复杂度：$O(nkm)$，n个样本点到k个中心的距离，维度为m。</li>
+</ul>
+<h3 id="1-核心原理"><a href="#1-核心原理" class="headerlink" title="(1). 核心原理"></a>(1). 核心原理</h3><p>算法的核心目标是将 $n$ 个样本点划分到 $K$ 个簇 (Cluster) 中，使得每个样本点到其所属簇的中心的距离平方和最小。</p>
+<ul>
+<li><strong>输入</strong>：样本集 $X$，聚类簇数 $K$。</li>
+<li><strong>输出</strong>：$K$ 个簇的质心向量 $\mu$ 及每个样本的类别标签。</li>
+</ul>
+<h3 id="2-损失函数"><a href="#2-损失函数" class="headerlink" title="(2). 损失函数"></a>(2). 损失函数</h3><p>最小化<strong>每个簇内样本点到中心的距离之和</strong>：</p>
+<script type="math/tex; mode=display">
+J = \sum_{k=1}^{K} \sum_{x \in C_k} || x - \mu_k ||^2</script><p>其中：</p>
+<ul>
+<li>$C_k$：第 $k$ 个簇。</li>
+<li>$\mu_k$：第 $k$ 个簇的中心。</li>
+<li>$|| x - \mu_k ||^2$：欧几里得距离的平方。</li>
+</ul>
+<h3 id="3-算法流程"><a href="#3-算法流程" class="headerlink" title="(3). 算法流程"></a>(3). 算法流程</h3><p>K-Means 的迭代过程体现了 EM (Expectation-Maximization) 的思想：</p>
+<ol>
+<li><p><strong>初始化</strong>：<br>随机选择 $K$ 个样本点作为初始中心 ${ \mu_1, \dots, \mu_K }$。</p>
+</li>
+<li><p><strong>分配阶段</strong> —— <em>对应 E-step</em><br>计算每个样本 $x^{(i)}$ 到各个中心的距离，将其分配给最近的中心：</p>
+<script type="math/tex; mode=display">
+c^{(i)} = \arg\min_k || x^{(i)} - \mu_k ||^2</script></li>
+<li><p><strong>更新阶段</strong> —— <em>对应 M-step</em><br>重新计算每个簇的<strong>中心</strong>：</p>
+<script type="math/tex; mode=display">
+\mu_k = \frac{1}{|C_k|} \sum_{x \in C_k} x</script></li>
+<li><p><strong>收敛判断</strong>：<br>重复步骤 2 和 3，直到中心位置不再变化或变化非常小（小于阈值）。</p>
+</li>
+</ol>
+<h3 id="4-初值选择的解决（K-means-）"><a href="#4-初值选择的解决（K-means-）" class="headerlink" title="(4). 初值选择的解决（K-means++）"></a>(4). 初值选择的解决（K-means++）</h3><ul>
+<li><strong>问题</strong>：传统的随机初始化可能导致陷入局部最优解。</li>
+<li><strong>解法：K-Means++</strong>：<ul>
+<li>第一个质心随机选。</li>
+<li>后续质心选择时，距离当前已有质心<strong>越远的点，被选中的概率越大</strong>。</li>
+<li>以此优化初始质心的分布。</li>
+</ul>
+</li>
+</ul>
+<p>（优点：减少局部最优风险，加快收敛速度，更好聚类效果）</p>
+<h3 id="5-优缺点分析"><a href="#5-优缺点分析" class="headerlink" title="(5). 优缺点分析"></a>(5). 优缺点分析</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">优点</th>
+<th style="text-align:left">缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>原理简单</strong>，易于理解和实现。</td>
+<td style="text-align:left"><strong>需要预先指定 K 值（k-means++/elbow方法）</strong>，且 K 值对结果影响大。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>收敛速度快</strong>，时间复杂度近乎线性 $O(N \cdot K \cdot M)$。</td>
+<td style="text-align:left"><strong>对初始中心选择敏感</strong>，可能陷入局部最优。</td>
+</tr>
+<tr>
+<td style="text-align:left">适合处理球状分布、密集的簇。</td>
+<td style="text-align:left"><strong>噪声敏感</strong>，噪声会拉偏均值。</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"><strong>无法处理非凸形状，且高维数据处理能力差</strong> 。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 id="第十一章-奇异值分解"><a href="#第十一章-奇异值分解" class="headerlink" title="第十一章 奇异值分解"></a>第十一章 奇异值分解</h1><h2 id="1-基础概念"><a href="#1-基础概念" class="headerlink" title="1. 基础概念"></a>1. 基础概念</h2><p><strong>矩阵分解的目的：</strong>方便计算、方便储存、数据压缩。</p>
+<script type="math/tex; mode=display">
+A_{m \times n} = U_{m \times m} \Sigma_{m \times n} V^T_{n \times n} =diag（\sigma_1,\sigma_2...\sigma_n）</script><p>其中，$U、V$ 都是正交矩阵，$\Sigma$ 是对角阵（从大到小排）；diag（ ）为奇异值的对角阵。</p>
+<ul>
+<li>奇异值分解不要求A是方阵。</li>
+<li><strong>奇异值分解基本定理</strong>：奇异值分解对任意实矩阵都存在。</li>
+</ul>
+<h3 id="1-奇异值分解基本定理证明"><a href="#1-奇异值分解基本定理证明" class="headerlink" title="(1). 奇异值分解基本定理证明"></a>(1). 奇异值分解基本定理证明</h3><ul>
+<li>证明不要求。</li>
+</ul>
+<h3 id="2-SVD-的几何意义"><a href="#2-SVD-的几何意义" class="headerlink" title="(2). SVD 的几何意义"></a>(2). SVD 的几何意义</h3><ul>
+<li>$m \times n$ 矩阵A: <strong>表示从 n 维空间 $R_n$ 到 m 维空间 $R_m$ 的一个线性变换</strong>。</li>
+</ul>
+<p>对于任意矩阵 $A = U \Sigma V^T$，其线性变换的几何过程可以分解为：</p>
+<ol>
+<li><strong>旋转 ($V^T$)</strong>：<ul>
+<li>在输入空间（$R_n$）中进行旋转。</li>
+<li>目的是找到一组正交基（主方向），将其对齐到坐标轴。</li>
+</ul>
+</li>
+<li><strong>拉伸 ($\Sigma$)</strong>：<ul>
+<li>沿坐标轴方向进行缩放。</li>
+<li>缩放倍率即为<strong>奇异值</strong> $\sigma_i$。</li>
+<li>这一步将“单位圆/球”变换为“椭圆/椭球”。</li>
+</ul>
+</li>
+<li><strong>旋转 ($U$)</strong>：<ul>
+<li>将拉伸后的椭圆旋转到输出空间（$R_m$）的目标方向。</li>
+<li>$U$ 的列向量即为椭圆的主轴方向。</li>
+</ul>
+</li>
+</ol>
+<p><strong>直观理解</strong>：任何线性变换本质上都是把一个圆（或球）拉伸成一个椭圆（或椭球），SVD 让这个过程直观化。</p>
+<h3 id="3-奇异值分解的不唯一性"><a href="#3-奇异值分解的不唯一性" class="headerlink" title="(3). 奇异值分解的不唯一性"></a>(3). 奇异值分解的不唯一性</h3><ul>
+<li>$\Sigma$ 是唯一的，但是 $U、V$ 是不唯一的。</li>
+</ul>
+<h2 id="2-紧奇异值分解-amp-截断奇异值分解"><a href="#2-紧奇异值分解-amp-截断奇异值分解" class="headerlink" title="2. 紧奇异值分解 &amp; 截断奇异值分解"></a>2. 紧奇异值分解 &amp; 截断奇异值分解</h2><h3 id="1-紧奇异值分解"><a href="#1-紧奇异值分解" class="headerlink" title="(1). 紧奇异值分解"></a>(1). 紧奇异值分解</h3><p><strong>核心概念</strong>：去伪存真。只保留<strong>非零</strong>奇异值及其对应的奇异向量（即秩 $r$）。</p>
+<ul>
+<li><strong>定义</strong>：去掉 $\Sigma$ 中为 0 的奇异值，以及 $U$ 和 $V$ 中对应的列（这些列对应于零空间，对重构 $A$ 没有贡献）。</li>
+<li><strong>公式</strong>：<script type="math/tex; mode=display">
+  A = U_r \Sigma_r V_r^T</script></li>
+<li><strong>维度</strong>：<ul>
+<li>$U_r$: $m \times r$</li>
+<li>$\Sigma_r$: $r \times r$ (无零元素的方阵)</li>
+<li>$V_r^T$: $r \times n$</li>
+</ul>
+</li>
+<li><strong>特点</strong>：<strong>无损分解</strong>。计算结果严格等于原矩阵 $A$，相比完整 SVD 更节省存储空间。</li>
+</ul>
+<h3 id="2-截断奇异值分解"><a href="#2-截断奇异值分解" class="headerlink" title="(2). 截断奇异值分解"></a>(2). 截断奇异值分解</h3><p><strong>核心概念</strong>：抓大放小。只保留<strong>前 $k$ 个</strong>最大的奇异值（$k &lt; r$）。</p>
+<ul>
+<li><strong>定义</strong>：人为设定超参数 $k$，认为较小的奇异值是噪音并将其舍弃，仅保留主要特征。</li>
+<li><strong>公式</strong>：<script type="math/tex; mode=display">
+  A \approx A_k = U_k \Sigma_k V_k^T</script></li>
+<li><strong>维度</strong>：<ul>
+<li>$U_k$: $m \times k$</li>
+<li>$\Sigma_k$: $k \times k$</li>
+<li>$V_k^T$: $k \times n$</li>
+</ul>
+</li>
+<li><strong>特点</strong>：<strong>有损近似</strong>。它是原矩阵 $A$ 的最佳低秩近似（Best Low-Rank Approximation），常用于<strong>LSA（潜在语义分析）</strong>、<strong>图像压缩</strong>和<strong>降噪</strong>。 </li>
+</ul>
+<h2 id="3-奇异值分解的计算"><a href="#3-奇异值分解的计算" class="headerlink" title="3. 奇异值分解的计算"></a>3. 奇异值分解的计算</h2><h3 id="1-计算流程"><a href="#1-计算流程" class="headerlink" title="(1). 计算流程"></a>(1). 计算流程</h3><ol>
+<li><p>求右奇异向量 $V$</p>
+<ul>
+<li><strong>构建对称阵</strong>：计算 $W = A^T A$。</li>
+<li><strong>特征分解</strong>：求 $W$ 的特征值 $\lambda_i$ 和特征向量 $v_i$。</li>
+<li><strong>排序</strong>：将特征值按降序排列 $\lambda_1 \ge \lambda_2 \ge \dots \ge 0$。</li>
+<li><strong>单位化</strong>：将特征向量归一化（长度为1）。</li>
+<li><strong>构造 $V$</strong>：$V = [v_1, v_2, \dots, v_n]$。</li>
+</ul>
+</li>
+<li><p>求奇异值矩阵 $\Sigma$</p>
+<ul>
+<li><strong>计算奇异值</strong>：$\sigma_i = \sqrt{\lambda_i}$。</li>
+<li><strong>构造 $\Sigma$</strong>：将 $\sigma_i$ 填入对角矩阵的主对角线，其余位置补 0。</li>
+</ul>
+</li>
+<li><p>求左奇异向量 $U$</p>
+<ul>
+<li><strong>非零奇异值部分</strong>：利用公式直接计算对应的 $u_i$：<script type="math/tex; mode=display">
+u_i = \frac{1}{\sigma_i} A v_i</script></li>
+<li><strong>零奇异值/维度缺失部分</strong>：若 $\sigma_i = 0$ （直接找与 $u_i$ 垂直的向量即可）或矩阵 $A$ 行数大于列数（$m &gt; n$），需利用 <strong>Gram-Schmidt 正交化</strong> 在 $U$ 的正交补空间中寻找剩余的单位向量，以补全标准正交基。</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p><strong>注意</strong>：此方法（利用 $A^T A$）仅适用于手算练习。计算机数值计算通常采用 <strong>Golub-Kahan 双对角化算法</strong>，以避免 $A^T A$ 带来的条件数平方和精度损失。</p>
+</blockquote>
+<h3 id="2-矩阵的外积展开式（重点看一下）"><a href="#2-矩阵的外积展开式（重点看一下）" class="headerlink" title="(2). 矩阵的外积展开式（重点看一下）"></a>(2). 矩阵的外积展开式（重点看一下）</h3><script type="math/tex; mode=display">
+A = U\Sigma V^T, \Sigma = \text{diag}(\sigma_1, \sigma_2, \cdots, \sigma_p)</script><ul>
+<li>矩阵 $A$ 的奇异值分解 $U\Sigma V^T$ 也可以由 <strong>外积</strong> 形式表示</li>
+<li>将 $A$ 的奇异值分解看成矩阵 $U\Sigma$ 和 $V^T$ 的乘积</li>
+<li>将 $U\Sigma$ 按照列向量分块，将 $V^T$ 按行向量分块，即得<script type="math/tex; mode=display">
+  U\Sigma = [\sigma_1 u_1 \quad \sigma_2 u_2 \quad \cdots \quad \sigma_n u_n]</script><script type="math/tex; mode=display">
+  V^T = \begin{bmatrix} v_1^T \\ v_2^T \\ \vdots \\ v_n^T \end{bmatrix}</script></li>
+<li>则<script type="math/tex; mode=display">
+  A = (U\Sigma)V^T = \sigma_1 u_1 v_1^T + \sigma_2 u_2 v_2^T + \cdots + \sigma_n u_n v_n^T</script></li>
+</ul>
+<p><strong>最优近似矩阵：</strong></p>
+<ul>
+<li>若 $A$ 的秩为 $r$，则<script type="math/tex; mode=display">
+  A = \sigma_1 u_1 v_1^T + \sigma_2 u_2 v_2^T + \cdots + \sigma_r u_r v_r^T</script></li>
+<li>设矩阵<script type="math/tex; mode=display">
+  A_k = \sigma_1 u_1 v_1^T + \sigma_2 u_2 v_2^T + \cdots + \sigma_k u_k v_k^T</script></li>
+<li>矩阵 $A_k$ 就是 $A$ 的截断奇异值分解</li>
+<li>$A_k$ 的秩为 $k$，并且 $A_k$ 是秩为 $k$ 的矩阵中在 <strong>弗罗贝尼乌斯范数意义</strong> 下 $A$ 的 <strong>最优近似矩阵</strong></li>
+<li>由于通常奇异值递减很快，所以 $k$ 取很小值时，$A_k$ 也可以对 $A$ 有很好的近似</li>
+</ul>
+<p><strong>矩阵的 F 范数：</strong></p>
+<ul>
+<li>衡量两个矩阵的相似度。  </li>
+</ul>
+<p>设矩阵 $A \in R^{m \times n}$， $A$ 的奇异值分解为 $U \Sigma V^T$，其中 $\Sigma = \text{diag}(\sigma_1, \sigma_2, \dots, \sigma_n)$，则：</p>
+<script type="math/tex; mode=display">
+\|A\|_F = (\sigma_1^2 + \sigma_2^2 + \cdots + \sigma_n^2)^{\frac{1}{2}}</script><p><strong>定理15.3：</strong><br><img src="2025-12-09-21-02-32.png" alt=""></p>
+<ul>
+<li>$X$ 是 $A$ 的最优近似，因为它们的 F 范数最小。</li>
+<li>k 截断的矩阵等价于最优近似。</li>
+</ul>
+<h2 id="SVD的性质（5条）"><a href="#SVD的性质（5条）" class="headerlink" title="SVD的性质（5条）"></a>SVD的性质（5条）</h2><p><img src="2025-12-18-14-42-08.png" alt=""><br><img src="2025-12-18-14-41-12.png" alt=""><br><img src="2025-12-18-14-41-33.png" alt=""><br><img src="2025-12-18-14-42-29.png" alt=""></p>
+<h1 id="第十二章-主成分分析"><a href="#第十二章-主成分分析" class="headerlink" title="第十二章 主成分分析"></a>第十二章 主成分分析</h1><p>关键词：<code>无监督、降维、效率高、更好泛化能力</code></p>
+<ul>
+<li>尽量减少信息损失的情况下，把复杂高维数据压缩成简单低维数据。</li>
+<li>利用正交变换把由线性相关变量表示的观测数据转换为少数几个由<strong>线性无关</strong>变量 (主成分) 表示的数据。</li>
+</ul>
+<p><strong>在数据总体/有限样本上进行的主成分分析称为总体/样本主成分分析：</strong><br><em>总体主成分分析是样本主成分分析的基础</em></p>
+<h2 id="1-总体主成分分析"><a href="#1-总体主成分分析" class="headerlink" title="1. 总体主成分分析"></a>1. 总体主成分分析</h2><ul>
+<li>选择<strong>方差最大</strong>的方向 (第一主成分) 作为新坐标系的第一坐标轴, 即y1轴。</li>
+<li>选择与第一坐标轴正交, 且方差次之的方向 (第二主成分) 作为新坐标系的第二坐标轴, 即y2轴。</li>
+</ul>
+<p><img src="2025-12-11-15-37-07.png" alt=""></p>
+<h2 id="2-样本主成分分析"><a href="#2-样本主成分分析" class="headerlink" title="2. 样本主成分分析"></a>2. 样本主成分分析</h2><p><img src="2025-12-11-15-34-08.png" alt=""></p>
+<h2 id="3-定理-16-1"><a href="#3-定理-16-1" class="headerlink" title="3. 定理 16.1"></a>3. 定理 16.1</h2><p><strong>1. 定理 16.1</strong> 设 $x$ 是 $m$ 维随机变量，$\Sigma$ 是 $x$ 的协方差矩阵，$\Sigma$ 的特征值分别是 $\lambda_1 \ge \lambda_2 \ge \cdots \ge \lambda_m \ge 0$，特征值对应的单位特征向量分别是 $\alpha_1, \alpha_2, \cdots, \alpha_m$，则 $x$ 的第 $k$ 主成分是</p>
+<script type="math/tex; mode=display">y_k = \alpha_k^T x = \alpha_{1k}x_1 + \alpha_{2k}x_2 + \cdots + \alpha_{mk}x_m, k=1, 2, \cdots, m \quad (16.5)</script><p>$x$ 的第 $k$ 主成分的方差是</p>
+<script type="math/tex; mode=display">\text{var}(y_k) = \alpha_k^T \Sigma \alpha_k = \lambda_k, k=1, 2, \cdots, m \quad (16.6)</script><p>即协方差矩阵 $\Sigma$ 的第 $k$ 个特征值。</p>
+<p><strong>2. 例题 16.1：</strong></p>
+<p><strong>例 16.1</strong> 假设有 $n$ 个学生参加四门课程的考试，将学生们的考试成绩看作随机变量的取值，对考试成绩数据进行标准化处理，得到样本相关矩阵 $R$，列于表 16.1。</p>
+<p><strong>表 16.1 样本相关矩阵 $R$</strong></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">课程</th>
+<th style="text-align:center">语文</th>
+<th style="text-align:center">外语</th>
+<th style="text-align:center">数学</th>
+<th style="text-align:center">物理</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">语文</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0.44</td>
+<td style="text-align:center">0.29</td>
+<td style="text-align:center">0.33</td>
+</tr>
+<tr>
+<td style="text-align:left">外语</td>
+<td style="text-align:center">0.44</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0.35</td>
+<td style="text-align:center">0.32</td>
+</tr>
+<tr>
+<td style="text-align:left">数学</td>
+<td style="text-align:center">0.29</td>
+<td style="text-align:center">0.35</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0.60</td>
+</tr>
+<tr>
+<td style="text-align:left">物理</td>
+<td style="text-align:center">0.33</td>
+<td style="text-align:center">0.32</td>
+<td style="text-align:center">0.60</td>
+<td style="text-align:center">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>试对数据进行主成分分析。</p>
+<p><strong>解</strong> 设变量 $x_1, x_2, x_3, x_4$ 分别表示语文、外语、数学、物理的成绩。对样本相关矩阵进行特征值分解，得到相关矩阵的特征值，并按大小排序：</p>
+<script type="math/tex; mode=display">\lambda_1 = 2.17, \lambda_2 = 0.87, \lambda_3 = 0.57, \lambda_4 = 0.39</script><p>这些特征值就是各主成分的方差贡献率。假设要求主成分的累计方差贡献率大于 75%，那么只需取前两个主成分即可，即 $k=2$，因为</p>
+<script type="math/tex; mode=display">\frac{\lambda_1 + \lambda_2}{\sum_{j=1}^{4} \lambda_j} = 0.76</script><p>求出对应于特征值 $\lambda_1, \lambda_2$ 的单位特征向量，列于表 16.2，表中最后一列为主成分的方差贡献率。</p>
+<p><strong>表 16.2 单位特征向量和主成分的方差贡献率</strong></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">项目</th>
+<th style="text-align:center">$x_1$</th>
+<th style="text-align:center">$x_2$</th>
+<th style="text-align:center">$x_3$</th>
+<th style="text-align:center">$x_4$</th>
+<th style="text-align:center">方差贡献率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">$y_1$</td>
+<td style="text-align:center">0.460</td>
+<td style="text-align:center">0.476</td>
+<td style="text-align:center">0.523</td>
+<td style="text-align:center">0.537</td>
+<td style="text-align:center">0.543</td>
+</tr>
+<tr>
+<td style="text-align:left">$y_2$</td>
+<td style="text-align:center">0.574</td>
+<td style="text-align:center">0.486</td>
+<td style="text-align:center">-0.476</td>
+<td style="text-align:center">-0.456</td>
+<td style="text-align:center">0.218</td>
+</tr>
+</tbody>
+</table>
+</div>
+<script type="math/tex; mode=display">
+\text{方差贡献率} =\frac{该成分特征值}{特征值总和}</script><p>由此按照式(16.50)可得第一、第二主成分：</p>
+<script type="math/tex; mode=display">y_1 = 0.460x_1 + 0.476x_2 + 0.523x_3 + 0.537x_4</script><script type="math/tex; mode=display">y_2 = 0.574x_1 + 0.486x_2 - 0.476x_3 - 0.456x_4</script><p>这就是主成分分析的结果。变量 $y_1$ 和 $y_2$ 表示第一、第二主成分。</p>
+<p>接下来由特征值和单位特征向量求出第一、第二主成分的因子负荷量，以及第一、第二主成分对变量 $x_i$ 的贡献率，列于表 16.3。</p>
+<p><strong>表 16.3 主成分的因子负荷量和贡献率</strong></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">项目</th>
+<th style="text-align:center">$x_1$</th>
+<th style="text-align:center">$x_2$</th>
+<th style="text-align:center">$x_3$</th>
+<th style="text-align:center">$x_4$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">$y_1$</td>
+<td style="text-align:center">0.678</td>
+<td style="text-align:center">0.701</td>
+<td style="text-align:center">0.770</td>
+<td style="text-align:center">0.791</td>
+</tr>
+<tr>
+<td style="text-align:left">$y_2$</td>
+<td style="text-align:center">0.536</td>
+<td style="text-align:center">0.453</td>
+<td style="text-align:center">-0.444</td>
+<td style="text-align:center">-0.425</td>
+</tr>
+<tr>
+<td style="text-align:left">$y_1, y_2$ 对 $x_i$ 的贡献率</td>
+<td style="text-align:center">0.747</td>
+<td style="text-align:center">0.697</td>
+<td style="text-align:center">0.790</td>
+<td style="text-align:center">0.806</td>
+</tr>
+</tbody>
+</table>
+</div>
+<script type="math/tex; mode=display">
+\text{因子负荷量} = \sqrt{\text{特征值}} \times \text{对应特征向量分量}</script><script type="math/tex; mode=display">
+\text{贡献率}= \Sigma(\text{因子负荷量})^2</script><p>从表 16.3 中可以看出，第一主成分 $y_1$ 对应的因子负荷量 $\rho(y_1, x_i), i=1,2,3,4$，均为正数，表明各门课程成绩提高都可使 $y_1$ 提高，也就是说，第一主成分 $y_1$ 反映了学生的整体成绩，还可以看出，因子负荷量的数值相近，且 $\rho(y_1, x_4)$ 的数值最大，这表明物理成绩在整体成绩中占最重要位置。</p>
+<p>第二主成分 $y_2$ 对应的因子负荷量 $\rho(y_2, x_i), i=1,2,3,4$，有正有负，正的是语文和外语，负的是数学和物理，表明文科成绩提高都可使 $y_2$ 提高，而理科成绩提高都可使 $y_2$ 降低，也就是说，第二主成分 $y_2$ 反映了学生的文科成绩与理科成绩的关系。</p>
+<p>图 16.3 将原变量 $x_1, x_2, x_3, x_4$（分别表示语文、外语、数学、物理）和主成分 $y_1, y_2$（分别表示整体成绩、文科对理科成绩）的因子负荷量在平面坐标系中表示，可以看出变量之间的关系，4 个原变量聚成了两类：因子负荷量相近的语文、外语为一类，数学、物理为一类，前者反映文科课程成绩，后者反映理科课程成绩。</p>
+<p><img src="2025-12-11-14-44-52.png" alt=""><br>(横轴为 y1 整体成绩，纵轴为 y2 文科成绩)</p>
+<p><strong>图 16.3 因子负荷量的分布图</strong>  </p>
+<ul>
+<li>未知相关系数矩阵 R 的情况：</li>
+</ul>
+<p><img src="2025-12-11-15-44-54.png" alt=""></p>
 ]]></content>
       <categories>
         <category>华理</category>
