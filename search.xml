@@ -1,16 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>写于2025最后一天</title>
-    <url>/2025/12/31/2025-12-31/</url>
-    <content><![CDATA[<p>“普鲁斯特提出了足以对抗统一时间的无数个瞬间，并赋予了它意义，记忆足以对抗线性时间，也就是说我们在记忆中得到永恒。当岁月流逝，所有的东西都消失殆尽时，唯有空中飘荡的气味、耳畔传来的声音、手中实在的触感还恋恋不散，让往事历历在目，如同昨日重现。”</p>
-<p>又是一年，希望明年可以更好，完成自己的目标。</p>
-]]></content>
-      <categories>
-        <category>随笔</category>
-      </categories>
-  </entry>
-  <entry>
     <title>人工智能原理与应用</title>
     <url>/2025/12/11/AI/</url>
     <content><![CDATA[<h1 id="第一章-绪论"><a href="#第一章-绪论" class="headerlink" title="第一章 绪论"></a>第一章 绪论</h1><p>智能：智能指人类在认识客观世界中，由思维过程和脑<br>力活动所表现出的综合能力。</p>
@@ -1653,6 +1643,16 @@ Steering angle = K_p \cdot e(t) + K_d \frac{\text{d}e(t)}{\text{d}t} + K_i \int_
       </categories>
   </entry>
   <entry>
+    <title>写于2025最后一天</title>
+    <url>/2025/12/31/2025-12-31/</url>
+    <content><![CDATA[<p>“普鲁斯特提出了足以对抗统一时间的无数个瞬间，并赋予了它意义，记忆足以对抗线性时间，也就是说我们在记忆中得到永恒。当岁月流逝，所有的东西都消失殆尽时，唯有空中飘荡的气味、耳畔传来的声音、手中实在的触感还恋恋不散，让往事历历在目，如同昨日重现。”</p>
+<p>又是一年，希望明年可以更好，完成自己的目标。</p>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+  </entry>
+  <entry>
     <title>专业前沿讲座报告</title>
     <url>/2025/11/26/lecture-report/</url>
     <content><![CDATA[<blockquote>
@@ -1733,20 +1733,17 @@ Steering angle = K_p \cdot e(t) + K_d \frac{\text{d}e(t)}{\text{d}t} + K_i \int_
     <content><![CDATA[<p>写在前面：这门课很抽象，老师也很抽象。但是有很多上学期学的东西。</p>
 <h1 id="注意力机制"><a href="#注意力机制" class="headerlink" title="注意力机制"></a>注意力机制</h1><h2 id="0-传统序列网络的痛点与变迁背景"><a href="#0-传统序列网络的痛点与变迁背景" class="headerlink" title="0. 传统序列网络的痛点与变迁背景"></a>0. 传统序列网络的痛点与变迁背景</h2><p>在处理序列数据（如文本、时间序列）时，传统的循环神经网络（RNN/LSTM/GRU）和卷积神经网络（CNN）存在着难以克服的底层架构缺陷：</p>
 <ul>
-<li><p><strong>传统 RNN / LSTM / GRU 的缺陷：</strong></p>
-<ul>
+<li><strong>传统 RNN / LSTM / GRU 的缺陷：</strong><ul>
 <li><strong>长距离依赖问题（信息稀释与挤压 Information Squashing）：</strong> 传统的循环网络必须将过去所有时间步的信息，强行压缩到一个固定长度的隐藏状态（Hidden State）中。随着序列增长，后续的新信息会像倒水一样不断注入，把早期的关键记忆无限压缩、覆盖。最终在句尾时，早期的关键信息已被稀释得像一根微弱的“信息肉丝”（例如疑问词 “What” 在句尾几乎被遗忘）。</li>
 <li><strong>串行计算瓶颈：</strong> 每一个时间步的计算都强烈依赖上一个时间步的时间流输出（必须算完 $O_1$ 才能算 $O_2$），导致模型无法在高性能显卡（GPU）上进行彻底的并行化轰炸，极大地限制了训练速度。</li>
-<li><strong>LSTM 的挽救与局限：</strong> LSTM 引入了“长期记忆传送带（Cell State）”和三个门控机制（遗忘门、输入门、输出门），通过选择性保留和删除信息极大地缓解了梯度消失。然而，其依然没有逃脱“循环（Recurrent）”的宿命，仍然存在串行计算和跳级困难的瓶颈。</li>
+<li><strong>LSTM 的挽救与局限：</strong> LSTM 引入了“长期记忆传送带（Cell State）”和三个门控机制（遗忘门、输入门、输出门），通过选择性保留和删除信息极大地缓解了梯度消失。然而，其依然没有逃脱“循环（Recurrent）”的宿命，仍然存在串行计算和跳级困难的瓶颈。<br><img src="2026-05-27-11-02-06.png" alt=""></li>
 </ul>
 </li>
-<li><p><strong>传统 CNN 的缺陷：</strong></p>
-<ul>
-<li><strong>局部感受野受限：</strong> 单层卷积只能捕捉到滑动窗口内的局部特征。如果主语和谓语隔得很远，单层 CNN 在处理谓语时根本看不到主语，无法直接建立长距离的语法联系，必须通过堆叠多层卷积才能间接、缓慢地扩大视野。</li>
+<li><strong>传统 CNN 的缺陷：</strong><ul>
+<li><strong>局部感受野受限：</strong> 单层卷积只能捕捉到滑动窗口内的局部特征。如果主语和谓语隔得很远，单层 CNN 在处理谓语时根本看不到主语，无法直接建立长距离的语法联系，必须通过堆叠多层卷积才能间接、缓慢地扩大视野。<br><img src="2026-05-27-11-01-11.png" alt=""><br><strong>注意力机制（Attention Mechanism）的颠覆式核心思想：</strong><br>彻底砍断空间窗口和时间链条的限制，允许模型在计算任何一个位置的特征时，都能够直接拉一根线<strong>“回头看”</strong>整个输入序列，不通过任何“中间商”，直接建立起 <strong>$O(1)$ 步直达的非局部（Non-local）全局依赖关系</strong>。</li>
 </ul>
 </li>
 </ul>
-<p><strong>注意力机制（Attention Mechanism）的颠覆式核心思想：</strong><br>彻底砍断空间窗口和时间链条的限制，允许模型在计算任何一个位置的特征时，都能够直接拉一根线<strong>“回头看”</strong>整个输入序列，不通过任何“中间商”，直接建立起 <strong>$O(1)$ 步直达的非局部（Non-local）全局依赖关系</strong>。</p>
 <hr>
 <h2 id="1-注意力机制的核心概念与三大标准工作流"><a href="#1-注意力机制的核心概念与三大标准工作流" class="headerlink" title="1. 注意力机制的核心概念与三大标准工作流"></a>1. 注意力机制的核心概念与三大标准工作流</h2><h3 id="1-1-核心出发点：如何表示任务相关性？"><a href="#1-1-核心出发点：如何表示任务相关性？" class="headerlink" title="1.1 核心出发点：如何表示任务相关性？"></a>1.1 核心出发点：如何表示任务相关性？</h3><p>为了量化“当前任务和哪些信息相关”，注意力机制引入了 <strong>Query（查询向量，通常用 $q$ 表示）</strong>：</p>
 <ul>
@@ -1856,7 +1853,7 @@ Steering angle = K_p \cdot e(t) + K_d \frac{\text{d}e(t)}{\text{d}t} + K_i \int_
 <li><strong>可视化结果证明：</strong> 经过充分训练后，模型能自动总结规律。在<strong>浅层网络</strong>，注意力分支会自发形成低阶特征掩码（如 Sky Mask 关注天空和颜色）；在<strong>深层网络</strong>，则会自发精准锁定高阶语义掩码（如 Balloon Instance Mask 自动抠出热气球实体），通过乘法滤除所有背景噪声。</li>
 </ul>
 <hr>
-<h2 id="5-注意力机制在-NLP-三大常见任务中的落地"><a href="#5-注意力机制在-NLP-三大常见任务中的落地" class="headerlink" title="5. 注意力机制在 NLP 三大常见任务中的落地"></a>5. 注意力机制在 NLP 三大常见任务中的落地</h2><p><img src="2026-05-26-17-41-05.png" alt=""><br>看懂应用图的关键在于：<strong>准确识别谁扮演了 Query ($q$)，谁扮演了被查询的输入特征。</strong></p>
+<h2 id="5-注意力机制在-NLP-三大常见任务中的落地"><a href="#5-注意力机制在-NLP-三大常见任务中的落地" class="headerlink" title="5. 注意力机制在 NLP 三大常见任务中的落地"></a>5. 注意力机制在 NLP 三大常见任务中的落地</h2><p>看懂应用图的关键在于：<strong>准确识别谁扮演了 Query ($q$)，谁扮演了被查询的输入特征。</strong><br><img src="2026-05-27-10-59-51.png" alt=""></p>
 <h3 id="a-文本分类任务-Text-Classification"><a href="#a-文本分类任务-Text-Classification" class="headerlink" title="(a) 文本分类任务 (Text Classification)"></a>(a) 文本分类任务 (Text Classification)</h3><ul>
 <li><strong>Query ($q$) 扮演者：</strong> 任务目标标签向量 $c$（随网络训练的特殊向量，代表分类任务的终极目标）。</li>
 <li><strong>被查询输入 ($x$)：</strong> 输入文本通过 RNN 后得到的单词特征序列（$h_1, h_2, h_3, h_4$）。</li>
@@ -1878,8 +1875,7 @@ Steering angle = K_p \cdot e(t) + K_d \frac{\text{d}e(t)}{\text{d}t} + K_i \int_
 <li>机器翻译 (c) 属于<strong>生成任务</strong>，评估翻译质量的国际标准指标是 <strong>BLEU Score</strong>。</li>
 </ul>
 <hr>
-<h2 id="6-自注意力机制-Self-Attention-从微观到宏观矩阵的完整推导"><a href="#6-自注意力机制-Self-Attention-从微观到宏观矩阵的完整推导" class="headerlink" title="6. 自注意力机制 (Self-Attention) 从微观到宏观矩阵的完整推导"></a>6. 自注意力机制 (Self-Attention) 从微观到宏观矩阵的完整推导</h2><h3 id="6-1-自注意力与传统全连接（MLP）的本质区别"><a href="#6-1-自注意力与传统全连接（MLP）的本质区别" class="headerlink" title="6.1 自注意力与传统全连接（MLP）的本质区别"></a>6.1 自注意力与传统全连接（MLP）的本质区别</h3><p><img src="2026-05-26-17-44-33.png" alt=""></p>
-<ul>
+<h2 id="6-自注意力机制-Self-Attention-从微观到宏观矩阵的完整推导"><a href="#6-自注意力机制-Self-Attention-从微观到宏观矩阵的完整推导" class="headerlink" title="6. 自注意力机制 (Self-Attention) 从微观到宏观矩阵的完整推导"></a>6. 自注意力机制 (Self-Attention) 从微观到宏观矩阵的完整推导</h2><h3 id="6-1-自注意力与传统全连接（MLP）的本质区别"><a href="#6-1-自注意力与传统全连接（MLP）的本质区别" class="headerlink" title="6.1 自注意力与传统全连接（MLP）的本质区别"></a>6.1 自注意力与传统全连接（MLP）的本质区别</h3><ul>
 <li><strong>全连接模型：</strong> 试图利用固定的特征矩阵 $W$ 硬性连接所有输入输出。<strong>缺陷：</strong> 矩阵形状被焊死，<strong>无法处理变长序列问题</strong>，且面对长文本时会产生<strong>参数爆炸</strong>。</li>
 <li><strong>自注意力模型：</strong> 任意两个词之间的连接权重 $\alpha_{ij}$ <strong>完全由输入内容当场动态生成</strong>。参数投影矩阵的大小只与特征维度 $D$ 有关，与序列长度 $N$ 毫无关系，完美通杀任意长短的变长问题。</li>
 </ul>
@@ -1892,11 +1888,12 @@ Steering angle = K_p \cdot e(t) + K_d \frac{\text{d}e(t)}{\text{d}t} + K_i \int_
 <ul>
 <li><strong>为什么叫“自”注意力？</strong> 提问者、索引档案、实质内容，全都是这一句话（同一个序列）自己内部左手倒右手变出来的，无需外部信息构造任务，属于完全自给自足。</li>
 </ul>
-<h3 id="6-3-微观单位置计算流程（以计算第二个位置的输出-b-2-为例）"><a href="#6-3-微观单位置计算流程（以计算第二个位置的输出-b-2-为例）" class="headerlink" title="6.3 微观单位置计算流程（以计算第二个位置的输出 $b^2$ 为例）"></a>6.3 微观单位置计算流程（以计算第二个位置的输出 $b^2$ 为例）</h3><ol>
+<h3 id="6-3-微观单位置计算流程（以计算第二个位置的输出-b-2-为例）"><a href="#6-3-微观单位置计算流程（以计算第二个位置的输出-b-2-为例）" class="headerlink" title="6.3 微观单位置计算流程（以计算第二个位置的输出 $b^2$ 为例）"></a>6.3 微观单位置计算流程（以计算第二个位置的输出 $b^2$ 为例）</h3><p><img src="![](2026-05-27-11-05-49.png" alt="">.png)</p>
+<ol>
 <li><strong>身份产生：</strong> 输入 $a^2$ 乘以 $W^q$ 产生当前的主角 $q^2$；全场所有人（包括自己）乘以 $W^k$ 产生档案标签 $k^1, k^2, k^3, k^4$。</li>
 <li><strong>点乘打分：</strong> $q^2$ 跨越空间长线，主动去和全场所有的 $k^j$ 做向量内积点乘，现算原始亲密度得分：<script type="math/tex; mode=display">\alpha_{2,1} = \boldsymbol{q}^2 \cdot \boldsymbol{k}^1, \quad \alpha_{2,2} = \boldsymbol{q}^2 \cdot \boldsymbol{k}^2, \quad \alpha_{2,3} = \boldsymbol{q}^2 \cdot \boldsymbol{k}^3, \quad \alpha_{2,4} = \boldsymbol{q}^2 \cdot \boldsymbol{k}^4</script></li>
-<li><strong>列 Softmax 归一化：</strong> 将这一组野生得分塞进 Softmax。<strong>注意：Softmax 是严格按列（Column-wise）单独进行的</strong>，因为 $q^2$ 的精力（100% 注意力）必须在属于它自己的那一列里被瓜分完毕，压榨出亮晶晶的概率权重 $\alpha’<em>{2,1}, \alpha’</em>{2,2}, \alpha’<em>{2,3}, \alpha’</em>{2,4}$。</li>
-<li><strong>加权提取与聚合：</strong> 将归一化权重与各自位置的干货内容向量 $v^j$ 在乘法节点相乘（信息过滤），最后沿着红色总线全部加起来，吐出全新的融合特征 $b^2$：<script type="math/tex; mode=display">\boldsymbol{b}^2 = \sum_{i=1}^4 \alpha'_{2,i} \boldsymbol{v}^i</script></li>
+<li><strong>列 Softmax 归一化：</strong> 将这一组野生得分塞进 Softmax。<strong>注意：Softmax 是严格按列（Column-wise）单独进行的</strong>，因为 $q^2$ 的精力（100% 注意力）必须在属于它自己的那一列里被瓜分完毕，输出概率权重 $\alpha’<em>{2,1}, \alpha’</em>{2,2}, \alpha’<em>{2,3}, \alpha’</em>{2,4}$。</li>
+<li><strong>加权提取与聚合：</strong> 将归一化权重与各自位置的内容向量 $v^j$ 在乘法节点相乘（信息过滤），最后沿着红色总线全部加起来，吐出全新的融合特征 $b^2$：<script type="math/tex; mode=display">\boldsymbol{b}^2 = \sum_{i=1}^4 \alpha'_{2,i} \boldsymbol{v}^i</script><img src="2026-05-27-11-10-37.png" alt=""></li>
 </ol>
 <h3 id="⚠️-重要的师承记号避坑指南（考试必看）"><a href="#⚠️-重要的师承记号避坑指南（考试必看）" class="headerlink" title="⚠️ 重要的师承记号避坑指南（考试必看）"></a>⚠️ 重要的师承记号避坑指南（考试必看）</h3><ul>
 <li>国际通用论文习惯将输入写成<strong>行向量</strong>，公式写成 $\boldsymbol{Q} = \boldsymbol{X}\boldsymbol{W}_Q$（权重在右）。</li>
@@ -1905,20 +1902,22 @@ Steering angle = K_p \cdot e(t) + K_d \frac{\text{d}e(t)}{\text{d}t} + K_i \int_
 </ul>
 <h3 id="6-4-宏观-GPU-硬件并行的矩阵形态四步走"><a href="#6-4-宏观-GPU-硬件并行的矩阵形态四步走" class="headerlink" title="6.4 宏观 GPU 硬件并行的矩阵形态四步走"></a>6.4 宏观 GPU 硬件并行的矩阵形态四步走</h3><p>在实际工程落地时，为了让 GPU 算力拉满，微观的拉线全部转变为爽快的四大矩阵大派对步骤：</p>
 <ul>
-<li><strong>第一步（全量映射）：</strong> 将输入矩阵 $\boldsymbol{I}$ 丢进去，一步到位批量生产出全场的 $Q, K, V$ 三大矩阵。</li>
-<li><strong>第二步（全场大碰撞）：</strong> 让 $K^T$ 矩阵直接乘以 $Q$ 矩阵，一瞬间爆出全场所有人看所有人的原始得分大矩阵：<script type="math/tex; mode=display">\text{Raw Scores} = \boldsymbol{K}^T \boldsymbol{Q}</script><em>(在此矩阵中，第 $i$ 行第 $j$ 列的格子就代表第 $j$ 个词去撞第 $i$ 个词算出的原始分数)</em></li>
+<li><strong>第一步（全量映射）：</strong> 将输入矩阵 $\boldsymbol{I}$ 丢进去，一步到位批量生产出全场的 $Q, K, V$ 三大矩阵。<img src="2026-05-27-11-12-16.png" alt=""></li>
+<li><strong>第二步（全场大碰撞）：</strong> 让 $K^T$ 矩阵直接乘以 $Q$ 矩阵，一瞬间爆出全场所有人看所有人的原始得分大矩阵：<script type="math/tex; mode=display">\text{Raw Scores} = \boldsymbol{K}^T \boldsymbol{Q}</script><img src="2026-05-27-11-14-00.png" alt=""><br><em>(在此矩阵中，第 $i$ 行第 $j$ 列的格子就代表第 $j$ 个词去撞第 $i$ 个词算出的原始分数)</em></li>
 <li><strong>第三步（列归一化）：</strong> 将大矩阵丢进 Softmax 轴中，按列归一化，得到全景注意力权重矩阵 $\boldsymbol{A}$：<script type="math/tex; mode=display">\boldsymbol{A} = \text{softmax}(\boldsymbol{K}^T \boldsymbol{Q})</script></li>
-<li><strong>第四步（干货打包）：</strong> 拿纯净的权重矩阵 $\boldsymbol{A}$ 直接乘以干货大矩阵 $\boldsymbol{V}$，一步直达产出整齐躺着所有脱胎换骨新特征的最终矩阵 $\boldsymbol{B}$：<script type="math/tex; mode=display">\boldsymbol{B} = \boldsymbol{A} \boldsymbol{V}</script></li>
+<li><strong>第四步（干货打包）：</strong> 拿纯净的权重矩阵 $\boldsymbol{A’}$ 直接乘以干货大矩阵 $\boldsymbol{V}$，一步直达产出整齐躺着所有脱胎换骨新特征的最终矩阵 $\boldsymbol{O}$：<script type="math/tex; mode=display">\boldsymbol{O} = \boldsymbol{A'} \boldsymbol{V}</script><img src="2026-05-27-11-14-57.png" alt=""></li>
 </ul>
 <hr>
 <h2 id="7-多头自注意力机制的完整收尾整合"><a href="#7-多头自注意力机制的完整收尾整合" class="headerlink" title="7. 多头自注意力机制的完整收尾整合"></a>7. 多头自注意力机制的完整收尾整合</h2><h3 id="7-1-多头分裂与独立前向流"><a href="#7-1-多头分裂与独立前向流" class="headerlink" title="7.1 多头分裂与独立前向流"></a>7.1 多头分裂与独立前向流</h3><p>当常规的 $\boldsymbol{q}^i, \boldsymbol{k}^i, \boldsymbol{v}^i$ 生成后，它们会再次乘以各自头部的独立小参数矩阵，分裂映射到不同的低维子空间中：</p>
-<script type="math/tex; mode=display">\boldsymbol{q}^{i,1} = \boldsymbol{W}^{q,1} \boldsymbol{q}^i, \quad \boldsymbol{q}^{i,2} = \boldsymbol{W}^{q,2} \boldsymbol{q}^i</script><ul>
+<script type="math/tex; mode=display">\boldsymbol{q}^{i,1} = \boldsymbol{W}^{q,1} \boldsymbol{q}^i, \quad \boldsymbol{q}^{i,2} = \boldsymbol{W}^{q,2} \boldsymbol{q}^i</script><p><img src="2026-05-27-11-17-56.png" alt=""><br><img src="2026-05-27-11-19-26.png" alt=""></p>
+<ul>
 <li><strong>头 1 (Head 1)：</strong> 拿着 $\boldsymbol{q}^{i,1}$ 专门去和全场的 $\boldsymbol{k}^{j,1}$ 碰撞，乘以 $\boldsymbol{v}^{j,1}$ 聚合成输出 <strong>$\boldsymbol{b}^{i,1}$</strong>。</li>
 <li><strong>头 2 (Head 2)：</strong> 在旁边完全独立地同时并行计算，聚合成输出 <strong>$\boldsymbol{b}^{i,2}$</strong>。</li>
 <li><strong>哲学论述点（Different types of relevance）：</strong> 不同的头代表了看待同一批输入信息的不同维度和视角。例如 Head 1 负责主谓对齐，Head 2 负责时态或代词对齐。</li>
 </ul>
 <h3 id="7-2-终极维度恢复与特征交融"><a href="#7-2-终极维度恢复与特征交融" class="headerlink" title="7.2 终极维度恢复与特征交融"></a>7.2 终极维度恢复与特征交融</h3><p>各个头交上各自视角的特征报告后，多头自注意力层利用顶部的终极公式进行收尾整合：</p>
-<script type="math/tex; mode=display">\boldsymbol{b}^i = \boldsymbol{W}^O \begin{bmatrix} \boldsymbol{b}^{i,1} \\ \boldsymbol{b}^{i,2} \end{bmatrix}</script><ol>
+<script type="math/tex; mode=display">\boldsymbol{b}^i = \boldsymbol{W}^O \begin{bmatrix} \boldsymbol{b}^{i,1} \\ \boldsymbol{b}^{i,2} \end{bmatrix}</script><p><img src="2026-05-27-11-18-21.png" alt=""></p>
+<ol>
 <li><strong>大拼接（Concatenation）：</strong> 将绿色小方块 $\boldsymbol{b}^{i,1}$ 和 $\boldsymbol{b}^{i,2}$ 纵向整齐地上下叠（拼接）在一起，组合成一个长向量。完美对应聚合机制中的“拼接”。</li>
 <li><strong>输出投影（$W^O$ 矩阵）：</strong> 引入可学习的输出权重矩阵 $\boldsymbol{W}^O$。它一方面作为“传话筒”让不同头捕捉到的特征进行深度的纵向交叉融合；另一方面在数学上起到降维映射的作用，将拉长的向量<strong>完美复原回模型最初设定的标准特征维度</strong>，吐出最终功德圆满的特征 $\boldsymbol{b}^i$。</li>
 </ol>
