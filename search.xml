@@ -1,169 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>写于2025最后一天</title>
-    <url>/2025/12/31/2025-12-31/</url>
-    <content><![CDATA[<p>“普鲁斯特提出了足以对抗统一时间的无数个瞬间，并赋予了它意义，记忆足以对抗线性时间，也就是说我们在记忆中得到永恒。当岁月流逝，所有的东西都消失殆尽时，唯有空中飘荡的气味、耳畔传来的声音、手中实在的触感还恋恋不散，让往事历历在目，如同昨日重现。”</p>
-<p>又是一年，希望明年可以更好，完成自己的目标。</p>
-]]></content>
-      <categories>
-        <category>随笔</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>人工智能原理与应用</title>
-    <url>/2025/12/11/AI/</url>
-    <content><![CDATA[<h1 id="第一章-绪论"><a href="#第一章-绪论" class="headerlink" title="第一章 绪论"></a>第一章 绪论</h1><p>智能：智能指人类在认识客观世界中，由思维过程和脑<br>力活动所表现出的综合能力。</p>
-<h2 id="智能包含的能力"><a href="#智能包含的能力" class="headerlink" title="智能包含的能力"></a>智能包含的能力</h2><p>  <img src="2025-12-11-19-04-02.png" alt=""></p>
-<h2 id="AI的研究目标"><a href="#AI的研究目标" class="headerlink" title="AI的研究目标"></a>AI的研究目标</h2><p>  <img src="2025-12-11-19-05-39.png" alt=""></p>
-<h2 id="三大学派"><a href="#三大学派" class="headerlink" title="三大学派"></a>三大学派</h2><p>  <img src="2025-12-11-19-07-05.png" alt=""><br>  <img src="2025-12-11-19-07-54.png" alt=""></p>
-<h2 id="新的发展"><a href="#新的发展" class="headerlink" title="新的发展"></a>新的发展</h2><p>  <img src="2025-12-11-19-08-50.png" alt=""></p>
-<h2 id="智能模拟方法"><a href="#智能模拟方法" class="headerlink" title="智能模拟方法"></a>智能模拟方法</h2><p>  <img src="2025-12-11-19-12-03.png" alt=""></p>
-<h2 id="推理"><a href="#推理" class="headerlink" title="推理"></a>推理</h2><p>  <strong>推理</strong>：是指按照某种策略从已知事实出发利用知识推出所需结论的过程。<br>  <strong>推理方法</strong>：归纳、演绎、（不）确定性推理</p>
-<h2 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h2><p>  <strong>搜索</strong>：依靠经验，利用已有知识，根据问题的实际情况，不断寻找可利用知识，从而构造一条代价最小的推理路线，使问题得以解决的过程。<br>  <strong>智能搜索</strong>：利用搜索过程中得到的信息来引导搜索向最优方向发展的算法。</p>
-<h2 id="神经元（画图）"><a href="#神经元（画图）" class="headerlink" title="神经元（画图）"></a>神经元（画图）</h2><p>  <img src="2025-12-11-19-17-46.png" alt=""></p>
-<h2 id="大数据的特性："><a href="#大数据的特性：" class="headerlink" title="大数据的特性："></a>大数据的特性：</h2><ul>
-<li><strong>规模性、多样性、实时性、价值性</strong></li>
-</ul>
-<h2 id="机器视觉的流程：图像获取-rightarrow-图像解释"><a href="#机器视觉的流程：图像获取-rightarrow-图像解释" class="headerlink" title="机器视觉的流程：图像获取$\rightarrow$图像解释"></a>机器视觉的流程：图像获取$\rightarrow$图像解释</h2><p>  <img src="2025-12-11-19-20-13.png" alt=""></p>
-<h2 id="模式识别"><a href="#模式识别" class="headerlink" title="模式识别"></a>模式识别</h2><p>  <img src="2025-12-11-19-21-05.png" alt=""></p>
-<h2 id="自然语言处理"><a href="#自然语言处理" class="headerlink" title="自然语言处理"></a>自然语言处理</h2><p>  <img src="2025-12-11-19-21-26.png" alt=""></p>
-<h2 id="智能控制"><a href="#智能控制" class="headerlink" title="智能控制"></a>智能控制</h2><p>  <img src="2025-12-11-19-21-48.png" alt=""></p>
-<h2 id="人工智能工程"><a href="#人工智能工程" class="headerlink" title="人工智能工程"></a>人工智能工程</h2><p>  <img src="2025-12-11-19-23-37.png" alt=""><br>  <img src="2025-12-11-19-24-19.png" alt=""></p>
-<h2 id="人工智能面临的问题"><a href="#人工智能面临的问题" class="headerlink" title="人工智能面临的问题"></a>人工智能面临的问题</h2><ol>
-<li>道德伦理问题</li>
-<li>法律法规的制定问题</li>
-<li>安全问题（信息安全、交通安全、人身安全）</li>
-<li>稀缺数据资源条件下的学习</li>
-<li>目前人工智能属于弱人工智能</li>
-</ol>
-<h2 id="未来发展趋势"><a href="#未来发展趋势" class="headerlink" title="未来发展趋势"></a>未来发展趋势</h2><ol>
-<li>从专用智能向通用是能发展</li>
-<li>从人工智能向人机融合发展</li>
-<li>自动化AI技术</li>
-<li>AI药物的研发</li>
-<li>减少对数据的需求</li>
-<li>可解释性和鲁棒性</li>
-</ol>
-<h1 id="第二章-数学基础"><a href="#第二章-数学基础" class="headerlink" title="第二章 数学基础"></a>第二章 数学基础</h1><h2 id="向量的范数"><a href="#向量的范数" class="headerlink" title="向量的范数"></a>向量的范数</h2><p>1) 1-范数</p>
-<script type="math/tex; mode=display">\|\alpha\|_1 = |\alpha_1| + |\alpha_2| + \cdots + |\alpha_n|</script><p>2) 2-范数</p>
-<script type="math/tex; mode=display">\|\alpha\|_2 = \sqrt{\alpha_1^2 + \alpha_2^2 + \cdots + \alpha_n^2}</script><p>3) $\infty$-范数</p>
-<script type="math/tex; mode=display">\|\alpha\|_\infty = \max\{|\alpha_1|, |\alpha_2|, \cdots, |\alpha_n|\}</script><p>4) p-范数</p>
-<script type="math/tex; mode=display">\|\alpha\|_p = \left( \sum_{i=1}^{n} |\alpha_i|^p \right)^{1/p}, \quad p \ge 1</script><h2 id="矩阵的范数"><a href="#矩阵的范数" class="headerlink" title="矩阵的范数"></a>矩阵的范数</h2><p>1) Frobenius 范数 (F-范数)</p>
-<script type="math/tex; mode=display">\|X\|_F = \left( \sum_{i,j=1}^{n} |x_{ij}|^2 \right)^{1/2} = \left( tr(X^H X) \right)^{1/2}</script><p>2) 1-范数</p>
-<script type="math/tex; mode=display">\|X\|_1 = \max_{j} \sum_{i=1}^{n} |x_{ij}|</script><p>3) 2-范数</p>
-<script type="math/tex; mode=display">\|X\|_2 = \sqrt{\lambda} \text{，其中 } \lambda \text{ 为 } X^H X \text{ 的最大特征值}</script><p>4) $\infty$-范数</p>
-<script type="math/tex; mode=display">\|X\|_\infty = \max_{i} \sum_{j=1}^{n} |x_{ij}|</script><p>其中，$X^H$ 为 $X$ 的共轭转置矩阵。</p>
-<h1 id="第三章-确定性知识系统"><a href="#第三章-确定性知识系统" class="headerlink" title="第三章 确定性知识系统"></a>第三章 确定性知识系统</h1><ul>
-<li><strong>知识</strong>是改造客观世界中积累起来的认识和经验。</li>
-<li>知识 = 信息 + 关联</li>
-</ul>
-<h2 id="知识的类型"><a href="#知识的类型" class="headerlink" title="知识的类型"></a>知识的类型</h2><p><img src="2025-12-11-22-06-18.png" alt=""></p>
-<h2 id="知识的作用效果"><a href="#知识的作用效果" class="headerlink" title="知识的作用效果"></a>知识的作用效果</h2><p><img src="2025-12-11-22-08-05.png" alt=""></p>
-<h2 id="知识的表示要求"><a href="#知识的表示要求" class="headerlink" title="知识的表示要求"></a>知识的表示要求</h2><ul>
-<li>可组织性与可维护性</li>
-<li>可理解性与可实现性</li>
-</ul>
-<h2 id="知识的类型-1"><a href="#知识的类型-1" class="headerlink" title="知识的类型"></a>知识的类型</h2><p><img src="2025-12-11-22-15-11.png" alt=""></p>
-<h2 id="推理方法及其分类"><a href="#推理方法及其分类" class="headerlink" title="推理方法及其分类"></a>推理方法及其分类</h2><ol>
-<li>演绎推理：<br><img src="2025-12-11-22-17-36.png" alt=""></li>
-<li>归纳推理<br><img src="2025-12-11-22-22-55.png" alt=""><br><img src="2025-12-11-22-23-09.png" alt=""><br><strong>演绎推理 &amp; 归纳推理区别</strong>：<br><img src="2025-12-11-22-22-30.png" alt=""></li>
-</ol>
-<h2 id="推理控制策略"><a href="#推理控制策略" class="headerlink" title="推理控制策略"></a>推理控制策略</h2><ul>
-<li>推理的控制策略是使推理过程尽快达到目标。</li>
-<li>分为两类：推理策略和搜索策略</li>
-</ul>
-<p><strong>冲突消解策略</strong>：当推理过程有多条知识可用时，如何从这多条可用知识中选出一条<strong>最佳知识</strong>用于推理的策略，常用的冲突消解策略有<em>领域知识优先和新鲜知识优先</em>等。</p>
-<h1 id="第四章-不确定性知识系统"><a href="#第四章-不确定性知识系统" class="headerlink" title="第四章 不确定性知识系统"></a>第四章 不确定性知识系统</h1><h2 id="知识的不确定性表示"><a href="#知识的不确定性表示" class="headerlink" title="知识的不确定性表示"></a>知识的不确定性表示</h2><p><img src="2025-12-11-22-30-33.png" alt=""><br><img src="2025-12-11-22-30-45.png" alt=""></p>
-<h2 id="主观贝叶斯推理"><a href="#主观贝叶斯推理" class="headerlink" title="主观贝叶斯推理"></a>主观贝叶斯推理</h2><h2 id="贝叶斯网络原理"><a href="#贝叶斯网络原理" class="headerlink" title="贝叶斯网络原理"></a>贝叶斯网络原理</h2><p><img src="2025-12-11-22-31-50.png" alt=""></p>
-<h1 id="第五章-智能搜索技术"><a href="#第五章-智能搜索技术" class="headerlink" title="第五章 智能搜索技术"></a>第五章 智能搜索技术</h1><h2 id="状态空间问题的求解"><a href="#状态空间问题的求解" class="headerlink" title="状态空间问题的求解"></a>状态空间问题的求解</h2><p><img src="2025-12-12-18-20-32.png" alt=""><br><img src="2025-12-12-18-20-56.png" alt=""></p>
-<h2 id="与或树"><a href="#与或树" class="headerlink" title="与或树"></a>与或树</h2><ul>
-<li><strong>分解</strong>：$P 归纳为 P_i, P_i 都有解的时候，P 有解。$</li>
-<li><strong>等价变换</strong>：$P 可以等价变为 P_i，有一个 P_i 有解，P 有解。$</li>
-</ul>
-<p><img src="2025-12-12-18-28-38.png" alt=""></p>
-<ul>
-<li>本原问题：不能再进行分解或者变换，可以直接解答的问题</li>
-<li>端节点：没有子节点的节点</li>
-<li>终止节点：本原问题对应的节点 <em>（终止节点一定是端节点，端节点不一定是终止节点）</em></li>
-<li>可解问题：<ul>
-<li>任何终止节点</li>
-<li>或树中有一个可解</li>
-<li>与树中都有解</li>
-</ul>
-</li>
-</ul>
-<h2 id="进化搜索"><a href="#进化搜索" class="headerlink" title="进化搜索"></a>进化搜索</h2><p><img src="2025-12-12-18-36-12.png" alt=""><br><strong>进化计算的生物学基础</strong>：</p>
-<ol>
-<li>遗传理论</li>
-<li>变异理论</li>
-<li>进化论</li>
-</ol>
-<h2 id="启发式搜索"><a href="#启发式搜索" class="headerlink" title="启发式搜索"></a>启发式搜索</h2><p><img src="2025-12-12-18-38-36.png" alt=""></p>
-<ul>
-<li>八数码难题：</li>
-</ul>
-<p><img src="2025-12-12-18-39-09.png" alt=""></p>
-<h2 id="A-算法"><a href="#A-算法" class="headerlink" title="A 算法"></a>A 算法</h2><p><img src="2025-12-12-18-40-15.png" alt=""><br><img src="2025-12-12-18-41-00.png" alt=""><br><img src="2025-12-12-18-41-22.png" alt=""></p>
-<h2 id="与或树的启发式搜索"><a href="#与或树的启发式搜索" class="headerlink" title="与或树的启发式搜索"></a>与或树的启发式搜索</h2><p><img src="2025-12-12-18-41-55.png" alt=""></p>
-<h2 id="博弈树"><a href="#博弈树" class="headerlink" title="博弈树"></a>博弈树</h2><p><img src="2025-12-12-18-42-41.png" alt=""><br><img src="2025-12-12-18-43-02.png" alt=""></p>
-<h2 id="进化搜索（这一部分看PPT理解）"><a href="#进化搜索（这一部分看PPT理解）" class="headerlink" title="进化搜索（这一部分看PPT理解）"></a>进化搜索（这一部分看PPT理解）</h2><ul>
-<li>蚁群算法</li>
-<li>遗传算法</li>
-</ul>
-<ol>
-<li>基本步骤：<br><img src="2025-12-13-16-33-40.png" alt=""></li>
-<li>三角函数的遗传算法优化（重点看一下）（17-20课时）</li>
-<li>轮盘赌：<br><img src="2025-12-13-16-38-57.png" alt=""></li>
-</ol>
-<ul>
-<li>粒子群优化算法<br>看ppt（21-24课时），重点求解tsp问题的步骤。</li>
-</ul>
-<p><strong>群智能的优点</strong>：</p>
-<ol>
-<li>灵活性：群体可以随时适应变化的环境。</li>
-<li>稳健性：即使个体失败，群体仍可以完成任务；自我组织；活动既不受中央控制，也不受局部监督。</li>
-</ol>
-<h1 id="第六章-机器学习"><a href="#第六章-机器学习" class="headerlink" title="第六章 机器学习"></a>第六章 机器学习</h1><h2 id="信息熵与信息增益"><a href="#信息熵与信息增益" class="headerlink" title="信息熵与信息增益"></a>信息熵与信息增益</h2><p><img src="2025-12-13-16-44-14.png" alt=""><br><img src="2025-12-13-16-44-31.png" alt=""></p>
-<h2 id="ID3-算法"><a href="#ID3-算法" class="headerlink" title="ID3 算法"></a>ID3 算法</h2><ul>
-<li><strong>测试属性</strong>：<code>信息增益</code>  </li>
-</ul>
-<p><strong>具体计算流程</strong>：（设$C_1+C_2=D$）</p>
-<ol>
-<li><p><strong>计算不考虑特征的信息熵</strong>：</p>
-<script type="math/tex; mode=display">H(D) = -\sum_{k=1}^{K} p_k \log_2 p_k= -\sum_{k=1}^{K} \frac{|C_k|}{|D|} \log_2 \frac{|C_k|}{|D|}</script><p>其中 $|D|$ 为样本总数，$|C_k|$ 为属于第 $k$ 类的样本数(eg: <em>买/不买</em>)。</p>
-</li>
-<li><p><strong>计算条件熵</strong>：</p>
-<ul>
-<li>先选择一个 <strong>特征 $A_i$</strong>，将数据集 $D$ 根据特征 $A_i$ 的<strong>不同取值</strong>划分为 $n$ 个子集 $D_1, D_2, \dots, D_n$。</li>
-<li>计算特征 $A_i$ 下不同取值 $D_i$ 的信息熵 $H(D_i)$：<script type="math/tex; mode=display">H(D_i)= -\sum_{k=1}^{K} \frac{|C_k|}{|D_i|} \log_2 \frac{|C_k|}{|D_i|}</script>其中，$C_k$ 是在集合 $D_i$ 里的第 $k$ 种类别的数量 (eg: <em>买/不买</em>)。</li>
-<li>计算条件熵 $H(D|A_i)$：<script type="math/tex; mode=display">H(D|A_i) = \sum_{i=1}^{n} p_i H(D_i)= \sum_{i=1}^{n} \frac{|D_i|}{|D|} H(D_i)</script></li>
-</ul>
-</li>
-<li><p><strong>计算信息增益</strong>：</p>
-<script type="math/tex; mode=display">g(D, A_i) = H(D) - H(D|A_i)</script></li>
-<li><p><strong>特征选择</strong>：<br>选取 <strong>信息增益最大</strong> 的特征$A_i$作为当前的分裂节点（根节点或内部节点）。</p>
-</li>
-<li><p><strong>递归构建</strong>：<br>对子节点重复以上步骤，以此类推，直至分类完全（或满足停止条件）。</p>
-</li>
-</ol>
-<h2 id="集成学习（Boosting-Bagging）"><a href="#集成学习（Boosting-Bagging）" class="headerlink" title="集成学习（Boosting/Bagging）"></a>集成学习（Boosting/Bagging）</h2><p><img src="2025-12-13-16-47-29.png" alt=""><br><img src="2025-12-13-16-47-43.png" alt=""></p>
-<h2 id="回归的含义、思想"><a href="#回归的含义、思想" class="headerlink" title="回归的含义、思想"></a>回归的含义、思想</h2><p><img src="2025-12-13-16-50-09.png" alt=""><br><img src="2025-12-13-16-50-28.png" alt=""></p>
-<h2 id="总体回归函数"><a href="#总体回归函数" class="headerlink" title="总体回归函数"></a>总体回归函数</h2><p><img src="2025-12-13-16-51-14.png" alt=""><br><img src="2025-12-13-16-51-28.png" alt=""><br><img src="2025-12-13-16-51-39.png" alt=""></p>
-<h2 id="计算题：最小二乘估计-OLS"><a href="#计算题：最小二乘估计-OLS" class="headerlink" title="计算题：最小二乘估计 $OLS$"></a>计算题：最小二乘估计 $OLS$</h2><ul>
-<li>看ppt（25-28）</li>
-</ul>
-<h1 id="第七章-支持向量机"><a href="#第七章-支持向量机" class="headerlink" title="第七章 支持向量机"></a>第七章 支持向量机</h1><ul>
-<li>看模式识别的笔记。</li>
-</ul>
-<h1 id="第八章-人工神经网络与连接学习"><a href="#第八章-人工神经网络与连接学习" class="headerlink" title="第八章 人工神经网络与连接学习"></a>第八章 人工神经网络与连接学习</h1><p>后面看三个ppt吧。</p>
-]]></content>
-      <categories>
-        <category>华理</category>
-        <category>大三上</category>
-      </categories>
-  </entry>
-  <entry>
     <title>嵌入式系统原理</title>
     <url>/2025/12/21/STM32/</url>
     <content><![CDATA[<h1 id="第一章-导论"><a href="#第一章-导论" class="headerlink" title="第一章 导论"></a>第一章 导论</h1><blockquote>
@@ -2468,6 +2305,159 @@ Steering angle = K_p \cdot e(t) + K_d \frac{\text{d}e(t)}{\text{d}t} + K_i \int_
       </categories>
   </entry>
   <entry>
+    <title>人工智能原理与应用</title>
+    <url>/2025/12/11/AI/</url>
+    <content><![CDATA[<h1 id="第一章-绪论"><a href="#第一章-绪论" class="headerlink" title="第一章 绪论"></a>第一章 绪论</h1><p>智能：智能指人类在认识客观世界中，由思维过程和脑<br>力活动所表现出的综合能力。</p>
+<h2 id="智能包含的能力"><a href="#智能包含的能力" class="headerlink" title="智能包含的能力"></a>智能包含的能力</h2><p>  <img src="2025-12-11-19-04-02.png" alt=""></p>
+<h2 id="AI的研究目标"><a href="#AI的研究目标" class="headerlink" title="AI的研究目标"></a>AI的研究目标</h2><p>  <img src="2025-12-11-19-05-39.png" alt=""></p>
+<h2 id="三大学派"><a href="#三大学派" class="headerlink" title="三大学派"></a>三大学派</h2><p>  <img src="2025-12-11-19-07-05.png" alt=""><br>  <img src="2025-12-11-19-07-54.png" alt=""></p>
+<h2 id="新的发展"><a href="#新的发展" class="headerlink" title="新的发展"></a>新的发展</h2><p>  <img src="2025-12-11-19-08-50.png" alt=""></p>
+<h2 id="智能模拟方法"><a href="#智能模拟方法" class="headerlink" title="智能模拟方法"></a>智能模拟方法</h2><p>  <img src="2025-12-11-19-12-03.png" alt=""></p>
+<h2 id="推理"><a href="#推理" class="headerlink" title="推理"></a>推理</h2><p>  <strong>推理</strong>：是指按照某种策略从已知事实出发利用知识推出所需结论的过程。<br>  <strong>推理方法</strong>：归纳、演绎、（不）确定性推理</p>
+<h2 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h2><p>  <strong>搜索</strong>：依靠经验，利用已有知识，根据问题的实际情况，不断寻找可利用知识，从而构造一条代价最小的推理路线，使问题得以解决的过程。<br>  <strong>智能搜索</strong>：利用搜索过程中得到的信息来引导搜索向最优方向发展的算法。</p>
+<h2 id="神经元（画图）"><a href="#神经元（画图）" class="headerlink" title="神经元（画图）"></a>神经元（画图）</h2><p>  <img src="2025-12-11-19-17-46.png" alt=""></p>
+<h2 id="大数据的特性："><a href="#大数据的特性：" class="headerlink" title="大数据的特性："></a>大数据的特性：</h2><ul>
+<li><strong>规模性、多样性、实时性、价值性</strong></li>
+</ul>
+<h2 id="机器视觉的流程：图像获取-rightarrow-图像解释"><a href="#机器视觉的流程：图像获取-rightarrow-图像解释" class="headerlink" title="机器视觉的流程：图像获取$\rightarrow$图像解释"></a>机器视觉的流程：图像获取$\rightarrow$图像解释</h2><p>  <img src="2025-12-11-19-20-13.png" alt=""></p>
+<h2 id="模式识别"><a href="#模式识别" class="headerlink" title="模式识别"></a>模式识别</h2><p>  <img src="2025-12-11-19-21-05.png" alt=""></p>
+<h2 id="自然语言处理"><a href="#自然语言处理" class="headerlink" title="自然语言处理"></a>自然语言处理</h2><p>  <img src="2025-12-11-19-21-26.png" alt=""></p>
+<h2 id="智能控制"><a href="#智能控制" class="headerlink" title="智能控制"></a>智能控制</h2><p>  <img src="2025-12-11-19-21-48.png" alt=""></p>
+<h2 id="人工智能工程"><a href="#人工智能工程" class="headerlink" title="人工智能工程"></a>人工智能工程</h2><p>  <img src="2025-12-11-19-23-37.png" alt=""><br>  <img src="2025-12-11-19-24-19.png" alt=""></p>
+<h2 id="人工智能面临的问题"><a href="#人工智能面临的问题" class="headerlink" title="人工智能面临的问题"></a>人工智能面临的问题</h2><ol>
+<li>道德伦理问题</li>
+<li>法律法规的制定问题</li>
+<li>安全问题（信息安全、交通安全、人身安全）</li>
+<li>稀缺数据资源条件下的学习</li>
+<li>目前人工智能属于弱人工智能</li>
+</ol>
+<h2 id="未来发展趋势"><a href="#未来发展趋势" class="headerlink" title="未来发展趋势"></a>未来发展趋势</h2><ol>
+<li>从专用智能向通用是能发展</li>
+<li>从人工智能向人机融合发展</li>
+<li>自动化AI技术</li>
+<li>AI药物的研发</li>
+<li>减少对数据的需求</li>
+<li>可解释性和鲁棒性</li>
+</ol>
+<h1 id="第二章-数学基础"><a href="#第二章-数学基础" class="headerlink" title="第二章 数学基础"></a>第二章 数学基础</h1><h2 id="向量的范数"><a href="#向量的范数" class="headerlink" title="向量的范数"></a>向量的范数</h2><p>1) 1-范数</p>
+<script type="math/tex; mode=display">\|\alpha\|_1 = |\alpha_1| + |\alpha_2| + \cdots + |\alpha_n|</script><p>2) 2-范数</p>
+<script type="math/tex; mode=display">\|\alpha\|_2 = \sqrt{\alpha_1^2 + \alpha_2^2 + \cdots + \alpha_n^2}</script><p>3) $\infty$-范数</p>
+<script type="math/tex; mode=display">\|\alpha\|_\infty = \max\{|\alpha_1|, |\alpha_2|, \cdots, |\alpha_n|\}</script><p>4) p-范数</p>
+<script type="math/tex; mode=display">\|\alpha\|_p = \left( \sum_{i=1}^{n} |\alpha_i|^p \right)^{1/p}, \quad p \ge 1</script><h2 id="矩阵的范数"><a href="#矩阵的范数" class="headerlink" title="矩阵的范数"></a>矩阵的范数</h2><p>1) Frobenius 范数 (F-范数)</p>
+<script type="math/tex; mode=display">\|X\|_F = \left( \sum_{i,j=1}^{n} |x_{ij}|^2 \right)^{1/2} = \left( tr(X^H X) \right)^{1/2}</script><p>2) 1-范数</p>
+<script type="math/tex; mode=display">\|X\|_1 = \max_{j} \sum_{i=1}^{n} |x_{ij}|</script><p>3) 2-范数</p>
+<script type="math/tex; mode=display">\|X\|_2 = \sqrt{\lambda} \text{，其中 } \lambda \text{ 为 } X^H X \text{ 的最大特征值}</script><p>4) $\infty$-范数</p>
+<script type="math/tex; mode=display">\|X\|_\infty = \max_{i} \sum_{j=1}^{n} |x_{ij}|</script><p>其中，$X^H$ 为 $X$ 的共轭转置矩阵。</p>
+<h1 id="第三章-确定性知识系统"><a href="#第三章-确定性知识系统" class="headerlink" title="第三章 确定性知识系统"></a>第三章 确定性知识系统</h1><ul>
+<li><strong>知识</strong>是改造客观世界中积累起来的认识和经验。</li>
+<li>知识 = 信息 + 关联</li>
+</ul>
+<h2 id="知识的类型"><a href="#知识的类型" class="headerlink" title="知识的类型"></a>知识的类型</h2><p><img src="2025-12-11-22-06-18.png" alt=""></p>
+<h2 id="知识的作用效果"><a href="#知识的作用效果" class="headerlink" title="知识的作用效果"></a>知识的作用效果</h2><p><img src="2025-12-11-22-08-05.png" alt=""></p>
+<h2 id="知识的表示要求"><a href="#知识的表示要求" class="headerlink" title="知识的表示要求"></a>知识的表示要求</h2><ul>
+<li>可组织性与可维护性</li>
+<li>可理解性与可实现性</li>
+</ul>
+<h2 id="知识的类型-1"><a href="#知识的类型-1" class="headerlink" title="知识的类型"></a>知识的类型</h2><p><img src="2025-12-11-22-15-11.png" alt=""></p>
+<h2 id="推理方法及其分类"><a href="#推理方法及其分类" class="headerlink" title="推理方法及其分类"></a>推理方法及其分类</h2><ol>
+<li>演绎推理：<br><img src="2025-12-11-22-17-36.png" alt=""></li>
+<li>归纳推理<br><img src="2025-12-11-22-22-55.png" alt=""><br><img src="2025-12-11-22-23-09.png" alt=""><br><strong>演绎推理 &amp; 归纳推理区别</strong>：<br><img src="2025-12-11-22-22-30.png" alt=""></li>
+</ol>
+<h2 id="推理控制策略"><a href="#推理控制策略" class="headerlink" title="推理控制策略"></a>推理控制策略</h2><ul>
+<li>推理的控制策略是使推理过程尽快达到目标。</li>
+<li>分为两类：推理策略和搜索策略</li>
+</ul>
+<p><strong>冲突消解策略</strong>：当推理过程有多条知识可用时，如何从这多条可用知识中选出一条<strong>最佳知识</strong>用于推理的策略，常用的冲突消解策略有<em>领域知识优先和新鲜知识优先</em>等。</p>
+<h1 id="第四章-不确定性知识系统"><a href="#第四章-不确定性知识系统" class="headerlink" title="第四章 不确定性知识系统"></a>第四章 不确定性知识系统</h1><h2 id="知识的不确定性表示"><a href="#知识的不确定性表示" class="headerlink" title="知识的不确定性表示"></a>知识的不确定性表示</h2><p><img src="2025-12-11-22-30-33.png" alt=""><br><img src="2025-12-11-22-30-45.png" alt=""></p>
+<h2 id="主观贝叶斯推理"><a href="#主观贝叶斯推理" class="headerlink" title="主观贝叶斯推理"></a>主观贝叶斯推理</h2><h2 id="贝叶斯网络原理"><a href="#贝叶斯网络原理" class="headerlink" title="贝叶斯网络原理"></a>贝叶斯网络原理</h2><p><img src="2025-12-11-22-31-50.png" alt=""></p>
+<h1 id="第五章-智能搜索技术"><a href="#第五章-智能搜索技术" class="headerlink" title="第五章 智能搜索技术"></a>第五章 智能搜索技术</h1><h2 id="状态空间问题的求解"><a href="#状态空间问题的求解" class="headerlink" title="状态空间问题的求解"></a>状态空间问题的求解</h2><p><img src="2025-12-12-18-20-32.png" alt=""><br><img src="2025-12-12-18-20-56.png" alt=""></p>
+<h2 id="与或树"><a href="#与或树" class="headerlink" title="与或树"></a>与或树</h2><ul>
+<li><strong>分解</strong>：$P 归纳为 P_i, P_i 都有解的时候，P 有解。$</li>
+<li><strong>等价变换</strong>：$P 可以等价变为 P_i，有一个 P_i 有解，P 有解。$</li>
+</ul>
+<p><img src="2025-12-12-18-28-38.png" alt=""></p>
+<ul>
+<li>本原问题：不能再进行分解或者变换，可以直接解答的问题</li>
+<li>端节点：没有子节点的节点</li>
+<li>终止节点：本原问题对应的节点 <em>（终止节点一定是端节点，端节点不一定是终止节点）</em></li>
+<li>可解问题：<ul>
+<li>任何终止节点</li>
+<li>或树中有一个可解</li>
+<li>与树中都有解</li>
+</ul>
+</li>
+</ul>
+<h2 id="进化搜索"><a href="#进化搜索" class="headerlink" title="进化搜索"></a>进化搜索</h2><p><img src="2025-12-12-18-36-12.png" alt=""><br><strong>进化计算的生物学基础</strong>：</p>
+<ol>
+<li>遗传理论</li>
+<li>变异理论</li>
+<li>进化论</li>
+</ol>
+<h2 id="启发式搜索"><a href="#启发式搜索" class="headerlink" title="启发式搜索"></a>启发式搜索</h2><p><img src="2025-12-12-18-38-36.png" alt=""></p>
+<ul>
+<li>八数码难题：</li>
+</ul>
+<p><img src="2025-12-12-18-39-09.png" alt=""></p>
+<h2 id="A-算法"><a href="#A-算法" class="headerlink" title="A 算法"></a>A 算法</h2><p><img src="2025-12-12-18-40-15.png" alt=""><br><img src="2025-12-12-18-41-00.png" alt=""><br><img src="2025-12-12-18-41-22.png" alt=""></p>
+<h2 id="与或树的启发式搜索"><a href="#与或树的启发式搜索" class="headerlink" title="与或树的启发式搜索"></a>与或树的启发式搜索</h2><p><img src="2025-12-12-18-41-55.png" alt=""></p>
+<h2 id="博弈树"><a href="#博弈树" class="headerlink" title="博弈树"></a>博弈树</h2><p><img src="2025-12-12-18-42-41.png" alt=""><br><img src="2025-12-12-18-43-02.png" alt=""></p>
+<h2 id="进化搜索（这一部分看PPT理解）"><a href="#进化搜索（这一部分看PPT理解）" class="headerlink" title="进化搜索（这一部分看PPT理解）"></a>进化搜索（这一部分看PPT理解）</h2><ul>
+<li>蚁群算法</li>
+<li>遗传算法</li>
+</ul>
+<ol>
+<li>基本步骤：<br><img src="2025-12-13-16-33-40.png" alt=""></li>
+<li>三角函数的遗传算法优化（重点看一下）（17-20课时）</li>
+<li>轮盘赌：<br><img src="2025-12-13-16-38-57.png" alt=""></li>
+</ol>
+<ul>
+<li>粒子群优化算法<br>看ppt（21-24课时），重点求解tsp问题的步骤。</li>
+</ul>
+<p><strong>群智能的优点</strong>：</p>
+<ol>
+<li>灵活性：群体可以随时适应变化的环境。</li>
+<li>稳健性：即使个体失败，群体仍可以完成任务；自我组织；活动既不受中央控制，也不受局部监督。</li>
+</ol>
+<h1 id="第六章-机器学习"><a href="#第六章-机器学习" class="headerlink" title="第六章 机器学习"></a>第六章 机器学习</h1><h2 id="信息熵与信息增益"><a href="#信息熵与信息增益" class="headerlink" title="信息熵与信息增益"></a>信息熵与信息增益</h2><p><img src="2025-12-13-16-44-14.png" alt=""><br><img src="2025-12-13-16-44-31.png" alt=""></p>
+<h2 id="ID3-算法"><a href="#ID3-算法" class="headerlink" title="ID3 算法"></a>ID3 算法</h2><ul>
+<li><strong>测试属性</strong>：<code>信息增益</code>  </li>
+</ul>
+<p><strong>具体计算流程</strong>：（设$C_1+C_2=D$）</p>
+<ol>
+<li><p><strong>计算不考虑特征的信息熵</strong>：</p>
+<script type="math/tex; mode=display">H(D) = -\sum_{k=1}^{K} p_k \log_2 p_k= -\sum_{k=1}^{K} \frac{|C_k|}{|D|} \log_2 \frac{|C_k|}{|D|}</script><p>其中 $|D|$ 为样本总数，$|C_k|$ 为属于第 $k$ 类的样本数(eg: <em>买/不买</em>)。</p>
+</li>
+<li><p><strong>计算条件熵</strong>：</p>
+<ul>
+<li>先选择一个 <strong>特征 $A_i$</strong>，将数据集 $D$ 根据特征 $A_i$ 的<strong>不同取值</strong>划分为 $n$ 个子集 $D_1, D_2, \dots, D_n$。</li>
+<li>计算特征 $A_i$ 下不同取值 $D_i$ 的信息熵 $H(D_i)$：<script type="math/tex; mode=display">H(D_i)= -\sum_{k=1}^{K} \frac{|C_k|}{|D_i|} \log_2 \frac{|C_k|}{|D_i|}</script>其中，$C_k$ 是在集合 $D_i$ 里的第 $k$ 种类别的数量 (eg: <em>买/不买</em>)。</li>
+<li>计算条件熵 $H(D|A_i)$：<script type="math/tex; mode=display">H(D|A_i) = \sum_{i=1}^{n} p_i H(D_i)= \sum_{i=1}^{n} \frac{|D_i|}{|D|} H(D_i)</script></li>
+</ul>
+</li>
+<li><p><strong>计算信息增益</strong>：</p>
+<script type="math/tex; mode=display">g(D, A_i) = H(D) - H(D|A_i)</script></li>
+<li><p><strong>特征选择</strong>：<br>选取 <strong>信息增益最大</strong> 的特征$A_i$作为当前的分裂节点（根节点或内部节点）。</p>
+</li>
+<li><p><strong>递归构建</strong>：<br>对子节点重复以上步骤，以此类推，直至分类完全（或满足停止条件）。</p>
+</li>
+</ol>
+<h2 id="集成学习（Boosting-Bagging）"><a href="#集成学习（Boosting-Bagging）" class="headerlink" title="集成学习（Boosting/Bagging）"></a>集成学习（Boosting/Bagging）</h2><p><img src="2025-12-13-16-47-29.png" alt=""><br><img src="2025-12-13-16-47-43.png" alt=""></p>
+<h2 id="回归的含义、思想"><a href="#回归的含义、思想" class="headerlink" title="回归的含义、思想"></a>回归的含义、思想</h2><p><img src="2025-12-13-16-50-09.png" alt=""><br><img src="2025-12-13-16-50-28.png" alt=""></p>
+<h2 id="总体回归函数"><a href="#总体回归函数" class="headerlink" title="总体回归函数"></a>总体回归函数</h2><p><img src="2025-12-13-16-51-14.png" alt=""><br><img src="2025-12-13-16-51-28.png" alt=""><br><img src="2025-12-13-16-51-39.png" alt=""></p>
+<h2 id="计算题：最小二乘估计-OLS"><a href="#计算题：最小二乘估计-OLS" class="headerlink" title="计算题：最小二乘估计 $OLS$"></a>计算题：最小二乘估计 $OLS$</h2><ul>
+<li>看ppt（25-28）</li>
+</ul>
+<h1 id="第七章-支持向量机"><a href="#第七章-支持向量机" class="headerlink" title="第七章 支持向量机"></a>第七章 支持向量机</h1><ul>
+<li>看模式识别的笔记。</li>
+</ul>
+<h1 id="第八章-人工神经网络与连接学习"><a href="#第八章-人工神经网络与连接学习" class="headerlink" title="第八章 人工神经网络与连接学习"></a>第八章 人工神经网络与连接学习</h1><p>后面看三个ppt吧。</p>
+]]></content>
+      <categories>
+        <category>华理</category>
+        <category>大三上</category>
+      </categories>
+  </entry>
+  <entry>
     <title>模式识别与统计学习</title>
     <url>/2025/11/27/statistical-learning/</url>
     <content><![CDATA[<p>考试心得：</p>
@@ -3830,6 +3820,16 @@ A = U\Sigma V^T, \Sigma = \text{diag}(\sigma_1, \sigma_2, \cdots, \sigma_p)</scr
       </categories>
   </entry>
   <entry>
+    <title>写于2025最后一天</title>
+    <url>/2025/12/31/2025-12-31/</url>
+    <content><![CDATA[<p>“普鲁斯特提出了足以对抗统一时间的无数个瞬间，并赋予了它意义，记忆足以对抗线性时间，也就是说我们在记忆中得到永恒。当岁月流逝，所有的东西都消失殆尽时，唯有空中飘荡的气味、耳畔传来的声音、手中实在的触感还恋恋不散，让往事历历在目，如同昨日重现。”</p>
+<p>又是一年，希望明年可以更好，完成自己的目标。</p>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+  </entry>
+  <entry>
     <title>神经网络与深度学习</title>
     <url>/2026/05/20/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</url>
     <content><![CDATA[<p>写在前面：这门课很抽象，老师也很抽象。但是有很多上学期学的东西。</p>
@@ -3995,7 +3995,7 @@ A = U\Sigma V^T, \Sigma = \text{diag}(\sigma_1, \sigma_2, \cdots, \sigma_p)</scr
 <ol>
 <li><strong>身份产生：</strong> 输入 $a^2$ 乘以 $W^q$ 产生当前的主角 $q^2$；全场所有人（包括自己）乘以 $W^k$ 产生档案标签 $k^1, k^2, k^3, k^4$。</li>
 <li><strong>点乘打分：</strong> $q^2$ 跨越空间长线，主动去和全场所有的 $k^j$ 做向量内积点乘，现算原始亲密度得分：<script type="math/tex; mode=display">\alpha_{2,1} = \boldsymbol{q}^2 \cdot \boldsymbol{k}^1, \quad \alpha_{2,2} = \boldsymbol{q}^2 \cdot \boldsymbol{k}^2, \quad \alpha_{2,3} = \boldsymbol{q}^2 \cdot \boldsymbol{k}^3, \quad \alpha_{2,4} = \boldsymbol{q}^2 \cdot \boldsymbol{k}^4</script></li>
-<li><strong>列 Softmax 归一化：</strong> 将这一组野生得分塞进 Softmax。<strong>注意：Softmax 是严格按列（Column-wise）单独进行的</strong>，因为 $q^2$ 的精力（100% 注意力）必须在属于它自己的那一列里被瓜分完毕，输出概率权重 $\alpha’<em>{2,1}, \alpha’</em>{2,2}, \alpha’<em>{2,3}, \alpha’</em>{2,4}$。</li>
+<li><strong>列 Softmax 归一化：</strong> 将这一组野生得分塞进 Softmax。<strong>注意：Softmax 是严格按列（Column-wise）单独进行的</strong>，因为 $q^2$ 的精力（100% 注意力）必须在属于它自己的那一列里被瓜分完毕，输出概率权重。</li>
 <li><strong>加权提取与聚合：</strong> 将归一化权重与各自位置的内容向量 $v^j$ 在乘法节点相乘（信息过滤），最后沿着红色总线全部加起来，吐出全新的融合特征 $b^2$：<script type="math/tex; mode=display">\boldsymbol{b}^2 = \sum_{i=1}^4 \alpha'_{2,i} \boldsymbol{v}^i</script><img src="2026-05-27-11-10-37.png" alt=""></li>
 </ol>
 <h3 id="⚠️-重要的师承记号避坑指南（考试必看）"><a href="#⚠️-重要的师承记号避坑指南（考试必看）" class="headerlink" title="⚠️ 重要的师承记号避坑指南（考试必看）"></a>⚠️ 重要的师承记号避坑指南（考试必看）</h3><ul>
@@ -4102,12 +4102,6 @@ A = U\Sigma V^T, \Sigma = \text{diag}(\sigma_1, \sigma_2, \cdots, \sigma_p)</scr
 <li><strong>有向边（Directed Edges）</strong>：箭头（如 $A \rightarrow B$）表示变量之间存在<strong>非独立的因果或直接依赖关系</strong>。</li>
 <li><strong>拓扑结构</strong>：必须是一个<strong>有向非循环图（DAG）</strong>，即图中绝对不能出现环路。</li>
 </ul>
-<blockquote>
-<p><strong>关键术语：父节点（Parents）</strong><br>令 $\mathbf{X}_{\pi_k}$ 表示指向变量 $X_k$ 的<strong>所有直接前驱节点（父节点）的集合</strong>。</p>
-<ul>
-<li><em>示例</em>：若有箭头 $X<em>2 \rightarrow X_4$ 和 $X_3 \rightarrow X_4$，则 $X_4$ 的父节点集合为 $\mathbf{X}</em>{\pi_4} = {X_2, X_3}$。</li>
-</ul>
-</blockquote>
 <hr>
 <h2 id="2-联合概率的因式分解"><a href="#2-联合概率的因式分解" class="headerlink" title="2. 联合概率的因式分解"></a>2. 联合概率的因式分解</h2><p>在全连接（无图结构化简）的情况下，多元变量的联合概率计算量会随变量数呈指数级暴涨。贝叶斯网络利用图结构将联合概率分布拆解为<strong>局部条件概率的连乘形式</strong>：</p>
 <script type="math/tex; mode=display">p(\mathbf{x}) = \prod_{k=1}^K p(x_k \mid \mathbf{x}_{\pi_k})</script><p><strong>核心逻辑</strong>：整个大系统的联合概率，只需要看每个节点<strong>仅仅基于其父节点</strong>的局部条件概率，然后把它们全部乘起来即可。</p>
@@ -4117,42 +4111,7 @@ A = U\Sigma V^T, \Sigma = \text{diag}(\sigma_1, \sigma_2, \cdots, \sigma_p)</scr
 <li><strong>含义</strong>：在给定某个节点 $X<em>k$ 的所有<strong>父节点</strong> $X</em>{\pi_k}$ 的情况下，$X_k$ 与它的所有<strong>非后代节点</strong> $Z$ 都是条件独立的。</li>
 <li><strong>直观理解</strong>：一旦“父母（父节点）”的状态确定了，“爷爷/长辈（非后代节点）”的状态就不会再影响“孩子（当前节点）”的决定。</li>
 </ul>
-<h3 id="3-2-例题"><a href="#3-2-例题" class="headerlink" title="3.2 例题"></a>3.2 例题</h3><p><img src="2026-05-27-12-39-13.png" alt=""><br>假设网络中所有随机变量均为<strong>二值变量</strong>（取值 0 或 1）。以包含 $X_1, X_2, X_3, X_4$ 的<strong>菱形网络</strong>（拓扑：$X_1 \rightarrow X_2, X_1 \rightarrow X_3, X_2 \rightarrow X_4, X_3 \rightarrow X_4$）为例：</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left">计算方式</th>
-<th style="text-align:left">分解表达式</th>
-<th style="text-align:left">独立参数量计算</th>
-<th style="text-align:left">参数总数</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><strong>纯数学链式法则</strong><br>(未化简)</td>
-<td style="text-align:left">$p(x_1)p(x_2\</td>
-<td style="text-align:left">x_1)p(x_3\</td>
-<td style="text-align:left">x_1,x_2)p(x_4\</td>
-<td>x_1,x_2,x_3)$</td>
-<td>$2^4 - 1 = 15$</td>
-<td><strong>15</strong></td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>贝叶斯网络</strong><br>(利用马尔可夫性)</td>
-<td style="text-align:left">$p(x_1)p(x_2\</td>
-<td style="text-align:left">x_1)p(x_3\</td>
-<td style="text-align:left">x_1)p(x_4\</td>
-<td>x_2,x_3)$</td>
-<td><ul><li>$p(x_1)$: 1</li><li>$p(x_2\</td>
-<td>x_1)$: 2&lt;/li&gt;<li>$p(x_3\</td>
-<td>x_1)$: 2&lt;/li&gt;<li>$p(x_4\</td>
-<td>x_2,x_3)$: 4&lt;/li&gt;&lt;/ul&gt;</td>
-<td><strong>9</strong> <br>($1+2+2+4$)</td>
-</tr>
-</tbody>
-</table>
-</div>
+<h3 id="3-2-例题"><a href="#3-2-例题" class="headerlink" title="3.2 例题"></a>3.2 例题</h3><p><img src="2026-05-27-12-39-13.png" alt=""></p>
 <hr>
 <h2 id="4-条件独立性与三种基本拓扑（D-分离基础）"><a href="#4-条件独立性与三种基本拓扑（D-分离基础）" class="headerlink" title="4. 条件独立性与三种基本拓扑（D-分离基础）"></a>4. 条件独立性与三种基本拓扑（D-分离基础）</h2><p>我们可以把箭头想象成水管，信息像水流一样在节点间流动。中间节点 $X_2$ 的状态（已知或未知）就是控制水流的<strong>阀门</strong>。<br><img src="2026-05-27-12-39-57.png" alt=""></p>
 <h3 id="a-amp-b-链式结构-Chain"><a href="#a-amp-b-链式结构-Chain" class="headerlink" title="(a) &amp; (b) 链式结构 (Chain)"></a>(a) &amp; (b) 链式结构 (Chain)</h3><ul>
@@ -4268,15 +4227,8 @@ A = U\Sigma V^T, \Sigma = \text{diag}(\sigma_1, \sigma_2, \cdots, \sigma_p)</scr
 </ul>
 <hr>
 <h2 id="4-变分自编码器-VAE"><a href="#4-变分自编码器-VAE" class="headerlink" title="4. 变分自编码器 (VAE)"></a>4. 变分自编码器 (VAE)</h2><p>VAE 是变分推断在深度学习中的经典实例，它将传统的自编码器概率化。</p>
-<h3 id="4-1-传统-AE-vs-VAE"><a href="#4-1-传统-AE-vs-VAE" class="headerlink" title="4.1 传统 AE vs VAE"></a>4.1 传统 AE vs VAE</h3><ul>
-<li><strong>传统 AE:</strong> 输入 $X \rightarrow$ Encoder $\rightarrow$ 确定的隐向量 $h \rightarrow$ Decoder $\rightarrow$ 重建 $X’$。</li>
-<li><strong>VAE:</strong> 输入 $x \rightarrow$ Encoder $q<em>\phi(z|x) \rightarrow$ 分布参数 $(\mu_z, \Sigma_z) \rightarrow$ 采样 $z \rightarrow$ Decoder $p</em>\theta(x|z) \rightarrow$ 重建输出 $\hat{x}$。</li>
-</ul>
-<h3 id="4-2-VAE-概率图模型设计"><a href="#4-2-VAE-概率图模型设计" class="headerlink" title="4.2 VAE 概率图模型设计"></a>4.2 VAE 概率图模型设计</h3><p>为了缩小解空间并解决复杂积分，VAE 利用神经网络构建概率模型：</p>
-<ul>
-<li>把先验 $p(x|z, \theta)$ 变形为 $p(x|f<em>\theta(z))$，其中 **$f</em>\theta(\cdot)$ 是 Decoder网络**。</li>
-<li>把变分分布 $q(z|x, \phi)$ 变形为 $q(z|g<em>\phi(x))$，其中 **$g</em>\phi(\cdot)$ 是 Encoder网络**。</li>
-</ul>
+<h3 id="4-1-传统-AE-vs-VAE"><a href="#4-1-传统-AE-vs-VAE" class="headerlink" title="4.1 传统 AE vs VAE"></a>4.1 传统 AE vs VAE</h3><p><img src="2026-05-31-19-34-05.png" alt=""></p>
+<h3 id="4-2-VAE-概率图模型设计"><a href="#4-2-VAE-概率图模型设计" class="headerlink" title="4.2 VAE 概率图模型设计"></a>4.2 VAE 概率图模型设计</h3><p><img src="2026-05-31-19-34-19.png" alt=""></p>
 <h3 id="4-3-VAE-的核心方程与目标"><a href="#4-3-VAE-的核心方程与目标" class="headerlink" title="4.3 VAE 的核心方程与目标"></a>4.3 VAE 的核心方程与目标</h3><script type="math/tex; mode=display">\log p(x|\theta) - KL[q(z|g_\phi(x)) || p(z|x, \theta)] = \underbrace{E_{q(z|g_\phi(x))}[\log p(x|f_\theta(z))]}_{\text{decoder}} - \underbrace{KL[q(z|g_\phi(x)) || p(z)]}_{\text{encoder / prior}}</script><p>求解目标：为了最大化似然，通过直接利用神经网络优化 $\theta, \phi$ 来最大化等式右侧的下界。</p>
 <hr>
 <h2 id="5-VAE-的优化与重参数化技巧-Reparameterization-Trick"><a href="#5-VAE-的优化与重参数化技巧-Reparameterization-Trick" class="headerlink" title="5. VAE 的优化与重参数化技巧 (Reparameterization Trick)"></a>5. VAE 的优化与重参数化技巧 (Reparameterization Trick)</h2><h3 id="5-1-损失函数拆解"><a href="#5-1-损失函数拆解" class="headerlink" title="5.1 损失函数拆解"></a>5.1 损失函数拆解</h3><p>对于数据点 $x^{(i)}$，需要最大化的目标（等价于最小化损失）拆分为两部分：</p>
@@ -4373,13 +4325,13 @@ A = U\Sigma V^T, \Sigma = \text{diag}(\sigma_1, \sigma_2, \cdots, \sigma_p)</scr
 <h2 id="四、-GAN-的致命绝症：模型坍塌-Mode-Collapse"><a href="#四、-GAN-的致命绝症：模型坍塌-Mode-Collapse" class="headerlink" title="四、 GAN 的致命绝症：模型坍塌 (Mode Collapse)"></a>四、 GAN 的致命绝症：模型坍塌 (Mode Collapse)</h2><p>在实际训练初期，由于判别器太强，原生 Loss 会导致<strong>梯度消失</strong>。Goodfellow 提出了一个启发式 Trick：让生成器改为最大化 $\log D(G(z))$。然而，这引入了更严重的数学副作用。</p>
 <h3 id="1-错误目标的代价"><a href="#1-错误目标的代价" class="headerlink" title="1. 错误目标的代价"></a>1. 错误目标的代价</h3><p>经过公式推导，该 Trick Loss 展开后包含了一项<strong>逆向 KL 散度（Reverse KL Divergence）</strong>：</p>
 <script type="math/tex; mode=display">\arg \max_\theta \mathcal{L}'(G|D^*) = \arg \min_\theta D_{\text{KL}}(p_\theta \parallel p_r) - 2D_{\text{JS}}(p_r \parallel p_\theta)</script><h3 id="2-正向-KL-vs-逆向-KL-的行为差异"><a href="#2-正向-KL-vs-逆向-KL-的行为差异" class="headerlink" title="2. 正向 KL vs 逆向 KL 的行为差异"></a>2. 正向 KL vs 逆向 KL 的行为差异</h3><ul>
-<li><strong>正向 KL $D<em>{\text{KL}}(p_r \parallel p</em>\theta)$（VAE 使用）</strong>：<ul>
-<li><strong>零避免 (Zero-avoiding)</strong>：只要真实分布 $p<em>r &gt; 0$，模型分布 $p</em>\theta$ 就必须大于 0。</li>
+<li><strong>正向 KL</strong> <script type="math/tex">D_{\mathrm{KL}}(p_r \parallel p_\theta)</script> <strong>（VAE 使用）</strong>：<ul>
+<li><strong>零避免 (Zero-avoiding)</strong>：只要真实分布 <script type="math/tex">p_r > 0</script>，模型分布 <script type="math/tex">p_\theta</script> 就必须大于 0。</li>
 <li><strong>结果</strong>：<strong>模式覆盖 (Mode-covering)</strong>。模型倾向于把所有模式都包住，导致结果平庸、模糊。</li>
 </ul>
 </li>
-<li><strong>逆向 KL $D<em>{\text{KL}}(p</em>\theta \parallel p_r)$（GAN Trick 引入）</strong>：<ul>
-<li><strong>零迫使 (Zero-forcing)</strong>：只要真实分布 $p<em>r \to 0$ 的地方，模型分布 $p</em>\theta$ 必须雷厉风行地变成 0。</li>
+<li><strong>逆向 KL</strong> <script type="math/tex">D_{\mathrm{KL}}(p_\theta \parallel p_r)</script> <strong>（GAN Trick 引入）</strong>：<ul>
+<li><strong>零迫使 (Zero-forcing)</strong>：只要真实分布 <script type="math/tex">p_r \to 0</script> 的地方，模型分布 <script type="math/tex">p_\theta</script> 必须雷厉风行地变成 0。</li>
 <li><strong>结果</strong>：<strong>模式寻求 (Mode-seeking)</strong>。模型宁可放弃很多正确的模式，也绝不冒风险生成一个“不在真图分布里”的脏样本。</li>
 </ul>
 </li>
@@ -4455,7 +4407,7 @@ A = U\Sigma V^T, \Sigma = \text{diag}(\sigma_1, \sigma_2, \cdots, \sigma_p)</scr
 <hr>
 <h2 id="五、-价值函数与贝尔曼方程"><a href="#五、-价值函数与贝尔曼方程" class="headerlink" title="五、 价值函数与贝尔曼方程"></a>五、 价值函数与贝尔曼方程</h2><h3 id="1-状态价值函数-V-pi-s"><a href="#1-状态价值函数-V-pi-s" class="headerlink" title="1. 状态价值函数 $V^\pi(s)$"></a>1. 状态价值函数 $V^\pi(s)$</h3><p>评估某个局势的“静态含金量”：从状态 $s$ 开始，完全执行策略 $\pi$ 得到的<strong>期望总回报</strong>。</p>
 <script type="math/tex; mode=display">V^\pi(s) = \mathbb{E}_{\tau \sim p(\tau)} \left[ \sum_{t=0}^{T-1} \gamma^t r_{t+1} \middle| S_0 = s \right]</script><ul>
-<li><strong>全期望分解</strong>：整体期望回报等于初始状态价值的期望：$\mathbb{E}<em>{\tau}[G(\tau)] = \mathbb{E}</em>{s \sim p(s_0)} [V^\pi(s)]$</li>
+<li><strong>全期望分解</strong>：整体期望回报等于初始状态价值的期望：<script type="math/tex">\mathbb{E}_{\tau}[G(\tau)] = \mathbb{E}_{s \sim p(s_0)} [V^\pi(s)]</script></li>
 </ul>
 <h3 id="2-状态价值的贝尔曼方程（Bellman-Equation）"><a href="#2-状态价值的贝尔曼方程（Bellman-Equation）" class="headerlink" title="2. 状态价值的贝尔曼方程（Bellman Equation）"></a>2. 状态价值的贝尔曼方程（Bellman Equation）</h3><p>利用分治思想，将漫长的未来折叠，用“未来的价值”定义“现在的价值”：</p>
 <script type="math/tex; mode=display">V^\pi(s) = \mathbb{E}_{a \sim \pi, s' \sim p} \left[ r(s,a,s') + \gamma V^\pi(s') \right]</script><h3 id="3-动作价值函数-Q-pi-s-a"><a href="#3-动作价值函数-Q-pi-s-a" class="headerlink" title="3. 动作价值函数 $Q^\pi(s, a)$"></a>3. 动作价值函数 $Q^\pi(s, a)$</h3><p>评估某个特定动作的动态价值：在状态 $s$ 下<strong>强行执行动作 $a$</strong>，此后的步数重新听从策略 $\pi$ 的期望总回报。</p>
@@ -4470,14 +4422,14 @@ A = U\Sigma V^T, \Sigma = \text{diag}(\sigma_1, \sigma_2, \cdots, \sigma_p)</scr
 </ul>
 </blockquote>
 <hr>
-<h2 id="六、-策略改进与优势函数"><a href="#六、-策略改进与优势函数" class="headerlink" title="六、 策略改进与优势函数"></a>六、 策略改进与优势函数</h2><p>无法一步登天求解最优策略 $\pi^<em>$ 时，通过<em>*自我超越</em></em>来进行策略改进：</p>
+<h2 id="六、-策略改进与优势函数"><a href="#六、-策略改进与优势函数" class="headerlink" title="六、 策略改进与优势函数"></a>六、 策略改进与优势函数</h2><p>无法一步登天求解最优策略 <script type="math/tex">\pi^*</script> 时，通过<strong>自我超越</strong>来进行策略改进：</p>
 <script type="math/tex; mode=display">A(s, a) = Q^\pi(s, a) - V^\pi(s)</script><ul>
 <li><strong>优势函数（Advantage Function）</strong>：代表动作 $a$ 的得分是否超越了当前策略的<strong>班级平均分</strong> $V^\pi(s)$。</li>
 <li>如果 $A(s,a) &gt; 0$，说明该动作是潜力股，更新策略时应当<strong>增大</strong>该动作的输出概率。</li>
 </ul>
 <hr>
 <h2 id="七、-策略梯度定理（Policy-Gradient）"><a href="#七、-策略梯度定理（Policy-Gradient）" class="headerlink" title="七、 策略梯度定理（Policy Gradient）"></a>七、 策略梯度定理（Policy Gradient）</h2><p>为了直接最大化 $J(\theta)$，需要求解梯度 $\frac{\partial J(\theta)}{\partial \theta}$。</p>
-<h3 id="1-对数导数技巧（Log-Derivative-Trick）"><a href="#1-对数导数技巧（Log-Derivative-Trick）" class="headerlink" title="1. 对数导数技巧（Log-Derivative Trick）"></a>1. 对数导数技巧（Log-Derivative Trick）</h3><p>利用微积分恒等式 $\frac{\partial p<em>\theta(\tau)}{\partial \theta} = p</em>\theta(\tau) \frac{\partial \log p_\theta(\tau)}{\partial \theta}$，成功把期望下标里的 $\theta$ 扯进了期望号内部：</p>
+<h3 id="1-对数导数技巧（Log-Derivative-Trick）"><a href="#1-对数导数技巧（Log-Derivative-Trick）" class="headerlink" title="1. 对数导数技巧（Log-Derivative Trick）"></a>1. 对数导数技巧（Log-Derivative Trick）</h3><p>利用微积分恒等式 <script type="math/tex">\frac{\partial p_\theta(\tau)}{\partial \theta} = p_\theta(\tau) \frac{\partial \log p_\theta(\tau)}{\partial \theta}</script>，成功把期望下标里的 <script type="math/tex">\theta</script> 扯进了期望号内部：</p>
 <script type="math/tex; mode=display">\frac{\partial J(\theta)}{\partial \theta} = \int \frac{\partial p_\theta(\tau)}{\partial \theta} G(\tau) d\tau = \mathbb{E}_{\tau \sim p_\theta(\tau)} \left[ \frac{\partial \log p_\theta(\tau)}{\partial \theta} G(\tau) \right]</script><h3 id="2-环境消去（Model-Free-的数学底层火种）"><a href="#2-环境消去（Model-Free-的数学底层火种）" class="headerlink" title="2. 环境消去（Model-Free 的数学底层火种）"></a>2. 环境消去（Model-Free 的数学底层火种）</h3><p>对轨迹的对数概率求导时，不含 $\theta$ 的<strong>初始状态概率</strong>和<strong>环境状态转移概率（物理规律）</strong>在求导时全部变为 0 消失：</p>
 <script type="math/tex; mode=display">\frac{\partial}{\partial \theta} \log p_\theta(\tau) = \sum_{t=0}^{T-1} \frac{\partial}{\partial \theta} \log \pi_\theta(a_t|s_t)</script><h3 id="3-因果关系优化（Reward-to-go）"><a href="#3-因果关系优化（Reward-to-go）" class="headerlink" title="3. 因果关系优化（Reward-to-go）"></a>3. 因果关系优化（Reward-to-go）</h3><p>根据因果律，当前的动作改变不了过去已经发生的历史奖励。抹除历史噪声后，原始策略梯度公式中的全局总回报 $G(\tau)$ 被优雅地替换为 <strong>未来累计回报 $G(\tau_{t:T})$</strong>：</p>
 <script type="math/tex; mode=display">\frac{\partial J(\theta)}{\partial \theta} = \mathbb{E}_{\tau \sim p_\theta(\tau)} \left[ \sum_{t=0}^{T-1} \frac{\partial}{\partial \theta} \log \pi_\theta(a_t|s_t) \cdot \left( \sum_{t'=t}^{T-1} \gamma^{t'-t} r_{t'+1} \right) \right]</script><hr>
@@ -5136,6 +5088,122 @@ L2 正则化倾向于使参数整体变小，使模型更加平滑。</script><p
 <p>神经图灵机（NTM）是在神经网络中引入外部存储器的模型，由控制器、存储器和读写头组成。控制器通过注意力机制确定存储位置，读头从存储器读取信息，写头向存储器写入信息，再结合读取的信息产生输出。其核心思想是将神经网络的学习能力与计算机存储器的记忆能力结合起来，从而增强模型的长期记忆和复杂推理能力。</p>
 <h2 id="6-理解并描述-Hopfield-网络的工作原理-P207-208"><a href="#6-理解并描述-Hopfield-网络的工作原理-P207-208" class="headerlink" title="6. 理解并描述 Hopfield 网络的工作原理 P207-208"></a>6. 理解并描述 Hopfield 网络的工作原理 P207-208</h2><p><img src="2026-05-29-20-38-06.png" alt=""></p>
 <p>Hopfield网络是一种具有联想记忆功能的反馈神经网络，由全连接且对称连接的神经元组成，网络通过权值存储记忆模式，并构造能量函数来描述网络状态。神经元根据其他神经元的状态不断更新自身状态，使网络能量持续下降，最终收敛到某个稳定状态。已存储的记忆模式对应能量函数的局部极小点，因此当输入一个不完整或受噪声干扰的模式时，网络会通过迭代更新自动收敛到与其最接近的已存储模式，从而实现联想记忆、内容寻址和错误纠正功能。 </p>
+<h1 id="作业四答案"><a href="#作业四答案" class="headerlink" title="作业四答案"></a>作业四答案</h1><h2 id="1、学过的判别式人工智能模型有哪些？写出至少-10-种模型。"><a href="#1、学过的判别式人工智能模型有哪些？写出至少-10-种模型。" class="headerlink" title="1、学过的判别式人工智能模型有哪些？写出至少 10 种模型。"></a>1、学过的判别式人工智能模型有哪些？写出至少 10 种模型。</h2><p>判别式人工智能模型主要用于回答“这是什么”“属于哪一类”“结果会怎样”，即完成分类、回归、预测、识别、判断等任务。常见模型有：</p>
+<ol>
+<li>线性回归模型  </li>
+<li>Logistic 回归模型  </li>
+<li>Softmax 回归模型  </li>
+<li>感知器模型  </li>
+<li>支持向量机 SVM  </li>
+<li>k 近邻算法 KNN  </li>
+<li>决策树  </li>
+<li>随机森林  </li>
+<li>AdaBoost 集成学习模型  </li>
+<li>前馈神经网络  </li>
+<li>卷积神经网络 CNN  </li>
+<li>循环神经网络 RNN  </li>
+<li>长短期记忆网络 LSTM  </li>
+<li>门控循环单元 GRU  </li>
+<li>Transformer 判别模型  </li>
+</ol>
+<p>其中，Logistic 回归、Softmax 回归、感知器和支持向量机是典型的线性分类模型；前馈神经网络、卷积神经网络、循环神经网络和 Transformer 可以看作更复杂的非线性判别模型。:contentReference[oaicite:0]{index=0}</p>
+<hr>
+<h2 id="2、常见的生成式模型包括-Transformer-自回归模型、VAE-变分自编码器、扩散模型-Diffusion-Models、GAN-生成对抗网络。"><a href="#2、常见的生成式模型包括-Transformer-自回归模型、VAE-变分自编码器、扩散模型-Diffusion-Models、GAN-生成对抗网络。" class="headerlink" title="2、常见的生成式模型包括 Transformer / 自回归模型、VAE 变分自编码器、扩散模型 Diffusion Models、GAN 生成对抗网络。"></a>2、常见的生成式模型包括 Transformer / 自回归模型、VAE 变分自编码器、扩散模型 Diffusion Models、GAN 生成对抗网络。</h2><hr>
+<h2 id="（1）画出-Transformer-结构，写出工作原理。"><a href="#（1）画出-Transformer-结构，写出工作原理。" class="headerlink" title="（1）画出 Transformer 结构，写出工作原理。"></a>（1）画出 Transformer 结构，写出工作原理。</h2><h3 id="Transformer-结构图"><a href="#Transformer-结构图" class="headerlink" title="Transformer 结构图"></a>Transformer 结构图</h3><figure class="highlight text"><figcaption><span>id</span></figcaption><table><tr><td class="code"><pre><code class="hljs text">输入序列 x1, x2, ..., xs<br>        ↓<br>词嵌入 Embedding + 位置编码 Positional Encoding<br>        ↓<br>┌──────────────────────────────┐<br>│          Encoder × N          │<br>│  多头自注意力 Multi-Head SA   │<br>│  残差连接 + 层归一化          │<br>│  前馈神经网络 FFN             │<br>│  残差连接 + 层归一化          │<br>└──────────────────────────────┘<br>        ↓<br>编码结果 Henc，生成 Kenc、Venc<br>        ↓<br>┌──────────────────────────────┐<br>│          Decoder × N          │<br>│  掩蔽多头自注意力 Masked SA   │<br>│  残差连接 + 层归一化          │<br>│  编码器-解码器注意力          │<br>│  残差连接 + 层归一化          │<br>│  前馈神经网络 FFN             │<br>│  残差连接 + 层归一化          │<br>└──────────────────────────────┘<br>        ↓<br>Linear 全连接层<br>        ↓<br>Softmax<br>        ↓<br>输出目标序列 y1, y2, ..., yt<br></code></pre></td></tr></table></figure>
+<h3 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h3><p>Transformer 是一种基于多头自注意力机制的序列到序列模型，整体由编码器 Encoder 和解码器 Decoder 两部分组成。编码器负责对输入序列进行表示学习，解码器负责按照自回归方式逐步生成输出序列。:contentReference[oaicite:1]{index=1}</p>
+<p>Transformer 首先将输入词转换为词向量，并加入位置编码，使模型能够获得序列中词语的位置信息。之后，编码器通过多头自注意力机制计算序列中每个词与其他词之间的相关性，从而捕捉长距离依赖关系。其核心计算为：</p>
+<script type="math/tex; mode=display">
+Attention(Q,K,V)=softmax\left(\frac{QK^T}{\sqrt{d_k}}\right)V</script><p>其中，$Q$ 是查询矩阵，$K$ 是键矩阵，$V$ 是值矩阵。通过 $QK^T$ 计算注意力分数，再经过 softmax 得到注意力权重，最后对 $V$ 加权求和得到输出表示。</p>
+<p>多头注意力是将 $Q、K、V$ 分成多个子空间分别计算注意力，再将多个头的结果拼接起来，使模型能够从不同角度学习序列特征。每一层还包含残差连接、层归一化和逐位置前馈神经网络 FFN，用来增强模型表达能力并稳定训练。</p>
+<p>解码器在生成时采用掩蔽自注意力，保证当前位置只能看到当前位置之前的信息，不能看到未来词；然后通过编码器-解码器注意力从输入序列的编码结果中提取相关信息，最后经过全连接层和 Softmax 输出下一个词的概率。整个过程不断重复，直到生成完整序列。</p>
+<hr>
+<h2 id="（2）画出变分自编码器结构，写出基本工作原理。写出主要的损失函数。"><a href="#（2）画出变分自编码器结构，写出基本工作原理。写出主要的损失函数。" class="headerlink" title="（2）画出变分自编码器结构，写出基本工作原理。写出主要的损失函数。"></a>（2）画出变分自编码器结构，写出基本工作原理。写出主要的损失函数。</h2><h3 id="变分自编码器-VAE-结构图"><a href="#变分自编码器-VAE-结构图" class="headerlink" title="变分自编码器 VAE 结构图"></a>变分自编码器 VAE 结构图</h3><figure class="highlight text"><figcaption><span>id</span></figcaption><table><tr><td class="code"><pre><code class="hljs text">输入样本 x<br>   ↓<br>推断网络 / 编码器 Encoder：q(z|x; φ)<br>   ↓<br>输出隐变量分布参数 μ、σ<br>   ↓<br>重参数化采样：z = μ + σ ⊙ ε，ε ~ N(0, I)<br>   ↓<br>生成网络 / 解码器 Decoder：p(x|z; θ)<br>   ↓<br>重构样本 x̂<br></code></pre></td></tr></table></figure>
+<h3 id="基本工作原理"><a href="#基本工作原理" class="headerlink" title="基本工作原理"></a>基本工作原理</h3><p>变分自编码器由推断网络和生成网络组成。推断网络也可以看作编码器，它将输入样本 $x$ 映射为隐变量 $z$ 的概率分布 $q(z|x;\phi)$；生成网络也可以看作解码器，它将隐变量 $z$ 映射回观测变量分布 $p(x|z;\theta)$。VAE 与普通自编码器不同，它的编码器和解码器输出的是概率分布或分布参数，而不是确定的编码。:contentReference[oaicite:3]{index=3}</p>
+<p>为了便于训练，通常假设隐变量分布服从高斯分布：</p>
+<script type="math/tex; mode=display">
+q(z|x;\phi)=N(z;\mu_I,\sigma_I^2I)</script><p>编码器输出均值 $\mu_I$ 和方差 $\sigma_I^2$，再通过重参数化技巧进行采样：</p>
+<script type="math/tex; mode=display">
+z=\mu_I+\sigma_I \odot \epsilon,\quad \epsilon \sim N(0,I)</script><p>这样可以把随机采样过程转化为可导形式，使整个网络能够使用反向传播训练。</p>
+<h3 id="主要损失函数"><a href="#主要损失函数" class="headerlink" title="主要损失函数"></a>主要损失函数</h3><p>VAE 的训练目标是最大化证据下界 ELBO：</p>
+<script type="math/tex; mode=display">
+\max_{\theta,\phi} \mathbb{E}_{z\sim q(z|x;\phi)}[\log p(x|z;\theta)]
+-
+KL(q(z|x;\phi)\|p(z))</script><p>等价地，最小化损失函数：</p>
+<script type="math/tex; mode=display">
+L_{VAE}
+=
+L_{recon}
++
+L_{KL}</script><p>其中：</p>
+<script type="math/tex; mode=display">
+L_{recon}=-\mathbb{E}_{z\sim q(z|x)}[\log p(x|z)]</script><p>表示重构损失，用来保证生成样本 $\hat{x}$ 尽量接近输入样本 $x$；</p>
+<script type="math/tex; mode=display">
+L_{KL}=KL(q(z|x;\phi)\|p(z))</script><p>表示 KL 散度正则项，用来约束隐变量分布接近先验分布 $N(0,I)$。</p>
+<p>若假设 $p(x|z;\theta)$ 服从高斯分布，则目标函数常写成：</p>
+<script type="math/tex; mode=display">
+L_{VAE}
+=
+\frac{1}{2}\|x-\mu_G\|^2
++
+\lambda KL(N(\mu_I,\sigma_I)\|N(0,I))</script><p>其中第一项是重构误差，第二项是 KL 散度正则化项。</p>
+<hr>
+<h2 id="（3）画出生成对抗网络-GAN-的流程图，写出其工作原理。写出主要的损失函数。"><a href="#（3）画出生成对抗网络-GAN-的流程图，写出其工作原理。写出主要的损失函数。" class="headerlink" title="（3）画出生成对抗网络 GAN 的流程图，写出其工作原理。写出主要的损失函数。"></a>（3）画出生成对抗网络 GAN 的流程图，写出其工作原理。写出主要的损失函数。</h2><h3 id="GAN-流程图"><a href="#GAN-流程图" class="headerlink" title="GAN 流程图"></a>GAN 流程图</h3><figure class="highlight text"><figcaption><span>id</span></figcaption><table><tr><td class="code"><pre><code class="hljs text">随机噪声 z ~ N(0, I)<br>        ↓<br>生成器 G(z; θ)<br>        ↓<br>生成样本 x_fake = G(z)<br>        ↓<br>              ┌────────────────────┐<br>真实样本 x_real ─→ 判别器 D(x; φ) ─→ 输出是真实样本的概率<br>生成样本 x_fake ─→ 判别器 D(x; φ) ─→ 输出是真实样本的概率<br>              └────────────────────┘<br>        ↓<br>生成器尽量欺骗判别器<br>判别器尽量区分真实样本和生成样本<br></code></pre></td></tr></table></figure>
+<h3 id="工作原理-1"><a href="#工作原理-1" class="headerlink" title="工作原理"></a>工作原理</h3><p>GAN 由生成器 Generator 和判别器 Discriminator 两个网络组成。生成器 $G(z;\theta)$ 的输入是随机噪声 $z$，输出是生成样本 $G(z)$；判别器 $D(x;\phi)$ 的输入是真实样本或生成样本，输出该样本来自真实数据分布的概率。</p>
+<p>训练过程中，判别器的目标是尽可能准确地区分真实样本和生成样本；生成器的目标是生成尽可能逼真的样本，使判别器无法判断其真假。两者目标相反，通过交替训练形成对抗过程。当训练达到理想状态时，生成器生成的样本分布接近真实数据分布，判别器无法区分真实样本和生成样本。</p>
+<h3 id="主要损失函数-1"><a href="#主要损失函数-1" class="headerlink" title="主要损失函数"></a>主要损失函数</h3><p>GAN 的经典极小极大目标函数为：</p>
+<script type="math/tex; mode=display">
+\min_G \max_D V(D,G)
+=
+\mathbb{E}_{x\sim p_{data}(x)}[\log D(x)]
++
+\mathbb{E}_{z\sim p_z(z)}[\log(1-D(G(z)))]</script><p>判别器损失函数通常写为：</p>
+<script type="math/tex; mode=display">
+L_D
+=
+-\mathbb{E}_{x\sim p_{data}(x)}[\log D(x)]
+-
+\mathbb{E}_{z\sim p_z(z)}[\log(1-D(G(z)))]</script><p>生成器原始损失函数为：</p>
+<script type="math/tex; mode=display">
+L_G
+=
+\mathbb{E}_{z\sim p_z(z)}[\log(1-D(G(z)))]</script><p>实际训练中也常使用非饱和形式：</p>
+<script type="math/tex; mode=display">
+L_G
+=
+-\mathbb{E}_{z\sim p_z(z)}[\log D(G(z))]</script><p>即让生成器最大化判别器把生成样本判断为真实样本的概率。判别器使用交叉熵损失进行二分类训练，真实样本标签为 1，生成样本标签为 0。</p>
+<hr>
+<h2 id="（4）写出扩散模型的基本流程图，写出其工作原理。写出主要的损失函数。"><a href="#（4）写出扩散模型的基本流程图，写出其工作原理。写出主要的损失函数。" class="headerlink" title="（4）写出扩散模型的基本流程图，写出其工作原理。写出主要的损失函数。"></a>（4）写出扩散模型的基本流程图，写出其工作原理。写出主要的损失函数。</h2><h3 id="扩散模型基本流程图"><a href="#扩散模型基本流程图" class="headerlink" title="扩散模型基本流程图"></a>扩散模型基本流程图</h3><figure class="highlight text"><figcaption><span>id</span></figcaption><table><tr><td class="code"><pre><code class="hljs text">前向扩散过程 q：<br>真实样本 x0<br>   ↓ 加少量高斯噪声<br>x1<br>   ↓ 加噪<br>x2<br>   ↓<br>...<br>   ↓ 加噪<br>xT ≈ N(0, I)<br><br>反向生成过程 pθ：<br>随机噪声 xT ~ N(0, I)<br>   ↓ 神经网络逐步去噪<br>xT-1<br>   ↓ 去噪<br>xT-2<br>   ↓<br>...<br>   ↓ 去噪<br>x0<br>生成样本<br></code></pre></td></tr></table></figure>
+<h3 id="工作原理-2"><a href="#工作原理-2" class="headerlink" title="工作原理"></a>工作原理</h3><p>扩散模型是一类生成式模型，核心思想是“先加噪、再去噪”。它包含两个过程：前向扩散过程和反向生成过程。</p>
+<p>前向扩散过程从真实样本 $x_0$ 开始，在每一步加入少量高斯噪声，使数据逐渐被破坏，最终变成接近标准高斯分布的纯噪声 $x_T$。其过程可写为：</p>
+<script type="math/tex; mode=display">
+q(x_t|x_{t-1})
+=
+N(\sqrt{1-\beta_t}x_{t-1},\beta_tI)</script><p>经过多步加噪后，有：</p>
+<script type="math/tex; mode=display">
+x_t
+=
+\sqrt{\bar{\alpha}_t}x_0
++
+\sqrt{1-\bar{\alpha}_t}\epsilon,
+\quad
+\epsilon\sim N(0,I)</script><p>其中，$\beta<em>t$ 是噪声强度，$\alpha_t=1-\beta_t$，$\bar{\alpha}_t=\prod</em>{i=1}^{t}\alpha_i$。</p>
+<p>反向生成过程从随机噪声 $x_T\sim N(0,I)$ 开始，通过神经网络逐步预测并去除噪声，恢复出清晰样本 $x_0$。神经网络通常学习预测每一步加入的噪声 $\epsilon$，再根据预测噪声反推出更干净的样本。生成时，模型不断执行：</p>
+<figure class="highlight text"><figcaption><span>id</span></figcaption><table><tr><td class="code"><pre><code class="hljs text">xT → xT-1 → xT-2 → ... → x0<br></code></pre></td></tr></table></figure>
+<p>最终得到生成样本。</p>
+<h3 id="主要损失函数-2"><a href="#主要损失函数-2" class="headerlink" title="主要损失函数"></a>主要损失函数</h3><p>扩散模型常用的主要损失函数是噪声预测均方误差：</p>
+<script type="math/tex; mode=display">
+L_{simple}
+=
+\mathbb{E}_{t,x_0,\epsilon}
+\left[
+\|\epsilon-\epsilon_\theta(x_t,t)\|^2
+\right]</script><p>其中：</p>
+<script type="math/tex; mode=display">
+x_t
+=
+\sqrt{\bar{\alpha}_t}x_0
++
+\sqrt{1-\bar{\alpha}_t}\epsilon</script><p>$\epsilon$ 表示真实加入的高斯噪声，$\epsilon_\theta(x_t,t)$ 表示神经网络预测出的噪声。该损失函数的目标是让模型准确预测噪声，从而在生成阶段能够逐步去噪，最终从随机噪声生成真实样本。</p>
 ]]></content>
       <categories>
         <category>华理</category>
