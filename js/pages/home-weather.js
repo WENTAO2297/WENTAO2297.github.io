@@ -2,6 +2,13 @@
   'use strict'
 
   const cacheKey = 'wentao-home-weather-cache-v1'
+  const weatherRuntime = window.wentaoHomeWeatherRuntime || {
+    controllers: new Set(),
+    cleanupBound: false,
+    leaving: false
+  }
+  weatherRuntime.leaving = false
+  window.wentaoHomeWeatherRuntime = weatherRuntime
   const shanghaiFallback = {
     latitude: 31.2304,
     longitude: 121.4737,
@@ -58,8 +65,25 @@
     return humidity >= 75 ? '空气偏湿' : '体感舒适'
   }
 
+  const getUvLevel = (uvIndex) => {
+    if (uvIndex < 3) return '低'
+    if (uvIndex < 6) return '中等'
+    if (uvIndex < 8) return '高'
+    if (uvIndex < 11) return '很高'
+    return '极高'
+  }
+
+  const getAirQualityLevel = (airQualityIndex) => {
+    if (airQualityIndex <= 50) return '优'
+    if (airQualityIndex <= 100) return '良'
+    if (airQualityIndex <= 150) return '轻度污染'
+    if (airQualityIndex <= 200) return '中度污染'
+    if (airQualityIndex <= 300) return '重度污染'
+    return '严重污染'
+  }
+
   const isWeatherDataValid = (data) => {
-    const fields = ['location', 'symbol', 'temperature', 'summary', 'wind', 'humidity', 'visibility', 'precipitation']
+    const fields = ['location', 'symbol', 'temperature', 'summary', 'wind', 'humidity', 'uvIndex', 'airQuality']
     return data && fields.every((field) => typeof data[field] === 'string' && data[field].length > 0)
   }
 
@@ -85,6 +109,7 @@
 
   const fetchJson = async (url) => {
     const controller = new AbortController()
+    weatherRuntime.controllers.add(controller)
     const timeout = window.setTimeout(() => controller.abort(), 8000)
 
     try {
@@ -93,6 +118,7 @@
       return await response.json()
     } finally {
       window.clearTimeout(timeout)
+      weatherRuntime.controllers.delete(controller)
     }
   }
 
@@ -123,8 +149,17 @@
     weatherUrl.search = new URLSearchParams({
       latitude: String(latitude),
       longitude: String(longitude),
-      current: 'temperature_2m,weather_code,is_day,apparent_temperature,relative_humidity_2m,wind_speed_10m,wind_direction_10m,visibility',
-      daily: 'temperature_2m_max,temperature_2m_min,precipitation_probability_max',
+      current: 'temperature_2m,weather_code,is_day,apparent_temperature,relative_humidity_2m,wind_speed_10m,wind_direction_10m',
+      daily: 'temperature_2m_max,temperature_2m_min',
+      timezone: 'auto',
+      forecast_days: '1'
+    }).toString()
+
+    const airQualityUrl = new URL('https://air-quality-api.open-meteo.com/v1/air-quality')
+    airQualityUrl.search = new URLSearchParams({
+      latitude: String(latitude),
+      longitude: String(longitude),
+      current: 'uv_index,us_aqi',
       timezone: 'auto',
       forecast_days: '1'
     }).toString()
@@ -136,18 +171,20 @@
       localityLanguage: 'zh'
     }).toString()
 
-    const [weatherResult, locationResult] = await Promise.allSettled([
+    const [weatherResult, airQualityResult, locationResult] = await Promise.allSettled([
       fetchJson(weatherUrl),
+      fetchJson(airQualityUrl),
       fetchJson(locationUrl)
     ])
 
     if (weatherResult.status !== 'fulfilled') throw weatherResult.reason
+    if (airQualityResult.status !== 'fulfilled') throw airQualityResult.reason
 
     const current = weatherResult.value.current
     const daily = weatherResult.value.daily
+    const airQualityCurrent = airQualityResult.value.current
     const high = daily?.temperature_2m_max?.[0]
     const low = daily?.temperature_2m_min?.[0]
-    const precipitation = daily?.precipitation_probability_max?.[0]
     const requiredNumbers = [
       current?.temperature_2m,
       current?.weather_code,
@@ -155,10 +192,10 @@
       current?.relative_humidity_2m,
       current?.wind_speed_10m,
       current?.wind_direction_10m,
-      current?.visibility,
       high,
       low,
-      precipitation
+      airQualityCurrent?.uv_index,
+      airQualityCurrent?.us_aqi
     ]
 
     if (!requiredNumbers.every(Number.isFinite)) throw new Error('Incomplete weather data')
@@ -176,8 +213,8 @@
       summary: `预计今天${description}，${comfort}，最高${Math.round(high)}°，最低${Math.round(low)}°。`,
       wind: `${getWindDirection(current.wind_direction_10m)}风 ${getWindLevel(current.wind_speed_10m)}级`,
       humidity: `${Math.round(current.relative_humidity_2m)}%`,
-      visibility: `${Math.round(current.visibility / 1000)} km`,
-      precipitation: `${Math.round(precipitation)}%`
+      uvIndex: `${Math.round(airQualityCurrent.uv_index)} ${getUvLevel(airQualityCurrent.uv_index)}`,
+      airQuality: `${Math.round(airQualityCurrent.us_aqi)} ${getAirQualityLevel(airQualityCurrent.us_aqi)}`
     }
   }
 
@@ -196,8 +233,8 @@
     elements.summary.textContent = data.summary
     elements.wind.textContent = data.wind
     elements.humidity.textContent = data.humidity
-    elements.visibility.textContent = data.visibility
-    elements.precipitation.textContent = data.precipitation
+    elements.uvIndex.textContent = data.uvIndex
+    elements.airQuality.textContent = data.airQuality
     card.setAttribute('aria-busy', 'false')
 
     const showContent = () => {
@@ -227,12 +264,14 @@
     try {
       data = await fetchWeatherData(target)
     } catch (error) {
+      if (weatherRuntime.leaving || !card.isConnected) return
       if (target.isFallback) throw error
       data = await fetchWeatherData({ ...shanghaiFallback, isFallback: true })
     }
 
+    if (weatherRuntime.leaving || !card.isConnected) return
     writeCache(data)
-    if (card.isConnected) renderWeather(card, elements, data, !hasCache)
+    renderWeather(card, elements, data, !hasCache)
   }
 
   const initWeather = () => {
@@ -249,8 +288,8 @@
       summary: card.querySelector('#weather-summary'),
       wind: card.querySelector('#weather-wind'),
       humidity: card.querySelector('#weather-humidity'),
-      visibility: card.querySelector('#weather-visibility'),
-      precipitation: card.querySelector('#weather-precipitation')
+      uvIndex: card.querySelector('#weather-uv-index'),
+      airQuality: card.querySelector('#weather-air-quality')
     }
 
     updateDate(elements)
@@ -261,6 +300,15 @@
   }
 
   initWeather()
+
+  if (!weatherRuntime.cleanupBound) {
+    weatherRuntime.cleanupBound = true
+    document.addEventListener('pjax:send', () => {
+      weatherRuntime.leaving = true
+      weatherRuntime.controllers.forEach(controller => controller.abort())
+      weatherRuntime.controllers.clear()
+    })
+  }
 
   if (!window.homeWeatherPjaxListener) {
     window.homeWeatherPjaxListener = true

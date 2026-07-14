@@ -21,6 +21,7 @@
     const dashboard = document.getElementById('home-dashboard')
     if (!dashboard || dashboard.dataset.readyController === 'true') return
 
+    window.homeDashboardReadyCleanup?.()
     dashboard.dataset.readyController = 'true'
     const spotify = dashboard.querySelector('.spotify-embed')
 
@@ -39,6 +40,12 @@
       activateDashboard(dashboard)
     }
 
+    window.homeDashboardReadyCleanup = () => {
+      finished = true
+      window.clearTimeout(fallbackTimer)
+      spotify.removeEventListener('load', handleSpotifyReady)
+    }
+
     spotify.addEventListener('load', handleSpotifyReady, { once: true })
 
     if (spotify.dataset.spotifyReady === 'true') {
@@ -50,6 +57,11 @@
   }
 
   initDashboard()
+
+  if (!window.homeDashboardReadyCleanupBound) {
+    window.homeDashboardReadyCleanupBound = true
+    document.addEventListener('pjax:send', () => window.homeDashboardReadyCleanup?.())
+  }
 
   if (!window.homeDashboardReadyListener) {
     window.homeDashboardReadyListener = true

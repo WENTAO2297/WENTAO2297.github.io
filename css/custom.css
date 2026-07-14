@@ -106,6 +106,10 @@ body.site-video-body #page-header #nav #blog-info .nav-page-title .site-name {
     color: rgba(255, 255, 255, 0.95) !important;
 }
 
+body.site-video-body #page-header #nav #blog-info .nav-page-title.is-hidden {
+    display: none !important;
+}
+
 body.site-video-body #page-header #nav #menus .site-page,
 body.site-video-body #page-header #nav #menus .site-page i,
 body.site-video-body #page-header #nav #toggle-menu,
@@ -196,3 +200,51 @@ body.site-video-body #aside-content .card-widget {
 .avatar-img img:hover { transform: none !important; }
 #footer { display: none !important; }
 #local-search .search-dialog hr { display: none !important; }
+
+@keyframes page-content-reveal {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+html.js #content-inner.page-animation-pending,
+html.js #content-inner.pjax-content-entering {
+    opacity: 0;
+    visibility: hidden;
+}
+
+html.pjax-content-leaving #content-inner {
+    opacity: 0;
+    transition: opacity 180ms ease;
+}
+
+.page-animation-item {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.page-animation-item.page-animation-revealed {
+    opacity: 1;
+    transform: none;
+    animation: page-content-reveal 700ms cubic-bezier(0.22, 1, 0.36, 1) backwards;
+    animation-delay: calc(var(--delay-index, 0) * 80ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html.js #content-inner.page-animation-pending,
+    html.js #content-inner.pjax-content-entering,
+    .page-animation-item,
+    .page-animation-item.page-animation-revealed {
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        animation: none;
+        transition: none;
+    }
+}

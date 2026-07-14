@@ -85,3 +85,44 @@
   text-transform: uppercase; /* 英文全大写，更整齐 */
   letter-spacing: 1px;
 }
+
+/* --- ECUST 独立页面进入生命周期 --- */
+@keyframes ecust-card-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.ecust-page-enter.ecust-page-entering {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.ecust-page-enter .semester-card.ecust-card-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.ecust-page-enter .semester-card.ecust-card-enter.ecust-card-visible {
+  opacity: 1;
+  transform: none;
+  animation: ecust-card-reveal 700ms cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  animation-delay: calc(var(--ecust-delay-index, 0) * 100ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ecust-page-enter.ecust-page-entering,
+  .ecust-page-enter .semester-card.ecust-card-enter,
+  .ecust-page-enter .semester-card.ecust-card-enter.ecust-card-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    animation: none;
+  }
+}

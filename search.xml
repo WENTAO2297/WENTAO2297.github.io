@@ -904,6 +904,1495 @@
       </categories>
   </entry>
   <entry>
+    <title>智能无人系统</title>
+    <url>/2025/12/24/AutoDriving/</url>
+    <content><![CDATA[<h1 id="第一章和第七章-无人驾驶平台和系统"><a href="#第一章和第七章-无人驾驶平台和系统" class="headerlink" title="第一章和第七章 无人驾驶平台和系统"></a>第一章和第七章 无人驾驶平台和系统</h1><h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><h3 id="SAE自动驾驶分级标准"><a href="#SAE自动驾驶分级标准" class="headerlink" title="SAE自动驾驶分级标准"></a>SAE自动驾驶分级标准</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">层级</th>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">详细描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Level 0</strong></td>
+<td style="text-align:left"><strong>无自动化</strong></td>
+<td style="text-align:left">无自动控制功能。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Level 1</strong></td>
+<td style="text-align:left"><strong>单一功能级自动化</strong></td>
+<td style="text-align:left">无法做到手和脚同时不操控。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Level 2</strong></td>
+<td style="text-align:left"><strong>部分自动化</strong></td>
+<td style="text-align:left">在某些预设环境下可以不操作汽车，即手脚同时离开控制。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Level 3</strong></td>
+<td style="text-align:left"><strong>有条件自动化</strong></td>
+<td style="text-align:left">特定条件部分任务。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Level 4</strong></td>
+<td style="text-align:left"><strong>高度自动化</strong></td>
+<td style="text-align:left">特定条件全部任务。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Level 5</strong></td>
+<td style="text-align:left"><strong>完全自动化</strong></td>
+<td style="text-align:left">全部条件全部任务。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="传感器平台"><a href="#传感器平台" class="headerlink" title="传感器平台"></a>传感器平台</h3><p>主流的无人驾驶传感平台以<strong>激光雷达和车载摄像头为主</strong>，并呈现<strong>多传感器融合</strong>发展的趋势。需要了解各类传感器（激光雷达、毫米波雷达、摄像头、GPS/IMU、V2X通信传感系统）的<strong>检测原理、优势、劣势以及功能</strong>。</p>
+<p><strong>1. 激光雷达 (LiDAR) 与 毫米波雷达 (Radar)</strong>：</p>
+<p><strong>激光雷达 (LiDAR)</strong></p>
+<ul>
+<li><strong>核心原理</strong>：利用光进行“回声定位”。<ul>
+<li><strong>测距技术</strong>：飞行时间法 (ToF)。</li>
+<li><strong>公式</strong>：  $r =\frac{1}{2}ct$（c为光速，t为往返时间）。</li>
+</ul>
+</li>
+<li><strong>适用性</strong>：测距精准（厘米级），能区分车道线；<strong>缺点</strong>是受雨雪雾天气影响大。</li>
+<li><strong>分类</strong>：<ol>
+<li><strong>机械式</strong>：360°扫描，但体积大、成本高、易损耗。</li>
+<li><strong>半固态</strong>：内部微动（MEMS/转镜），适合车规量产。</li>
+<li><strong>固态</strong>：无机械部件（Flash/OPA），耐用且成本低，是未来方向。</li>
+</ol>
+</li>
+</ul>
+<p><strong>毫米波雷达 (Radar)</strong></p>
+<ul>
+<li><strong>核心优势</strong>：<strong>全天候工作</strong>，穿透力强（抗雨雾）。</li>
+<li><strong>频段</strong>：<ul>
+<li><strong>24GHz</strong>：短距离（盲点监测）。</li>
+<li><strong>77GHz</strong>：<strong>主流</strong>，探测距离远、精度高、体积小。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>2. 摄像头 (Camera)</strong>：</p>
+<ul>
+<li><strong>特点</strong>：<ul>
+<li><strong>优点</strong>：语义识别能力强（红绿灯、路牌），信息丰富，成本低。</li>
+<li><strong>局限</strong>：受光线影响大（怕黑、怕逆光），测距不如雷达。</li>
+</ul>
+</li>
+<li><strong>类型与位置</strong>：<br>| 摄像头类型 | 应用场景 |<br>| :—- | :—- |<br>| <strong>单目</strong> | 自适应巡航、车道偏离预警、车道保持辅助、前向碰撞预警、自动紧急制动、交通标志识别、自动泊车、行人检测、驾驶员监控 |<br>| <strong>双目</strong> | 自适应巡航、车道偏离预警、车道保持辅助、前向碰撞预警、自动紧急制动、交通标志识别、自动泊车、行人检测、驾驶员监控 |<br>| <strong>环视摄像头</strong> | 自动泊车、全景环视系统 |<br>| <strong>后视</strong> | 自动泊车 |</li>
+</ul>
+<hr>
+<p><strong>3. GPS 与 IMU (组合导航)</strong>：</p>
+<p><strong>对比分析</strong></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">特性</th>
+<th style="text-align:left">GPS (全球定位系统)</th>
+<th style="text-align:left">IMU (惯性测量单元)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>原理</strong></td>
+<td style="text-align:left">接收卫星信号算绝对坐标</td>
+<td style="text-align:left">靠陀螺仪/加速度计算相对位移</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>优点</strong></td>
+<td style="text-align:left"><strong>无累积误差</strong></td>
+<td style="text-align:left"><strong>频率高</strong>，<strong>不怕遮挡</strong></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>缺点</strong></td>
+<td style="text-align:left">信号易受遮挡（隧道/高楼），更新慢</td>
+<td style="text-align:left"><strong>误差随时间累积</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>融合优势 (互补)</strong></p>
+<ul>
+<li><strong>GPS 修正 IMU</strong>：用 GPS 的绝对位置消除 IMU 的累积误差。</li>
+<li><strong>IMU 填补 GPS</strong>：在 GPS 信号丢失（如隧道）时，IMU 继续推算位置。</li>
+<li><strong>算法</strong>：通常使用<strong>卡尔曼滤波 (Kalman Filter)</strong> 进行数据融合。</li>
+</ul>
+<hr>
+<p><strong>4. V2X 通信传感系统</strong>：</p>
+<ul>
+<li><strong>三大优势</strong>：<ol>
+<li><strong>覆盖广</strong>：实现“超视距感知”（如几公里外的路况）。</li>
+<li><strong>避盲区</strong>：解决视线遮挡问题（如路口盲区）。</li>
+<li><strong>更安全</strong>：通过数字证书防篡改。</li>
+</ol>
+</li>
+<li><strong>政策与标准</strong>：<ul>
+<li>如欧盟 <strong>PRESERVE</strong> 项目，建立了安全架构和证书体系，保障信息不被黑客伪造。</li>
+</ul>
+</li>
+</ul>
+<p><img src="2025-12-31-20-23-06.png" alt=""></p>
+<ul>
+<li><strong>GPS+惯导</strong>：开阔环境首选，绝对定位能力强，GPS怕遮挡。</li>
+<li><strong>激光SLAM</strong>：几何特征丰富环境首选，精确但成本高、怕恶劣天气。</li>
+<li><strong>视觉SLAM</strong>：纹理特征丰富环境可用，成本低但怕弱纹理、光照变化。</li>
+<li><strong>纯惯导(IMU)</strong>：短期备用方案，任何环境都能工作但误差累积。</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">环境场景</th>
+<th style="text-align:left">主传感器</th>
+<th style="text-align:left">辅助传感器</th>
+<th style="text-align:left">为什么这样配</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>无GPS+有结构</strong></td>
+<td style="text-align:left">激光雷达</td>
+<td style="text-align:left">IMU</td>
+<td style="text-align:left">激光提供绝对位置，IMU填补扫描间隔</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>有GPS+开阔地</strong></td>
+<td style="text-align:left">GPS</td>
+<td style="text-align:left">IMU</td>
+<td style="text-align:left">GPS提供全局定位，IMU提高更新频率</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>有GPS+有纹理</strong></td>
+<td style="text-align:left">视觉+GPS</td>
+<td style="text-align:left">IMU</td>
+<td style="text-align:left">视觉提供局部精度，GPS防止漂移</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>恶劣天气</strong></td>
+<td style="text-align:left">GPS+IMU</td>
+<td style="text-align:left">-</td>
+<td style="text-align:left">激光/视觉受影响，回归最可靠组合</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>多传感器融合：卡尔曼滤波</strong></p>
+<h2 id="第七章"><a href="#第七章" class="headerlink" title="第七章"></a>第七章</h2><h3 id="1-计算平台"><a href="#1-计算平台" class="headerlink" title="1. 计算平台"></a>1. 计算平台</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">解决方案</th>
+<th style="text-align:left">核心特点</th>
+<th style="text-align:left">优势与适用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>GPU</strong> (图形处理器)</td>
+<td style="text-align:left"><strong>并行计算能力强</strong></td>
+<td style="text-align:left">擅长处理大规模并行任务，非常适合<strong>深度学习</strong>和图像处理（如训练神经网络）。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>DSP</strong> (数字信号处理器)</td>
+<td style="text-align:left">擅长数字信号处理</td>
+<td style="text-align:left">适合处理连续的模拟信号转换成的数字信号（如音频、雷达信号处理），数学运算能力强。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>FPGA</strong> (现场可编程门阵列)</td>
+<td style="text-align:left"><strong>硬件可重构</strong></td>
+<td style="text-align:left">灵活性极高，可以根据需要重新编程硬件逻辑，<strong>低延迟</strong>，能耗比通常优于 GPU。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>ASIC</strong> (专用集成电路)</td>
+<td style="text-align:left"><strong>专用定制</strong></td>
+<td style="text-align:left">为特定功能量身定制，<strong>性能最高、功耗最低、体积最小</strong>，但不可更改，研发成本高。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h3 id="2-控制平台"><a href="#2-控制平台" class="headerlink" title="2. 控制平台"></a>2. 控制平台</h3><p>控制平台是连接算法与执行机构的桥梁，主要包括两大部分：</p>
+<ul>
+<li><strong>ECU (电子控制单元)</strong>：分布在车内的“小脑”，负责运行具体的<strong>控制算法</strong>（如控制发动机喷油、刹车防抱死等）。</li>
+<li><strong>通信总线</strong>：连接各个 ECU 和机械部件的“神经纤维”，负责<strong>传输指令和状态信息</strong>。</li>
+</ul>
+<hr>
+<h3 id="3-通信网络协议"><a href="#3-通信网络协议" class="headerlink" title="3. 通信网络协议"></a>3. 通信网络协议</h3><p>不同总线根据速率和可靠性适用于不同的场景：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">协议名称</th>
+<th style="text-align:left">定位与特点</th>
+<th style="text-align:left">工作机制</th>
+<th style="text-align:left">适用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>LIN</strong> (局部互联协议)</td>
+<td style="text-align:left"><strong>低速</strong>、低成本</td>
+<td style="text-align:left"><strong>主从模式</strong>（Master-Slave）</td>
+<td style="text-align:left"><strong>车身电子</strong><br>（如车窗、雨刮器、后视镜调节）</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>CAN</strong> (控制器局域网)</td>
+<td style="text-align:left"><strong>中速</strong>、行业标准</td>
+<td style="text-align:left"><strong>仲裁机制</strong>（优先级判断）、多主结构</td>
+<td style="text-align:left"><strong>车辆底盘控制</strong><br>（如发动机、变速箱、ABS），应用最广泛</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>FlexRay</strong></td>
+<td style="text-align:left"><strong>高速</strong>、高可靠性</td>
+<td style="text-align:left"><strong>时间触发</strong> (Time-Triggered) + 事件触发</td>
+<td style="text-align:left"><strong>线控系统 (X-by-Wire)</strong><br>（如线控转向、线控刹车），确保数据零延迟、零出错</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="4-无人驾驶的安全性（四大安全）"><a href="#4-无人驾驶的安全性（四大安全）" class="headerlink" title="4. 无人驾驶的安全性（四大安全）"></a>4. 无人驾驶的安全性（四大安全）</h3><p><strong>无人驾驶系统安全性核心考点总结</strong></p>
+<p><strong>（1）. 传感器的安全 (感知层)</strong></p>
+<ul>
+<li><strong>常见攻击方式</strong>：<ul>
+<li><strong>致盲攻击</strong>：使用强光或激光干扰摄像头，使其“失明”。</li>
+<li><strong>欺骗攻击</strong>：伪造 GPS 信号，或使用对抗样本（如在路牌上贴贴纸）误导算法。</li>
+</ul>
+</li>
+<li><strong>核心防御策略</strong>：<strong>多传感器融合</strong><ul>
+<li>利用激光雷达、毫米波雷达和摄像头的不同特性进行<strong>交叉验证</strong>，不依赖单一信源。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>（2）. 操作系统的安全 (软件层)</strong></p>
+<ul>
+<li><strong>主要威胁</strong>：<strong>节点劫持</strong><ul>
+<li>ROS (机器人操作系统) 内部节点通信若缺乏验证，易被黑客控制发送错误指令。</li>
+</ul>
+</li>
+<li><strong>核心防御策略</strong>：<strong>隔离技术</strong><ul>
+<li><strong>容器技术 (如 Docker)</strong> 和 <strong>沙盒 (Sandbox)</strong>：将节点隔离在独立环境中运行，防止病毒或故障扩散。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>（3）. 控制系统的安全 (执行层)</strong></p>
+<ul>
+<li><strong>入侵方式</strong>：通过 OBD 接口或无线网络侵入 CAN 总线，发送伪造的刹车/转向指令。</li>
+<li><strong>核心防御策略</strong>：<strong>加密与验证</strong><ul>
+<li>ECU 在执行指令前必须校验<strong>数字签名</strong>，确保指令来源合法且未被篡改。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>（4）. 车联网通信系统的安全性 (V2X 网络层)</strong></p>
+<ul>
+<li><strong>主要威胁</strong>：消息伪造（假绿灯）、篡改路况信息、隐私泄露。</li>
+<li><strong>核心防御策略</strong>：<strong>PRESERVE 三层防护架构</strong><ol>
+<li><strong>硬件层</strong>：使用 <strong>HSM (硬件安全模块)</strong> 物理隔离存储密钥。</li>
+<li><strong>软件层</strong>：部署防火墙和入侵检测系统。</li>
+<li><strong>安全证书</strong>：建立 <strong>PKI 数字证书体系</strong>，确保每一条 V2X 消息都是真实可信的。</li>
+</ol>
+</li>
+</ul>
+<h1 id="第二章-定位方法以及传感器应用"><a href="#第二章-定位方法以及传感器应用" class="headerlink" title="第二章 定位方法以及传感器应用"></a>第二章 定位方法以及传感器应用</h1><blockquote>
+<p><strong>章节核心逻辑</strong>：无人驾驶系统如何解决两个终极问题？</p>
+<ol>
+<li><strong>“感官”</strong>：用传感器感知周围环境（雷达、相机）。</li>
+<li><strong>“大脑”</strong>：用算法（定位、滤波）确定自己在哪、状态如何。</li>
+</ol>
+</blockquote>
+<p><strong>SLAN</strong>：同步定位与地图构建。主要有：激光SLAN &amp; 视觉SLAN</p>
+<h2 id="第一部分：硬件传感器"><a href="#第一部分：硬件传感器" class="headerlink" title="第一部分：硬件传感器"></a>第一部分：硬件传感器</h2><h3 id="1-激光雷达（激光SLAN）"><a href="#1-激光雷达（激光SLAN）" class="headerlink" title="1. 激光雷达（激光SLAN）"></a>1. 激光雷达（激光SLAN）</h3><ul>
+<li><strong>原理</strong>：<strong>飞行时间法 (ToF)</strong>。发射激光束，计算往返时间测距。<ul>
+<li>公式：$r = \frac{1}{2} c t$</li>
+</ul>
+</li>
+<li><strong>特性</strong>：<ul>
+<li>3D激光雷达采集到的信息叫做<strong>点云</strong>。将点云与全局地图进行迭代匹配（ICP）</li>
+<li>✅ <strong>精度极高</strong>，测距远，分辨率高，隐蔽性好，抗干扰能力强</li>
+<li>❌ <strong>成本高</strong>，易受<strong>雨雪雾</strong>天气干扰（噪声大）</li>
+</ul>
+</li>
+<li><strong>考点</strong>：它是L4/L5级自动驾驶的核心传感器。</li>
+</ul>
+<h3 id="2-摄像头"><a href="#2-摄像头" class="headerlink" title="2. 摄像头"></a>2. 摄像头</h3><ul>
+<li><strong>原理</strong>：被动接收环境光。</li>
+<li><strong>分类与应用</strong> (🎯 <strong>学长考题重点</strong>)：<ul>
+<li><strong>单目 (Monocular)</strong>：前视感知，识别人、车、车道线、红绿灯。</li>
+<li><strong>双目 (Stereo)</strong>：通过视差原理测距。</li>
+<li><strong>鱼眼 (Fisheye)</strong>：<strong>视野极大 (&gt;180°)</strong>，专门用于<strong>倒车影像、360°环视</strong>（图像有畸变）。</li>
+</ul>
+</li>
+<li><strong>特性</strong>：<ul>
+<li>✅ 纹理信息丰富，便宜。</li>
+<li>❌ 受光照影响大（逆光、黑夜致盲），测距精度不如雷达。</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-毫米波雷达"><a href="#3-毫米波雷达" class="headerlink" title="3. 毫米波雷达"></a>3. 毫米波雷达</h3><ul>
+<li><strong>原理</strong>：多普勒效应。</li>
+<li><strong>特性</strong>：<ul>
+<li>✅ <strong>穿透力强</strong>（无视雨雪雾），<strong>测速</strong>特别准。</li>
+<li>❌ 分辨率低（看不清物体轮廓，只能知道“有东西”）。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="第二部分：定位算法"><a href="#第二部分：定位算法" class="headerlink" title="第二部分：定位算法"></a>第二部分：定位算法</h2><h3 id="1-激光SLAN：ICP-vs-NDT-⭐⭐⭐-必考对比"><a href="#1-激光SLAN：ICP-vs-NDT-⭐⭐⭐-必考对比" class="headerlink" title="1. 激光SLAN：ICP vs NDT (⭐⭐⭐ 必考对比)"></a>1. 激光SLAN：ICP vs NDT (⭐⭐⭐ 必考对比)</h3><p><strong>（1）ICP</strong>：</p>
+<p><img src="2025-12-27-12-37-38.png" alt=""><br><img src="2025-12-27-12-43-15.png" alt=""></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">优点</th>
+<th style="text-align:left">缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">效果精确</td>
+<td style="text-align:left">耗时大，效率低</td>
+</tr>
+<tr>
+<td style="text-align:left">不必数据处理</td>
+<td style="text-align:left">可能陷入局部最优</td>
+</tr>
+<tr>
+<td style="text-align:left">较好收敛性</td>
+<td style="text-align:left">需要噪声处理</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>（2）NDT</strong>：</p>
+<p><img src="2025-12-27-12-55-49.png" alt=""><br><img src="2025-12-27-13-26-05.png" alt=""></p>
+<p><strong>总结</strong>：<br><em>把“刚才看到的”（实时点云）和“记忆中的”（高精地图）拼在一起。</em></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">特性</th>
+<th style="text-align:left"><strong>ICP (迭代最近点)</strong></th>
+<th style="text-align:left"><strong>NDT (正态分布变换)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>通俗理解</strong></td>
+<td style="text-align:left"><strong>硬碰硬</strong>。每个点都去找地图上离它最近的点，强行拉近。</td>
+<td style="text-align:left"><strong>概率流</strong>。把地图划成格子，看现在的点落在哪个概率最高的格子里。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>核心原理</strong></td>
+<td style="text-align:left">最小化点对点欧氏距离。</td>
+<td style="text-align:left">计算网格内的高斯概率密度函数 (PDF)。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>优点</strong></td>
+<td style="text-align:left">精度极高（前提是初值给得好）。</td>
+<td style="text-align:left"><strong>速度快</strong>，<strong>鲁棒性强</strong>（容错率高，初值差一点也能对上）。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>缺点</strong></td>
+<td style="text-align:left">慢，容易拼错（陷入局部最优）。</td>
+<td style="text-align:left">精度略逊于精细的ICP。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="2-视觉SLAM"><a href="#2-视觉SLAM" class="headerlink" title="2. 视觉SLAM"></a>2. 视觉SLAM</h3><p><img src="2025-12-27-14-30-03.png" alt=""></p>
+<ul>
+<li><strong>视觉前端特征</strong> (🎯 <strong>填空题重点</strong>)：<ul>
+<li><strong>角点 (Corner)</strong>：如 Harris, FAST。</li>
+<li><strong>斑点 (Blob)</strong>：如 SIFT（最准最慢）。</li>
+<li><strong>ORB特征</strong>：<strong>Oriented FAST</strong> (带方向角点) + <strong>BRIEF</strong> (二进制描述子)。<strong>速度极快</strong>，适合实时系统。</li>
+</ul>
+</li>
+<li><strong>回环检测 (Loop Closure)</strong>：<ul>
+<li>利用<strong>词袋模型 (BoW)</strong> 判断“我是否来过这里”，消除累积误差。</li>
+</ul>
+</li>
+</ul>
+<p><img src="2025-12-27-14-29-13.png" alt=""><br><img src="2025-12-27-14-29-25.png" alt=""></p>
+<h2 id="第三部分：定位系统"><a href="#第三部分：定位系统" class="headerlink" title="第三部分：定位系统"></a>第三部分：定位系统</h2><h3 id="1-坐标系转换-⚠️-判断题陷阱"><a href="#1-坐标系转换-⚠️-判断题陷阱" class="headerlink" title="1. 坐标系转换 (⚠️ 判断题陷阱)"></a>1. 坐标系转换 (⚠️ 判断题陷阱)</h3><p><img src="2025-12-27-13-04-52.png" alt=""><br><img src="2025-12-27-13-05-50.png" alt=""></p>
+<ul>
+<li><strong>转换链条</strong>：<br>  <code>GPS输出的经纬度信息</code> $\rightarrow$ <code>ECEF (地心地固)</code> $\rightarrow$ <code>导航坐标系 (ENU/NED)</code> $\rightarrow$ <code>车体坐标系 (Body)</code></li>
+<li><strong>关键点</strong>：<ul>
+<li><strong>ENU</strong>：东北天坐标系（指北坐标系）。</li>
+<li><strong>ECEF</strong>：随地球自转。</li>
+<li><em>考题避坑</em>：通常<strong>不能</strong>直接从 ECEF 旋转得到车体坐标系，中间必须经过局部切平面（导航坐标系），否则无法描述“东南西北”。</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-基于GPS-惯性组合（IMU）导航的定位系统"><a href="#2-基于GPS-惯性组合（IMU）导航的定位系统" class="headerlink" title="2. 基于GPS +惯性组合（IMU）导航的定位系统"></a>2. 基于GPS +惯性组合（IMU）导航的定位系统</h3><p><strong>（1）GPS</strong>：</p>
+<p><img src="2025-12-27-13-27-04.png" alt=""></p>
+<ul>
+<li>RTK：载波相位动态实时差分，定位误差在城市中也可达到10～50m（一般GPS为10～100m）</li>
+<li>差分GPS定位：通过在一个精确的已知位置（基准站）上安装GPS监测接收机，计算得到基准站与GPS卫星的距离，然后再根据误差修正结果，从而提高了定位精度。</li>
+<li>伪距法定位：<ul>
+<li>优点：速度快、无多值性问题、虽然精度低，但是满足大部分需求。 </li>
+</ul>
+</li>
+</ul>
+<p><img src="2025-12-27-13-32-18.png" alt=""></p>
+<p><img src="2025-12-27-13-35-15.png" alt=""></p>
+<p><strong>（2）惯性测量单元</strong>：</p>
+<script type="math/tex; mode=display">
+陀螺仪 + 加速度计</script><p><img src="2025-12-27-14-19-52.png" alt=""><br><img src="2025-12-27-14-21-05.png" alt=""></p>
+<p><strong>总结</strong>：</p>
+<ul>
+<li><strong>GPS (全球定位系统)</strong>：提供<strong>绝对位置</strong>。<ul>
+<li><em>缺点</em>：更新慢 (10Hz)，易被遮挡（隧道、高楼峡谷）。</li>
+<li><em>RTK技术</em>：利用基准站差分，将精度提升至<strong>厘米级</strong>。</li>
+</ul>
+</li>
+<li><strong>IMU (惯性测量单元)</strong>：提供<strong>相对推算</strong>。<ul>
+<li><em>组成</em>：<strong>加速度计</strong>（测比力/加速度）+ <strong>陀螺仪</strong>（测角速度）。</li>
+<li><em>原理</em>：航位推算。</li>
+<li><em>缺点</em>：<strong>误差随时间累积</strong>（积分漂移）。</li>
+</ul>
+</li>
+<li><strong>融合逻辑</strong>：<strong>GPS负责“纠偏”</strong>（消除累计误差），<strong>IMU负责“填空”</strong>（高频输出，保证信号不断）。</li>
+</ul>
+<p><strong>（3）惯性导航系统（INS）</strong>：<br><img src="2025-12-27-14-23-24.png" alt=""><br><img src="2025-12-27-14-23-36.png" alt=""><br><img src="2025-12-27-14-23-47.png" alt=""></p>
+<h2 id="第四部分：卡尔曼滤波"><a href="#第四部分：卡尔曼滤波" class="headerlink" title="第四部分：卡尔曼滤波"></a>第四部分：卡尔曼滤波</h2><p>这一部分数学最难，重点掌握<strong>逻辑</strong>和<strong>公式</strong>。</p>
+<ul>
+<li><strong>卡尔曼滤波</strong>：是一种利用<strong>线性系统</strong>状态方程，通过系统输入输出观测数据，对系统状态进行最优估计的算法。</li>
+<li><strong>基本思想</strong>：利用<code>前一时刻的估计值</code>和<code>现时刻的观测值</code>来更新对状态变量的估计，求出<code>现在时刻的估计值</code>。</li>
+</ul>
+<h3 id="1-卡尔曼滤波-KF-——-线性系统的最优估计"><a href="#1-卡尔曼滤波-KF-——-线性系统的最优估计" class="headerlink" title="1. 卡尔曼滤波 (KF) —— 线性系统的最优估计"></a>1. 卡尔曼滤波 (KF) —— 线性系统的最优估计</h3><ul>
+<li><strong>核心逻辑</strong>：<strong>加权平均</strong>。<ul>
+<li>模型算出一个值（预测），传感器测出一个值（测量）。</li>
+<li><strong>谁方差小（谁靠谱），我就信谁多一点</strong>。</li>
+</ul>
+</li>
+<li><strong>五大核心公式 (📝 建议默写)</strong>：<ol>
+<li><strong>预测状态</strong>：$\hat{x}_k^- = A \hat{x}_{k-1} + B u_k$</li>
+<li><strong>预测协方差</strong>：$P_k^- = A P_{k-1} A^T + Q$  <em>(Q: 模型噪声)</em></li>
+<li><strong>卡尔曼增益</strong>：$K_k = P_k^- H^T (H P_k^- H^T + R)^{-1}$ <em>(R: 测量噪声)</em><ul>
+<li><em>理解</em>：$R$ 越大（测量烂），$K$ 越小（不信测量）；$Q$ 越大（模型烂），$K$ 越大（信测量）。</li>
+</ul>
+</li>
+<li><strong>状态更新</strong>：$\hat{x}_k = \hat{x}_k^- + K_k (z_k - H \hat{x}_k^-)$</li>
+<li><strong>协方差更新</strong>：$P_k = (I - K_k H) P_k^-$</li>
+</ol>
+</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">局限性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">实时性不能满足</td>
+</tr>
+<tr>
+<td style="text-align:left">可靠性降低</td>
+</tr>
+<tr>
+<td style="text-align:left">对于<strong>非线性</strong>系统效果不佳</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="2-进阶滤波：EKF-vs-UKF-⭐⭐-简答题"><a href="#2-进阶滤波：EKF-vs-UKF-⭐⭐-简答题" class="headerlink" title="2. 进阶滤波：EKF vs UKF (⭐⭐ 简答题)"></a>2. 进阶滤波：EKF vs UKF (⭐⭐ 简答题)</h3><p><em>解决非线性问题（如车在转弯、雷达测距是弧线）。</em></p>
+<ul>
+<li><strong>扩展卡尔曼滤波 (EKF)</strong>：<ul>
+<li><strong>方法</strong>：<strong>线性化</strong>:用线性变换近似非线性变换。用<strong>泰勒级数展开</strong>（保留一阶导数），算出<strong>雅可比矩阵 (Jacobian)</strong>。</li>
+<li><em>缺点</em>：雅可比矩阵难算，忽略高阶项有精度损失。</li>
+<li><em>考点</em>：EKF近似的是<strong>非线性函数本身</strong>。</li>
+</ul>
+</li>
+<li><strong>无损卡尔曼滤波 (UKF)</strong>：<ul>
+<li><strong>方法</strong>：<strong>无损变换</strong>。选几个代表点（Sigma Points）去通过非线性函数，近似出新的<strong>概率分布</strong>。</li>
+<li><em>优点</em>：不用算雅可比，精度通常更高。</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-运动模型"><a href="#3-运动模型" class="headerlink" title="3. 运动模型"></a>3. 运动模型</h3><ul>
+<li><strong>CTRV</strong> (Constant Turn Rate and Velocity)：<strong>恒定转弯率和速度</strong>。这是描述车辆运动最常用的模型。</li>
+</ul>
+<h3 id="4-传感器融合架构"><a href="#4-传感器融合架构" class="headerlink" title="4. 传感器融合架构"></a>4. 传感器融合架构</h3><ul>
+<li><strong>顺序滤波 (Sequential Filtering)</strong>：<ul>
+<li><strong>逻辑</strong>：一次预测，多次更新。</li>
+<li><em>场景</em>：激光雷达和毫米波雷达的数据不同时到达。先用激光更新卡尔曼滤波，结果作为初值，马上再用毫米波更新。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="📝-考前抢分-CheckList-必背"><a href="#📝-考前抢分-CheckList-必背" class="headerlink" title="📝 考前抢分 CheckList (必背)"></a>📝 考前抢分 CheckList (必背)</h2><ol>
+<li><strong>倒车影像</strong>用什么镜头？ $\rightarrow$ <strong>鱼眼 (Fisheye)</strong></li>
+<li><strong>指北坐标系</strong>通常指什么？ $\rightarrow$ <strong>ENU (东北天)</strong></li>
+<li><strong>ICP和NDT</strong>谁更快更鲁棒？ $\rightarrow$ <strong>NDT</strong></li>
+<li><strong>EKF</strong>的核心数学操作是什么？ $\rightarrow$ <strong>泰勒展开 / 计算雅可比矩阵</strong></li>
+<li><strong>SLAM</strong>常用视觉特征？ $\rightarrow$ <strong>ORB, SIFT, 角点</strong></li>
+<li><strong>卡尔曼增益K</strong>变大说明什么？ $\rightarrow$ 说明更相信<strong>测量值</strong> (或者模型预测的不确定性Q变大了)。</li>
+</ol>
+<h1 id="第三章-深度学习和视觉感知"><a href="#第三章-深度学习和视觉感知" class="headerlink" title="第三章 深度学习和视觉感知"></a>第三章 深度学习和视觉感知</h1><h2 id="第一部分：路缘石检测"><a href="#第一部分：路缘石检测" class="headerlink" title="第一部分：路缘石检测"></a>第一部分：路缘石检测</h2><h3 id="1-ROI提取-感兴趣区域"><a href="#1-ROI提取-感兴趣区域" class="headerlink" title="1. ROI提取 (感兴趣区域)"></a>1. <strong>ROI提取 (感兴趣区域)</strong></h3><ul>
+<li>获取原始点云，只保留车身周围一定范围内的点（去除无关背景）。</li>
+</ul>
+<h3 id="2-点集左右划分"><a href="#2-点集左右划分" class="headerlink" title="2. 点集左右划分"></a>2. <strong>点集左右划分</strong></h3><ul>
+<li>将点云按照激光雷达的扫描线（车身前向射线）进行划分。</li>
+</ul>
+<p><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /></p>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<style>
+  .swiper {
+    width: 100%;
+    height: 500px; /* 如果图片觉得太小，可以把这里改成 500px 或 600px */
+    border-radius: 8px; /* 圆角 */
+  }
+  .swiper-slide {
+    text-align: center;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* 保持图片原有比例，不拉伸变形 */
+  }
+</style>
+
+<div class="swiper mySwiper">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide">
+      <img src="2025-12-28-19-05-37.png" alt="Image 1">
+    </div>
+    <div class="swiper-slide">
+      <img src="2025-12-28-19-05-49.png" alt="Image 2">
+    </div>
+    <div class="swiper-slide">
+      <img src="2025-12-28-19-06-01.png" alt="Image 3">
+    </div>
+  </div>
+
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-pagination"></div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var swiper = new Swiper(".mySwiper", {
+      loop: true,               // 循环播放
+      autoHeight: true,         // 自动适应高度
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,        // 允许点击小圆点切换
+      },
+    });
+  });
+</script>
+
+<h3 id="3-路缘石点提取"><a href="#3-路缘石点提取" class="headerlink" title="3. 路缘石点提取"></a>3. <strong>路缘石点提取</strong></h3><ul>
+<li>在每一条射线上，利用几何特征（如高度突变、坡度变化）找到疑似路缘的点。</li>
+<li>左右子点集划分：将找到的点分为“左侧路缘点集”和“右侧路缘点集”。</li>
+</ul>
+<p><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /></p>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<style>
+  .swiper {
+    width: 100%;
+    height: 450px; /* 如果图片较高，可以将这里改成 500px 或 600px */
+    border-radius: 8px;
+  }
+  .swiper-slide {
+    text-align: center;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* 保持图片完整显示，不裁剪 */
+  }
+</style>
+
+<div class="swiper mySwiper">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide">
+      <img src="2025-12-28-19-09-06.png" alt="Image 1">
+    </div>
+    <div class="swiper-slide">
+      <img src="2025-12-28-19-09-13.png" alt="Image 2">
+    </div>
+    <div class="swiper-slide">
+      <img src="2025-12-28-19-09-23.png" alt="Image 3">
+    </div>
+    <div class="swiper-slide">
+      <img src="2025-12-28-19-09-33.png" alt="Image 4">
+    </div>
+  </div>
+
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-pagination"></div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var swiper = new Swiper(".mySwiper", {
+      loop: true,               // 循环播放
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,        // 允许点击圆点切换
+      },
+    });
+  });
+</script>
+
+<h3 id="4-提取与拟合"><a href="#4-提取与拟合" class="headerlink" title="4. 提取与拟合"></a>4. <strong>提取与拟合</strong></h3><ul>
+<li>利用最小二乘法或RANSAC算法，将点拟合成平滑的曲线（通常是三次样条曲线），得到最终的路缘线。</li>
+</ul>
+<p><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /></p>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<style>
+  .swiper {
+    width: 100%;
+    height: 450px; /* 高度可按需调整 */
+    border-radius: 8px;
+    margin-bottom: 20px; /* 增加一点底部间距 */
+  }
+  .swiper-slide {
+    text-align: center;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+</style>
+
+<div class="swiper mySwiper3">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide"><img src="2025-12-28-19-11-56.png"></div>
+    <div class="swiper-slide"><img src="2025-12-28-19-12-11.png"></div>
+    <div class="swiper-slide"><img src="2025-12-28-19-12-28.png"></div>
+    <div class="swiper-slide"><img src="2025-12-28-19-12-37.png"></div>
+    <div class="swiper-slide"><img src="2025-12-28-19-12-47.png"></div>
+    <div class="swiper-slide"><img src="2025-12-28-19-12-59.png"></div>
+    <div class="swiper-slide"><img src="2025-12-28-19-13-10.png"></div>
+  </div>
+
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-pagination"></div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var swiper3 = new Swiper(".mySwiper3", {
+      loop: true,
+      navigation: {
+        nextEl: ".mySwiper3 .swiper-button-next", // 指定只控制这一组的箭头
+        prevEl: ".mySwiper3 .swiper-button-prev",
+      },
+      pagination: {
+        el: ".mySwiper3 .swiper-pagination", // 指定只控制这一组的分页器
+        clickable: true,
+      },
+    });
+  });
+</script>
+
+<p><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /></p>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<style>
+  .swiper {
+    width: 100%;
+    height: 450px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  .swiper-slide {
+    text-align: center;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+</style>
+
+<div class="swiper mySwiper4">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide"><img src="2025-12-28-19-13-46.png"></div>
+    <div class="swiper-slide"><img src="2025-12-28-19-13-57.png"></div>
+    <div class="swiper-slide"><img src="2025-12-28-19-14-07.png"></div>
+  </div>
+
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-pagination"></div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var swiper4 = new Swiper(".mySwiper4", {
+      loop: true,
+      navigation: {
+        nextEl: ".mySwiper4 .swiper-button-next", // 锁定只控制这一组
+        prevEl: ".mySwiper4 .swiper-button-prev",
+      },
+      pagination: {
+        el: ".mySwiper4 .swiper-pagination",
+        clickable: true,
+      },
+    });
+  });
+</script>
+
+<p><strong>补充</strong>：坐标系变换<br><img src="2025-12-28-19-15-03.png" alt=""></p>
+<h2 id="第二部分：卷积神经网络（CNN）"><a href="#第二部分：卷积神经网络（CNN）" class="headerlink" title="第二部分：卷积神经网络（CNN）"></a>第二部分：卷积神经网络（CNN）</h2><ol>
+<li><p><strong>卷积与前馈神经网络区别</strong>：</p>
+<ul>
+<li>用卷积运算代替矩阵乘法运算</li>
+<li>传统全连接神经网络不足：<em>计算/储存要求高（参数大）、易过拟合</em></li>
+<li><strong>CNN优势</strong>：<em>稀疏交互、权重共享、等变表示</em></li>
+</ul>
+</li>
+<li><p><strong>CNN的三大特性</strong>：</p>
+<ul>
+<li><strong>稀疏交互</strong>：卷积核大小远小于输入图像，每个输出神经元只与局部输入连接（效率高）。</li>
+<li><strong>参数共享</strong>：同一个卷积核在整张图上滑动，用的是同一组参数（储存空间少）。</li>
+<li><strong>等变表示</strong>：输入平移，输出也跟着平移。</li>
+</ul>
+</li>
+<li><p><strong>核心组件</strong>：</p>
+<ul>
+<li><strong>卷积层</strong>：提取特征。</li>
+<li><strong>池化层</strong>：用相邻位置的<strong>总体统计特征</strong>来替换该位置的值，起到降维、减少参数、防止过拟合的作用。<em>（最大池化、平均池化）</em></li>
+<li><strong>激活函数</strong>：引入非线性（如 ReLU）。</li>
+</ul>
+</li>
+</ol>
+<h2 id="第三部分：YOLO"><a href="#第三部分：YOLO" class="headerlink" title="第三部分：YOLO"></a>第三部分：YOLO</h2><p><img src="2025-12-28-20-29-46.png" alt=""></p>
+<h3 id="1-YOLO的核心思想"><a href="#1-YOLO的核心思想" class="headerlink" title="1. YOLO的核心思想"></a>1. <strong>YOLO的核心思想</strong></h3><ul>
+<li>不需要生成候选区域，直接把图像划分成 S×S 的网格，每个网格负责预测中心落在该格子里面的物体。</li>
+<li>速度快，适合无人驾驶实时感知。</li>
+</ul>
+<h3 id="2-YOLOv3的特征提取"><a href="#2-YOLOv3的特征提取" class="headerlink" title="2. YOLOv3的特征提取"></a>2. <strong>YOLOv3的特征提取</strong></h3><p><strong>特点</strong>：</p>
+<ul>
+<li>有53个卷积层</li>
+<li>输出图像尺寸：416x416x3 </li>
+<li>连续使用卷积层和跳跃连接层</li>
+</ul>
+<p><strong>图像金字塔</strong>：<br><img src="2025-12-28-20-44-17.png" alt=""></p>
+<ul>
+<li><strong>图像金字塔-向下采样</strong>：删除图像偶数行列，大小变为四分之一。</li>
+<li><strong>图像金字塔-向上采样</strong>：补充大量像素点0，大小变为四倍。<br><em>（注意：两种操作互相是<strong>不可逆</strong>的。）</em></li>
+</ul>
+<p><strong>多尺度特征预测</strong>：<br><img src="2025-12-28-20-52-14.png" alt=""><br><img src="2025-12-28-20-48-17.png" alt=""></p>
+<p><strong>交并比</strong>：<br><img src="2025-12-28-20-56-57.png" alt=""></p>
+<p><strong>边界框坐标计算</strong>：<br><img src="2025-12-28-20-59-15.png" alt=""></p>
+<ul>
+<li>$(b_x,b_y)$为<strong>中心坐标</strong>。</li>
+<li>$b_w,b_h$进行了<strong>尺度缩放</strong>。</li>
+<li><strong>Sigmoid函数作用</strong>：将$t_x,t_y$压缩到[0,1]区间内，<strong>确保预测边界在网格内，防止偏移过多</strong>。</li>
+<li><strong>指数函数e的作用</strong>：确保<strong>缩放后的宽高为正</strong>。</li>
+</ul>
+<h1 id="第四章-迁移学习和强化学习"><a href="#第四章-迁移学习和强化学习" class="headerlink" title="第四章 迁移学习和强化学习"></a>第四章 迁移学习和强化学习</h1><h2 id="第一部分：迁移学习"><a href="#第一部分：迁移学习" class="headerlink" title="第一部分：迁移学习"></a>第一部分：迁移学习</h2><ul>
+<li><strong>意义</strong>：<ul>
+<li>解决大数据和少标签之间的矛盾。</li>
+<li>解决大数据和弱计算之间的矛盾。</li>
+<li>解决普适化模型和个性化需求之间的矛盾。</li>
+<li>满足特定应用需求。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>为什么需要“迁移学习”？</p>
+<ol>
+<li>收集数据难、标注难。</li>
+<li>冷启动的问题（新环境没有数据）。</li>
+<li>个性化模型很复杂。</li>
+</ol>
+</blockquote>
+<h3 id="迁移学习的四种方法"><a href="#迁移学习的四种方法" class="headerlink" title="迁移学习的四种方法"></a>迁移学习的四种方法</h3><ul>
+<li>基于（  ）的迁移<ul>
+<li><strong>实例</strong>：找到与目标相似的样本。</li>
+<li><strong>特征</strong>：把两个领域的数据变换到同一个特征空间。</li>
+<li><strong>模型</strong>：共享模型参数。</li>
+<li><strong>关系</strong>：挖掘逻辑关系。</li>
+</ul>
+</li>
+</ul>
+<h2 id="第二部分：端到端无人驾驶"><a href="#第二部分：端到端无人驾驶" class="headerlink" title="第二部分：端到端无人驾驶"></a>第二部分：端到端无人驾驶</h2><p><strong>基本思路</strong>：</p>
+<ol>
+<li>采集数据：摄像头拍摄的图像</li>
+<li>网络训练：通过神经网络训练的数据来做出决策</li>
+<li>测试：通过训练的模型来控制车辆，例如方向盘的转角、刹车、油门、</li>
+</ol>
+<p>代表模型：ALVINN、NVIDIA PilotNet</p>
+<ul>
+<li>输入：摄像头拍摄的图像</li>
+<li><p>输出：车辆控制指令（方向盘的转角）</p>
+</li>
+<li><p><strong>优点</strong>：不需要复杂规则设计，系统简单，能利用海量数据。</p>
+</li>
+<li><strong>缺点</strong>：安全性难以保证，出事难追责。</li>
+</ul>
+<h2 id="第三部分：强化学习"><a href="#第三部分：强化学习" class="headerlink" title="第三部分：强化学习"></a>第三部分：强化学习</h2><ul>
+<li><strong>强化学习</strong>：没有监督者，数据不需要带标签，只有一个<code>奖励信号</code>，还可能是<strong>延时</strong>的。</li>
+</ul>
+<h3 id="1-核心五要素"><a href="#1-核心五要素" class="headerlink" title="1. 核心五要素"></a>1. 核心五要素</h3><ul>
+<li><strong>个体（Agent）</strong>：智能体。</li>
+<li><strong>环境（Environment）</strong>：与Agent交互的事物。</li>
+<li><strong>动作（Action）</strong>：Agent的行为。</li>
+<li><strong>状态（State）</strong>：Agent从环境获取的信息。</li>
+<li><strong>奖励（Reward）</strong>：行为的反馈。<br><em>（学习目标是最大化累计奖励）</em><blockquote>
+<p>Agent先从Environment中获取一个State，然后根据这个状态做出Action并反馈给环境，获取Reward。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="2-马尔可夫决策过程"><a href="#2-马尔可夫决策过程" class="headerlink" title="2. 马尔可夫决策过程"></a>2. 马尔可夫决策过程</h3><ul>
+<li>马尔可夫性：系统的下一个状态只跟当前状态有关，<strong>与过去状态无关</strong>。</li>
+</ul>
+<p><strong>马尔可夫决策过程（MDP）</strong>：<br><img src="2025-12-30-13-43-53.png" alt=""></p>
+<ul>
+<li>$S为有限状态空间集合。$</li>
+<li>$A为有限动作的集合。$</li>
+<li>$P为状态转移概率。$</li>
+<li>$R为奖励函数。$</li>
+</ul>
+<p>从$Start \rightarrow End$的过程是一个序列决策问题，要选择路线以找到<strong>最大收益</strong>，这使得我们需要一个<strong>策略</strong>。</p>
+<ul>
+<li>确定性策略：相同状态下输出动作是确定的。</li>
+<li>不确定性策略：按照概率大小输出不同的输出动作。</li>
+</ul>
+<p><strong>累计期望奖励</strong>：</p>
+<script type="math/tex; mode=display">
+G_t =R_1+\gamma R_2+\gamma^2 R_3+...+\gamma^{k-1}R_k</script><p>其中，$\gamma$为<strong>折扣因子</strong> $\in[0,1)$，用来估算未来对现在的影响。</p>
+<p><strong>值函数</strong>：</p>
+<ul>
+<li>作用是量化每一个行动对最终的<strong>最大化长期回报</strong>的目标的贡献。</li>
+</ul>
+<ol>
+<li><p>状态s下的值函数：</p>
+<script type="math/tex; mode=display">
+V_{\pi}(s) = E_{\pi}[R_1 + \gamma R_2 + \gamma^2 R_3 + \cdots + \gamma^{k-1} R_k | S_t = s]</script></li>
+<li><p>状态+行为-值函数：</p>
+<script type="math/tex; mode=display">
+q_{\pi}(s, a) = E_{\pi} \left[ \sum_{k=0}^{\infty} \gamma^k R_{t+k+1} \mid S_t = s, A_t = a \right]</script></li>
+<li><p>最优状态-值函数：</p>
+</li>
+</ol>
+<ul>
+<li>值函数最大的策略，即：$V^*(s)=max (v_\pi(s))$<br>（最优状态行为-值函数同理。）</li>
+</ul>
+<p>第三部分总结：<br><img src="2025-12-30-14-12-00.png" alt=""><br><img src="2025-12-30-14-12-11.png" alt=""><br><img src="2025-12-30-14-12-21.png" alt=""></p>
+<h2 id="第四部分：Q-learning"><a href="#第四部分：Q-learning" class="headerlink" title="第四部分：Q-learning"></a>第四部分：Q-learning</h2><ul>
+<li><p>实质上就是基于<strong>奖励机制</strong>的学习算法。</p>
+<h3 id="Q-learning"><a href="#Q-learning" class="headerlink" title="Q-learning"></a>Q-learning</h3><p>更新公式：</p>
+<script type="math/tex; mode=display">
+Q(s_t, a_t) \leftarrow Q(s_t, a_t) + \alpha \left[ r_{t+1} + \gamma \max_{a} Q(s_{t+1}, a) - Q(s_t, a_t) \right]</script></li>
+<li><p>$Q(s_t, a_t)$ 是在状态 $s_t$ 下采取动作 $a_t$ 的长期回报，是一个估计 Q 值。</p>
+</li>
+<li>$r_{t+1}$ 是在状态 $s_t$ 下采取动作 $a_t$ 得到的回报 reward。</li>
+<li><script type="math/tex">\max_{a} Q(s_{t+1}, a)</script>指的是在状态 t+1下所获得的最大 Q 值（直接看 Q-table，取它的最大化的值）。</li>
+<li>$\gamma$ 是折扣因子(若$= 0 \rightarrow$ 则短视，只注重眼前奖励,反之是远视，长远考虑)。</li>
+<li><script type="math/tex">r_{t+1} + \gamma \max_{a} Q(s_{t+1}, a)</script>即为目标值，就是 <strong>时序差分目标</strong>，是 $Q(s_t, a_t)$ 想要逼近的目标。$\alpha$ 是学习率，衡量更新的幅度。</li>
+<li><strong>注意</strong>：$max Q(s_{t+1},a)$ 所对应的动作不一定是下一步会执行的实际动作。这里引出 $\varepsilon$-greedy，即 $\varepsilon$-贪心算法。</li>
+</ul>
+<h3 id="varepsilon-贪心算法"><a href="#varepsilon-贪心算法" class="headerlink" title="$\varepsilon$-贪心算法"></a>$\varepsilon$-贪心算法</h3><ul>
+<li><strong>exploration</strong>：探索环境，通过尝试不同的动作来得到最佳策略（带来最大奖励的策略）</li>
+<li><strong>exploitation</strong>：不去尝试新的动作，利用已知的可以带来很大奖励的动作。</li>
+</ul>
+<ol>
+<li>目的是获得一种<strong>长期收益最高</strong>的策略，这个过程可能对short-term reward有损失。  </li>
+<li>如果exploitation太多，那么模型比较容易陷入<strong>局部最优</strong>，但是exploration太多，模型收敛速度太慢。这里面临一个权衡问题，即怎么通过牺牲一些短期的奖励来理解动作，从而学习到更好的策略。</li>
+</ol>
+<h3 id="DQN"><a href="#DQN" class="headerlink" title="DQN"></a>DQN</h3><ul>
+<li>问题：传统的Q-learning用表格存Q值 (Q-Table)。如果状态太多（比如输入是图像），表格存不下。</li>
+<li>解决：用神经网络来代替表格，估算Q值。<ul>
+<li>输入当前画面，利用神经网络提取特征，输出每个动作的Q值。</li>
+</ul>
+</li>
+<li>思想：<ol>
+<li><strong>经验回放</strong>：<ul>
+<li><strong>问题</strong>：开车时，上一秒是在直行，下一秒通常还在直行。数据之间<strong>关联性太强</strong>，一直学相似的东西，神经网络容易<strong>过拟合</strong>。</li>
+<li><strong>解决</strong>：我们不直接学刚才发生的事，而是把智能体经历过的所有事情 $(s, a, r, s’)$ 存进一个<strong>经验池</strong>。</li>
+<li><strong>操作</strong>：训练时，从经验池里<strong>随机抽取</strong>一批数据来学习。打破了数据的时间相关性，让学习更全面。</li>
+</ul>
+</li>
+<li><strong>目标网络</strong>：用一个目标网络来对当前网络来进行打分，可以提高稳定性。</li>
+</ol>
+</li>
+</ul>
+<h3 id="策略梯度"><a href="#策略梯度" class="headerlink" title="策略梯度"></a>策略梯度</h3><ul>
+<li><strong>DQN 的问题</strong>：<ol>
+<li><strong>无法处理连续动作</strong>：DQN 输出是离散的（如上下左右），但方向盘角度是连续数值，无法建立无限大的表格。</li>
+<li><strong>死循环风险</strong>：确定性策略在相同状态下永远做相同选择，容易在特定场景（如迷宫死胡同）原地打转。</li>
+</ol>
+</li>
+<li><strong>策略梯度的方案</strong>：<ul>
+<li>不计算 Q 值，而是训练一个神经网络（策略网络 $\pi_\theta$）。</li>
+<li><strong>输入</strong>：状态 $s$。</li>
+<li><strong>输出</strong>：动作的<strong>概率分布</strong>（直接告诉智能体每个动作被选中的概率）。</li>
+</ul>
+</li>
+</ul>
+<p>策略梯度的核心逻辑是：<strong>“先凭直觉试一试，如果结果好，就增加刚才那些动作的概率；如果结果差，就减少。”</strong></p>
+<p>第一步：试错 (Sampling)</p>
+<ul>
+<li>让智能体用当前的策略网络 $\pi_\theta$ 与环境交互，跑完一整轮（Episode）。</li>
+<li><strong>记录轨迹</strong>：$\tau = {s_1, a_1, r_1, s_2, a_2, r_2, \dots, s_T, a_T, r_T}$。</li>
+</ul>
+<p>第二步：打分 (Evaluation)</p>
+<ul>
+<li>计算这一轮的总得分（累计回报）：$R(\tau) = \sum r_t$。</li>
+<li><p><strong>判据</strong>：总分高说明这一轮的动作序列整体是好的。</p>
+</li>
+<li><p>利用<strong>梯度上升</strong>更新参数 $\theta$，目标是最大化期望回报 $J(\theta)$。</p>
+</li>
+<li><strong>核心公式</strong>：<script type="math/tex; mode=display">\nabla_\theta J(\theta) \approx \frac{1}{N} \sum_{t} [ \underbrace{\nabla_\theta \log \pi_\theta(a_t | s_t)}_{\text{调整方向}} \cdot \underbrace{R(\tau)}_{\text{调整力度}} ]</script><ul>
+<li>如果 $R(\tau)$ 是正的高分 $\rightarrow$ <strong>大幅增加</strong>该动作的概率。</li>
+<li>如果 $R(\tau)$ 是负分 $\rightarrow$ <strong>减少</strong>该动作的概率。</li>
+</ul>
+</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">比较维度</th>
+<th style="text-align:left">策略梯度 (Policy Gradient)</th>
+<th style="text-align:left">价值方法 (DQN)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>输出内容</strong></td>
+<td style="text-align:left"><strong>动作概率</strong> (直接输出策略)</td>
+<td style="text-align:left">动作价值 (Q值)</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>动作空间</strong></td>
+<td style="text-align:left"><strong>支持连续动作</strong> (如方向盘转角)</td>
+<td style="text-align:left">仅支持离散动作 (如按键)</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>策略类型</strong></td>
+<td style="text-align:left"><strong>随机策略</strong> (Stochastic)</td>
+<td style="text-align:left">确定性策略 (Deterministic)</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>稳定性</strong></td>
+<td style="text-align:left">较低 (方差大，容易受单次结果影响)</td>
+<td style="text-align:left">较高 (有目标网络等机制)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="DDPG（深度确定性策略梯度）"><a href="#DDPG（深度确定性策略梯度）" class="headerlink" title="DDPG（深度确定性策略梯度）"></a>DDPG（深度确定性策略梯度）</h3><p>为了解决策略梯度“由一整轮结果决定成败，方差太大”且<strong>梯度计算困难</strong>的问题，引入了 <strong>Actor-Critic</strong> 框架。</p>
+<p><strong>Actor-Critic 结构</strong>：</p>
+<ul>
+<li><strong>Actor (演员)</strong>：策略网络，负责动作。</li>
+<li><strong>Critic (评论家)</strong>：价值网络，负责打分（代替“整轮总分”）。</li>
+<li><strong>改进点</strong>：Critic 每一步都给 Actor 反馈，不需要等游戏结束，学习效率更高，算法更容易收敛。</li>
+</ul>
+<p><strong>DDPG</strong>：<br>无人驾驶控制的核心算法，共包含4个神经网络。结合了 DQN 和 Actor-Critic 的优点：</p>
+<ol>
+<li><strong>结构</strong>：Actor-Critic (一个做动作，一个打分)。</li>
+<li><strong>机制 1</strong>：<strong>经验回放 (Replay Buffer)</strong> $\rightarrow$ 打破数据关联性。</li>
+<li><strong>机制 2</strong>：<strong>目标网络 (Target Network)</strong> $\rightarrow$ 稳定训练目标。</li>
+</ol>
+<ul>
+<li><strong>适用场景</strong>：连续动作空间的精准控制。</li>
+</ul>
+<h1 id="第五章-无人驾驶规划"><a href="#第五章-无人驾驶规划" class="headerlink" title="第五章 无人驾驶规划"></a>第五章 无人驾驶规划</h1><h2 id="第一部分：路径规划（A-star算法）"><a href="#第一部分：路径规划（A-star算法）" class="headerlink" title="第一部分：路径规划（A-star算法）"></a>第一部分：路径规划（A-star算法）</h2><ul>
+<li>目标：寻找最短路线。</li>
+</ul>
+<h3 id="深度-广度优先搜索"><a href="#深度-广度优先搜索" class="headerlink" title="深度/广度优先搜索"></a>深度/广度优先搜索</h3><ol>
+<li><p>深度优先搜索：</p>
+<ul>
+<li>沿着一条路径不断往下探索。</li>
+<li>栈的性质：<code>先进后出</code></li>
+</ul>
+</li>
+<li><p>广度优先搜索：</p>
+<ul>
+<li>由起点开始，由近及远搜索。</li>
+<li>栈的性质：<code>先进先出</code></li>
+</ul>
+</li>
+</ol>
+<h3 id="1-Dijkstra算法"><a href="#1-Dijkstra算法" class="headerlink" title="1. Dijkstra算法"></a>1. Dijkstra算法</h3><ul>
+<li>核心思想：由近到远把所有点点最短路径算出来。</li>
+<li><strong>缺点</strong>：效率低下、功耗高。<br><img src="2025-12-30-20-18-07.png" alt=""></li>
+</ul>
+<h3 id="2-A-star算法"><a href="#2-A-star算法" class="headerlink" title="2. A-star算法"></a>2. A-star算法</h3><p>在此基础上引入<strong>启发函数</strong>，得到A-star算法。<br><strong>启发函数</strong>：</p>
+<script type="math/tex; mode=display">
+f(n) =g(n) +h(n)</script><ul>
+<li>$g(n)$：<strong>实际代价</strong>（起点到这里，花了多少代价）</li>
+<li>$h(n)$：<strong>预估代价</strong>（从这里到终点，还需要多少代价）</li>
+</ul>
+<p><strong>启发式函数$h(n)$的选择</strong>：</p>
+<ol>
+<li>欧几里得距离 (Euclidean Distance)：两点间的直线距离（适用于允许任意方向移动的场景）。</li>
+<li>曼哈顿距离 (Manhattan Distance)：城市街区距离（适用于只能横平竖直走的网格地图）。<br><img src="2025-12-30-20-21-18.png" alt=""></li>
+</ol>
+<ul>
+<li><strong>关键原则</strong>：$h(n)$ 必须小于等于实际代价。如果 $h(n)$ 估得太高，可能会漏掉最优路径；如果估得太低，算法会变慢但仍能找到最优解。</li>
+<li>特点：既有 Dijkstra 的严谨（保证找到路），又有“贪心算法”的速度（优先往终点方向找）。</li>
+</ul>
+<p><img src="2025-12-30-20-22-56.png" alt=""></p>
+<h3 id="3-混合A-star"><a href="#3-混合A-star" class="headerlink" title="3. 混合A-star"></a>3. 混合A-star</h3><p>相比于普通A-star（把车看成一个<strong>质点</strong>），混合A-star加入了<code>车头朝向</code>参数$\theta$.</p>
+<ul>
+<li>从二维$(x,y)$拓展到三维$(x,y,\theta)$。</li>
+<li>需要考虑<strong>车辆动力学</strong>，所以不再是简单地连接相邻个字，而是要生成符合车辆转弯的圆弧路径。<br><img src="2025-12-30-20-27-56.png" alt=""></li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">算法</th>
+<th style="text-align:left">Dijkstra</th>
+<th style="text-align:left">A* (A-Star)</th>
+<th style="text-align:left">Hybrid A*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>是否有方向感</strong></td>
+<td style="text-align:left">无 (盲目搜索)</td>
+<td style="text-align:left">有 (启发式引导)</td>
+<td style="text-align:left">有 (启发式 + 运动学)</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>公式</strong></td>
+<td style="text-align:left">$f(n) = g(n)$</td>
+<td style="text-align:left">$f(n) = g(n) + h(n)$</td>
+<td style="text-align:left">同 A*，但考虑 $\theta$</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>考虑车辆体积/转弯</strong></td>
+<td style="text-align:left">否 (视为质点)</td>
+<td style="text-align:left">否 (视为质点)</td>
+<td style="text-align:left"><strong>是</strong> (考虑运动约束)</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>适用场景</strong></td>
+<td style="text-align:left">简单图搜索</td>
+<td style="text-align:left">全局路径规划</td>
+<td style="text-align:left">复杂环境泊车、掉头</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="局部路径规划——TEB算法"><a href="#局部路径规划——TEB算法" class="headerlink" title="局部路径规划——TEB算法"></a>局部路径规划——TEB算法</h3><h2 id="第二部分：行为规划（分层有限状态机）"><a href="#第二部分：行为规划（分层有限状态机）" class="headerlink" title="第二部分：行为规划（分层有限状态机）"></a>第二部分：行为规划（分层有限状态机）</h2><blockquote>
+<p>根据当前的交通环境以及全局路线，来做出合理驾驶行为。</p>
+<ul>
+<li>安全第一，交通法规优先，实时反应</li>
+</ul>
+</blockquote>
+<h3 id="1-有限状态机"><a href="#1-有限状态机" class="headerlink" title="1. 有限状态机"></a>1. 有限状态机</h3><blockquote>
+<p>根据外界的输入在有限的状态之间跳来跳去。</p>
+</blockquote>
+<ul>
+<li>分类：<ul>
+<li><strong>确定型自动机</strong>：对每个输入只有一个精确的转移（一个动作）。</li>
+<li><strong>非确定型自动机</strong>：可以没有/有多个结果。</li>
+</ul>
+</li>
+</ul>
+<p><strong>当状态变得很多，就会变得非常庞大，产生问题</strong>：</p>
+<ol>
+<li>可维护性差</li>
+<li>可拓展性差</li>
+<li>复用性差</li>
+</ol>
+<h3 id="2-分层有限状态机"><a href="#2-分层有限状态机" class="headerlink" title="2. 分层有限状态机"></a>2. 分层有限状态机</h3><blockquote>
+<p>相比与FSM，HFSM引入“超级状态”概念，实现<strong>打包管理</strong>。</p>
+</blockquote>
+<p><strong>超级状态</strong>：将同一类的一组状态视作一个集合（图中大方框），超级状态之间也有转移逻辑。<br><img src="2025-12-30-20-45-53.png" alt=""></p>
+<ul>
+<li>斯坦福大学Junior：将顶层的驾驶行为分成了<strong>13个</strong>超级状态。在无人车正常行驶中，状态机几乎处在<strong>普通驾驶模式</strong>（即<code>FORWARD-DRIVE</code>和<code>PARKING-NAVIGATE</code>这两个状态）。</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">优点</th>
+<th style="text-align:left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>分层结构</strong></td>
+<td style="text-align:left">减少复杂度</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>分层继承</strong></td>
+<td style="text-align:left">提高了可复用性/灵活性</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>分层封装</strong></td>
+<td style="text-align:left">提高可读性/可测试性</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="第三部分：路径生成（三次样条插值算法）"><a href="#第三部分：路径生成（三次样条插值算法）" class="headerlink" title="第三部分：路径生成（三次样条插值算法）"></a>第三部分：路径生成（三次样条插值算法）</h2><ul>
+<li>生成路径基本要求：能够通过车辆控制来执行该路径。</li>
+</ul>
+<p><strong>拟合</strong>和<strong>插值</strong>的区别：</p>
+<ul>
+<li>拟合：不要求通过所有点，讲究神似。</li>
+<li>插值：要通过所有给定的点。</li>
+</ul>
+<blockquote>
+<p>为什么使用“三次样条插值曲线”（而不是“三次拟合曲线”）？<br>因为“三次样条插值”生成的曲线符合车辆运动学规律，即：<br>尽量走直线，在转弯的地方走曲线。</p>
+</blockquote>
+<h3 id="三次样条插值算法的数学性质"><a href="#三次样条插值算法的数学性质" class="headerlink" title="三次样条插值算法的数学性质"></a>三次样条插值算法的数学性质</h3><ol>
+<li>生成的曲线在<strong>衔接点处函数值连续</strong>。</li>
+<li>一阶导数和二阶导数<strong>连续可导</strong>。</li>
+<li><strong>自由边界三次样条</strong>的边界一阶、二阶导数也是连续的保证<strong>速度/加速度连续</strong>。<br>（对于第三点：由于解方程组时，<strong>未知数比方程多两个</strong>，就会产生自由边界。）<br><img src="2025-12-30-21-08-34.png" alt=""></li>
+</ol>
+<h2 id="第四部分：动作规划"><a href="#第四部分：动作规划" class="headerlink" title="第四部分：动作规划"></a>第四部分：动作规划</h2><script type="math/tex; mode=display">
+动作规划 =轨迹规划 +速度规划</script><h3 id="最优动作序列"><a href="#最优动作序列" class="headerlink" title="最优动作序列"></a>最优动作序列</h3><p>Jerk：加速度的变化率，即<strong>加加速度</strong>。</p>
+<ul>
+<li>过高的Jerk会引起乘客的不适，所以要研究怎么优化Jerk。</li>
+</ul>
+<h3 id="Frenet坐标系"><a href="#Frenet坐标系" class="headerlink" title="Frenet坐标系"></a>Frenet坐标系</h3><blockquote>
+<p>相比于<strong>笛卡尔坐标系</strong>（东南西北），<strong>Frenet坐标系</strong>使用道路中心线作为参考线。</p>
+<ul>
+<li>s轴：沿着道路中心线走了多远。</li>
+<li>d轴：偏离中心线多少（左正右负）。</li>
+</ul>
+</blockquote>
+<p>优势：</p>
+<ol>
+<li>简化了道路曲线拟合的问题，把二维问题简化成一维问题。</li>
+<li>所以计算也简单了。</li>
+<li>保持车道只需要保证 $d=0$。</li>
+<li>$s$管速度（停车、巡航）、$d$管方向（变道、避障）。</li>
+</ol>
+<p><img src="2025-12-30-21-46-04.png" alt=""></p>
+<h3 id="横向、纵向轨迹优化"><a href="#横向、纵向轨迹优化" class="headerlink" title="横向、纵向轨迹优化"></a>横向、纵向轨迹优化</h3><ul>
+<li>将轨迹优化问题分割为横向&amp;纵向。</li>
+<li>选取<strong>损失函数C</strong>，采用使得C最小的轨迹。</li>
+</ul>
+<h4 id="1-横向轨迹的损失函数"><a href="#1-横向轨迹的损失函数" class="headerlink" title="1. 横向轨迹的损失函数"></a>1. 横向轨迹的损失函数</h4><p><strong>主要任务</strong>：控制方向（如：车道保持、变道）。<br><strong>公式</strong>：  </p>
+<script type="math/tex; mode=display">C_{d} = k_{j}J_{t}(d(t)) + k_{t}T + k_{d}d_{1}^{2}</script><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">组成部分</th>
+<th style="text-align:left">符号含义</th>
+<th style="text-align:left">惩罚项</th>
+<th style="text-align:left">对应指标</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>舒适项</strong></td>
+<td style="text-align:left"><script type="math/tex">k_{j}J_{t}(d(t))</script></td>
+<td style="text-align:left"><strong>Jerk (加加速度)</strong>。<br>防止方向盘打得太急，避免乘客晕车。</td>
+<td style="text-align:left"><strong>舒适度</strong></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>效率项</strong></td>
+<td style="text-align:left">$k_{t}T$</td>
+<td style="text-align:left"><strong>耗时</strong>。<br>防止变道或回正动作拖泥带水，动作要干脆。</td>
+<td style="text-align:left"><strong>效率</strong></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>偏差项</strong></td>
+<td style="text-align:left"><script type="math/tex">k_{d}d_{1}^{2}</script></td>
+<td style="text-align:left"><strong>终点横向偏差</strong>。<br>防止规划结束时车子没回正、压线或偏离中心。</td>
+<td style="text-align:left"><strong>准确度</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>调整惩罚项系数$k_j,k_t,k_d$，可以选择更注重哪个指标。</li>
+</ul>
+<h4 id="2-纵向轨迹的损失函数"><a href="#2-纵向轨迹的损失函数" class="headerlink" title="2. 纵向轨迹的损失函数"></a>2. 纵向轨迹的损失函数</h4><p><strong>主要任务</strong>：控制速度（如：跟车、巡航、停车）。<br><strong>公式 (以车速保持场景为例)</strong>：  </p>
+<script type="math/tex; mode=display">C_{s} = k_{j}J_{t}(s(t)) + k_{t}T + k_{s}(\dot{s_{1}} - \dot{s_{c}})^{2}</script><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">组成部分</th>
+<th style="text-align:left">符号含义</th>
+<th style="text-align:left">惩罚项</th>
+<th style="text-align:left">对应指标</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>舒适项</strong></td>
+<td style="text-align:left"><script type="math/tex">k_{j}J_{t}(s(t))</script></td>
+<td style="text-align:left"><strong>Jerk (加加速度)</strong>。<br>防止急刹车或地板油，保证加减速平滑。</td>
+<td style="text-align:left"><strong>舒适度</strong></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>效率项</strong></td>
+<td style="text-align:left">$k_{t}T$</td>
+<td style="text-align:left"><strong>耗时</strong>。<br>防止长时间达不到目标状态。</td>
+<td style="text-align:left"><strong>效率</strong></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>规则项</strong></td>
+<td style="text-align:left"><script type="math/tex">k_{s}(\dot{s_{1}} - \dot{s_{c}})^{2}</script></td>
+<td style="text-align:left"><strong>速度偏差</strong>。<br><script type="math/tex">\dot{s_{1}}</script>: 规划终点速度; $\dot{s_{c}}$: 设定巡航速度。<br>防止速度不达标（例如限速60却只开40）。</td>
+<td style="text-align:left"><strong>规则依从性</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>调整惩罚项系数$k_j,k_t,k_s$，可以选择更注重哪个指标。</li>
+</ul>
+<h4 id="3-总损失函数"><a href="#3-总损失函数" class="headerlink" title="3. 总损失函数"></a>3. 总损失函数</h4><p><strong>公式</strong>：</p>
+<script type="math/tex; mode=display">C_{total} = k_{lat}C_{d} + k_{lon}C_{s}</script><ul>
+<li><strong>权重调节 (<script type="math/tex">k_{lat} vs k_{lon}</script>)</strong>：<ul>
+<li><script type="math/tex">k_{lat}</script> (横向权重) 和 <script type="math/tex">k_{lon}</script> (纵向权重) 是人为设定的系数。</li>
+<li><strong>作用</strong>：决定车子是优先保证“走得直”(横向)，还是优先保证“速度准”(纵向)。</li>
+</ul>
+</li>
+</ul>
+<h3 id="碰撞避免"><a href="#碰撞避免" class="headerlink" title="碰撞避免"></a>碰撞避免</h3><p><img src="2025-12-30-22-02-24.png" alt=""></p>
+<h1 id="第六章-车辆模型和高级控制"><a href="#第六章-车辆模型和高级控制" class="headerlink" title="第六章 车辆模型和高级控制"></a>第六章 车辆模型和高级控制</h1><h2 id="第一部分：车辆模型"><a href="#第一部分：车辆模型" class="headerlink" title="第一部分：车辆模型"></a>第一部分：车辆模型</h2><h3 id="1-自行车模型"><a href="#1-自行车模型" class="headerlink" title="1. 自行车模型"></a>1. 自行车模型</h3><blockquote>
+<p>该模型做出的<strong>假设</strong>：</p>
+<ol>
+<li>忽略车辆在垂直方向上的运动。</li>
+<li>把前轮和后轮的两个轮胎各自看成一个。</li>
+<li>看成和自行车一样，<strong>前轮控制转角</strong>。</li>
+</ol>
+</blockquote>
+<p><img src="2025-12-31-14-16-54.png" alt=""></p>
+<h3 id="2-运动学自行车模型"><a href="#2-运动学自行车模型" class="headerlink" title="2. 运动学自行车模型"></a>2. 运动学自行车模型</h3><p><strong>控制输入</strong>$(a, \delta_f)$</p>
+<ul>
+<li><strong>$a$</strong> 表示车辆的加速度。踩油门意味着正的加速度，踩刹车意味着负的加速度。</li>
+<li><strong>$\delta_f$</strong> 表示方向盘的转角。假定方向盘转角就是前轮当前的转角。</li>
+</ul>
+<p><strong>四个状态量</strong>：（位置、偏航角、速度）</p>
+<ul>
+<li><strong>$x$</strong>：车辆当前的 $x$ 坐标</li>
+<li><strong>$y$</strong>：车辆当前的 $y$ 坐标</li>
+<li><strong>$\psi$</strong>：车辆当前的偏航角（用弧度来描述，逆时针方向为正）</li>
+<li><strong>$v$</strong>：车辆的速度</li>
+</ul>
+<p>相关几何参数：</p>
+<ul>
+<li><strong>$l_f$</strong>：前轮到车辆重心的距离</li>
+<li><strong>$l_r$</strong>：后轮到车辆重心的距离</li>
+</ul>
+<p><code>更新公式</code>：根据<strong>运动学定理</strong>，运动学自行车模型中各个状态量的更新公式如下：</p>
+<script type="math/tex; mode=display">x_{t+1} = x_t + v_t \cos(\psi_t + \beta) \times dt</script><script type="math/tex; mode=display">y_{t+1} = y_t + v_t \sin(\psi_t + \beta) \times dt</script><script type="math/tex; mode=display">\psi_{t+1} = \psi_t + \frac{v_t}{l_r} \sin(\beta) \times dt</script><script type="math/tex; mode=display">v_{t+1} = v_t + a \times dt</script><p>其中，$dt$ 表示间隔时间，$\beta$ 又如下的公式计算可得：</p>
+<p><strong>滑移角</strong> </p>
+<script type="math/tex; mode=display">\beta = \tan^{-1} \left( \frac{l_r}{l_f + l_r} \tan(\delta_f) \right)</script><p>自行车模型假定后轮的转角控制输入 $\delta_r = 0$。</p>
+<p><img src="2025-12-31-14-24-55.png" alt=""></p>
+<h3 id="3-动力学自行车模型"><a href="#3-动力学自行车模型" class="headerlink" title="3. 动力学自行车模型"></a>3. 动力学自行车模型</h3><p>核心思想：当车辆以高速度行驶时，<strong>车轮方向不一定是车轮当前的速度方向</strong>（侧滑）。<br>所以该模型考虑了以下两个力：</p>
+<ul>
+<li><strong>纵向力</strong>：使车辆前后移动的力。</li>
+<li><strong>侧向力</strong>：使车辆横向移动的力。</li>
+</ul>
+<blockquote>
+<p>轮胎是车辆运动的一个重要力的来源。</p>
+</blockquote>
+<ul>
+<li>体现了由<strong>frenet坐标系</strong>下车身的纵向和侧向速度来推导<strong>笛卡尔坐标系</strong>下X和Y两个方向上的车辆行驶速度。</li>
+</ul>
+<h2 id="第二部分：PID控制"><a href="#第二部分：PID控制" class="headerlink" title="第二部分：PID控制"></a>第二部分：PID控制</h2><p><img src="2025-12-31-14-35-54.png" alt=""></p>
+<ul>
+<li>比例、积分、微分</li>
+</ul>
+<h3 id="1-P控制"><a href="#1-P控制" class="headerlink" title="1. P控制"></a>1. P控制</h3><p>该控制器控制的是<strong>车辆转角</strong>。</p>
+<ul>
+<li>等值控制是震荡的。</li>
+</ul>
+<p>控制输出表示为：</p>
+<script type="math/tex; mode=display">
+Steering angle =K_p·e(t)</script><p>其中，</p>
+<ul>
+<li>$e(t)$表示在$t$时刻下的CTE（车辆到参考线距离）。</li>
+<li>在合理的数值范围内，<strong>$K_p$越大，控制效果越好</strong>，即：越快回到参考线附近。</li>
+<li>但是当CTE和$K_p$都很大时，车辆会失去控制。</li>
+</ul>
+<h3 id="2-PD控制"><a href="#2-PD控制" class="headerlink" title="2. PD控制"></a>2. PD控制</h3><blockquote>
+<p>相比于P控制，PD控制引入了<strong>CTE变化率</strong>这个概念。</p>
+<ul>
+<li>CTE变化率描述了无人车<strong>向着参考线方向移动的快慢</strong>。</li>
+</ul>
+</blockquote>
+<p>此时控制输出表示为：</p>
+<script type="math/tex; mode=display">Steering angle = K_p \cdot e(t) + K_d \frac{\text{d}e(t)}{\text{d}t}</script><p>其中，</p>
+<ul>
+<li>增大<code>P系数</code>$K_p$增大车辆朝着参考线运动的倾向。</li>
+<li>增大<code>D系数</code>$K_d$使得转向更平缓(因为转角速度变化更慢了)。</li>
+</ul>
+<p>所以有以下两种情况：</p>
+<ol>
+<li><p>P过大，D过小：</p>
+<ul>
+<li><strong>欠阻尼</strong>。</li>
+<li>无人车将沿着参考线<strong>震荡前进</strong>。</li>
+<li>因为P过大，车辆一直要朝向参考线，但是D过小，转角变化率很快，导致车辆不好控制。</li>
+</ul>
+</li>
+<li><p>P过小，D过大：</p>
+<ul>
+<li><strong>过阻尼</strong>。</li>
+<li>无人车需要很久才能矫正误差。</li>
+<li>因为P很小，而且D很大，所以车辆转角变化很慢，而且不倾向于找到参考线。</li>
+</ul>
+</li>
+</ol>
+<h3 id="3-PID控制"><a href="#3-PID控制" class="headerlink" title="3. PID控制"></a>3. PID控制</h3><blockquote>
+<p>因为PD控制很难消除<strong>稳态误差</strong>，所以引入了<strong>积分环节</strong>。</p>
+</blockquote>
+<p>控制输出：</p>
+<script type="math/tex; mode=display">
+Steering angle = K_p \cdot e(t) + K_d \frac{\text{d}e(t)}{\text{d}t} + K_i \int_{0}^{t} e(t) \text{d}t</script><p>其中，</p>
+<ul>
+<li>积分项本质上是<strong>车的实际路线到参考线的图形面积</strong>，也就是累积的误差。</li>
+<li>积分项系数$K_i$的大小影响<strong>系统稳定性</strong>。</li>
+<li>过大使得系统震荡，过小会使得汽车收到扰动后需要很久时间才能回到参考线。</li>
+</ul>
+<h3 id="PID参数整定方式"><a href="#PID参数整定方式" class="headerlink" title="PID参数整定方式"></a>PID参数整定方式</h3><p><img src="2025-12-31-15-06-50.png" alt=""></p>
+<p>简单来说，就是<code>先P后I最后D</code>.</p>
+<p><strong>PID三个环节的总结</strong>：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">环节名称</th>
+<th style="text-align:left">优点</th>
+<th style="text-align:left">缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>比例环节 (P)</strong></td>
+<td style="text-align:left">调整系统的开环比例系数，提高系统的稳态精度，减低系统的惰性，加快响应速度。</td>
+<td style="text-align:left">仅用P控制器，过大的开环比例系数不仅会使系统的超调量增大，而且会使系统稳定裕度变小，甚至不稳定。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>积分环节 (I)</strong></td>
+<td style="text-align:left">消除<strong>稳态误差</strong>。</td>
+<td style="text-align:left">积分控制器的加入会影响系统的稳定性，使系统的稳定裕度减小。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>微分环节 (D)</strong></td>
+<td style="text-align:left">使系统的<strong>响应速度变快</strong>，超调减小，振荡减轻，对动态过程有“预测”作用。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="第三部分：模型预测控制"><a href="#第三部分：模型预测控制" class="headerlink" title="第三部分：模型预测控制"></a>第三部分：模型预测控制</h2><blockquote>
+<p>传统PID具有<strong>延时性</strong>，即控制指令会在未来被执行。而模型预测控制可以避免<strong>延时问题</strong>。</p>
+</blockquote>
+<ul>
+<li>将更长时间跨度的控制问题<strong>分解</strong>为几个更短短跨度问题。</li>
+<li>包含以下三个因素：<ol>
+<li><strong>预测模型</strong>：能够在短时间内预测系统将来的变化。</li>
+<li><strong>在线滚动优化</strong>：通过算法来优化未来一段时间的控制输入，使得损失最小。</li>
+<li><strong>反馈矫正</strong>：到下一个时间点根据新的状态重新预测和优化。</li>
+</ol>
+</li>
+</ul>
+<p>基本步骤：</p>
+<ol>
+<li>从 $t$ 时刻开始，预测未来 $n$ 步的输出信号。<strong>（预测模型）</strong></li>
+<li>基于模型的控制信号以及相应的输出信号，构造损失函数，并且通过调整控制信号最优化损失函数。<strong>（在线滚动优化）</strong></li>
+<li>将控制信号输入系统。<strong>（反馈矫正）</strong></li>
+<li>等到下一个时间点，在新的状态重复步骤 1。</li>
+</ol>
+<ul>
+<li>模型预测控制一般应用于无人驾驶<code>横向控制</code>。</li>
+</ul>
+<h2 id="第四部分：轨迹追踪"><a href="#第四部分：轨迹追踪" class="headerlink" title="第四部分：轨迹追踪"></a>第四部分：轨迹追踪</h2><blockquote>
+<p>基于几何追踪的方法————<strong>纯追踪</strong></p>
+</blockquote>
+<p><strong>思想</strong>：<br>纯追踪就是基于几何原理，算出要把方向盘打多少度，才能让车画一个圆弧，恰好经过前方那个<strong>预瞄点</strong>。</p>
+<p><img src="2025-12-31-16-02-52.png" alt=""><br><img src="2025-12-31-16-03-08.png" alt=""></p>
+<ul>
+<li>$(g_x,g_y)$是下一个预瞄点。</li>
+<li>$K$可以表达为：$K =\frac{2}{{l_d}^2} e_l$,<strong>纯追踪控制器其实是横向的P控制器</strong>。</li>
+</ul>
+<p><strong>重点：前视距离$l_d$的参数选择</strong><br><strong>前视距离 ($l_d$)</strong> ：距离目标路径点的前视距离，一般将前视距离表示成<strong>车辆纵向速度的线性函数</strong>。</p>
+<ul>
+<li><strong>计算公式</strong><script type="math/tex; mode=display">l_d = l_{d\min} + kv_x(t)</script></li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">前视距离 ($l_d$) 设定</th>
+<th style="text-align:left">优点</th>
+<th style="text-align:left">缺点/问题</th>
+<th style="text-align:left">适用场景与表现</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>较短 ($l_d$ 小)</strong></td>
+<td style="text-align:left"><strong>追踪精确</strong>：车辆能够紧紧贴合参考路径行驶。</td>
+<td style="text-align:left"><strong>容易震荡</strong>：控制过于敏感，车辆容易在路径左右来回摆动 (Oscillation)，导致行驶不稳定。</td>
+<td style="text-align:left">适用于低速行驶，或者路径曲率变化不大且需要高精度跟踪时。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>较长 ($l_d$ 大)</strong></td>
+<td style="text-align:left"><strong>轨迹平滑</strong>：控制动作更加温柔，车辆行驶更加稳定。</td>
+<td style="text-align:left"><strong>转向不足</strong>：在急转弯或大曲率路段，车辆会“切内角” (Cut corners)，无法精确经过路径点。</td>
+<td style="text-align:left">适用于高速行驶，为了防止翻车或失控，优先保证车辆的稳定性。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>动态调整策略</strong></td>
+<td style="text-align:left"><strong>平衡性能</strong>：在不同速度下都能获得较好的跟踪效果。</td>
+<td style="text-align:left"><strong>参数整定</strong>：需要根据实际车辆特性调整系数 $k$。</td>
+<td style="text-align:left"><strong>常用方法</strong>：将前视距离设为<strong>纵向速度的函数</strong> (通常是线性关系 $l_d = k \cdot v_x$)。<br><strong>约束</strong>：通常会设置一个<strong>最大值</strong>和<strong>最小值</strong>来限制前视距离的范围。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li><strong>核心结论</strong>：前视距离的调整本质上是在<strong>“精确性”</strong>和<strong>“稳定性”</strong>之间做权衡。纯追踪算法的关键在于找到适合当前速度的最佳前视距离。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>华理</category>
+        <category>大三上</category>
+      </categories>
+  </entry>
+  <entry>
     <title>专业前沿讲座报告</title>
     <url>/2025/11/26/lecture-report/</url>
     <content><![CDATA[<blockquote>
@@ -3918,1495 +5407,6 @@ x_t
       <categories>
         <category>华理</category>
         <category>大三下</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>智能无人系统</title>
-    <url>/2025/12/24/AutoDriving/</url>
-    <content><![CDATA[<h1 id="第一章和第七章-无人驾驶平台和系统"><a href="#第一章和第七章-无人驾驶平台和系统" class="headerlink" title="第一章和第七章 无人驾驶平台和系统"></a>第一章和第七章 无人驾驶平台和系统</h1><h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><h3 id="SAE自动驾驶分级标准"><a href="#SAE自动驾驶分级标准" class="headerlink" title="SAE自动驾驶分级标准"></a>SAE自动驾驶分级标准</h3><div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left">层级</th>
-<th style="text-align:left">名称</th>
-<th style="text-align:left">详细描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><strong>Level 0</strong></td>
-<td style="text-align:left"><strong>无自动化</strong></td>
-<td style="text-align:left">无自动控制功能。</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>Level 1</strong></td>
-<td style="text-align:left"><strong>单一功能级自动化</strong></td>
-<td style="text-align:left">无法做到手和脚同时不操控。</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>Level 2</strong></td>
-<td style="text-align:left"><strong>部分自动化</strong></td>
-<td style="text-align:left">在某些预设环境下可以不操作汽车，即手脚同时离开控制。</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>Level 3</strong></td>
-<td style="text-align:left"><strong>有条件自动化</strong></td>
-<td style="text-align:left">特定条件部分任务。</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>Level 4</strong></td>
-<td style="text-align:left"><strong>高度自动化</strong></td>
-<td style="text-align:left">特定条件全部任务。</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>Level 5</strong></td>
-<td style="text-align:left"><strong>完全自动化</strong></td>
-<td style="text-align:left">全部条件全部任务。</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="传感器平台"><a href="#传感器平台" class="headerlink" title="传感器平台"></a>传感器平台</h3><p>主流的无人驾驶传感平台以<strong>激光雷达和车载摄像头为主</strong>，并呈现<strong>多传感器融合</strong>发展的趋势。需要了解各类传感器（激光雷达、毫米波雷达、摄像头、GPS/IMU、V2X通信传感系统）的<strong>检测原理、优势、劣势以及功能</strong>。</p>
-<p><strong>1. 激光雷达 (LiDAR) 与 毫米波雷达 (Radar)</strong>：</p>
-<p><strong>激光雷达 (LiDAR)</strong></p>
-<ul>
-<li><strong>核心原理</strong>：利用光进行“回声定位”。<ul>
-<li><strong>测距技术</strong>：飞行时间法 (ToF)。</li>
-<li><strong>公式</strong>：  $r =\frac{1}{2}ct$（c为光速，t为往返时间）。</li>
-</ul>
-</li>
-<li><strong>适用性</strong>：测距精准（厘米级），能区分车道线；<strong>缺点</strong>是受雨雪雾天气影响大。</li>
-<li><strong>分类</strong>：<ol>
-<li><strong>机械式</strong>：360°扫描，但体积大、成本高、易损耗。</li>
-<li><strong>半固态</strong>：内部微动（MEMS/转镜），适合车规量产。</li>
-<li><strong>固态</strong>：无机械部件（Flash/OPA），耐用且成本低，是未来方向。</li>
-</ol>
-</li>
-</ul>
-<p><strong>毫米波雷达 (Radar)</strong></p>
-<ul>
-<li><strong>核心优势</strong>：<strong>全天候工作</strong>，穿透力强（抗雨雾）。</li>
-<li><strong>频段</strong>：<ul>
-<li><strong>24GHz</strong>：短距离（盲点监测）。</li>
-<li><strong>77GHz</strong>：<strong>主流</strong>，探测距离远、精度高、体积小。</li>
-</ul>
-</li>
-</ul>
-<hr>
-<p><strong>2. 摄像头 (Camera)</strong>：</p>
-<ul>
-<li><strong>特点</strong>：<ul>
-<li><strong>优点</strong>：语义识别能力强（红绿灯、路牌），信息丰富，成本低。</li>
-<li><strong>局限</strong>：受光线影响大（怕黑、怕逆光），测距不如雷达。</li>
-</ul>
-</li>
-<li><strong>类型与位置</strong>：<br>| 摄像头类型 | 应用场景 |<br>| :—- | :—- |<br>| <strong>单目</strong> | 自适应巡航、车道偏离预警、车道保持辅助、前向碰撞预警、自动紧急制动、交通标志识别、自动泊车、行人检测、驾驶员监控 |<br>| <strong>双目</strong> | 自适应巡航、车道偏离预警、车道保持辅助、前向碰撞预警、自动紧急制动、交通标志识别、自动泊车、行人检测、驾驶员监控 |<br>| <strong>环视摄像头</strong> | 自动泊车、全景环视系统 |<br>| <strong>后视</strong> | 自动泊车 |</li>
-</ul>
-<hr>
-<p><strong>3. GPS 与 IMU (组合导航)</strong>：</p>
-<p><strong>对比分析</strong></p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left">特性</th>
-<th style="text-align:left">GPS (全球定位系统)</th>
-<th style="text-align:left">IMU (惯性测量单元)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><strong>原理</strong></td>
-<td style="text-align:left">接收卫星信号算绝对坐标</td>
-<td style="text-align:left">靠陀螺仪/加速度计算相对位移</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>优点</strong></td>
-<td style="text-align:left"><strong>无累积误差</strong></td>
-<td style="text-align:left"><strong>频率高</strong>，<strong>不怕遮挡</strong></td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>缺点</strong></td>
-<td style="text-align:left">信号易受遮挡（隧道/高楼），更新慢</td>
-<td style="text-align:left"><strong>误差随时间累积</strong></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><strong>融合优势 (互补)</strong></p>
-<ul>
-<li><strong>GPS 修正 IMU</strong>：用 GPS 的绝对位置消除 IMU 的累积误差。</li>
-<li><strong>IMU 填补 GPS</strong>：在 GPS 信号丢失（如隧道）时，IMU 继续推算位置。</li>
-<li><strong>算法</strong>：通常使用<strong>卡尔曼滤波 (Kalman Filter)</strong> 进行数据融合。</li>
-</ul>
-<hr>
-<p><strong>4. V2X 通信传感系统</strong>：</p>
-<ul>
-<li><strong>三大优势</strong>：<ol>
-<li><strong>覆盖广</strong>：实现“超视距感知”（如几公里外的路况）。</li>
-<li><strong>避盲区</strong>：解决视线遮挡问题（如路口盲区）。</li>
-<li><strong>更安全</strong>：通过数字证书防篡改。</li>
-</ol>
-</li>
-<li><strong>政策与标准</strong>：<ul>
-<li>如欧盟 <strong>PRESERVE</strong> 项目，建立了安全架构和证书体系，保障信息不被黑客伪造。</li>
-</ul>
-</li>
-</ul>
-<p><img src="2025-12-31-20-23-06.png" alt=""></p>
-<ul>
-<li><strong>GPS+惯导</strong>：开阔环境首选，绝对定位能力强，GPS怕遮挡。</li>
-<li><strong>激光SLAM</strong>：几何特征丰富环境首选，精确但成本高、怕恶劣天气。</li>
-<li><strong>视觉SLAM</strong>：纹理特征丰富环境可用，成本低但怕弱纹理、光照变化。</li>
-<li><strong>纯惯导(IMU)</strong>：短期备用方案，任何环境都能工作但误差累积。</li>
-</ul>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left">环境场景</th>
-<th style="text-align:left">主传感器</th>
-<th style="text-align:left">辅助传感器</th>
-<th style="text-align:left">为什么这样配</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><strong>无GPS+有结构</strong></td>
-<td style="text-align:left">激光雷达</td>
-<td style="text-align:left">IMU</td>
-<td style="text-align:left">激光提供绝对位置，IMU填补扫描间隔</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>有GPS+开阔地</strong></td>
-<td style="text-align:left">GPS</td>
-<td style="text-align:left">IMU</td>
-<td style="text-align:left">GPS提供全局定位，IMU提高更新频率</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>有GPS+有纹理</strong></td>
-<td style="text-align:left">视觉+GPS</td>
-<td style="text-align:left">IMU</td>
-<td style="text-align:left">视觉提供局部精度，GPS防止漂移</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>恶劣天气</strong></td>
-<td style="text-align:left">GPS+IMU</td>
-<td style="text-align:left">-</td>
-<td style="text-align:left">激光/视觉受影响，回归最可靠组合</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><strong>多传感器融合：卡尔曼滤波</strong></p>
-<h2 id="第七章"><a href="#第七章" class="headerlink" title="第七章"></a>第七章</h2><h3 id="1-计算平台"><a href="#1-计算平台" class="headerlink" title="1. 计算平台"></a>1. 计算平台</h3><div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left">解决方案</th>
-<th style="text-align:left">核心特点</th>
-<th style="text-align:left">优势与适用场景</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><strong>GPU</strong> (图形处理器)</td>
-<td style="text-align:left"><strong>并行计算能力强</strong></td>
-<td style="text-align:left">擅长处理大规模并行任务，非常适合<strong>深度学习</strong>和图像处理（如训练神经网络）。</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>DSP</strong> (数字信号处理器)</td>
-<td style="text-align:left">擅长数字信号处理</td>
-<td style="text-align:left">适合处理连续的模拟信号转换成的数字信号（如音频、雷达信号处理），数学运算能力强。</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>FPGA</strong> (现场可编程门阵列)</td>
-<td style="text-align:left"><strong>硬件可重构</strong></td>
-<td style="text-align:left">灵活性极高，可以根据需要重新编程硬件逻辑，<strong>低延迟</strong>，能耗比通常优于 GPU。</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>ASIC</strong> (专用集成电路)</td>
-<td style="text-align:left"><strong>专用定制</strong></td>
-<td style="text-align:left">为特定功能量身定制，<strong>性能最高、功耗最低、体积最小</strong>，但不可更改，研发成本高。</td>
-</tr>
-</tbody>
-</table>
-</div>
-<hr>
-<h3 id="2-控制平台"><a href="#2-控制平台" class="headerlink" title="2. 控制平台"></a>2. 控制平台</h3><p>控制平台是连接算法与执行机构的桥梁，主要包括两大部分：</p>
-<ul>
-<li><strong>ECU (电子控制单元)</strong>：分布在车内的“小脑”，负责运行具体的<strong>控制算法</strong>（如控制发动机喷油、刹车防抱死等）。</li>
-<li><strong>通信总线</strong>：连接各个 ECU 和机械部件的“神经纤维”，负责<strong>传输指令和状态信息</strong>。</li>
-</ul>
-<hr>
-<h3 id="3-通信网络协议"><a href="#3-通信网络协议" class="headerlink" title="3. 通信网络协议"></a>3. 通信网络协议</h3><p>不同总线根据速率和可靠性适用于不同的场景：</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left">协议名称</th>
-<th style="text-align:left">定位与特点</th>
-<th style="text-align:left">工作机制</th>
-<th style="text-align:left">适用场景</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><strong>LIN</strong> (局部互联协议)</td>
-<td style="text-align:left"><strong>低速</strong>、低成本</td>
-<td style="text-align:left"><strong>主从模式</strong>（Master-Slave）</td>
-<td style="text-align:left"><strong>车身电子</strong><br>（如车窗、雨刮器、后视镜调节）</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>CAN</strong> (控制器局域网)</td>
-<td style="text-align:left"><strong>中速</strong>、行业标准</td>
-<td style="text-align:left"><strong>仲裁机制</strong>（优先级判断）、多主结构</td>
-<td style="text-align:left"><strong>车辆底盘控制</strong><br>（如发动机、变速箱、ABS），应用最广泛</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>FlexRay</strong></td>
-<td style="text-align:left"><strong>高速</strong>、高可靠性</td>
-<td style="text-align:left"><strong>时间触发</strong> (Time-Triggered) + 事件触发</td>
-<td style="text-align:left"><strong>线控系统 (X-by-Wire)</strong><br>（如线控转向、线控刹车），确保数据零延迟、零出错</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="4-无人驾驶的安全性（四大安全）"><a href="#4-无人驾驶的安全性（四大安全）" class="headerlink" title="4. 无人驾驶的安全性（四大安全）"></a>4. 无人驾驶的安全性（四大安全）</h3><p><strong>无人驾驶系统安全性核心考点总结</strong></p>
-<p><strong>（1）. 传感器的安全 (感知层)</strong></p>
-<ul>
-<li><strong>常见攻击方式</strong>：<ul>
-<li><strong>致盲攻击</strong>：使用强光或激光干扰摄像头，使其“失明”。</li>
-<li><strong>欺骗攻击</strong>：伪造 GPS 信号，或使用对抗样本（如在路牌上贴贴纸）误导算法。</li>
-</ul>
-</li>
-<li><strong>核心防御策略</strong>：<strong>多传感器融合</strong><ul>
-<li>利用激光雷达、毫米波雷达和摄像头的不同特性进行<strong>交叉验证</strong>，不依赖单一信源。</li>
-</ul>
-</li>
-</ul>
-<hr>
-<p><strong>（2）. 操作系统的安全 (软件层)</strong></p>
-<ul>
-<li><strong>主要威胁</strong>：<strong>节点劫持</strong><ul>
-<li>ROS (机器人操作系统) 内部节点通信若缺乏验证，易被黑客控制发送错误指令。</li>
-</ul>
-</li>
-<li><strong>核心防御策略</strong>：<strong>隔离技术</strong><ul>
-<li><strong>容器技术 (如 Docker)</strong> 和 <strong>沙盒 (Sandbox)</strong>：将节点隔离在独立环境中运行，防止病毒或故障扩散。</li>
-</ul>
-</li>
-</ul>
-<hr>
-<p><strong>（3）. 控制系统的安全 (执行层)</strong></p>
-<ul>
-<li><strong>入侵方式</strong>：通过 OBD 接口或无线网络侵入 CAN 总线，发送伪造的刹车/转向指令。</li>
-<li><strong>核心防御策略</strong>：<strong>加密与验证</strong><ul>
-<li>ECU 在执行指令前必须校验<strong>数字签名</strong>，确保指令来源合法且未被篡改。</li>
-</ul>
-</li>
-</ul>
-<hr>
-<p><strong>（4）. 车联网通信系统的安全性 (V2X 网络层)</strong></p>
-<ul>
-<li><strong>主要威胁</strong>：消息伪造（假绿灯）、篡改路况信息、隐私泄露。</li>
-<li><strong>核心防御策略</strong>：<strong>PRESERVE 三层防护架构</strong><ol>
-<li><strong>硬件层</strong>：使用 <strong>HSM (硬件安全模块)</strong> 物理隔离存储密钥。</li>
-<li><strong>软件层</strong>：部署防火墙和入侵检测系统。</li>
-<li><strong>安全证书</strong>：建立 <strong>PKI 数字证书体系</strong>，确保每一条 V2X 消息都是真实可信的。</li>
-</ol>
-</li>
-</ul>
-<h1 id="第二章-定位方法以及传感器应用"><a href="#第二章-定位方法以及传感器应用" class="headerlink" title="第二章 定位方法以及传感器应用"></a>第二章 定位方法以及传感器应用</h1><blockquote>
-<p><strong>章节核心逻辑</strong>：无人驾驶系统如何解决两个终极问题？</p>
-<ol>
-<li><strong>“感官”</strong>：用传感器感知周围环境（雷达、相机）。</li>
-<li><strong>“大脑”</strong>：用算法（定位、滤波）确定自己在哪、状态如何。</li>
-</ol>
-</blockquote>
-<p><strong>SLAN</strong>：同步定位与地图构建。主要有：激光SLAN &amp; 视觉SLAN</p>
-<h2 id="第一部分：硬件传感器"><a href="#第一部分：硬件传感器" class="headerlink" title="第一部分：硬件传感器"></a>第一部分：硬件传感器</h2><h3 id="1-激光雷达（激光SLAN）"><a href="#1-激光雷达（激光SLAN）" class="headerlink" title="1. 激光雷达（激光SLAN）"></a>1. 激光雷达（激光SLAN）</h3><ul>
-<li><strong>原理</strong>：<strong>飞行时间法 (ToF)</strong>。发射激光束，计算往返时间测距。<ul>
-<li>公式：$r = \frac{1}{2} c t$</li>
-</ul>
-</li>
-<li><strong>特性</strong>：<ul>
-<li>3D激光雷达采集到的信息叫做<strong>点云</strong>。将点云与全局地图进行迭代匹配（ICP）</li>
-<li>✅ <strong>精度极高</strong>，测距远，分辨率高，隐蔽性好，抗干扰能力强</li>
-<li>❌ <strong>成本高</strong>，易受<strong>雨雪雾</strong>天气干扰（噪声大）</li>
-</ul>
-</li>
-<li><strong>考点</strong>：它是L4/L5级自动驾驶的核心传感器。</li>
-</ul>
-<h3 id="2-摄像头"><a href="#2-摄像头" class="headerlink" title="2. 摄像头"></a>2. 摄像头</h3><ul>
-<li><strong>原理</strong>：被动接收环境光。</li>
-<li><strong>分类与应用</strong> (🎯 <strong>学长考题重点</strong>)：<ul>
-<li><strong>单目 (Monocular)</strong>：前视感知，识别人、车、车道线、红绿灯。</li>
-<li><strong>双目 (Stereo)</strong>：通过视差原理测距。</li>
-<li><strong>鱼眼 (Fisheye)</strong>：<strong>视野极大 (&gt;180°)</strong>，专门用于<strong>倒车影像、360°环视</strong>（图像有畸变）。</li>
-</ul>
-</li>
-<li><strong>特性</strong>：<ul>
-<li>✅ 纹理信息丰富，便宜。</li>
-<li>❌ 受光照影响大（逆光、黑夜致盲），测距精度不如雷达。</li>
-</ul>
-</li>
-</ul>
-<h3 id="3-毫米波雷达"><a href="#3-毫米波雷达" class="headerlink" title="3. 毫米波雷达"></a>3. 毫米波雷达</h3><ul>
-<li><strong>原理</strong>：多普勒效应。</li>
-<li><strong>特性</strong>：<ul>
-<li>✅ <strong>穿透力强</strong>（无视雨雪雾），<strong>测速</strong>特别准。</li>
-<li>❌ 分辨率低（看不清物体轮廓，只能知道“有东西”）。</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="第二部分：定位算法"><a href="#第二部分：定位算法" class="headerlink" title="第二部分：定位算法"></a>第二部分：定位算法</h2><h3 id="1-激光SLAN：ICP-vs-NDT-⭐⭐⭐-必考对比"><a href="#1-激光SLAN：ICP-vs-NDT-⭐⭐⭐-必考对比" class="headerlink" title="1. 激光SLAN：ICP vs NDT (⭐⭐⭐ 必考对比)"></a>1. 激光SLAN：ICP vs NDT (⭐⭐⭐ 必考对比)</h3><p><strong>（1）ICP</strong>：</p>
-<p><img src="2025-12-27-12-37-38.png" alt=""><br><img src="2025-12-27-12-43-15.png" alt=""></p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left">优点</th>
-<th style="text-align:left">缺点</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">效果精确</td>
-<td style="text-align:left">耗时大，效率低</td>
-</tr>
-<tr>
-<td style="text-align:left">不必数据处理</td>
-<td style="text-align:left">可能陷入局部最优</td>
-</tr>
-<tr>
-<td style="text-align:left">较好收敛性</td>
-<td style="text-align:left">需要噪声处理</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><strong>（2）NDT</strong>：</p>
-<p><img src="2025-12-27-12-55-49.png" alt=""><br><img src="2025-12-27-13-26-05.png" alt=""></p>
-<p><strong>总结</strong>：<br><em>把“刚才看到的”（实时点云）和“记忆中的”（高精地图）拼在一起。</em></p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left">特性</th>
-<th style="text-align:left"><strong>ICP (迭代最近点)</strong></th>
-<th style="text-align:left"><strong>NDT (正态分布变换)</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><strong>通俗理解</strong></td>
-<td style="text-align:left"><strong>硬碰硬</strong>。每个点都去找地图上离它最近的点，强行拉近。</td>
-<td style="text-align:left"><strong>概率流</strong>。把地图划成格子，看现在的点落在哪个概率最高的格子里。</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>核心原理</strong></td>
-<td style="text-align:left">最小化点对点欧氏距离。</td>
-<td style="text-align:left">计算网格内的高斯概率密度函数 (PDF)。</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>优点</strong></td>
-<td style="text-align:left">精度极高（前提是初值给得好）。</td>
-<td style="text-align:left"><strong>速度快</strong>，<strong>鲁棒性强</strong>（容错率高，初值差一点也能对上）。</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>缺点</strong></td>
-<td style="text-align:left">慢，容易拼错（陷入局部最优）。</td>
-<td style="text-align:left">精度略逊于精细的ICP。</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="2-视觉SLAM"><a href="#2-视觉SLAM" class="headerlink" title="2. 视觉SLAM"></a>2. 视觉SLAM</h3><p><img src="2025-12-27-14-30-03.png" alt=""></p>
-<ul>
-<li><strong>视觉前端特征</strong> (🎯 <strong>填空题重点</strong>)：<ul>
-<li><strong>角点 (Corner)</strong>：如 Harris, FAST。</li>
-<li><strong>斑点 (Blob)</strong>：如 SIFT（最准最慢）。</li>
-<li><strong>ORB特征</strong>：<strong>Oriented FAST</strong> (带方向角点) + <strong>BRIEF</strong> (二进制描述子)。<strong>速度极快</strong>，适合实时系统。</li>
-</ul>
-</li>
-<li><strong>回环检测 (Loop Closure)</strong>：<ul>
-<li>利用<strong>词袋模型 (BoW)</strong> 判断“我是否来过这里”，消除累积误差。</li>
-</ul>
-</li>
-</ul>
-<p><img src="2025-12-27-14-29-13.png" alt=""><br><img src="2025-12-27-14-29-25.png" alt=""></p>
-<h2 id="第三部分：定位系统"><a href="#第三部分：定位系统" class="headerlink" title="第三部分：定位系统"></a>第三部分：定位系统</h2><h3 id="1-坐标系转换-⚠️-判断题陷阱"><a href="#1-坐标系转换-⚠️-判断题陷阱" class="headerlink" title="1. 坐标系转换 (⚠️ 判断题陷阱)"></a>1. 坐标系转换 (⚠️ 判断题陷阱)</h3><p><img src="2025-12-27-13-04-52.png" alt=""><br><img src="2025-12-27-13-05-50.png" alt=""></p>
-<ul>
-<li><strong>转换链条</strong>：<br>  <code>GPS输出的经纬度信息</code> $\rightarrow$ <code>ECEF (地心地固)</code> $\rightarrow$ <code>导航坐标系 (ENU/NED)</code> $\rightarrow$ <code>车体坐标系 (Body)</code></li>
-<li><strong>关键点</strong>：<ul>
-<li><strong>ENU</strong>：东北天坐标系（指北坐标系）。</li>
-<li><strong>ECEF</strong>：随地球自转。</li>
-<li><em>考题避坑</em>：通常<strong>不能</strong>直接从 ECEF 旋转得到车体坐标系，中间必须经过局部切平面（导航坐标系），否则无法描述“东南西北”。</li>
-</ul>
-</li>
-</ul>
-<h3 id="2-基于GPS-惯性组合（IMU）导航的定位系统"><a href="#2-基于GPS-惯性组合（IMU）导航的定位系统" class="headerlink" title="2. 基于GPS +惯性组合（IMU）导航的定位系统"></a>2. 基于GPS +惯性组合（IMU）导航的定位系统</h3><p><strong>（1）GPS</strong>：</p>
-<p><img src="2025-12-27-13-27-04.png" alt=""></p>
-<ul>
-<li>RTK：载波相位动态实时差分，定位误差在城市中也可达到10～50m（一般GPS为10～100m）</li>
-<li>差分GPS定位：通过在一个精确的已知位置（基准站）上安装GPS监测接收机，计算得到基准站与GPS卫星的距离，然后再根据误差修正结果，从而提高了定位精度。</li>
-<li>伪距法定位：<ul>
-<li>优点：速度快、无多值性问题、虽然精度低，但是满足大部分需求。 </li>
-</ul>
-</li>
-</ul>
-<p><img src="2025-12-27-13-32-18.png" alt=""></p>
-<p><img src="2025-12-27-13-35-15.png" alt=""></p>
-<p><strong>（2）惯性测量单元</strong>：</p>
-<script type="math/tex; mode=display">
-陀螺仪 + 加速度计</script><p><img src="2025-12-27-14-19-52.png" alt=""><br><img src="2025-12-27-14-21-05.png" alt=""></p>
-<p><strong>总结</strong>：</p>
-<ul>
-<li><strong>GPS (全球定位系统)</strong>：提供<strong>绝对位置</strong>。<ul>
-<li><em>缺点</em>：更新慢 (10Hz)，易被遮挡（隧道、高楼峡谷）。</li>
-<li><em>RTK技术</em>：利用基准站差分，将精度提升至<strong>厘米级</strong>。</li>
-</ul>
-</li>
-<li><strong>IMU (惯性测量单元)</strong>：提供<strong>相对推算</strong>。<ul>
-<li><em>组成</em>：<strong>加速度计</strong>（测比力/加速度）+ <strong>陀螺仪</strong>（测角速度）。</li>
-<li><em>原理</em>：航位推算。</li>
-<li><em>缺点</em>：<strong>误差随时间累积</strong>（积分漂移）。</li>
-</ul>
-</li>
-<li><strong>融合逻辑</strong>：<strong>GPS负责“纠偏”</strong>（消除累计误差），<strong>IMU负责“填空”</strong>（高频输出，保证信号不断）。</li>
-</ul>
-<p><strong>（3）惯性导航系统（INS）</strong>：<br><img src="2025-12-27-14-23-24.png" alt=""><br><img src="2025-12-27-14-23-36.png" alt=""><br><img src="2025-12-27-14-23-47.png" alt=""></p>
-<h2 id="第四部分：卡尔曼滤波"><a href="#第四部分：卡尔曼滤波" class="headerlink" title="第四部分：卡尔曼滤波"></a>第四部分：卡尔曼滤波</h2><p>这一部分数学最难，重点掌握<strong>逻辑</strong>和<strong>公式</strong>。</p>
-<ul>
-<li><strong>卡尔曼滤波</strong>：是一种利用<strong>线性系统</strong>状态方程，通过系统输入输出观测数据，对系统状态进行最优估计的算法。</li>
-<li><strong>基本思想</strong>：利用<code>前一时刻的估计值</code>和<code>现时刻的观测值</code>来更新对状态变量的估计，求出<code>现在时刻的估计值</code>。</li>
-</ul>
-<h3 id="1-卡尔曼滤波-KF-——-线性系统的最优估计"><a href="#1-卡尔曼滤波-KF-——-线性系统的最优估计" class="headerlink" title="1. 卡尔曼滤波 (KF) —— 线性系统的最优估计"></a>1. 卡尔曼滤波 (KF) —— 线性系统的最优估计</h3><ul>
-<li><strong>核心逻辑</strong>：<strong>加权平均</strong>。<ul>
-<li>模型算出一个值（预测），传感器测出一个值（测量）。</li>
-<li><strong>谁方差小（谁靠谱），我就信谁多一点</strong>。</li>
-</ul>
-</li>
-<li><strong>五大核心公式 (📝 建议默写)</strong>：<ol>
-<li><strong>预测状态</strong>：$\hat{x}_k^- = A \hat{x}_{k-1} + B u_k$</li>
-<li><strong>预测协方差</strong>：$P_k^- = A P_{k-1} A^T + Q$  <em>(Q: 模型噪声)</em></li>
-<li><strong>卡尔曼增益</strong>：$K_k = P_k^- H^T (H P_k^- H^T + R)^{-1}$ <em>(R: 测量噪声)</em><ul>
-<li><em>理解</em>：$R$ 越大（测量烂），$K$ 越小（不信测量）；$Q$ 越大（模型烂），$K$ 越大（信测量）。</li>
-</ul>
-</li>
-<li><strong>状态更新</strong>：$\hat{x}_k = \hat{x}_k^- + K_k (z_k - H \hat{x}_k^-)$</li>
-<li><strong>协方差更新</strong>：$P_k = (I - K_k H) P_k^-$</li>
-</ol>
-</li>
-</ul>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left">局限性</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">实时性不能满足</td>
-</tr>
-<tr>
-<td style="text-align:left">可靠性降低</td>
-</tr>
-<tr>
-<td style="text-align:left">对于<strong>非线性</strong>系统效果不佳</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="2-进阶滤波：EKF-vs-UKF-⭐⭐-简答题"><a href="#2-进阶滤波：EKF-vs-UKF-⭐⭐-简答题" class="headerlink" title="2. 进阶滤波：EKF vs UKF (⭐⭐ 简答题)"></a>2. 进阶滤波：EKF vs UKF (⭐⭐ 简答题)</h3><p><em>解决非线性问题（如车在转弯、雷达测距是弧线）。</em></p>
-<ul>
-<li><strong>扩展卡尔曼滤波 (EKF)</strong>：<ul>
-<li><strong>方法</strong>：<strong>线性化</strong>:用线性变换近似非线性变换。用<strong>泰勒级数展开</strong>（保留一阶导数），算出<strong>雅可比矩阵 (Jacobian)</strong>。</li>
-<li><em>缺点</em>：雅可比矩阵难算，忽略高阶项有精度损失。</li>
-<li><em>考点</em>：EKF近似的是<strong>非线性函数本身</strong>。</li>
-</ul>
-</li>
-<li><strong>无损卡尔曼滤波 (UKF)</strong>：<ul>
-<li><strong>方法</strong>：<strong>无损变换</strong>。选几个代表点（Sigma Points）去通过非线性函数，近似出新的<strong>概率分布</strong>。</li>
-<li><em>优点</em>：不用算雅可比，精度通常更高。</li>
-</ul>
-</li>
-</ul>
-<h3 id="3-运动模型"><a href="#3-运动模型" class="headerlink" title="3. 运动模型"></a>3. 运动模型</h3><ul>
-<li><strong>CTRV</strong> (Constant Turn Rate and Velocity)：<strong>恒定转弯率和速度</strong>。这是描述车辆运动最常用的模型。</li>
-</ul>
-<h3 id="4-传感器融合架构"><a href="#4-传感器融合架构" class="headerlink" title="4. 传感器融合架构"></a>4. 传感器融合架构</h3><ul>
-<li><strong>顺序滤波 (Sequential Filtering)</strong>：<ul>
-<li><strong>逻辑</strong>：一次预测，多次更新。</li>
-<li><em>场景</em>：激光雷达和毫米波雷达的数据不同时到达。先用激光更新卡尔曼滤波，结果作为初值，马上再用毫米波更新。</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="📝-考前抢分-CheckList-必背"><a href="#📝-考前抢分-CheckList-必背" class="headerlink" title="📝 考前抢分 CheckList (必背)"></a>📝 考前抢分 CheckList (必背)</h2><ol>
-<li><strong>倒车影像</strong>用什么镜头？ $\rightarrow$ <strong>鱼眼 (Fisheye)</strong></li>
-<li><strong>指北坐标系</strong>通常指什么？ $\rightarrow$ <strong>ENU (东北天)</strong></li>
-<li><strong>ICP和NDT</strong>谁更快更鲁棒？ $\rightarrow$ <strong>NDT</strong></li>
-<li><strong>EKF</strong>的核心数学操作是什么？ $\rightarrow$ <strong>泰勒展开 / 计算雅可比矩阵</strong></li>
-<li><strong>SLAM</strong>常用视觉特征？ $\rightarrow$ <strong>ORB, SIFT, 角点</strong></li>
-<li><strong>卡尔曼增益K</strong>变大说明什么？ $\rightarrow$ 说明更相信<strong>测量值</strong> (或者模型预测的不确定性Q变大了)。</li>
-</ol>
-<h1 id="第三章-深度学习和视觉感知"><a href="#第三章-深度学习和视觉感知" class="headerlink" title="第三章 深度学习和视觉感知"></a>第三章 深度学习和视觉感知</h1><h2 id="第一部分：路缘石检测"><a href="#第一部分：路缘石检测" class="headerlink" title="第一部分：路缘石检测"></a>第一部分：路缘石检测</h2><h3 id="1-ROI提取-感兴趣区域"><a href="#1-ROI提取-感兴趣区域" class="headerlink" title="1. ROI提取 (感兴趣区域)"></a>1. <strong>ROI提取 (感兴趣区域)</strong></h3><ul>
-<li>获取原始点云，只保留车身周围一定范围内的点（去除无关背景）。</li>
-</ul>
-<h3 id="2-点集左右划分"><a href="#2-点集左右划分" class="headerlink" title="2. 点集左右划分"></a>2. <strong>点集左右划分</strong></h3><ul>
-<li>将点云按照激光雷达的扫描线（车身前向射线）进行划分。</li>
-</ul>
-<p><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /></p>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-<style>
-  .swiper {
-    width: 100%;
-    height: 500px; /* 如果图片觉得太小，可以把这里改成 500px 或 600px */
-    border-radius: 8px; /* 圆角 */
-  }
-  .swiper-slide {
-    text-align: center;
-    background: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .swiper-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* 保持图片原有比例，不拉伸变形 */
-  }
-</style>
-
-<div class="swiper mySwiper">
-  <div class="swiper-wrapper">
-    <div class="swiper-slide">
-      <img src="2025-12-28-19-05-37.png" alt="Image 1">
-    </div>
-    <div class="swiper-slide">
-      <img src="2025-12-28-19-05-49.png" alt="Image 2">
-    </div>
-    <div class="swiper-slide">
-      <img src="2025-12-28-19-06-01.png" alt="Image 3">
-    </div>
-  </div>
-
-  <div class="swiper-button-next"></div>
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-pagination"></div>
-</div>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    var swiper = new Swiper(".mySwiper", {
-      loop: true,               // 循环播放
-      autoHeight: true,         // 自动适应高度
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,        // 允许点击小圆点切换
-      },
-    });
-  });
-</script>
-
-<h3 id="3-路缘石点提取"><a href="#3-路缘石点提取" class="headerlink" title="3. 路缘石点提取"></a>3. <strong>路缘石点提取</strong></h3><ul>
-<li>在每一条射线上，利用几何特征（如高度突变、坡度变化）找到疑似路缘的点。</li>
-<li>左右子点集划分：将找到的点分为“左侧路缘点集”和“右侧路缘点集”。</li>
-</ul>
-<p><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /></p>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-<style>
-  .swiper {
-    width: 100%;
-    height: 450px; /* 如果图片较高，可以将这里改成 500px 或 600px */
-    border-radius: 8px;
-  }
-  .swiper-slide {
-    text-align: center;
-    background: transparent;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .swiper-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* 保持图片完整显示，不裁剪 */
-  }
-</style>
-
-<div class="swiper mySwiper">
-  <div class="swiper-wrapper">
-    <div class="swiper-slide">
-      <img src="2025-12-28-19-09-06.png" alt="Image 1">
-    </div>
-    <div class="swiper-slide">
-      <img src="2025-12-28-19-09-13.png" alt="Image 2">
-    </div>
-    <div class="swiper-slide">
-      <img src="2025-12-28-19-09-23.png" alt="Image 3">
-    </div>
-    <div class="swiper-slide">
-      <img src="2025-12-28-19-09-33.png" alt="Image 4">
-    </div>
-  </div>
-
-  <div class="swiper-button-next"></div>
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-pagination"></div>
-</div>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    var swiper = new Swiper(".mySwiper", {
-      loop: true,               // 循环播放
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,        // 允许点击圆点切换
-      },
-    });
-  });
-</script>
-
-<h3 id="4-提取与拟合"><a href="#4-提取与拟合" class="headerlink" title="4. 提取与拟合"></a>4. <strong>提取与拟合</strong></h3><ul>
-<li>利用最小二乘法或RANSAC算法，将点拟合成平滑的曲线（通常是三次样条曲线），得到最终的路缘线。</li>
-</ul>
-<p><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /></p>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-<style>
-  .swiper {
-    width: 100%;
-    height: 450px; /* 高度可按需调整 */
-    border-radius: 8px;
-    margin-bottom: 20px; /* 增加一点底部间距 */
-  }
-  .swiper-slide {
-    text-align: center;
-    background: transparent;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .swiper-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-</style>
-
-<div class="swiper mySwiper3">
-  <div class="swiper-wrapper">
-    <div class="swiper-slide"><img src="2025-12-28-19-11-56.png"></div>
-    <div class="swiper-slide"><img src="2025-12-28-19-12-11.png"></div>
-    <div class="swiper-slide"><img src="2025-12-28-19-12-28.png"></div>
-    <div class="swiper-slide"><img src="2025-12-28-19-12-37.png"></div>
-    <div class="swiper-slide"><img src="2025-12-28-19-12-47.png"></div>
-    <div class="swiper-slide"><img src="2025-12-28-19-12-59.png"></div>
-    <div class="swiper-slide"><img src="2025-12-28-19-13-10.png"></div>
-  </div>
-
-  <div class="swiper-button-next"></div>
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-pagination"></div>
-</div>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    var swiper3 = new Swiper(".mySwiper3", {
-      loop: true,
-      navigation: {
-        nextEl: ".mySwiper3 .swiper-button-next", // 指定只控制这一组的箭头
-        prevEl: ".mySwiper3 .swiper-button-prev",
-      },
-      pagination: {
-        el: ".mySwiper3 .swiper-pagination", // 指定只控制这一组的分页器
-        clickable: true,
-      },
-    });
-  });
-</script>
-
-<p><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /></p>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-<style>
-  .swiper {
-    width: 100%;
-    height: 450px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-  }
-  .swiper-slide {
-    text-align: center;
-    background: transparent;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .swiper-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-</style>
-
-<div class="swiper mySwiper4">
-  <div class="swiper-wrapper">
-    <div class="swiper-slide"><img src="2025-12-28-19-13-46.png"></div>
-    <div class="swiper-slide"><img src="2025-12-28-19-13-57.png"></div>
-    <div class="swiper-slide"><img src="2025-12-28-19-14-07.png"></div>
-  </div>
-
-  <div class="swiper-button-next"></div>
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-pagination"></div>
-</div>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    var swiper4 = new Swiper(".mySwiper4", {
-      loop: true,
-      navigation: {
-        nextEl: ".mySwiper4 .swiper-button-next", // 锁定只控制这一组
-        prevEl: ".mySwiper4 .swiper-button-prev",
-      },
-      pagination: {
-        el: ".mySwiper4 .swiper-pagination",
-        clickable: true,
-      },
-    });
-  });
-</script>
-
-<p><strong>补充</strong>：坐标系变换<br><img src="2025-12-28-19-15-03.png" alt=""></p>
-<h2 id="第二部分：卷积神经网络（CNN）"><a href="#第二部分：卷积神经网络（CNN）" class="headerlink" title="第二部分：卷积神经网络（CNN）"></a>第二部分：卷积神经网络（CNN）</h2><ol>
-<li><p><strong>卷积与前馈神经网络区别</strong>：</p>
-<ul>
-<li>用卷积运算代替矩阵乘法运算</li>
-<li>传统全连接神经网络不足：<em>计算/储存要求高（参数大）、易过拟合</em></li>
-<li><strong>CNN优势</strong>：<em>稀疏交互、权重共享、等变表示</em></li>
-</ul>
-</li>
-<li><p><strong>CNN的三大特性</strong>：</p>
-<ul>
-<li><strong>稀疏交互</strong>：卷积核大小远小于输入图像，每个输出神经元只与局部输入连接（效率高）。</li>
-<li><strong>参数共享</strong>：同一个卷积核在整张图上滑动，用的是同一组参数（储存空间少）。</li>
-<li><strong>等变表示</strong>：输入平移，输出也跟着平移。</li>
-</ul>
-</li>
-<li><p><strong>核心组件</strong>：</p>
-<ul>
-<li><strong>卷积层</strong>：提取特征。</li>
-<li><strong>池化层</strong>：用相邻位置的<strong>总体统计特征</strong>来替换该位置的值，起到降维、减少参数、防止过拟合的作用。<em>（最大池化、平均池化）</em></li>
-<li><strong>激活函数</strong>：引入非线性（如 ReLU）。</li>
-</ul>
-</li>
-</ol>
-<h2 id="第三部分：YOLO"><a href="#第三部分：YOLO" class="headerlink" title="第三部分：YOLO"></a>第三部分：YOLO</h2><p><img src="2025-12-28-20-29-46.png" alt=""></p>
-<h3 id="1-YOLO的核心思想"><a href="#1-YOLO的核心思想" class="headerlink" title="1. YOLO的核心思想"></a>1. <strong>YOLO的核心思想</strong></h3><ul>
-<li>不需要生成候选区域，直接把图像划分成 S×S 的网格，每个网格负责预测中心落在该格子里面的物体。</li>
-<li>速度快，适合无人驾驶实时感知。</li>
-</ul>
-<h3 id="2-YOLOv3的特征提取"><a href="#2-YOLOv3的特征提取" class="headerlink" title="2. YOLOv3的特征提取"></a>2. <strong>YOLOv3的特征提取</strong></h3><p><strong>特点</strong>：</p>
-<ul>
-<li>有53个卷积层</li>
-<li>输出图像尺寸：416x416x3 </li>
-<li>连续使用卷积层和跳跃连接层</li>
-</ul>
-<p><strong>图像金字塔</strong>：<br><img src="2025-12-28-20-44-17.png" alt=""></p>
-<ul>
-<li><strong>图像金字塔-向下采样</strong>：删除图像偶数行列，大小变为四分之一。</li>
-<li><strong>图像金字塔-向上采样</strong>：补充大量像素点0，大小变为四倍。<br><em>（注意：两种操作互相是<strong>不可逆</strong>的。）</em></li>
-</ul>
-<p><strong>多尺度特征预测</strong>：<br><img src="2025-12-28-20-52-14.png" alt=""><br><img src="2025-12-28-20-48-17.png" alt=""></p>
-<p><strong>交并比</strong>：<br><img src="2025-12-28-20-56-57.png" alt=""></p>
-<p><strong>边界框坐标计算</strong>：<br><img src="2025-12-28-20-59-15.png" alt=""></p>
-<ul>
-<li>$(b_x,b_y)$为<strong>中心坐标</strong>。</li>
-<li>$b_w,b_h$进行了<strong>尺度缩放</strong>。</li>
-<li><strong>Sigmoid函数作用</strong>：将$t_x,t_y$压缩到[0,1]区间内，<strong>确保预测边界在网格内，防止偏移过多</strong>。</li>
-<li><strong>指数函数e的作用</strong>：确保<strong>缩放后的宽高为正</strong>。</li>
-</ul>
-<h1 id="第四章-迁移学习和强化学习"><a href="#第四章-迁移学习和强化学习" class="headerlink" title="第四章 迁移学习和强化学习"></a>第四章 迁移学习和强化学习</h1><h2 id="第一部分：迁移学习"><a href="#第一部分：迁移学习" class="headerlink" title="第一部分：迁移学习"></a>第一部分：迁移学习</h2><ul>
-<li><strong>意义</strong>：<ul>
-<li>解决大数据和少标签之间的矛盾。</li>
-<li>解决大数据和弱计算之间的矛盾。</li>
-<li>解决普适化模型和个性化需求之间的矛盾。</li>
-<li>满足特定应用需求。</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>为什么需要“迁移学习”？</p>
-<ol>
-<li>收集数据难、标注难。</li>
-<li>冷启动的问题（新环境没有数据）。</li>
-<li>个性化模型很复杂。</li>
-</ol>
-</blockquote>
-<h3 id="迁移学习的四种方法"><a href="#迁移学习的四种方法" class="headerlink" title="迁移学习的四种方法"></a>迁移学习的四种方法</h3><ul>
-<li>基于（  ）的迁移<ul>
-<li><strong>实例</strong>：找到与目标相似的样本。</li>
-<li><strong>特征</strong>：把两个领域的数据变换到同一个特征空间。</li>
-<li><strong>模型</strong>：共享模型参数。</li>
-<li><strong>关系</strong>：挖掘逻辑关系。</li>
-</ul>
-</li>
-</ul>
-<h2 id="第二部分：端到端无人驾驶"><a href="#第二部分：端到端无人驾驶" class="headerlink" title="第二部分：端到端无人驾驶"></a>第二部分：端到端无人驾驶</h2><p><strong>基本思路</strong>：</p>
-<ol>
-<li>采集数据：摄像头拍摄的图像</li>
-<li>网络训练：通过神经网络训练的数据来做出决策</li>
-<li>测试：通过训练的模型来控制车辆，例如方向盘的转角、刹车、油门、</li>
-</ol>
-<p>代表模型：ALVINN、NVIDIA PilotNet</p>
-<ul>
-<li>输入：摄像头拍摄的图像</li>
-<li><p>输出：车辆控制指令（方向盘的转角）</p>
-</li>
-<li><p><strong>优点</strong>：不需要复杂规则设计，系统简单，能利用海量数据。</p>
-</li>
-<li><strong>缺点</strong>：安全性难以保证，出事难追责。</li>
-</ul>
-<h2 id="第三部分：强化学习"><a href="#第三部分：强化学习" class="headerlink" title="第三部分：强化学习"></a>第三部分：强化学习</h2><ul>
-<li><strong>强化学习</strong>：没有监督者，数据不需要带标签，只有一个<code>奖励信号</code>，还可能是<strong>延时</strong>的。</li>
-</ul>
-<h3 id="1-核心五要素"><a href="#1-核心五要素" class="headerlink" title="1. 核心五要素"></a>1. 核心五要素</h3><ul>
-<li><strong>个体（Agent）</strong>：智能体。</li>
-<li><strong>环境（Environment）</strong>：与Agent交互的事物。</li>
-<li><strong>动作（Action）</strong>：Agent的行为。</li>
-<li><strong>状态（State）</strong>：Agent从环境获取的信息。</li>
-<li><strong>奖励（Reward）</strong>：行为的反馈。<br><em>（学习目标是最大化累计奖励）</em><blockquote>
-<p>Agent先从Environment中获取一个State，然后根据这个状态做出Action并反馈给环境，获取Reward。</p>
-</blockquote>
-</li>
-</ul>
-<h3 id="2-马尔可夫决策过程"><a href="#2-马尔可夫决策过程" class="headerlink" title="2. 马尔可夫决策过程"></a>2. 马尔可夫决策过程</h3><ul>
-<li>马尔可夫性：系统的下一个状态只跟当前状态有关，<strong>与过去状态无关</strong>。</li>
-</ul>
-<p><strong>马尔可夫决策过程（MDP）</strong>：<br><img src="2025-12-30-13-43-53.png" alt=""></p>
-<ul>
-<li>$S为有限状态空间集合。$</li>
-<li>$A为有限动作的集合。$</li>
-<li>$P为状态转移概率。$</li>
-<li>$R为奖励函数。$</li>
-</ul>
-<p>从$Start \rightarrow End$的过程是一个序列决策问题，要选择路线以找到<strong>最大收益</strong>，这使得我们需要一个<strong>策略</strong>。</p>
-<ul>
-<li>确定性策略：相同状态下输出动作是确定的。</li>
-<li>不确定性策略：按照概率大小输出不同的输出动作。</li>
-</ul>
-<p><strong>累计期望奖励</strong>：</p>
-<script type="math/tex; mode=display">
-G_t =R_1+\gamma R_2+\gamma^2 R_3+...+\gamma^{k-1}R_k</script><p>其中，$\gamma$为<strong>折扣因子</strong> $\in[0,1)$，用来估算未来对现在的影响。</p>
-<p><strong>值函数</strong>：</p>
-<ul>
-<li>作用是量化每一个行动对最终的<strong>最大化长期回报</strong>的目标的贡献。</li>
-</ul>
-<ol>
-<li><p>状态s下的值函数：</p>
-<script type="math/tex; mode=display">
-V_{\pi}(s) = E_{\pi}[R_1 + \gamma R_2 + \gamma^2 R_3 + \cdots + \gamma^{k-1} R_k | S_t = s]</script></li>
-<li><p>状态+行为-值函数：</p>
-<script type="math/tex; mode=display">
-q_{\pi}(s, a) = E_{\pi} \left[ \sum_{k=0}^{\infty} \gamma^k R_{t+k+1} \mid S_t = s, A_t = a \right]</script></li>
-<li><p>最优状态-值函数：</p>
-</li>
-</ol>
-<ul>
-<li>值函数最大的策略，即：$V^*(s)=max (v_\pi(s))$<br>（最优状态行为-值函数同理。）</li>
-</ul>
-<p>第三部分总结：<br><img src="2025-12-30-14-12-00.png" alt=""><br><img src="2025-12-30-14-12-11.png" alt=""><br><img src="2025-12-30-14-12-21.png" alt=""></p>
-<h2 id="第四部分：Q-learning"><a href="#第四部分：Q-learning" class="headerlink" title="第四部分：Q-learning"></a>第四部分：Q-learning</h2><ul>
-<li><p>实质上就是基于<strong>奖励机制</strong>的学习算法。</p>
-<h3 id="Q-learning"><a href="#Q-learning" class="headerlink" title="Q-learning"></a>Q-learning</h3><p>更新公式：</p>
-<script type="math/tex; mode=display">
-Q(s_t, a_t) \leftarrow Q(s_t, a_t) + \alpha \left[ r_{t+1} + \gamma \max_{a} Q(s_{t+1}, a) - Q(s_t, a_t) \right]</script></li>
-<li><p>$Q(s_t, a_t)$ 是在状态 $s_t$ 下采取动作 $a_t$ 的长期回报，是一个估计 Q 值。</p>
-</li>
-<li>$r_{t+1}$ 是在状态 $s_t$ 下采取动作 $a_t$ 得到的回报 reward。</li>
-<li><script type="math/tex">\max_{a} Q(s_{t+1}, a)</script>指的是在状态 t+1下所获得的最大 Q 值（直接看 Q-table，取它的最大化的值）。</li>
-<li>$\gamma$ 是折扣因子(若$= 0 \rightarrow$ 则短视，只注重眼前奖励,反之是远视，长远考虑)。</li>
-<li><script type="math/tex">r_{t+1} + \gamma \max_{a} Q(s_{t+1}, a)</script>即为目标值，就是 <strong>时序差分目标</strong>，是 $Q(s_t, a_t)$ 想要逼近的目标。$\alpha$ 是学习率，衡量更新的幅度。</li>
-<li><strong>注意</strong>：$max Q(s_{t+1},a)$ 所对应的动作不一定是下一步会执行的实际动作。这里引出 $\varepsilon$-greedy，即 $\varepsilon$-贪心算法。</li>
-</ul>
-<h3 id="varepsilon-贪心算法"><a href="#varepsilon-贪心算法" class="headerlink" title="$\varepsilon$-贪心算法"></a>$\varepsilon$-贪心算法</h3><ul>
-<li><strong>exploration</strong>：探索环境，通过尝试不同的动作来得到最佳策略（带来最大奖励的策略）</li>
-<li><strong>exploitation</strong>：不去尝试新的动作，利用已知的可以带来很大奖励的动作。</li>
-</ul>
-<ol>
-<li>目的是获得一种<strong>长期收益最高</strong>的策略，这个过程可能对short-term reward有损失。  </li>
-<li>如果exploitation太多，那么模型比较容易陷入<strong>局部最优</strong>，但是exploration太多，模型收敛速度太慢。这里面临一个权衡问题，即怎么通过牺牲一些短期的奖励来理解动作，从而学习到更好的策略。</li>
-</ol>
-<h3 id="DQN"><a href="#DQN" class="headerlink" title="DQN"></a>DQN</h3><ul>
-<li>问题：传统的Q-learning用表格存Q值 (Q-Table)。如果状态太多（比如输入是图像），表格存不下。</li>
-<li>解决：用神经网络来代替表格，估算Q值。<ul>
-<li>输入当前画面，利用神经网络提取特征，输出每个动作的Q值。</li>
-</ul>
-</li>
-<li>思想：<ol>
-<li><strong>经验回放</strong>：<ul>
-<li><strong>问题</strong>：开车时，上一秒是在直行，下一秒通常还在直行。数据之间<strong>关联性太强</strong>，一直学相似的东西，神经网络容易<strong>过拟合</strong>。</li>
-<li><strong>解决</strong>：我们不直接学刚才发生的事，而是把智能体经历过的所有事情 $(s, a, r, s’)$ 存进一个<strong>经验池</strong>。</li>
-<li><strong>操作</strong>：训练时，从经验池里<strong>随机抽取</strong>一批数据来学习。打破了数据的时间相关性，让学习更全面。</li>
-</ul>
-</li>
-<li><strong>目标网络</strong>：用一个目标网络来对当前网络来进行打分，可以提高稳定性。</li>
-</ol>
-</li>
-</ul>
-<h3 id="策略梯度"><a href="#策略梯度" class="headerlink" title="策略梯度"></a>策略梯度</h3><ul>
-<li><strong>DQN 的问题</strong>：<ol>
-<li><strong>无法处理连续动作</strong>：DQN 输出是离散的（如上下左右），但方向盘角度是连续数值，无法建立无限大的表格。</li>
-<li><strong>死循环风险</strong>：确定性策略在相同状态下永远做相同选择，容易在特定场景（如迷宫死胡同）原地打转。</li>
-</ol>
-</li>
-<li><strong>策略梯度的方案</strong>：<ul>
-<li>不计算 Q 值，而是训练一个神经网络（策略网络 $\pi_\theta$）。</li>
-<li><strong>输入</strong>：状态 $s$。</li>
-<li><strong>输出</strong>：动作的<strong>概率分布</strong>（直接告诉智能体每个动作被选中的概率）。</li>
-</ul>
-</li>
-</ul>
-<p>策略梯度的核心逻辑是：<strong>“先凭直觉试一试，如果结果好，就增加刚才那些动作的概率；如果结果差，就减少。”</strong></p>
-<p>第一步：试错 (Sampling)</p>
-<ul>
-<li>让智能体用当前的策略网络 $\pi_\theta$ 与环境交互，跑完一整轮（Episode）。</li>
-<li><strong>记录轨迹</strong>：$\tau = {s_1, a_1, r_1, s_2, a_2, r_2, \dots, s_T, a_T, r_T}$。</li>
-</ul>
-<p>第二步：打分 (Evaluation)</p>
-<ul>
-<li>计算这一轮的总得分（累计回报）：$R(\tau) = \sum r_t$。</li>
-<li><p><strong>判据</strong>：总分高说明这一轮的动作序列整体是好的。</p>
-</li>
-<li><p>利用<strong>梯度上升</strong>更新参数 $\theta$，目标是最大化期望回报 $J(\theta)$。</p>
-</li>
-<li><strong>核心公式</strong>：<script type="math/tex; mode=display">\nabla_\theta J(\theta) \approx \frac{1}{N} \sum_{t} [ \underbrace{\nabla_\theta \log \pi_\theta(a_t | s_t)}_{\text{调整方向}} \cdot \underbrace{R(\tau)}_{\text{调整力度}} ]</script><ul>
-<li>如果 $R(\tau)$ 是正的高分 $\rightarrow$ <strong>大幅增加</strong>该动作的概率。</li>
-<li>如果 $R(\tau)$ 是负分 $\rightarrow$ <strong>减少</strong>该动作的概率。</li>
-</ul>
-</li>
-</ul>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left">比较维度</th>
-<th style="text-align:left">策略梯度 (Policy Gradient)</th>
-<th style="text-align:left">价值方法 (DQN)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><strong>输出内容</strong></td>
-<td style="text-align:left"><strong>动作概率</strong> (直接输出策略)</td>
-<td style="text-align:left">动作价值 (Q值)</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>动作空间</strong></td>
-<td style="text-align:left"><strong>支持连续动作</strong> (如方向盘转角)</td>
-<td style="text-align:left">仅支持离散动作 (如按键)</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>策略类型</strong></td>
-<td style="text-align:left"><strong>随机策略</strong> (Stochastic)</td>
-<td style="text-align:left">确定性策略 (Deterministic)</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>稳定性</strong></td>
-<td style="text-align:left">较低 (方差大，容易受单次结果影响)</td>
-<td style="text-align:left">较高 (有目标网络等机制)</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="DDPG（深度确定性策略梯度）"><a href="#DDPG（深度确定性策略梯度）" class="headerlink" title="DDPG（深度确定性策略梯度）"></a>DDPG（深度确定性策略梯度）</h3><p>为了解决策略梯度“由一整轮结果决定成败，方差太大”且<strong>梯度计算困难</strong>的问题，引入了 <strong>Actor-Critic</strong> 框架。</p>
-<p><strong>Actor-Critic 结构</strong>：</p>
-<ul>
-<li><strong>Actor (演员)</strong>：策略网络，负责动作。</li>
-<li><strong>Critic (评论家)</strong>：价值网络，负责打分（代替“整轮总分”）。</li>
-<li><strong>改进点</strong>：Critic 每一步都给 Actor 反馈，不需要等游戏结束，学习效率更高，算法更容易收敛。</li>
-</ul>
-<p><strong>DDPG</strong>：<br>无人驾驶控制的核心算法，共包含4个神经网络。结合了 DQN 和 Actor-Critic 的优点：</p>
-<ol>
-<li><strong>结构</strong>：Actor-Critic (一个做动作，一个打分)。</li>
-<li><strong>机制 1</strong>：<strong>经验回放 (Replay Buffer)</strong> $\rightarrow$ 打破数据关联性。</li>
-<li><strong>机制 2</strong>：<strong>目标网络 (Target Network)</strong> $\rightarrow$ 稳定训练目标。</li>
-</ol>
-<ul>
-<li><strong>适用场景</strong>：连续动作空间的精准控制。</li>
-</ul>
-<h1 id="第五章-无人驾驶规划"><a href="#第五章-无人驾驶规划" class="headerlink" title="第五章 无人驾驶规划"></a>第五章 无人驾驶规划</h1><h2 id="第一部分：路径规划（A-star算法）"><a href="#第一部分：路径规划（A-star算法）" class="headerlink" title="第一部分：路径规划（A-star算法）"></a>第一部分：路径规划（A-star算法）</h2><ul>
-<li>目标：寻找最短路线。</li>
-</ul>
-<h3 id="深度-广度优先搜索"><a href="#深度-广度优先搜索" class="headerlink" title="深度/广度优先搜索"></a>深度/广度优先搜索</h3><ol>
-<li><p>深度优先搜索：</p>
-<ul>
-<li>沿着一条路径不断往下探索。</li>
-<li>栈的性质：<code>先进后出</code></li>
-</ul>
-</li>
-<li><p>广度优先搜索：</p>
-<ul>
-<li>由起点开始，由近及远搜索。</li>
-<li>栈的性质：<code>先进先出</code></li>
-</ul>
-</li>
-</ol>
-<h3 id="1-Dijkstra算法"><a href="#1-Dijkstra算法" class="headerlink" title="1. Dijkstra算法"></a>1. Dijkstra算法</h3><ul>
-<li>核心思想：由近到远把所有点点最短路径算出来。</li>
-<li><strong>缺点</strong>：效率低下、功耗高。<br><img src="2025-12-30-20-18-07.png" alt=""></li>
-</ul>
-<h3 id="2-A-star算法"><a href="#2-A-star算法" class="headerlink" title="2. A-star算法"></a>2. A-star算法</h3><p>在此基础上引入<strong>启发函数</strong>，得到A-star算法。<br><strong>启发函数</strong>：</p>
-<script type="math/tex; mode=display">
-f(n) =g(n) +h(n)</script><ul>
-<li>$g(n)$：<strong>实际代价</strong>（起点到这里，花了多少代价）</li>
-<li>$h(n)$：<strong>预估代价</strong>（从这里到终点，还需要多少代价）</li>
-</ul>
-<p><strong>启发式函数$h(n)$的选择</strong>：</p>
-<ol>
-<li>欧几里得距离 (Euclidean Distance)：两点间的直线距离（适用于允许任意方向移动的场景）。</li>
-<li>曼哈顿距离 (Manhattan Distance)：城市街区距离（适用于只能横平竖直走的网格地图）。<br><img src="2025-12-30-20-21-18.png" alt=""></li>
-</ol>
-<ul>
-<li><strong>关键原则</strong>：$h(n)$ 必须小于等于实际代价。如果 $h(n)$ 估得太高，可能会漏掉最优路径；如果估得太低，算法会变慢但仍能找到最优解。</li>
-<li>特点：既有 Dijkstra 的严谨（保证找到路），又有“贪心算法”的速度（优先往终点方向找）。</li>
-</ul>
-<p><img src="2025-12-30-20-22-56.png" alt=""></p>
-<h3 id="3-混合A-star"><a href="#3-混合A-star" class="headerlink" title="3. 混合A-star"></a>3. 混合A-star</h3><p>相比于普通A-star（把车看成一个<strong>质点</strong>），混合A-star加入了<code>车头朝向</code>参数$\theta$.</p>
-<ul>
-<li>从二维$(x,y)$拓展到三维$(x,y,\theta)$。</li>
-<li>需要考虑<strong>车辆动力学</strong>，所以不再是简单地连接相邻个字，而是要生成符合车辆转弯的圆弧路径。<br><img src="2025-12-30-20-27-56.png" alt=""></li>
-</ul>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left">算法</th>
-<th style="text-align:left">Dijkstra</th>
-<th style="text-align:left">A* (A-Star)</th>
-<th style="text-align:left">Hybrid A*</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><strong>是否有方向感</strong></td>
-<td style="text-align:left">无 (盲目搜索)</td>
-<td style="text-align:left">有 (启发式引导)</td>
-<td style="text-align:left">有 (启发式 + 运动学)</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>公式</strong></td>
-<td style="text-align:left">$f(n) = g(n)$</td>
-<td style="text-align:left">$f(n) = g(n) + h(n)$</td>
-<td style="text-align:left">同 A*，但考虑 $\theta$</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>考虑车辆体积/转弯</strong></td>
-<td style="text-align:left">否 (视为质点)</td>
-<td style="text-align:left">否 (视为质点)</td>
-<td style="text-align:left"><strong>是</strong> (考虑运动约束)</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>适用场景</strong></td>
-<td style="text-align:left">简单图搜索</td>
-<td style="text-align:left">全局路径规划</td>
-<td style="text-align:left">复杂环境泊车、掉头</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="局部路径规划——TEB算法"><a href="#局部路径规划——TEB算法" class="headerlink" title="局部路径规划——TEB算法"></a>局部路径规划——TEB算法</h3><h2 id="第二部分：行为规划（分层有限状态机）"><a href="#第二部分：行为规划（分层有限状态机）" class="headerlink" title="第二部分：行为规划（分层有限状态机）"></a>第二部分：行为规划（分层有限状态机）</h2><blockquote>
-<p>根据当前的交通环境以及全局路线，来做出合理驾驶行为。</p>
-<ul>
-<li>安全第一，交通法规优先，实时反应</li>
-</ul>
-</blockquote>
-<h3 id="1-有限状态机"><a href="#1-有限状态机" class="headerlink" title="1. 有限状态机"></a>1. 有限状态机</h3><blockquote>
-<p>根据外界的输入在有限的状态之间跳来跳去。</p>
-</blockquote>
-<ul>
-<li>分类：<ul>
-<li><strong>确定型自动机</strong>：对每个输入只有一个精确的转移（一个动作）。</li>
-<li><strong>非确定型自动机</strong>：可以没有/有多个结果。</li>
-</ul>
-</li>
-</ul>
-<p><strong>当状态变得很多，就会变得非常庞大，产生问题</strong>：</p>
-<ol>
-<li>可维护性差</li>
-<li>可拓展性差</li>
-<li>复用性差</li>
-</ol>
-<h3 id="2-分层有限状态机"><a href="#2-分层有限状态机" class="headerlink" title="2. 分层有限状态机"></a>2. 分层有限状态机</h3><blockquote>
-<p>相比与FSM，HFSM引入“超级状态”概念，实现<strong>打包管理</strong>。</p>
-</blockquote>
-<p><strong>超级状态</strong>：将同一类的一组状态视作一个集合（图中大方框），超级状态之间也有转移逻辑。<br><img src="2025-12-30-20-45-53.png" alt=""></p>
-<ul>
-<li>斯坦福大学Junior：将顶层的驾驶行为分成了<strong>13个</strong>超级状态。在无人车正常行驶中，状态机几乎处在<strong>普通驾驶模式</strong>（即<code>FORWARD-DRIVE</code>和<code>PARKING-NAVIGATE</code>这两个状态）。</li>
-</ul>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left">优点</th>
-<th style="text-align:left"></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><strong>分层结构</strong></td>
-<td style="text-align:left">减少复杂度</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>分层继承</strong></td>
-<td style="text-align:left">提高了可复用性/灵活性</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>分层封装</strong></td>
-<td style="text-align:left">提高可读性/可测试性</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h2 id="第三部分：路径生成（三次样条插值算法）"><a href="#第三部分：路径生成（三次样条插值算法）" class="headerlink" title="第三部分：路径生成（三次样条插值算法）"></a>第三部分：路径生成（三次样条插值算法）</h2><ul>
-<li>生成路径基本要求：能够通过车辆控制来执行该路径。</li>
-</ul>
-<p><strong>拟合</strong>和<strong>插值</strong>的区别：</p>
-<ul>
-<li>拟合：不要求通过所有点，讲究神似。</li>
-<li>插值：要通过所有给定的点。</li>
-</ul>
-<blockquote>
-<p>为什么使用“三次样条插值曲线”（而不是“三次拟合曲线”）？<br>因为“三次样条插值”生成的曲线符合车辆运动学规律，即：<br>尽量走直线，在转弯的地方走曲线。</p>
-</blockquote>
-<h3 id="三次样条插值算法的数学性质"><a href="#三次样条插值算法的数学性质" class="headerlink" title="三次样条插值算法的数学性质"></a>三次样条插值算法的数学性质</h3><ol>
-<li>生成的曲线在<strong>衔接点处函数值连续</strong>。</li>
-<li>一阶导数和二阶导数<strong>连续可导</strong>。</li>
-<li><strong>自由边界三次样条</strong>的边界一阶、二阶导数也是连续的保证<strong>速度/加速度连续</strong>。<br>（对于第三点：由于解方程组时，<strong>未知数比方程多两个</strong>，就会产生自由边界。）<br><img src="2025-12-30-21-08-34.png" alt=""></li>
-</ol>
-<h2 id="第四部分：动作规划"><a href="#第四部分：动作规划" class="headerlink" title="第四部分：动作规划"></a>第四部分：动作规划</h2><script type="math/tex; mode=display">
-动作规划 =轨迹规划 +速度规划</script><h3 id="最优动作序列"><a href="#最优动作序列" class="headerlink" title="最优动作序列"></a>最优动作序列</h3><p>Jerk：加速度的变化率，即<strong>加加速度</strong>。</p>
-<ul>
-<li>过高的Jerk会引起乘客的不适，所以要研究怎么优化Jerk。</li>
-</ul>
-<h3 id="Frenet坐标系"><a href="#Frenet坐标系" class="headerlink" title="Frenet坐标系"></a>Frenet坐标系</h3><blockquote>
-<p>相比于<strong>笛卡尔坐标系</strong>（东南西北），<strong>Frenet坐标系</strong>使用道路中心线作为参考线。</p>
-<ul>
-<li>s轴：沿着道路中心线走了多远。</li>
-<li>d轴：偏离中心线多少（左正右负）。</li>
-</ul>
-</blockquote>
-<p>优势：</p>
-<ol>
-<li>简化了道路曲线拟合的问题，把二维问题简化成一维问题。</li>
-<li>所以计算也简单了。</li>
-<li>保持车道只需要保证 $d=0$。</li>
-<li>$s$管速度（停车、巡航）、$d$管方向（变道、避障）。</li>
-</ol>
-<p><img src="2025-12-30-21-46-04.png" alt=""></p>
-<h3 id="横向、纵向轨迹优化"><a href="#横向、纵向轨迹优化" class="headerlink" title="横向、纵向轨迹优化"></a>横向、纵向轨迹优化</h3><ul>
-<li>将轨迹优化问题分割为横向&amp;纵向。</li>
-<li>选取<strong>损失函数C</strong>，采用使得C最小的轨迹。</li>
-</ul>
-<h4 id="1-横向轨迹的损失函数"><a href="#1-横向轨迹的损失函数" class="headerlink" title="1. 横向轨迹的损失函数"></a>1. 横向轨迹的损失函数</h4><p><strong>主要任务</strong>：控制方向（如：车道保持、变道）。<br><strong>公式</strong>：  </p>
-<script type="math/tex; mode=display">C_{d} = k_{j}J_{t}(d(t)) + k_{t}T + k_{d}d_{1}^{2}</script><div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left">组成部分</th>
-<th style="text-align:left">符号含义</th>
-<th style="text-align:left">惩罚项</th>
-<th style="text-align:left">对应指标</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><strong>舒适项</strong></td>
-<td style="text-align:left"><script type="math/tex">k_{j}J_{t}(d(t))</script></td>
-<td style="text-align:left"><strong>Jerk (加加速度)</strong>。<br>防止方向盘打得太急，避免乘客晕车。</td>
-<td style="text-align:left"><strong>舒适度</strong></td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>效率项</strong></td>
-<td style="text-align:left">$k_{t}T$</td>
-<td style="text-align:left"><strong>耗时</strong>。<br>防止变道或回正动作拖泥带水，动作要干脆。</td>
-<td style="text-align:left"><strong>效率</strong></td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>偏差项</strong></td>
-<td style="text-align:left"><script type="math/tex">k_{d}d_{1}^{2}</script></td>
-<td style="text-align:left"><strong>终点横向偏差</strong>。<br>防止规划结束时车子没回正、压线或偏离中心。</td>
-<td style="text-align:left"><strong>准确度</strong></td>
-</tr>
-</tbody>
-</table>
-</div>
-<ul>
-<li>调整惩罚项系数$k_j,k_t,k_d$，可以选择更注重哪个指标。</li>
-</ul>
-<h4 id="2-纵向轨迹的损失函数"><a href="#2-纵向轨迹的损失函数" class="headerlink" title="2. 纵向轨迹的损失函数"></a>2. 纵向轨迹的损失函数</h4><p><strong>主要任务</strong>：控制速度（如：跟车、巡航、停车）。<br><strong>公式 (以车速保持场景为例)</strong>：  </p>
-<script type="math/tex; mode=display">C_{s} = k_{j}J_{t}(s(t)) + k_{t}T + k_{s}(\dot{s_{1}} - \dot{s_{c}})^{2}</script><div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left">组成部分</th>
-<th style="text-align:left">符号含义</th>
-<th style="text-align:left">惩罚项</th>
-<th style="text-align:left">对应指标</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><strong>舒适项</strong></td>
-<td style="text-align:left"><script type="math/tex">k_{j}J_{t}(s(t))</script></td>
-<td style="text-align:left"><strong>Jerk (加加速度)</strong>。<br>防止急刹车或地板油，保证加减速平滑。</td>
-<td style="text-align:left"><strong>舒适度</strong></td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>效率项</strong></td>
-<td style="text-align:left">$k_{t}T$</td>
-<td style="text-align:left"><strong>耗时</strong>。<br>防止长时间达不到目标状态。</td>
-<td style="text-align:left"><strong>效率</strong></td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>规则项</strong></td>
-<td style="text-align:left"><script type="math/tex">k_{s}(\dot{s_{1}} - \dot{s_{c}})^{2}</script></td>
-<td style="text-align:left"><strong>速度偏差</strong>。<br><script type="math/tex">\dot{s_{1}}</script>: 规划终点速度; $\dot{s_{c}}$: 设定巡航速度。<br>防止速度不达标（例如限速60却只开40）。</td>
-<td style="text-align:left"><strong>规则依从性</strong></td>
-</tr>
-</tbody>
-</table>
-</div>
-<ul>
-<li>调整惩罚项系数$k_j,k_t,k_s$，可以选择更注重哪个指标。</li>
-</ul>
-<h4 id="3-总损失函数"><a href="#3-总损失函数" class="headerlink" title="3. 总损失函数"></a>3. 总损失函数</h4><p><strong>公式</strong>：</p>
-<script type="math/tex; mode=display">C_{total} = k_{lat}C_{d} + k_{lon}C_{s}</script><ul>
-<li><strong>权重调节 (<script type="math/tex">k_{lat} vs k_{lon}</script>)</strong>：<ul>
-<li><script type="math/tex">k_{lat}</script> (横向权重) 和 <script type="math/tex">k_{lon}</script> (纵向权重) 是人为设定的系数。</li>
-<li><strong>作用</strong>：决定车子是优先保证“走得直”(横向)，还是优先保证“速度准”(纵向)。</li>
-</ul>
-</li>
-</ul>
-<h3 id="碰撞避免"><a href="#碰撞避免" class="headerlink" title="碰撞避免"></a>碰撞避免</h3><p><img src="2025-12-30-22-02-24.png" alt=""></p>
-<h1 id="第六章-车辆模型和高级控制"><a href="#第六章-车辆模型和高级控制" class="headerlink" title="第六章 车辆模型和高级控制"></a>第六章 车辆模型和高级控制</h1><h2 id="第一部分：车辆模型"><a href="#第一部分：车辆模型" class="headerlink" title="第一部分：车辆模型"></a>第一部分：车辆模型</h2><h3 id="1-自行车模型"><a href="#1-自行车模型" class="headerlink" title="1. 自行车模型"></a>1. 自行车模型</h3><blockquote>
-<p>该模型做出的<strong>假设</strong>：</p>
-<ol>
-<li>忽略车辆在垂直方向上的运动。</li>
-<li>把前轮和后轮的两个轮胎各自看成一个。</li>
-<li>看成和自行车一样，<strong>前轮控制转角</strong>。</li>
-</ol>
-</blockquote>
-<p><img src="2025-12-31-14-16-54.png" alt=""></p>
-<h3 id="2-运动学自行车模型"><a href="#2-运动学自行车模型" class="headerlink" title="2. 运动学自行车模型"></a>2. 运动学自行车模型</h3><p><strong>控制输入</strong>$(a, \delta_f)$</p>
-<ul>
-<li><strong>$a$</strong> 表示车辆的加速度。踩油门意味着正的加速度，踩刹车意味着负的加速度。</li>
-<li><strong>$\delta_f$</strong> 表示方向盘的转角。假定方向盘转角就是前轮当前的转角。</li>
-</ul>
-<p><strong>四个状态量</strong>：（位置、偏航角、速度）</p>
-<ul>
-<li><strong>$x$</strong>：车辆当前的 $x$ 坐标</li>
-<li><strong>$y$</strong>：车辆当前的 $y$ 坐标</li>
-<li><strong>$\psi$</strong>：车辆当前的偏航角（用弧度来描述，逆时针方向为正）</li>
-<li><strong>$v$</strong>：车辆的速度</li>
-</ul>
-<p>相关几何参数：</p>
-<ul>
-<li><strong>$l_f$</strong>：前轮到车辆重心的距离</li>
-<li><strong>$l_r$</strong>：后轮到车辆重心的距离</li>
-</ul>
-<p><code>更新公式</code>：根据<strong>运动学定理</strong>，运动学自行车模型中各个状态量的更新公式如下：</p>
-<script type="math/tex; mode=display">x_{t+1} = x_t + v_t \cos(\psi_t + \beta) \times dt</script><script type="math/tex; mode=display">y_{t+1} = y_t + v_t \sin(\psi_t + \beta) \times dt</script><script type="math/tex; mode=display">\psi_{t+1} = \psi_t + \frac{v_t}{l_r} \sin(\beta) \times dt</script><script type="math/tex; mode=display">v_{t+1} = v_t + a \times dt</script><p>其中，$dt$ 表示间隔时间，$\beta$ 又如下的公式计算可得：</p>
-<p><strong>滑移角</strong> </p>
-<script type="math/tex; mode=display">\beta = \tan^{-1} \left( \frac{l_r}{l_f + l_r} \tan(\delta_f) \right)</script><p>自行车模型假定后轮的转角控制输入 $\delta_r = 0$。</p>
-<p><img src="2025-12-31-14-24-55.png" alt=""></p>
-<h3 id="3-动力学自行车模型"><a href="#3-动力学自行车模型" class="headerlink" title="3. 动力学自行车模型"></a>3. 动力学自行车模型</h3><p>核心思想：当车辆以高速度行驶时，<strong>车轮方向不一定是车轮当前的速度方向</strong>（侧滑）。<br>所以该模型考虑了以下两个力：</p>
-<ul>
-<li><strong>纵向力</strong>：使车辆前后移动的力。</li>
-<li><strong>侧向力</strong>：使车辆横向移动的力。</li>
-</ul>
-<blockquote>
-<p>轮胎是车辆运动的一个重要力的来源。</p>
-</blockquote>
-<ul>
-<li>体现了由<strong>frenet坐标系</strong>下车身的纵向和侧向速度来推导<strong>笛卡尔坐标系</strong>下X和Y两个方向上的车辆行驶速度。</li>
-</ul>
-<h2 id="第二部分：PID控制"><a href="#第二部分：PID控制" class="headerlink" title="第二部分：PID控制"></a>第二部分：PID控制</h2><p><img src="2025-12-31-14-35-54.png" alt=""></p>
-<ul>
-<li>比例、积分、微分</li>
-</ul>
-<h3 id="1-P控制"><a href="#1-P控制" class="headerlink" title="1. P控制"></a>1. P控制</h3><p>该控制器控制的是<strong>车辆转角</strong>。</p>
-<ul>
-<li>等值控制是震荡的。</li>
-</ul>
-<p>控制输出表示为：</p>
-<script type="math/tex; mode=display">
-Steering angle =K_p·e(t)</script><p>其中，</p>
-<ul>
-<li>$e(t)$表示在$t$时刻下的CTE（车辆到参考线距离）。</li>
-<li>在合理的数值范围内，<strong>$K_p$越大，控制效果越好</strong>，即：越快回到参考线附近。</li>
-<li>但是当CTE和$K_p$都很大时，车辆会失去控制。</li>
-</ul>
-<h3 id="2-PD控制"><a href="#2-PD控制" class="headerlink" title="2. PD控制"></a>2. PD控制</h3><blockquote>
-<p>相比于P控制，PD控制引入了<strong>CTE变化率</strong>这个概念。</p>
-<ul>
-<li>CTE变化率描述了无人车<strong>向着参考线方向移动的快慢</strong>。</li>
-</ul>
-</blockquote>
-<p>此时控制输出表示为：</p>
-<script type="math/tex; mode=display">Steering angle = K_p \cdot e(t) + K_d \frac{\text{d}e(t)}{\text{d}t}</script><p>其中，</p>
-<ul>
-<li>增大<code>P系数</code>$K_p$增大车辆朝着参考线运动的倾向。</li>
-<li>增大<code>D系数</code>$K_d$使得转向更平缓(因为转角速度变化更慢了)。</li>
-</ul>
-<p>所以有以下两种情况：</p>
-<ol>
-<li><p>P过大，D过小：</p>
-<ul>
-<li><strong>欠阻尼</strong>。</li>
-<li>无人车将沿着参考线<strong>震荡前进</strong>。</li>
-<li>因为P过大，车辆一直要朝向参考线，但是D过小，转角变化率很快，导致车辆不好控制。</li>
-</ul>
-</li>
-<li><p>P过小，D过大：</p>
-<ul>
-<li><strong>过阻尼</strong>。</li>
-<li>无人车需要很久才能矫正误差。</li>
-<li>因为P很小，而且D很大，所以车辆转角变化很慢，而且不倾向于找到参考线。</li>
-</ul>
-</li>
-</ol>
-<h3 id="3-PID控制"><a href="#3-PID控制" class="headerlink" title="3. PID控制"></a>3. PID控制</h3><blockquote>
-<p>因为PD控制很难消除<strong>稳态误差</strong>，所以引入了<strong>积分环节</strong>。</p>
-</blockquote>
-<p>控制输出：</p>
-<script type="math/tex; mode=display">
-Steering angle = K_p \cdot e(t) + K_d \frac{\text{d}e(t)}{\text{d}t} + K_i \int_{0}^{t} e(t) \text{d}t</script><p>其中，</p>
-<ul>
-<li>积分项本质上是<strong>车的实际路线到参考线的图形面积</strong>，也就是累积的误差。</li>
-<li>积分项系数$K_i$的大小影响<strong>系统稳定性</strong>。</li>
-<li>过大使得系统震荡，过小会使得汽车收到扰动后需要很久时间才能回到参考线。</li>
-</ul>
-<h3 id="PID参数整定方式"><a href="#PID参数整定方式" class="headerlink" title="PID参数整定方式"></a>PID参数整定方式</h3><p><img src="2025-12-31-15-06-50.png" alt=""></p>
-<p>简单来说，就是<code>先P后I最后D</code>.</p>
-<p><strong>PID三个环节的总结</strong>：</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left">环节名称</th>
-<th style="text-align:left">优点</th>
-<th style="text-align:left">缺点</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><strong>比例环节 (P)</strong></td>
-<td style="text-align:left">调整系统的开环比例系数，提高系统的稳态精度，减低系统的惰性，加快响应速度。</td>
-<td style="text-align:left">仅用P控制器，过大的开环比例系数不仅会使系统的超调量增大，而且会使系统稳定裕度变小，甚至不稳定。</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>积分环节 (I)</strong></td>
-<td style="text-align:left">消除<strong>稳态误差</strong>。</td>
-<td style="text-align:left">积分控制器的加入会影响系统的稳定性，使系统的稳定裕度减小。</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>微分环节 (D)</strong></td>
-<td style="text-align:left">使系统的<strong>响应速度变快</strong>，超调减小，振荡减轻，对动态过程有“预测”作用。</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h2 id="第三部分：模型预测控制"><a href="#第三部分：模型预测控制" class="headerlink" title="第三部分：模型预测控制"></a>第三部分：模型预测控制</h2><blockquote>
-<p>传统PID具有<strong>延时性</strong>，即控制指令会在未来被执行。而模型预测控制可以避免<strong>延时问题</strong>。</p>
-</blockquote>
-<ul>
-<li>将更长时间跨度的控制问题<strong>分解</strong>为几个更短短跨度问题。</li>
-<li>包含以下三个因素：<ol>
-<li><strong>预测模型</strong>：能够在短时间内预测系统将来的变化。</li>
-<li><strong>在线滚动优化</strong>：通过算法来优化未来一段时间的控制输入，使得损失最小。</li>
-<li><strong>反馈矫正</strong>：到下一个时间点根据新的状态重新预测和优化。</li>
-</ol>
-</li>
-</ul>
-<p>基本步骤：</p>
-<ol>
-<li>从 $t$ 时刻开始，预测未来 $n$ 步的输出信号。<strong>（预测模型）</strong></li>
-<li>基于模型的控制信号以及相应的输出信号，构造损失函数，并且通过调整控制信号最优化损失函数。<strong>（在线滚动优化）</strong></li>
-<li>将控制信号输入系统。<strong>（反馈矫正）</strong></li>
-<li>等到下一个时间点，在新的状态重复步骤 1。</li>
-</ol>
-<ul>
-<li>模型预测控制一般应用于无人驾驶<code>横向控制</code>。</li>
-</ul>
-<h2 id="第四部分：轨迹追踪"><a href="#第四部分：轨迹追踪" class="headerlink" title="第四部分：轨迹追踪"></a>第四部分：轨迹追踪</h2><blockquote>
-<p>基于几何追踪的方法————<strong>纯追踪</strong></p>
-</blockquote>
-<p><strong>思想</strong>：<br>纯追踪就是基于几何原理，算出要把方向盘打多少度，才能让车画一个圆弧，恰好经过前方那个<strong>预瞄点</strong>。</p>
-<p><img src="2025-12-31-16-02-52.png" alt=""><br><img src="2025-12-31-16-03-08.png" alt=""></p>
-<ul>
-<li>$(g_x,g_y)$是下一个预瞄点。</li>
-<li>$K$可以表达为：$K =\frac{2}{{l_d}^2} e_l$,<strong>纯追踪控制器其实是横向的P控制器</strong>。</li>
-</ul>
-<p><strong>重点：前视距离$l_d$的参数选择</strong><br><strong>前视距离 ($l_d$)</strong> ：距离目标路径点的前视距离，一般将前视距离表示成<strong>车辆纵向速度的线性函数</strong>。</p>
-<ul>
-<li><strong>计算公式</strong><script type="math/tex; mode=display">l_d = l_{d\min} + kv_x(t)</script></li>
-</ul>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left">前视距离 ($l_d$) 设定</th>
-<th style="text-align:left">优点</th>
-<th style="text-align:left">缺点/问题</th>
-<th style="text-align:left">适用场景与表现</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><strong>较短 ($l_d$ 小)</strong></td>
-<td style="text-align:left"><strong>追踪精确</strong>：车辆能够紧紧贴合参考路径行驶。</td>
-<td style="text-align:left"><strong>容易震荡</strong>：控制过于敏感，车辆容易在路径左右来回摆动 (Oscillation)，导致行驶不稳定。</td>
-<td style="text-align:left">适用于低速行驶，或者路径曲率变化不大且需要高精度跟踪时。</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>较长 ($l_d$ 大)</strong></td>
-<td style="text-align:left"><strong>轨迹平滑</strong>：控制动作更加温柔，车辆行驶更加稳定。</td>
-<td style="text-align:left"><strong>转向不足</strong>：在急转弯或大曲率路段，车辆会“切内角” (Cut corners)，无法精确经过路径点。</td>
-<td style="text-align:left">适用于高速行驶，为了防止翻车或失控，优先保证车辆的稳定性。</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>动态调整策略</strong></td>
-<td style="text-align:left"><strong>平衡性能</strong>：在不同速度下都能获得较好的跟踪效果。</td>
-<td style="text-align:left"><strong>参数整定</strong>：需要根据实际车辆特性调整系数 $k$。</td>
-<td style="text-align:left"><strong>常用方法</strong>：将前视距离设为<strong>纵向速度的函数</strong> (通常是线性关系 $l_d = k \cdot v_x$)。<br><strong>约束</strong>：通常会设置一个<strong>最大值</strong>和<strong>最小值</strong>来限制前视距离的范围。</td>
-</tr>
-</tbody>
-</table>
-</div>
-<ul>
-<li><strong>核心结论</strong>：前视距离的调整本质上是在<strong>“精确性”</strong>和<strong>“稳定性”</strong>之间做权衡。纯追踪算法的关键在于找到适合当前速度的最佳前视距离。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>华理</category>
-        <category>大三上</category>
       </categories>
   </entry>
 </search>

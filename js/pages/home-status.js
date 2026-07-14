@@ -1,14 +1,18 @@
 (() => {
   'use strict'
 
+  if (window.homeStatusClockTimer) {
+    window.clearInterval(window.homeStatusClockTimer)
+    window.homeStatusClockTimer = null
+  }
+
   const clock = document.getElementById('website-status-clock')
   if (!clock) return
 
-  let timer
-
   const updateClock = () => {
     if (!document.documentElement.contains(clock)) {
-      window.clearInterval(timer)
+      window.clearInterval(window.homeStatusClockTimer)
+      window.homeStatusClockTimer = null
       return
     }
 
@@ -23,5 +27,14 @@
   }
 
   updateClock()
-  timer = window.setInterval(updateClock, 1000)
+  window.homeStatusClockTimer = window.setInterval(updateClock, 1000)
+
+  if (!window.homeStatusPjaxCleanupBound) {
+    window.homeStatusPjaxCleanupBound = true
+    document.addEventListener('pjax:send', () => {
+      if (!window.homeStatusClockTimer) return
+      window.clearInterval(window.homeStatusClockTimer)
+      window.homeStatusClockTimer = null
+    })
+  }
 })()
