@@ -219,6 +219,8 @@
   }
 
   const updateDate = (elements) => {
+    if (!elements.date || !elements.weekday) return
+
     const now = new Date()
     elements.date.textContent = `${now.getMonth() + 1}月${now.getDate()}日`
     elements.weekday.textContent = new Intl.DateTimeFormat('zh-CN', {
@@ -230,11 +232,11 @@
     elements.location.textContent = data.location
     elements.symbol.className = `fas ${data.symbol} weather-card__symbol`
     elements.temperature.textContent = data.temperature
-    elements.summary.textContent = data.summary
-    elements.wind.textContent = data.wind
-    elements.humidity.textContent = data.humidity
-    elements.uvIndex.textContent = data.uvIndex
-    elements.airQuality.textContent = data.airQuality
+    if (elements.summary) elements.summary.textContent = data.summary
+    if (elements.wind) elements.wind.textContent = data.wind
+    if (elements.humidity) elements.humidity.textContent = data.humidity
+    if (elements.uvIndex) elements.uvIndex.textContent = data.uvIndex
+    if (elements.airQuality) elements.airQuality.textContent = data.airQuality
     card.setAttribute('aria-busy', 'false')
 
     const showContent = () => {

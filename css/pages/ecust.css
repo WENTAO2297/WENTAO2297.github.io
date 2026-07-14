@@ -1,134 +1,379 @@
-/* 页面基础设置：透明背景 */
 #page {
+  width: 100%;
+  max-width: none;
+  margin-top: 0 !important;
+  padding: 0 !important;
   background: transparent !important;
   box-shadow: none !important;
-  padding: 0 !important;
-  margin-top: 0 !important;
-}
-#page .page-title { display: none; }
-
-/* --- 容器布局 --- */
-.semester-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 25px;
-  justify-content: center;
-  align-items: center;
-  min-height: 60vh;
-  padding: 40px 20px;
-  margin-top: 20px;
 }
 
-/* --- 扁平化卡片设计 --- */
-.semester-card {
-  width: 45%; 
-  min-width: 280px;
-  
-  /* ⬇️ 核心：纯白背景 + 极细边框 ⬇️ */
-  background: #ffffff;
-  border: 1px solid #f0f0f0; /* 极浅的灰色边框 */
-  border-radius: 12px;       /* 适度的圆角，不要太圆 */
-  
-  padding: 35px 25px;
+#page .page-title {
+  display: none;
+}
+
+.type-ecust #page-header {
+  height: 72px;
+  min-height: 72px;
+}
+
+.type-ecust #page-header #page-site-info {
+  display: none;
+}
+
+.ecust-journey {
+  --ecust-glass: rgba(35, 20, 55, 0.35);
+  --ecust-glass-bright: rgba(45, 25, 68, 0.42);
+  --ecust-border: rgba(255, 255, 255, 0.18);
+  --ecust-border-bright: rgba(255, 201, 236, 0.42);
+  --ecust-text: rgba(255, 255, 255, 0.96);
+  --ecust-text-secondary: rgba(255, 255, 255, 0.72);
+  --ecust-text-muted: rgba(255, 255, 255, 0.48);
+  --ecust-accent: #f3a9d6;
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 72px 0 96px;
+  color: var(--ecust-text);
+}
+
+.ecust-hero {
+  max-width: 760px;
+  margin: 0 auto 44px;
   text-align: center;
-  
-  /* 默认无阴影或极淡阴影，保持扁平 */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
-  
-  transition: all 0.3s ease;
-  text-decoration: none !important;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
-/* 鼠标悬停特效：轻微上浮 + 阴影加深 + 边框变色 */
-.semester-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-  border-color: #49b1f5; /* 悬停时边框变蓝 */
+.ecust-hero__eyebrow,
+.ecust-section-heading__label,
+.ecust-profile__eyebrow,
+.ecust-semester-card__sequence {
+  margin: 0;
+  color: rgba(255, 201, 236, 0.72);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
 }
 
-/* --- 数字序号样式 (替代图标) --- */
-.semester-num {
-  font-size: 60px;
-  font-weight: 900; /* 特粗字体 */
-  line-height: 1;
-  margin-bottom: 15px;
-  
-  /* ⬇️⬇️ 修复点在这里：颜色加深为灰色，确保可见 ⬇️⬇️ */
-  color: #eeeeee !important; 
-  font-family: 'LXGW WenKai Screen', serif; /* 配合你的日文字体，很有质感 */
-  
-  transition: all 0.3s;
+.ecust-hero__title {
+  margin: 14px 0 10px;
+  color: var(--ecust-text);
+  font-size: clamp(34px, 5vw, 58px);
+  font-weight: 650;
+  line-height: 1.16;
+  letter-spacing: -0.035em;
+  text-shadow: 0 12px 34px rgba(28, 10, 42, 0.32);
 }
 
-/* 悬停时数字变色 */
-.semester-card:hover .semester-num {
-  color: #49b1f5 !important;
-  transform: scale(1.1);
+.ecust-hero__subtitle {
+  margin: 0;
+  color: var(--ecust-text-secondary);
+  font-size: clamp(17px, 2.4vw, 23px);
+  letter-spacing: 0.08em;
 }
 
-/* 标题与文字 */
-.semester-title {
-  font-size: 20px;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 8px;
-  letter-spacing: 1px;
-}
-.semester-desc {
+.ecust-hero__period {
+  display: inline-block;
+  margin: 22px 0 0;
+  padding: 9px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.8);
   font-size: 13px;
-  color: #888;
-  text-transform: uppercase; /* 英文全大写，更整齐 */
-  letter-spacing: 1px;
+  letter-spacing: 0.16em;
+  box-shadow: 0 12px 30px rgba(21, 8, 34, 0.12);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
 }
 
-/* --- ECUST 独立页面进入生命周期 --- */
-@keyframes ecust-card-reveal {
+.ecust-journey__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.85fr) minmax(320px, 1fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.ecust-timeline-panel {
+  min-width: 0;
+}
+
+.ecust-section-heading {
+  display: none;
+  gap: 24px;
+  align-items: end;
+  justify-content: space-between;
+  margin: 0 0 28px 54px;
+}
+
+.ecust-section-heading__title {
+  margin: 8px 0 0;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.ecust-section-heading__count {
+  flex: 0 0 auto;
+  color: var(--ecust-text-muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.ecust-timeline {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ecust-timeline::before {
+  position: absolute;
+  top: 32px;
+  bottom: 32px;
+  left: 20px;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    rgba(243, 169, 214, 0.78),
+    rgba(194, 164, 255, 0.34) 52%,
+    rgba(255, 255, 255, 0.08)
+  );
+  content: '';
+}
+
+.ecust-timeline__item {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+  margin: 0 0 20px;
+}
+
+.ecust-timeline__item:last-child {
+  margin-bottom: 0;
+}
+
+.ecust-timeline__marker {
+  position: relative;
+  z-index: 1;
+  width: 12px;
+  height: 12px;
+  margin: 34px auto 0;
+  border: 2px solid rgba(255, 229, 246, 0.86);
+  border-radius: 50%;
+  background: rgba(177, 103, 162, 0.94);
+  box-shadow: 0 0 0 7px rgba(244, 171, 216, 0.09), 0 0 22px rgba(238, 149, 207, 0.3);
+}
+
+.ecust-semester-card,
+.ecust-profile {
+  border: 1px solid var(--ecust-border);
+  border-radius: 24px;
+  background: var(--ecust-glass);
+  box-shadow: 0 18px 46px rgba(20, 8, 32, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transform: translateZ(0);
+}
+
+.ecust-semester-card {
+  position: relative;
+  min-height: 196px;
+  padding: 30px 32px 28px;
+  transition: border-color 220ms ease, background-color 220ms ease, box-shadow 220ms ease;
+}
+
+.ecust-semester-card:hover {
+  border-color: var(--ecust-border-bright);
+  background: var(--ecust-glass-bright);
+  box-shadow: 0 24px 58px rgba(20, 8, 32, 0.3), 0 0 34px rgba(224, 135, 194, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.09);
+}
+
+.ecust-semester-card__number {
+  position: absolute;
+  top: 18px;
+  right: 25px;
+  color: rgba(255, 255, 255, 0.1);
+  font-size: 76px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.06em;
+  pointer-events: none;
+}
+
+.ecust-semester-card__sequence {
+  position: relative;
+  margin-bottom: 25px;
+  font-size: 10px;
+}
+
+.ecust-semester-card__title {
+  position: relative;
+  margin: 0;
+  color: var(--ecust-text);
+  font-size: 23px;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+}
+
+.ecust-semester-card__year {
+  position: relative;
+  margin: 7px 0 0;
+  color: var(--ecust-text-secondary);
+  font-size: 14px;
+  letter-spacing: 0.08em;
+}
+
+.ecust-semester-card__period {
+  position: relative;
+  margin: 28px 0 0;
+  padding-top: 17px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+}
+
+.ecust-profile {
+  position: sticky;
+  top: 92px;
+  padding: 30px 28px;
+  transition: border-color 220ms ease, background-color 220ms ease, box-shadow 220ms ease;
+}
+
+.ecust-profile:hover {
+  border-color: rgba(255, 201, 236, 0.32);
+  background: var(--ecust-glass-bright);
+  box-shadow: 0 24px 58px rgba(20, 8, 32, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.09);
+}
+
+.ecust-profile__title {
+  margin: 9px 0 28px;
+  color: var(--ecust-text);
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.35;
+  white-space: pre-line;
+}
+
+.ecust-profile__list {
+  margin: 0;
+}
+
+.ecust-profile__row {
+  padding: 17px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ecust-profile__row dt {
+  margin: 0 0 5px;
+  color: var(--ecust-text-muted);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+
+.ecust-profile__row dd {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+@keyframes ecust-opacity-in {
   from {
     opacity: 0;
-    transform: translateY(20px);
   }
 
   to {
     opacity: 1;
-    transform: none;
   }
 }
 
-.ecust-page-enter.ecust-page-preparing:not(.ecust-page-ready) {
-  opacity: 0;
-  visibility: hidden;
+.ecust-page-animating.ecust-page-ready .ecust-animate-item {
+  animation: ecust-opacity-in 520ms ease backwards;
+  animation-delay: var(--ecust-fade-delay, 0ms);
 }
 
-.ecust-page-enter .semester-card.ecust-card-enter {
-  opacity: 0;
-  transform: translateY(20px);
+.ecust-page-animating.ecust-page-ready .ecust-timeline::before {
+  animation: ecust-opacity-in 620ms ease 180ms backwards;
 }
 
-.ecust-page-enter .semester-card.ecust-card-enter.ecust-card-visible {
-  opacity: 1;
-  transform: none;
-  animation: ecust-card-reveal 700ms cubic-bezier(0.22, 1, 0.36, 1) backwards;
-  animation-delay: calc(var(--ecust-delay-index, 0) * 100ms);
+@media (max-width: 900px) {
+  .ecust-journey {
+    width: min(760px, calc(100% - 32px));
+    padding-top: 56px;
+  }
+
+  .ecust-journey__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .ecust-profile {
+    position: static;
+  }
+}
+
+@media (max-width: 620px) {
+  .type-ecust #page-header {
+    height: 60px;
+    min-height: 60px;
+  }
+
+  .ecust-journey {
+    width: calc(100% - 24px);
+    padding: 42px 0 72px;
+  }
+
+  .ecust-hero {
+    margin-bottom: 36px;
+  }
+
+  .ecust-hero__title {
+    font-size: 34px;
+  }
+
+  .ecust-section-heading {
+    display: none;
+    margin-left: 46px;
+  }
+
+  .ecust-section-heading__count {
+    display: inline-block;
+    margin-top: 12px;
+  }
+
+  .ecust-timeline::before {
+    left: 16px;
+  }
+
+  .ecust-timeline__item {
+    grid-template-columns: 34px minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .ecust-semester-card {
+    min-height: 184px;
+    padding: 26px 24px 24px;
+    border-radius: 20px;
+  }
+
+  .ecust-semester-card__number {
+    top: 19px;
+    right: 20px;
+    font-size: 62px;
+  }
+
+  .ecust-profile {
+    padding: 27px 24px;
+    border-radius: 20px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ecust-page-enter.ecust-page-preparing:not(.ecust-page-ready),
-  .ecust-page-enter.ecust-page-preparing:not(.ecust-page-ready) .semester-card.glass-card-prepare {
-    opacity: 0;
-    visibility: hidden;
-  }
-
-  .ecust-page-enter.ecust-page-ready,
-  .ecust-page-enter .semester-card.ecust-card-enter,
-  .ecust-page-enter .semester-card.ecust-card-enter.ecust-card-visible {
+  .ecust-page-animating .ecust-animate-item,
+  .ecust-page-animating .ecust-timeline::before {
     opacity: 1;
-    visibility: visible;
-    transform: none;
     animation: none;
   }
 }
