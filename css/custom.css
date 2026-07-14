@@ -1,15 +1,15 @@
 /* ====== 终极字体方案 ====== */
-body, 
-#site-title, 
-#site-subtitle, 
-.post-title, 
+body,
+#site-title,
+#site-subtitle,
+.post-title,
 .page-title,
 #page-header #site-title,
 h1, h2, h3, h4, h5, h6,
 #footer,
 #nav,
-.menus_item { 
-    font-family: 'LXGW WenKai Screen', sans-serif !important; 
+.menus_item {
+    font-family: 'LXGW WenKai Screen', sans-serif !important;
 }
 
 /* 首页大标题防闪烁 */

@@ -46,25 +46,6 @@
     99: ['fa-bolt', '强雷暴伴冰雹']
   }
 
-  const getWindDirection = (degrees) => {
-    const directions = ['北', '东北', '东', '东南', '南', '西南', '西', '西北']
-    return directions[Math.round(degrees / 45) % directions.length]
-  }
-
-  const getWindLevel = (speed) => {
-    const thresholds = [1, 6, 12, 20, 29, 39, 50, 62, 75, 89, 103, 118]
-    const level = thresholds.findIndex((threshold) => speed < threshold)
-    return level === -1 ? 12 : level
-  }
-
-  const getComfortDescription = (apparentTemperature, humidity) => {
-    if (apparentTemperature >= 35) return humidity >= 60 ? '体感闷热' : '体感炎热'
-    if (apparentTemperature >= 30) return humidity >= 65 ? '体感偏闷' : '体感偏热'
-    if (apparentTemperature <= 5) return '体感寒冷'
-    if (apparentTemperature <= 12) return '体感偏凉'
-    return humidity >= 75 ? '空气偏湿' : '体感舒适'
-  }
-
   const getUvLevel = (uvIndex) => {
     if (uvIndex < 3) return '低'
     if (uvIndex < 6) return '中等'
@@ -83,7 +64,7 @@
   }
 
   const isWeatherDataValid = (data) => {
-    const fields = ['location', 'symbol', 'temperature', 'summary', 'wind', 'humidity', 'uvIndex', 'airQuality']
+    const fields = ['location', 'symbol', 'temperature', 'uvIndex', 'airQuality']
     return data && fields.every((field) => typeof data[field] === 'string' && data[field].length > 0)
   }
 
@@ -149,8 +130,7 @@
     weatherUrl.search = new URLSearchParams({
       latitude: String(latitude),
       longitude: String(longitude),
-      current: 'temperature_2m,weather_code,is_day,apparent_temperature,relative_humidity_2m,wind_speed_10m,wind_direction_10m',
-      daily: 'temperature_2m_max,temperature_2m_min',
+      current: 'temperature_2m,weather_code',
       timezone: 'auto',
       forecast_days: '1'
     }).toString()
@@ -181,38 +161,24 @@
     if (airQualityResult.status !== 'fulfilled') throw airQualityResult.reason
 
     const current = weatherResult.value.current
-    const daily = weatherResult.value.daily
     const airQualityCurrent = airQualityResult.value.current
-    const high = daily?.temperature_2m_max?.[0]
-    const low = daily?.temperature_2m_min?.[0]
     const requiredNumbers = [
       current?.temperature_2m,
       current?.weather_code,
-      current?.apparent_temperature,
-      current?.relative_humidity_2m,
-      current?.wind_speed_10m,
-      current?.wind_direction_10m,
-      high,
-      low,
       airQualityCurrent?.uv_index,
       airQualityCurrent?.us_aqi
     ]
 
     if (!requiredNumbers.every(Number.isFinite)) throw new Error('Incomplete weather data')
 
-    const [symbol, description] = weatherCodes[current.weather_code] || ['fa-cloud', '当前天气']
+    const [symbol] = weatherCodes[current.weather_code] || ['fa-cloud']
     const resolvedLocation = locationResult.status === 'fulfilled'
       ? locationResult.value.city || locationResult.value.locality || locationResult.value.principalSubdivision || location
       : location
-    const comfort = getComfortDescription(current.apparent_temperature, current.relative_humidity_2m)
-
     return {
       location: resolvedLocation,
       symbol,
       temperature: `${Math.round(current.temperature_2m)}°C`,
-      summary: `预计今天${description}，${comfort}，最高${Math.round(high)}°，最低${Math.round(low)}°。`,
-      wind: `${getWindDirection(current.wind_direction_10m)}风 ${getWindLevel(current.wind_speed_10m)}级`,
-      humidity: `${Math.round(current.relative_humidity_2m)}%`,
       uvIndex: `${Math.round(airQualityCurrent.uv_index)} ${getUvLevel(airQualityCurrent.uv_index)}`,
       airQuality: `${Math.round(airQualityCurrent.us_aqi)} ${getAirQualityLevel(airQualityCurrent.us_aqi)}`
     }
@@ -232,9 +198,6 @@
     elements.location.textContent = data.location
     elements.symbol.className = `fas ${data.symbol} weather-card__symbol`
     elements.temperature.textContent = data.temperature
-    if (elements.summary) elements.summary.textContent = data.summary
-    if (elements.wind) elements.wind.textContent = data.wind
-    if (elements.humidity) elements.humidity.textContent = data.humidity
     if (elements.uvIndex) elements.uvIndex.textContent = data.uvIndex
     if (elements.airQuality) elements.airQuality.textContent = data.airQuality
     card.setAttribute('aria-busy', 'false')
@@ -287,9 +250,6 @@
       symbol: card.querySelector('#weather-symbol'),
       temperature: card.querySelector('#weather-temperature'),
       location: card.querySelector('#weather-location'),
-      summary: card.querySelector('#weather-summary'),
-      wind: card.querySelector('#weather-wind'),
-      humidity: card.querySelector('#weather-humidity'),
       uvIndex: card.querySelector('#weather-uv-index'),
       airQuality: card.querySelector('#weather-air-quality')
     }

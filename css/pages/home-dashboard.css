@@ -247,50 +247,41 @@ body.home-dashboard-body #page-header #nav {
   flex-direction: column;
   justify-content: space-between;
   padding: 24px;
-}
-
-.home-dashboard .dashboard-card--personal {
   background: rgba(45, 40, 55, 0.65);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.24);
   color: rgba(255, 255, 255, 0.92);
-}
-
-.home-dashboard .dashboard-card--weather {
-  background: rgba(45, 40, 55, 0.65);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.24);
-  color: rgba(255, 255, 255, 0.92);
-}
-
-.home-dashboard .dashboard-card--clock {
-  background: rgba(45, 40, 55, 0.65);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.24);
-  color: rgba(255, 255, 255, 0.92);
-}
-
-.home-dashboard .dashboard-card--personal {
+  cursor: pointer;
   animation-delay: 40ms;
+  transform-origin: center;
+  transition: transform 250ms ease;
 }
 
 .home-dashboard .dashboard-card--weather {
+  display: flex;
+  min-height: 0;
+  flex-direction: column;
+  padding: 14px;
+  border-radius: 22px;
+  background: rgba(45, 40, 55, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.24);
+  color: rgba(255, 255, 255, 0.92);
   animation-delay: 80ms;
 }
 
-.home-dashboard .dashboard-card--lyrics {
-  animation-delay: 120ms;
-}
-
-.home-dashboard .dashboard-card--projects {
-  animation-delay: 160ms;
-}
-
-.home-dashboard .dashboard-card--website {
-  animation-delay: 200ms;
+.home-dashboard .dashboard-card--clock {
+  display: grid;
+  place-items: center;
+  padding: 14px;
+  border-radius: 22px;
+  background: rgba(45, 40, 55, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.24);
+  color: rgba(255, 255, 255, 0.92);
 }
 
 .home-dashboard.home-dashboard--pending .dashboard-search-shell,
@@ -307,12 +298,6 @@ body.home-dashboard-body #page-header #nav {
 
 .home-dashboard .dashboard-card::before {
   display: none;
-}
-
-.home-dashboard .dashboard-card--personal {
-  cursor: pointer;
-  transform-origin: center;
-  transition: transform 250ms ease;
 }
 
 .home-dashboard .dashboard-card--personal:hover {
@@ -347,6 +332,7 @@ body.home-dashboard-body #page-header #nav {
 .home-dashboard .dashboard-card--projects {
   grid-column: 1 / -1;
   min-height: 148px;
+  animation-delay: 160ms;
 }
 
 .home-dashboard .dashboard-card--lyrics {
@@ -364,6 +350,7 @@ body.home-dashboard-body #page-header #nav {
   box-shadow: none;
   color: #fff;
   text-align: center;
+  animation-delay: 120ms;
 }
 
 .home-dashboard .phrase-card__text {
@@ -414,6 +401,7 @@ body.home-dashboard-body #page-header #nav {
   -webkit-backdrop-filter: blur(20px);
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
   color: rgba(255, 255, 255, 0.9);
+  animation-delay: 200ms;
 }
 
 .home-dashboard .dashboard-card--website::before {
@@ -453,8 +441,7 @@ body.home-dashboard-body #page-header #nav {
   letter-spacing: 0.14em;
 }
 
-.home-dashboard .dashboard-card--personal .dashboard-card__eyebrow,
-.home-dashboard .dashboard-card--lyrics .dashboard-card__eyebrow {
+.home-dashboard .dashboard-card--personal .dashboard-card__eyebrow {
   color: #f6a3d7;
 }
 
@@ -618,14 +605,6 @@ body.home-dashboard-body #page-header #nav {
   transition: none;
 }
 
-.home-dashboard .dashboard-card--weather {
-  display: flex;
-  min-height: 0;
-  flex-direction: column;
-  padding: 14px;
-  border-radius: 22px;
-}
-
 .home-dashboard .weather-card__content {
   display: flex;
   min-height: 0;
@@ -678,25 +657,10 @@ body.home-dashboard-body #page-header #nav {
   animation: weather-skeleton-pulse 1.6s ease-in-out infinite;
 }
 
-.home-dashboard .weather-skeleton__header,
 .home-dashboard .weather-skeleton__primary,
 .home-dashboard .weather-skeleton__metrics {
   display: flex;
   align-items: center;
-}
-
-.home-dashboard .weather-skeleton__header {
-  justify-content: space-between;
-}
-
-.home-dashboard .weather-skeleton__label {
-  width: 54px;
-  height: 12px;
-}
-
-.home-dashboard .weather-skeleton__date {
-  width: 72px;
-  height: 10px;
 }
 
 .home-dashboard .weather-skeleton__location {
@@ -717,11 +681,6 @@ body.home-dashboard-body #page-header #nav {
 .home-dashboard .weather-skeleton__temperature {
   width: 72px;
   height: 32px;
-}
-
-.home-dashboard .weather-skeleton__summary {
-  width: min(100%, 330px);
-  height: 13px;
 }
 
 .home-dashboard .weather-skeleton__metrics {
@@ -750,29 +709,9 @@ body.home-dashboard-body #page-header #nav {
   height: 15px;
 }
 
-.home-dashboard .weather-card__header,
 .home-dashboard .weather-card__primary {
   display: flex;
   align-items: center;
-}
-
-.home-dashboard .weather-card__header {
-  justify-content: space-between;
-  gap: 6px;
-}
-
-.home-dashboard .weather-card__label {
-  color: #f6a3d7;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-}
-
-.home-dashboard .weather-card__date-line {
-  color: rgba(255, 255, 255, 0.62);
-  font-size: 10px;
-  font-weight: 500;
-  white-space: nowrap;
 }
 
 .home-dashboard .weather-card__body {
@@ -815,17 +754,6 @@ body.home-dashboard-body #page-header #nav {
   opacity: 0.9;
 }
 
-.home-dashboard .weather-card__summary {
-  overflow: hidden;
-  display: -webkit-box;
-  margin: 6px 0 0;
-  color: rgba(255, 255, 255, 0.78);
-  font-size: 11px;
-  line-height: 1.4;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-}
-
 .home-dashboard .weather-card__metrics {
   display: grid;
   grid-template-columns: repeat(2, max-content);
@@ -861,13 +789,6 @@ body.home-dashboard-body #page-header #nav {
   line-height: 1.2;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-.home-dashboard .dashboard-card--clock {
-  display: grid;
-  place-items: center;
-  padding: 14px;
-  border-radius: 22px;
 }
 
 .home-dashboard .analog-clock {
@@ -977,45 +898,6 @@ body.home-dashboard-body #page-header #nav {
   box-shadow: 0 0 10px rgba(255, 126, 205, 0.36);
   transform: translate(-50%, -50%);
   z-index: 3;
-}
-
-.home-dashboard .lyrics-card__header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-}
-
-.home-dashboard .dashboard-card--lyrics .dashboard-card__eyebrow,
-.home-dashboard .lyrics-card__track {
-  color: #b3b3b3;
-}
-
-.home-dashboard .lyrics-card__track {
-  overflow: hidden;
-  font-size: 0.74rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.home-dashboard .lyrics-card__content {
-  margin: auto 0;
-  padding: 4px 8px 0;
-}
-
-.home-dashboard .lyrics-card__current {
-  margin: 0;
-  color: rgba(255, 255, 255, 0.96);
-  font-size: clamp(1.2rem, 2.3vw, 1.72rem);
-  font-weight: 500;
-  letter-spacing: 0.03em;
-  line-height: 1.5;
-}
-
-.home-dashboard .lyrics-card__next {
-  margin: 4px 0 0;
-  color: #b3b3b3;
-  font-size: 0.84rem;
 }
 
 .home-dashboard .project-placeholder__content {
@@ -1175,15 +1057,12 @@ body.home-dashboard-body #page-header #nav {
 /* --- 复杂视频背景上的文字可读性层级 --- */
 .home-dashboard .personal-profile__name,
 .home-dashboard #weather-location,
-.home-dashboard #weather-temperature,
-.home-dashboard .lyrics-card__current {
+.home-dashboard #weather-temperature {
   color: rgba(255, 255, 255, 0.97);
   text-shadow: 0 1px 5px rgba(18, 10, 30, 0.42);
 }
 
 .home-dashboard .personal-profile__description,
-.home-dashboard .weather-card__summary,
-.home-dashboard .lyrics-card__track,
 .home-dashboard .website-status__runtime,
 .home-dashboard .website-status__meta {
   color: rgba(255, 255, 255, 0.78);
@@ -1199,9 +1078,7 @@ body.home-dashboard-body #page-header #nav {
 .home-dashboard .dashboard-search-results__status,
 .home-dashboard .dashboard-search-result__excerpt,
 .home-dashboard .personal-stat__label,
-.home-dashboard .weather-card__date-line,
-.home-dashboard .weather-card__metric span,
-.home-dashboard .lyrics-card__next {
+.home-dashboard .weather-card__metric span {
   color: rgba(255, 255, 255, 0.68);
   text-shadow: 0 1px 3px rgba(18, 10, 30, 0.26);
 }
@@ -1212,17 +1089,6 @@ body.home-dashboard-body #page-header #nav {
     padding: 4px 16px;
   }
 
-  .home-dashboard .lyrics-card__header {
-    position: absolute;
-    top: 14px;
-    right: 16px;
-    left: 16px;
-  }
-
-  .home-dashboard .lyrics-card__content {
-    margin: 0;
-    padding: 14px 150px 0;
-  }
 }
 
 @media screen and (max-width: 768px) {
@@ -1331,11 +1197,6 @@ body.home-dashboard-body #page-header #nav {
     font-size: 1.3rem;
   }
 
-  .home-dashboard .lyrics-card__header {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 4px;
-  }
 }
 
 @media screen and (max-width: 480px) {
@@ -1356,10 +1217,6 @@ body.home-dashboard-body #page-header #nav {
 
   .home-dashboard #weather-temperature {
     font-size: 28px;
-  }
-
-  .home-dashboard .weather-card__date-line {
-    display: none;
   }
 
   .home-dashboard .weather-card__metrics {

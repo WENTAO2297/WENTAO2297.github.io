@@ -8,8 +8,7 @@
     '.home-dashboard .dashboard-card',
     '.home-dashboard .spotify-embed-slot',
     '#recent-posts .recent-post-item',
-    '#aside-content .card-widget',
-    '.ecust-page-enter > .semester-card'
+    '#aside-content .card-widget'
   ]
 
   const getCards = (container = document.getElementById('content-inner')) => {

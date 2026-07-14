@@ -69,21 +69,6 @@
   letter-spacing: 0.08em;
 }
 
-.ecust-hero__period {
-  display: inline-block;
-  margin: 22px 0 0;
-  padding: 9px 18px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.06);
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 13px;
-  letter-spacing: 0.16em;
-  box-shadow: 0 12px 30px rgba(21, 8, 34, 0.12);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-}
-
 .ecust-journey__layout {
   display: grid;
   grid-template-columns: minmax(0, 1.85fr) minmax(320px, 1fr);
