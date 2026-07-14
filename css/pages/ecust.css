@@ -99,7 +99,7 @@
   }
 }
 
-.ecust-page-enter.ecust-page-entering {
+.ecust-page-enter.ecust-page-preparing:not(.ecust-page-ready) {
   opacity: 0;
   visibility: hidden;
 }
@@ -117,7 +117,13 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ecust-page-enter.ecust-page-entering,
+  .ecust-page-enter.ecust-page-preparing:not(.ecust-page-ready),
+  .ecust-page-enter.ecust-page-preparing:not(.ecust-page-ready) .semester-card.glass-card-prepare {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .ecust-page-enter.ecust-page-ready,
   .ecust-page-enter .semester-card.ecust-card-enter,
   .ecust-page-enter .semester-card.ecust-card-enter.ecust-card-visible {
     opacity: 1;

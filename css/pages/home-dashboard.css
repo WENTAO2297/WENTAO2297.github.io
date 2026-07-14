@@ -77,8 +77,6 @@ body.home-dashboard-body #web_bg {
   background: rgba(34, 29, 52, 0.64);
   box-shadow: 0 14px 34px rgba(17, 12, 32, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.16);
   color: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(20px) saturate(118%);
-  -webkit-backdrop-filter: blur(20px) saturate(118%);
   transition: border-color 220ms ease, box-shadow 220ms ease;
 }
 
@@ -151,8 +149,6 @@ body.home-dashboard-body #web_bg {
   visibility: hidden;
   transform: translateY(-10px) scale(0.98);
   transform-origin: top center;
-  backdrop-filter: blur(20px) saturate(125%);
-  -webkit-backdrop-filter: blur(20px) saturate(125%);
   pointer-events: none;
   transition: opacity 300ms ease, transform 300ms ease, visibility 0s linear 300ms;
 }
@@ -221,8 +217,6 @@ body.home-dashboard-body #web_bg {
   background: var(--dashboard-glass-bg);
   box-shadow: var(--dashboard-glass-shadow);
   color: var(--font-color);
-  backdrop-filter: blur(18px) saturate(125%);
-  -webkit-backdrop-filter: blur(18px) saturate(125%);
   animation: page-content-reveal 0.7s cubic-bezier(0.22, 1, 0.36, 1) backwards;
   transition: box-shadow 300ms ease, border-color 300ms ease;
 }
@@ -245,8 +239,6 @@ body.home-dashboard-body #web_bg {
   background: rgba(255, 255, 255, 0.08);
   box-shadow: 0 18px 42px rgba(16, 11, 31, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
   color: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(20px) saturate(125%);
-  -webkit-backdrop-filter: blur(20px) saturate(125%);
 }
 
 .home-dashboard .dashboard-card--personal:hover,
@@ -1007,19 +999,11 @@ body.home-dashboard-body #web_bg {
     min-height: 0;
     padding: 14px;
     border-radius: 18px;
-    backdrop-filter: blur(13px) saturate(120%);
-    -webkit-backdrop-filter: blur(13px) saturate(120%);
   }
 
   .home-dashboard .dashboard-card--personal {
     min-height: 320px;
     padding: 20px;
-  }
-
-  .home-dashboard .dashboard-card--personal,
-  .home-dashboard .dashboard-card--weather {
-    backdrop-filter: blur(20px) saturate(125%);
-    -webkit-backdrop-filter: blur(20px) saturate(125%);
   }
 
   .home-dashboard .dashboard-side-stack {

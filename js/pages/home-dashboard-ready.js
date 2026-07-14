@@ -9,8 +9,10 @@
     if (!dashboard.isConnected || !dashboard.classList.contains(pendingClass)) return
 
     window.requestAnimationFrame(() => {
+      window.GlassCardLifecycle?.forceComposite(dashboard)
       window.requestAnimationFrame(() => {
         if (!dashboard.isConnected) return
+        window.GlassCardLifecycle?.ready(dashboard)
         dashboard.classList.remove(pendingClass)
         dashboard.classList.add(readyClass)
       })
@@ -23,6 +25,7 @@
 
     window.homeDashboardReadyCleanup?.()
     dashboard.dataset.readyController = 'true'
+    window.GlassCardLifecycle?.prepare(dashboard)
     const spotify = dashboard.querySelector('.spotify-embed')
 
     if (!spotify) {
@@ -44,6 +47,7 @@
       finished = true
       window.clearTimeout(fallbackTimer)
       spotify.removeEventListener('load', handleSpotifyReady)
+      window.GlassCardLifecycle?.reset(dashboard)
     }
 
     spotify.addEventListener('load', handleSpotifyReady, { once: true })

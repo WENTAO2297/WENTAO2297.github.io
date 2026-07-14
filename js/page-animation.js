@@ -69,6 +69,7 @@
       target.classList.remove(runtime.itemClass, runtime.revealedClass)
       target.style.removeProperty('--delay-index')
     })
+    window.GlassCardLifecycle?.reset(container)
     container.classList.remove(pendingClass, enteringClass, activeClass)
     runtime.container = null
     runtime.targets = []
@@ -85,11 +86,13 @@
 
       // Force the browser to calculate layout and glass styles before the reveal frame.
       void container.offsetWidth
+      window.GlassCardLifecycle?.forceComposite(container)
 
       const secondFrame = window.requestAnimationFrame(() => {
         runtime.animationFrames.delete(secondFrame)
         if (!container.isConnected || generation !== runtime.generation) return
 
+        window.GlassCardLifecycle?.ready(container)
         runtime.targets.forEach(target => target.classList.add(runtime.revealedClass))
         container.classList.remove(pendingClass, enteringClass)
         container.classList.add(activeClass)
@@ -115,6 +118,7 @@
 
     runtime.container = container
     container.classList.add(pendingClass, enteringClass)
+    window.GlassCardLifecycle?.prepare(container)
     runtime.targets = getTargets(container)
     runtime.targets.forEach((target, index) => {
       target.classList.remove(runtime.revealedClass)
