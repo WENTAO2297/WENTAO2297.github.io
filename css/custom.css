@@ -1,0 +1,198 @@
+/* ====== 终极字体方案 ====== */
+body, 
+#site-title, 
+#site-subtitle, 
+.post-title, 
+.page-title,
+#page-header #site-title,
+h1, h2, h3, h4, h5, h6,
+#footer,
+#nav,
+.menus_item { 
+    font-family: 'LXGW WenKai Screen', sans-serif !important; 
+}
+
+/* 首页大标题防闪烁 */
+#page-header:not(.not-home-page) #site-title {
+    font-size: 0 !important;
+}
+#page-header:not(.not-home-page) #site-title::before {
+    content: "夢が叶ったの？";
+    font-size: 5rem !important;
+    font-family: 'LXGW WenKai Screen', sans-serif !important;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    display: block;
+}
+
+/* 其他样式保持不变 */
+hr { border: none !important; background: transparent !important; margin: 2rem auto !important; }
+hr::before { display: none !important; }
+
+body:not(.site-video-body) #web_bg {
+    position: fixed !important; top: 0; left: 0; width: 100%; height: 100%; min-height: 100vh; z-index: -999;
+    background: url("/images/index.jpg") no-repeat center center / cover !important;
+    background-attachment: scroll !important;
+    will-change: transform; transform: translate3d(0,0,0);
+}
+
+body.site-video-body,
+body.site-video-body #body-wrap {
+    background: transparent !important;
+}
+
+.home-video-background {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: none;
+}
+
+.home-video-background__media {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 1;
+    visibility: visible;
+}
+
+.home-video-background__overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    background: rgba(255, 180, 220, 0.15);
+    backdrop-filter: blur(8px) brightness(0.7) saturate(0.85);
+    -webkit-backdrop-filter: blur(8px) brightness(0.7) saturate(0.85);
+}
+
+body.site-video-body #body-wrap {
+    position: relative;
+    z-index: 2;
+}
+
+body.site-video-body #page-header,
+body.site-video-body #page-header.not-home-page,
+body.site-video-body #page-header.full_page,
+body.site-video-body #page-header.post-bg {
+    background-color: transparent !important; background-image: none !important;
+}
+
+body.site-video-body #page-header::before,
+body.site-video-body #page-header.not-home-page::before,
+body.site-video-body #page-header.post-bg::before {
+    background-color: transparent !important; background-image: none !important; opacity: 1 !important;
+}
+
+body.site-video-body #page-header #nav {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(20, 15, 35, 0.25) !important;
+    box-shadow: 0 8px 24px rgba(69, 46, 91, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+body.site-video-body #page-header #nav #blog-info .nav-site-title,
+body.site-video-body #page-header #nav #blog-info .nav-site-title .site-name,
+body.site-video-body #page-header #nav #blog-info .nav-page-title,
+body.site-video-body #page-header #nav #blog-info .nav-page-title .site-name {
+    color: rgba(255, 255, 255, 0.95) !important;
+}
+
+body.site-video-body #page-header #nav #menus .site-page,
+body.site-video-body #page-header #nav #menus .site-page i,
+body.site-video-body #page-header #nav #toggle-menu,
+body.site-video-body #page-header #nav #toggle-menu i {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+body.site-video-body #page-header #nav #menus .site-page.active,
+body.site-video-body #page-header #nav #menus .site-page.active i {
+    color: #ffb7dd !important;
+}
+
+body.site-video-body #page-header #nav #menus .site-page:not(.child):hover::after,
+body.site-video-body #page-header #nav #menus .site-page.active:not(.child)::after {
+    background-color: #ffb7dd !important;
+}
+
+body.site-video-body #page-header #nav #menus .site-page.active:not(.child)::after {
+    width: 100%;
+}
+
+body.site-video-body #page-header #nav #blog-info .nav-site-title:hover,
+body.site-video-body #page-header #nav #blog-info .nav-site-title:hover .site-name,
+body.site-video-body #page-header #nav #blog-info .nav-page-title:hover,
+body.site-video-body #page-header #nav #blog-info .nav-page-title:hover .site-name,
+body.site-video-body #page-header #nav #menus .site-page:hover,
+body.site-video-body #page-header #nav #menus .site-page:hover i,
+body.site-video-body #page-header #nav #toggle-menu:hover,
+body.site-video-body #page-header #nav #toggle-menu:hover i {
+    color: #ffd6ef !important;
+}
+
+@media screen and (min-width: 769px) {
+    body.site-video-body #page-header #nav {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    }
+
+    body.site-video-body #page-header #nav #blog-info {
+        grid-column: 1;
+        min-width: 0;
+    }
+
+    body.site-video-body #page-header #nav #menus {
+        grid-column: 2;
+        justify-self: center;
+    }
+
+    body.site-video-body #page-header #nav.hide-menu #menus {
+        grid-column: 3;
+        justify-self: end;
+    }
+}
+
+html:has(body.site-video-body) {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(220, 150, 200, 0.6) rgba(255, 255, 255, 0.08);
+}
+
+html:has(body.site-video-body)::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+html:has(body.site-video-body)::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+    background: rgba(220, 150, 200, 0.6);
+}
+
+html:has(body.site-video-body)::-webkit-scrollbar-thumb:hover {
+    background: rgba(225, 135, 195, 0.82);
+}
+
+html:has(body.site-video-body)::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+body.site-video-body #body-wrap:not(.type-ecust) .layout > div:first-child:not(.nc),
+body.site-video-body #recent-posts .recent-post-item,
+body.site-video-body #aside-content .card-widget {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 14px 34px rgba(53, 68, 99, 0.13);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+.avatar-img img:hover { transform: none !important; }
+#footer { display: none !important; }
+#local-search .search-dialog hr { display: none !important; }

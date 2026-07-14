@@ -1,0 +1,87 @@
+/* 页面基础设置：透明背景 */
+#page {
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin-top: 0 !important;
+}
+#page .page-title { display: none; }
+
+/* --- 容器布局 --- */
+.semester-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  padding: 40px 20px;
+  margin-top: 20px;
+}
+
+/* --- 扁平化卡片设计 --- */
+.semester-card {
+  width: 45%; 
+  min-width: 280px;
+  
+  /* ⬇️ 核心：纯白背景 + 极细边框 ⬇️ */
+  background: #ffffff;
+  border: 1px solid #f0f0f0; /* 极浅的灰色边框 */
+  border-radius: 12px;       /* 适度的圆角，不要太圆 */
+  
+  padding: 35px 25px;
+  text-align: center;
+  
+  /* 默认无阴影或极淡阴影，保持扁平 */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+  
+  transition: all 0.3s ease;
+  text-decoration: none !important;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 鼠标悬停特效：轻微上浮 + 阴影加深 + 边框变色 */
+.semester-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  border-color: #49b1f5; /* 悬停时边框变蓝 */
+}
+
+/* --- 数字序号样式 (替代图标) --- */
+.semester-num {
+  font-size: 60px;
+  font-weight: 900; /* 特粗字体 */
+  line-height: 1;
+  margin-bottom: 15px;
+  
+  /* ⬇️⬇️ 修复点在这里：颜色加深为灰色，确保可见 ⬇️⬇️ */
+  color: #eeeeee !important; 
+  font-family: 'LXGW WenKai Screen', serif; /* 配合你的日文字体，很有质感 */
+  
+  transition: all 0.3s;
+}
+
+/* 悬停时数字变色 */
+.semester-card:hover .semester-num {
+  color: #49b1f5 !important;
+  transform: scale(1.1);
+}
+
+/* 标题与文字 */
+.semester-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+.semester-desc {
+  font-size: 13px;
+  color: #888;
+  text-transform: uppercase; /* 英文全大写，更整齐 */
+  letter-spacing: 1px;
+}
