@@ -1,7 +1,8 @@
 (() => {
   'use strict'
 
-  const cacheKey = 'wentao-home-weather-cache-v1'
+  const cacheKey = 'weather_cache_v1'
+  const cacheTtl = 30 * 60 * 1000
   const weatherRuntime = window.wentaoHomeWeatherRuntime || {
     controllers: new Set(),
     cleanupBound: false,
@@ -71,7 +72,21 @@
   const readCache = () => {
     try {
       const cached = JSON.parse(window.localStorage.getItem(cacheKey))
-      return cached && isWeatherDataValid(cached.data) ? cached.data : null
+      const data = cached ? {
+        location: cached.location,
+        symbol: cached.weather?.symbol,
+        temperature: cached.weather?.temperature,
+        uvIndex: cached.airQuality?.uvIndex,
+        airQuality: cached.airQuality?.value
+      } : null
+
+      if (!isWeatherDataValid(data) || !Number.isFinite(cached.timestamp)) return null
+
+      const age = Date.now() - cached.timestamp
+      return {
+        data,
+        isFresh: age >= 0 && age < cacheTtl
+      }
     } catch (error) {
       return null
     }
@@ -80,8 +95,16 @@
   const writeCache = (data) => {
     try {
       window.localStorage.setItem(cacheKey, JSON.stringify({
-        savedAt: Date.now(),
-        data
+        weather: {
+          symbol: data.symbol,
+          temperature: data.temperature
+        },
+        airQuality: {
+          uvIndex: data.uvIndex,
+          value: data.airQuality
+        },
+        location: data.location,
+        timestamp: Date.now()
       }))
     } catch (error) {
       // Weather rendering must continue when storage is unavailable.
@@ -255,10 +278,10 @@
     }
 
     updateDate(elements)
-    const cachedData = readCache()
+    const cached = readCache()
 
-    if (cachedData) renderWeather(card, elements, cachedData, false)
-    refreshWeather(card, elements, Boolean(cachedData)).catch(() => {})
+    if (cached) renderWeather(card, elements, cached.data, false)
+    if (!cached?.isFresh) refreshWeather(card, elements, Boolean(cached)).catch(() => {})
   }
 
   initWeather()

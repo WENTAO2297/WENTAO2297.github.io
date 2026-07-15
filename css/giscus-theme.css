@@ -1,0 +1,158 @@
+/* Giscus theme: dark glass UI for the blog comment iframe. */
+main {
+  --color-canvas-default: #201b2d;
+  --color-canvas-subtle: #2a2439;
+  --color-canvas-overlay: #302842;
+  --color-canvas-inset: #181523;
+  --color-border-default: rgba(243, 182, 223, 0.3);
+  --color-border-muted: rgba(255, 255, 255, 0.12);
+  --color-neutral-muted: rgba(255, 255, 255, 0.12);
+  --color-fg-default: rgba(255, 255, 255, 0.94);
+  --color-fg-muted: rgba(235, 232, 248, 0.68);
+  --color-fg-subtle: rgba(235, 232, 248, 0.5);
+  --color-accent-fg: #f3b6df;
+  --color-accent-emphasis: #d989bd;
+  --color-accent-muted: rgba(243, 182, 223, 0.35);
+  --color-accent-subtle: rgba(243, 182, 223, 0.12);
+  --color-btn-text: rgba(255, 255, 255, 0.92);
+  --color-btn-bg: rgba(255, 255, 255, 0.08);
+  --color-btn-border: rgba(243, 182, 223, 0.28);
+  --color-btn-hover-bg: rgba(243, 182, 223, 0.18);
+  --color-btn-hover-border: rgba(243, 182, 223, 0.65);
+  --color-btn-primary-text: #251a2d;
+  --color-btn-primary-bg: #f3b6df;
+  --color-btn-primary-border: rgba(243, 182, 223, 0.78);
+  --color-btn-primary-hover-bg: #ffd1ed;
+  --color-btn-primary-hover-border: #ffd1ed;
+  --color-success-fg: #9fe4b4;
+  --color-danger-fg: #ff9ea9;
+  color-scheme: dark;
+  color: var(--color-fg-default);
+  font-family: inherit;
+}
+
+body,
+main {
+  background: var(--color-canvas-default);
+}
+
+body {
+  color: var(--color-fg-default);
+}
+
+a {
+  color: var(--color-accent-fg);
+}
+
+.gsc-main,
+.gsc-comment-box,
+.gsc-timeline,
+.gsc-header,
+.gsc-comments,
+.gsc-reactions {
+  color: var(--color-fg-default);
+}
+
+.gsc-comment-box,
+.gsc-comment-box-tabs,
+.gsc-comment-box-md,
+.gsc-comment-box-md textarea,
+.gsc-comment-box-md-preview {
+  border-color: var(--color-border-default) !important;
+  background: var(--color-canvas-subtle) !important;
+  color: var(--color-fg-default) !important;
+}
+
+.gsc-comment-box-md textarea {
+  min-height: 120px;
+  border-radius: 14px !important;
+  outline: none;
+  box-shadow: none;
+}
+
+.gsc-comment-box-md textarea::placeholder {
+  color: var(--color-fg-subtle);
+}
+
+.gsc-comment-box-md textarea:focus {
+  border-color: var(--color-accent-fg) !important;
+  box-shadow: 0 0 18px rgba(243, 182, 223, 0.28) !important;
+}
+
+.gsc-comment-box-tabs button,
+.gsc-comment-box-tabs button:hover,
+.gsc-comment-box-tabs button[aria-selected='true'] {
+  border-color: var(--color-border-default) !important;
+  color: var(--color-fg-default) !important;
+  background: transparent !important;
+}
+
+.gsc-comment-box-tabs button[aria-selected='true'] {
+  border-bottom-color: var(--color-accent-fg) !important;
+  color: var(--color-accent-fg) !important;
+}
+
+.btn,
+button {
+  border-radius: 10px !important;
+  color: var(--color-btn-text) !important;
+  background: var(--color-btn-bg) !important;
+  border-color: var(--color-btn-border) !important;
+}
+
+.btn:hover,
+button:hover {
+  color: #fff !important;
+  background: var(--color-btn-hover-bg) !important;
+  border-color: var(--color-btn-hover-border) !important;
+}
+
+.btn-primary,
+.btn-primary:hover,
+.gsc-comment-box-md .btn-primary,
+.gsc-comment-box-md .btn-primary:hover {
+  color: var(--color-btn-primary-text) !important;
+  background: var(--color-btn-primary-bg) !important;
+  border-color: var(--color-btn-primary-border) !important;
+  box-shadow: 0 6px 18px rgba(243, 182, 223, 0.22) !important;
+}
+
+.btn-primary:hover,
+.gsc-comment-box-md .btn-primary:hover {
+  background: var(--color-btn-primary-hover-bg) !important;
+  border-color: var(--color-btn-primary-hover-border) !important;
+}
+
+.gsc-comment,
+.gsc-reactions .gsc-reaction,
+.gsc-timeline-header,
+.gsc-header {
+  border-color: var(--color-border-muted) !important;
+  background: transparent !important;
+}
+
+.gsc-comment-content,
+.gsc-comment-author,
+.gsc-comment-footer,
+.gsc-comment-footer a,
+.gsc-timeline-header,
+.gsc-reactions-count {
+  color: var(--color-fg-muted) !important;
+}
+
+.gsc-comment-author,
+.gsc-header-title {
+  color: var(--color-fg-default) !important;
+}
+
+.gsc-comment-content p,
+.gsc-comment-content li,
+.gsc-comment-content blockquote {
+  color: var(--color-fg-default) !important;
+}
+
+.gsc-reactions .gsc-reaction:hover,
+.gsc-reactions .gsc-reaction[aria-pressed='true'] {
+  border-color: var(--color-accent-fg) !important;
+  background: var(--color-accent-subtle) !important;
+}
