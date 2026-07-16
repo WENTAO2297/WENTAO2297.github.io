@@ -332,7 +332,6 @@ body.home-dashboard-body #web_bg {
   pointer-events: none;
 }
 
-.home-dashboard .personal-posts-link,
 .home-dashboard .personal-social .social-icon {
   pointer-events: auto;
 }
@@ -536,7 +535,7 @@ body.home-dashboard-body #web_bg {
   flex: 0 0 auto;
 }
 
-.home-dashboard .personal-posts-link {
+.home-dashboard .personal-posts-stat {
   display: flex;
   align-items: flex-start;
   flex-direction: column;
@@ -547,44 +546,22 @@ body.home-dashboard-body #web_bg {
   border-radius: 0;
   background: transparent;
   color: rgba(255, 255, 255, 0.92);
-  cursor: pointer;
   text-align: left;
 }
 
-.home-dashboard .personal-posts-link:focus-visible {
-  border-radius: 4px;
-  outline: 1px solid var(--dashboard-accent-pink-border);
-  outline-offset: 4px;
-}
-
-.home-dashboard .personal-posts-link__count {
+.home-dashboard .personal-posts-stat__count {
   display: inline-block;
   overflow: hidden;
   color: var(--dashboard-accent-pink);
   font-size: 1.14rem;
   line-height: 1.25;
   text-overflow: ellipsis;
-  transform-origin: left center;
-  transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1), color 220ms ease, text-shadow 220ms ease;
 }
 
-.home-dashboard .personal-posts-link__label {
+.home-dashboard .personal-posts-stat__label {
   color: rgba(255, 255, 255, 0.62);
   font-size: 0.68rem;
   letter-spacing: 0.04em;
-  transition: color 220ms ease;
-}
-
-.home-dashboard .personal-posts-link:hover .personal-posts-link__count,
-.home-dashboard .personal-posts-link:focus-visible .personal-posts-link__count {
-  color: #ffd6ef;
-  text-shadow: 0 0 12px rgba(243, 182, 223, 0.2);
-  transform: scale(1.1);
-}
-
-.home-dashboard .personal-posts-link:hover .personal-posts-link__label,
-.home-dashboard .personal-posts-link:focus-visible .personal-posts-link__label {
-  color: rgba(255, 255, 255, 0.82);
 }
 
 .home-dashboard .personal-social {
@@ -1143,7 +1120,7 @@ body.home-dashboard-body #web_bg {
 .home-dashboard .dashboard-search__input::placeholder,
 .home-dashboard .dashboard-search-results__status,
 .home-dashboard .dashboard-search-result__excerpt,
-.home-dashboard .personal-posts-link__label,
+.home-dashboard .personal-posts-stat__label,
 .home-dashboard .weather-card__metric span {
   color: rgba(255, 255, 255, 0.68);
   text-shadow: 0 1px 3px rgba(18, 10, 30, 0.26);

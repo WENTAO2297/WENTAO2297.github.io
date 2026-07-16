@@ -810,6 +810,30 @@ html.pjax-content-leaving #content-inner {
 }
 
 /* ====== Global comment glass UI ====== */
+#sidebar .site-data {
+    display: block;
+}
+
+#sidebar .site-data > .site-data__item {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+#sidebar .site-data > .site-data__item .headline {
+    overflow: hidden;
+    color: var(--font-color);
+    font-size: .95em;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#sidebar .site-data > .site-data__item .length-num {
+    margin-top: -.45em;
+    color: var(--text-highlight-color);
+    font-size: 1.2em;
+}
+
 #post-comment {
     width: min(100%, 960px);
     margin: 32px auto 0;
