@@ -45,6 +45,43 @@
 
   const parseBoolean = value => value === true || value === 'true'
 
+  const installGitHubBasicAuthGuard = (clientID, clientSecret, owner, repo) => {
+    if (window.blogGitalkGitHubBasicAuthGuard || clientSecret !== 'server-side-secret') return
+
+    const githubRequests = new WeakSet()
+    const basicPlaceholder = `Basic ${window.btoa(`${clientID}:${clientSecret}`)}`
+    const issuePath = `/repos/${owner}/${repo}/issues`
+    const nativeOpen = window.XMLHttpRequest.prototype.open
+    const nativeSetRequestHeader = window.XMLHttpRequest.prototype.setRequestHeader
+
+    window.XMLHttpRequest.prototype.open = function (method, url, ...rest) {
+      try {
+        const requestUrl = new URL(String(url), window.location.href)
+        if (
+          requestUrl.origin === 'https://api.github.com' &&
+          (requestUrl.pathname === issuePath || requestUrl.pathname.startsWith(`${issuePath}/`))
+        ) {
+          githubRequests.add(this)
+        }
+      } catch (_) {
+        // Let XMLHttpRequest handle malformed URLs normally.
+      }
+
+      return nativeOpen.call(this, method, url, ...rest)
+    }
+
+    window.XMLHttpRequest.prototype.setRequestHeader = function (name, value) {
+      if (githubRequests.has(this) && name.toLowerCase() === 'authorization' && value === basicPlaceholder) {
+        const accessToken = window.localStorage.getItem('GT_ACCESS_TOKEN')
+        if (!accessToken) return
+        return nativeSetRequestHeader.call(this, name, `token ${accessToken}`)
+      }
+      return nativeSetRequestHeader.call(this, name, value)
+    }
+
+    window.blogGitalkGitHubBasicAuthGuard = true
+  }
+
   const loadStyle = (href, id) => {
     if (!href) return Promise.resolve()
     const existing = document.getElementById(id)
@@ -175,6 +212,8 @@
         renderStatus(container, '评论系统等待站长完成 GitHub OAuth 与服务端代理配置。')
         return
       }
+
+      installGitHubBasicAuthGuard(config.clientID, config.clientSecret, config.owner, config.repo)
 
       await loadStyle(config.stylesheetUrl, 'gitalk-upstream-theme')
       await loadStyle(config.themeStylesheetUrl, 'blog-gitalk-theme')
