@@ -76,10 +76,11 @@
 
 /* Count and login state: a light header, never a GitHub-style panel. */
 .gt-container .gt-meta {
+  position: relative;
   z-index: 2;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   min-height: 42px;
   margin: 0 0 22px;
   padding: 0 0 14px;
@@ -87,6 +88,13 @@
   border-bottom: 1px solid var(--gitalk-border);
   color: var(--gitalk-muted);
   font-size: 14px;
+}
+
+/* Gitalk keeps clearfix pseudo-elements on this flex row. Hide them so the
+ * login control and its sibling popup share the same right-side anchor. */
+.gt-container .gt-meta::before,
+.gt-container .gt-meta::after {
+  display: none;
 }
 
 .gt-container .gt-counts {
@@ -98,6 +106,7 @@
   position: relative;
   float: none;
   margin: 0;
+  margin-left: auto;
   color: var(--gitalk-muted);
 }
 
@@ -110,8 +119,13 @@
 }
 
 .gt-container .gt-popup {
-  top: calc(100% + 10px);
+  position: absolute;
+  z-index: 3;
+  left: auto;
+  top: calc(100% - 8px);
   right: 0;
+  box-sizing: border-box;
+  max-width: calc(100vw - 32px);
   padding: 8px 0;
   border: 1px solid var(--gitalk-border);
   border-radius: 10px;
