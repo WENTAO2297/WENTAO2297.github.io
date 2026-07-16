@@ -268,7 +268,7 @@
 </ul>
 </li>
 </ul>
-<p><img src="2025-12-31-20-23-06.png" alt=""></p>
+<p><img src="2025-12-31-20-23-06.png" alt="" loading="lazy"></p>
 <ul>
 <li><strong>GPS+惯导</strong>：开阔环境首选，绝对定位能力强，GPS怕遮挡。</li>
 <li><strong>激光SLAM</strong>：几何特征丰富环境首选，精确但成本高、怕恶劣天气。</li>
@@ -477,7 +477,7 @@
 </ul>
 <hr>
 <h2 id="第二部分：定位算法"><a href="#第二部分：定位算法" class="headerlink" title="第二部分：定位算法"></a>第二部分：定位算法</h2><h3 id="1-激光SLAN：ICP-vs-NDT-⭐⭐⭐-必考对比"><a href="#1-激光SLAN：ICP-vs-NDT-⭐⭐⭐-必考对比" class="headerlink" title="1. 激光SLAN：ICP vs NDT (⭐⭐⭐ 必考对比)"></a>1. 激光SLAN：ICP vs NDT (⭐⭐⭐ 必考对比)</h3><p><strong>（1）ICP</strong>：</p>
-<p><img src="2025-12-27-12-37-38.png" alt=""><br><img src="2025-12-27-12-43-15.png" alt=""></p>
+<p><img src="2025-12-27-12-37-38.png" alt="" loading="lazy"><br><img src="2025-12-27-12-43-15.png" alt="" loading="lazy"></p>
 <div class="table-container">
 <table>
 <thead>
@@ -503,7 +503,7 @@
 </table>
 </div>
 <p><strong>（2）NDT</strong>：</p>
-<p><img src="2025-12-27-12-55-49.png" alt=""><br><img src="2025-12-27-13-26-05.png" alt=""></p>
+<p><img src="2025-12-27-12-55-49.png" alt="" loading="lazy"><br><img src="2025-12-27-13-26-05.png" alt="" loading="lazy"></p>
 <p><strong>总结</strong>：<br><em>把“刚才看到的”（实时点云）和“记忆中的”（高精地图）拼在一起。</em></p>
 <div class="table-container">
 <table>
@@ -538,7 +538,7 @@
 </tbody>
 </table>
 </div>
-<h3 id="2-视觉SLAM"><a href="#2-视觉SLAM" class="headerlink" title="2. 视觉SLAM"></a>2. 视觉SLAM</h3><p><img src="2025-12-27-14-30-03.png" alt=""></p>
+<h3 id="2-视觉SLAM"><a href="#2-视觉SLAM" class="headerlink" title="2. 视觉SLAM"></a>2. 视觉SLAM</h3><p><img src="2025-12-27-14-30-03.png" alt="" loading="lazy"></p>
 <ul>
 <li><strong>视觉前端特征</strong> (🎯 <strong>填空题重点</strong>)：<ul>
 <li><strong>角点 (Corner)</strong>：如 Harris, FAST。</li>
@@ -551,8 +551,8 @@
 </ul>
 </li>
 </ul>
-<p><img src="2025-12-27-14-29-13.png" alt=""><br><img src="2025-12-27-14-29-25.png" alt=""></p>
-<h2 id="第三部分：定位系统"><a href="#第三部分：定位系统" class="headerlink" title="第三部分：定位系统"></a>第三部分：定位系统</h2><h3 id="1-坐标系转换-⚠️-判断题陷阱"><a href="#1-坐标系转换-⚠️-判断题陷阱" class="headerlink" title="1. 坐标系转换 (⚠️ 判断题陷阱)"></a>1. 坐标系转换 (⚠️ 判断题陷阱)</h3><p><img src="2025-12-27-13-04-52.png" alt=""><br><img src="2025-12-27-13-05-50.png" alt=""></p>
+<p><img src="2025-12-27-14-29-13.png" alt="" loading="lazy"><br><img src="2025-12-27-14-29-25.png" alt="" loading="lazy"></p>
+<h2 id="第三部分：定位系统"><a href="#第三部分：定位系统" class="headerlink" title="第三部分：定位系统"></a>第三部分：定位系统</h2><h3 id="1-坐标系转换-⚠️-判断题陷阱"><a href="#1-坐标系转换-⚠️-判断题陷阱" class="headerlink" title="1. 坐标系转换 (⚠️ 判断题陷阱)"></a>1. 坐标系转换 (⚠️ 判断题陷阱)</h3><p><img src="2025-12-27-13-04-52.png" alt="" loading="lazy"><br><img src="2025-12-27-13-05-50.png" alt="" loading="lazy"></p>
 <ul>
 <li><strong>转换链条</strong>：<br>  <code>GPS输出的经纬度信息</code> $\rightarrow$ <code>ECEF (地心地固)</code> $\rightarrow$ <code>导航坐标系 (ENU/NED)</code> $\rightarrow$ <code>车体坐标系 (Body)</code></li>
 <li><strong>关键点</strong>：<ul>
@@ -563,7 +563,7 @@
 </li>
 </ul>
 <h3 id="2-基于GPS-惯性组合（IMU）导航的定位系统"><a href="#2-基于GPS-惯性组合（IMU）导航的定位系统" class="headerlink" title="2. 基于GPS +惯性组合（IMU）导航的定位系统"></a>2. 基于GPS +惯性组合（IMU）导航的定位系统</h3><p><strong>（1）GPS</strong>：</p>
-<p><img src="2025-12-27-13-27-04.png" alt=""></p>
+<p><img src="2025-12-27-13-27-04.png" alt="" loading="lazy"></p>
 <ul>
 <li>RTK：载波相位动态实时差分，定位误差在城市中也可达到10～50m（一般GPS为10～100m）</li>
 <li>差分GPS定位：通过在一个精确的已知位置（基准站）上安装GPS监测接收机，计算得到基准站与GPS卫星的距离，然后再根据误差修正结果，从而提高了定位精度。</li>
@@ -572,11 +572,11 @@
 </ul>
 </li>
 </ul>
-<p><img src="2025-12-27-13-32-18.png" alt=""></p>
-<p><img src="2025-12-27-13-35-15.png" alt=""></p>
+<p><img src="2025-12-27-13-32-18.png" alt="" loading="lazy"></p>
+<p><img src="2025-12-27-13-35-15.png" alt="" loading="lazy"></p>
 <p><strong>（2）惯性测量单元</strong>：</p>
 <script type="math/tex; mode=display">
-陀螺仪 + 加速度计</script><p><img src="2025-12-27-14-19-52.png" alt=""><br><img src="2025-12-27-14-21-05.png" alt=""></p>
+陀螺仪 + 加速度计</script><p><img src="2025-12-27-14-19-52.png" alt="" loading="lazy"><br><img src="2025-12-27-14-21-05.png" alt="" loading="lazy"></p>
 <p><strong>总结</strong>：</p>
 <ul>
 <li><strong>GPS (全球定位系统)</strong>：提供<strong>绝对位置</strong>。<ul>
@@ -592,7 +592,7 @@
 </li>
 <li><strong>融合逻辑</strong>：<strong>GPS负责“纠偏”</strong>（消除累计误差），<strong>IMU负责“填空”</strong>（高频输出，保证信号不断）。</li>
 </ul>
-<p><strong>（3）惯性导航系统（INS）</strong>：<br><img src="2025-12-27-14-23-24.png" alt=""><br><img src="2025-12-27-14-23-36.png" alt=""><br><img src="2025-12-27-14-23-47.png" alt=""></p>
+<p><strong>（3）惯性导航系统（INS）</strong>：<br><img src="2025-12-27-14-23-24.png" alt="" loading="lazy"><br><img src="2025-12-27-14-23-36.png" alt="" loading="lazy"><br><img src="2025-12-27-14-23-47.png" alt="" loading="lazy"></p>
 <h2 id="第四部分：卡尔曼滤波"><a href="#第四部分：卡尔曼滤波" class="headerlink" title="第四部分：卡尔曼滤波"></a>第四部分：卡尔曼滤波</h2><p>这一部分数学最难，重点掌握<strong>逻辑</strong>和<strong>公式</strong>。</p>
 <ul>
 <li><strong>卡尔曼滤波</strong>：是一种利用<strong>线性系统</strong>状态方程，通过系统输入输出观测数据，对系统状态进行最优估计的算法。</li>
@@ -701,13 +701,13 @@
 <div class="swiper mySwiper">
   <div class="swiper-wrapper">
     <div class="swiper-slide">
-      <img src="2025-12-28-19-05-37.png" alt="Image 1">
+      <img src="2025-12-28-19-05-37.png" alt="Image 1" loading="lazy">
     </div>
     <div class="swiper-slide">
-      <img src="2025-12-28-19-05-49.png" alt="Image 2">
+      <img src="2025-12-28-19-05-49.png" alt="Image 2" loading="lazy">
     </div>
     <div class="swiper-slide">
-      <img src="2025-12-28-19-06-01.png" alt="Image 3">
+      <img src="2025-12-28-19-06-01.png" alt="Image 3" loading="lazy">
     </div>
   </div>
 
@@ -760,16 +760,16 @@
 <div class="swiper mySwiper">
   <div class="swiper-wrapper">
     <div class="swiper-slide">
-      <img src="2025-12-28-19-09-06.png" alt="Image 1">
+      <img src="2025-12-28-19-09-06.png" alt="Image 1" loading="lazy">
     </div>
     <div class="swiper-slide">
-      <img src="2025-12-28-19-09-13.png" alt="Image 2">
+      <img src="2025-12-28-19-09-13.png" alt="Image 2" loading="lazy">
     </div>
     <div class="swiper-slide">
-      <img src="2025-12-28-19-09-23.png" alt="Image 3">
+      <img src="2025-12-28-19-09-23.png" alt="Image 3" loading="lazy">
     </div>
     <div class="swiper-slide">
-      <img src="2025-12-28-19-09-33.png" alt="Image 4">
+      <img src="2025-12-28-19-09-33.png" alt="Image 4" loading="lazy">
     </div>
   </div>
 
@@ -820,13 +820,13 @@
 
 <div class="swiper mySwiper3">
   <div class="swiper-wrapper">
-    <div class="swiper-slide"><img src="2025-12-28-19-11-56.png"></div>
-    <div class="swiper-slide"><img src="2025-12-28-19-12-11.png"></div>
-    <div class="swiper-slide"><img src="2025-12-28-19-12-28.png"></div>
-    <div class="swiper-slide"><img src="2025-12-28-19-12-37.png"></div>
-    <div class="swiper-slide"><img src="2025-12-28-19-12-47.png"></div>
-    <div class="swiper-slide"><img src="2025-12-28-19-12-59.png"></div>
-    <div class="swiper-slide"><img src="2025-12-28-19-13-10.png"></div>
+    <div class="swiper-slide"><img src="2025-12-28-19-11-56.png" loading="lazy"></div>
+    <div class="swiper-slide"><img src="2025-12-28-19-12-11.png" loading="lazy"></div>
+    <div class="swiper-slide"><img src="2025-12-28-19-12-28.png" loading="lazy"></div>
+    <div class="swiper-slide"><img src="2025-12-28-19-12-37.png" loading="lazy"></div>
+    <div class="swiper-slide"><img src="2025-12-28-19-12-47.png" loading="lazy"></div>
+    <div class="swiper-slide"><img src="2025-12-28-19-12-59.png" loading="lazy"></div>
+    <div class="swiper-slide"><img src="2025-12-28-19-13-10.png" loading="lazy"></div>
   </div>
 
   <div class="swiper-button-next"></div>
@@ -873,9 +873,9 @@
 
 <div class="swiper mySwiper4">
   <div class="swiper-wrapper">
-    <div class="swiper-slide"><img src="2025-12-28-19-13-46.png"></div>
-    <div class="swiper-slide"><img src="2025-12-28-19-13-57.png"></div>
-    <div class="swiper-slide"><img src="2025-12-28-19-14-07.png"></div>
+    <div class="swiper-slide"><img src="2025-12-28-19-13-46.png" loading="lazy"></div>
+    <div class="swiper-slide"><img src="2025-12-28-19-13-57.png" loading="lazy"></div>
+    <div class="swiper-slide"><img src="2025-12-28-19-14-07.png" loading="lazy"></div>
   </div>
 
   <div class="swiper-button-next"></div>
@@ -899,7 +899,7 @@
   });
 </script>
 
-<p><strong>补充</strong>：坐标系变换<br><img src="2025-12-28-19-15-03.png" alt=""></p>
+<p><strong>补充</strong>：坐标系变换<br><img src="2025-12-28-19-15-03.png" alt="" loading="lazy"></p>
 <h2 id="第二部分：卷积神经网络（CNN）"><a href="#第二部分：卷积神经网络（CNN）" class="headerlink" title="第二部分：卷积神经网络（CNN）"></a>第二部分：卷积神经网络（CNN）</h2><ol>
 <li><p><strong>卷积与前馈神经网络区别</strong>：</p>
 <ul>
@@ -923,7 +923,7 @@
 </ul>
 </li>
 </ol>
-<h2 id="第三部分：YOLO"><a href="#第三部分：YOLO" class="headerlink" title="第三部分：YOLO"></a>第三部分：YOLO</h2><p><img src="2025-12-28-20-29-46.png" alt=""></p>
+<h2 id="第三部分：YOLO"><a href="#第三部分：YOLO" class="headerlink" title="第三部分：YOLO"></a>第三部分：YOLO</h2><p><img src="2025-12-28-20-29-46.png" alt="" loading="lazy"></p>
 <h3 id="1-YOLO的核心思想"><a href="#1-YOLO的核心思想" class="headerlink" title="1. YOLO的核心思想"></a>1. <strong>YOLO的核心思想</strong></h3><ul>
 <li>不需要生成候选区域，直接把图像划分成 S×S 的网格，每个网格负责预测中心落在该格子里面的物体。</li>
 <li>速度快，适合无人驾驶实时感知。</li>
@@ -934,14 +934,14 @@
 <li>输出图像尺寸：416x416x3 </li>
 <li>连续使用卷积层和跳跃连接层</li>
 </ul>
-<p><strong>图像金字塔</strong>：<br><img src="2025-12-28-20-44-17.png" alt=""></p>
+<p><strong>图像金字塔</strong>：<br><img src="2025-12-28-20-44-17.png" alt="" loading="lazy"></p>
 <ul>
 <li><strong>图像金字塔-向下采样</strong>：删除图像偶数行列，大小变为四分之一。</li>
 <li><strong>图像金字塔-向上采样</strong>：补充大量像素点0，大小变为四倍。<br><em>（注意：两种操作互相是<strong>不可逆</strong>的。）</em></li>
 </ul>
-<p><strong>多尺度特征预测</strong>：<br><img src="2025-12-28-20-52-14.png" alt=""><br><img src="2025-12-28-20-48-17.png" alt=""></p>
-<p><strong>交并比</strong>：<br><img src="2025-12-28-20-56-57.png" alt=""></p>
-<p><strong>边界框坐标计算</strong>：<br><img src="2025-12-28-20-59-15.png" alt=""></p>
+<p><strong>多尺度特征预测</strong>：<br><img src="2025-12-28-20-52-14.png" alt="" loading="lazy"><br><img src="2025-12-28-20-48-17.png" alt="" loading="lazy"></p>
+<p><strong>交并比</strong>：<br><img src="2025-12-28-20-56-57.png" alt="" loading="lazy"></p>
+<p><strong>边界框坐标计算</strong>：<br><img src="2025-12-28-20-59-15.png" alt="" loading="lazy"></p>
 <ul>
 <li>$(b_x,b_y)$为<strong>中心坐标</strong>。</li>
 <li>$b_w,b_h$进行了<strong>尺度缩放</strong>。</li>
@@ -1005,7 +1005,7 @@
 <h3 id="2-马尔可夫决策过程"><a href="#2-马尔可夫决策过程" class="headerlink" title="2. 马尔可夫决策过程"></a>2. 马尔可夫决策过程</h3><ul>
 <li>马尔可夫性：系统的下一个状态只跟当前状态有关，<strong>与过去状态无关</strong>。</li>
 </ul>
-<p><strong>马尔可夫决策过程（MDP）</strong>：<br><img src="2025-12-30-13-43-53.png" alt=""></p>
+<p><strong>马尔可夫决策过程（MDP）</strong>：<br><img src="2025-12-30-13-43-53.png" alt="" loading="lazy"></p>
 <ul>
 <li>$S为有限状态空间集合。$</li>
 <li>$A为有限动作的集合。$</li>
@@ -1037,7 +1037,7 @@ q_{\pi}(s, a) = E_{\pi} \left[ \sum_{k=0}^{\infty} \gamma^k R_{t+k+1} \mid S_t =
 <ul>
 <li>值函数最大的策略，即：$V^*(s)=max (v_\pi(s))$<br>（最优状态行为-值函数同理。）</li>
 </ul>
-<p>第三部分总结：<br><img src="2025-12-30-14-12-00.png" alt=""><br><img src="2025-12-30-14-12-11.png" alt=""><br><img src="2025-12-30-14-12-21.png" alt=""></p>
+<p>第三部分总结：<br><img src="2025-12-30-14-12-00.png" alt="" loading="lazy"><br><img src="2025-12-30-14-12-11.png" alt="" loading="lazy"><br><img src="2025-12-30-14-12-21.png" alt="" loading="lazy"></p>
 <h2 id="第四部分：Q-learning"><a href="#第四部分：Q-learning" class="headerlink" title="第四部分：Q-learning"></a>第四部分：Q-learning</h2><ul>
 <li><p>实质上就是基于<strong>奖励机制</strong>的学习算法。</p>
 <h3 id="Q-learning"><a href="#Q-learning" class="headerlink" title="Q-learning"></a>Q-learning</h3><p>更新公式：</p>
@@ -1176,7 +1176,7 @@ Q(s_t, a_t) \leftarrow Q(s_t, a_t) + \alpha \left[ r_{t+1} + \gamma \max_{a} Q(s
 </ol>
 <h3 id="1-Dijkstra算法"><a href="#1-Dijkstra算法" class="headerlink" title="1. Dijkstra算法"></a>1. Dijkstra算法</h3><ul>
 <li>核心思想：由近到远把所有点点最短路径算出来。</li>
-<li><strong>缺点</strong>：效率低下、功耗高。<br><img src="2025-12-30-20-18-07.png" alt=""></li>
+<li><strong>缺点</strong>：效率低下、功耗高。<br><img src="2025-12-30-20-18-07.png" alt="" loading="lazy"></li>
 </ul>
 <h3 id="2-A-star算法"><a href="#2-A-star算法" class="headerlink" title="2. A-star算法"></a>2. A-star算法</h3><p>在此基础上引入<strong>启发函数</strong>，得到A-star算法。<br><strong>启发函数</strong>：</p>
 <script type="math/tex; mode=display">
@@ -1187,17 +1187,17 @@ f(n) =g(n) +h(n)</script><ul>
 <p><strong>启发式函数$h(n)$的选择</strong>：</p>
 <ol>
 <li>欧几里得距离 (Euclidean Distance)：两点间的直线距离（适用于允许任意方向移动的场景）。</li>
-<li>曼哈顿距离 (Manhattan Distance)：城市街区距离（适用于只能横平竖直走的网格地图）。<br><img src="2025-12-30-20-21-18.png" alt=""></li>
+<li>曼哈顿距离 (Manhattan Distance)：城市街区距离（适用于只能横平竖直走的网格地图）。<br><img src="2025-12-30-20-21-18.png" alt="" loading="lazy"></li>
 </ol>
 <ul>
 <li><strong>关键原则</strong>：$h(n)$ 必须小于等于实际代价。如果 $h(n)$ 估得太高，可能会漏掉最优路径；如果估得太低，算法会变慢但仍能找到最优解。</li>
 <li>特点：既有 Dijkstra 的严谨（保证找到路），又有“贪心算法”的速度（优先往终点方向找）。</li>
 </ul>
-<p><img src="2025-12-30-20-22-56.png" alt=""></p>
+<p><img src="2025-12-30-20-22-56.png" alt="" loading="lazy"></p>
 <h3 id="3-混合A-star"><a href="#3-混合A-star" class="headerlink" title="3. 混合A-star"></a>3. 混合A-star</h3><p>相比于普通A-star（把车看成一个<strong>质点</strong>），混合A-star加入了<code>车头朝向</code>参数$\theta$.</p>
 <ul>
 <li>从二维$(x,y)$拓展到三维$(x,y,\theta)$。</li>
-<li>需要考虑<strong>车辆动力学</strong>，所以不再是简单地连接相邻个字，而是要生成符合车辆转弯的圆弧路径。<br><img src="2025-12-30-20-27-56.png" alt=""></li>
+<li>需要考虑<strong>车辆动力学</strong>，所以不再是简单地连接相邻个字，而是要生成符合车辆转弯的圆弧路径。<br><img src="2025-12-30-20-27-56.png" alt="" loading="lazy"></li>
 </ul>
 <div class="table-container">
 <table>
@@ -1262,7 +1262,7 @@ f(n) =g(n) +h(n)</script><ul>
 <h3 id="2-分层有限状态机"><a href="#2-分层有限状态机" class="headerlink" title="2. 分层有限状态机"></a>2. 分层有限状态机</h3><blockquote>
 <p>相比与FSM，HFSM引入“超级状态”概念，实现<strong>打包管理</strong>。</p>
 </blockquote>
-<p><strong>超级状态</strong>：将同一类的一组状态视作一个集合（图中大方框），超级状态之间也有转移逻辑。<br><img src="2025-12-30-20-45-53.png" alt=""></p>
+<p><strong>超级状态</strong>：将同一类的一组状态视作一个集合（图中大方框），超级状态之间也有转移逻辑。<br><img src="2025-12-30-20-45-53.png" alt="" loading="lazy"></p>
 <ul>
 <li>斯坦福大学Junior：将顶层的驾驶行为分成了<strong>13个</strong>超级状态。在无人车正常行驶中，状态机几乎处在<strong>普通驾驶模式</strong>（即<code>FORWARD-DRIVE</code>和<code>PARKING-NAVIGATE</code>这两个状态）。</li>
 </ul>
@@ -1304,7 +1304,7 @@ f(n) =g(n) +h(n)</script><ul>
 <h3 id="三次样条插值算法的数学性质"><a href="#三次样条插值算法的数学性质" class="headerlink" title="三次样条插值算法的数学性质"></a>三次样条插值算法的数学性质</h3><ol>
 <li>生成的曲线在<strong>衔接点处函数值连续</strong>。</li>
 <li>一阶导数和二阶导数<strong>连续可导</strong>。</li>
-<li><strong>自由边界三次样条</strong>的边界一阶、二阶导数也是连续的保证<strong>速度/加速度连续</strong>。<br>（对于第三点：由于解方程组时，<strong>未知数比方程多两个</strong>，就会产生自由边界。）<br><img src="2025-12-30-21-08-34.png" alt=""></li>
+<li><strong>自由边界三次样条</strong>的边界一阶、二阶导数也是连续的保证<strong>速度/加速度连续</strong>。<br>（对于第三点：由于解方程组时，<strong>未知数比方程多两个</strong>，就会产生自由边界。）<br><img src="2025-12-30-21-08-34.png" alt="" loading="lazy"></li>
 </ol>
 <h2 id="第四部分：动作规划"><a href="#第四部分：动作规划" class="headerlink" title="第四部分：动作规划"></a>第四部分：动作规划</h2><script type="math/tex; mode=display">
 动作规划 =轨迹规划 +速度规划</script><h3 id="最优动作序列"><a href="#最优动作序列" class="headerlink" title="最优动作序列"></a>最优动作序列</h3><p>Jerk：加速度的变化率，即<strong>加加速度</strong>。</p>
@@ -1325,7 +1325,7 @@ f(n) =g(n) +h(n)</script><ul>
 <li>保持车道只需要保证 $d=0$。</li>
 <li>$s$管速度（停车、巡航）、$d$管方向（变道、避障）。</li>
 </ol>
-<p><img src="2025-12-30-21-46-04.png" alt=""></p>
+<p><img src="2025-12-30-21-46-04.png" alt="" loading="lazy"></p>
 <h3 id="横向、纵向轨迹优化"><a href="#横向、纵向轨迹优化" class="headerlink" title="横向、纵向轨迹优化"></a>横向、纵向轨迹优化</h3><ul>
 <li>将轨迹优化问题分割为横向&amp;纵向。</li>
 <li>选取<strong>损失函数C</strong>，采用使得C最小的轨迹。</li>
@@ -1410,7 +1410,7 @@ f(n) =g(n) +h(n)</script><ul>
 </ul>
 </li>
 </ul>
-<h3 id="碰撞避免"><a href="#碰撞避免" class="headerlink" title="碰撞避免"></a>碰撞避免</h3><p><img src="2025-12-30-22-02-24.png" alt=""></p>
+<h3 id="碰撞避免"><a href="#碰撞避免" class="headerlink" title="碰撞避免"></a>碰撞避免</h3><p><img src="2025-12-30-22-02-24.png" alt="" loading="lazy"></p>
 <h1 id="第六章-车辆模型和高级控制"><a href="#第六章-车辆模型和高级控制" class="headerlink" title="第六章 车辆模型和高级控制"></a>第六章 车辆模型和高级控制</h1><h2 id="第一部分：车辆模型"><a href="#第一部分：车辆模型" class="headerlink" title="第一部分：车辆模型"></a>第一部分：车辆模型</h2><h3 id="1-自行车模型"><a href="#1-自行车模型" class="headerlink" title="1. 自行车模型"></a>1. 自行车模型</h3><blockquote>
 <p>该模型做出的<strong>假设</strong>：</p>
 <ol>
@@ -1419,7 +1419,7 @@ f(n) =g(n) +h(n)</script><ul>
 <li>看成和自行车一样，<strong>前轮控制转角</strong>。</li>
 </ol>
 </blockquote>
-<p><img src="2025-12-31-14-16-54.png" alt=""></p>
+<p><img src="2025-12-31-14-16-54.png" alt="" loading="lazy"></p>
 <h3 id="2-运动学自行车模型"><a href="#2-运动学自行车模型" class="headerlink" title="2. 运动学自行车模型"></a>2. 运动学自行车模型</h3><p><strong>控制输入</strong>$(a, \delta_f)$</p>
 <ul>
 <li><strong>$a$</strong> 表示车辆的加速度。踩油门意味着正的加速度，踩刹车意味着负的加速度。</li>
@@ -1441,7 +1441,7 @@ f(n) =g(n) +h(n)</script><ul>
 <script type="math/tex; mode=display">x_{t+1} = x_t + v_t \cos(\psi_t + \beta) \times dt</script><script type="math/tex; mode=display">y_{t+1} = y_t + v_t \sin(\psi_t + \beta) \times dt</script><script type="math/tex; mode=display">\psi_{t+1} = \psi_t + \frac{v_t}{l_r} \sin(\beta) \times dt</script><script type="math/tex; mode=display">v_{t+1} = v_t + a \times dt</script><p>其中，$dt$ 表示间隔时间，$\beta$ 又如下的公式计算可得：</p>
 <p><strong>滑移角</strong> </p>
 <script type="math/tex; mode=display">\beta = \tan^{-1} \left( \frac{l_r}{l_f + l_r} \tan(\delta_f) \right)</script><p>自行车模型假定后轮的转角控制输入 $\delta_r = 0$。</p>
-<p><img src="2025-12-31-14-24-55.png" alt=""></p>
+<p><img src="2025-12-31-14-24-55.png" alt="" loading="lazy"></p>
 <h3 id="3-动力学自行车模型"><a href="#3-动力学自行车模型" class="headerlink" title="3. 动力学自行车模型"></a>3. 动力学自行车模型</h3><p>核心思想：当车辆以高速度行驶时，<strong>车轮方向不一定是车轮当前的速度方向</strong>（侧滑）。<br>所以该模型考虑了以下两个力：</p>
 <ul>
 <li><strong>纵向力</strong>：使车辆前后移动的力。</li>
@@ -1453,7 +1453,7 @@ f(n) =g(n) +h(n)</script><ul>
 <ul>
 <li>体现了由<strong>frenet坐标系</strong>下车身的纵向和侧向速度来推导<strong>笛卡尔坐标系</strong>下X和Y两个方向上的车辆行驶速度。</li>
 </ul>
-<h2 id="第二部分：PID控制"><a href="#第二部分：PID控制" class="headerlink" title="第二部分：PID控制"></a>第二部分：PID控制</h2><p><img src="2025-12-31-14-35-54.png" alt=""></p>
+<h2 id="第二部分：PID控制"><a href="#第二部分：PID控制" class="headerlink" title="第二部分：PID控制"></a>第二部分：PID控制</h2><p><img src="2025-12-31-14-35-54.png" alt="" loading="lazy"></p>
 <ul>
 <li>比例、积分、微分</li>
 </ul>
@@ -1509,7 +1509,7 @@ Steering angle = K_p \cdot e(t) + K_d \frac{\text{d}e(t)}{\text{d}t} + K_i \int_
 <li>积分项系数$K_i$的大小影响<strong>系统稳定性</strong>。</li>
 <li>过大使得系统震荡，过小会使得汽车收到扰动后需要很久时间才能回到参考线。</li>
 </ul>
-<h3 id="PID参数整定方式"><a href="#PID参数整定方式" class="headerlink" title="PID参数整定方式"></a>PID参数整定方式</h3><p><img src="2025-12-31-15-06-50.png" alt=""></p>
+<h3 id="PID参数整定方式"><a href="#PID参数整定方式" class="headerlink" title="PID参数整定方式"></a>PID参数整定方式</h3><p><img src="2025-12-31-15-06-50.png" alt="" loading="lazy"></p>
 <p>简单来说，就是<code>先P后I最后D</code>.</p>
 <p><strong>PID三个环节的总结</strong>：</p>
 <div class="table-container">
@@ -1565,7 +1565,7 @@ Steering angle = K_p \cdot e(t) + K_d \frac{\text{d}e(t)}{\text{d}t} + K_i \int_
 <p>基于几何追踪的方法————<strong>纯追踪</strong></p>
 </blockquote>
 <p><strong>思想</strong>：<br>纯追踪就是基于几何原理，算出要把方向盘打多少度，才能让车画一个圆弧，恰好经过前方那个<strong>预瞄点</strong>。</p>
-<p><img src="2025-12-31-16-02-52.png" alt=""><br><img src="2025-12-31-16-03-08.png" alt=""></p>
+<p><img src="2025-12-31-16-02-52.png" alt="" loading="lazy"><br><img src="2025-12-31-16-03-08.png" alt="" loading="lazy"></p>
 <ul>
 <li>$(g_x,g_y)$是下一个预瞄点。</li>
 <li>$K$可以表达为：$K =\frac{2}{{l_d}^2} e_l$,<strong>纯追踪控制器其实是横向的P控制器</strong>。</li>
