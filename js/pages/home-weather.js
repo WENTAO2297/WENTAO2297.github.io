@@ -207,16 +207,6 @@
     }
   }
 
-  const updateDate = (elements) => {
-    if (!elements.date || !elements.weekday) return
-
-    const now = new Date()
-    elements.date.textContent = `${now.getMonth() + 1}月${now.getDate()}日`
-    elements.weekday.textContent = new Intl.DateTimeFormat('zh-CN', {
-      weekday: 'long'
-    }).format(now)
-  }
-
   const renderWeather = (card, elements, data, animate) => {
     elements.location.textContent = data.location
     elements.symbol.className = `fas ${data.symbol} weather-card__symbol`
@@ -268,8 +258,6 @@
 
     card.dataset.weatherInitialized = 'true'
     const elements = {
-      date: card.querySelector('#weather-date'),
-      weekday: card.querySelector('#weather-weekday'),
       symbol: card.querySelector('#weather-symbol'),
       temperature: card.querySelector('#weather-temperature'),
       location: card.querySelector('#weather-location'),
@@ -277,7 +265,6 @@
       airQuality: card.querySelector('#weather-air-quality')
     }
 
-    updateDate(elements)
     const cached = readCache()
 
     if (cached) renderWeather(card, elements, cached.data, false)

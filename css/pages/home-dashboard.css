@@ -21,14 +21,8 @@ body.home-dashboard-body #web_bg {
 #body-wrap.home-dashboard-page > #content-inner.home-dashboard-content {
   position: relative;
   flex: 1 auto;
-  padding-top: 32px;
+  padding-top: var(--page-top-spacing);
   animation: none;
-}
-
-body.home-dashboard-body #page-header #nav {
-  background: rgba(20, 20, 30, 0.35) !important;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
 }
 
 #content-inner.layout > .home-main.home-dashboard-screen {
@@ -45,23 +39,23 @@ body.home-dashboard-body #page-header #nav {
 }
 
 .home-dashboard {
-  --dashboard-gap: 18px;
-  --dashboard-radius: 22px;
+  --dashboard-gap: var(--content-gap);
+  --dashboard-radius: var(--card-radius);
   --dashboard-glass-bg: rgba(18, 18, 22, 0.75);
   --dashboard-glass-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
-  --dashboard-glass-ui-bg: rgba(45, 40, 55, 0.65);
-  --dashboard-glass-ui-bg-strong: rgba(45, 40, 55, 0.75);
-  --dashboard-glass-ui-bg-hover: rgba(52, 47, 63, 0.72);
-  --dashboard-glass-ui-blur: blur(20px);
-  --dashboard-glass-ui-border: none;
-  --dashboard-glass-ui-outline: 1px solid rgba(255, 255, 255, 0.08);
-  --dashboard-glass-ui-shadow: 0 10px 30px rgba(0, 0, 0, 0.24);
-  --dashboard-glass-ui-shadow-soft: 0 8px 22px rgba(0, 0, 0, 0.18);
-  --dashboard-spotify-black-bg: #202124;
-  --dashboard-accent-pink: #f3b6df;
-  --dashboard-accent-pink-border: rgba(243, 182, 223, 0.8);
-  --dashboard-accent-pink-glow: rgba(243, 182, 223, 0.35);
-  --dashboard-accent-pink-soft-glow: rgba(243, 182, 223, 0.45);
+  --dashboard-glass-ui-bg: var(--glass-ui-bg);
+  --dashboard-glass-ui-bg-strong: var(--glass-ui-bg-strong);
+  --dashboard-glass-ui-bg-hover: var(--glass-ui-bg-hover);
+  --dashboard-glass-ui-blur: var(--glass-blur);
+  --dashboard-glass-ui-border: var(--glass-ui-border);
+  --dashboard-glass-ui-outline: var(--glass-ui-outline);
+  --dashboard-glass-ui-shadow: var(--glass-ui-shadow);
+  --dashboard-glass-ui-shadow-soft: var(--glass-ui-shadow-soft);
+  --dashboard-spotify-black-bg: var(--spotify-black-bg);
+  --dashboard-accent-pink: var(--accent-color);
+  --dashboard-accent-pink-border: var(--accent-border);
+  --dashboard-accent-pink-glow: var(--accent-glow);
+  --dashboard-accent-pink-soft-glow: var(--accent-soft-glow);
   --dashboard-placeholder: rgba(255, 255, 255, 0.12);
   --dashboard-placeholder-strong: rgba(255, 255, 255, 0.22);
   position: relative;
@@ -70,7 +64,7 @@ body.home-dashboard-body #page-header #nav {
   gap: var(--dashboard-gap);
   margin: 0 auto 20px;
   width: 100%;
-  max-width: 1100px;
+  max-width: var(--content-max-width);
 }
 
 .home-dashboard .dashboard-search-shell {
@@ -255,10 +249,9 @@ body.home-dashboard-body #page-header #nav {
 }
 
 .home-dashboard .dashboard-card--personal {
-  display: flex;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
   min-height: 0;
-  flex-direction: column;
-  justify-content: space-between;
   padding: 24px;
   background: var(--dashboard-glass-ui-bg);
   backdrop-filter: var(--dashboard-glass-ui-blur);
@@ -268,7 +261,7 @@ body.home-dashboard-body #page-header #nav {
   cursor: pointer;
   animation-delay: 40ms;
   transform-origin: center;
-  transition: transform 250ms ease;
+  transition: transform 460ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .home-dashboard .dashboard-card--weather {
@@ -314,7 +307,7 @@ body.home-dashboard-body #page-header #nav {
 }
 
 .home-dashboard .dashboard-card--personal:hover {
-  transform: scale(1.02);
+  transform: scale(1.012);
 }
 
 .home-dashboard .personal-card__about-link {
@@ -330,6 +323,8 @@ body.home-dashboard-body #page-header #nav {
 }
 
 .home-dashboard .personal-profile,
+.home-dashboard .personal-profile__bio,
+.home-dashboard .personal-card__footer,
 .home-dashboard .personal-stats,
 .home-dashboard .personal-social {
   position: relative;
@@ -337,7 +332,7 @@ body.home-dashboard-body #page-header #nav {
   pointer-events: none;
 }
 
-.home-dashboard .personal-stat,
+.home-dashboard .personal-posts-link,
 .home-dashboard .personal-social .social-icon {
   pointer-events: auto;
 }
@@ -454,10 +449,6 @@ body.home-dashboard-body #page-header #nav {
   letter-spacing: 0.14em;
 }
 
-.home-dashboard .dashboard-card--personal .dashboard-card__eyebrow {
-  color: #f6a3d7;
-}
-
 .home-dashboard .dashboard-card__title {
   margin: 0;
   color: rgba(255, 255, 255, 0.94);
@@ -474,17 +465,25 @@ body.home-dashboard-body #page-header #nav {
 .home-dashboard .personal-profile {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 18px;
 }
 
 .home-dashboard .personal-profile__avatar {
-  flex: 0 0 72px;
-  width: 72px;
-  height: 72px;
-  border: none;
-  border-radius: 22px;
-  box-shadow: 0 10px 24px rgba(13, 10, 28, 0.32), 0 0 20px rgba(255, 143, 211, 0.1);
+  box-sizing: border-box;
+  flex: 0 0 88px;
+  width: 88px;
+  height: 88px;
+  border: 3px solid rgba(243, 182, 223, 0.78);
+  border-radius: 24px;
+  box-shadow: 0 10px 24px rgba(13, 10, 28, 0.32), 0 0 20px rgba(243, 182, 223, 0.12);
   object-fit: cover;
+  transform: rotate(0deg);
+  transform-origin: center center;
+  transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.home-dashboard .dashboard-card--personal:hover .personal-profile__avatar {
+  transform: rotate(-4deg);
 }
 
 .home-dashboard .personal-profile__identity {
@@ -492,9 +491,9 @@ body.home-dashboard-body #page-header #nav {
 }
 
 .home-dashboard .personal-profile__name {
-  margin: 2px 0 5px;
+  margin: 0 0 5px;
   color: rgba(255, 255, 255, 0.96);
-  font-size: 1.68rem;
+  font-size: 1.76rem;
   line-height: 1.25;
 }
 
@@ -505,69 +504,123 @@ body.home-dashboard-body #page-header #nav {
   line-height: 1.6;
 }
 
-.home-dashboard .personal-stats {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
-  margin-top: 13px;
+.home-dashboard .personal-profile__bio {
+  align-self: center;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.85;
 }
 
-.home-dashboard .personal-stat {
+.home-dashboard .personal-profile__bio p {
+  margin: 0;
+}
+
+.home-dashboard .personal-profile__bio-welcome {
+  margin-top: 12px !important;
+  color: rgba(255, 222, 241, 0.9);
+  font-weight: 500;
+}
+
+.home-dashboard .personal-card__footer {
   display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.home-dashboard .personal-stats {
+  flex: 0 0 auto;
+}
+
+.home-dashboard .personal-posts-link {
+  display: flex;
+  align-items: flex-start;
   flex-direction: column;
   gap: 2px;
   min-width: 0;
-  padding: 5px 8px;
+  padding: 0;
   border: 0;
   border-radius: 0;
   background: transparent;
   color: rgba(255, 255, 255, 0.92);
-  text-align: center;
+  cursor: pointer;
+  text-align: left;
 }
 
-.home-dashboard .personal-stat + .personal-stat {
-  border-left: none;
+.home-dashboard .personal-posts-link:focus-visible {
+  border-radius: 4px;
+  outline: 1px solid var(--dashboard-accent-pink-border);
+  outline-offset: 4px;
 }
 
-.home-dashboard .personal-stat:hover {
-  color: #ffd6ef;
-}
-
-.home-dashboard .personal-stat__value {
+.home-dashboard .personal-posts-link__count {
+  display: inline-block;
   overflow: hidden;
+  color: var(--dashboard-accent-pink);
   font-size: 1.14rem;
   line-height: 1.25;
   text-overflow: ellipsis;
+  transform-origin: left center;
+  transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1), color 220ms ease, text-shadow 220ms ease;
 }
 
-.home-dashboard .personal-stat__label {
+.home-dashboard .personal-posts-link__label {
   color: rgba(255, 255, 255, 0.62);
   font-size: 0.68rem;
   letter-spacing: 0.04em;
+  transition: color 220ms ease;
 }
 
-.home-dashboard .personal-stat:first-child .personal-stat__value {
-  color: #ff9ed5;
+.home-dashboard .personal-posts-link:hover .personal-posts-link__count,
+.home-dashboard .personal-posts-link:focus-visible .personal-posts-link__count {
+  color: #ffd6ef;
+  text-shadow: 0 0 12px rgba(243, 182, 223, 0.2);
+  transform: scale(1.1);
+}
+
+.home-dashboard .personal-posts-link:hover .personal-posts-link__label,
+.home-dashboard .personal-posts-link:focus-visible .personal-posts-link__label {
+  color: rgba(255, 255, 255, 0.82);
 }
 
 .home-dashboard .personal-social {
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-end;
   gap: 9px;
-  margin-top: 9px;
+  margin: 0;
 }
 
 .home-dashboard .personal-social .social-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 30px;
-  height: 30px;
-  border: none;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.08);
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 11px;
+  background: rgba(255, 255, 255, 0.055);
   color: rgba(255, 255, 255, 0.88);
-  font-size: 0.92rem;
+  font-size: 0.98rem;
+  transition: transform 220ms ease, border-color 220ms ease, background-color 220ms ease, color 220ms ease;
+}
+
+.home-dashboard .personal-social .social-icon:hover,
+.home-dashboard .personal-social .social-icon:focus-visible {
+  border-color: var(--dashboard-accent-pink-border);
+  background: rgba(255, 183, 221, 0.12);
+  color: var(--dashboard-accent-pink);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+.home-dashboard .personal-social .social-icon:hover i,
+.home-dashboard .personal-social .social-icon:focus-visible i {
+  color: var(--dashboard-accent-pink) !important;
 }
 
 .home-dashboard .dashboard-side-stack {
@@ -1090,7 +1143,7 @@ body.home-dashboard-body #page-header #nav {
 .home-dashboard .dashboard-search__input::placeholder,
 .home-dashboard .dashboard-search-results__status,
 .home-dashboard .dashboard-search-result__excerpt,
-.home-dashboard .personal-stat__label,
+.home-dashboard .personal-posts-link__label,
 .home-dashboard .weather-card__metric span {
   color: rgba(255, 255, 255, 0.68);
   text-shadow: 0 1px 3px rgba(18, 10, 30, 0.26);

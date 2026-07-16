@@ -1,4 +1,41 @@
 /* ====== 终极字体方案 ====== */
+:root {
+    /* Layout */
+    --content-max-width: 1100px;
+    --page-top-spacing: 32px;
+    --content-spacing: 24px;
+    --card-spacing: 20px;
+    --content-gap: 18px;
+
+    /* Motion */
+    --page-enter-duration: 520ms;
+    --page-enter-ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --page-enter-distance: 12px;
+    --page-stagger: 60ms;
+
+    /* Component */
+    --card-radius: 22px;
+    --profile-card-radius: 24px;
+    --glass-blur: blur(20px);
+    --glass-ui-bg: rgba(45, 40, 55, 0.65);
+    --glass-ui-bg-strong: rgba(45, 40, 55, 0.75);
+    --glass-ui-bg-hover: rgba(52, 47, 63, 0.72);
+    --glass-ui-border: none;
+    --glass-ui-outline: 1px solid rgba(255, 255, 255, 0.08);
+    --glass-ui-shadow: 0 10px 30px rgba(0, 0, 0, 0.24);
+    --glass-ui-shadow-soft: 0 8px 22px rgba(0, 0, 0, 0.18);
+    --glass-profile-bg: rgba(30, 27, 48, 0.68);
+    --glass-profile-bg-strong: rgba(24, 21, 40, 0.84);
+    --glass-profile-border: rgba(255, 255, 255, 0.16);
+
+    /* Theme */
+    --accent-color: #f3b6df;
+    --accent-border: rgba(243, 182, 223, 0.8);
+    --accent-glow: rgba(243, 182, 223, 0.35);
+    --accent-soft-glow: rgba(243, 182, 223, 0.45);
+    --spotify-black-bg: #202124;
+}
+
 body,
 #site-title,
 #site-subtitle,
@@ -88,11 +125,19 @@ body.site-video-body #page-header.post-bg::before {
 }
 
 body.site-video-body #page-header #nav {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-    background: rgba(20, 15, 35, 0.25) !important;
-    box-shadow: 0 8px 24px rgba(69, 46, 91, 0.1);
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
+    border: var(--glass-ui-border) !important;
+    border-radius: 0;
+    background: var(--glass-ui-bg) !important;
+    box-shadow: var(--glass-ui-shadow) !important;
+    backdrop-filter: var(--glass-blur) !important;
+    -webkit-backdrop-filter: var(--glass-blur) !important;
+}
+
+/* Keep the persistent navbar shell outside Butterfly's per-page header reveal. */
+html.app-shell-persistent body.site-video-body #page-header,
+html.app-shell-persistent body.site-video-body #page-header #nav.show {
+    transform: none;
+    animation: none !important;
 }
 
 body.site-video-body #page-header #nav #blog-info .nav-site-title,
@@ -269,6 +314,11 @@ body.site-video-body #body-wrap:has(.about-profile-page) #page {
     border: none;
     background: transparent;
     box-shadow: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    animation: none;
+    transition: none;
 }
 
 body.site-video-body #body-wrap:has(.about-profile-page) #pjax-page-header {
@@ -276,17 +326,26 @@ body.site-video-body #body-wrap:has(.about-profile-page) #pjax-page-header {
 }
 
 body.site-video-body #body-wrap:has(.about-profile-page) > #page-header.not-home-page {
-    height: 80px;
+    height: 70px;
+}
+
+body.site-video-body #body-wrap:has(.about-profile-page) #content-inner {
+    padding-top: var(--page-top-spacing);
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    animation: none;
+    transition: none;
 }
 
 .about-profile-page {
-    --about-glass: rgba(30, 27, 48, 0.68);
-    --about-glass-strong: rgba(24, 21, 40, 0.84);
-    --about-border: rgba(255, 255, 255, 0.16);
+    --about-glass: var(--glass-profile-bg);
+    --about-glass-strong: var(--glass-profile-bg-strong);
+    --about-border: var(--glass-profile-border);
     --about-text: rgba(255, 255, 255, 0.94);
     --about-muted: rgba(235, 232, 248, 0.68);
-    --about-pink: #f3b6df;
-    width: min(1120px, 100%);
+    --about-pink: var(--accent-color);
+    width: min(var(--content-max-width), 100%);
     margin: 0 auto;
     color: var(--about-text);
 }
@@ -295,7 +354,7 @@ body.site-video-body #body-wrap:has(.about-profile-page) > #page-header.not-home
 .about-profile-section,
 .about-profile-aside-card {
     border: 1px solid var(--about-border);
-    border-radius: 24px;
+    border-radius: var(--profile-card-radius);
     background: var(--about-glass);
     box-shadow: 0 18px 48px rgba(12, 8, 25, 0.2);
     -webkit-backdrop-filter: blur(20px);
@@ -423,7 +482,7 @@ body.site-video-body #body-wrap:has(.about-profile-page) > #page-header.not-home
 .about-profile-grid {
     display: grid;
     grid-template-columns: minmax(0, 1.55fr) minmax(250px, 0.75fr);
-    gap: 20px;
+    gap: var(--card-spacing);
     align-items: start;
     margin-top: 20px;
 }
@@ -578,7 +637,7 @@ body.site-video-body #body-wrap:has(.about-profile-page) > #page-header.not-home
 
 @media screen and (max-width: 900px) {
     body.site-video-body #body-wrap:has(.about-profile-page) #content-inner {
-        padding-top: 30px;
+        padding-top: var(--page-top-spacing);
     }
 
     .about-profile-identity {
@@ -686,8 +745,29 @@ body.site-video-body #body-wrap:has(.about-profile-page) > #page-header.not-home
     }
 }
 
-html.js #content-inner.page-animation-pending,
-html.js #content-inner.pjax-content-entering {
+@keyframes page-motion-reveal {
+    from {
+        opacity: 0.001;
+        transform: translateY(var(--page-enter-distance));
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* Non-home motion is controlled exclusively by page-motion.js. */
+html.js #body-wrap:not(.home-dashboard-page) > #content-inner,
+html.js #body-wrap:not(.home-dashboard-page) > #page-header:not(.full_page),
+html.js #body-wrap:not(.home-dashboard-page) > #page-header #site-title,
+html.js #body-wrap:not(.home-dashboard-page) > #page-header #site-subtitle {
+    transform: none;
+    animation: none !important;
+}
+
+html.js #content-inner.page-motion-pending,
+html.js #content-inner.page-motion-entering {
     opacity: 0;
     visibility: hidden;
 }
@@ -697,39 +777,30 @@ html.pjax-content-leaving #content-inner {
     transition: opacity 180ms ease;
 }
 
-html.pjax-content-leaving #content-inner:has(#ecust-journey) {
+.page-motion-item-pending,
+.page-motion-item-prerender {
+    opacity: 0;
+    transform: none;
+    pointer-events: none;
     transition: none !important;
 }
 
-.glass-card-prepare {
-    opacity: 0;
-    visibility: hidden;
+.page-motion-item-prerender {
+    opacity: 0.001;
 }
 
-.glass-card-prepare.card-ready {
-    opacity: 1;
-    visibility: visible;
-}
-
-.page-animation-item {
-    opacity: 0;
-    transform: translateY(20px);
-}
-
-.page-animation-item.page-animation-revealed {
+.page-motion-item-visible {
     opacity: 1;
     transform: none;
-    animation: page-content-reveal 700ms cubic-bezier(0.22, 1, 0.36, 1) backwards;
-    animation-delay: calc(var(--delay-index, 0) * 80ms);
+    pointer-events: auto;
+    animation: page-motion-reveal var(--page-enter-duration) var(--page-enter-ease) both;
+    animation-delay: calc(var(--page-motion-group, 0) * var(--page-stagger));
 }
 
 @media (prefers-reduced-motion: reduce) {
-    html.js #content-inner.page-animation-pending,
-    html.js #content-inner.pjax-content-entering,
-    .glass-card-prepare,
-    .glass-card-prepare.card-ready,
-    .page-animation-item,
-    .page-animation-item.page-animation-revealed {
+    .page-motion-item-pending,
+    .page-motion-item-prerender,
+    .page-motion-item-visible {
         opacity: 1;
         visibility: visible;
         transform: none;
@@ -742,18 +813,20 @@ html.pjax-content-leaving #content-inner:has(#ecust-journey) {
 #post-comment {
     width: min(100%, 960px);
     margin: 32px auto 0;
-    padding: 24px;
-    border: 1px solid rgba(243, 182, 223, 0.28);
-    border-radius: 20px;
-    background: rgba(30, 24, 45, 0.72);
-    box-shadow: 0 16px 38px rgba(15, 8, 28, 0.2);
-    -webkit-backdrop-filter: blur(20px);
-    backdrop-filter: blur(20px);
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
     box-sizing: border-box;
 }
 
 #post-comment .comment-head {
-    margin-bottom: 20px;
+    margin: 0 0 18px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 #post-comment .comment-headline,
@@ -762,30 +835,15 @@ html.pjax-content-leaving #content-inner:has(#ecust-journey) {
     color: rgba(255, 255, 255, 0.94) !important;
 }
 
-#post-comment .comment-switch {
-    border: 1px solid rgba(243, 182, 223, 0.22);
-    border-radius: 10px;
-    background: rgba(243, 182, 223, 0.08) !important;
-}
-
-#post-comment .comment-switch .first-comment,
-#post-comment .comment-switch .second-comment {
-    color: rgba(243, 182, 223, 0.9) !important;
-}
-
-#post-comment .comment-switch #switch-btn {
-    background: rgba(243, 182, 223, 0.78) !important;
-}
-
-#post-comment .comment-switch #switch-btn::before {
-    background: #fff !important;
+#post-comment .comment-headline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
 }
 
 #post-comment .comment-wrap,
 #post-comment .comment-wrap > div,
-#post-comment #giscus-wrap,
-#post-comment .giscus,
-#post-comment .giscus-frame {
+#post-comment #gitalk-container {
     width: 100%;
     max-width: 100%;
     min-width: 0;
@@ -793,58 +851,14 @@ html.pjax-content-leaving #content-inner:has(#ecust-journey) {
 }
 
 #post-comment .comment-wrap > div {
-    overflow: hidden;
-    border-radius: 16px;
-}
-
-#post-comment iframe.giscus-frame {
-    display: block;
-    min-height: 180px;
-    border: 0;
-    border-radius: 16px;
-    background: transparent;
-}
-
-#post-comment textarea,
-#post-comment input {
-    border: 1px solid rgba(243, 182, 223, 0.28);
-    border-radius: 12px;
-    background: rgba(25, 20, 37, 0.74);
-    color: rgba(255, 255, 255, 0.94);
-}
-
-#post-comment textarea::placeholder,
-#post-comment input::placeholder {
-    color: rgba(235, 232, 248, 0.52);
-}
-
-#post-comment textarea:focus,
-#post-comment input:focus {
-    border-color: rgba(243, 182, 223, 0.82);
-    outline: none;
-    box-shadow: 0 0 18px rgba(243, 182, 223, 0.3);
-}
-
-#post-comment button,
-#post-comment .btn {
-    border: 1px solid rgba(243, 182, 223, 0.35);
-    border-radius: 10px;
-    color: rgba(255, 255, 255, 0.92);
-    background: rgba(243, 182, 223, 0.12);
-    transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
-}
-
-#post-comment button:hover,
-#post-comment .btn:hover {
-    border-color: rgba(243, 182, 223, 0.76);
-    color: #fff;
-    background: rgba(243, 182, 223, 0.24);
+    overflow: visible;
+    border-radius: 0;
 }
 
 @media screen and (max-width: 768px) {
     #post-comment {
         margin-top: 24px;
-        padding: 16px;
-        border-radius: 18px;
+        padding: 0;
+        border-radius: 0;
     }
 }

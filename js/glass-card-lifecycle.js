@@ -18,22 +18,14 @@
     selectors.forEach(selector => container.querySelectorAll(selector).forEach(card => cards.add(card)))
 
     const primaryContent = container.firstElementChild
-    const isEcustPage = Boolean(container.querySelector('.ecust-page-enter'))
-    if (!isEcustPage && primaryContent?.tagName === 'DIV' && !primaryContent.classList.contains('nc')) {
+    if (primaryContent?.tagName === 'DIV' && !primaryContent.classList.contains('nc')) {
       cards.add(primaryContent)
     }
 
     return Array.from(cards)
   }
 
-  const prepare = (container) => {
-    const cards = getCards(container)
-    cards.forEach(card => {
-      card.classList.remove('card-ready')
-      card.classList.add('glass-card-prepare')
-    })
-    return cards
-  }
+  const prepare = container => getCards(container)
 
   const forceComposite = (container) => {
     const cards = getCards(container)
@@ -47,15 +39,7 @@
     return cards
   }
 
-  const ready = (container) => {
-    const cards = getCards(container)
-    cards.forEach(card => card.classList.add('card-ready'))
-    return cards
-  }
+  const ready = container => getCards(container)
 
-  const reset = (container) => {
-    getCards(container).forEach(card => card.classList.remove('glass-card-prepare', 'card-ready'))
-  }
-
-  window.GlassCardLifecycle = { getCards, prepare, forceComposite, ready, reset }
+  window.GlassCardLifecycle = { getCards, prepare, forceComposite, ready }
 })()

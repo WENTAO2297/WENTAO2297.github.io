@@ -47,7 +47,6 @@
       finished = true
       window.clearTimeout(fallbackTimer)
       spotify.removeEventListener('load', handleSpotifyReady)
-      window.GlassCardLifecycle?.reset(dashboard)
     }
 
     spotify.addEventListener('load', handleSpotifyReady, { once: true })

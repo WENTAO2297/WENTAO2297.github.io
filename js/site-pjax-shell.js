@@ -88,12 +88,13 @@
   }, true)
 
   document.addEventListener('pjax:send', () => {
-    root.classList.add('pjax-content-leaving')
+    // Navbar/Header stay mounted as the persistent App Shell during PJAX navigation.
+    root.classList.add('app-shell-persistent', 'pjax-content-leaving')
     window.closeHomeDashboardSearchResults?.()
   })
 
   document.addEventListener('pjax:complete', () => {
-    syncPersistentShell()
+    // Butterfly's PJAX complete handler calls syncPersistentShell once.
     window.requestAnimationFrame(() => {
       root.classList.remove('pjax-content-leaving')
       pendingUrl = null
