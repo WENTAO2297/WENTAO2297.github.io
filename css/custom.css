@@ -796,7 +796,7 @@ html.first-visit-pending #first-visit-loader.is-leaving {
 .first-visit-loader__content {
     display: grid;
     justify-items: center;
-    gap: 11px;
+    gap: 0;
     text-align: center;
     opacity: 0;
     transform: scale(0.985);
@@ -823,18 +823,12 @@ html.first-visit-pending #first-visit-loader.is-exiting-content .first-visit-loa
     line-height: 1;
 }
 
-.first-visit-loader__subtitle {
-    color: rgba(235, 232, 248, 0.68);
-    font-size: 0.75rem;
-    letter-spacing: 0.12em;
-}
-
 .first-visit-loader__progress {
     position: relative;
     display: block;
     width: min(236px, 58vw);
     height: 3px;
-    margin-top: 16px;
+    margin-top: 18px;
     overflow: hidden;
     border-radius: 999px;
     background: rgba(214, 205, 237, 0.13);
