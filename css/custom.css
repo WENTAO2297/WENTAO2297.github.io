@@ -272,8 +272,6 @@ body.site-video-body #post-info .post-title,
 body.site-video-body #body-wrap:not(.type-ecust):not(.home-dashboard-page) #content-inner h1,
 body.site-video-body #body-wrap:not(.type-ecust):not(.home-dashboard-page) #content-inner h2,
 body.site-video-body #body-wrap:not(.type-ecust):not(.home-dashboard-page) #content-inner h3,
-body.site-video-body #body-wrap:not(.type-ecust):not(.home-dashboard-page) .article-sort-title,
-body.site-video-body #body-wrap:not(.type-ecust):not(.home-dashboard-page) .article-sort-item.year,
 body.site-video-body #aside-content .item-headline {
     color: var(--site-text-primary) !important;
     text-shadow: var(--site-text-shadow);
@@ -283,22 +281,15 @@ body.site-video-body #body-wrap:not(.type-ecust):not(.home-dashboard-page) #arti
 body.site-video-body #body-wrap:not(.type-ecust):not(.home-dashboard-page) #article-container > ul,
 body.site-video-body #body-wrap:not(.type-ecust):not(.home-dashboard-page) #article-container > ol,
 body.site-video-body #body-wrap:not(.type-ecust):not(.home-dashboard-page) #article-container blockquote,
-body.site-video-body #body-wrap:not(.type-ecust):not(.home-dashboard-page) .category-list-link,
-body.site-video-body #body-wrap:not(.type-ecust):not(.home-dashboard-page) .article-sort-item-title,
 body.site-video-body #aside-content .aside-list-item .title,
-body.site-video-body #aside-content .card-category-list-link,
-body.site-video-body #aside-content .card-archive-list-link {
+body.site-video-body #aside-content .aside-list-item .title {
     color: var(--site-text-secondary) !important;
     text-shadow: 0 1px 3px rgba(18, 10, 30, 0.32);
 }
 
 body.site-video-body #post-info #post-meta,
 body.site-video-body #post-info #post-meta a,
-body.site-video-body #body-wrap:not(.type-ecust):not(.home-dashboard-page) .article-sort-item-time,
-body.site-video-body #body-wrap:not(.type-ecust):not(.home-dashboard-page) .category-list-count,
 body.site-video-body #aside-content time,
-body.site-video-body #aside-content .card-category-list-count,
-body.site-video-body #aside-content .card-archive-list-count,
 body.site-video-body #aside-content .toc-text {
     color: var(--site-text-muted) !important;
     text-shadow: 0 1px 3px rgba(18, 10, 30, 0.28);
