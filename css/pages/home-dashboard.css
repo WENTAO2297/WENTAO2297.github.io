@@ -1092,9 +1092,10 @@ body.home-dashboard-body #web_bg {
   font-weight: 600;
 }
 
-.home-dashboard .website-status__separator {
-  margin: 0 8px;
-  color: rgba(255, 214, 239, 0.42);
+.home-dashboard .website-status__last-update {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
 
 /* --- 复杂视频背景上的文字可读性层级 --- */
