@@ -12,6 +12,27 @@ body.site-video-body #body-wrap.post {
     --post-nav-offset: 88px;
 }
 
+@media (min-width: 901px) {
+    body.site-video-body #body-wrap.post > #content-inner.layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 230px;
+        align-items: start;
+        gap: 20px;
+        width: min(1000px, calc(100% - 40px));
+        max-width: 1000px;
+    }
+
+    body.site-video-body #body-wrap.post > #content-inner.layout > #post,
+    body.site-video-body #body-wrap.post > #content-inner.layout > #aside-content {
+        min-width: 0;
+        width: 100%;
+    }
+
+    body.site-video-body #body-wrap.post > #content-inner.layout > #aside-content {
+        padding-inline: 0;
+    }
+}
+
 body.site-video-body #body-wrap.post #post {
     min-width: 0;
     border: var(--post-shell-border);
@@ -201,6 +222,17 @@ body.site-video-body #body-wrap.post #article-container pre {
     overflow-x: auto;
 }
 
+body.site-video-body #body-wrap.post #article-container iframe,
+body.site-video-body #body-wrap.post #article-container video,
+body.site-video-body #body-wrap.post #article-container mjx-container {
+    max-width: 100%;
+}
+
+body.site-video-body #body-wrap.post #article-container mjx-container[display='true'] {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
 body.site-video-body #body-wrap.post #article-container figure.highlight pre,
 body.site-video-body #body-wrap.post #article-container .highlight pre {
     margin: 0;
@@ -307,7 +339,9 @@ body.site-video-body #body-wrap.post #aside-content #card-toc {
 }
 
 body.site-video-body #body-wrap.post #aside-content #card-toc .toc-content {
+    min-width: 0;
     max-height: calc(100vh - 160px);
+    overflow-x: hidden;
     scrollbar-color: rgba(243, 182, 223, 0.32) transparent;
     scrollbar-width: thin;
 }
@@ -326,12 +360,22 @@ body.site-video-body #body-wrap.post #aside-content #card-toc .toc-content::-web
 }
 
 body.site-video-body #body-wrap.post #aside-content #card-toc .toc-link {
+    min-width: 0;
+    white-space: normal;
     overflow-wrap: anywhere;
+    word-break: break-word;
     border-left: 3px solid transparent;
     border-radius: 0 6px 6px 0;
     color: var(--post-muted);
     padding: 5px 10px;
     transition: color 220ms ease, background 220ms ease, border-color 220ms ease;
+}
+
+body.site-video-body #body-wrap.post #aside-content #card-toc .toc-text {
+    min-width: 0;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
 }
 
 body.site-video-body #body-wrap.post #aside-content #card-toc .toc-item.toc-level-1 + .toc-item.toc-level-1 {

@@ -3,43 +3,11 @@
 
   const root = document.documentElement
   const controlledBodyClasses = ['site-video-body', 'home-dashboard-body']
-  const isManagedBodyWrapClass = className => (
-    className === 'post' ||
-    className === 'page' ||
-    className === 'hide-aside' ||
-    className === 'home-dashboard-page' ||
-    className.startsWith('type-')
-  )
   let pendingUrl = null
-  let navigationSequence = 0
-  let scheduledSync = false
 
   const normalizePath = (path) => {
-    let value = String(path || '/')
-    try {
-      value = new URL(value, window.location.origin).pathname
-    } catch (error) {
-      // Keep the raw path for the small, local values used by the data attributes.
-    }
-
-    const normalized = value.replace(/\/index\.html$/, '/').replace(/\/+$/, '')
+    const normalized = path.replace(/\/index\.html$/, '/').replace(/\/+$/, '')
     return normalized || '/'
-  }
-
-  const getEventPath = event => {
-    const detail = event?.detail || {}
-    const request = detail.request || {}
-    const candidate = detail.url || detail.href || request.responseURL || request.url
-    return candidate ? normalizePath(candidate) : null
-  }
-
-  const scheduleSync = () => {
-    if (scheduledSync) return
-    scheduledSync = true
-    window.requestAnimationFrame(() => {
-      scheduledSync = false
-      syncPersistentShell()
-    })
   }
 
   const isCurrentNavigation = (link, currentPath) => {
@@ -72,37 +40,12 @@
     const headerState = document.getElementById('pjax-page-header')
 
     if (content) {
-      const currentPath = normalizePath(window.location.pathname)
-      const contentPath = content.dataset.pagePath ? normalizePath(content.dataset.pagePath) : null
-
-      // A stale PJAX response must never update the shell for the current URL.
-      // If history is updated one task after pjax:complete, retry once on the next frame.
-      if (contentPath && contentPath !== currentPath) {
-        scheduleSync()
-        return false
-      }
-
       const nextBodyClasses = new Set((content.dataset.bodyClass || '').split(/\s+/).filter(Boolean))
       controlledBodyClasses.forEach(className => {
         document.body.classList.toggle(className, nextBodyClasses.has(className))
       })
 
-      if (bodyWrap) {
-        const nextBodyWrapClasses = new Set((content.dataset.bodyWrapClass || '').split(/\s+/).filter(Boolean))
-        Array.from(bodyWrap.classList).forEach(className => {
-          if (isManagedBodyWrapClass(className)) bodyWrap.classList.remove(className)
-        })
-        nextBodyWrapClasses.forEach(className => bodyWrap.classList.add(className))
-
-        // An article with an aside is always a two-column post. This is a
-        // lifecycle guard for stale hide-aside state, not a CSS layout override.
-        if (content.querySelector('#post') && content.querySelector('#aside-content')) {
-          bodyWrap.classList.remove('hide-aside')
-          bodyWrap.classList.add('post')
-        }
-      }
-    } else {
-      return false
+      if (bodyWrap) bodyWrap.className = content.dataset.bodyWrapClass || ''
     }
 
     if (header && headerState) {
@@ -121,17 +64,10 @@
     }
 
     updateNavigation()
-    return true
   }
 
   window.syncPersistentShell = syncPersistentShell
   syncPersistentShell()
-
-  const persistentBodyWrap = document.getElementById('body-wrap')
-  if (persistentBodyWrap && window.MutationObserver) {
-    const observer = new MutationObserver(() => syncPersistentShell())
-    observer.observe(persistentBodyWrap, { childList: true })
-  }
 
   document.addEventListener('click', event => {
     if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return
@@ -151,20 +87,15 @@
     pendingUrl = window.location.href
   }, true)
 
-  document.addEventListener('pjax:send', event => {
+  document.addEventListener('pjax:send', () => {
     // Navbar/Header stay mounted as the persistent App Shell during PJAX navigation.
-    navigationSequence += 1
-    const eventPath = getEventPath(event)
-    if (eventPath) pendingUrl = new URL(eventPath, window.location.origin).href
     root.classList.add('app-shell-persistent', 'pjax-content-leaving')
     window.closeHomeDashboardSearchResults?.()
   })
 
   document.addEventListener('pjax:complete', () => {
     // Butterfly's PJAX complete handler calls syncPersistentShell once.
-    const completedSequence = navigationSequence
     window.requestAnimationFrame(() => {
-      if (completedSequence !== navigationSequence) return
       root.classList.remove('pjax-content-leaving')
       pendingUrl = null
     })
