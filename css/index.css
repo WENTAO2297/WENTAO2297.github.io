@@ -2090,15 +2090,15 @@ figure.highlight pre .javascript .function {
     width: 100% !important;
   }
 }
-#body-wrap.hide-aside:not(.post) > .layout {
+.layout.hide-aside {
   max-width: 1000px;
 }
 @media screen and (min-width: 2000px) {
-  #body-wrap.hide-aside:not(.post) > .layout {
+  .layout.hide-aside {
     max-width: 1300px;
   }
 }
-#body-wrap.hide-aside:not(.post) > .layout > div {
+.layout.hide-aside > div {
   width: 100% !important;
 }
 .apple #page-header.full_page {

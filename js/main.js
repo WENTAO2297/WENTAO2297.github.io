@@ -23,20 +23,109 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // sidebar menus
+  let mobileSidebarScrollY = 0
   const sidebarFn = {
     open: () => {
+      if (mobileSidebarOpen) return
+      mobileSidebarScrollY = window.scrollY
       btf.overflowPaddingR.add()
-      btf.animateIn(document.getElementById('menu-mask'), 'to_show 0.5s')
-      document.getElementById('sidebar-menus').classList.add('open')
+      document.documentElement.classList.add('mobile-sidebar-open')
+      document.body.classList.add('mobile-sidebar-open')
+      document.getElementById('menu-mask')?.classList.add('open')
+      document.getElementById('sidebar-menus')?.classList.add('open')
+      document.getElementById('toggle-menu')?.setAttribute('aria-expanded', 'true')
       mobileSidebarOpen = true
     },
     close: () => {
+      if (!mobileSidebarOpen) return
       btf.overflowPaddingR.remove()
-      btf.animateOut(document.getElementById('menu-mask'), 'to_hide 0.5s')
-      document.getElementById('sidebar-menus').classList.remove('open')
+      document.getElementById('menu-mask')?.classList.remove('open')
+      document.getElementById('sidebar-menus')?.classList.remove('open')
+      document.documentElement.classList.remove('mobile-sidebar-open')
+      document.body.classList.remove('mobile-sidebar-open')
+      document.getElementById('toggle-menu')?.setAttribute('aria-expanded', 'false')
       mobileSidebarOpen = false
+      window.scrollTo(0, mobileSidebarScrollY)
     }
   }
+
+  const mobileToc = (() => {
+    const rootClass = 'mobile-toc-open'
+    const mobileBreakpoint = 900
+    let isMobileViewport = window.innerWidth <= mobileBreakpoint
+
+    const getElements = () => ({
+      button: document.getElementById('mobile-toc-button'),
+      toc: document.getElementById('card-toc')
+    })
+
+    const removeMask = () => {
+      document.getElementById('mobile-toc-mask')?.remove()
+    }
+
+    const updateAccessibility = (isOpen = false) => {
+      const { button, toc } = getElements()
+      button?.setAttribute('aria-expanded', String(isOpen))
+      button?.classList.toggle('is-active', isOpen)
+
+      if (!toc) return
+      if (window.innerWidth <= mobileBreakpoint) toc.setAttribute('aria-hidden', String(!isOpen))
+      else toc.removeAttribute('aria-hidden')
+    }
+
+    const close = () => {
+      const { toc } = getElements()
+      toc?.classList.remove('open')
+      document.documentElement.classList.remove(rootClass)
+      updateAccessibility(false)
+      removeMask()
+    }
+
+    const createMask = () => {
+      removeMask()
+      const mask = document.createElement('div')
+      mask.id = 'mobile-toc-mask'
+      mask.setAttribute('aria-hidden', 'true')
+      mask.addEventListener('click', close, { once: true })
+      const host = document.getElementById('body-wrap') || document.body
+      host.appendChild(mask)
+    }
+
+    const open = () => {
+      if (window.innerWidth > mobileBreakpoint) return
+
+      const { button, toc } = getElements()
+      if (!(button && toc)) return
+
+      createMask()
+      toc.classList.add('open')
+      document.documentElement.classList.add(rootClass)
+      updateAccessibility(true)
+    }
+
+    const toggle = () => {
+      const { toc } = getElements()
+      if (!toc) return
+      toc.classList.contains('open') ? close() : open()
+    }
+
+    const reset = () => {
+      close()
+      isMobileViewport = window.innerWidth <= mobileBreakpoint
+      updateAccessibility(false)
+    }
+
+    const handleResize = () => {
+      const nextIsMobile = window.innerWidth <= mobileBreakpoint
+      if (nextIsMobile !== isMobileViewport) close()
+      isMobileViewport = nextIsMobile
+      const { toc } = getElements()
+      updateAccessibility(nextIsMobile && toc?.classList.contains('open'))
+    }
+
+    return { close, handleResize, reset, toggle }
+  })()
+  window.toggleMobileToc = mobileToc.toggle
 
   /**
    * 首頁top_img底下的箭頭
@@ -517,8 +606,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         e.preventDefault()
         btf.scrollToDest(btf.getEleTop(document.getElementById(decodeURI(target.getAttribute('href')).replace('#', ''))), 300)
-        if (window.innerWidth < 900) {
-          $cardTocLayout.classList.remove('open')
+        if (window.innerWidth <= 900) {
+          mobileToc.close()
         }
       }
 
@@ -669,23 +758,6 @@ document.addEventListener('DOMContentLoaded', () => {
       btf.saveToLocal.set('aside-status', saveStatus, 2)
       $htmlDom.toggle('hide-aside')
     },
-    'mobile-toc-button': (p, item) => { // Show mobile toc
-      const tocEle = document.getElementById('card-toc')
-      tocEle.style.transition = 'transform 0.3s ease-in-out'
-
-      const tocEleHeight = tocEle.clientHeight
-      const btData = item.getBoundingClientRect()
-
-      const tocEleBottom = window.innerHeight - btData.bottom - 30
-      if (tocEleHeight > tocEleBottom) {
-        tocEle.style.transformOrigin = `right ${tocEleHeight - tocEleBottom - btData.height / 2}px`
-      }
-
-      tocEle.classList.toggle('open')
-      tocEle.addEventListener('transitionend', () => {
-        tocEle.style.cssText = ''
-      }, { once: true })
-    },
     'chat-btn': () => { // Show chat
       window.chatBtnFn()
     },
@@ -708,8 +780,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const clickFnOfSubMenu = () => {
     const handleClickOfSubMenu = e => {
       const target = e.target.closest('.site-page.group')
-      if (!target) return
-      target.classList.toggle('hide')
+      if (target) {
+        target.classList.toggle('hide')
+        return
+      }
+
+      if (e.target.closest('#sidebar-menus a.site-page')) sidebarFn.close()
     }
 
     const menusItems = document.querySelector('#sidebar-menus .menus_items')
@@ -722,7 +798,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const openMobileMenu = () => {
     const toggleMenu = document.getElementById('toggle-menu')
     if (!toggleMenu) return
+    toggleMenu.setAttribute('aria-controls', 'sidebar-menus')
+    toggleMenu.setAttribute('aria-expanded', 'false')
     btf.addEventListenerPjax(toggleMenu, 'click', () => { sidebarFn.open() })
+
+    const closeButton = document.getElementById('mobile-menu-close')
+    closeButton && btf.addEventListenerPjax(closeButton, 'click', () => { sidebarFn.close() })
   }
 
   /**
@@ -898,10 +979,26 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', () => {
       adjustMenu(false)
       mobileSidebarOpen && btf.isHidden(document.getElementById('toggle-menu')) && sidebarFn.close()
+      mobileToc.handleResize()
     })
 
+    window.addEventListener('popstate', () => {
+      mobileToc.close()
+      sidebarFn.close()
+    })
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        mobileToc.close()
+        sidebarFn.close()
+      }
+    })
+    btf.addGlobalFn('pjaxSend', mobileToc.close, 'mobileTocClose')
+    btf.addGlobalFn('pjaxSend', sidebarFn.close, 'mobileSidebarClose')
+
     const menuMask = document.getElementById('menu-mask')
-    menuMask && menuMask.addEventListener('click', () => { sidebarFn.close() })
+    menuMask && menuMask.addEventListener('click', e => {
+      if (e.target === menuMask) sidebarFn.close()
+    })
 
     clickFnOfSubMenu()
     GLOBAL_CONFIG.islazyloadPlugin && lazyloadImg()
@@ -927,6 +1024,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const refreshFn = () => {
+    mobileToc.reset()
     initAdjust()
     justifiedIndexPostUI()
 
