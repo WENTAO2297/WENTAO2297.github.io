@@ -66,11 +66,6 @@
   
       
       
-      const asideStatus = saveToLocal.get('aside-status')
-      if (asideStatus !== undefined) {
-        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
-      }
-    
       
     const detectApple = () => {
       if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
@@ -185,7 +180,7 @@
 </aside>
 </div>
 </div>
-</div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="gitalk-container" data-gitalk-client-id="Ov23lifO1LE4R4z1TQTv" data-gitalk-client-secret="server-side-secret" data-gitalk-repo="blog-comments" data-gitalk-owner="WENTAO2297" data-gitalk-admin="WENTAO2297" data-gitalk-proxy="https://wentao-gitalk-oauth.wentao-gitalk.workers.dev" data-gitalk-language="zh-CN" data-gitalk-per-page="10" data-gitalk-pager-direction="last" data-gitalk-labels="Gitalk,Blog Comment" data-gitalk-site-url="https://wentao2297.github.io" data-gitalk-js="https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.min.js" data-gitalk-css="https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.min.css" data-gitalk-theme-css="/css/gitalk-theme.css"></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By 文韬</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.3-b2</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"></div><div id="rightside-config-show"><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.3-b2"></script><script src="/js/main.js?v=5.5.3-b2"></script><div class="js-pjax"><script>(() => {
+</div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="gitalk-container" data-gitalk-client-id="Ov23lifO1LE4R4z1TQTv" data-gitalk-client-secret="server-side-secret" data-gitalk-repo="blog-comments" data-gitalk-owner="WENTAO2297" data-gitalk-admin="WENTAO2297" data-gitalk-proxy="https://wentao-gitalk-oauth.wentao-gitalk.workers.dev" data-gitalk-language="zh-CN" data-gitalk-per-page="10" data-gitalk-pager-direction="last" data-gitalk-labels="Gitalk,Blog Comment" data-gitalk-site-url="https://wentao2297.github.io" data-gitalk-js="https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.min.js" data-gitalk-css="https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.min.css" data-gitalk-theme-css="/css/gitalk-theme.css"></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By 文韬</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.1</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.3-b2</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-show"><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.3-b2"></script><script src="/js/main.js?v=5.5.3-b2"></script><div class="js-pjax"><script>(() => {
   const loadMathjax = () => {
     if (!window.MathJax) {
       window.MathJax = {
@@ -260,7 +255,7 @@
   btf.addGlobalFn('encrypt', loadMathjax, 'mathjax')
   window.pjax ? loadMathjax() : window.addEventListener('load', loadMathjax)
 })()</script><script data-pjax src="/js/gitalk-comments.js" defer></script></div><script src="/js/site-pjax-shell.js" defer></script><script src="/js/page-motion.js" defer></script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script>(() => {
-  const pjaxSelectors = ["head > title","#config-diff","#pjax-page-header","#content-inner","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+  const pjaxSelectors = ["head > title","#config-diff","#pjax-page-header","#content-inner","#rightside-config-show",".js-pjax"]
 
   window.pjax = new Pjax({
     elements: 'a:not([target="_blank"]):not([download]):not([href^="#"]):not([href^="mailto:"]):not([href^="tel:"]):not([data-no-pjax]):not([href="/404.html"])',

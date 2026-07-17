@@ -317,7 +317,6 @@ body.site-video-body #body-wrap:has(.about-profile-page) #page {
     opacity: 1;
     visibility: visible;
     transform: none;
-    animation: none;
     transition: none;
 }
 
@@ -334,7 +333,6 @@ body.site-video-body #body-wrap:has(.about-profile-page) #content-inner {
     opacity: 1;
     visibility: visible;
     transform: none;
-    animation: none;
     transition: none;
 }
 
@@ -763,7 +761,6 @@ html.js #body-wrap:not(.home-dashboard-page) > #page-header:not(.full_page),
 html.js #body-wrap:not(.home-dashboard-page) > #page-header #site-title,
 html.js #body-wrap:not(.home-dashboard-page) > #page-header #site-subtitle {
     transform: none;
-    animation: none !important;
 }
 
 html.js #content-inner.page-motion-pending,

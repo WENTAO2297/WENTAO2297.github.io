@@ -35,7 +35,7 @@
             title: entry.querySelector('title')?.textContent?.trim() || '',
             content: stripHtml(entry.querySelector('content')?.textContent || ''),
             description: entryMetadata.description || '',
-            tags: entryMetadata.tags || [],
+            sectionLabel: entryMetadata.sectionLabel || '',
             url
           }
         }).filter(entry => entry.title && entry.url)
@@ -76,7 +76,7 @@
 
     const results = entries.map(entry => {
       const title = entry.title.toLocaleLowerCase()
-      const content = `${entry.description} ${entry.tags.join(' ')} ${entry.content}`.toLocaleLowerCase()
+      const content = `${entry.description} ${entry.sectionLabel} ${entry.content}`.toLocaleLowerCase()
       const matchedKeywords = keywords.filter(keyword => title.includes(keyword) || content.includes(keyword))
       if (!matchedKeywords.length) return null
 
