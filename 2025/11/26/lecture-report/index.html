@@ -342,7 +342,7 @@
   btf.addGlobalFn('pjaxSendOnce', clearMathjax, 'mathjax-clear')
   btf.addGlobalFn('encrypt', loadMathjax, 'mathjax')
   window.pjax ? loadMathjax() : window.addEventListener('load', loadMathjax)
-})()</script><script data-pjax src="/js/gitalk-comments.js" defer></script></div><script src="/js/site-pjax-shell.js" defer></script><script src="/js/page-motion.js" defer></script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script>(() => {
+})()</script><script data-pjax src="/js/gitalk-comments.js" defer></script></div><script src="/js/site-pjax-shell.js" defer></script><script src="/js/internal-page-prefetch.js" defer></script><script src="/js/page-motion.js" defer></script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script>(() => {
   const pjaxSelectors = ["head > title","#config-diff","#pjax-page-header","#content-inner","#rightside-config-show",".js-pjax"]
 
   window.pjax = new Pjax({

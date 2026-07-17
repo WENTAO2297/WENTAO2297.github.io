@@ -762,7 +762,15 @@ html.js #content-inner.page-motion-entering {
 
 html.pjax-content-leaving #content-inner {
     opacity: 0;
+    pointer-events: none;
     transition: opacity 180ms ease;
+}
+
+html.pjax-content-preparing #content-inner {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: none;
 }
 
 .page-motion-item-pending,

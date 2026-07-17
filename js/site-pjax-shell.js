@@ -3,7 +3,9 @@
 
   const root = document.documentElement
   const controlledBodyClasses = ['site-video-body', 'home-dashboard-body']
+  const stylesheetTimeout = 900
   let pendingUrl = null
+  let navigationGeneration = 0
 
   const normalizePath = (path) => {
     const normalized = path.replace(/\/index\.html$/, '/').replace(/\/+$/, '')
@@ -30,6 +32,52 @@
       link.classList.toggle('active', active)
       if (active) link.setAttribute('aria-current', 'page')
       else link.removeAttribute('aria-current')
+    })
+  }
+
+  const waitForStylesheet = stylesheet => new Promise(resolve => {
+    try {
+      if (stylesheet.sheet) {
+        resolve()
+        return
+      }
+    } catch (error) {
+      // The load/error events and timeout below remain authoritative.
+    }
+
+    let settled = false
+    let timeout = null
+    const finish = () => {
+      if (settled) return
+      settled = true
+      stylesheet.removeEventListener('load', finish)
+      stylesheet.removeEventListener('error', finish)
+      if (timeout) window.clearTimeout(timeout)
+      resolve()
+    }
+
+    stylesheet.addEventListener('load', finish, { once: true })
+    stylesheet.addEventListener('error', finish, { once: true })
+    timeout = window.setTimeout(finish, stylesheetTimeout)
+  })
+
+  const waitForContentStyles = content => {
+    const stylesheets = content
+      ? Array.from(content.querySelectorAll('link[rel="stylesheet"]'))
+      : []
+
+    return Promise.all(stylesheets.map(waitForStylesheet))
+  }
+
+  const revealPreparedContent = async generation => {
+    const content = document.getElementById('content-inner')
+    await waitForContentStyles(content)
+    if (generation !== navigationGeneration || content !== document.getElementById('content-inner')) return
+
+    window.requestAnimationFrame(() => {
+      if (generation !== navigationGeneration || content !== document.getElementById('content-inner')) return
+      root.classList.remove('pjax-content-preparing', 'pjax-content-leaving')
+      pendingUrl = null
     })
   }
 
@@ -89,20 +137,20 @@
 
   document.addEventListener('pjax:send', () => {
     // Navbar/Header stay mounted as the persistent App Shell during PJAX navigation.
+    navigationGeneration += 1
     root.classList.add('app-shell-persistent', 'pjax-content-leaving')
     window.closeHomeDashboardSearchResults?.()
   })
 
   document.addEventListener('pjax:complete', () => {
-    // Butterfly's PJAX complete handler calls syncPersistentShell once.
-    window.requestAnimationFrame(() => {
-      root.classList.remove('pjax-content-leaving')
-      pendingUrl = null
-    })
+    // Butterfly syncs the persistent shell first; content stays gated until its local CSS is ready.
+    root.classList.add('pjax-content-preparing')
+    revealPreparedContent(navigationGeneration)
   })
 
   document.addEventListener('pjax:error', () => {
-    root.classList.remove('pjax-content-leaving')
+    navigationGeneration += 1
+    root.classList.remove('pjax-content-preparing', 'pjax-content-leaving')
     window.location.href = pendingUrl || window.location.href
   })
 })()
