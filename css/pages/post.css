@@ -15,11 +15,12 @@ body.site-video-body #body-wrap.post {
 @media (min-width: 901px) {
     body.site-video-body #body-wrap.post > #content-inner.layout {
         display: grid;
-        grid-template-columns: minmax(0, 1fr) 230px;
+        grid-template-columns: minmax(0, 860px) 240px;
         align-items: start;
         gap: 20px;
-        width: min(1000px, calc(100% - 40px));
-        max-width: 1000px;
+        width: min(1120px, calc(100% - 40px));
+        max-width: 1120px;
+        padding-inline: 0;
     }
 
     body.site-video-body #body-wrap.post > #content-inner.layout > #post,
@@ -30,6 +31,12 @@ body.site-video-body #body-wrap.post {
 
     body.site-video-body #body-wrap.post > #content-inner.layout > #aside-content {
         padding-inline: 0;
+    }
+}
+
+@media (min-width: 901px) and (max-width: 1179px) {
+    body.site-video-body #body-wrap.post > #content-inner.layout {
+        grid-template-columns: minmax(0, 1fr) 240px;
     }
 }
 
