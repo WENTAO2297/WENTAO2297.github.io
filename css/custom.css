@@ -891,14 +891,14 @@ html.pjax-content-leaving #content-inner {
         opacity: 0;
         visibility: hidden;
         pointer-events: none;
-        transition: opacity 130ms ease, visibility 130ms ease;
+        transition: opacity 190ms ease-out, visibility 190ms ease-out;
     }
 
     #sidebar #menu-mask.open {
         opacity: 1;
         visibility: visible;
         pointer-events: auto;
-        transition: opacity 180ms ease, visibility 180ms ease;
+        transition: opacity 240ms ease, visibility 240ms ease;
     }
 
     #sidebar #sidebar-menus {
@@ -924,8 +924,8 @@ html.pjax-content-leaving #content-inner {
         opacity: 0;
         visibility: hidden;
         pointer-events: none;
-        transform: scale(0.985);
-        transition: opacity 130ms ease, visibility 130ms ease;
+        transform: scale(0.975);
+        transition: opacity 190ms ease-out, visibility 190ms ease-out;
     }
 
     #sidebar #sidebar-menus.open {
@@ -933,7 +933,7 @@ html.pjax-content-leaving #content-inner {
         visibility: visible;
         pointer-events: auto;
         transform: scale(1);
-        transition: opacity 180ms ease, transform 180ms cubic-bezier(0.22, 1, 0.36, 1), visibility 180ms ease;
+        transition: opacity 280ms cubic-bezier(0.22, 1, 0.36, 1), transform 280ms cubic-bezier(0.22, 1, 0.36, 1), visibility 280ms cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     #sidebar #sidebar-menus .mobile-menu-close {
