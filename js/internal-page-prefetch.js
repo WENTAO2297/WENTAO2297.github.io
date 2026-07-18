@@ -6,6 +6,8 @@
 
   const targetPaths = new Set(['/about/', '/ecust/', '/notes/'])
   const prefetched = new Set()
+  const aboutBannerTimeout = 1200
+  let disposeAboutBanner = null
 
   const normalizePath = path => {
     const normalized = path.replace(/\/index\.html$/, '/').replace(/\/+$/, '')
@@ -68,6 +70,85 @@
     }
   }
 
+  const prepareAboutBanner = () => {
+    disposeAboutBanner?.()
+    disposeAboutBanner = null
+
+    const image = document.querySelector('.about-profile-banner__image')
+    const banner = image?.closest('.about-profile-banner')
+    if (!image || !banner) return
+
+    let disposed = false
+    let ready = false
+    let timeout = null
+
+    const setState = state => {
+      banner.classList.remove('is-image-loading', 'is-image-ready', 'is-image-fallback')
+      banner.classList.add(`is-image-${state}`)
+      if (state === 'loading') banner.setAttribute('aria-busy', 'true')
+      else banner.removeAttribute('aria-busy')
+    }
+
+    const removeListeners = () => {
+      image.removeEventListener('load', handleLoad)
+      image.removeEventListener('error', handleError)
+    }
+
+    const clearTimeoutFallback = () => {
+      if (!timeout) return
+      window.clearTimeout(timeout)
+      timeout = null
+    }
+
+    const markReady = async () => {
+      if (disposed || ready || image.naturalWidth === 0) return
+
+      try {
+        if (typeof image.decode === 'function') await image.decode()
+      } catch (error) {
+        // A successful load can still be displayed when decode() rejects.
+      }
+
+      if (disposed || !image.isConnected || image.naturalWidth === 0) return
+      ready = true
+      clearTimeoutFallback()
+      removeListeners()
+      setState('ready')
+    }
+
+    const markFallback = () => {
+      if (disposed || ready) return
+      setState('fallback')
+    }
+
+    function handleLoad () {
+      markReady()
+    }
+
+    function handleError () {
+      clearTimeoutFallback()
+      removeListeners()
+      markFallback()
+    }
+
+    setState('loading')
+    image.addEventListener('load', handleLoad)
+    image.addEventListener('error', handleError)
+    timeout = window.setTimeout(markFallback, aboutBannerTimeout)
+
+    if (image.complete) {
+      if (image.naturalWidth > 0) markReady()
+      else handleError()
+    }
+
+    disposeAboutBanner = () => {
+      disposed = true
+      clearTimeoutFallback()
+      removeListeners()
+      banner.removeAttribute('aria-busy')
+    }
+  }
+
   document.addEventListener('pointerover', event => {
     if (!isDesktop()) return
     const path = getTargetPath(event.target)
@@ -85,7 +166,14 @@
     if (path) prefetch(path)
   })
 
-  const startIdlePrefetch = () => scheduleIdlePrefetch()
+  document.addEventListener('pjax:send', () => disposeAboutBanner?.())
+  document.addEventListener('pjax:complete', prepareAboutBanner)
+  window.addEventListener('pageshow', prepareAboutBanner)
+
+  const startIdlePrefetch = () => {
+    scheduleIdlePrefetch()
+    prepareAboutBanner()
+  }
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', startIdlePrefetch, { once: true })
   } else {

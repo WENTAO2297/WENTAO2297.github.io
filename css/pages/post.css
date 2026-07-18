@@ -335,11 +335,6 @@ body.site-video-body #body-wrap.post #aside-content .card-widget {
     -webkit-backdrop-filter: var(--glass-blur);
 }
 
-/* Article reading keeps only author context and the table of contents. */
-body.site-video-body #body-wrap.post #aside-content .card-recent-post {
-    display: none;
-}
-
 @media (min-width: 901px) {
     body.site-video-body #body-wrap.post #aside-content .sticky_layout {
         position: sticky;

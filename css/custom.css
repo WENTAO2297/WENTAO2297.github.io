@@ -281,7 +281,6 @@ body.site-video-body #body-wrap:not(.type-ecust):not(.home-dashboard-page) #arti
 body.site-video-body #body-wrap:not(.type-ecust):not(.home-dashboard-page) #article-container > ul,
 body.site-video-body #body-wrap:not(.type-ecust):not(.home-dashboard-page) #article-container > ol,
 body.site-video-body #body-wrap:not(.type-ecust):not(.home-dashboard-page) #article-container blockquote,
-body.site-video-body #aside-content .aside-list-item .title,
 body.site-video-body #aside-content .aside-list-item .title {
     color: var(--site-text-secondary) !important;
     text-shadow: 0 1px 3px rgba(18, 10, 30, 0.32);
@@ -360,6 +359,7 @@ body.site-video-body #body-wrap:has(.about-profile-page) #content-inner {
     height: clamp(240px, 31vw, 360px);
     overflow: hidden;
     border-radius: 24px 24px 0 0;
+    background: linear-gradient(135deg, rgba(52, 40, 72, 0.96), rgba(25, 20, 43, 0.94));
     isolation: isolate;
 }
 
@@ -375,6 +375,20 @@ body.site-video-body #body-wrap:has(.about-profile-page) #content-inner {
     display: block;
     object-fit: cover;
     object-position: center 54%;
+}
+
+.about-profile-banner__image {
+    opacity: 1;
+    transition: opacity 240ms ease;
+}
+
+.about-profile-banner.is-image-loading .about-profile-banner__image,
+.about-profile-banner.is-image-fallback .about-profile-banner__image {
+    opacity: 0;
+}
+
+.about-profile-banner.is-image-ready .about-profile-banner__image {
+    opacity: 1;
 }
 
 .about-profile-banner__shade {
