@@ -21,7 +21,8 @@
     frames: new Set(),
     styleCleanups: [],
     useGlassLifecycle: false,
-    generation: 0
+    generation: 0,
+    replayGeneration: 0
   }
 
   const uniqueElements = elements => Array.from(new Set(elements.filter(Boolean)))
@@ -49,7 +50,8 @@
   const planAbout = container => {
     const root = container.querySelector('.about-profile-page')
     const hero = queryAll(root, '.about-profile-hero')
-    const content = queryAll(root, '.about-profile-section, .about-profile-aside-card')
+    const activePanel = root?.querySelector('.about-profile-panel:not([hidden])') || root
+    const content = queryAll(activePanel, '.about-profile-section, .about-profile-aside-card, .about-profile-blog-card')
 
     return {
       groups: [hero, content, []],
@@ -173,6 +175,7 @@
     runtime.frames.clear()
     runtime.styleCleanups.splice(0).forEach(cleanupStyle => cleanupStyle())
     runtime.generation += 1
+    runtime.replayGeneration += 1
 
     runtime.targets.forEach(clearTarget)
     clearContainerState(runtime.container)
@@ -307,7 +310,45 @@
     return true
   }
 
-  window.PageMotion = { init, prepare, measure, reveal, cleanup }
+  const replay = (elements, groupIndex = 1) => {
+    const targets = uniqueElements(Array.from(elements || []))
+    if (!targets.length || !runtime.container?.isConnected) return false
+
+    const generation = runtime.generation
+    const replayGeneration = ++runtime.replayGeneration
+    runtime.targets = uniqueElements([...runtime.targets, ...targets])
+
+    targets.forEach(target => {
+      target.classList.remove(itemPrerenderClass, itemVisibleClass)
+      target.classList.add(itemClass, itemPendingClass)
+      target.style.setProperty('--page-motion-group', String(groupIndex))
+    })
+
+    scheduleFrame(() => {
+      if (!isCurrent(generation) || replayGeneration !== runtime.replayGeneration) return
+
+      targets.forEach(target => {
+        if (!target.isConnected) return
+        void target.getBoundingClientRect()
+        target.classList.remove(itemPendingClass)
+        target.classList.add(itemPrerenderClass)
+        void target.offsetWidth
+      })
+
+      scheduleFrame(() => {
+        if (!isCurrent(generation) || replayGeneration !== runtime.replayGeneration) return
+        targets.forEach(target => {
+          if (!target.isConnected) return
+          target.classList.remove(itemPendingClass, itemPrerenderClass)
+          target.classList.add(itemVisibleClass)
+        })
+      })
+    })
+
+    return true
+  }
+
+  window.PageMotion = { init, prepare, measure, reveal, replay, cleanup }
   init()
 
   if (!window.pageMotionPjaxBound) {

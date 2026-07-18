@@ -5,8 +5,6 @@
   window.__aboutTabsInitialized = true
 
   const panelIds = new Set(['about-me', 'about-blog'])
-  const switchDuration = 180
-  let animationTimer = null
   let syncQueued = false
 
   const getRoot = () => document.querySelector('.about-profile-page')
@@ -16,11 +14,9 @@
     return panelIds.has(hash) ? hash : 'about-me'
   }
 
-  const clearAnimation = () => {
-    if (!animationTimer) return
-    window.clearTimeout(animationTimer)
-    animationTimer = null
-  }
+  const getMotionTargets = panel => Array.from(panel?.querySelectorAll(
+    '.about-profile-section, .about-profile-aside-card, .about-profile-blog-card'
+  ) || [])
 
   const activate = (root, panelId, animate = false) => {
     if (!root || !panelIds.has(panelId)) return
@@ -40,19 +36,11 @@
       const active = panel.id === panelId
       panel.hidden = !active
       panel.classList.toggle('is-active', active)
-      panel.classList.remove('is-switching')
       if (active) activePanel = panel
     })
 
-    clearAnimation()
     if (!animate || !activePanel) return
-
-    void activePanel.offsetWidth
-    activePanel.classList.add('is-switching')
-    animationTimer = window.setTimeout(() => {
-      activePanel?.classList.remove('is-switching')
-      animationTimer = null
-    }, switchDuration)
+    window.PageMotion?.replay(getMotionTargets(activePanel), 1)
   }
 
   const sync = (animate = false) => activate(getRoot(), getPanelId(), animate)
@@ -102,7 +90,6 @@
   window.addEventListener('popstate', scheduleSync)
   window.addEventListener('hashchange', scheduleSync)
   window.addEventListener('pageshow', () => sync())
-  document.addEventListener('pjax:send', clearAnimation)
   document.addEventListener('pjax:complete', () => sync())
 
   if (document.readyState === 'loading') {
