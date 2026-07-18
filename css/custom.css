@@ -137,6 +137,7 @@ body.site-video-body #page-header #nav {
 html.app-shell-persistent body.site-video-body #page-header,
 html.app-shell-persistent body.site-video-body #page-header #nav.show {
     transform: none;
+    transition: none !important;
     animation: none !important;
 }
 
@@ -328,7 +329,6 @@ body.site-video-body #body-wrap:has(.about-profile-page) #content-inner {
 
 .about-profile-page {
     --about-glass: var(--glass-profile-bg);
-    --about-glass-strong: var(--glass-profile-bg-strong);
     --about-border: var(--glass-profile-border);
     --about-text: rgba(255, 255, 255, 0.94);
     --about-muted: rgba(235, 232, 248, 0.68);
@@ -1079,12 +1079,12 @@ body.site-video-body #body-wrap:has(.about-profile-page) #content-inner {
 @keyframes page-motion-reveal {
     from {
         opacity: 0.001;
-        transform: translateY(var(--page-enter-distance));
+        translate: 0 var(--page-enter-distance);
     }
 
     to {
         opacity: 1;
-        transform: none;
+        translate: 0 0;
     }
 }
 
@@ -1212,12 +1212,6 @@ html.first-visit-pending #first-visit-loader.is-exiting-content .first-visit-loa
     }
 }
 
-html.js #content-inner.page-motion-pending,
-html.js #content-inner.page-motion-entering {
-    opacity: 0;
-    visibility: hidden;
-}
-
 html.pjax-content-leaving #content-inner {
     opacity: 0;
     pointer-events: none;
@@ -1234,7 +1228,7 @@ html.pjax-content-preparing #content-inner {
 .page-motion-item-pending,
 .page-motion-item-prerender {
     opacity: 0;
-    transform: none;
+    translate: 0 var(--page-enter-distance);
     pointer-events: none;
     transition: none !important;
 }
@@ -1245,7 +1239,7 @@ html.pjax-content-preparing #content-inner {
 
 .page-motion-item-visible {
     opacity: 1;
-    transform: none;
+    translate: 0 0;
     pointer-events: auto;
     animation: page-motion-reveal var(--page-enter-duration) var(--page-enter-ease) both;
     animation-delay: calc(var(--page-motion-group, 0) * var(--page-stagger));
@@ -1257,7 +1251,7 @@ html.pjax-content-preparing #content-inner {
     .page-motion-item-visible {
         opacity: 1;
         visibility: visible;
-        transform: none;
+        translate: 0 0;
         animation: none;
         transition: none;
     }

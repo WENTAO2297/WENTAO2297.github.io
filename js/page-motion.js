@@ -16,8 +16,6 @@
 
   const runtime = {
     container: null,
-    targets: [],
-    measureElements: [],
     frames: new Set(),
     styleCleanups: [],
     useGlassLifecycle: false,
@@ -29,11 +27,35 @@
 
   const queryAll = (scope, selector) => scope ? Array.from(scope.querySelectorAll(selector)) : []
 
+  const getCurrentContainer = () => document.getElementById('content-inner')
+
+  const isHidden = element => Boolean(element.closest('[hidden]'))
+
+  const getMotionGroup = element => {
+    const group = Number.parseInt(element.dataset.motionGroup || '0', 10)
+    return Number.isFinite(group) && group >= 0 ? group : 0
+  }
+
+  const getMotionOrder = element => {
+    const order = Number.parseInt(element.dataset.motionOrder || '0', 10)
+    return Number.isFinite(order) && order >= 0 ? order : 0
+  }
+
+  const scanDeclarativeTargets = scope => {
+    if (!scope) return []
+
+    const targets = []
+    if (scope.matches?.('[data-page-motion]')) targets.push(scope)
+    targets.push(...queryAll(scope, '[data-page-motion]'))
+
+    return uniqueElements(targets)
+      .filter(target => !isHidden(target))
+      .sort((a, b) => getMotionGroup(a) - getMotionGroup(b) || getMotionOrder(a) - getMotionOrder(b))
+  }
+
   const directChildren = element => element
     ? Array.from(element.children).filter(child => !['LINK', 'SCRIPT', 'STYLE'].includes(child.tagName))
     : []
-
-  const headerTargets = () => queryAll(document, '#pjax-page-header #post-info, #pjax-page-header #page-site-info')
 
   const asideTargets = container => queryAll(container, '#aside-content .card-widget')
 
@@ -47,19 +69,6 @@
     }))
   }
 
-  const planAbout = container => {
-    const root = container.querySelector('.about-profile-page')
-    const hero = queryAll(root, '.about-profile-hero')
-    const activePanel = root?.querySelector('.about-profile-panel:not([hidden])') || root
-    const content = queryAll(activePanel, '.about-profile-section, .about-profile-aside-card, .about-profile-blog-card')
-
-    return {
-      groups: [hero, content, []],
-      measureElements: [...hero, ...content],
-      useGlassLifecycle: false
-    }
-  }
-
   const planNotes = container => {
     const root = container.querySelector('.notes-page')
     const search = queryAll(root, '.notes-search-shell')
@@ -68,7 +77,6 @@
 
     return {
       groups: [search, heading, content],
-      measureElements: [...search, ...heading, ...content],
       useGlassLifecycle: false
     }
   }
@@ -81,7 +89,6 @@
 
     return {
       groups: [hero, motto, entries],
-      measureElements: [...hero, ...motto, ...entries],
       useGlassLifecycle: false
     }
   }
@@ -94,8 +101,7 @@
     const secondary = children.filter(child => !localHero.includes(child) && !content.includes(child))
 
     return {
-      groups: [[...headerTargets(), ...localHero], content, [...secondary, ...asideTargets(container)]],
-      measureElements: [],
+      groups: [localHero, content, [...secondary, ...asideTargets(container)]],
       useGlassLifecycle: true
     }
   }
@@ -113,8 +119,7 @@
     const secondary = queryAll(root, '.pagination, #pagination')
 
     return {
-      groups: [[...headerTargets(), ...title], content, [...secondary, ...asideTargets(container)]],
-      measureElements: [],
+      groups: [title, content, [...secondary, ...asideTargets(container)]],
       useGlassLifecycle: true
     }
   }
@@ -128,15 +133,26 @@
     const fallbackContent = content.length || title.length ? content : [root]
 
     return {
-      groups: [[...headerTargets(), ...title], fallbackContent, [...secondary, ...asideTargets(container)]],
-      measureElements: [],
+      groups: [title, fallbackContent, [...secondary, ...asideTargets(container)]],
       useGlassLifecycle: true
     }
   }
 
   const getPlan = container => {
     if (!container || container.querySelector('#home-dashboard')) return null
-    if (container.querySelector('.about-profile-page')) return planAbout(container)
+
+    const declarativeTargets = scanDeclarativeTargets(container)
+    if (declarativeTargets.length) {
+      const highestGroup = Math.max(...declarativeTargets.map(getMotionGroup))
+      const groups = Array.from({ length: highestGroup + 1 }, () => [])
+      declarativeTargets.forEach(target => groups[getMotionGroup(target)].push(target))
+
+      return {
+        groups,
+        useGlassLifecycle: false
+      }
+    }
+
     if (container.querySelector('.notes-page')) return planNotes(container)
     if (container.querySelector('.ecust-journey')) return planEcust(container)
 
@@ -146,7 +162,12 @@
     return planGenericPage(container)
   }
 
-  const isCurrent = generation => generation === runtime.generation && runtime.container?.isConnected
+  const isCurrent = (generation, container = runtime.container) => (
+    generation === runtime.generation &&
+    container?.isConnected &&
+    runtime.container === container &&
+    getCurrentContainer() === container
+  )
 
   const scheduleFrame = callback => {
     const frame = window.requestAnimationFrame(() => {
@@ -157,8 +178,23 @@
   }
 
   const clearTarget = target => {
+    target.getAnimations?.().forEach(animation => {
+      if (animation.animationName === 'page-motion-reveal') animation.cancel()
+    })
     target.classList.remove(itemClass, itemPendingClass, itemPrerenderClass, itemVisibleClass)
     target.style.removeProperty('--page-motion-group')
+    target.removeAttribute('data-page-motion-replay')
+  }
+
+  const scanActiveTargets = container => queryAll(container, `.${itemClass}`)
+
+  const clearTargets = container => {
+    queryAll(container, `.${itemClass}, .${itemPendingClass}, .${itemPrerenderClass}, .${itemVisibleClass}, [data-page-motion-replay]`)
+      .forEach(clearTarget)
+  }
+
+  const clearReplayTargets = container => {
+    queryAll(container, '[data-page-motion-replay]').forEach(clearTarget)
   }
 
   const clearContainerState = container => {
@@ -177,13 +213,20 @@
     runtime.generation += 1
     runtime.replayGeneration += 1
 
-    runtime.targets.forEach(clearTarget)
+    clearTargets(runtime.container)
     clearContainerState(runtime.container)
 
     runtime.container = null
-    runtime.targets = []
-    runtime.measureElements = []
     runtime.useGlassLifecycle = false
+  }
+
+  const recover = (container, generation) => {
+    if (generation !== runtime.generation || runtime.container !== container) return false
+
+    cleanup()
+    clearTargets(container)
+    clearContainerState(container)
+    return false
   }
 
   const waitForPageStyles = container => {
@@ -195,7 +238,7 @@
           resolve()
           return
         }
-      } catch (error) {
+      } catch {
         // The load/error events below remain authoritative for inaccessible sheets.
       }
 
@@ -219,15 +262,14 @@
     })))
   }
 
-  const prepare = (container = document.getElementById('content-inner')) => {
+  const prepare = (container = getCurrentContainer()) => {
+    if (!container || container !== getCurrentContainer()) return null
     const plan = getPlan(container)
-    if (!container || !plan) return null
+    if (!plan) return null
 
     cleanup()
     const groups = normalizeGroups(plan.groups)
     runtime.container = container
-    runtime.targets = groups.flat()
-    runtime.measureElements = uniqueElements([...runtime.targets, ...plan.measureElements])
     runtime.useGlassLifecycle = plan.useGlassLifecycle
 
     container.dataset.pageMotionInitialized = 'true'
@@ -247,10 +289,12 @@
     return runtime.generation
   }
 
-  const measure = (generation = runtime.generation) => {
-    if (!isCurrent(generation)) return false
+  const measure = (generation = runtime.generation, container = runtime.container) => {
+    if (!isCurrent(generation, container)) return false
 
-    runtime.measureElements.forEach(element => {
+    const targets = scanActiveTargets(container)
+
+    targets.forEach(element => {
       void element.getBoundingClientRect()
       const style = window.getComputedStyle(element)
       void style.backgroundColor
@@ -260,7 +304,7 @@
 
     if (runtime.useGlassLifecycle) window.GlassCardLifecycle?.forceComposite(runtime.container)
 
-    runtime.targets.forEach(target => {
+    targets.forEach(target => {
       target.classList.remove(itemPendingClass)
       target.classList.add(itemPrerenderClass)
       void target.offsetWidth
@@ -268,23 +312,24 @@
     return true
   }
 
-  const reveal = (generation = runtime.generation) => {
-    if (!isCurrent(generation)) return false
+  const reveal = (generation = runtime.generation, container = runtime.container) => {
+    if (!isCurrent(generation, container)) return false
 
-    if (runtime.useGlassLifecycle) window.GlassCardLifecycle?.ready(runtime.container)
-    runtime.targets.forEach(target => {
+    if (runtime.useGlassLifecycle) window.GlassCardLifecycle?.ready(container)
+    scanActiveTargets(container).forEach(target => {
       target.classList.remove(itemPendingClass, itemPrerenderClass)
       target.classList.add(itemVisibleClass)
     })
-    runtime.container.classList.remove(
+    container.classList.remove(
       containerPendingClass,
       containerEnteringClass
     )
-    runtime.container.classList.add(containerActiveClass)
+    container.classList.add(containerActiveClass)
     return true
   }
 
-  const init = async (container = document.getElementById('content-inner')) => {
+  const init = async () => {
+    const container = getCurrentContainer()
     if (!container) return false
 
     if (container.querySelector('#home-dashboard')) {
@@ -295,40 +340,67 @@
 
     if (runtime.container === container && container.dataset.pageMotionInitialized === 'true') return true
 
-    const generation = prepare(container)
-    if (generation === null) return false
-    await waitForPageStyles(container)
-    if (!isCurrent(generation)) return false
+    let generation = null
 
-    scheduleFrame(() => {
-      if (!measure(generation)) return
+    try {
+      generation = prepare(container)
+      if (generation === null) return false
+      await waitForPageStyles(container)
+      if (!isCurrent(generation, container)) return false
+
       scheduleFrame(() => {
-        if (!isCurrent(generation)) return
-        scheduleFrame(() => reveal(generation))
+        try {
+          if (!measure(generation, container)) return
+          scheduleFrame(() => {
+            try {
+              if (!isCurrent(generation, container)) return
+              scheduleFrame(() => {
+                try {
+                  reveal(generation, container)
+                } catch {
+                  recover(container, generation)
+                }
+              })
+            } catch {
+              recover(container, generation)
+            }
+          })
+        } catch {
+          recover(container, generation)
+        }
       })
-    })
-    return true
+      return true
+    } catch {
+      if (generation !== null) return recover(container, generation)
+      clearContainerState(container)
+      return false
+    }
   }
 
-  const replay = (elements, groupIndex = 1) => {
-    const targets = uniqueElements(Array.from(elements || []))
-    if (!targets.length || !runtime.container?.isConnected) return false
+  const replay = scope => {
+    const container = getCurrentContainer()
+    if (!isCurrent(runtime.generation, container) || !scope?.isConnected || !container.contains(scope)) return false
+
+    clearReplayTargets(container)
+    const targets = scanDeclarativeTargets(scope)
+      .filter(target => scope === target || scope.contains(target))
+    if (!targets.length) return false
 
     const generation = runtime.generation
     const replayGeneration = ++runtime.replayGeneration
-    runtime.targets = uniqueElements([...runtime.targets, ...targets])
+    const replayToken = String(replayGeneration)
 
     targets.forEach(target => {
+      target.dataset.pageMotionReplay = replayToken
       target.classList.remove(itemPrerenderClass, itemVisibleClass)
       target.classList.add(itemClass, itemPendingClass)
-      target.style.setProperty('--page-motion-group', String(groupIndex))
+      target.style.setProperty('--page-motion-group', String(getMotionGroup(target)))
     })
 
     scheduleFrame(() => {
-      if (!isCurrent(generation) || replayGeneration !== runtime.replayGeneration) return
+      if (!isCurrent(generation, container) || replayGeneration !== runtime.replayGeneration) return
 
-      targets.forEach(target => {
-        if (!target.isConnected) return
+      queryAll(scope, `[data-page-motion-replay="${replayToken}"]`).forEach(target => {
         void target.getBoundingClientRect()
         target.classList.remove(itemPendingClass)
         target.classList.add(itemPrerenderClass)
@@ -336,11 +408,11 @@
       })
 
       scheduleFrame(() => {
-        if (!isCurrent(generation) || replayGeneration !== runtime.replayGeneration) return
-        targets.forEach(target => {
-          if (!target.isConnected) return
+        if (!isCurrent(generation, container) || replayGeneration !== runtime.replayGeneration) return
+        queryAll(scope, `[data-page-motion-replay="${replayToken}"]`).forEach(target => {
           target.classList.remove(itemPendingClass, itemPrerenderClass)
           target.classList.add(itemVisibleClass)
+          target.removeAttribute('data-page-motion-replay')
         })
       })
     })
@@ -356,6 +428,9 @@
     document.addEventListener('pjax:send', cleanup)
     document.addEventListener('pjax:complete', () => init())
     document.addEventListener('pjax:error', cleanup)
-    window.addEventListener('pageshow', () => init())
+    window.addEventListener('pageshow', event => {
+      if (event.persisted) cleanup()
+      init()
+    })
   }
 })()

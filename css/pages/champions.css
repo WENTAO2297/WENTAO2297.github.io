@@ -1,0 +1,606 @@
+.type-champions {
+  --champions-gold: #d7bd78;
+  --champions-card-width: 344px;
+  --champions-card-height: 386px;
+}
+
+body.site-video-body #body-wrap.type-champions > #content-inner.layout {
+  width: min(1280px, 100%);
+  max-width: 1280px;
+  padding: 34px 20px 58px;
+}
+
+body.site-video-body #body-wrap.type-champions #page {
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.type-champions #page > .page-title,
+.type-champions #page-header #page-site-info {
+  display: none;
+}
+
+.type-champions #page-header {
+  height: 0;
+  min-height: 0;
+  background: none !important;
+}
+
+.champions-page {
+  width: 100%;
+  min-width: 0;
+  overflow: clip;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.champions-hero {
+  display: grid;
+  place-items: center;
+  padding: clamp(54px, 6vw, 76px) 28px clamp(38px, 4vw, 52px);
+  text-align: center;
+}
+
+.champions-hero__content {
+  width: min(760px, 100%);
+}
+
+.champions-kicker,
+.champions-closing__eyebrow {
+  margin: 0;
+  color: var(--champions-gold);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+}
+
+.champions-hero h1 {
+  margin: 14px 0 12px;
+  color: rgba(255, 255, 255, 0.97) !important;
+  font-size: clamp(2.35rem, 6vw, 5rem);
+  font-weight: 650;
+  letter-spacing: -0.035em;
+  line-height: 1.04;
+  text-shadow: 0 8px 34px rgba(0, 0, 0, 0.34);
+}
+
+.champions-hero__description {
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.69);
+  font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+  line-height: 1.8;
+  text-shadow: 0 2px 12px rgba(8, 5, 18, 0.56);
+}
+
+.champions-hero__stats {
+  display: flex;
+  justify-content: center;
+  gap: clamp(28px, 6vw, 72px);
+  margin-top: clamp(28px, 4vw, 44px);
+}
+
+.champions-hero__stats > span {
+  display: grid;
+  min-width: 120px;
+  gap: 7px;
+}
+
+.champions-hero__stats > span + span {
+  position: relative;
+}
+
+.champions-hero__stats > span + span::before {
+  position: absolute;
+  top: 3px;
+  bottom: 3px;
+  left: calc(clamp(28px, 6vw, 72px) / -2);
+  width: 1px;
+  background: rgba(215, 189, 120, 0.13);
+  content: '';
+}
+
+.champions-hero__stats small {
+  color: rgba(255, 255, 255, 0.46);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+}
+
+.champions-hero__stats strong {
+  color: rgba(245, 232, 195, 0.94);
+  font-size: clamp(1rem, 2vw, 1.28rem);
+  font-weight: 600;
+  text-shadow: 0 2px 12px rgba(8, 5, 18, 0.48);
+}
+
+.champions-timeline-shell {
+  position: relative;
+  margin-top: clamp(12px, 2vw, 24px);
+  padding: 10px 0 4px;
+}
+
+.champions-timeline__viewport {
+  position: relative;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 18px 0 10px;
+  cursor: grab;
+  outline: none;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-inline: contain;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+}
+
+.champions-timeline__viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.champions-timeline__viewport:focus-visible {
+  border-radius: 20px;
+  box-shadow: inset 0 0 0 2px rgba(215, 189, 120, 0.34);
+}
+
+.champions-timeline__viewport.is-dragging {
+  cursor: grabbing;
+  scroll-behavior: auto;
+  scroll-snap-type: none;
+  user-select: none;
+}
+
+.champions-timeline__track {
+  position: relative;
+  display: flex;
+  width: max-content;
+  min-width: 100%;
+  gap: 28px;
+  padding-inline: var(--timeline-edge-padding, 24px);
+}
+
+.champions-timeline__track::before {
+  position: absolute;
+  top: calc(var(--champions-card-height) + 58px);
+  right: 0;
+  left: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(215, 189, 120, 0.35) 4%, rgba(215, 189, 120, 0.35) 96%, transparent);
+  content: '';
+}
+
+.championship-event {
+  display: grid;
+  flex: 0 0 var(--champions-card-width);
+  grid-template-rows: var(--champions-card-height) 34px 13px 32px;
+  justify-items: center;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+}
+
+.championship-card {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  overflow: hidden;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.17);
+  border-radius: 22px;
+  background: rgba(24, 17, 42, 0.72);
+  box-shadow: 0 18px 44px rgba(3, 5, 15, 0.25);
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+  text-decoration: none !important;
+  transform: scale(0.985);
+  transform-origin: center;
+  filter: brightness(0.86);
+  transition:
+    transform 320ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 280ms ease,
+    border-color 280ms ease,
+    box-shadow 320ms ease;
+  appearance: none;
+  grid-template-rows: 196px 1fr;
+}
+
+.championship-event.is-current .championship-card {
+  border-color: rgba(215, 189, 120, 0.52);
+  box-shadow: 0 24px 58px rgba(4, 6, 17, 0.34), 0 0 28px rgba(215, 189, 120, 0.12);
+  transform: scale(1.025);
+  filter: brightness(1);
+}
+
+.championship-card:hover,
+.championship-card:focus,
+.championship-card:active,
+.championship-card:visited {
+  color: inherit;
+  text-decoration: none !important;
+}
+
+.championship-card:focus-visible {
+  outline: 2px solid rgba(243, 182, 223, 0.78);
+  outline-offset: 4px;
+}
+
+.championship-card__cover {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(145deg, rgba(8, 13, 29, 0.28), rgba(91, 42, 72, 0.34)),
+    radial-gradient(circle at var(--championship-accent-position, 18%) 30%, rgba(215, 189, 120, 0.23), transparent 30%),
+    linear-gradient(135deg, #11172a, #2d1c3d 68%, #431d2b);
+}
+
+.championship-card__cover::after {
+  position: absolute;
+  inset: auto 0 0;
+  height: 54%;
+  background: linear-gradient(transparent, rgba(10, 9, 20, 0.74));
+  content: '';
+  pointer-events: none;
+}
+
+.championship-card__cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.championship-card:hover .championship-card__cover img {
+  transform: scale(1.035);
+}
+
+.championship-card__placeholder {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 15px;
+  color: rgba(238, 220, 170, 0.48);
+}
+
+.championship-card__placeholder i {
+  font-size: 3.2rem;
+  text-shadow: 0 0 32px rgba(215, 189, 120, 0.18);
+}
+
+.championship-card__placeholder span {
+  font-size: 0.58rem;
+  font-weight: 650;
+  letter-spacing: 0.2em;
+}
+
+.championship-card__status,
+.championship-card__pending {
+  position: absolute;
+  z-index: 1;
+  top: 16px;
+  padding: 5px 8px;
+  border: 1px solid rgba(215, 189, 120, 0.21);
+  border-radius: 4px;
+  background: rgba(8, 10, 22, 0.48);
+  color: rgba(238, 220, 170, 0.82);
+  font-size: 0.56rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  backdrop-filter: blur(8px);
+}
+
+.championship-card__status {
+  left: 16px;
+}
+
+.championship-card__pending {
+  right: 16px;
+  border-color: rgba(183, 77, 91, 0.28);
+  color: rgba(238, 173, 181, 0.78);
+}
+
+.championship-card__content {
+  display: flex;
+  min-height: 0;
+  flex-direction: column;
+  padding: 20px 20px 17px;
+}
+
+.championship-card__title {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.93) !important;
+  font-size: 1.15rem;
+  line-height: 1.35;
+}
+
+.championship-card__meta {
+  display: grid;
+  gap: 8px;
+  margin: 15px 0 0;
+}
+
+.championship-card__meta > div {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 8px;
+}
+
+.championship-card__meta dt {
+  color: rgba(215, 189, 120, 0.58);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.championship-card__meta dd {
+  min-width: 0;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.74rem;
+  overflow-wrap: anywhere;
+}
+
+.championship-card__action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(243, 221, 165, 0.75);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+}
+
+.championship-card__arrow {
+  color: rgba(243, 182, 223, 0.72);
+  font-size: 1rem;
+  transition: transform 240ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.championship-card:hover .championship-card__arrow {
+  transform: translateX(4px);
+}
+
+.championship-event__connector {
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(rgba(215, 189, 120, 0.12), rgba(215, 189, 120, 0.55));
+}
+
+.championship-event__node {
+  z-index: 1;
+  width: 11px;
+  height: 11px;
+  border: 2px solid rgba(215, 189, 120, 0.55);
+  border-radius: 50%;
+  background: #1a1428;
+  box-shadow: 0 0 0 5px rgba(215, 189, 120, 0.05);
+  transition: background 260ms ease, box-shadow 260ms ease, transform 260ms ease;
+}
+
+.championship-event.is-current .championship-event__node {
+  background: var(--champions-gold);
+  box-shadow: 0 0 0 6px rgba(215, 189, 120, 0.12), 0 0 18px rgba(215, 189, 120, 0.34);
+  transform: scale(1.16);
+}
+
+.championship-event__date {
+  padding-top: 9px;
+  color: rgba(255, 255, 255, 0.43);
+  font-size: 0.66rem;
+  letter-spacing: 0.13em;
+  transition: color 260ms ease;
+}
+
+.championship-event.is-current .championship-event__date {
+  color: rgba(232, 213, 163, 0.88);
+}
+
+.champions-timeline__controls {
+  position: absolute;
+  z-index: 4;
+  top: calc(var(--champions-card-height) / 2 - 3px);
+  right: 13px;
+  left: 13px;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.champions-timeline__arrow {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border: 1px solid rgba(215, 189, 120, 0.2);
+  border-radius: 50%;
+  background: rgba(11, 13, 27, 0.72);
+  box-shadow: 0 8px 24px rgba(4, 5, 14, 0.24);
+  color: rgba(232, 218, 177, 0.8);
+  cursor: pointer;
+  pointer-events: auto;
+  place-items: center;
+  transition: background 200ms ease, border-color 200ms ease, color 200ms ease;
+  backdrop-filter: blur(10px);
+}
+
+.champions-timeline__arrow:hover,
+.champions-timeline__arrow:focus-visible {
+  border-color: rgba(215, 189, 120, 0.48);
+  background: rgba(33, 25, 48, 0.88);
+  color: #f1ddaa;
+}
+
+.champions-timeline__arrow:focus-visible {
+  outline: 2px solid rgba(243, 182, 223, 0.7);
+  outline-offset: 3px;
+}
+
+.champions-timeline__arrow:disabled {
+  opacity: 0.28;
+  cursor: default;
+}
+
+.champions-timeline__hint {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 18px 0 0;
+  color: rgba(255, 255, 255, 0.34);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.17em;
+  transition: opacity 260ms ease;
+}
+
+.champions-timeline-shell.is-interacted .champions-timeline__hint {
+  opacity: 0;
+}
+
+.champions-timeline__notice {
+  position: absolute;
+  z-index: 7;
+  bottom: 38px;
+  left: 50%;
+  margin: 0;
+  padding: 9px 15px;
+  border: 1px solid rgba(215, 189, 120, 0.2);
+  border-radius: 10px;
+  background: rgba(15, 12, 29, 0.9);
+  box-shadow: 0 12px 34px rgba(3, 4, 12, 0.32);
+  color: rgba(244, 229, 190, 0.9);
+  font-size: 0.76rem;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 6px);
+  transition: opacity 180ms ease, transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+  backdrop-filter: blur(12px);
+}
+
+.champions-timeline__notice.is-visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.champions-closing {
+  margin: clamp(58px, 8vw, 94px) auto 14px;
+  text-align: center;
+}
+
+.champions-closing p:last-child {
+  margin: 14px 0 0;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: clamp(0.86rem, 1.4vw, 1rem);
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 768px) {
+  .type-champions {
+    --champions-card-width: min(82vw, 350px);
+    --champions-card-height: 374px;
+  }
+
+  body.site-video-body #body-wrap.type-champions > #content-inner.layout {
+    width: 100%;
+    padding: 18px 10px 42px;
+  }
+
+  .champions-hero {
+    padding: 42px 18px 30px;
+  }
+
+  .champions-hero__stats {
+    gap: 26px;
+  }
+
+  .champions-hero__stats > span {
+    min-width: 108px;
+  }
+
+  .champions-hero__stats > span + span::before {
+    left: -13px;
+  }
+
+  .champions-timeline-shell {
+    margin-top: 8px;
+  }
+
+  .champions-timeline__viewport {
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 2.5%, #000 97.5%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 2.5%, #000 97.5%, transparent);
+  }
+
+  .champions-timeline__track {
+    gap: 16px;
+  }
+
+  .champions-timeline__controls {
+    display: none;
+  }
+
+  .championship-card {
+    grid-template-rows: 184px 1fr;
+  }
+
+  .champions-timeline__hint span:first-child {
+    display: none;
+  }
+
+  .champions-timeline__hint span:last-child::before {
+    content: 'SWIPE  ';
+  }
+}
+
+@media (max-width: 430px) {
+  .champions-hero h1 {
+    font-size: clamp(2.15rem, 11.5vw, 3.1rem);
+  }
+
+  .champions-hero__stats {
+    gap: 18px;
+  }
+
+  .champions-hero__stats > span {
+    min-width: 96px;
+  }
+
+  .champions-hero__stats > span + span::before {
+    left: -9px;
+  }
+
+  .championship-card__content {
+    padding-inline: 17px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .champions-timeline__viewport {
+    scroll-behavior: auto;
+  }
+
+  .championship-card,
+  .championship-card__cover img,
+  .championship-card__arrow,
+  .championship-event__node,
+  .championship-event__date,
+  .champions-timeline__hint,
+  .champions-timeline__notice {
+    transition-duration: 1ms;
+  }
+
+  .championship-card,
+  .championship-event.is-current .championship-card,
+  .championship-card:hover .championship-card__cover img,
+  .championship-card:hover .championship-card__arrow,
+  .championship-event.is-current .championship-event__node {
+    transform: none;
+  }
+}

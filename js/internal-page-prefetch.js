@@ -28,7 +28,7 @@
       if (url.origin !== window.location.origin) return null
       const path = normalizePath(url.pathname)
       return targetPaths.has(path) ? path : null
-    } catch (error) {
+    } catch {
       return null
     }
   }
@@ -105,7 +105,7 @@
 
       try {
         if (typeof image.decode === 'function') await image.decode()
-      } catch (error) {
+      } catch {
         // A successful load can still be displayed when decode() rejects.
       }
 

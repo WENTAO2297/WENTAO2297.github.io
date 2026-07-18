@@ -14,10 +14,6 @@
     return panelIds.has(hash) ? hash : 'about-me'
   }
 
-  const getMotionTargets = panel => Array.from(panel?.querySelectorAll(
-    '.about-profile-section, .about-profile-aside-card, .about-profile-blog-card'
-  ) || [])
-
   const activate = (root, panelId, animate = false) => {
     if (!root || !panelIds.has(panelId)) return
 
@@ -40,7 +36,7 @@
     })
 
     if (!animate || !activePanel) return
-    window.PageMotion?.replay(getMotionTargets(activePanel), 1)
+    window.PageMotion?.replay(activePanel)
   }
 
   const sync = (animate = false) => activate(getRoot(), getPanelId(), animate)
