@@ -274,7 +274,7 @@ body.site-video-body #body-wrap:not(.type-ecust):not(.home-dashboard-page) #cont
 body.site-video-body #body-wrap:not(.type-ecust):not(.home-dashboard-page) #content-inner h2,
 body.site-video-body #body-wrap:not(.type-ecust):not(.home-dashboard-page) #content-inner h3,
 body.site-video-body #aside-content .item-headline {
-    color: var(--site-text-primary) !important;
+    color: var(--page-heading-color, var(--site-text-primary)) !important;
     text-shadow: var(--site-text-shadow);
 }
 
@@ -1229,7 +1229,6 @@ html.pjax-content-preparing #content-inner {
 .page-motion-item-prerender {
     opacity: 0;
     translate: 0 var(--page-enter-distance);
-    pointer-events: none;
     transition: none !important;
 }
 
@@ -1240,7 +1239,6 @@ html.pjax-content-preparing #content-inner {
 .page-motion-item-visible {
     opacity: 1;
     translate: 0 0;
-    pointer-events: auto;
     animation: page-motion-reveal var(--page-enter-duration) var(--page-enter-ease) both;
     animation-delay: calc(var(--page-motion-group, 0) * var(--page-stagger));
 }

@@ -1037,6 +1037,22 @@
 })()</script><script data-pjax src="/js/gitalk-comments.js" defer></script></div><script src="/js/first-visit-loader.js" defer></script><script src="/js/site-pjax-shell.js" defer></script><script src="/js/internal-page-prefetch.js" defer></script><script src="/js/about-tabs.js" defer></script><script src="/js/page-motion.js" defer></script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script>(() => {
   const pjaxSelectors = ["head > title","#config-diff","#pjax-page-header","#content-inner","#rightside-config-show",".js-pjax"]
 
+  if (!window.championDetailHistoryGuardBound) {
+    window.championDetailHistoryGuardBound = true
+    window.addEventListener('popstate', event => {
+      const championsRoot = document.querySelector('.champions-page')
+      if (!championsRoot) return
+
+      const detailPanel = championsRoot.querySelector('[data-championship-detail-panel]')
+      const isDetailHistory = event.state?.championDetail === 'iem-cologne-major-2026'
+      const isDetailVisible = detailPanel && !detailPanel.hidden
+      if (!isDetailHistory && !isDetailVisible) return
+
+      event.stopImmediatePropagation()
+      window.dispatchEvent(new CustomEvent('championship:history-popstate'))
+    }, { capture: true })
+  }
+
   window.pjax = new Pjax({
     elements: 'a:not([target="_blank"]):not([download]):not([href^="#"]):not([href^="mailto:"]):not([href^="tel:"]):not([data-no-pjax]):not([href="/404.html"])',
     selectors: pjaxSelectors,
