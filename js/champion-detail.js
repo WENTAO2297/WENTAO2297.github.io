@@ -655,17 +655,29 @@
 
   const bindImageFallbacks = (root, signal) => {
     root.querySelectorAll('.championship-detail img').forEach(image => {
-      image.addEventListener('error', () => {
+      const team = image.closest('[data-match-team]')
+      const fallback = team?.querySelector('[data-match-logo-fallback]')
+      const showImage = () => {
+        image.hidden = false
+        fallback?.setAttribute('hidden', '')
+        fallback?.setAttribute('aria-hidden', 'true')
+      }
+      const showFallback = () => {
         image.hidden = true
-        const team = image.closest('[data-match-team]')
         if (team) {
-          const fallback = team.querySelector('[data-match-logo-fallback]')
           fallback?.removeAttribute('hidden')
           fallback?.setAttribute('aria-hidden', 'false')
         } else {
           image.closest('.championship-detail__visual-media')?.classList.add('is-image-failed')
         }
-      }, { signal })
+      }
+
+      image.addEventListener('load', showImage, { signal })
+      image.addEventListener('error', showFallback, { signal })
+      if (image.complete) {
+        if (image.naturalWidth > 0) showImage()
+        else showFallback()
+      }
     })
   }
 

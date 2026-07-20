@@ -1141,7 +1141,7 @@ body.site-video-body #body-wrap.type-champions #page {
 
 .championship-match-card__matchup {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(78px, auto) minmax(0, 1fr);
   align-items: center;
   gap: 12px;
   min-width: 0;
@@ -1149,19 +1149,35 @@ body.site-video-body #body-wrap.type-champions #page {
 
 .championship-match-card__team {
   display: grid;
+  grid-template-rows: 66px minmax(2em, auto);
+  align-items: center;
+  align-self: stretch;
   min-width: 0;
   justify-items: center;
-  gap: 9px;
+  gap: 8px;
   text-align: center;
+}
+
+.championship-match-card__logo-slot {
+  display: grid;
+  width: 66px;
+  height: 66px;
+  place-items: center;
 }
 
 .championship-match-card__logo,
 .championship-match-card__logo-fallback {
   display: grid;
-  width: 64px;
-  height: 64px;
+  grid-area: 1 / 1;
+  width: 100%;
+  height: 100%;
   place-items: center;
   object-fit: contain;
+}
+
+.championship-match-card__logo[hidden],
+.championship-match-card__logo-fallback[hidden] {
+  display: none;
 }
 
 .championship-match-card__logo-fallback {
@@ -1175,11 +1191,17 @@ body.site-video-body #body-wrap.type-champions #page {
 }
 
 .championship-match-card__team strong {
+  display: -webkit-box;
   max-width: 100%;
+  min-height: 2em;
   color: rgba(255, 255, 255, 0.68);
   font-size: 0.74rem;
   font-weight: 600;
   line-height: 1.35;
+  text-wrap: balance;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
   overflow-wrap: anywhere;
 }
 
@@ -1190,6 +1212,9 @@ body.site-video-body #body-wrap.type-champions #page {
 .championship-match-card__score {
   display: inline-flex;
   align-items: baseline;
+  justify-content: center;
+  justify-self: center;
+  min-width: 78px;
   gap: 7px;
   color: rgba(255, 255, 255, 0.48);
   white-space: nowrap;
@@ -1317,6 +1342,25 @@ body.site-video-body #body-wrap.type-champions #page {
   .championship-match-card {
     flex-basis: 82vw;
     min-height: 232px;
+  }
+
+  .championship-match-card__matchup {
+    grid-template-columns: minmax(0, 1fr) minmax(70px, auto) minmax(0, 1fr);
+    gap: 8px;
+  }
+
+  .championship-match-card__team {
+    grid-template-rows: 54px minmax(2em, auto);
+    gap: 7px;
+  }
+
+  .championship-match-card__logo-slot {
+    width: 54px;
+    height: 54px;
+  }
+
+  .championship-match-card__score {
+    min-width: 70px;
   }
 }
 
