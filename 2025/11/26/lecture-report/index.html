@@ -375,13 +375,7 @@
   if (!window.championDetailHistoryGuardBound) {
     window.championDetailHistoryGuardBound = true
     window.addEventListener('popstate', event => {
-      const championsRoot = document.querySelector('.champions-page')
-      if (!championsRoot) return
-
-      const detailPanel = championsRoot.querySelector('[data-championship-detail-panel]')
-      const isDetailHistory = event.state?.championDetail === 'iem-cologne-major-2026'
-      const isDetailVisible = detailPanel && !detailPanel.hidden
-      if (!isDetailHistory && !isDetailVisible) return
+      if (!window.ChampionDetail?.shouldHandleHistory?.(event)) return
 
       event.stopImmediatePropagation()
       window.dispatchEvent(new CustomEvent('championship:history-popstate'))

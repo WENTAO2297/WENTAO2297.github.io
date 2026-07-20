@@ -166,10 +166,10 @@
     const slugEvent = events.find(event => (
       event.querySelector('[data-championship-detail]')?.getAttribute('data-championship-detail') === originSlug
     ))
-    const indexedEvent = Number.isInteger(originIndex) && originIndex >= 0
+    const indexedEvent = Number.isInteger(originIndex) && originIndex >= 0 && events[originIndex] === slugEvent
       ? events[originIndex]
       : null
-    const targetEvent = slugEvent || indexedEvent || events[events.length - 1]
+    const targetEvent = slugEvent || indexedEvent
     if (!targetEvent?.offsetWidth || !runtime.viewport.clientWidth) return false
 
     const maxScrollLeft = Math.max(0, runtime.viewport.scrollWidth - runtime.viewport.clientWidth)
@@ -491,6 +491,14 @@
     focusTarget?.focus({ preventScroll: true })
   }
 
+  const completeReturnPosition = (generation, callback) => {
+    if (generation !== runtime.generation) return
+    const completed = window.ChampionshipTimeline?.completeOriginRestore?.(() => {
+      if (generation === runtime.generation) callback?.()
+    })
+    if (!completed) callback?.()
+  }
+
   const prepareReturnPosition = (generation, callback) => {
     runtime.root?.classList.add('is-return-positioning')
     const finishPositioning = () => {
@@ -528,7 +536,9 @@
       runtime.generation += 1
       clearAsyncWork()
       const generation = runtime.generation
-      prepareReturnPosition(generation, () => finishClose(generation))
+      prepareReturnPosition(generation, () => {
+        completeReturnPosition(generation, () => finishClose(generation))
+      })
       return
     }
 
@@ -537,7 +547,18 @@
     const generation = runtime.generation
     runtime.state = 'transitioning-to-timeline'
     prepareTimelineForReturn()
-    waitForTransition(runtime.heroTimeline || runtime.panel, 'opacity', RETURN_TRANSITION_DURATION, generation, () => finishClose(generation))
+    let transitionComplete = false
+    let positionComplete = false
+    let returnCompleted = false
+    const finishWhenReady = () => {
+      if (returnCompleted || !transitionComplete || !positionComplete || generation !== runtime.generation) return
+      returnCompleted = true
+      completeReturnPosition(generation, () => finishClose(generation))
+    }
+    waitForTransition(runtime.heroTimeline || runtime.panel, 'opacity', RETURN_TRANSITION_DURATION, generation, () => {
+      transitionComplete = true
+      finishWhenReady()
+    })
     clearRootState()
     runtime.root?.classList.add(
       'is-detail-layout',
@@ -546,7 +567,10 @@
       'is-return-positioning'
     )
     runtime.root?.setAttribute('aria-busy', 'true')
-    prepareReturnPosition(generation)
+    prepareReturnPosition(generation, () => {
+      positionComplete = true
+      finishWhenReady()
+    })
   }
 
   const requestClose = () => {
@@ -707,7 +731,13 @@
     return true
   }
 
-  window.ChampionDetail = { init, destroy }
+  const shouldHandleHistory = event => {
+    if (!runtime.root) return false
+    const samePage = window.location.pathname === runtime.pagePath && window.location.search === runtime.pageSearch
+    return samePage && (Boolean(event?.state?.championDetail) || runtime.state !== 'timeline')
+  }
+
+  window.ChampionDetail = { init, destroy, shouldHandleHistory }
   init()
 
   if (!window.championDetailLifecycleBound) {

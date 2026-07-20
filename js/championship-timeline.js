@@ -22,6 +22,8 @@
     viewportWidth: 0,
     centerBySlug: null,
     restoreBySlug: null,
+    completeOriginRestore: null,
+    isRestoringOrigin: false,
     restoration: null,
     restorationFrame: null,
     generation: 0
@@ -58,6 +60,8 @@
     runtime.viewportWidth = 0
     runtime.centerBySlug = null
     runtime.restoreBySlug = null
+    runtime.completeOriginRestore = null
+    runtime.isRestoringOrigin = false
     runtime.restoration = null
     runtime.restorationFrame = null
   }
@@ -217,7 +221,7 @@
 
     const updateCurrent = () => {
       runtime.scrollFrame = null
-      if (runtime.restoration) {
+      if (runtime.isRestoringOrigin && runtime.restoration) {
         setCurrentIndex(runtime.restoration.index)
         return
       }
@@ -234,7 +238,7 @@
       }
       runtime.viewportWidth = viewport.clientWidth
 
-      if (runtime.restoration) return
+      if (runtime.isRestoringOrigin) return
 
       if (!runtime.initialPositionApplied) {
         positionInitialCard(mode)
@@ -256,13 +260,13 @@
     }
 
     const scheduleCurrentUpdate = () => {
-      if (runtime.restoration) return
+      if (runtime.isRestoringOrigin) return
       if (runtime.scrollFrame) return
       runtime.scrollFrame = window.requestAnimationFrame(updateCurrent)
     }
 
     const scrollToIndex = (index, smooth = true, interacted = true) => {
-      if (runtime.restoration) return
+      if (runtime.isRestoringOrigin) return
       const boundedIndex = Math.max(0, Math.min(events.length - 1, index))
       const event = events[boundedIndex]
       const targetLeft = event.offsetLeft - (viewport.clientWidth - event.offsetWidth) / 2
@@ -277,7 +281,8 @@
       const requestedIndex = events.findIndex(event => (
         event.querySelector('[data-championship-detail]')?.getAttribute('data-championship-detail') === slug
       ))
-      const targetIndex = requestedIndex >= 0 ? requestedIndex : events.length - 1
+      if (requestedIndex < 0) return false
+      const targetIndex = requestedIndex
       const targetEvent = events[targetIndex]
       if (!targetEvent?.offsetWidth || !viewport.clientWidth) return false
 
@@ -307,8 +312,8 @@
       const requestedIndex = events.findIndex(event => (
         event.querySelector('[data-championship-detail]')?.getAttribute('data-championship-detail') === slug
       ))
-      const targetIndex = requestedIndex >= 0 ? requestedIndex : events.length - 1
-      return { event: events[targetIndex], index: targetIndex }
+      if (requestedIndex < 0) return null
+      return { event: events[requestedIndex], index: requestedIndex }
     }
 
     const applyInstantCenter = targetEvent => {
@@ -319,9 +324,9 @@
       return true
     }
 
-    const restoreBySlug = (slug, onComplete) => {
+    const restoreBySlug = (slug, onPositioned) => {
       const target = resolveEventBySlug(slug)
-      if (!target.event?.offsetWidth || !viewport.clientWidth) {
+      if (!target?.event?.offsetWidth || !viewport.clientWidth || !viewport.scrollWidth) {
         return false
       }
 
@@ -329,24 +334,23 @@
       const restorationGeneration = runtime.generation
       const previousScrollBehavior = viewport.style.scrollBehavior
       const previousSnapType = viewport.style.scrollSnapType
-      let corrected = false
+      runtime.isRestoringOrigin = true
       runtime.restoration = {
         slug,
         index: target.index,
         viewport,
         previousScrollBehavior,
         previousSnapType,
-        onComplete
+        positioned: false,
+        corrected: false
       }
 
-      const release = () => {
+      const markPositioned = () => {
         if (!runtime.restoration || restorationGeneration !== runtime.generation) return
-        viewport.style.scrollSnapType = previousSnapType
-        viewport.style.scrollBehavior = previousScrollBehavior
         setCurrentIndex(target.index)
-        runtime.restoration = null
+        runtime.restoration.positioned = true
         runtime.restorationFrame = null
-        onComplete?.()
+        onPositioned?.()
       }
 
       const confirm = () => {
@@ -354,19 +358,13 @@
         const viewportCenter = viewport.clientWidth / 2
         const targetCenter = target.event.offsetLeft + target.event.offsetWidth / 2 - viewport.scrollLeft
         const deviation = Math.abs(targetCenter - viewportCenter)
-        if (deviation > 1 && !corrected) {
-          corrected = true
+        if (deviation > 1 && !runtime.restoration.corrected) {
+          runtime.restoration.corrected = true
           applyInstantCenter(target.event)
           runtime.restorationFrame = window.requestAnimationFrame(confirm)
           return
         }
-
-        // Keep the snap lock for one more frame so a reflow cannot move the
-        // track between the final measurement and restoring the CSS snap rule.
-        runtime.restorationFrame = window.requestAnimationFrame(() => {
-          if (!runtime.restoration || restorationGeneration !== runtime.generation) return
-          release()
-        })
+        markPositioned()
       }
 
       viewport.style.scrollBehavior = 'auto'
@@ -380,6 +378,30 @@
     }
 
     runtime.restoreBySlug = restoreBySlug
+
+    const completeOriginRestore = onComplete => {
+      const restoration = runtime.restoration
+      if (!runtime.isRestoringOrigin || !restoration?.positioned) return false
+      const restorationGeneration = runtime.generation
+      const target = resolveEventBySlug(restoration.slug)
+      if (!target?.event?.offsetWidth || !viewport.clientWidth) return false
+
+      runtime.restorationFrame = window.requestAnimationFrame(() => {
+        runtime.restorationFrame = window.requestAnimationFrame(() => {
+          if (!runtime.restoration || restorationGeneration !== runtime.generation) return
+          setCurrentIndex(target.index)
+          viewport.style.scrollSnapType = restoration.previousSnapType
+          viewport.style.scrollBehavior = restoration.previousScrollBehavior
+          runtime.restoration = null
+          runtime.restorationFrame = null
+          runtime.isRestoringOrigin = false
+          onComplete?.()
+        })
+      })
+      return true
+    }
+
+    runtime.completeOriginRestore = completeOriginRestore
 
     const positionInitialCard = initialMode => {
       if (runtime.initialPositionApplied) return true
@@ -546,7 +568,8 @@
     init,
     destroy,
     centerBySlug,
-    restoreBySlug: (slug, onComplete) => runtime.restoreBySlug?.(slug, onComplete) || false
+    restoreBySlug: (slug, onPositioned) => runtime.restoreBySlug?.(slug, onPositioned) || false,
+    completeOriginRestore: onComplete => runtime.completeOriginRestore?.(onComplete) || false
   }
   init({ mode: 'latest' })
 

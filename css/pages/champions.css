@@ -7,6 +7,7 @@ body.site-video-body {
   --champions-gold: #d7bd78;
   --champions-card-width: 344px;
   --champions-card-height: 386px;
+  --champions-card-gap: 28px;
 }
 
 body.site-video-body #body-wrap.type-champions > #content-inner.layout {
@@ -284,7 +285,7 @@ body.site-video-body #body-wrap.type-champions #page {
   display: flex;
   width: max-content;
   min-width: 100%;
-  gap: 28px;
+  gap: var(--champions-card-gap);
   padding-inline: var(--timeline-edge-padding, 24px);
 }
 
@@ -300,6 +301,9 @@ body.site-video-body #body-wrap.type-champions #page {
 
 .championship-event {
   display: grid;
+  width: var(--champions-card-width);
+  min-width: var(--champions-card-width);
+  max-width: var(--champions-card-width);
   flex: 0 0 var(--champions-card-width);
   grid-template-rows: var(--champions-card-height) 34px 13px 32px;
   justify-items: center;
@@ -1227,6 +1231,7 @@ body.site-video-body #body-wrap.type-champions #page {
   .type-champions {
     --champions-card-width: min(82vw, 350px);
     --champions-card-height: 374px;
+    --champions-card-gap: 16px;
   }
 
   body.site-video-body #body-wrap.type-champions > #content-inner.layout {
@@ -1254,10 +1259,6 @@ body.site-video-body #body-wrap.type-champions #page {
     padding-top: 14px;
     -webkit-mask-image: linear-gradient(90deg, transparent, #000 2.5%, #000 97.5%, transparent);
     mask-image: linear-gradient(90deg, transparent, #000 2.5%, #000 97.5%, transparent);
-  }
-
-  .champions-timeline__track {
-    gap: 16px;
   }
 
   .champions-timeline__controls {
