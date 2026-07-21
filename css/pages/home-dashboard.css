@@ -89,8 +89,8 @@ body.home-dashboard-body #web_bg {
   border-radius: 999px;
   outline: none;
   background: var(--dashboard-glass-ui-bg);
-  backdrop-filter: var(--dashboard-glass-ui-blur);
-  -webkit-backdrop-filter: var(--dashboard-glass-ui-blur);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   box-shadow: var(--dashboard-glass-ui-shadow);
   color: rgba(255, 255, 255, 0.94);
   transition: background-color 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
@@ -1118,13 +1118,17 @@ body.home-dashboard-body #web_bg {
   text-shadow: 0 1px 4px rgba(18, 10, 30, 0.34);
 }
 
-.home-dashboard .dashboard-search__input::placeholder,
 .home-dashboard .dashboard-search-results__status,
 .home-dashboard .dashboard-search-result__excerpt,
 .home-dashboard .personal-posts-stat__label,
 .home-dashboard .weather-card__metric span {
   color: rgba(255, 255, 255, 0.68);
   text-shadow: 0 1px 3px rgba(18, 10, 30, 0.26);
+}
+
+.home-dashboard .dashboard-search__input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+  text-shadow: none;
 }
 
 @media screen and (min-width: 769px) {

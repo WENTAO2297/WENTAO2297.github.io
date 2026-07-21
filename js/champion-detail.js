@@ -6,13 +6,14 @@
   const FLIP_DELAY = 130
   const FINAL_MOVE_DURATION = 400
   const MATCHES_REVEAL_DELAY = 190
-  const RETURN_TRANSITION_DURATION = 300
+  const RETURN_TRANSITION_DURATION = 320
   const ROOT_STATE_CLASSES = [
     'is-detail',
     'is-detail-layout',
     'is-detail-opening',
     'is-detail-closing',
     'is-return-positioning',
+    'is-restoring-timeline-view',
     'is-detail-card-visible',
     'is-detail-content-visible',
     'is-detail-copy-visible',
@@ -28,6 +29,7 @@
     controller: null,
     root: null,
     viewport: null,
+    timelineView: null,
     panels: new Map(),
     heroDetails: new Map(),
     detailId: null,
@@ -42,6 +44,9 @@
     originSlug: null,
     originIndex: null,
     openContext: null,
+    previousScrollRestoration: null,
+    isManagingScrollRestoration: false,
+    timelineScrollRestore: null,
     transitionCard: null,
     state: 'timeline',
     generation: 0,
@@ -83,6 +88,101 @@
     runtime.frames.clear()
     runtime.timers.clear()
     runtime.transitionCleanups.clear()
+    runtime.root?.classList.remove('is-returning-to-timeline', 'is-returning-to-timeline-play')
+  }
+
+  const getPageScrollY = () => {
+    const scrollY = Number(window.scrollY)
+    if (Number.isFinite(scrollY)) return scrollY
+    return Number(document.documentElement?.scrollTop || document.body?.scrollTop || 0)
+  }
+
+  const getPageScrollX = () => {
+    const scrollX = Number(window.scrollX)
+    if (Number.isFinite(scrollX)) return scrollX
+    return Number(document.documentElement?.scrollLeft || document.body?.scrollLeft || 0)
+  }
+
+  const setPageScrollY = scrollY => {
+    const targetY = Math.max(0, Number(scrollY) || 0)
+    window.scrollTo(getPageScrollX(), targetY)
+  }
+
+  const takeOverScrollRestoration = () => {
+    if (runtime.isManagingScrollRestoration) return
+    try {
+      runtime.previousScrollRestoration = window.history.scrollRestoration
+      window.history.scrollRestoration = 'manual'
+      runtime.isManagingScrollRestoration = true
+    } catch {
+      runtime.previousScrollRestoration = null
+      runtime.isManagingScrollRestoration = false
+    }
+  }
+
+  const restoreScrollRestoration = () => {
+    if (!runtime.isManagingScrollRestoration) return
+    try {
+      window.history.scrollRestoration = runtime.previousScrollRestoration || 'auto'
+    } catch {
+      // Ignore browsers that expose a read-only scrollRestoration property.
+    }
+    runtime.previousScrollRestoration = null
+    runtime.isManagingScrollRestoration = false
+  }
+
+  const beginTimelineScrollRestore = () => {
+    const targetY = Number.isFinite(runtime.openContext?.timelineScrollY)
+      ? Math.max(0, runtime.openContext.timelineScrollY)
+      : 0
+    const documentElement = document.documentElement
+    const body = document.body
+    runtime.timelineScrollRestore = {
+      targetY,
+      corrected: false,
+      previousDocumentBehavior: documentElement?.style.scrollBehavior || '',
+      previousBodyBehavior: body?.style.scrollBehavior || ''
+    }
+    if (documentElement) documentElement.style.scrollBehavior = 'auto'
+    if (body) body.style.scrollBehavior = 'auto'
+    setPageScrollY(targetY)
+  }
+
+  const settleTimelineScrollRestore = (generation, callback) => {
+    const restore = runtime.timelineScrollRestore
+    if (!restore) {
+      callback?.()
+      return
+    }
+
+    const finish = () => {
+      if (generation !== runtime.generation) return
+      callback?.()
+    }
+
+    const confirm = () => {
+      if (generation !== runtime.generation || runtime.timelineScrollRestore !== restore) return
+      const deviation = Math.abs(getPageScrollY() - restore.targetY)
+      if (deviation > 1 && !restore.corrected) {
+        restore.corrected = true
+        setPageScrollY(restore.targetY)
+        queueFrame(finish)
+        return
+      }
+      finish()
+    }
+
+    queueFrame(() => queueFrame(confirm))
+  }
+
+  const restoreTimelineScrollControls = () => {
+    const restore = runtime.timelineScrollRestore
+    if (!restore) return
+    const documentElement = document.documentElement
+    const body = document.body
+    if (documentElement) documentElement.style.scrollBehavior = restore.previousDocumentBehavior
+    if (body) body.style.scrollBehavior = restore.previousBodyBehavior
+    runtime.timelineScrollRestore = null
   }
 
   const clearRootState = () => {
@@ -137,6 +237,7 @@
 
   const rememberOrigin = (trigger, context = {}) => {
     if (runtime.openContext) return
+    takeOverScrollRestoration()
     const events = Array.from(runtime.root?.querySelectorAll('.championship-event') || [])
     const originEvent = trigger?.closest('.championship-event')
     const slug = context.slug || getTriggerId(trigger)
@@ -146,7 +247,10 @@
     runtime.openContext = Object.freeze({
       slug,
       index,
-      card: trigger
+      card: trigger,
+      timelineScrollY: Number.isFinite(context.timelineScrollY)
+        ? context.timelineScrollY
+        : getPageScrollY()
     })
     runtime.originCard = trigger
     runtime.originSlug = slug
@@ -299,13 +403,18 @@
     runtime.heroDetail = null
   }
 
-  const restoreTimeline = ({ position = true } = {}) => {
+  const restoreTimeline = ({ position = true, preserveReturnAnimation = false } = {}) => {
     removeTransitionCard()
     if (position) positionOriginCard()
+    restoreTimelineScrollControls()
+    restoreScrollRestoration()
     runtime.originCard?.setAttribute('aria-expanded', 'false')
     setOriginHidden(false)
     runtime.originCard = null
     clearRootState()
+    if (!preserveReturnAnimation) {
+      runtime.root?.classList.remove('is-returning-to-timeline', 'is-returning-to-timeline-play')
+    }
     showDetailHero(false)
     resetSelection()
     runtime.originSlug = null
@@ -340,6 +449,7 @@
     runtime.controller = null
     runtime.root = null
     runtime.viewport = null
+    runtime.timelineView = null
     runtime.panels = new Map()
     runtime.heroDetails = new Map()
     runtime.heroTimeline = null
@@ -417,10 +527,11 @@
   }
 
   const showDetailImmediately = (trigger, id, updateHistory = false, context = {}) => {
+    const timelineScrollY = getPageScrollY()
     if (!trigger || runtime.state !== 'timeline' || !selectDetail(id)) return
     clearAsyncWork()
     runtime.generation += 1
-    rememberOrigin(trigger, context)
+    rememberOrigin(trigger, { ...context, timelineScrollY })
     positionOriginCard()
     trigger.setAttribute('aria-expanded', 'true')
     setOriginHidden(true)
@@ -441,6 +552,7 @@
 
   const openDetail = (trigger, context = {}) => {
     const id = context.slug || getTriggerId(trigger)
+    const timelineScrollY = getPageScrollY()
     if (context.slug && context.slug !== getTriggerId(trigger)) return
     if (!trigger || runtime.state !== 'timeline' || !selectDetail(id)) return
     if (prefersReducedMotion()) {
@@ -458,7 +570,7 @@
     }
 
     runtime.state = 'transitioning-to-detail'
-    rememberOrigin(trigger, context)
+    rememberOrigin(trigger, { ...context, timelineScrollY })
     trigger.setAttribute('aria-expanded', 'true')
     positionMatchesAtLatest()
     clearRootState()
@@ -484,11 +596,56 @@
     }))
   }
 
-  const finishClose = generation => {
+  const startReturnAnimation = generation => {
     if (generation !== runtime.generation) return
+
+    const root = runtime.root
+    const timelineView = runtime.timelineView
     const focusTarget = runtime.originCard
-    restoreTimeline({ position: false })
-    focusTarget?.focus({ preventScroll: true })
+    if (!root || !timelineView) {
+      restoreTimeline({ position: false })
+      return
+    }
+
+    root.classList.add('is-returning-to-timeline')
+    restoreTimeline({ position: false, preserveReturnAnimation: true })
+
+    let fallbackTimer = null
+    const finish = () => {
+      if (generation !== runtime.generation) return
+      cleanup()
+      runtime.transitionCleanups.delete(cleanup)
+      root.classList.remove('is-returning-to-timeline', 'is-returning-to-timeline-play')
+      focusTarget?.focus({ preventScroll: true })
+    }
+    const handleTransitionEnd = event => {
+      if (event.target === timelineView && event.propertyName === 'opacity') finish()
+    }
+    const cleanup = () => {
+      timelineView.removeEventListener('transitionend', handleTransitionEnd)
+      if (fallbackTimer) {
+        window.clearTimeout(fallbackTimer)
+        runtime.timers.delete(fallbackTimer)
+      }
+    }
+
+    if (prefersReducedMotion()) {
+      restoreTimeline({ position: false })
+      focusTarget?.focus({ preventScroll: true })
+      return
+    }
+
+    timelineView.addEventListener('transitionend', handleTransitionEnd)
+    runtime.transitionCleanups.add(cleanup)
+    void timelineView.offsetWidth
+    queueFrame(() => {
+      if (generation !== runtime.generation) return
+      queueFrame(() => {
+        if (generation !== runtime.generation) return
+        root.classList.add('is-returning-to-timeline-play')
+        fallbackTimer = queueTimer(finish, RETURN_TRANSITION_DURATION + 80)
+      })
+    })
   }
 
   const completeReturnPosition = (generation, callback) => {
@@ -500,19 +657,33 @@
   }
 
   const prepareReturnPosition = (generation, callback) => {
-    runtime.root?.classList.add('is-return-positioning')
+    runtime.root?.classList.add('is-return-positioning', 'is-restoring-timeline-view')
+    beginTimelineScrollRestore()
+    let verticalComplete = false
+    let horizontalComplete = false
     const finishPositioning = () => {
       if (generation !== runtime.generation) return
+      if (!verticalComplete || !horizontalComplete) return
       runtime.root?.classList.remove('is-return-positioning')
       callback?.()
     }
-    const restored = window.ChampionshipTimeline?.restoreBySlug?.(runtime.openContext?.slug, finishPositioning)
+
+    settleTimelineScrollRestore(generation, () => {
+      verticalComplete = true
+      finishPositioning()
+    })
+
+    const markHorizontalComplete = () => {
+      horizontalComplete = true
+      finishPositioning()
+    }
+    const restored = window.ChampionshipTimeline?.restoreBySlug?.(runtime.openContext?.slug, markHorizontalComplete)
     if (restored) return
 
     queueFrame(() => queueFrame(() => {
       if (generation !== runtime.generation) return
       positionOriginCard()
-      finishPositioning()
+      markHorizontalComplete()
     }))
   }
 
@@ -537,7 +708,7 @@
       clearAsyncWork()
       const generation = runtime.generation
       prepareReturnPosition(generation, () => {
-        completeReturnPosition(generation, () => finishClose(generation))
+        completeReturnPosition(generation, () => startReturnAnimation(generation))
       })
       return
     }
@@ -547,29 +718,17 @@
     const generation = runtime.generation
     runtime.state = 'transitioning-to-timeline'
     prepareTimelineForReturn()
-    let transitionComplete = false
-    let positionComplete = false
-    let returnCompleted = false
-    const finishWhenReady = () => {
-      if (returnCompleted || !transitionComplete || !positionComplete || generation !== runtime.generation) return
-      returnCompleted = true
-      completeReturnPosition(generation, () => finishClose(generation))
-    }
-    waitForTransition(runtime.heroTimeline || runtime.panel, 'opacity', RETURN_TRANSITION_DURATION, generation, () => {
-      transitionComplete = true
-      finishWhenReady()
-    })
     clearRootState()
     runtime.root?.classList.add(
       'is-detail-layout',
       'is-detail-closing',
       'is-detail-card-visible',
-      'is-return-positioning'
+      'is-return-positioning',
+      'is-restoring-timeline-view'
     )
     runtime.root?.setAttribute('aria-busy', 'true')
     prepareReturnPosition(generation, () => {
-      positionComplete = true
-      finishWhenReady()
+      completeReturnPosition(generation, () => startReturnAnimation(generation))
     })
   }
 
@@ -684,9 +843,10 @@
   const init = () => {
     destroy()
     const root = document.querySelector('.champions-page')
+    const timelineView = root?.querySelector('[data-champions-timeline-view]')
     const shell = root?.querySelector('.champions-timeline-shell')
     const viewport = shell?.querySelector('.champions-timeline__viewport')
-    if (!root || !shell || !viewport) return false
+    if (!root || !timelineView || !shell || !viewport) return false
 
     const panels = new Map(Array.from(root.querySelectorAll('[data-championship-detail-panel]')).map(panel => [panel.getAttribute('data-championship-detail-panel'), panel]))
     const heroDetails = new Map(Array.from(root.querySelectorAll('[data-champions-hero-detail]')).map(hero => [hero.getAttribute('data-champions-hero-detail'), hero]))
@@ -701,6 +861,7 @@
     runtime.controller = controller
     runtime.root = root
     runtime.viewport = viewport
+    runtime.timelineView = timelineView
     runtime.panels = panels
     runtime.heroDetails = heroDetails
     runtime.heroTimeline = root.querySelector('[data-champions-hero-timeline]')
@@ -757,7 +918,19 @@
     document.addEventListener('pjax:send', destroy)
     document.addEventListener('pjax:error', destroy)
     window.addEventListener('pageshow', event => {
-      if (event.persisted && document.querySelector('.champions-page') && !runtime.controller) init()
+      if (!event.persisted || !document.querySelector('.champions-page')) return
+      const hasDetailHash = isKnownDetailId(getHashDetailId())
+      if (!hasDetailHash && runtime.root?.classList.contains('is-restoring-timeline-view')) {
+        runtime.generation += 1
+        clearAsyncWork()
+        restoreTimeline()
+      }
+      if (!hasDetailHash && runtime.root?.classList.contains('is-returning-to-timeline')) {
+        runtime.generation += 1
+        clearAsyncWork()
+        restoreTimeline()
+      }
+      if (!runtime.controller) init()
     })
   }
 })()

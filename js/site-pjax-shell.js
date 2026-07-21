@@ -7,6 +7,50 @@
   let pendingUrl = null
   let navigationGeneration = 0
 
+  const getSiteVideoElements = () => ({
+    container: document.querySelector('.site-video-background'),
+    media: document.querySelector('.site-video-background__media')
+  })
+
+  const prefersReducedMotion = () => window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
+
+  const playSiteVideo = media => {
+    if (!media || document.visibilityState === 'hidden' || prefersReducedMotion()) return
+    const playPromise = media.play?.()
+    playPromise?.catch?.(() => {})
+  }
+
+  const bindSiteVideoMedia = (container, media) => {
+    if (!container || !media || media.dataset.siteVideoBound === 'true') return
+
+    media.dataset.siteVideoBound = 'true'
+    media.addEventListener('loadeddata', () => {
+      container.classList.add('is-video-ready')
+      container.classList.remove('is-video-failed')
+    })
+    media.addEventListener('canplay', () => {
+      container.classList.add('is-video-ready')
+      container.classList.remove('is-video-failed')
+    })
+    media.addEventListener('error', () => {
+      container.classList.remove('is-video-ready')
+      container.classList.add('is-video-failed')
+    })
+  }
+
+  const syncSiteVideoPlayback = () => {
+    const { container, media } = getSiteVideoElements()
+    if (!container || !media) return
+
+    bindSiteVideoMedia(container, media)
+
+    const reducedMotion = prefersReducedMotion()
+    container.classList.toggle('is-reduced-motion', reducedMotion)
+
+    if (reducedMotion || document.visibilityState === 'hidden') media.pause()
+    else playSiteVideo(media)
+  }
+
   const normalizePath = (path) => {
     const normalized = path.replace(/\/index\.html$/, '/').replace(/\/+$/, '')
     return normalized || '/'
@@ -116,6 +160,7 @@
 
   window.syncPersistentShell = syncPersistentShell
   syncPersistentShell()
+  syncSiteVideoPlayback()
 
   document.addEventListener('click', event => {
     if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return
@@ -153,4 +198,11 @@
     root.classList.remove('pjax-content-preparing', 'pjax-content-leaving')
     window.location.href = pendingUrl || window.location.href
   })
+
+  document.addEventListener('visibilitychange', syncSiteVideoPlayback)
+  window.addEventListener('pageshow', syncSiteVideoPlayback)
+  window.addEventListener('pagehide', () => getSiteVideoElements().media?.pause?.())
+  const motionPreference = window.matchMedia?.('(prefers-reduced-motion: reduce)')
+  if (motionPreference?.addEventListener) motionPreference.addEventListener('change', syncSiteVideoPlayback)
+  else motionPreference?.addListener?.(syncSiteVideoPlayback)
 })()

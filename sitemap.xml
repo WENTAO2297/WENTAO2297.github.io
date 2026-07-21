@@ -2,16 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://wentao2297.github.io/about/index.html</loc>
+    <loc>https://wentao2297.github.io/champions/index.html</loc>
     
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-07-21</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://wentao2297.github.io/champions/index.html</loc>
+    <loc>https://wentao2297.github.io/personal-space/index.html</loc>
+    
+    <lastmod>2026-07-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://wentao2297.github.io/study-journey/index.html</loc>
+    
+    <lastmod>2026-07-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://wentao2297.github.io/about/index.html</loc>
     
     <lastmod>2026-07-18</lastmod>
     
@@ -121,7 +139,7 @@
 
   <url>
     <loc>https://wentao2297.github.io/</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>

@@ -12,8 +12,6 @@
     resizeObserver: null,
     scrollFrame: null,
     geometryFrame: null,
-    readyObserver: null,
-    readyTimer: null,
     timelineShell: null,
     suppressNextClick: false,
     suppressClickTimer: null,
@@ -29,29 +27,39 @@
     generation: 0
   }
 
+  const cancelFrame = key => {
+    const frame = runtime[key]
+    if (frame == null) return
+    window.cancelAnimationFrame(frame)
+    runtime[key] = null
+  }
+
+  const cancelTimer = key => {
+    const timer = runtime[key]
+    if (timer == null) return
+    window.clearTimeout(timer)
+    runtime[key] = null
+  }
+
   const destroy = () => {
     runtime.generation += 1
     runtime.controller?.abort()
     runtime.resizeObserver?.disconnect()
-    if (runtime.scrollFrame) window.cancelAnimationFrame(runtime.scrollFrame)
-    if (runtime.geometryFrame) window.cancelAnimationFrame(runtime.geometryFrame)
-    if (runtime.restorationFrame) window.cancelAnimationFrame(runtime.restorationFrame)
+    cancelFrame('scrollFrame')
+    cancelFrame('geometryFrame')
+    cancelFrame('restorationFrame')
     if (runtime.restoration?.viewport) {
       runtime.restoration.viewport.style.scrollSnapType = runtime.restoration.previousSnapType
       runtime.restoration.viewport.style.scrollBehavior = runtime.restoration.previousScrollBehavior
     }
-    runtime.readyObserver?.disconnect()
-    if (runtime.readyTimer) window.clearTimeout(runtime.readyTimer)
     runtime.timelineShell?.classList.remove('is-initializing', 'is-ready')
     runtime.timelineShell?.removeAttribute('aria-busy')
-    if (runtime.suppressClickTimer) window.clearTimeout(runtime.suppressClickTimer)
+    cancelTimer('suppressClickTimer')
 
     runtime.controller = null
     runtime.resizeObserver = null
     runtime.scrollFrame = null
     runtime.geometryFrame = null
-    runtime.readyObserver = null
-    runtime.readyTimer = null
     runtime.timelineShell = null
     runtime.suppressNextClick = false
     runtime.suppressClickTimer = null
@@ -89,44 +97,12 @@
 
     const isCurrentPage = () => generation === runtime.generation && shell.isConnected && runtime.timelineShell === shell
 
-    // One exit path owns the interaction state, including fail-safe recovery.
     const finishInitialization = () => {
       if (!isCurrentPage() || !runtime.initialPositionApplied) return
-
-      // Recover the local readiness state if Page Motion finishes late or
-      // fails during a PJAX transition.
-      const motionWasPending = shell.classList.contains('page-motion-item-pending') || shell.classList.contains('page-motion-item-prerender')
-      shell.classList.remove('page-motion-item-pending', 'page-motion-item-prerender')
-      if (motionWasPending) shell.classList.add('page-motion-item-visible')
       shell.classList.remove('is-initializing')
       shell.classList.add('is-ready')
       shell.setAttribute('aria-busy', 'false')
-      runtime.readyObserver?.disconnect()
-      runtime.readyObserver = null
-      if (runtime.readyTimer) window.clearTimeout(runtime.readyTimer)
-      runtime.readyTimer = null
     }
-
-    // Register the fail-safe before any optional observer/geometry setup that
-    // may be unavailable in an older browser or fail during PJAX recovery.
-    runtime.readyTimer = window.setTimeout(() => {
-      runtime.readyTimer = null
-      if (!isCurrentPage() || !runtime.initialPositionApplied) return
-      finishInitialization()
-    }, 720)
-
-    const checkMotionReady = () => {
-      if (!runtime.initialPositionApplied) return
-      const motionVisible = shell.classList.contains('page-motion-item-visible')
-      const motionPending = shell.classList.contains('page-motion-item-pending') || shell.classList.contains('page-motion-item-prerender')
-      if (motionVisible || !motionPending || !runtime.readyTimer) finishInitialization()
-    }
-
-    if (window.MutationObserver) {
-      runtime.readyObserver = new MutationObserver(checkMotionReady)
-      runtime.readyObserver.observe(shell, { attributes: true, attributeFilter: ['class'] })
-    }
-    checkMotionReady()
 
     const markInteracted = () => shell.classList.add('is-interacted')
 
@@ -161,8 +137,7 @@
     const handleCardClick = event => {
       if (runtime.suppressNextClick) {
         runtime.suppressNextClick = false
-        if (runtime.suppressClickTimer) window.clearTimeout(runtime.suppressClickTimer)
-        runtime.suppressClickTimer = null
+        cancelTimer('suppressClickTimer')
         event.preventDefault()
         event.stopPropagation()
         return
@@ -286,10 +261,7 @@
       const targetEvent = events[targetIndex]
       if (!targetEvent?.offsetWidth || !viewport.clientWidth) return false
 
-      if (runtime.scrollFrame) {
-        window.cancelAnimationFrame(runtime.scrollFrame)
-        runtime.scrollFrame = null
-      }
+      cancelFrame('scrollFrame')
 
       const maxScrollLeft = Math.max(0, viewport.scrollWidth - viewport.clientWidth)
       const targetLeft = targetEvent.offsetLeft + targetEvent.offsetWidth / 2 - viewport.clientWidth / 2
@@ -330,7 +302,7 @@
         return false
       }
 
-      if (runtime.restorationFrame) window.cancelAnimationFrame(runtime.restorationFrame)
+      cancelFrame('restorationFrame')
       const restorationGeneration = runtime.generation
       const previousScrollBehavior = viewport.style.scrollBehavior
       const previousSnapType = viewport.style.scrollSnapType
@@ -430,7 +402,7 @@
       viewport.style.scrollBehavior = previousScrollBehavior
       runtime.initialPositionApplied = true
       updateCurrent()
-      checkMotionReady()
+      finishInitialization()
       return true
     }
 
@@ -528,7 +500,7 @@
 
       if (didDrag) {
         runtime.suppressNextClick = true
-        if (runtime.suppressClickTimer) window.clearTimeout(runtime.suppressClickTimer)
+        cancelTimer('suppressClickTimer')
         runtime.suppressClickTimer = window.setTimeout(() => {
           runtime.suppressNextClick = false
           runtime.suppressClickTimer = null
