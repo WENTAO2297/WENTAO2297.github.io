@@ -1633,86 +1633,6 @@ Steering angle = K_p \cdot e(t) + K_d \frac{\text{d}e(t)}{\text{d}t} + K_i \int_
 ]]></content>
   </entry>
   <entry>
-    <title>人工智能芯片导论</title>
-    <url>/2026/06/08/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E8%8A%AF%E7%89%87%E5%AF%BC%E8%AE%BA/</url>
-    <content><![CDATA[<p>这个课是真的坑，考试两个ppt只考了其中一个，而且还是很多政治内容的那个ppt。<br>另外，都26年了，还考25年预计达到多少多少数据，老师你脑子呢😂，我真没招了。</p>
-<h1 id="01-AI-背景介绍"><a href="#01-AI-背景介绍" class="headerlink" title="01. AI 背景介绍"></a>01. AI 背景介绍</h1><ul>
-<li><strong>世界三大尖端技术</strong>：$空间技术+能源技术+人工智能$</li>
-<li><p><strong>AI的应用</strong>：$人脸识别，智能医疗，智能语音，自动驾驶，智能机器人$</p>
-</li>
-<li><p>深度学习：<strong>CNN 的网络组成</strong>：</p>
-<ol>
-<li>卷积层：卷积运算提取输入的不同特征</li>
-<li>池化层：对输入的特征图进行压缩，简化计算；另一方面进行特征压缩，取其最大、最小或平均值，得到新的、维度较小的特征。</li>
-<li>线性整流层：引入非线性，之后就可以逼近任意函数。</li>
-<li>全连接层：把所有局部特征结合变成全局特征，用来计算最后每一类的得分。<br><img src="2026-06-08-10-22-39.png" alt="" loading="lazy"></li>
-</ol>
-</li>
-</ul>
-<h1 id="02-CNN-IP方案介绍"><a href="#02-CNN-IP方案介绍" class="headerlink" title="02. CNN IP方案介绍"></a>02. CNN IP方案介绍</h1><ul>
-<li><p>CNN 计算特点：</p>
-<ol>
-<li>操作相对固定</li>
-<li>计算量大</li>
-<li>需要带宽大</li>
-</ol>
-</li>
-<li><p>CNN IP方案分类（4种）：<br><img src="2026-06-08-10-29-25.png" alt="" loading="lazy"></p>
-</li>
-</ul>
-<h2 id="1-ASIC类-NVDLA"><a href="#1-ASIC类-NVDLA" class="headerlink" title="1. ASIC类-NVDLA"></a>1. ASIC类-NVDLA</h2><p><img src="2026-06-08-10-33-19.png" alt="" loading="lazy"></p>
-<h2 id="2-ASIP类-寒武纪-云天励飞NNP"><a href="#2-ASIP类-寒武纪-云天励飞NNP" class="headerlink" title="2. ASIP类-寒武纪/云天励飞NNP"></a>2. ASIP类-寒武纪/云天励飞NNP</h2><p><img src="2026-06-08-10-33-28.png" alt="" loading="lazy"><br><img src="2026-06-08-10-33-41.png" alt="" loading="lazy"></p>
-<h2 id="3-GPU类-NVIDIA"><a href="#3-GPU类-NVIDIA" class="headerlink" title="3. GPU类-NVIDIA"></a>3. GPU类-NVIDIA</h2><p><img src="2026-06-08-10-34-56.png" alt="" loading="lazy"></p>
-<h2 id="4-DSP类-Cadence-VP6"><a href="#4-DSP类-Cadence-VP6" class="headerlink" title="4. DSP类-Cadence VP6"></a>4. DSP类-Cadence VP6</h2><p><img src="2026-06-08-10-35-32.png" alt="" loading="lazy"></p>
-<h1 id="03-AI-ASIP处理器架构设计"><a href="#03-AI-ASIP处理器架构设计" class="headerlink" title="03. AI ASIP处理器架构设计"></a>03. AI ASIP处理器架构设计</h1><h2 id="1-算法-产品需求分析"><a href="#1-算法-产品需求分析" class="headerlink" title="1. 算法/产品需求分析"></a>1. 算法/产品需求分析</h2><p><img src="2026-06-08-10-56-29.png" alt="" loading="lazy"></p>
-<h2 id="2-软硬件切割"><a href="#2-软硬件切割" class="headerlink" title="2. 软硬件切割"></a>2. 软硬件切割</h2><p><img src="2026-06-08-10-56-49.png" alt="" loading="lazy"><br><img src="2026-06-08-10-56-58.png" alt="" loading="lazy"></p>
-<h2 id="3-架构定义"><a href="#3-架构定义" class="headerlink" title="3. 架构定义"></a>3. 架构定义</h2><ul>
-<li>AI ASIP处理器架构设计重点：<br>$数据重用，Weight重用，计算并行度，DDR带宽，MAC利用率，硬件拓展性，初步流水时序，后端可实现性$</li>
-</ul>
-<p><img src="2026-06-08-11-00-29.png" alt="" loading="lazy"><br><img src="2026-06-08-11-00-39.png" alt="" loading="lazy"><br><img src="2026-06-08-11-00-50.png" alt="" loading="lazy"><br><img src="2026-06-08-11-00-59.png" alt="" loading="lazy"><br><img src="2026-06-08-11-01-11.png" alt="" loading="lazy"></p>
-<h2 id="4-指令集定义"><a href="#4-指令集定义" class="headerlink" title="4. 指令集定义"></a>4. 指令集定义</h2><ul>
-<li><p>两类指令：</p>
-<ol>
-<li>基本指令：用于<strong>控制</strong>和<strong>NN Core调度</strong> <em>（循环，跳转，算术逻辑运算指令）</em></li>
-<li>NN指令：用于<strong>CNN计算</strong></li>
-</ol>
-</li>
-<li><p>指令集的规整以及拓展性</p>
-</li>
-<li>指令的颗粒度：<ul>
-<li>大颗粒度：例如定义了一条convlution指令，一条指令能够执行成千上万个cycle。特点：<strong>效率高</strong></li>
-<li>小颗粒度：例如convlution操作通过使用乘法指令和加法指令编程完成，特点：<strong>灵活</strong></li>
-</ul>
-</li>
-</ul>
-<h2 id="5-指令集模拟器（ISS）开发"><a href="#5-指令集模拟器（ISS）开发" class="headerlink" title="5. 指令集模拟器（ISS）开发"></a>5. 指令集模拟器（ISS）开发</h2><blockquote>
-<p>指令集模拟器：利用高级语言编写的ASIP处理器模型。<br>可用于ASIP处理器架构设计阶段对处理器架构的性能仿真的工具。并且可用于后续RTL验证以及软件开发的参考模型。</p>
-</blockquote>
-<p><img src="2026-06-08-11-07-11.png" alt="" loading="lazy"></p>
-<ul>
-<li>ISS分类：<ol>
-<li><em>behavior model</em>：<ul>
-<li>没有<strong>时序概念</strong>，只能模拟处理器行为。</li>
-<li>用于ASIP处理器架构设计阶段，用于快速建模，并对处理器架构进行评估以及调整。</li>
-<li>可以作为RTL验证阶段的参考模型。</li>
-</ul>
-</li>
-<li><em>cycle accurate model</em>:<ul>
-<li>有<strong>时序概念</strong>，每个<em>cycle</em>都可以与硬件完全比对。</li>
-<li>用于后续软件开发的参考模型，能够反映出软件在ASIP处理器上运行的真实情况。</li>
-</ul>
-</li>
-</ol>
-</li>
-</ul>
-<h2 id="6-ISS仿真-amp-架构优化迭代"><a href="#6-ISS仿真-amp-架构优化迭代" class="headerlink" title="6. ISS仿真&amp;架构优化迭代"></a>6. ISS仿真&amp;架构优化迭代</h2><p><img src="2026-06-08-11-14-07.png" alt="" loading="lazy"></p>
-<h2 id="7-确定微架构和指令集，进入开发阶段"><a href="#7-确定微架构和指令集，进入开发阶段" class="headerlink" title="7. 确定微架构和指令集，进入开发阶段"></a>7. 确定微架构和指令集，进入开发阶段</h2><h1 id="04-AI-ASIP处理器实现难点"><a href="#04-AI-ASIP处理器实现难点" class="headerlink" title="04. AI ASIP处理器实现难点"></a>04. AI ASIP处理器实现难点</h1><h2 id="1-AI-ASIP处理器RTL开发过程中的注意事项"><a href="#1-AI-ASIP处理器RTL开发过程中的注意事项" class="headerlink" title="1. AI ASIP处理器RTL开发过程中的注意事项"></a>1. AI ASIP处理器RTL开发过程中的注意事项</h2><p><img src="2026-06-08-11-15-32.png" alt="" loading="lazy"><br><img src="2026-06-08-11-15-42.png" alt="" loading="lazy"></p>
-<h2 id="2-AI-ASIP处理器验证过程中的难点"><a href="#2-AI-ASIP处理器验证过程中的难点" class="headerlink" title="2. AI ASIP处理器验证过程中的难点"></a>2. AI ASIP处理器验证过程中的难点</h2><p><img src="2026-06-08-11-16-13.png" alt="" loading="lazy"></p>
-<h2 id="3-AI-ASIP处理器物理实现的难点"><a href="#3-AI-ASIP处理器物理实现的难点" class="headerlink" title="3. AI ASIP处理器物理实现的难点"></a>3. AI ASIP处理器物理实现的难点</h2><p><img src="2026-06-08-11-16-39.png" alt="" loading="lazy"></p>
-<h1 id="05-AI-ASIP处理器配套工具链"><a href="#05-AI-ASIP处理器配套工具链" class="headerlink" title="05. AI ASIP处理器配套工具链"></a>05. AI ASIP处理器配套工具链</h1><p><img src="2026-06-08-11-20-23.png" alt="" loading="lazy"></p>
-]]></content>
-  </entry>
-  <entry>
     <title>嵌入式系统原理</title>
     <url>/2025/12/21/STM32/</url>
     <content><![CDATA[<h1 id="第一章-导论"><a href="#第一章-导论" class="headerlink" title="第一章 导论"></a>第一章 导论</h1><blockquote>
@@ -2517,6 +2437,86 @@ Steering angle = K_p \cdot e(t) + K_d \frac{\text{d}e(t)}{\text{d}t} + K_i \int_
 <blockquote>
 <p><strong>附件下载：</strong> <a href="report.docx">📄 点击下载完整 Word 课程报告</a></p>
 </blockquote>
+]]></content>
+  </entry>
+  <entry>
+    <title>人工智能芯片导论</title>
+    <url>/2026/06/08/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E8%8A%AF%E7%89%87%E5%AF%BC%E8%AE%BA/</url>
+    <content><![CDATA[<p>这个课是真的坑，考试两个ppt只考了其中一个，而且还是很多政治内容的那个ppt。<br>另外，都26年了，还考25年预计达到多少多少数据，老师你脑子呢😂，我真没招了。</p>
+<h1 id="01-AI-背景介绍"><a href="#01-AI-背景介绍" class="headerlink" title="01. AI 背景介绍"></a>01. AI 背景介绍</h1><ul>
+<li><strong>世界三大尖端技术</strong>：$空间技术+能源技术+人工智能$</li>
+<li><p><strong>AI的应用</strong>：$人脸识别，智能医疗，智能语音，自动驾驶，智能机器人$</p>
+</li>
+<li><p>深度学习：<strong>CNN 的网络组成</strong>：</p>
+<ol>
+<li>卷积层：卷积运算提取输入的不同特征</li>
+<li>池化层：对输入的特征图进行压缩，简化计算；另一方面进行特征压缩，取其最大、最小或平均值，得到新的、维度较小的特征。</li>
+<li>线性整流层：引入非线性，之后就可以逼近任意函数。</li>
+<li>全连接层：把所有局部特征结合变成全局特征，用来计算最后每一类的得分。<br><img src="2026-06-08-10-22-39.png" alt="" loading="lazy"></li>
+</ol>
+</li>
+</ul>
+<h1 id="02-CNN-IP方案介绍"><a href="#02-CNN-IP方案介绍" class="headerlink" title="02. CNN IP方案介绍"></a>02. CNN IP方案介绍</h1><ul>
+<li><p>CNN 计算特点：</p>
+<ol>
+<li>操作相对固定</li>
+<li>计算量大</li>
+<li>需要带宽大</li>
+</ol>
+</li>
+<li><p>CNN IP方案分类（4种）：<br><img src="2026-06-08-10-29-25.png" alt="" loading="lazy"></p>
+</li>
+</ul>
+<h2 id="1-ASIC类-NVDLA"><a href="#1-ASIC类-NVDLA" class="headerlink" title="1. ASIC类-NVDLA"></a>1. ASIC类-NVDLA</h2><p><img src="2026-06-08-10-33-19.png" alt="" loading="lazy"></p>
+<h2 id="2-ASIP类-寒武纪-云天励飞NNP"><a href="#2-ASIP类-寒武纪-云天励飞NNP" class="headerlink" title="2. ASIP类-寒武纪/云天励飞NNP"></a>2. ASIP类-寒武纪/云天励飞NNP</h2><p><img src="2026-06-08-10-33-28.png" alt="" loading="lazy"><br><img src="2026-06-08-10-33-41.png" alt="" loading="lazy"></p>
+<h2 id="3-GPU类-NVIDIA"><a href="#3-GPU类-NVIDIA" class="headerlink" title="3. GPU类-NVIDIA"></a>3. GPU类-NVIDIA</h2><p><img src="2026-06-08-10-34-56.png" alt="" loading="lazy"></p>
+<h2 id="4-DSP类-Cadence-VP6"><a href="#4-DSP类-Cadence-VP6" class="headerlink" title="4. DSP类-Cadence VP6"></a>4. DSP类-Cadence VP6</h2><p><img src="2026-06-08-10-35-32.png" alt="" loading="lazy"></p>
+<h1 id="03-AI-ASIP处理器架构设计"><a href="#03-AI-ASIP处理器架构设计" class="headerlink" title="03. AI ASIP处理器架构设计"></a>03. AI ASIP处理器架构设计</h1><h2 id="1-算法-产品需求分析"><a href="#1-算法-产品需求分析" class="headerlink" title="1. 算法/产品需求分析"></a>1. 算法/产品需求分析</h2><p><img src="2026-06-08-10-56-29.png" alt="" loading="lazy"></p>
+<h2 id="2-软硬件切割"><a href="#2-软硬件切割" class="headerlink" title="2. 软硬件切割"></a>2. 软硬件切割</h2><p><img src="2026-06-08-10-56-49.png" alt="" loading="lazy"><br><img src="2026-06-08-10-56-58.png" alt="" loading="lazy"></p>
+<h2 id="3-架构定义"><a href="#3-架构定义" class="headerlink" title="3. 架构定义"></a>3. 架构定义</h2><ul>
+<li>AI ASIP处理器架构设计重点：<br>$数据重用，Weight重用，计算并行度，DDR带宽，MAC利用率，硬件拓展性，初步流水时序，后端可实现性$</li>
+</ul>
+<p><img src="2026-06-08-11-00-29.png" alt="" loading="lazy"><br><img src="2026-06-08-11-00-39.png" alt="" loading="lazy"><br><img src="2026-06-08-11-00-50.png" alt="" loading="lazy"><br><img src="2026-06-08-11-00-59.png" alt="" loading="lazy"><br><img src="2026-06-08-11-01-11.png" alt="" loading="lazy"></p>
+<h2 id="4-指令集定义"><a href="#4-指令集定义" class="headerlink" title="4. 指令集定义"></a>4. 指令集定义</h2><ul>
+<li><p>两类指令：</p>
+<ol>
+<li>基本指令：用于<strong>控制</strong>和<strong>NN Core调度</strong> <em>（循环，跳转，算术逻辑运算指令）</em></li>
+<li>NN指令：用于<strong>CNN计算</strong></li>
+</ol>
+</li>
+<li><p>指令集的规整以及拓展性</p>
+</li>
+<li>指令的颗粒度：<ul>
+<li>大颗粒度：例如定义了一条convlution指令，一条指令能够执行成千上万个cycle。特点：<strong>效率高</strong></li>
+<li>小颗粒度：例如convlution操作通过使用乘法指令和加法指令编程完成，特点：<strong>灵活</strong></li>
+</ul>
+</li>
+</ul>
+<h2 id="5-指令集模拟器（ISS）开发"><a href="#5-指令集模拟器（ISS）开发" class="headerlink" title="5. 指令集模拟器（ISS）开发"></a>5. 指令集模拟器（ISS）开发</h2><blockquote>
+<p>指令集模拟器：利用高级语言编写的ASIP处理器模型。<br>可用于ASIP处理器架构设计阶段对处理器架构的性能仿真的工具。并且可用于后续RTL验证以及软件开发的参考模型。</p>
+</blockquote>
+<p><img src="2026-06-08-11-07-11.png" alt="" loading="lazy"></p>
+<ul>
+<li>ISS分类：<ol>
+<li><em>behavior model</em>：<ul>
+<li>没有<strong>时序概念</strong>，只能模拟处理器行为。</li>
+<li>用于ASIP处理器架构设计阶段，用于快速建模，并对处理器架构进行评估以及调整。</li>
+<li>可以作为RTL验证阶段的参考模型。</li>
+</ul>
+</li>
+<li><em>cycle accurate model</em>:<ul>
+<li>有<strong>时序概念</strong>，每个<em>cycle</em>都可以与硬件完全比对。</li>
+<li>用于后续软件开发的参考模型，能够反映出软件在ASIP处理器上运行的真实情况。</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="6-ISS仿真-amp-架构优化迭代"><a href="#6-ISS仿真-amp-架构优化迭代" class="headerlink" title="6. ISS仿真&amp;架构优化迭代"></a>6. ISS仿真&amp;架构优化迭代</h2><p><img src="2026-06-08-11-14-07.png" alt="" loading="lazy"></p>
+<h2 id="7-确定微架构和指令集，进入开发阶段"><a href="#7-确定微架构和指令集，进入开发阶段" class="headerlink" title="7. 确定微架构和指令集，进入开发阶段"></a>7. 确定微架构和指令集，进入开发阶段</h2><h1 id="04-AI-ASIP处理器实现难点"><a href="#04-AI-ASIP处理器实现难点" class="headerlink" title="04. AI ASIP处理器实现难点"></a>04. AI ASIP处理器实现难点</h1><h2 id="1-AI-ASIP处理器RTL开发过程中的注意事项"><a href="#1-AI-ASIP处理器RTL开发过程中的注意事项" class="headerlink" title="1. AI ASIP处理器RTL开发过程中的注意事项"></a>1. AI ASIP处理器RTL开发过程中的注意事项</h2><p><img src="2026-06-08-11-15-32.png" alt="" loading="lazy"><br><img src="2026-06-08-11-15-42.png" alt="" loading="lazy"></p>
+<h2 id="2-AI-ASIP处理器验证过程中的难点"><a href="#2-AI-ASIP处理器验证过程中的难点" class="headerlink" title="2. AI ASIP处理器验证过程中的难点"></a>2. AI ASIP处理器验证过程中的难点</h2><p><img src="2026-06-08-11-16-13.png" alt="" loading="lazy"></p>
+<h2 id="3-AI-ASIP处理器物理实现的难点"><a href="#3-AI-ASIP处理器物理实现的难点" class="headerlink" title="3. AI ASIP处理器物理实现的难点"></a>3. AI ASIP处理器物理实现的难点</h2><p><img src="2026-06-08-11-16-39.png" alt="" loading="lazy"></p>
+<h1 id="05-AI-ASIP处理器配套工具链"><a href="#05-AI-ASIP处理器配套工具链" class="headerlink" title="05. AI ASIP处理器配套工具链"></a>05. AI ASIP处理器配套工具链</h1><p><img src="2026-06-08-11-20-23.png" alt="" loading="lazy"></p>
 ]]></content>
   </entry>
   <entry>

@@ -156,7 +156,7 @@
 .personal-star-core__orbit--outer {
   inset: -15px 5px;
   transform: rotate(-24deg);
-  animation: personal-core-ring-outer 34s linear infinite reverse;
+  animation: personal-core-ring-outer 34s linear infinite;
 }
 
 .personal-star-core__orbit--inner {
@@ -289,6 +289,7 @@
 }
 
 .personal-star-chart[data-orbit-page-hidden] .personal-star-chart__orbit,
+.personal-star-chart[data-orbit-page-hidden] .personal-star-chart__star,
 .personal-star-chart[data-orbit-page-hidden] .personal-star-core__orbit,
 .personal-star-chart[data-orbit-page-hidden] .personal-star-core,
 .personal-star-chart[data-orbit-page-hidden] .personal-star-core::after,
