@@ -57,6 +57,7 @@
   }
 
   const setResultsOpen = (container, input, isOpen) => {
+    container.hidden = !isOpen
     container.classList.toggle('is-open', isOpen)
     container.setAttribute('aria-hidden', String(!isOpen))
     input.setAttribute('aria-expanded', String(isOpen))

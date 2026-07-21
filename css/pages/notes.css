@@ -152,6 +152,10 @@
   transition: opacity 300ms ease, transform 300ms ease, visibility 0s linear 300ms;
 }
 
+.notes-page .dashboard-search-results[hidden] {
+  display: none;
+}
+
 .notes-page .dashboard-search-results.is-open {
   opacity: 1;
   visibility: visible;
