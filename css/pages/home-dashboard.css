@@ -51,7 +51,7 @@ body.home-dashboard-body #web_bg {
   --dashboard-glass-ui-outline: var(--glass-ui-outline);
   --dashboard-glass-ui-shadow: var(--glass-ui-shadow);
   --dashboard-glass-ui-shadow-soft: var(--glass-ui-shadow-soft);
-  --dashboard-spotify-black-bg: var(--spotify-black-bg);
+  --dashboard-dark-surface: #202124;
   --dashboard-accent-pink: var(--accent-color);
   --dashboard-accent-pink-border: var(--accent-border);
   --dashboard-accent-pink-glow: var(--accent-glow);
@@ -248,15 +248,11 @@ body.home-dashboard-body #web_bg {
   transition: box-shadow 300ms ease;
 }
 
-.home-dashboard .home-dashboard-enter {
-  animation: page-content-reveal 0.7s cubic-bezier(0.22, 1, 0.36, 1) backwards;
-}
-
 .home-dashboard .dashboard-card--personal {
   display: grid;
-  grid-template-rows: auto minmax(0, 1fr) auto;
+  grid-template-rows: auto minmax(0, 1fr);
   min-height: 0;
-  padding: 24px;
+  padding: 18px;
   background: var(--dashboard-glass-ui-bg);
   backdrop-filter: var(--dashboard-glass-ui-blur);
   -webkit-backdrop-filter: var(--dashboard-glass-ui-blur);
@@ -295,13 +291,11 @@ body.home-dashboard-body #web_bg {
 }
 
 .home-dashboard.home-dashboard--pending .dashboard-search-shell,
-.home-dashboard.home-dashboard--pending .home-dashboard-enter,
 .home-dashboard.home-dashboard--pending .dashboard-card {
   animation-play-state: paused;
 }
 
 .home-dashboard.home-dashboard--ready .dashboard-search-shell,
-.home-dashboard.home-dashboard--ready .home-dashboard-enter,
 .home-dashboard.home-dashboard--ready .dashboard-card {
   animation-play-state: running;
 }
@@ -327,10 +321,7 @@ body.home-dashboard-body #web_bg {
 }
 
 .home-dashboard .personal-profile,
-.home-dashboard .personal-profile__bio,
-.home-dashboard .personal-card__footer,
-.home-dashboard .personal-stats,
-.home-dashboard .personal-social {
+.home-dashboard .personal-profile__bio {
   position: relative;
   z-index: 2;
   pointer-events: none;
@@ -355,7 +346,7 @@ body.home-dashboard-body #web_bg {
   padding: 4px 20px;
   border: var(--dashboard-glass-ui-border);
   border-radius: 16px;
-  background: var(--dashboard-spotify-black-bg);
+  background: var(--dashboard-dark-surface);
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
   box-shadow: none;
@@ -468,7 +459,8 @@ body.home-dashboard-body #web_bg {
 .home-dashboard .personal-profile {
   display: flex;
   align-items: center;
-  gap: 18px;
+  flex-wrap: wrap;
+  gap: 14px;
 }
 
 .home-dashboard .personal-profile__avatar {
@@ -490,6 +482,7 @@ body.home-dashboard-body #web_bg {
 }
 
 .home-dashboard .personal-profile__identity {
+  flex: 1 1 auto;
   min-width: 0;
 }
 
@@ -515,7 +508,7 @@ body.home-dashboard-body #web_bg {
   color: rgba(255, 255, 255, 0.7);
   font-size: 15px;
   font-weight: 400;
-  line-height: 1.85;
+  line-height: 1.65;
 }
 
 .home-dashboard .personal-profile__bio p {
@@ -523,57 +516,19 @@ body.home-dashboard-body #web_bg {
 }
 
 .home-dashboard .personal-profile__bio-welcome {
-  margin-top: 12px !important;
+  margin-top: 8px !important;
   color: rgba(255, 222, 241, 0.9);
   font-weight: 500;
 }
 
-.home-dashboard .personal-card__footer {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 20px;
-}
-
-.home-dashboard .personal-stats {
-  flex: 0 0 auto;
-}
-
-.home-dashboard .personal-posts-stat {
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  gap: 2px;
-  min-width: 0;
-  padding: 0;
-  border: 0;
-  border-radius: 0;
-  background: transparent;
-  color: rgba(255, 255, 255, 0.92);
-  text-align: left;
-}
-
-.home-dashboard .personal-posts-stat__count {
-  display: inline-block;
-  overflow: hidden;
-  color: var(--dashboard-accent-pink);
-  font-size: 1.14rem;
-  line-height: 1.25;
-  text-overflow: ellipsis;
-}
-
-.home-dashboard .personal-posts-stat__label {
-  color: rgba(255, 255, 255, 0.62);
-  font-size: 0.68rem;
-  letter-spacing: 0.04em;
-}
-
 .home-dashboard .personal-social {
   display: flex;
+  flex: 0 0 auto;
   flex-wrap: wrap;
   justify-content: flex-end;
   gap: 9px;
-  margin: 0;
+  align-self: center;
+  margin-left: auto;
 }
 
 .home-dashboard .personal-social .social-icon {
@@ -604,17 +559,12 @@ body.home-dashboard-body #web_bg {
   color: var(--dashboard-accent-pink) !important;
 }
 
-.home-dashboard .dashboard-side-stack {
-  display: grid;
-  grid-template-rows: 152px auto;
-  gap: 16px;
-  min-width: 0;
-}
-
 .home-dashboard .dashboard-widget-row {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  align-items: start;
+  align-self: stretch;
+  align-items: stretch;
+  grid-column: auto;
   gap: 16px;
   min-width: 0;
   min-height: 0;
@@ -624,32 +574,7 @@ body.home-dashboard-body #web_bg {
   width: 100%;
   height: auto;
   min-height: 0;
-  aspect-ratio: 1;
-}
-
-.home-dashboard .spotify-embed-slot {
-  display: block;
-  align-self: start;
-  min-width: 0;
-  width: 100%;
-  max-width: 100%;
-  height: 152px;
-  overflow: hidden;
-  border-radius: 16px;
-  animation-delay: 120ms;
-}
-
-.home-dashboard .spotify-embed {
-  display: block;
-  width: 100%;
-  max-width: 100%;
-  height: 152px;
-  border: 0;
-  border-radius: 16px;
-  clip-path: inset(0 round 16px);
-  opacity: 1;
-  transform: none;
-  transition: none;
+  aspect-ratio: 1 / 1;
 }
 
 .home-dashboard .weather-card__content {
@@ -1004,7 +929,7 @@ body.home-dashboard-body #web_bg {
   align-self: stretch;
   overflow: hidden;
   border-radius: 20px 0 0 20px;
-  background: var(--dashboard-spotify-black-bg);
+  background: var(--dashboard-dark-surface);
   box-shadow: none;
 }
 
@@ -1124,7 +1049,6 @@ body.home-dashboard-body #web_bg {
 
 .home-dashboard .dashboard-search-results__status,
 .home-dashboard .dashboard-search-result__excerpt,
-.home-dashboard .personal-posts-stat__label,
 .home-dashboard .weather-card__metric span {
   color: rgba(255, 255, 255, 0.68);
   text-shadow: 0 1px 3px rgba(18, 10, 30, 0.26);
@@ -1189,22 +1113,14 @@ body.home-dashboard-body #web_bg {
   }
 
   .home-dashboard .dashboard-card--personal {
-    min-height: 320px;
-    padding: 20px;
-  }
-
-  .home-dashboard .dashboard-side-stack {
-    display: contents;
+    min-height: 0;
+    padding: 16px;
   }
 
   .home-dashboard .dashboard-widget-row {
     grid-column: auto;
     min-height: 0;
     gap: 14px;
-  }
-
-  .home-dashboard .spotify-embed-slot {
-    grid-column: auto;
   }
 
   .home-dashboard .dashboard-card--weather {
@@ -1280,8 +1196,6 @@ body.home-dashboard-body #web_bg {
 @media (prefers-reduced-motion: reduce) {
   .home-dashboard .dashboard-search-shell,
   .home-dashboard .dashboard-search-results,
-  .home-dashboard .home-dashboard-enter,
-  .home-dashboard .spotify-embed,
   .home-dashboard .dashboard-card {
     animation: none;
     transition: none;

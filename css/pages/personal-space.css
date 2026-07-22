@@ -1,6 +1,5 @@
 .personal-space-map {
   --personal-space-text: rgba(255, 252, 255, 0.98);
-  --personal-space-muted: rgba(248, 231, 247, 0.84);
   --personal-space-line: rgba(232, 177, 229, 0.25);
   width: min(1120px, calc(100% - 40px));
   margin: 0 auto;
@@ -47,11 +46,16 @@
 
 .personal-star-chart {
   --orbit-center-x: 54.35%;
-  --orbit-center-y: 53.85%;
-  --orbit-radius: 300px;
-  --orbit-ratio: 0.55;
-  --orbit-ratio-inverse: 1.81818;
-  --orbit-period: 42s;
+  --orbit-center-y: 52%;
+  --orbit-radius: 380px;
+  --orbit-ratio: 0.46;
+  --orbit-ratio-inverse: 2.17391;
+  --orbit-period: 58s;
+  --orbit-outer-drift-period: 78s;
+  --orbit-inner-drift-period: 92s;
+  --core-breathe-period: 3.4s;
+  --core-ring-inner-period: 22s;
+  --core-ring-outer-period: 34s;
   position: relative;
   width: min(100%, 920px);
   height: 520px;
@@ -79,13 +83,13 @@
 }
 
 .personal-star-chart__orbit--outer {
-  animation: personal-orbit-drift 78s linear infinite reverse;
+  animation: personal-orbit-drift var(--orbit-outer-drift-period) linear infinite reverse;
 }
 
 .personal-star-chart__orbit--inner {
   opacity: 0.48;
   stroke-dasharray: 2 14;
-  animation: personal-orbit-drift 92s linear infinite;
+  animation: personal-orbit-drift var(--orbit-inner-drift-period) linear infinite;
 }
 
 .personal-star-chart__star {
@@ -111,8 +115,8 @@
   top: var(--orbit-center-y);
   left: var(--orbit-center-x);
   display: grid;
-  width: 132px;
-  height: 132px;
+  width: 116px;
+  height: 116px;
   place-content: center;
   border: 1px solid rgba(247, 191, 236, 0.32);
   border-radius: 50%;
@@ -120,27 +124,8 @@
   box-shadow: inset 0 0 24px rgba(240, 177, 229, 0.1), 0 0 34px rgba(191, 100, 205, 0.16);
   text-align: center;
   transform: translate(-50%, -50%);
-  animation: personal-core-breathe 3.4s ease-in-out infinite;
+  animation: personal-core-breathe var(--core-breathe-period) ease-in-out infinite;
   pointer-events: none;
-}
-
-.personal-star-core::after {
-  position: absolute;
-  z-index: -1;
-  inset: -7px;
-  border: 1px solid rgba(247, 202, 238, 0.48);
-  border-radius: 50%;
-  content: '';
-  opacity: 0;
-  pointer-events: none;
-}
-
-.personal-star-core.is-pulsing {
-  filter: brightness(1.06);
-}
-
-.personal-star-core.is-pulsing::after {
-  animation: personal-core-pulse 820ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 [data-orbit-state='pending'] .personal-star-core {
@@ -156,14 +141,14 @@
 .personal-star-core__orbit--outer {
   inset: -15px 5px;
   transform: rotate(-24deg);
-  animation: personal-core-ring-outer 34s linear infinite;
+  animation: personal-core-ring-outer var(--core-ring-outer-period) linear infinite;
 }
 
 .personal-star-core__orbit--inner {
   inset: 9px -9px;
   opacity: 0.64;
   transform: rotate(34deg);
-  animation: personal-core-ring-inner 22s linear infinite;
+  animation: personal-core-ring-inner var(--core-ring-inner-period) linear infinite;
 }
 
 .personal-star-core__glow {
@@ -188,6 +173,12 @@
   pointer-events: none;
 }
 
+.personal-orbit.is-orbit-pending {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
 .personal-orbit__rotator {
   position: absolute;
   top: var(--orbit-center-y);
@@ -206,35 +197,6 @@
   width: var(--orbit-radius);
   height: 1px;
   transform-origin: 0 50%;
-}
-
-.personal-orbit__signal {
-  position: absolute;
-  top: -2px;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  overflow: visible;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.personal-orbit__signal-path {
-  fill: none;
-  stroke: transparent;
-}
-
-.personal-orbit__signal-dot {
-  fill: rgba(255, 231, 250, 0.96);
-  filter: drop-shadow(0 0 4px rgba(244, 186, 235, 0.72));
-}
-
-.personal-orbit.is-signaling .personal-orbit__signal {
-  opacity: 1;
-}
-
-.personal-star-chart[data-signal-mode='css'] .personal-orbit.is-signaling .personal-orbit__signal-dot {
-  animation: personal-signal-travel 1.4s linear both;
 }
 
 .personal-orbit__arm::before {
@@ -279,6 +241,12 @@
   transform: scale(0.35);
 }
 
+[data-orbit-state='opening'] .personal-orbit-node {
+  opacity: 0;
+  transform: scale(0.35);
+  pointer-events: none;
+}
+
 .personal-star-chart:has(.personal-orbit-node--open:hover) .personal-orbit__rotator,
 .personal-star-chart:has(.personal-orbit-node--open:hover) .personal-orbit__counter,
 .personal-star-chart:has(.personal-orbit-node--open:focus-visible) .personal-orbit__rotator,
@@ -292,10 +260,7 @@
 .personal-star-chart[data-orbit-page-hidden] .personal-star-chart__star,
 .personal-star-chart[data-orbit-page-hidden] .personal-star-core__orbit,
 .personal-star-chart[data-orbit-page-hidden] .personal-star-core,
-.personal-star-chart[data-orbit-page-hidden] .personal-star-core::after,
-.personal-star-chart[data-orbit-page-hidden] .personal-orbit-node,
-.personal-star-chart[data-orbit-page-hidden] .personal-orbit__signal,
-.personal-star-chart[data-orbit-page-hidden] .personal-orbit__signal-dot {
+.personal-star-chart[data-orbit-page-hidden] .personal-orbit-node {
   animation-play-state: paused;
 }
 
@@ -322,6 +287,16 @@
   width: 300px;
 }
 
+.personal-orbit-node--life {
+  width: 310px;
+}
+
+.personal-orbit-node--life .personal-orbit-node__title {
+  font-size: clamp(0.98rem, 1.55vw, 1.12rem);
+  letter-spacing: -0.035em;
+  white-space: nowrap;
+}
+
 .personal-orbit-node--unknown {
   width: 250px;
   opacity: 0.8;
@@ -340,14 +315,6 @@
 
 .personal-orbit-node--static:hover {
   filter: brightness(1.12);
-}
-
-.personal-orbit-node.is-receiving .personal-orbit-node__planet {
-  filter: brightness(1.08);
-}
-
-.personal-orbit-node.is-receiving .personal-orbit-node__planet::after {
-  animation: personal-node-feedback 620ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .personal-orbit-node--open:focus-visible .personal-orbit-node__planet {
@@ -391,7 +358,6 @@
 .personal-orbit-node--unknown .personal-orbit-node__planet {
   width: 66px;
   height: 66px;
-  animation: personal-unknown-pulse 7s ease-in-out infinite;
 }
 
 .personal-orbit-node__icon {
@@ -400,6 +366,24 @@
   font-weight: 450;
   line-height: 1;
   text-shadow: 0 0 12px rgba(244, 176, 231, 0.8);
+}
+
+.personal-orbit-node__icon--falcon {
+  display: block;
+  width: 2.15rem;
+  height: 2.15rem;
+  flex: 0 0 auto;
+  background: linear-gradient(145deg, rgba(255, 252, 255, 0.98), rgba(255, 225, 248, 0.94) 58%, rgba(211, 157, 223, 0.92));
+  filter: drop-shadow(0 0 7px rgba(246, 179, 231, 0.72));
+  -webkit-mask-image: url('/images/champions/teams/falcons.webp');
+  mask-image: url('/images/champions/teams/falcons.webp');
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  font-size: 0;
 }
 
 .personal-orbit-node__copy {
@@ -489,16 +473,6 @@
   to { transform: rotate(-384deg); }
 }
 
-@keyframes personal-core-pulse {
-  0% { opacity: 0.66; transform: scale(0.72); }
-  100% { opacity: 0; transform: scale(1.78); }
-}
-
-@keyframes personal-signal-travel {
-  from { cx: 0; }
-  to { cx: 300px; }
-}
-
 @keyframes personal-core-breathe {
   0%, 100% {
     box-shadow: inset 0 0 22px rgba(240, 177, 229, 0.08), 0 0 28px rgba(191, 100, 205, 0.13);
@@ -516,20 +490,12 @@
   50% { opacity: 1; transform: scale(1.25); }
 }
 
-@keyframes personal-unknown-pulse {
-  0%, 100% { opacity: 0.72; }
-  50% { opacity: 1; }
-}
-
-@keyframes personal-node-feedback {
-  0% { opacity: 0.42; transform: rotate(31deg) scale(0.94); }
-  55% { opacity: 0.9; transform: rotate(31deg) scale(1.28); }
-  100% { opacity: 0; transform: rotate(31deg) scale(1.46); }
-}
-
 @media (max-width: 900px) and (min-width: 601px) {
   .personal-star-chart {
-    --orbit-radius: min(37vw, 268px);
+    --orbit-radius: min(43vw, 320px);
+    --orbit-ratio: 0.47;
+    --orbit-ratio-inverse: 2.12766;
+    --orbit-period: 60s;
     height: 500px;
   }
 
@@ -539,6 +505,10 @@
 
   .personal-orbit-node--champions {
     width: 275px;
+  }
+
+  .personal-orbit-node--life {
+    width: 285px;
   }
 
   .personal-orbit-node--unknown {
@@ -563,10 +533,10 @@
   .personal-star-chart {
     --orbit-center-x: 50%;
     --orbit-center-y: 51%;
-    --orbit-radius: min(29.5vw, 115px);
-    --orbit-ratio: 0.78;
-    --orbit-ratio-inverse: 1.28205;
-    --orbit-period: 44s;
+    --orbit-radius: min(32vw, 124px);
+    --orbit-ratio: 0.7;
+    --orbit-ratio-inverse: 1.42857;
+    --orbit-period: 64s;
     width: calc(100% + 28px);
     height: 410px;
     margin: 28px -14px 0;
@@ -581,8 +551,8 @@
     z-index: 0;
     top: 51%;
     left: 50%;
-    width: min(59vw, 230px);
-    height: min(46vw, 180px);
+    width: min(64vw, 248px);
+    height: min(45vw, 176px);
     border: 1px dashed rgba(232, 177, 229, 0.22);
     border-radius: 50%;
     content: '';
@@ -596,8 +566,8 @@
   .personal-star-chart__star--five { top: 7%; left: 74%; }
 
   .personal-star-core {
-    width: 78px;
-    height: 78px;
+    width: 70px;
+    height: 70px;
   }
 
   .personal-star-core__orbit--outer {
@@ -614,6 +584,7 @@
   }
 
   .personal-orbit-node,
+  .personal-orbit-node--life,
   .personal-orbit-node--champions,
   .personal-orbit-node--unknown {
     width: 140px;
@@ -624,6 +595,10 @@
 
   .personal-orbit-node--champions {
     width: 160px;
+  }
+
+  .personal-orbit-node--life {
+    width: 195px;
   }
 
   .personal-orbit-node__planet {
@@ -661,8 +636,14 @@
   }
 
   .personal-orbit-node__title,
+  .personal-orbit-node--life .personal-orbit-node__title,
   .personal-orbit-node--champions .personal-orbit-node__title {
-    font-size: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .personal-orbit-node__icon--falcon {
+    width: 1.6rem;
+    height: 1.6rem;
   }
 
   .personal-orbit-node__description {
@@ -694,13 +675,8 @@
   .personal-star-chart__star,
   .personal-star-core,
   .personal-star-core__orbit,
-  .personal-star-core::after,
   .personal-orbit__rotator,
-  .personal-orbit__counter,
-  .personal-orbit__signal,
-  .personal-orbit__signal-dot,
-  .personal-orbit-node.is-receiving .personal-orbit-node__planet::after,
-  .personal-orbit-node--unknown .personal-orbit-node__planet {
+  .personal-orbit__counter {
     animation: none !important;
   }
 
@@ -734,9 +710,5 @@
   .personal-orbit-node__description,
   .personal-orbit__arm::before {
     transition: none !important;
-  }
-
-  .personal-orbit__signal {
-    opacity: 0 !important;
   }
 }

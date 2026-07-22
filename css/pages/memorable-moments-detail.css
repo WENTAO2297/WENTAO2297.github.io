@@ -1,0 +1,512 @@
+/* Page shell and theme reset. */
+.type-memorable-moment-detail {
+  overflow-x: clip;
+}
+
+.type-memorable-moment-detail #page {
+  width: 100%;
+  max-width: none;
+  margin-top: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.type-memorable-moment-detail #page .page-title,
+.type-memorable-moment-detail #page-header #page-site-info {
+  display: none;
+}
+
+.type-memorable-moment-detail #page-header {
+  height: 70px;
+  min-height: 70px;
+}
+
+.type-memorable-moment-detail #content-inner {
+  padding-top: 0 !important;
+}
+
+/* Page variables and top metadata. */
+.memorable-moment-detail {
+  --moment-detail-text: rgba(255, 252, 255, 0.98);
+  --moment-detail-muted: rgba(244, 229, 246, 0.74);
+  --moment-detail-line: rgba(234, 186, 237, 0.2);
+  width: min(1120px, calc(100% - 40px));
+  min-height: calc(100vh - 70px);
+  margin: 0 auto;
+  padding: var(--page-top-spacing) 0 92px;
+  color: var(--moment-detail-text);
+  isolation: isolate;
+}
+
+.memorable-moment-detail__header {
+  margin-bottom: clamp(42px, 4vw, 56px);
+}
+
+.memorable-moment-detail__eyebrow,
+.memorable-moment-detail__pager-label {
+  color: rgba(244, 185, 230, 0.94);
+  font-size: 0.66rem;
+  letter-spacing: 0.24em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.memorable-moment-detail__eyebrow {
+  margin: 0 0 12px;
+  text-shadow: 0 2px 12px rgba(17, 10, 28, 0.72);
+}
+
+.memorable-moment-detail__title {
+  max-width: 860px;
+  margin: 0;
+  color: var(--moment-detail-text) !important;
+  font-size: clamp(40px, 6vw, 76px);
+  font-weight: 620;
+  letter-spacing: -0.06em;
+  line-height: 1.04;
+  text-wrap: balance;
+  text-shadow: 0 3px 18px rgba(17, 10, 28, 0.74);
+}
+
+.memorable-moment-detail__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px 32px;
+  margin: 28px 0 0;
+}
+
+.memorable-moment-detail__meta div {
+  display: grid;
+  gap: 5px;
+}
+
+.memorable-moment-detail__meta dt {
+  color: rgba(232, 194, 235, 0.62);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+}
+
+.memorable-moment-detail__meta dd {
+  margin: 0;
+  color: rgba(255, 249, 255, 0.9);
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+
+.memorable-moment-detail__description {
+  max-width: 680px;
+  margin: 25px 0 0;
+  color: var(--moment-detail-muted);
+  font-size: 0.96rem;
+  line-height: 1.8;
+}
+
+/* Gallery and reflection. */
+.memorable-moment-detail__section + .memorable-moment-detail__section {
+  margin-top: clamp(48px, 4.5vw, 64px);
+}
+
+.memorable-moment-detail__gallery {
+  --gallery-gap: 12px;
+  --gallery-row-gap: 12px;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: var(--gallery-row-gap);
+  overflow: hidden;
+}
+
+.memorable-moment-detail__gallery-row {
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  align-items: stretch;
+  gap: var(--gallery-gap);
+  opacity: 0;
+  transform: translate3d(0, 16px, 0);
+  transition: opacity 520ms cubic-bezier(0.22, 1, 0.36, 1), transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.memorable-moment-detail__gallery-row.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.memorable-moment-detail__photo {
+  position: relative;
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(238, 205, 244, 0.15);
+  border-radius: 14px;
+  background: rgba(52, 31, 67, 0.5);
+  transition: border-color 220ms ease, filter 220ms ease;
+}
+
+.memorable-moment-detail__photo:hover,
+.memorable-moment-detail__photo:focus-within {
+  border-color: rgba(249, 211, 246, 0.46);
+  filter: brightness(1.06);
+}
+
+.memorable-moment-detail__photo-button {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: zoom-in;
+}
+
+.memorable-moment-detail__photo-button:focus-visible {
+  outline: 2px solid rgba(255, 221, 247, 0.9);
+  outline-offset: -4px;
+}
+
+.memorable-moment-detail__photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: rgba(28, 17, 39, 0.16);
+  transition: transform 260ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.memorable-moment-detail__photo:hover img,
+.memorable-moment-detail__photo:focus-within img {
+  transform: scale(1.018);
+}
+
+.memorable-moment-detail__photo-placeholder {
+  display: none;
+  width: 100%;
+  height: 100%;
+  place-items: center;
+  color: rgba(245, 218, 242, 0.55);
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+}
+
+.memorable-moment-detail__photo.is-image-failed .memorable-moment-detail__photo-button {
+  cursor: default;
+}
+
+.memorable-moment-detail__photo.is-image-failed img {
+  display: none;
+}
+
+.memorable-moment-detail__photo.is-image-failed .memorable-moment-detail__photo-placeholder {
+  display: grid;
+}
+
+.memorable-moment-detail__photo figcaption {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 22px 12px 10px;
+  background: linear-gradient(180deg, transparent, rgba(20, 11, 29, 0.78));
+  color: rgba(255, 250, 255, 0.88);
+  font-size: 0.7rem;
+  line-height: 1.45;
+  pointer-events: none;
+}
+
+.memorable-moment-detail__reflection-body {
+  width: min(740px, 100%);
+  margin: 0 auto;
+  padding: clamp(24px, 4vw, 40px) clamp(22px, 4vw, 42px);
+  border-left: 2px solid rgba(236, 171, 222, 0.72);
+  background: rgba(174, 126, 190, 0.1);
+}
+
+.memorable-moment-detail__reflection-body p {
+  margin: 0;
+  color: rgba(249, 240, 250, 0.88);
+  font-size: 0.98rem;
+  line-height: 2;
+}
+
+.memorable-moment-detail__reflection-body p + p {
+  margin-top: 1.35em;
+}
+
+/* Previous/Next and timeline return. */
+.memorable-moment-detail__pager {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin: clamp(82px, 11vw, 126px) auto 0;
+  padding-top: 22px;
+  border-top: 1px solid var(--moment-detail-line);
+}
+
+.memorable-moment-detail__pager-link {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+  padding: 12px 0;
+  color: rgba(255, 249, 255, 0.9);
+  text-decoration: none;
+  transition: color 180ms ease, transform 180ms ease;
+}
+
+.memorable-moment-detail__pager-link--next {
+  text-align: right;
+}
+
+.memorable-moment-detail__pager-link:not(.memorable-moment-detail__pager-link--disabled):hover,
+.memorable-moment-detail__pager-link:not(.memorable-moment-detail__pager-link--disabled):focus-visible {
+  color: rgba(255, 222, 247, 1);
+  transform: translateY(-2px);
+}
+
+.memorable-moment-detail__pager-link--disabled {
+  color: rgba(232, 207, 233, 0.34);
+}
+
+.memorable-moment-detail__pager-link strong {
+  overflow: hidden;
+  font-size: 0.94rem;
+  font-weight: 560;
+  line-height: 1.5;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.memorable-moment-detail__back {
+  display: block;
+  width: fit-content;
+  margin: 32px auto 0;
+  color: rgba(244, 194, 234, 0.8);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-decoration: none;
+  transition: color 180ms ease, transform 180ms ease;
+}
+
+.memorable-moment-detail__back:hover,
+.memorable-moment-detail__back:focus-visible {
+  color: rgba(255, 225, 247, 1);
+  transform: translateY(-2px);
+}
+
+/* Lightbox. */
+.moment-detail-lightbox {
+  box-sizing: border-box;
+  position: fixed;
+  z-index: 10050;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 56px 60px 64px;
+  background: rgba(12, 7, 18, 0.92);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 220ms ease;
+}
+
+.moment-detail-lightbox:not([hidden]).is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.moment-detail-lightbox__backdrop {
+  position: absolute;
+  inset: 0;
+}
+
+.moment-detail-lightbox__content {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  place-items: center;
+}
+
+.moment-detail-lightbox__image {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: calc(100vw - 120px);
+  max-height: calc(100vh - 110px);
+  max-height: calc(100dvh - 110px);
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 10px 34px rgba(0, 0, 0, 0.28);
+}
+
+.moment-detail-lightbox.has-caption .moment-detail-lightbox__image {
+  max-height: calc(100vh - 150px);
+  max-height: calc(100dvh - 150px);
+}
+
+.moment-detail-lightbox__caption {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  max-width: min(740px, 90%);
+  color: rgba(255, 250, 255, 0.84);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  text-align: center;
+  transform: translateX(-50%);
+}
+
+.moment-detail-lightbox__counter {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  z-index: 2;
+  color: rgba(255, 250, 255, 0.74);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  line-height: 1;
+  transform: translateX(-50%);
+}
+
+.moment-detail-lightbox__button {
+  position: absolute;
+  z-index: 2;
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 1px solid rgba(255, 226, 249, 0.28);
+  border-radius: 50%;
+  background: rgba(72, 42, 82, 0.54);
+  color: rgba(255, 248, 255, 0.92);
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: border-color 180ms ease, background 180ms ease;
+}
+
+.moment-detail-lightbox__button:hover,
+.moment-detail-lightbox__button:focus-visible {
+  border-color: rgba(255, 226, 249, 0.66);
+  background: rgba(103, 59, 111, 0.7);
+}
+
+.moment-detail-lightbox__button--close {
+  top: 16px;
+  right: 16px;
+}
+
+.moment-detail-lightbox__button--previous {
+  top: 50%;
+  left: 14px;
+  transform: translateY(-50%);
+}
+
+.moment-detail-lightbox__button--next {
+  top: 50%;
+  right: 14px;
+  transform: translateY(-50%);
+}
+
+body.moment-detail-lightbox-open {
+  overflow: hidden;
+}
+
+/* Responsive layout and reduced-motion fallback. */
+@media (max-width: 760px) {
+  .memorable-moment-detail {
+    width: min(100% - 28px, 720px);
+    padding-bottom: 72px;
+  }
+
+  .memorable-moment-detail__header {
+    margin-bottom: 34px;
+  }
+
+  .memorable-moment-detail__title {
+    font-size: clamp(38px, 10vw, 58px);
+  }
+
+  .memorable-moment-detail__gallery {
+    --gallery-gap: 10px;
+    --gallery-row-gap: 10px;
+  }
+
+  .memorable-moment-detail__photo {
+    border-radius: 12px;
+  }
+}
+
+@media (max-width: 430px) {
+  .memorable-moment-detail {
+    width: calc(100% - 24px);
+  }
+
+  .memorable-moment-detail__meta {
+    gap: 16px 24px;
+  }
+
+  .memorable-moment-detail__reflection-body {
+    padding: 22px 18px 24px;
+  }
+
+  .memorable-moment-detail__pager {
+    gap: 12px;
+  }
+
+  .memorable-moment-detail__pager-link strong {
+    font-size: 0.83rem;
+  }
+
+  .moment-detail-lightbox {
+    padding: 52px 14px 48px;
+  }
+
+  .moment-detail-lightbox__image {
+    max-width: calc(100vw - 28px);
+    max-height: calc(100vh - 100px);
+    max-height: calc(100dvh - 100px);
+  }
+
+  .moment-detail-lightbox.has-caption .moment-detail-lightbox__image {
+    max-height: calc(100vh - 136px);
+    max-height: calc(100dvh - 136px);
+  }
+
+  .moment-detail-lightbox__button {
+    width: 38px;
+    height: 38px;
+  }
+
+  .moment-detail-lightbox__button--previous {
+    left: 4px;
+  }
+
+  .moment-detail-lightbox__button--next {
+    right: 4px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .memorable-moment-detail__gallery-row,
+  .memorable-moment-detail__photo,
+  .memorable-moment-detail__photo img,
+  .moment-detail-lightbox,
+  .memorable-moment-detail__pager-link,
+  .memorable-moment-detail__back {
+    transition: none !important;
+  }
+
+  .memorable-moment-detail__gallery-row {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

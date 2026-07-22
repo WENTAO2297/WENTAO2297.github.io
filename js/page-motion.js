@@ -13,7 +13,6 @@
   const itemPendingClass = 'page-motion-item-pending'
   const itemPrerenderClass = 'page-motion-item-prerender'
   const itemVisibleClass = 'page-motion-item-visible'
-
   const runtime = {
     container: null,
     frames: new Set(),

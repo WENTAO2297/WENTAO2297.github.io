@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://wentao2297.github.io/notes/index.html</loc>
+    
+    <lastmod>2026-07-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://wentao2297.github.io/memorable-moments/index.html</loc>
+    
+    <lastmod>2026-07-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://wentao2297.github.io/champions/index.html</loc>
     
     <lastmod>2026-07-21</lastmod>
@@ -119,15 +137,6 @@
   </url>
   
   <url>
-    <loc>https://wentao2297.github.io/notes/index.html</loc>
-    
-    <lastmod>2026-07-15</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://wentao2297.github.io/ecust/index.html</loc>
     
     <lastmod>2026-07-15</lastmod>
@@ -139,7 +148,7 @@
 
   <url>
     <loc>https://wentao2297.github.io/</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>

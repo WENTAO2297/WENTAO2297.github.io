@@ -7,11 +7,18 @@
   }
 
   const rootSelector = '.study-journey'
-  const easing = 'cubic-bezier(0.22, 1, 0.36, 1)'
-  const routeDuration = 820
+  const easing = 'cubic-bezier(0.33, 0, 0.2, 1)'
+  const routeDuration = 1000
   const routeToNodesGap = 80
   const nodeStagger = 140
   const nodeDuration = 380
+  const expectedNodeCount = 3
+  const journeyStates = Object.freeze({
+    drawing: 'is-route-drawing',
+    routeComplete: 'is-route-complete',
+    nodesEntering: 'is-nodes-entering',
+    ready: 'is-journey-ready'
+  })
 
   const runtime = {
     root: null,
@@ -20,8 +27,7 @@
     timers: new Set(),
     generation: 0,
     motionQuery: null,
-    motionHandler: null,
-    visibilityHandler: null
+    motionHandler: null
   }
 
   const addAnimation = animation => {
@@ -63,9 +69,10 @@
     root.removeAttribute('data-journey-initialized')
     root.removeAttribute('data-journey-state')
 
-    const route = root.querySelector('.study-route__progress')
-    route?.style.removeProperty('stroke-dasharray')
-    route?.style.removeProperty('stroke-dashoffset')
+    const routeMask = root.querySelector('.study-route__mask')
+    routeMask?.style.removeProperty('--study-route-length')
+    routeMask?.style.removeProperty('stroke-dasharray')
+    routeMask?.style.removeProperty('stroke-dashoffset')
 
     root.querySelectorAll('.study-node').forEach(node => {
       node.style.removeProperty('opacity')
@@ -76,11 +83,6 @@
   const cleanup = () => {
     clearAsyncWork()
     runtime.generation += 1
-
-    if (runtime.visibilityHandler) {
-      document.removeEventListener('visibilitychange', runtime.visibilityHandler)
-      runtime.visibilityHandler = null
-    }
 
     if (runtime.motionQuery && runtime.motionHandler) {
       runtime.motionQuery.removeEventListener?.('change', runtime.motionHandler)
@@ -93,10 +95,9 @@
     runtime.root = null
   }
 
-  const showStatic = (root, route, nodes) => {
-    root.dataset.journeyState = 'is-journey-ready'
-    route.style.strokeDasharray = 'none'
-    route.style.strokeDashoffset = '0'
+  const showStatic = (root, routeMask, nodes) => {
+    root.dataset.journeyState = journeyStates.ready
+    routeMask?.style.setProperty('stroke-dashoffset', '0px')
     nodes.forEach(node => {
       node.style.opacity = '1'
       node.style.transform = 'none'
@@ -105,13 +106,13 @@
 
   const finishJourney = (root, generation) => {
     if (generation !== runtime.generation || runtime.root !== root || !root.isConnected) return
-    root.dataset.journeyState = 'is-journey-ready'
+    root.dataset.journeyState = journeyStates.ready
   }
 
   const startNodes = (root, nodes, generation) => {
     if (generation !== runtime.generation || runtime.root !== root || !root.isConnected) return
 
-    root.dataset.journeyState = 'is-nodes-entering'
+    root.dataset.journeyState = journeyStates.nodesEntering
     const openingAnimations = nodes.map((node, index) => addAnimation(node.animate([
       { opacity: 0, transform: 'translate3d(0, 10px, 0) scale(0.94)' },
       { opacity: 1, transform: 'translate3d(0, 0, 0) scale(1)' }
@@ -126,38 +127,28 @@
       .then(() => finishJourney(root, generation))
   }
 
-  const startRoute = (root, route, nodes, generation) => {
+  const finishRoute = (root, routeMask, nodes, generation) => {
+    if (generation !== runtime.generation || runtime.root !== root || !root.isConnected) return
+    routeMask.style.setProperty('stroke-dashoffset', '0px')
+    root.dataset.journeyState = journeyStates.routeComplete
+    scheduleTimer(() => startNodes(root, nodes, generation), routeToNodesGap)
+  }
+
+  const startRoute = (root, routeMask, routeLength, nodes, generation) => {
     if (generation !== runtime.generation || runtime.root !== root || !root.isConnected) return
 
-    root.dataset.journeyState = 'is-route-drawing'
-    const length = route.getTotalLength()
-    route.style.strokeDasharray = `${length}px`
-    route.style.strokeDashoffset = `${length}px`
-
-    const routeAnimation = addAnimation(route.animate([
-      { strokeDashoffset: `${length}px` },
+    root.dataset.journeyState = journeyStates.drawing
+    const routeAnimation = addAnimation(routeMask.animate([
+      { strokeDashoffset: `${routeLength}px` },
       { strokeDashoffset: '0px' }
     ], {
       duration: routeDuration,
       easing,
-      fill: 'forwards'
+      fill: 'both'
     }))
 
-    routeAnimation.finished
-      .then(() => {
-        if (generation !== runtime.generation || runtime.root !== root || !root.isConnected) return
-        root.dataset.journeyState = 'is-route-complete'
-        scheduleTimer(() => startNodes(root, nodes, generation), routeToNodesGap)
-      })
-      .catch(() => {})
-  }
-
-  const bindPageEvents = root => {
-    runtime.visibilityHandler = () => {
-      root.toggleAttribute('data-journey-page-hidden', document.hidden)
-    }
-    document.addEventListener('visibilitychange', runtime.visibilityHandler)
-    runtime.visibilityHandler()
+    routeAnimation.finished.then(() => finishRoute(root, routeMask, nodes, generation))
+      .catch(() => finishRoute(root, routeMask, nodes, generation))
   }
 
   const init = () => {
@@ -172,14 +163,17 @@
     cleanup()
     runtime.root = root
     const generation = runtime.generation
-    const route = root.querySelector('.study-route__progress')
+    const routeMask = root.querySelector('.study-route__mask')
     const nodes = Array.from(root.querySelectorAll('.study-node'))
 
     root.dataset.journeyInitialized = 'true'
-    if (!route || nodes.length !== 3) {
-      root.dataset.journeyState = 'is-journey-ready'
+    if (!routeMask || nodes.length !== expectedNodeCount) {
+      showStatic(root, routeMask, nodes)
       return true
     }
+
+    const routeLength = routeMask.getTotalLength()
+    routeMask.style.setProperty('--study-route-length', `${routeLength}px`)
 
     runtime.motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
     runtime.motionHandler = () => {
@@ -192,15 +186,13 @@
       runtime.motionQuery.addListener?.(runtime.motionHandler)
     }
 
-    bindPageEvents(root)
-
     if (runtime.motionQuery.matches) {
-      showStatic(root, route, nodes)
+      showStatic(root, routeMask, nodes)
       return true
     }
 
-    root.dataset.journeyState = 'is-route-drawing'
-    scheduleFrame(() => startRoute(root, route, nodes, generation))
+    root.dataset.journeyState = journeyStates.drawing
+    scheduleFrame(() => startRoute(root, routeMask, routeLength, nodes, generation))
     return true
   }
 

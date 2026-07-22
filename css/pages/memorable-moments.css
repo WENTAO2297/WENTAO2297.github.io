@@ -1,0 +1,646 @@
+/* Page shell and theme reset. */
+.type-memorable-moments {
+  overflow-x: clip;
+}
+
+.type-memorable-moments #page {
+  width: 100%;
+  max-width: none;
+  margin-top: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.type-memorable-moments #page .page-title,
+.type-memorable-moments #page-header #page-site-info {
+  display: none;
+}
+
+.type-memorable-moments #page-header {
+  height: 70px;
+  min-height: 70px;
+}
+
+.type-memorable-moments #content-inner {
+  padding-top: 0 !important;
+}
+
+/* Page variables, title, and timeline container. */
+.memorable-moments {
+  --moments-text: rgba(255, 252, 255, 0.98);
+  --moments-muted: rgba(244, 229, 246, 0.76);
+  --moments-line: linear-gradient(180deg, rgba(229, 183, 242, 0.3), #d7a9ed 18%, #eeacd9 76%, rgba(220, 180, 239, 0.32));
+  width: min(1120px, calc(100% - 40px));
+  min-height: calc(100vh - 70px);
+  margin: 0 auto;
+  padding: var(--page-top-spacing) 0 96px;
+  color: var(--moments-text);
+  isolation: isolate;
+}
+
+html.is-restoring-memorable-moments .memorable-moments__view-content {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: none !important;
+}
+
+.memorable-moments__header {
+  position: relative;
+  z-index: 3;
+  width: min(980px, 100%);
+  margin-inline: auto;
+  margin-bottom: clamp(42px, 7vw, 72px);
+}
+
+.memorable-moments__view-content {
+  width: min(980px, 100%);
+  margin-inline: auto;
+}
+
+.memorable-moments__header-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 28px;
+}
+
+.memorable-moments__header-copy {
+  min-width: 0;
+}
+
+.memorable-moments__view-switch {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid rgba(238, 205, 244, 0.16);
+  border-radius: 999px;
+  background: rgba(45, 26, 63, 0.38);
+}
+
+.memorable-moments__view-button {
+  min-width: 52px;
+  padding: 7px 12px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: rgba(244, 229, 246, 0.68);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.72rem;
+  line-height: 1.2;
+  transition: background-color 180ms ease, color 180ms ease, box-shadow 180ms ease;
+}
+
+.memorable-moments__view-button:hover,
+.memorable-moments__view-button:focus-visible {
+  color: var(--moments-text);
+}
+
+.memorable-moments__view-button:focus-visible {
+  outline: 2px solid rgba(255, 221, 247, 0.9);
+  outline-offset: 2px;
+}
+
+.memorable-moments__view-button:disabled {
+  cursor: wait;
+  opacity: 0.62;
+}
+
+.memorable-moments__view-button.is-active {
+  background: rgba(226, 157, 222, 0.22);
+  box-shadow: 0 0 14px rgba(224, 154, 220, 0.08);
+  color: var(--moments-text);
+}
+
+.memorable-moments__view-status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.memorable-moments__eyebrow {
+  margin: 0 0 10px;
+  color: rgba(244, 185, 230, 0.96);
+  font-size: 0.68rem;
+  letter-spacing: 0.24em;
+  line-height: 1.4;
+  text-shadow: 0 2px 12px rgba(17, 10, 28, 0.72);
+}
+
+.memorable-moments__title {
+  margin: 0;
+  color: var(--moments-text) !important;
+  font-size: clamp(38px, 5.5vw, 62px);
+  font-weight: 620;
+  letter-spacing: -0.055em;
+  line-height: 1.08;
+  text-shadow: 0 3px 18px rgba(17, 10, 28, 0.74);
+}
+
+.moments-timeline {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  gap: 56px;
+  padding: 14px 0 28px;
+}
+
+.moments-load-sentinel {
+  display: block;
+  width: 1px;
+  height: 1px;
+  margin-top: -1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.moments-load-status {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  color: rgba(245, 218, 242, 0.58);
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  line-height: 1;
+  transform: translateX(-50%);
+}
+
+.moments-timeline__line {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  border-radius: 999px;
+  background: var(--moments-line);
+  box-shadow: 0 0 12px rgba(223, 153, 224, 0.18);
+  transform: translateX(-50%);
+  transform-origin: 50% 0;
+}
+
+/* Timeline nodes, cards, media, and text. */
+.moment-item {
+  --moment-entry-offset-x: 22px;
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 72px minmax(0, 1fr);
+  align-items: center;
+  min-height: 285px;
+}
+
+.moment-item--left {
+  --moment-entry-offset-x: -22px;
+}
+
+html.js .memorable-moments .moment-item {
+  opacity: 0;
+  visibility: hidden;
+  transform: translate3d(var(--moment-entry-offset-x), 10px, 0) scale(0.98);
+}
+
+html.js .memorable-moments .moment-item--entering,
+html.js .memorable-moments .moment-item--visible {
+  visibility: visible;
+}
+
+html.js .memorable-moments .moment-item--visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+.moment-item::after {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  width: 36px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(222, 175, 235, 0.22), rgba(238, 171, 220, 0.72));
+  content: '';
+  pointer-events: none;
+}
+
+.moment-item--left::after {
+  left: calc(50% - 36px);
+}
+
+.moment-item--right::after {
+  left: 50%;
+}
+
+.moment-item__node {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  width: 18px;
+  height: 18px;
+  place-items: center;
+  border: 1px solid rgba(232, 186, 242, 0.9);
+  border-radius: 50%;
+  background: rgba(52, 29, 69, 0.92);
+  box-shadow: 0 0 0 5px rgba(213, 158, 226, 0.1), 0 0 12px rgba(235, 168, 224, 0.22);
+  transform: translate(-50%, -50%);
+  transition: border-color 220ms ease, box-shadow 220ms ease, filter 220ms ease;
+}
+
+.moment-item__node-core {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #ead1f7, #efa9d2);
+  box-shadow: 0 0 7px rgba(243, 174, 226, 0.58);
+}
+
+.moment-card {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: min(100%, 360px);
+  overflow: hidden;
+  border: 1px solid rgba(238, 205, 244, 0.13);
+  border-radius: 20px;
+  background: rgba(45, 26, 63, 0.78);
+  box-shadow: 0 14px 34px rgba(14, 8, 25, 0.16);
+  transition: border-color 220ms ease, box-shadow 220ms ease, transform 220ms ease;
+  color: inherit;
+  text-decoration: none;
+}
+
+.moment-item--left .moment-card {
+  grid-column: 1;
+  justify-self: end;
+}
+
+.moment-item--right .moment-card {
+  grid-column: 3;
+  justify-self: start;
+}
+
+.moment-card:hover,
+.moment-card:focus-within {
+  border-color: rgba(239, 188, 233, 0.34);
+  box-shadow: 0 18px 38px rgba(14, 8, 25, 0.22), 0 0 22px rgba(210, 139, 216, 0.08);
+  transform: translateY(-4px);
+}
+
+.moment-card:focus-visible {
+  outline: 2px solid rgba(255, 221, 247, 0.9);
+  outline-offset: 4px;
+}
+
+.moment-item.is-hovered .moment-item__node {
+  border-color: rgba(255, 221, 247, 0.98);
+  box-shadow: 0 0 0 5px rgba(228, 171, 229, 0.16), 0 0 18px rgba(244, 171, 225, 0.48);
+  filter: brightness(1.16);
+}
+
+.moment-item.is-return-target .moment-card {
+  animation: moment-return-target-border 360ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes moment-return-target-border {
+  from {
+    border-color: rgba(255, 221, 247, 0.72);
+    box-shadow: 0 14px 34px rgba(14, 8, 25, 0.16), 0 0 18px rgba(224, 155, 226, 0.18);
+  }
+
+  to {
+    border-color: rgba(238, 205, 244, 0.13);
+    box-shadow: 0 14px 34px rgba(14, 8, 25, 0.16);
+  }
+}
+
+.moment-card__media {
+  display: grid;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  place-items: center;
+  overflow: hidden;
+  background: linear-gradient(145deg, rgba(112, 69, 134, 0.56), rgba(48, 29, 67, 0.88) 54%, rgba(103, 53, 104, 0.7));
+}
+
+.moment-card__media::before {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(233, 168, 223, 0.13), transparent 68%);
+  content: '';
+}
+
+.moment-card__media img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.moment-card__media--placeholder span {
+  position: relative;
+  z-index: 1;
+  color: rgba(245, 218, 242, 0.56);
+  font-size: 0.58rem;
+  letter-spacing: 0.25em;
+}
+
+.moment-card__body {
+  padding: 20px 22px 23px;
+}
+
+.moment-card__date {
+  margin: 0 0 9px;
+  color: rgba(239, 198, 236, 0.72);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.69rem;
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+}
+
+.moment-card__title {
+  margin: 0;
+  color: rgba(255, 252, 255, 0.98) !important;
+  font-size: 1.22rem;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  line-height: 1.4;
+}
+
+.moment-card__description {
+  margin: 10px 0 0;
+  color: var(--moments-muted);
+  font-size: 0.86rem;
+  line-height: 1.75;
+}
+
+/* Grid mode reuses the timeline's cards and data without creating a second list. */
+html.is-memorable-moments-view-pending .memorable-moments__view-content {
+  visibility: hidden;
+}
+
+.memorable-moments[data-view='grid'] .memorable-moments__view-content {
+  width: 100%;
+}
+
+.memorable-moments[data-view='grid'] .moments-timeline {
+  grid-template-columns: 1fr;
+  column-gap: 26px;
+  row-gap: 24px;
+  padding-top: 0;
+}
+
+.memorable-moments[data-view='grid'] .moments-timeline__line,
+.memorable-moments[data-view='grid'] .moment-item::after,
+.memorable-moments[data-view='grid'] .moment-item__node {
+  display: none;
+}
+
+.memorable-moments[data-view='grid'] .moment-item,
+.memorable-moments[data-view='grid'] .moment-item--left,
+.memorable-moments[data-view='grid'] .moment-item--right {
+  --moment-entry-offset-x: 0px;
+  display: block;
+  min-height: 0;
+}
+
+.memorable-moments[data-view='grid'] .moment-item--left .moment-card,
+.memorable-moments[data-view='grid'] .moment-item--right .moment-card,
+.memorable-moments[data-view='grid'] .moment-card {
+  grid-column: auto;
+  width: 100%;
+  justify-self: stretch;
+  border-radius: 18px;
+}
+
+.memorable-moments[data-view='grid'] .moment-card__media {
+  aspect-ratio: 16 / 10;
+}
+
+.memorable-moments[data-view='grid'] .moment-card__media img {
+  transition: transform 260ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.memorable-moments[data-view='grid'] .moment-card:hover .moment-card__media img,
+.memorable-moments[data-view='grid'] .moment-card:focus-within .moment-card__media img {
+  transform: scale(1.018);
+}
+
+.memorable-moments[data-view='grid'] .moment-card__body {
+  position: relative;
+}
+
+.memorable-moments[data-view='grid'] .moment-card__date {
+  position: absolute;
+  top: -34px;
+  left: 14px;
+  z-index: 2;
+  margin: 0;
+  padding: 5px 8px;
+  border: 1px solid rgba(238, 205, 244, 0.16);
+  border-radius: 8px;
+  background: rgba(45, 26, 63, 0.82);
+  white-space: nowrap;
+}
+
+.memorable-moments[data-view='grid'] .moment-card__description {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.memorable-moments[data-view='grid'] .moments-load-sentinel,
+.memorable-moments[data-view='grid'] .moments-load-status {
+  grid-column: 1 / -1;
+}
+
+.memorable-moments__view-content[data-view-transition='out'],
+.memorable-moments__view-content[data-view-transition='in'] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.memorable-moments__view-content[data-view-transition='out'] {
+  transition: opacity 160ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.memorable-moments__view-content[data-view-transition='in'],
+.memorable-moments__view-content[data-view-transition='active'] {
+  transition: opacity 240ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.memorable-moments__view-content[data-view-transition='active'] {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Initial and return states. */
+html.js .memorable-moments[data-moments-state='idle'] .moments-timeline__line {
+  transform: translateX(-50%) scaleY(0);
+}
+
+html.js .memorable-moments[data-moments-state='booting'] .moments-timeline,
+html.js .memorable-moments[data-moments-state='restoring'] .moments-timeline {
+  visibility: hidden;
+}
+
+/* Responsive layout and reduced-motion fallback. */
+@media (max-width: 760px) {
+  .memorable-moments {
+    width: min(100% - 28px, 620px);
+    padding-bottom: 72px;
+  }
+
+  .memorable-moments__header {
+    margin-bottom: 38px;
+  }
+
+  .memorable-moments__header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  .memorable-moments__title {
+    font-size: clamp(35px, 10.5vw, 48px);
+  }
+
+  .moments-timeline {
+    gap: 38px;
+    padding-left: 0;
+  }
+
+  .moments-timeline__line {
+    left: 16px;
+  }
+
+  .moment-item {
+    --moment-entry-offset-x: 16px;
+    grid-template-columns: 38px minmax(0, 1fr);
+    min-height: 0;
+  }
+
+  .moment-item--left,
+  .moment-item--right {
+    --moment-entry-offset-x: 16px;
+  }
+
+  .moment-item__node {
+    left: 16px;
+  }
+
+  .moment-item::after,
+  .moment-item--left::after,
+  .moment-item--right::after {
+    left: 16px;
+    width: 22px;
+  }
+
+  .moment-item--left .moment-card,
+  .moment-item--right .moment-card {
+    grid-column: 2;
+    width: 100%;
+    justify-self: stretch;
+  }
+
+}
+
+@media (min-width: 680px) and (max-width: 1079px) {
+  .memorable-moments[data-view='grid'] .moments-timeline {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 22px;
+  }
+}
+
+@media (min-width: 1080px) {
+  .memorable-moments[data-view='grid'] .moments-timeline {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 679px) {
+  .memorable-moments[data-view='grid'] .moments-timeline {
+    grid-template-columns: 1fr;
+    row-gap: 18px;
+  }
+
+  .memorable-moments[data-view='grid'] .moment-card__body {
+    padding: 22px 18px 21px;
+  }
+}
+
+@media (max-width: 430px) {
+  .memorable-moments {
+    width: calc(100% - 24px);
+  }
+
+  .moment-item {
+    grid-template-columns: 34px minmax(0, 1fr);
+  }
+
+  .moments-timeline__line,
+  .moment-item__node {
+    left: 14px;
+  }
+
+
+  .moment-item::after,
+  .moment-item--left::after,
+  .moment-item--right::after {
+    left: 14px;
+    width: 20px;
+  }
+
+  .moment-card__body {
+    padding: 18px 18px 21px;
+  }
+
+  .moment-card__title {
+    font-size: 1.12rem;
+  }
+
+  .moment-card__description {
+    font-size: 0.83rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .moments-timeline__line,
+  .moment-item,
+  .moment-card,
+  .moment-item__node {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .memorable-moments__view-content[data-view-transition='out'],
+  .memorable-moments__view-content[data-view-transition='in'],
+  .memorable-moments__view-content[data-view-transition='active'] {
+    opacity: 1 !important;
+    pointer-events: auto;
+    transition: none !important;
+  }
+
+  html.js .memorable-moments .moment-item,
+  html.js .memorable-moments .moment-item--visible {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+  }
+
+  html.js .memorable-moments[data-moments-state='idle'] .moments-timeline__line {
+    transform: translateX(-50%);
+  }
+}

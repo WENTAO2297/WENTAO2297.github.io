@@ -6,7 +6,6 @@
   const selectors = [
     '.home-dashboard .dashboard-search-shell',
     '.home-dashboard .dashboard-card',
-    '.home-dashboard .spotify-embed-slot',
     '#recent-posts .recent-post-item',
     '#aside-content .card-widget'
   ]
