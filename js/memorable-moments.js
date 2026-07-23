@@ -6,39 +6,77 @@
     return
   }
 
-  // Configuration: keep timeline, loading, motion, and restore values together.
+  // Configuration: one source of truth for list loading, motion, view switching, and restore.
   const rootSelector = '.memorable-moments'
   const viewContentSelector = '.memorable-moments__view-content'
-  const initialCount = 3
-  const batchSize = 2
-  const loadRootMargin = '0px 0px 360px 0px'
-  const cardThreshold = 0.15
-  const cardRootMargin = '0px 0px -8% 0px'
-  const cardEntryDuration = 520
-  const nodeEntryDuration = 460
-  const cardEntryStagger = 80
-  const nodeEntryLead = 60
-  const entryEasing = 'cubic-bezier(0.22, 1, 0.36, 1)'
-  const restoreStorageKey = 'memorable-moments:return'
-  const restoreClassName = 'is-restoring-memorable-moments'
-  const restoreHistoryKey = '__memorableMomentsReturnMarker'
-  const restoreVersion = 1
-  const legacyRestoreStorageKey = 'memorableMomentsReturnState'
-  const legacyRestorePendingKey = 'memorableMomentsReturnPending'
-  const legacyDetailOriginKey = 'memorableMomentsDetailOrigin'
-  const restoreMaxAge = 30 * 60 * 1000
-  const restoreGuardLimit = 800
-  const returnTargetDuration = 360
-  const viewStorageKey = 'memorable-moments:view'
-  const viewFadeOutDuration = 160
-  const viewFadeInDuration = 240
-  const restorePositionTolerance = 8
-  const gridRevealDuration = 500
-  const gridRowDelay = 100
-  const gridItemDelay = 30
-  const gridRevealTolerance = 6
-  const gridRevealBufferTop = 100
-  const gridRevealBufferBottom = 120
+  const VIEW_MODE = Object.freeze({
+    TIMELINE: 'timeline',
+    GRID: 'grid'
+  })
+  const LOAD_CONFIG = Object.freeze({
+    initial: 3,
+    batch: 2,
+    rootMargin: '0px 0px 360px 0px',
+    scrollActivationY: 24
+  })
+  const TIMELINE_ANIMATION = Object.freeze({
+    cardThreshold: 0.15,
+    cardRootMargin: '0px 0px -8% 0px',
+    cardDuration: 520,
+    nodeDuration: 460,
+    cardStagger: 80,
+    nodeLead: 60,
+    lineDuration: 620,
+    extensionDuration: 480,
+    statusDuration: 620,
+    easing: 'cubic-bezier(0.22, 1, 0.36, 1)'
+  })
+  const GRID_ANIMATION = Object.freeze({
+    duration: 500,
+    rowDelay: 100,
+    itemDelay: 30,
+    rowTolerance: 6,
+    bufferTop: 100,
+    bufferBottom: 120,
+    desktopOffset: 16,
+    mobileOffset: 12
+  })
+  const VIEW_SWITCH_ANIMATION = Object.freeze({
+    leaveDuration: 160,
+    enterDuration: 240
+  })
+  const HERO_ANIMATION = Object.freeze({
+    titleDuration: 440,
+    titleOffset: 8,
+    switchDuration: 360,
+    switchDelay: 120,
+    switchOffset: 8
+  })
+  const RESTORE_CONFIG = Object.freeze({
+    storageKey: 'memorable-moments:return',
+    className: 'is-restoring-memorable-moments',
+    detailNavigationClass: 'is-memorable-moments-detail-navigation',
+    historyKey: '__memorableMomentsReturnMarker',
+    version: 1,
+    maxAge: 30 * 60 * 1000,
+    guardTimeout: 800,
+    targetDuration: 360,
+    positionTolerance: 8
+  })
+  const VIEW_STORAGE_KEY = 'memorable-moments:view'
+
+  const { initial: initialCount, batch: batchSize, rootMargin: loadRootMargin, scrollActivationY } = LOAD_CONFIG
+  const { cardThreshold, cardRootMargin, cardDuration: cardEntryDuration, nodeDuration: nodeEntryDuration,
+    cardStagger: cardEntryStagger, nodeLead: nodeEntryLead, lineDuration, extensionDuration, statusDuration,
+    easing: entryEasing } = TIMELINE_ANIMATION
+  const { duration: gridRevealDuration, rowDelay: gridRowDelay, itemDelay: gridItemDelay,
+    rowTolerance: gridRevealTolerance, bufferTop: restoreRevealBufferTop, bufferBottom: restoreRevealBufferBottom,
+    desktopOffset: gridDesktopOffset, mobileOffset: gridMobileOffset } = GRID_ANIMATION
+  const { leaveDuration: viewFadeOutDuration, enterDuration: viewFadeInDuration } = VIEW_SWITCH_ANIMATION
+  const { storageKey: restoreStorageKey, className: restoreClassName, detailNavigationClass,
+    historyKey: restoreHistoryKey,
+    version: restoreVersion, maxAge: restoreMaxAge, guardTimeout: restoreGuardLimit,
+    targetDuration: returnTargetDuration, positionTolerance: restorePositionTolerance } = RESTORE_CONFIG
 
   const reportRestoreWarning = (reason, details = {}) => {
     console.warn('[Memorable Moments] restore warning', reason, details)
@@ -68,14 +106,23 @@
     restoreState: null,
     restoreGuardTimer: null,
     revealTarget: null,
-    lastTimelineContext: null,
-    viewMode: 'timeline',
+    heroEntranceTargets: new Set(),
+    viewMode: VIEW_MODE.TIMELINE,
     viewSwitching: false
   }
 
   // Return state: sessionStorage holds the complete transaction; history only carries a marker.
   const setRestoreClass = active => {
     document.documentElement.classList.toggle(restoreClassName, Boolean(active))
+  }
+
+  const setDetailNavigationClass = active => {
+    document.documentElement.classList.toggle(detailNavigationClass, Boolean(active))
+  }
+
+  const skipPageMotionForRestore = root => {
+    if (!runtime.restoreState || !root?.querySelector('.memorable-moments')) return
+    window.PageMotion?.cleanup?.()
   }
 
   const clearRevealState = root => {
@@ -119,23 +166,96 @@
     return timer
   }
 
-  const normalizeViewMode = value => value === 'grid' ? 'grid' : 'timeline'
+  const clearHeroBootClass = () => {
+    document.documentElement.classList.remove('is-memorable-moments-hero-pending')
+  }
+
+  const clearHeroEntrance = () => {
+    runtime.heroEntranceTargets.forEach(element => {
+      element.style.removeProperty('opacity')
+      element.style.removeProperty('transform')
+    })
+    runtime.heroEntranceTargets.clear()
+  }
+
+  const prepareHeroEntrance = root => {
+    clearHeroEntrance()
+    const title = root.querySelector('.memorable-moments__title')
+    const viewSwitch = root.querySelector('.memorable-moments__view-switch')
+    const targets = []
+    if (title) {
+      title.style.opacity = '0'
+      title.style.transform = `translate3d(0, ${HERO_ANIMATION.titleOffset}px, 0)`
+      runtime.heroEntranceTargets.add(title)
+      targets.push({
+        element: title,
+        duration: HERO_ANIMATION.titleDuration,
+        delay: 0,
+        offset: HERO_ANIMATION.titleOffset
+      })
+    }
+    if (viewSwitch) {
+      viewSwitch.style.opacity = '0'
+      viewSwitch.style.transform = `translate3d(0, ${HERO_ANIMATION.switchOffset}px, 0)`
+      runtime.heroEntranceTargets.add(viewSwitch)
+      targets.push({
+        element: viewSwitch,
+        duration: HERO_ANIMATION.switchDuration,
+        delay: HERO_ANIMATION.switchDelay,
+        offset: HERO_ANIMATION.switchOffset
+      })
+    }
+    return targets
+  }
+
+  const playHeroEntrance = (targets, generation = runtime.generation) => {
+    Array.from(targets || []).forEach(({ element, duration, delay, offset }) => {
+      if (!element?.isConnected) return
+      try {
+        const animation = track(element.animate([
+          { opacity: 0, transform: `translate3d(0, ${offset}px, 0)` },
+          { opacity: 1, transform: 'translate3d(0, 0, 0)' }
+        ], {
+          duration,
+          delay,
+          easing: entryEasing,
+          fill: 'both'
+        }))
+        animation.finished.then(() => {
+          if (runtime.generation !== generation) return
+          element.style.removeProperty('opacity')
+          element.style.removeProperty('transform')
+          runtime.heroEntranceTargets.delete(element)
+          animation.cancel()
+        }).catch(() => {})
+      } catch {
+        element.style.removeProperty('opacity')
+        element.style.removeProperty('transform')
+        runtime.heroEntranceTargets.delete(element)
+      }
+    })
+  }
+
+  const normalizeViewMode = value => value === VIEW_MODE.GRID ? VIEW_MODE.GRID : VIEW_MODE.TIMELINE
 
   const readStoredViewMode = () => {
     try {
-      return normalizeViewMode(window.sessionStorage.getItem(viewStorageKey))
+      return normalizeViewMode(window.sessionStorage.getItem(VIEW_STORAGE_KEY))
     } catch {
-      return 'timeline'
+      return VIEW_MODE.TIMELINE
     }
   }
 
   const persistViewMode = mode => {
     try {
-      window.sessionStorage.setItem(viewStorageKey, normalizeViewMode(mode))
+      window.sessionStorage.setItem(VIEW_STORAGE_KEY, normalizeViewMode(mode))
     } catch {}
   }
 
   const updateViewControls = (root, mode, announce = false) => {
+    const viewSwitch = root.querySelector('.memorable-moments__view-switch')
+    viewSwitch?.setAttribute('data-active-view', mode)
+    document.documentElement.dataset.memorableMomentsView = mode
     root.querySelectorAll('[data-view-mode]').forEach(button => {
       const active = button.dataset.viewMode === mode
       button.classList.toggle('is-active', active)
@@ -143,7 +263,7 @@
     })
     if (announce) {
       const status = root.querySelector('.memorable-moments__view-status')
-      if (status) status.textContent = mode === 'grid' ? '已切换到矩阵视图' : '已切换到时间轴视图'
+      if (status) status.textContent = mode === VIEW_MODE.GRID ? '已切换到矩阵网络视图' : '已切换到中枢链路视图'
     }
   }
 
@@ -158,7 +278,7 @@
 
   const setViewSwitchLocked = (root, locked) => {
     root?.querySelectorAll('[data-view-mode]').forEach(button => {
-      button.disabled = Boolean(locked)
+      button.setAttribute('aria-disabled', String(Boolean(locked)))
     })
   }
 
@@ -168,18 +288,23 @@
     document.documentElement.classList.remove('is-memorable-moments-view-pending')
   }
 
+  const clearViewSwitchBootState = () => {
+    document.documentElement.classList.remove('is-memorable-moments-switch-ready')
+    document.documentElement.removeAttribute('data-memorable-moments-view')
+  }
+
   const switchViewMode = (root, mode) => {
     const nextMode = normalizeViewMode(mode)
     if (nextMode === runtime.viewMode || runtime.viewSwitching) return
 
     const generation = runtime.generation
     const viewContent = getViewContent(root)
-    const resettingToTimeline = runtime.viewMode === 'grid' && nextMode === 'timeline'
+    const resettingToTimeline = runtime.viewMode === VIEW_MODE.GRID && nextMode === VIEW_MODE.TIMELINE
     // Manual view switches keep the document position. Detail returns use
     // restoreTimelinePosition(), which is the only path allowed to scroll.
     runtime.viewSwitching = true
     setViewSwitchLocked(root, true)
-    if (runtime.viewMode === 'timeline') cancelTimelineLoading(root)
+    if (runtime.viewMode === VIEW_MODE.TIMELINE) cancelTimelineLoading(root)
 
     const finishTransition = () => {
       if (runtime.generation !== generation || runtime.root !== root || !root.isConnected) return
@@ -208,10 +333,10 @@
         return
       }
 
-      if (nextMode === 'grid') appendAllGridItems(root, { showImmediately: false })
+      if (nextMode === VIEW_MODE.GRID) appendAllGridItems(root, { showImmediately: false })
       applyViewMode(root, nextMode, { persist: true, announce: true })
       if (runtime.reduced) {
-        if (nextMode === 'grid') root.querySelectorAll('.moment-item').forEach(showCardImmediately)
+        if (nextMode === VIEW_MODE.GRID) root.querySelectorAll('.moment-item').forEach(showCardImmediately)
         finishTransition()
         return
       }
@@ -287,9 +412,6 @@
   const clearRestoreState = clearHash => {
     try {
       window.sessionStorage.removeItem(restoreStorageKey)
-      window.sessionStorage.removeItem(legacyRestoreStorageKey)
-      window.sessionStorage.removeItem(legacyRestorePendingKey)
-      window.sessionStorage.removeItem(legacyDetailOriginKey)
     } catch {}
 
     const currentState = window.history.state
@@ -390,23 +512,19 @@
     const slug = article?.dataset.momentSlug || anchor?.dataset.momentSlug
     if (!root || !root.isConnected || !slug) return false
 
-    const context = runtime.root === root
-      ? { loadedCount: runtime.cursor }
-      : runtime.lastTimelineContext?.root === root
-      ? runtime.lastTimelineContext
-      : null
-    if (!context) return false
+    if (runtime.root !== root) return false
 
     // Capture the target geometry before PJAX cleanup removes generated cards.
     const rect = article.getBoundingClientRect()
     const saved = saveMomentReturnState({
       slug,
-      loadedCount: Math.max(initialCount, Number(context.loadedCount) || initialCount),
+      loadedCount: Math.max(initialCount, runtime.cursor),
       scrollY: window.scrollY,
       viewportOffset: rect.top,
       viewMode: runtime.viewMode,
       savedAt: Date.now()
     })
+    if (saved) setDetailNavigationClass(true)
     return saved
   }
 
@@ -594,17 +712,21 @@
 
   const resetCardStates = root => {
     root?.querySelectorAll('.moment-item').forEach(item => {
+      const card = item.querySelector('.moment-card')
       item.classList.remove('moment-item--entering', 'moment-item--visible')
       item.removeAttribute('data-moment-entry-state')
       item.style.removeProperty('opacity')
       item.style.removeProperty('transform')
+      card?.style.removeProperty('opacity')
+      card?.style.removeProperty('transform')
       item.querySelector('.moment-item__node')?.style.removeProperty('opacity')
       item.querySelector('.moment-item__node')?.style.removeProperty('transform')
     })
   }
 
-  const cleanup = () => {
+  const cleanup = ({ preserveVisualState = false, preserveHeroBootState = false } = {}) => {
     const root = runtime.root
+    const shouldPreserveVisualState = Boolean(preserveVisualState && root?.isConnected)
     runtime.generation += 1
     runtime.animations.forEach(animation => animation.cancel())
     runtime.animations.clear()
@@ -630,12 +752,18 @@
     }
 
     clearRevealState(root)
+    clearHeroEntrance()
     getViewContent(root)?.removeAttribute('data-view-transition')
     clearViewBootClass()
+    clearViewSwitchBootState()
+    if (!preserveHeroBootState) clearHeroBootClass()
 
     if (root?.isConnected) {
-      resetGeneratedCards(root)
-      resetCardStates(root)
+      if (shouldPreserveVisualState) root.querySelectorAll('.moment-item').forEach(showCardImmediately)
+      else {
+        resetGeneratedCards(root)
+        resetCardStates(root)
+      }
     }
     if (root) root.dataset.momentsState = 'destroyed'
     root?.removeAttribute('data-moments-initialized')
@@ -654,7 +782,7 @@
     runtime.restoreState = null
     runtime.restoreGuardTimer = null
     runtime.revealTarget = null
-    runtime.viewMode = 'timeline'
+    runtime.viewMode = VIEW_MODE.TIMELINE
     runtime.viewSwitching = false
     setViewSwitchLocked(root, false)
   }
@@ -680,24 +808,27 @@
   const animateInitialTimeline = (root, reduced) => {
     const line = root.querySelector('.moments-timeline__line')
     root.dataset.momentsState = 'ready'
-    if (reduced || runtime.viewMode === 'grid') return
+    if (reduced || runtime.viewMode === VIEW_MODE.GRID) return
 
     if (line) {
       try {
         track(line.animate([
           { transform: 'translateX(-50%) scaleY(0)' },
           { transform: 'translateX(-50%) scaleY(1)' }
-        ], { duration: 620, easing: entryEasing, fill: 'both' }))
+        ], { duration: lineDuration, easing: entryEasing, fill: 'both' }))
       } catch {}
     }
   }
 
   const showCardImmediately = item => {
+    const card = item.querySelector('.moment-card')
     item.dataset.momentEntryState = 'visible'
     item.classList.remove('moment-item--entering')
     item.classList.add('moment-item--visible')
     item.style.removeProperty('opacity')
     item.style.removeProperty('transform')
+    card?.style.removeProperty('opacity')
+    card?.style.removeProperty('transform')
     item.querySelector('.moment-item__node')?.style.removeProperty('opacity')
     item.querySelector('.moment-item__node')?.style.removeProperty('transform')
   }
@@ -707,12 +838,15 @@
     Array.from(items || []).forEach(item => {
       if (!item?.isConnected) return
       const entryX = Number.parseFloat(getComputedStyle(item).getPropertyValue('--moment-entry-offset-x')) || 0
+      const card = item.querySelector('.moment-card')
       const node = item.querySelector('.moment-item__node')
       item.dataset.momentEntryState = 'entering'
       item.classList.remove('moment-item--visible')
       item.classList.add('moment-item--entering')
-      item.style.opacity = '0'
-      item.style.transform = `translate3d(${entryX}px, 10px, 0) scale(0.98)`
+      if (card) {
+        card.style.opacity = '0'
+        card.style.transform = `translate3d(${entryX}px, 10px, 0) scale(0.98)`
+      }
       if (node) {
         node.style.opacity = '0'
         node.style.transform = 'translate(-50%, -50%) scale(0.65)'
@@ -731,9 +865,14 @@
     Array.from(items || []).forEach((item, index) => {
       const delay = baseDelay + index * cardEntryStagger
       const entryX = Number.parseFloat(getComputedStyle(item).getPropertyValue('--moment-entry-offset-x')) || 0
+      const card = item.querySelector('.moment-card')
       const node = item.querySelector('.moment-item__node')
+      if (!card) {
+        finishTimelineEntranceItem(item)
+        return
+      }
       try {
-        const cardAnimation = track(item.animate([
+        const cardAnimation = track(card.animate([
           { opacity: 0, transform: `translate3d(${entryX}px, 10px, 0) scale(0.98)` },
           { opacity: 1, transform: 'translate3d(0, 0, 0) scale(1)' }
         ], {
@@ -764,9 +903,9 @@
     })
   }
 
-  const getVisibleTimelineItems = (root, target = null) => {
-    const top = -gridRevealBufferTop
-    const bottom = window.innerHeight + gridRevealBufferBottom
+  const getTimelineRestoreAnimationItems = (root, target = null) => {
+    const top = -restoreRevealBufferTop
+    const bottom = window.innerHeight + restoreRevealBufferBottom
     const visibleItems = Array.from(root.querySelectorAll('.moment-item[data-moment-slug]'))
       .filter(item => {
         const rect = item.getBoundingClientRect()
@@ -779,32 +918,45 @@
 
   const groupGridItemsByVisualRow = items => {
     const rows = []
-    Array.from(items || []).forEach(item => {
-      const top = item.offsetTop
+    const measurements = Array.from(items || [])
+      .filter(item => item?.isConnected)
+      .map(item => ({
+        item,
+        top: item.offsetTop,
+        left: item.getBoundingClientRect().left
+      }))
+
+    measurements.forEach(({ item, top, left }) => {
       let row = rows.find(candidate => Math.abs(candidate.top - top) <= gridRevealTolerance)
       if (!row) {
         row = { top, items: [] }
         rows.push(row)
       }
-      row.items.push(item)
+      row.items.push({ item, left })
     })
     rows.sort((a, b) => a.top - b.top)
     rows.forEach(row => {
-      row.items.sort((a, b) => a.getBoundingClientRect().left - b.getBoundingClientRect().left)
+      row.items.sort((a, b) => a.left - b.left)
+      row.items = row.items.map(entry => entry.item)
     })
     return rows
   }
 
+  const getGridRevealOffset = () => window.innerWidth <= 679 ? gridMobileOffset : gridDesktopOffset
+
   const prepareGridReveal = items => {
-    const offset = window.innerWidth <= 679 ? 12 : 16
+    const offset = getGridRevealOffset()
     const preparedItems = []
     Array.from(items || []).forEach(item => {
       if (!item?.isConnected) return
+      const card = item.querySelector('.moment-card')
       item.dataset.momentEntryState = 'entering'
       item.classList.remove('moment-item--visible')
       item.classList.add('moment-item--entering')
-      item.style.opacity = '0'
-      item.style.transform = `translate3d(0, -${offset}px, 0) scale(0.985)`
+      if (card) {
+        card.style.opacity = '0'
+        card.style.transform = `translate3d(0, -${offset}px, 0) scale(0.985)`
+      }
       preparedItems.push(item)
     })
     return preparedItems
@@ -818,7 +970,7 @@
       .map((row, index) => ({ row, index }))
       .filter(({ row }) => row.items.some(item => {
         const rect = item.getBoundingClientRect()
-        return rect.bottom >= -gridRevealBufferTop && rect.top <= window.innerHeight + gridRevealBufferBottom
+        return rect.bottom >= -restoreRevealBufferTop && rect.top <= window.innerHeight + restoreRevealBufferBottom
       }))
       .map(({ index }) => index)
 
@@ -838,12 +990,18 @@
   }
 
   const playGridRowReveal = (plan, generation = runtime.generation) => {
+    const offset = getGridRevealOffset()
     plan.rows.forEach((row, rowIndex) => {
       row.items.forEach((item, itemIndex) => {
         const delay = rowIndex * gridRowDelay + itemIndex * gridItemDelay
+        const card = item.querySelector('.moment-card')
+        if (!card) {
+          showCardImmediately(item)
+          return
+        }
         try {
-          const animation = track(item.animate([
-            { opacity: 0, transform: `translate3d(0, -${window.innerWidth <= 679 ? 12 : 16}px, 0) scale(0.985)` },
+          const animation = track(card.animate([
+            { opacity: 0, transform: `translate3d(0, -${offset}px, 0) scale(0.985)` },
             { opacity: 1, transform: 'translate3d(0, 0, 0) scale(1)' }
           ], {
             duration: gridRevealDuration,
@@ -880,6 +1038,8 @@
     clearRevealState(root)
     if (runtime.generation !== generation || runtime.root !== root || !root.isConnected) return
     root.querySelectorAll('.moment-item').forEach(showCardImmediately)
+    clearHeroEntrance()
+    clearHeroBootClass()
     setRestoreClass(false)
   }
 
@@ -893,21 +1053,24 @@
     }
 
     clearRevealState(root)
-    const plan = runtime.viewMode === 'grid'
+    const plan = runtime.viewMode === VIEW_MODE.GRID
       ? getGridRevealPlan(root, target)
-      : { items: getVisibleTimelineItems(root, target) }
-    const animatedItems = runtime.viewMode === 'grid'
+      : { items: getTimelineRestoreAnimationItems(root, target) }
+    const animatedItems = runtime.viewMode === VIEW_MODE.GRID
       ? plan.items
       : prepareTimelineEntrance(plan.items)
+    const heroTargets = prepareHeroEntrance(root)
     const animatedSet = new Set(animatedItems)
     root.querySelectorAll('.moment-item').forEach(item => {
       if (!animatedSet.has(item)) showCardImmediately(item)
     })
+    clearHeroBootClass()
     setRestoreClass(false)
 
     scheduleFrame(() => {
       if (runtime.generation !== generation || runtime.root !== root || !root.isConnected) return
-      if (runtime.viewMode === 'grid') playGridRowReveal(plan, generation)
+      playHeroEntrance(heroTargets, generation)
+      if (runtime.viewMode === VIEW_MODE.GRID) playGridRowReveal(plan, generation)
       else playTimelineEntrance(animatedItems, { generation })
       highlightReturnTarget(target, generation)
     })
@@ -970,7 +1133,7 @@
 
   const animateTimelineExtension = (root, oldHeight, newHeight, reduced, generation) => {
     const line = root.querySelector('.moments-timeline__line')
-    if (!line || reduced || runtime.viewMode === 'grid' || newHeight <= oldHeight) return
+    if (!line || reduced || runtime.viewMode === VIEW_MODE.GRID || newHeight <= oldHeight) return
 
     const oldVisibleRatio = Math.max(0, Math.min(1, oldHeight / newHeight))
     const clipFrom = `inset(0 0 ${(1 - oldVisibleRatio) * 100}% 0)`
@@ -981,7 +1144,7 @@
         const animation = track(line.animate([
           { clipPath: clipFrom },
           { clipPath: 'inset(0)' }
-        ], { duration: 480, easing: entryEasing, fill: 'both' }))
+        ], { duration: extensionDuration, easing: entryEasing, fill: 'both' }))
         animation.finished.then(() => {
           if (runtime.generation === generation && runtime.root === root) line.style.removeProperty('clip-path')
         }).catch(() => {})
@@ -996,7 +1159,7 @@
       if (runtime.generation !== generation || runtime.root !== root) return
       const status = getStatus(root)
       if (status) status.hidden = true
-    }, 620)
+    }, statusDuration)
   }
 
   // Incremental loading and sentinel lifecycle.
@@ -1017,7 +1180,6 @@
     }
     timeline.insertBefore(fragment, sentinel?.parentNode === timeline ? sentinel : null)
     runtime.cursor = nextCursor
-    runtime.lastTimelineContext = { root, loadedCount: runtime.cursor }
     bindHover(root, newItems)
     bindImageFallback(root, newItems)
     if (showImmediately) newItems.forEach(showCardImmediately)
@@ -1025,7 +1187,6 @@
   }
 
   const appendAllGridItems = (root, { showImmediately = false } = {}) => {
-    ensureSentinel(root)
     const newItems = appendItemsTo(runtime.items.length, { showImmediately })
     cancelTimelineLoading(root)
     return newItems
@@ -1044,8 +1205,7 @@
     ensureSentinel(root)
     ensureStatus(root).hidden = true
     runtime.cursor = Math.min(initialCount, runtime.items.length)
-    runtime.lastTimelineContext = { root, loadedCount: runtime.cursor }
-    applyViewMode(root, 'timeline', { persist: true, announce: true })
+    applyViewMode(root, VIEW_MODE.TIMELINE, { persist: true, announce: true })
     resetCardStates(root)
     root.dataset.momentsState = 'idle'
     root.querySelector('.moments-timeline__line')?.style.removeProperty('clip-path')
@@ -1055,6 +1215,36 @@
     if (runtime.reduced) initialItems.forEach(showCardImmediately)
     setupLoading(root)
     return preparedItems
+  }
+
+  const calculateRestoredScrollPosition = (target, viewportOffset, fallbackScrollY = 0) => {
+    const rect = target.getBoundingClientRect()
+    const offset = Number(viewportOffset)
+    const desiredScrollY = Number.isFinite(offset)
+      ? window.scrollY + rect.top - offset
+      : Number(fallbackScrollY) || 0
+    const maxScrollY = Math.max(0, document.documentElement.scrollHeight - window.innerHeight)
+    const finalScrollY = Math.min(Math.max(desiredScrollY, 0), maxScrollY)
+    return {
+      desiredScrollY,
+      finalScrollY,
+      maxScrollY,
+      wasClamped: Math.abs(finalScrollY - desiredScrollY) > 1
+    }
+  }
+
+  const scrollToInstantly = top => {
+    const documentElement = document.documentElement
+    const previousScrollBehavior = documentElement.style.scrollBehavior
+    documentElement.style.scrollBehavior = 'auto'
+    try {
+      window.scrollTo({ top, left: 0, behavior: 'auto' })
+    } catch {
+      window.scrollTo(0, top)
+    } finally {
+      if (previousScrollBehavior) documentElement.style.scrollBehavior = previousScrollBehavior
+      else documentElement.style.removeProperty('scroll-behavior')
+    }
   }
 
   // Restore positioning and the post-position reveal.
@@ -1067,44 +1257,14 @@
       return
     }
 
-    const getRestoreScrollMetrics = () => {
-      const rect = target.getBoundingClientRect()
-      const offset = Number(state.viewportOffset)
-      const desiredScrollY = Number.isFinite(offset)
-        ? window.scrollY + rect.top - offset
-        : Number(state.scrollY) || 0
-      const maxScrollY = Math.max(0, document.documentElement.scrollHeight - window.innerHeight)
-      const finalScrollY = Math.min(Math.max(desiredScrollY, 0), maxScrollY)
-      return {
-        desiredScrollY,
-        finalScrollY,
-        maxScrollY,
-        wasClamped: Math.abs(finalScrollY - desiredScrollY) > 1
-      }
-    }
-
-    const scrollInstantly = top => {
-      const documentElement = document.documentElement
-      const previousScrollBehavior = documentElement.style.scrollBehavior
-      documentElement.style.scrollBehavior = 'auto'
-      try {
-        window.scrollTo({ top, left: 0, behavior: 'auto' })
-      } catch {
-        window.scrollTo(0, top)
-      } finally {
-        if (previousScrollBehavior) documentElement.style.scrollBehavior = previousScrollBehavior
-        else documentElement.style.removeProperty('scroll-behavior')
-      }
-    }
-
     let restoreAttempts = 0
     scheduleTimer(() => {
       if (runtime.generation !== generation || runtime.root !== root || !root.isConnected) return
       try {
         restoreAttempts += 1
-        let scrollMetrics = getRestoreScrollMetrics()
+        let scrollMetrics = calculateRestoredScrollPosition(target, state.viewportOffset, state.scrollY)
         let wasClamped = scrollMetrics.wasClamped
-        scrollInstantly(scrollMetrics.finalScrollY)
+        scrollToInstantly(scrollMetrics.finalScrollY)
 
         // One layout correction covers a late image/style measurement without replaying card motion.
         scheduleFrame(() => {
@@ -1113,9 +1273,9 @@
             const rect = target.getBoundingClientRect()
             if (Math.abs(rect.top - state.viewportOffset) > 8) {
               restoreAttempts += 1
-              scrollMetrics = getRestoreScrollMetrics()
+              scrollMetrics = calculateRestoredScrollPosition(target, state.viewportOffset, state.scrollY)
               wasClamped = wasClamped || scrollMetrics.wasClamped
-              scrollInstantly(scrollMetrics.finalScrollY)
+              scrollToInstantly(scrollMetrics.finalScrollY)
             }
             const settledTop = target.getBoundingClientRect().top
             const error = settledTop - state.viewportOffset
@@ -1153,7 +1313,7 @@
 
   const appendNextBatch = () => {
     const root = runtime.root
-    if (!root || runtime.viewMode !== 'timeline' || runtime.loading || runtime.cursor >= runtime.items.length) return false
+    if (!root || runtime.viewMode !== VIEW_MODE.TIMELINE || runtime.loading || runtime.cursor >= runtime.items.length) return false
 
     runtime.loading = true
     const generation = runtime.generation
@@ -1177,7 +1337,6 @@
     }
     timeline.insertBefore(fragment, sentinel)
     runtime.cursor = nextCursor
-    runtime.lastTimelineContext = { root, loadedCount: runtime.cursor }
     bindHover(root, newItems)
     bindImageFallback(root, newItems)
 
@@ -1200,12 +1359,12 @@
   }
 
   const queueNextBatch = () => {
-    if (runtime.viewMode !== 'timeline' || runtime.loading || runtime.cursor >= runtime.items.length) return
+    if (runtime.viewMode !== VIEW_MODE.TIMELINE || runtime.loading || runtime.cursor >= runtime.items.length) return
     runtime.loading = true
     const generation = runtime.generation
     const loadingEpoch = runtime.loadingEpoch
     scheduleTimer(() => {
-      if (runtime.generation !== generation || runtime.loadingEpoch !== loadingEpoch || runtime.viewMode !== 'timeline' || !runtime.root) {
+      if (runtime.generation !== generation || runtime.loadingEpoch !== loadingEpoch || runtime.viewMode !== VIEW_MODE.TIMELINE || !runtime.root) {
         runtime.loading = false
         return
       }
@@ -1215,7 +1374,7 @@
   }
 
   const setupLoading = root => {
-    if (runtime.viewMode !== 'timeline') {
+    if (runtime.viewMode !== VIEW_MODE.TIMELINE) {
       cancelTimelineLoading(root)
       return
     }
@@ -1245,7 +1404,7 @@
     }
 
     runtime.scrollHandler = () => {
-      if (window.scrollY <= 24) return
+      if (window.scrollY <= scrollActivationY) return
       runtime.hasScrolled = true
       if (runtime.sentinelIntersecting) queueNextBatch()
     }
@@ -1267,6 +1426,7 @@
     const root = document.querySelector(rootSelector)
     if (!root) {
       cleanup()
+      clearHeroBootClass()
       clearViewBootClass()
       if (!document.querySelector('.memorable-moment-detail')) {
         setRestoreClass(false)
@@ -1275,16 +1435,17 @@
     }
     if (runtime.root === root && root.dataset.momentsInitialized === 'true') return true
 
-    cleanup()
+    cleanup({ preserveHeroBootState: true })
     runtime.root = root
     runtime.items = readItems(root)
     runtime.cursor = Math.min(initialCount, runtime.items.length)
-    runtime.lastTimelineContext = { root, loadedCount: runtime.cursor }
     runtime.restoreState = readRestoreRequest(runtime.items)
     const initialViewMode = runtime.restoreState?.viewMode || readStoredViewMode()
     applyViewMode(root, initialViewMode, { persist: true })
+    document.documentElement.classList.add('is-memorable-moments-switch-ready')
     clearViewBootClass()
     setRestoreClass(Boolean(runtime.restoreState))
+    skipPageMotionForRestore(root)
     if (runtime.restoreState && getHashSlug()) clearRestoreHash()
     if (runtime.restoreState) rememberHistoryRestoreMarker(runtime.restoreState)
     root.dataset.momentsInitialized = 'true'
@@ -1292,7 +1453,7 @@
     bindHover(root)
     bindImageFallback(root)
 
-    if (runtime.viewMode === 'grid') {
+    if (runtime.viewMode === VIEW_MODE.GRID) {
       appendAllGridItems(root, { showImmediately: false })
     } else if (runtime.restoreState) {
       appendItemsTo(runtime.restoreState.loadedCount, { showImmediately: false })
@@ -1307,6 +1468,8 @@
       if (runtime.reduced) {
         runtime.animations.forEach(animation => animation.cancel())
         runtime.animations.clear()
+        clearHeroEntrance()
+        clearHeroBootClass()
         root.querySelectorAll('.moment-item').forEach(showCardImmediately)
         root.querySelector('.moments-timeline__line')?.style.removeProperty('clip-path')
       }
@@ -1315,6 +1478,8 @@
     else runtime.motionQuery.addListener?.(runtime.motionHandler)
 
     const generation = runtime.generation
+    const heroTargets = runtime.restoreState || runtime.reduced ? [] : prepareHeroEntrance(root)
+    if (!runtime.restoreState) clearHeroBootClass()
     if (runtime.restoreState) armRestoreGuard(root, runtime.restoreState, generation)
     scheduleFrame(() => {
       if (runtime.generation !== generation || runtime.root !== root || !root.isConnected) return
@@ -1322,19 +1487,23 @@
         const restoreState = runtime.restoreState
         if (restoreState) {
           root.dataset.momentsState = 'ready'
-        } else if (runtime.viewMode === 'grid') {
+        } else if (runtime.viewMode === VIEW_MODE.GRID) {
           root.dataset.momentsState = 'ready'
           if (runtime.reduced) {
             root.querySelectorAll('.moment-item').forEach(showCardImmediately)
           } else {
             const gridPlan = getGridRevealPlan(root)
-            scheduleFrame(() => playGridRowReveal(gridPlan, generation))
+            scheduleFrame(() => {
+              playHeroEntrance(heroTargets, generation)
+              playGridRowReveal(gridPlan, generation)
+            })
           }
         } else {
           animateInitialTimeline(root, runtime.reduced)
+          if (!runtime.reduced) playHeroEntrance(heroTargets, generation)
           observeCards(root)
         }
-        if (runtime.viewMode === 'timeline') setupLoading(root)
+        if (runtime.viewMode === VIEW_MODE.TIMELINE) setupLoading(root)
         else cancelTimelineLoading(root)
         if (restoreState) restoreTimelinePosition(root, restoreState, generation)
       } catch (error) {
@@ -1345,6 +1514,8 @@
         } else {
           root.dataset.momentsState = 'ready'
           root.querySelectorAll('.moment-item').forEach(showCardImmediately)
+          clearHeroEntrance()
+          clearHeroBootClass()
           setRestoreClass(false)
           clearRevealState(root)
         }
@@ -1383,7 +1554,7 @@
 
   if (!window.memorableMomentsPjaxBound) {
     window.memorableMomentsPjaxBound = true
-    document.addEventListener('pjax:send', cleanup)
+    document.addEventListener('pjax:send', () => cleanup({ preserveVisualState: true }))
     document.addEventListener('pjax:complete', init)
     document.addEventListener('pjax:error', () => {
       cleanup()

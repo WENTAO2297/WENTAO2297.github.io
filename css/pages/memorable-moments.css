@@ -27,11 +27,22 @@
   padding-top: 0 !important;
 }
 
-/* Page variables, title, and timeline container. */
+/* Page variables and root shell. */
 .memorable-moments {
+  --moments-card-width: 344px;
+  --moments-card-radius: 22px;
+  --moments-panel-bg: rgba(28, 20, 43, 0.58);
+  --moments-panel-border: rgba(255, 255, 255, 0.1);
+  --moments-panel-shadow: 0 18px 44px rgba(3, 5, 15, 0.25);
+  --moments-panel-blur: none;
   --moments-text: rgba(255, 252, 255, 0.98);
   --moments-muted: rgba(244, 229, 246, 0.76);
   --moments-line: linear-gradient(180deg, rgba(229, 183, 242, 0.3), #d7a9ed 18%, #eeacd9 76%, rgba(220, 180, 239, 0.32));
+  --moments-easing: cubic-bezier(0.22, 1, 0.36, 1);
+  --moments-switch-indicator-duration: 280ms;
+  --moments-switch-text-duration: 220ms;
+  --moments-view-fade-out-duration: 160ms;
+  --moments-view-fade-in-duration: 240ms;
   width: min(1120px, calc(100% - 40px));
   min-height: calc(100vh - 70px);
   margin: 0 auto;
@@ -47,12 +58,27 @@ html.is-restoring-memorable-moments .memorable-moments__view-content {
   transition: none !important;
 }
 
-.memorable-moments__header {
+/* Keep the persistent list shell visible while PJAX swaps the content. */
+html.is-memorable-moments-detail-navigation.pjax-content-leaving #content-inner,
+html.is-restoring-memorable-moments.pjax-content-leaving #content-inner,
+html.is-restoring-memorable-moments.pjax-content-preparing #content-inner {
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto;
+  transition: none !important;
+}
+
+.memorable-moments__hero {
   position: relative;
   z-index: 3;
   width: min(980px, 100%);
   margin-inline: auto;
   margin-bottom: clamp(42px, 7vw, 72px);
+  display: grid;
+  justify-items: center;
+  gap: clamp(24px, 3vw, 32px);
+  padding: 0 0 clamp(4px, 1vw, 12px);
+  text-align: center;
 }
 
 .memorable-moments__view-content {
@@ -60,30 +86,52 @@ html.is-restoring-memorable-moments .memorable-moments__view-content {
   margin-inline: auto;
 }
 
-.memorable-moments__header-row {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 28px;
-}
-
-.memorable-moments__header-copy {
-  min-width: 0;
-}
-
 .memorable-moments__view-switch {
-  display: inline-flex;
+  position: relative;
+  display: grid;
   flex: 0 0 auto;
-  align-items: center;
+  grid-template-columns: repeat(2, minmax(max-content, 1fr));
   gap: 4px;
+  width: 168px;
   padding: 4px;
   border: 1px solid rgba(238, 205, 244, 0.16);
   border-radius: 999px;
   background: rgba(45, 26, 63, 0.38);
 }
 
+.memorable-moments__view-indicator {
+  position: absolute;
+  z-index: 0;
+  top: 4px;
+  bottom: 4px;
+  left: 4px;
+  width: calc((100% - 12px) / 2);
+  border: 1px solid rgba(245, 205, 244, 0.3);
+  border-radius: 999px;
+  background: linear-gradient(145deg, rgba(226, 157, 222, 0.42), rgba(192, 130, 208, 0.28));
+  box-shadow: inset 0 1px 0 rgba(255, 245, 255, 0.12), 0 0 10px rgba(224, 154, 220, 0.08);
+  pointer-events: none;
+  transform: translateX(0);
+  transition: transform var(--moments-switch-indicator-duration) var(--moments-easing);
+  will-change: transform;
+}
+
+.memorable-moments__view-switch[data-active-view='grid'] .memorable-moments__view-indicator,
+html[data-memorable-moments-view='grid'] .memorable-moments__view-switch .memorable-moments__view-indicator {
+  transform: translateX(calc(100% + 4px));
+}
+
+html:not(.is-memorable-moments-switch-ready) .memorable-moments__view-indicator {
+  transition: none;
+}
+
 .memorable-moments__view-button {
-  min-width: 52px;
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 72px;
   padding: 7px 12px;
   border: 0;
   border-radius: 999px;
@@ -92,8 +140,12 @@ html.is-restoring-memorable-moments .memorable-moments__view-content {
   cursor: pointer;
   font: inherit;
   font-size: 0.72rem;
-  line-height: 1.2;
-  transition: background-color 180ms ease, color 180ms ease, box-shadow 180ms ease;
+  line-height: 1;
+  white-space: nowrap;
+  word-break: keep-all;
+  opacity: 0.68;
+  transform: translateY(1px) scale(0.98);
+  transition: color var(--moments-switch-text-duration) var(--moments-easing), opacity var(--moments-switch-text-duration) var(--moments-easing), transform var(--moments-switch-text-duration) var(--moments-easing);
 }
 
 .memorable-moments__view-button:hover,
@@ -106,15 +158,30 @@ html.is-restoring-memorable-moments .memorable-moments__view-content {
   outline-offset: 2px;
 }
 
-.memorable-moments__view-button:disabled {
+.memorable-moments__view-button[aria-disabled='true'] {
   cursor: wait;
-  opacity: 0.62;
 }
 
 .memorable-moments__view-button.is-active {
-  background: rgba(226, 157, 222, 0.22);
-  box-shadow: 0 0 14px rgba(224, 154, 220, 0.08);
   color: var(--moments-text);
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.memorable-moments__view-button:active {
+  transform: translateY(1px) scale(0.97);
+}
+
+html[data-memorable-moments-view='grid'] .memorable-moments__view-button[data-view-mode='timeline'] {
+  color: rgba(244, 229, 246, 0.68);
+  opacity: 0.68;
+  transform: translateY(1px) scale(0.98);
+}
+
+html[data-memorable-moments-view='grid'] .memorable-moments__view-button[data-view-mode='grid'] {
+  color: var(--moments-text);
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
 .memorable-moments__view-status {
@@ -128,23 +195,20 @@ html.is-restoring-memorable-moments .memorable-moments__view-content {
   border: 0;
 }
 
-.memorable-moments__eyebrow {
-  margin: 0 0 10px;
-  color: rgba(244, 185, 230, 0.96);
-  font-size: 0.68rem;
-  letter-spacing: 0.24em;
-  line-height: 1.4;
-  text-shadow: 0 2px 12px rgba(17, 10, 28, 0.72);
-}
-
 .memorable-moments__title {
   margin: 0;
   color: var(--moments-text) !important;
-  font-size: clamp(38px, 5.5vw, 62px);
-  font-weight: 620;
-  letter-spacing: -0.055em;
-  line-height: 1.08;
-  text-shadow: 0 3px 18px rgba(17, 10, 28, 0.74);
+  font-size: clamp(2.35rem, 6vw, 5rem);
+  font-weight: 650;
+  letter-spacing: -0.035em;
+  line-height: 1.04;
+  text-shadow: 0 8px 34px rgba(0, 0, 0, 0.34);
+}
+
+html.is-memorable-moments-hero-pending .memorable-moments__title,
+html.is-memorable-moments-hero-pending .memorable-moments__view-switch {
+  opacity: 0;
+  transform: translate3d(0, 8px, 0);
 }
 
 .moments-timeline {
@@ -204,9 +268,9 @@ html.is-restoring-memorable-moments .memorable-moments__view-content {
 }
 
 html.js .memorable-moments .moment-item {
-  opacity: 0;
+  opacity: 1;
   visibility: hidden;
-  transform: translate3d(var(--moment-entry-offset-x), 10px, 0) scale(0.98);
+  transform: none;
 }
 
 html.js .memorable-moments .moment-item--entering,
@@ -216,7 +280,12 @@ html.js .memorable-moments .moment-item--visible {
 
 html.js .memorable-moments .moment-item--visible {
   opacity: 1;
-  transform: translate3d(0, 0, 0) scale(1);
+  transform: none;
+}
+
+html.js .memorable-moments .moment-item--entering .moment-card {
+  opacity: 0;
+  transform: translate3d(var(--moment-entry-offset-x), 10px, 0) scale(0.98);
 }
 
 .moment-item::after {
@@ -267,12 +336,12 @@ html.js .memorable-moments .moment-item--visible {
   position: relative;
   z-index: 2;
   display: block;
-  width: min(100%, 360px);
+  width: min(100%, var(--moments-card-width));
   overflow: hidden;
-  border: 1px solid rgba(238, 205, 244, 0.13);
-  border-radius: 20px;
-  background: rgba(45, 26, 63, 0.78);
-  box-shadow: 0 14px 34px rgba(14, 8, 25, 0.16);
+  border: 1px solid var(--moments-panel-border);
+  border-radius: var(--moments-card-radius);
+  background: transparent;
+  box-shadow: var(--moments-panel-shadow);
   transition: border-color 220ms ease, box-shadow 220ms ease, transform 220ms ease;
   color: inherit;
   text-decoration: none;
@@ -290,8 +359,8 @@ html.js .memorable-moments .moment-item--visible {
 
 .moment-card:hover,
 .moment-card:focus-within {
-  border-color: rgba(239, 188, 233, 0.34);
-  box-shadow: 0 18px 38px rgba(14, 8, 25, 0.22), 0 0 22px rgba(210, 139, 216, 0.08);
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: var(--moments-panel-shadow), 0 0 22px rgba(210, 139, 216, 0.08);
   transform: translateY(-4px);
 }
 
@@ -313,12 +382,12 @@ html.js .memorable-moments .moment-item--visible {
 @keyframes moment-return-target-border {
   from {
     border-color: rgba(255, 221, 247, 0.72);
-    box-shadow: 0 14px 34px rgba(14, 8, 25, 0.16), 0 0 18px rgba(224, 155, 226, 0.18);
+    box-shadow: var(--moments-panel-shadow), 0 0 18px rgba(224, 155, 226, 0.18);
   }
 
   to {
-    border-color: rgba(238, 205, 244, 0.13);
-    box-shadow: 0 14px 34px rgba(14, 8, 25, 0.16);
+    border-color: var(--moments-panel-border);
+    box-shadow: var(--moments-panel-shadow);
   }
 }
 
@@ -357,6 +426,10 @@ html.js .memorable-moments .moment-item--visible {
 }
 
 .moment-card__body {
+  border-top: 1px solid var(--moments-panel-border);
+  background: var(--moments-panel-bg);
+  backdrop-filter: var(--moments-panel-blur);
+  -webkit-backdrop-filter: var(--moments-panel-blur);
   padding: 20px 22px 23px;
 }
 
@@ -391,13 +464,14 @@ html.is-memorable-moments-view-pending .memorable-moments__view-content {
 }
 
 .memorable-moments[data-view='grid'] .memorable-moments__view-content {
-  width: 100%;
+  width: min(100%, calc(3 * var(--moments-card-width) + 2 * 26px));
 }
 
 .memorable-moments[data-view='grid'] .moments-timeline {
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(3, minmax(0, var(--moments-card-width)));
   column-gap: 26px;
   row-gap: 24px;
+  justify-content: center;
   padding-top: 0;
 }
 
@@ -421,7 +495,7 @@ html.is-memorable-moments-view-pending .memorable-moments__view-content {
   grid-column: auto;
   width: 100%;
   justify-self: stretch;
-  border-radius: 18px;
+  border-radius: var(--moments-card-radius);
 }
 
 .memorable-moments[data-view='grid'] .moment-card__media {
@@ -448,9 +522,11 @@ html.is-memorable-moments-view-pending .memorable-moments__view-content {
   z-index: 2;
   margin: 0;
   padding: 5px 8px;
-  border: 1px solid rgba(238, 205, 244, 0.16);
+  border: 1px solid var(--moments-panel-border);
   border-radius: 8px;
-  background: rgba(45, 26, 63, 0.82);
+  background: var(--moments-panel-bg);
+  backdrop-filter: var(--moments-panel-blur);
+  -webkit-backdrop-filter: var(--moments-panel-blur);
   white-space: nowrap;
 }
 
@@ -461,11 +537,6 @@ html.is-memorable-moments-view-pending .memorable-moments__view-content {
   -webkit-line-clamp: 2;
 }
 
-.memorable-moments[data-view='grid'] .moments-load-sentinel,
-.memorable-moments[data-view='grid'] .moments-load-status {
-  grid-column: 1 / -1;
-}
-
 .memorable-moments__view-content[data-view-transition='out'],
 .memorable-moments__view-content[data-view-transition='in'] {
   opacity: 0;
@@ -473,12 +544,12 @@ html.is-memorable-moments-view-pending .memorable-moments__view-content {
 }
 
 .memorable-moments__view-content[data-view-transition='out'] {
-  transition: opacity 160ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity var(--moments-view-fade-out-duration) var(--moments-easing);
 }
 
 .memorable-moments__view-content[data-view-transition='in'],
 .memorable-moments__view-content[data-view-transition='active'] {
-  transition: opacity 240ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity var(--moments-view-fade-in-duration) var(--moments-easing);
 }
 
 .memorable-moments__view-content[data-view-transition='active'] {
@@ -503,18 +574,12 @@ html.js .memorable-moments[data-moments-state='restoring'] .moments-timeline {
     padding-bottom: 72px;
   }
 
-  .memorable-moments__header {
+  .memorable-moments__hero {
     margin-bottom: 38px;
   }
 
-  .memorable-moments__header-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 18px;
-  }
-
   .memorable-moments__title {
-    font-size: clamp(35px, 10.5vw, 48px);
+    font-size: clamp(2.15rem, 11.5vw, 3.1rem);
   }
 
   .moments-timeline {
@@ -559,14 +624,8 @@ html.js .memorable-moments[data-moments-state='restoring'] .moments-timeline {
 
 @media (min-width: 680px) and (max-width: 1079px) {
   .memorable-moments[data-view='grid'] .moments-timeline {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, var(--moments-card-width)));
     row-gap: 22px;
-  }
-}
-
-@media (min-width: 1080px) {
-  .memorable-moments[data-view='grid'] .moments-timeline {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -574,6 +633,10 @@ html.js .memorable-moments[data-moments-state='restoring'] .moments-timeline {
   .memorable-moments[data-view='grid'] .moments-timeline {
     grid-template-columns: 1fr;
     row-gap: 18px;
+  }
+
+  .memorable-moments[data-view='grid'] .moment-card {
+    width: 100%;
   }
 
   .memorable-moments[data-view='grid'] .moment-card__body {
@@ -617,6 +680,15 @@ html.js .memorable-moments[data-moments-state='restoring'] .moments-timeline {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .memorable-moments__title,
+  .memorable-moments__view-switch,
+  .memorable-moments__view-indicator,
+  .memorable-moments__view-button {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
   .moments-timeline__line,
   .moment-item,
   .moment-card,
@@ -640,7 +712,22 @@ html.js .memorable-moments[data-moments-state='restoring'] .moments-timeline {
     transform: none !important;
   }
 
+  html.js .memorable-moments .moment-card,
+  html.js .memorable-moments .moment-item--entering .moment-card {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
   html.js .memorable-moments[data-moments-state='idle'] .moments-timeline__line {
     transform: translateX(-50%);
+  }
+
+  .memorable-moments__view-indicator {
+    transform: translateX(0);
+  }
+
+  .memorable-moments__view-switch[data-active-view='grid'] .memorable-moments__view-indicator,
+  html[data-memorable-moments-view='grid'] .memorable-moments__view-switch .memorable-moments__view-indicator {
+    transform: translateX(calc(100% + 4px));
   }
 }

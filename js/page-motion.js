@@ -13,6 +13,9 @@
   const itemPendingClass = 'page-motion-item-pending'
   const itemPrerenderClass = 'page-motion-item-prerender'
   const itemVisibleClass = 'page-motion-item-visible'
+  const memorableMomentsRestoreClass = 'is-restoring-memorable-moments'
+  const memorableMomentsRestoreStorageKey = 'memorable-moments:return'
+  const memorableMomentsRestoreMaxAge = 30 * 60 * 1000
   const runtime = {
     container: null,
     frames: new Set(),
@@ -27,6 +30,24 @@
   const queryAll = (scope, selector) => scope ? Array.from(scope.querySelectorAll(selector)) : []
 
   const getCurrentContainer = () => document.getElementById('content-inner')
+
+  const hasPendingMemorableMomentsRestore = () => {
+    try {
+      const state = JSON.parse(window.sessionStorage.getItem(memorableMomentsRestoreStorageKey) || 'null')
+      const savedAt = Number(state?.savedAt)
+      return state?.pending === true
+        && Number.isFinite(savedAt)
+        && Date.now() - savedAt <= memorableMomentsRestoreMaxAge
+    } catch {
+      return false
+    }
+  }
+
+  const shouldSkipMemorableMomentsRestore = container => Boolean(
+    container?.querySelector('.memorable-moments')
+      && (document.documentElement.classList.contains(memorableMomentsRestoreClass)
+        || hasPendingMemorableMomentsRestore())
+  )
 
   const isHidden = element => Boolean(element.closest('[hidden]'))
 
@@ -330,6 +351,12 @@
   const init = async () => {
     const container = getCurrentContainer()
     if (!container) return false
+
+    if (shouldSkipMemorableMomentsRestore(container)) {
+      cleanup()
+      clearContainerState(container)
+      return false
+    }
 
     if (container.querySelector('#home-dashboard')) {
       cleanup()

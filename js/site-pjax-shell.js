@@ -4,8 +4,28 @@
   const root = document.documentElement
   const controlledBodyClasses = ['site-video-body', 'home-dashboard-body']
   const stylesheetTimeout = 900
+  const memorableMomentsDetailNavigationClass = 'is-memorable-moments-detail-navigation'
+  const memorableMomentsRestoreClass = 'is-restoring-memorable-moments'
   let pendingUrl = null
   let navigationGeneration = 0
+
+  const clearMemorableMomentsNavigationState = () => {
+    root.classList.remove(memorableMomentsDetailNavigationClass)
+  }
+
+  const shouldPreserveMemorableMomentsShell = () => {
+    const detailNavigation = root.classList.contains(memorableMomentsDetailNavigationClass)
+    const detailReturn = root.classList.contains(memorableMomentsRestoreClass)
+      && Boolean(document.querySelector('.memorable-moment-detail'))
+    return (detailNavigation || detailReturn) && Boolean(
+      document.querySelector('.memorable-moments') || document.querySelector('.memorable-moment-detail')
+    )
+  }
+
+  const isMemorableMomentsRestore = content => Boolean(
+    root.classList.contains(memorableMomentsRestoreClass)
+      && content?.querySelector('.memorable-moments')
+  )
 
   const getSiteVideoElements = () => ({
     container: document.querySelector('.site-video-background'),
@@ -183,19 +203,30 @@
   document.addEventListener('pjax:send', () => {
     // Navbar/Header stay mounted as the persistent App Shell during PJAX navigation.
     navigationGeneration += 1
-    root.classList.add('app-shell-persistent', 'pjax-content-leaving')
+    root.classList.add('app-shell-persistent')
+    if (shouldPreserveMemorableMomentsShell()) root.classList.remove('pjax-content-leaving')
+    else root.classList.add('pjax-content-leaving')
     window.closeHomeDashboardSearchResults?.()
   })
 
   document.addEventListener('pjax:complete', () => {
     // Butterfly syncs the persistent shell first; content stays gated until its local CSS is ready.
+    const content = document.getElementById('content-inner')
+    if (isMemorableMomentsRestore(content)) {
+      root.classList.remove('pjax-content-preparing', 'pjax-content-leaving')
+      clearMemorableMomentsNavigationState()
+      pendingUrl = null
+      return
+    }
     root.classList.add('pjax-content-preparing')
+    clearMemorableMomentsNavigationState()
     revealPreparedContent(navigationGeneration)
   })
 
   document.addEventListener('pjax:error', () => {
     navigationGeneration += 1
     root.classList.remove('pjax-content-preparing', 'pjax-content-leaving')
+    clearMemorableMomentsNavigationState()
     window.location.href = pendingUrl || window.location.href
   })
 
