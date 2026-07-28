@@ -1,0 +1,601 @@
+/**
+ * @typedef {Object} TimelineRestoration
+ * @property {string} slug
+ * @property {number} index
+ * @property {HTMLElement} viewport
+ * @property {string} previousScrollBehavior
+ * @property {string} previousSnapType
+ * @property {boolean} positioned
+ * @property {boolean} corrected
+ */
+(() => {
+  'use strict'
+
+  if (window.ChampionshipTimeline) {
+    window.ChampionshipTimeline.init({ mode: 'latest' })
+    return
+  }
+
+  // Page-local state is recreated on every PJAX entry.
+  const dragThresholdPx = Object.freeze({ mouse: 6, pen: 8, touch: 10 })
+  const runtime = {
+    lifecycle: null,
+    resizeObserver: null,
+    scrollFrame: null,
+    geometryFrame: null,
+    timelineShell: null,
+    suppressNextClick: false,
+    suppressClickTimer: null,
+    initialPositionApplied: false,
+    currentIndex: null,
+    viewportWidth: 0,
+    centerBySlug: null,
+    restoreBySlug: null,
+    completeOriginRestore: null,
+    isRestoringOrigin: false,
+    /** @type {TimelineRestoration|null} */
+    restoration: null,
+    restorationFrame: null,
+    pageGeneration: 0
+  }
+
+  const addListener = (target, event, handler, options) => {
+    return runtime.lifecycle?.addListener(target, event, handler, options)
+  }
+
+  const queueFrame = callback => {
+    const lifecycle = runtime.lifecycle
+    if (!lifecycle) return null
+    let frame
+    frame = window.requestAnimationFrame(() => {
+      lifecycle.removeFrame(frame)
+      callback()
+    })
+    return lifecycle.addFrame(frame)
+  }
+
+  const queueTimer = (callback, delay) => {
+    const lifecycle = runtime.lifecycle
+    if (!lifecycle) return null
+    let timer
+    timer = window.setTimeout(() => {
+      lifecycle.removeTimer(timer)
+      callback()
+    }, delay)
+    return lifecycle.addTimer(timer)
+  }
+
+  const cancelFrame = key => {
+    const frame = runtime[key]
+    if (frame == null) return
+    window.cancelAnimationFrame(frame)
+    runtime.lifecycle?.removeFrame(frame)
+    runtime[key] = null
+  }
+
+  const cancelTimer = key => {
+    const timer = runtime[key]
+    if (timer == null) return
+    window.clearTimeout(timer)
+    runtime.lifecycle?.removeTimer(timer)
+    runtime[key] = null
+  }
+
+  const destroy = () => {
+    runtime.pageGeneration += 1
+    runtime.lifecycle?.destroy()
+    runtime.lifecycle = null
+    cancelFrame('scrollFrame')
+    cancelFrame('geometryFrame')
+    cancelFrame('restorationFrame')
+    if (runtime.restoration?.viewport) {
+      runtime.restoration.viewport.style.scrollSnapType = runtime.restoration.previousSnapType
+      runtime.restoration.viewport.style.scrollBehavior = runtime.restoration.previousScrollBehavior
+    }
+    runtime.timelineShell?.classList.remove('is-initializing', 'is-ready')
+    runtime.timelineShell?.removeAttribute('aria-busy')
+    cancelTimer('suppressClickTimer')
+
+    runtime.resizeObserver = null
+    runtime.scrollFrame = null
+    runtime.geometryFrame = null
+    runtime.timelineShell = null
+    runtime.suppressNextClick = false
+    runtime.suppressClickTimer = null
+    runtime.initialPositionApplied = false
+    runtime.currentIndex = null
+    runtime.viewportWidth = 0
+    runtime.centerBySlug = null
+    runtime.restoreBySlug = null
+    runtime.completeOriginRestore = null
+    runtime.isRestoringOrigin = false
+    runtime.restoration = null
+    runtime.restorationFrame = null
+  }
+
+  const initializeChampionshipTimeline = ({ mode = 'latest' } = {}) => {
+    destroy()
+    const generation = runtime.pageGeneration
+
+    const root = document.querySelector('.champions-page')
+    const shell = root?.querySelector('.champions-timeline-shell')
+    const viewport = shell?.querySelector('.champions-timeline__viewport')
+    const events = Array.from(shell?.querySelectorAll('.championship-event') || [])
+    if (!root || !shell || !viewport || !events.length) return false
+    const lifecycle = window.SitePageRuntime?.create?.({ name: 'champions-timeline' })
+    if (!lifecycle) return false
+    runtime.lifecycle = lifecycle
+    shell.classList.remove('is-ready')
+    shell.classList.add('is-initializing')
+    shell.setAttribute('aria-busy', 'true')
+    runtime.timelineShell = shell
+    const timelineStylesheet = root.querySelector('link[rel="stylesheet"]')
+
+    const previousButton = shell.querySelector('.champions-timeline__arrow--prev')
+    const nextButton = shell.querySelector('.champions-timeline__arrow--next')
+    const isCurrentPage = () => generation === runtime.pageGeneration
+      && shell.isConnected
+      && runtime.timelineShell === shell
+      && runtime.lifecycle === lifecycle
+      && !lifecycle.isDestroyed()
+
+    const finishInitialization = () => {
+      if (!isCurrentPage() || !runtime.initialPositionApplied) return
+      shell.classList.remove('is-initializing')
+      shell.classList.add('is-ready')
+      shell.setAttribute('aria-busy', 'false')
+    }
+
+    const markInteracted = () => shell.classList.add('is-interacted')
+
+    // Image fallback is local to each cover and does not depend on lazyload.
+    const showCoverFallback = image => {
+      const cover = image.closest('.championship-card__cover')
+      const placeholder = cover?.querySelector('.championship-card__placeholder')
+      image.hidden = true
+      cover?.classList.add('is-image-failed')
+      placeholder?.removeAttribute('hidden')
+      placeholder?.removeAttribute('aria-hidden')
+    }
+
+    const hideCoverFallback = image => {
+      const cover = image.closest('.championship-card__cover')
+      const placeholder = cover?.querySelector('.championship-card__placeholder')
+      cover?.classList.remove('is-image-failed')
+      placeholder?.setAttribute('hidden', '')
+      placeholder?.setAttribute('aria-hidden', 'true')
+      image.hidden = false
+    }
+
+    shell.querySelectorAll('.championship-card__cover img').forEach(image => {
+      addListener(image, 'load', () => hideCoverFallback(image))
+      addListener(image, 'error', () => showCoverFallback(image))
+      if (image.complete) {
+        if (image.naturalWidth > 0) hideCoverFallback(image)
+        else showCoverFallback(image)
+      }
+    })
+
+    const handleCardClick = event => {
+      if (runtime.suppressNextClick) {
+        runtime.suppressNextClick = false
+        cancelTimer('suppressClickTimer')
+        event.preventDefault()
+        event.stopPropagation()
+        return
+      }
+
+      const card = event.target.closest?.('.championship-card')
+      if (!card || !shell.contains(card)) return
+
+      if (!card.matches('[data-championship-detail]')) return
+      const eventCards = Array.from(shell.querySelectorAll('.championship-event'))
+      const eventIndex = eventCards.indexOf(card.closest('.championship-event'))
+      card.dispatchEvent(new CustomEvent('championship:open-detail', {
+        bubbles: true,
+        detail: {
+          trigger: card,
+          card,
+          slug: card.getAttribute('data-championship-detail'),
+          index: eventIndex
+        }
+      }))
+    }
+
+    // Current-node and geometry helpers.
+    const getCenteredIndex = () => {
+      const viewportRect = viewport.getBoundingClientRect()
+      const viewportCenter = viewportRect.left + viewportRect.width / 2
+      let closestIndex = 0
+      let closestDistance = Number.POSITIVE_INFINITY
+
+      events.forEach((event, index) => {
+        const eventRect = event.getBoundingClientRect()
+        const distance = Math.abs(eventRect.left + eventRect.width / 2 - viewportCenter)
+        if (distance < closestDistance) {
+          closestIndex = index
+          closestDistance = distance
+        }
+      })
+
+      return closestIndex
+    }
+
+    const setCurrentIndex = nextIndex => {
+      const boundedIndex = Math.max(0, Math.min(events.length - 1, nextIndex))
+      events.forEach((event, index) => {
+        const isCurrent = index === boundedIndex
+        event.classList.toggle('is-current', isCurrent)
+        if (isCurrent) event.setAttribute('aria-current', 'true')
+        else event.removeAttribute('aria-current')
+      })
+
+      runtime.currentIndex = boundedIndex
+
+      if (previousButton) previousButton.disabled = boundedIndex === 0
+      if (nextButton) nextButton.disabled = boundedIndex === events.length - 1
+    }
+
+    const updateCurrent = () => {
+      runtime.scrollFrame = null
+      if (runtime.isRestoringOrigin && runtime.restoration) {
+        setCurrentIndex(runtime.restoration.index)
+        return
+      }
+      const nextIndex = getCenteredIndex()
+      setCurrentIndex(nextIndex)
+    }
+
+    const updateGeometry = () => {
+      const cardWidth = events[0]?.offsetWidth || 0
+      const previousViewportWidth = runtime.viewportWidth
+      if (cardWidth) {
+        const edgePadding = Math.max(24, (viewport.clientWidth - cardWidth) / 2)
+        viewport.style.setProperty('--timeline-edge-padding', `${edgePadding}px`)
+      }
+      runtime.viewportWidth = viewport.clientWidth
+
+      if (runtime.isRestoringOrigin) return
+
+      if (!runtime.initialPositionApplied) {
+        positionInitialCard(mode)
+        return
+      }
+
+      if (
+        runtime.initialPositionApplied &&
+        previousViewportWidth > 0 &&
+        previousViewportWidth !== runtime.viewportWidth
+      ) {
+        const stableIndex = Number.isInteger(runtime.currentIndex)
+          ? runtime.currentIndex
+          : events.length - 1
+        scrollToIndex(stableIndex, false, false)
+      }
+
+      if (runtime.initialPositionApplied) scheduleCurrentUpdate()
+    }
+
+    const scheduleCurrentUpdate = () => {
+      if (runtime.isRestoringOrigin) return
+      if (runtime.scrollFrame) return
+      runtime.scrollFrame = queueFrame(updateCurrent)
+    }
+
+    const scrollToIndex = (index, smooth = true, interacted = true) => {
+      if (runtime.isRestoringOrigin) return
+      const boundedIndex = Math.max(0, Math.min(events.length - 1, index))
+      const event = events[boundedIndex]
+      const targetLeft = event.offsetLeft - (viewport.clientWidth - event.offsetWidth) / 2
+      viewport.scrollTo({
+        left: targetLeft,
+        behavior: smooth && !window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'smooth' : 'auto'
+      })
+      if (interacted) markInteracted()
+    }
+
+    const centerBySlug = slug => {
+      const requestedIndex = events.findIndex(event => (
+        event.querySelector('[data-championship-detail]')?.getAttribute('data-championship-detail') === slug
+      ))
+      if (requestedIndex < 0) return false
+      const targetIndex = requestedIndex
+      const targetEvent = events[targetIndex]
+      if (!targetEvent?.offsetWidth || !viewport.clientWidth) return false
+
+      cancelFrame('scrollFrame')
+
+      const maxScrollLeft = Math.max(0, viewport.scrollWidth - viewport.clientWidth)
+      const targetLeft = targetEvent.offsetLeft + targetEvent.offsetWidth / 2 - viewport.clientWidth / 2
+      const boundedLeft = Math.max(0, Math.min(maxScrollLeft, targetLeft))
+      const previousScrollBehavior = viewport.style.scrollBehavior
+      const previousSnapType = viewport.style.scrollSnapType
+      viewport.style.scrollBehavior = 'auto'
+      viewport.style.scrollSnapType = 'none'
+      viewport.scrollLeft = boundedLeft
+      void viewport.offsetWidth
+      viewport.style.scrollSnapType = previousSnapType
+      viewport.style.scrollBehavior = previousScrollBehavior
+      updateCurrent()
+      return true
+    }
+
+    runtime.centerBySlug = centerBySlug
+
+    const resolveEventBySlug = slug => {
+      const requestedIndex = events.findIndex(event => (
+        event.querySelector('[data-championship-detail]')?.getAttribute('data-championship-detail') === slug
+      ))
+      if (requestedIndex < 0) return null
+      return { event: events[requestedIndex], index: requestedIndex }
+    }
+
+    const applyInstantCenter = targetEvent => {
+      if (!targetEvent?.offsetWidth || !viewport.clientWidth) return false
+      const maxScrollLeft = Math.max(0, viewport.scrollWidth - viewport.clientWidth)
+      const targetLeft = targetEvent.offsetLeft + targetEvent.offsetWidth / 2 - viewport.clientWidth / 2
+      viewport.scrollLeft = Math.max(0, Math.min(maxScrollLeft, targetLeft))
+      return true
+    }
+
+    const restoreBySlug = (slug, onPositioned) => {
+      const target = resolveEventBySlug(slug)
+      if (!target?.event?.offsetWidth || !viewport.clientWidth || !viewport.scrollWidth) {
+        return false
+      }
+
+      cancelFrame('restorationFrame')
+      const restorationGeneration = runtime.pageGeneration
+      const previousScrollBehavior = viewport.style.scrollBehavior
+      const previousSnapType = viewport.style.scrollSnapType
+      runtime.isRestoringOrigin = true
+      runtime.restoration = {
+        slug,
+        index: target.index,
+        viewport,
+        previousScrollBehavior,
+        previousSnapType,
+        positioned: false,
+        corrected: false
+      }
+
+      const markPositioned = () => {
+        if (!runtime.restoration || restorationGeneration !== runtime.pageGeneration) return
+        setCurrentIndex(target.index)
+        runtime.restoration.positioned = true
+        runtime.restorationFrame = null
+        onPositioned?.()
+      }
+
+      const confirm = () => {
+        if (!runtime.restoration || restorationGeneration !== runtime.pageGeneration) return
+        const viewportCenter = viewport.clientWidth / 2
+        const targetCenter = target.event.offsetLeft + target.event.offsetWidth / 2 - viewport.scrollLeft
+        const deviation = Math.abs(targetCenter - viewportCenter)
+        if (deviation > 1 && !runtime.restoration.corrected) {
+          runtime.restoration.corrected = true
+          applyInstantCenter(target.event)
+          runtime.restorationFrame = queueFrame(confirm)
+          return
+        }
+        markPositioned()
+      }
+
+      viewport.style.scrollBehavior = 'auto'
+      viewport.style.scrollSnapType = 'none'
+      applyInstantCenter(target.event)
+      setCurrentIndex(target.index)
+      runtime.restorationFrame = queueFrame(() => {
+        runtime.restorationFrame = queueFrame(confirm)
+      })
+      return true
+    }
+
+    runtime.restoreBySlug = restoreBySlug
+
+    const completeOriginRestore = onComplete => {
+      const restoration = runtime.restoration
+      if (!runtime.isRestoringOrigin || !restoration?.positioned) return false
+      const restorationGeneration = runtime.pageGeneration
+      const target = resolveEventBySlug(restoration.slug)
+      if (!target?.event?.offsetWidth || !viewport.clientWidth) return false
+
+      runtime.restorationFrame = queueFrame(() => {
+        runtime.restorationFrame = queueFrame(() => {
+          if (!runtime.restoration || restorationGeneration !== runtime.pageGeneration) return
+          setCurrentIndex(target.index)
+          viewport.style.scrollSnapType = restoration.previousSnapType
+          viewport.style.scrollBehavior = restoration.previousScrollBehavior
+          runtime.restoration = null
+          runtime.restorationFrame = null
+          runtime.isRestoringOrigin = false
+          onComplete?.()
+        })
+      })
+      return true
+    }
+
+    runtime.completeOriginRestore = completeOriginRestore
+
+    const positionInitialCard = initialMode => {
+      if (runtime.initialPositionApplied) return true
+
+      const hashId = window.location.hash.slice(1)
+      const hashEvent = events.find(event => event.querySelector('[data-championship-detail]')?.getAttribute('data-championship-detail') === hashId)
+      const preservedEvent = initialMode === 'preserve'
+        ? events.find(event => event.classList.contains('is-current'))
+        : null
+      const targetEvent = hashEvent || preservedEvent || events[events.length - 1]
+      const targetIndex = events.indexOf(targetEvent)
+      const cardWidth = events[0]?.offsetWidth || 0
+      if (!targetEvent?.offsetWidth || cardWidth < 200 || viewport.clientWidth < 100) return false
+
+      const edgePadding = Math.max(24, (viewport.clientWidth - cardWidth) / 2)
+      viewport.style.setProperty('--timeline-edge-padding', `${edgePadding}px`)
+      runtime.viewportWidth = viewport.clientWidth
+
+      const previousScrollBehavior = viewport.style.scrollBehavior
+      const previousSnapType = viewport.style.scrollSnapType
+      viewport.style.scrollBehavior = 'auto'
+      viewport.style.scrollSnapType = 'none'
+      scrollToIndex(targetIndex, false, false)
+      void viewport.offsetWidth
+      viewport.style.scrollSnapType = previousSnapType
+      viewport.style.scrollBehavior = previousScrollBehavior
+      runtime.initialPositionApplied = true
+      updateCurrent()
+      finishInitialization()
+      return true
+    }
+
+    // Interaction bindings are scoped to this page instance and aborted on exit.
+    addListener(viewport, 'scroll', scheduleCurrentUpdate, { passive: true })
+    addListener(viewport, 'touchstart', markInteracted, { passive: true })
+    addListener(viewport, 'wheel', event => {
+      if (Math.abs(event.deltaX) > Math.abs(event.deltaY)) markInteracted()
+    }, { passive: true })
+
+    addListener(previousButton, 'click', () => {
+      scrollToIndex(getCenteredIndex() - 1)
+    })
+
+    addListener(nextButton, 'click', () => {
+      scrollToIndex(getCenteredIndex() + 1)
+    })
+
+    addListener(viewport, 'keydown', event => {
+      if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return
+      if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return
+
+      event.preventDefault()
+      const direction = event.key === 'ArrowRight' ? 1 : -1
+      scrollToIndex(getCenteredIndex() + direction)
+    })
+
+    let pointerId = null
+    let pointerType = ''
+    let pointerStartX = 0
+    let pointerStartY = 0
+    let pointerStartScroll = 0
+    let isDragCandidate = false
+    let isDragging = false
+
+    const resetPointer = () => {
+      if (pointerId !== null && viewport.hasPointerCapture(pointerId)) {
+        viewport.releasePointerCapture(pointerId)
+      }
+      viewport.classList.remove('is-dragging')
+      pointerId = null
+      pointerType = ''
+      pointerStartX = 0
+      pointerStartY = 0
+      pointerStartScroll = 0
+      isDragCandidate = false
+      isDragging = false
+    }
+
+    addListener(viewport, 'pointerdown', event => {
+      if (!event.isPrimary || pointerId !== null) return
+      if (event.pointerType === 'mouse' && event.button !== 0) return
+
+      pointerId = event.pointerId
+      pointerType = event.pointerType
+      pointerStartX = event.clientX
+      pointerStartY = event.clientY
+      pointerStartScroll = viewport.scrollLeft
+      isDragCandidate = true
+      isDragging = false
+    })
+
+    addListener(viewport, 'pointermove', event => {
+      if (pointerId !== event.pointerId) return
+      const deltaX = event.clientX - pointerStartX
+      const deltaY = event.clientY - pointerStartY
+      const threshold = dragThresholdPx[pointerType] ?? dragThresholdPx.mouse
+
+      if (isDragCandidate && !isDragging) {
+        const horizontalDistance = Math.abs(deltaX)
+        const verticalDistance = Math.abs(deltaY)
+        if (verticalDistance > threshold && verticalDistance > horizontalDistance) {
+          resetPointer()
+          return
+        }
+        if (horizontalDistance <= threshold || horizontalDistance <= verticalDistance) return
+
+        isDragCandidate = false
+        isDragging = true
+        markInteracted()
+        viewport.classList.add('is-dragging')
+        viewport.setPointerCapture(pointerId)
+      }
+
+      if (!isDragging) return
+
+      if (event.cancelable) event.preventDefault()
+      viewport.scrollLeft = pointerStartScroll - deltaX
+    })
+
+    const finishPointer = event => {
+      if (pointerId !== event.pointerId) return
+      const didDrag = isDragging
+      resetPointer()
+
+      if (didDrag) {
+        runtime.suppressNextClick = true
+        cancelTimer('suppressClickTimer')
+        runtime.suppressClickTimer = queueTimer(() => {
+          runtime.suppressNextClick = false
+          runtime.suppressClickTimer = null
+        }, 0)
+        scrollToIndex(getCenteredIndex())
+      }
+    }
+
+    addListener(viewport, 'pointerup', finishPointer)
+    addListener(viewport, 'pointercancel', finishPointer)
+
+    // One delegated listener covers every card and remains valid after any
+    // timeline data update without creating per-card handlers.
+    addListener(shell, 'click', handleCardClick)
+
+    runtime.resizeObserver = lifecycle.addObserver(new ResizeObserver(updateGeometry))
+    runtime.resizeObserver.observe(viewport)
+    events.forEach(event => runtime.resizeObserver.observe(event))
+
+    addListener(timelineStylesheet, 'load', () => {
+      if (positionInitialCard(mode)) updateGeometry()
+    })
+
+    positionInitialCard(mode)
+    runtime.geometryFrame = queueFrame(() => {
+      runtime.geometryFrame = null
+      if (!isCurrentPage()) return
+      positionInitialCard(mode)
+      updateGeometry()
+    })
+    window.SiteReadiness?.markPageReady({ page: 'champions', reason: 'timeline-layout-ready' })
+    return true
+  }
+
+  const centerBySlug = slug => runtime.centerBySlug?.(slug) || false
+
+  window.ChampionshipTimeline = {
+    init: initializeChampionshipTimeline,
+    destroy,
+    centerBySlug,
+    restoreBySlug: (slug, onPositioned) => runtime.restoreBySlug?.(slug, onPositioned) || false,
+    completeOriginRestore: onComplete => runtime.completeOriginRestore?.(onComplete) || false
+  }
+  initializeChampionshipTimeline({ mode: 'latest' })
+
+  if (!window.championshipTimelineLifecycleBound) {
+    window.championshipTimelineLifecycleBound = true
+    document.addEventListener('pjax:send', destroy)
+    document.addEventListener('pjax:error', destroy)
+    window.addEventListener('pageshow', event => {
+      if (event.persisted && document.querySelector('.champions-page') && !runtime.lifecycle) {
+        initializeChampionshipTimeline({ mode: 'preserve' })
+      }
+    })
+  }
+})()
