@@ -327,7 +327,8 @@ body.home-dashboard-body #web_bg {
   pointer-events: none;
 }
 
-.home-dashboard .personal-social .social-icon {
+.home-dashboard .personal-social .social-icon,
+.home-dashboard .personal-social .personal-social__copy {
   pointer-events: auto;
 }
 
@@ -531,7 +532,8 @@ body.home-dashboard-body #web_bg {
   margin-left: auto;
 }
 
-.home-dashboard .personal-social .social-icon {
+.home-dashboard .personal-social .social-icon,
+.home-dashboard .personal-social .personal-social__copy {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -545,18 +547,84 @@ body.home-dashboard-body #web_bg {
   transition: transform 220ms ease, border-color 220ms ease, background-color 220ms ease, color 220ms ease;
 }
 
+.home-dashboard .personal-social .personal-social__copy {
+  padding: 0;
+  appearance: none;
+  cursor: pointer;
+  font: inherit;
+}
+
+.home-dashboard .personal-social__brand-icon {
+  display: block;
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  transform-origin: center;
+  transition: transform 220ms ease, filter 220ms ease;
+}
+
+.home-dashboard .personal-social__brand-icon--gmail {
+  width: 21px;
+  height: 21px;
+}
+
 .home-dashboard .personal-social .social-icon:hover,
-.home-dashboard .personal-social .social-icon:focus-visible {
+.home-dashboard .personal-social .personal-social__copy:hover {
   border-color: var(--dashboard-accent-pink-border);
   background: rgba(255, 183, 221, 0.12);
   color: var(--dashboard-accent-pink);
   transform: translateY(-2px);
-  outline: none;
 }
 
 .home-dashboard .personal-social .social-icon:hover i,
-.home-dashboard .personal-social .social-icon:focus-visible i {
+.home-dashboard .personal-social .personal-social__copy:hover i {
   color: var(--dashboard-accent-pink) !important;
+}
+
+.home-dashboard .personal-social .personal-social__copy:hover .personal-social__brand-icon,
+.home-dashboard .personal-social .personal-social__copy:focus-visible .personal-social__brand-icon {
+  filter: brightness(1.08);
+  transform: scale(1.05);
+}
+
+.home-dashboard .personal-social .social-icon:focus-visible,
+.home-dashboard .personal-social .personal-social__copy:focus-visible {
+  border-color: var(--dashboard-accent-pink-border);
+  background: rgba(255, 183, 221, 0.12);
+  color: var(--dashboard-accent-pink);
+  outline: 2px solid rgba(255, 183, 221, 0.78);
+  outline-offset: 2px;
+  transform: translateY(-2px);
+}
+
+.home-dashboard .personal-social .social-icon:focus-visible i,
+.home-dashboard .personal-social .personal-social__copy:focus-visible i {
+  color: var(--dashboard-accent-pink) !important;
+}
+
+.home-social-copy-toast {
+  position: fixed;
+  z-index: 9999;
+  bottom: 24px;
+  left: 50%;
+  max-width: min(280px, calc(100vw - 32px));
+  padding: 10px 14px;
+  border: 1px solid rgba(255, 216, 239, 0.18);
+  border-radius: 12px;
+  background: rgba(47, 29, 66, 0.9);
+  box-shadow: 0 12px 28px rgba(18, 8, 30, 0.22);
+  color: rgba(255, 247, 252, 0.94);
+  font-size: 0.86rem;
+  line-height: 1.35;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 8px);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.home-social-copy-toast.is-visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
 }
 
 .home-dashboard .dashboard-widget-row {
