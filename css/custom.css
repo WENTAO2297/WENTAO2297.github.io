@@ -85,6 +85,10 @@ body.site-video-body #body-wrap {
     background: transparent !important;
 }
 
+body.site-video-body #web_bg {
+    display: none;
+}
+
 .site-video-background {
     position: fixed;
     inset: 0;
@@ -109,10 +113,17 @@ body.site-video-body #body-wrap {
     object-fit: cover;
     opacity: 0;
     visibility: visible;
-    filter: none;
-    transform: none;
+    filter: blur(6px) contrast(1.03);
+    transform: scale(1.035);
     transform-origin: center;
     transition: opacity 220ms ease;
+}
+
+@media screen and (max-width: 768px) {
+    .site-video-background__media {
+        filter: blur(6px) contrast(1.02);
+        transform: scale(1.024);
+    }
 }
 
 .site-video-background.is-video-ready .site-video-background__media {

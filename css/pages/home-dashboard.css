@@ -6,10 +6,6 @@
   outline: none;
 }
 
-body.home-dashboard-body #web_bg {
-  display: none;
-}
-
 #body-wrap.home-dashboard-page {
   position: relative;
   z-index: 2;
