@@ -1032,12 +1032,11 @@ body.site-video-body #body-wrap.type-champions #page {
   translate: 0 0;
 }
 
-/* 7. ABOUT / MY MEMORY */
+/* 7. ABOUT */
 .championship-detail__copy-grid {
   display: grid;
-  grid-template-rows: repeat(2, minmax(0, 1fr));
+  grid-template-rows: minmax(0, 1fr);
   align-self: stretch;
-  gap: 20px;
   height: 100%;
   min-width: 0;
   min-height: 0;
@@ -1045,11 +1044,11 @@ body.site-video-body #body-wrap.type-champions #page {
 
 .championship-detail__copy {
   display: grid;
-  grid-template-rows: auto minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
   align-content: stretch;
   min-width: 0;
   min-height: 0;
-  padding: 26px 28px 28px;
+  padding: 52px 28px 34px;
   border: 1px solid var(--champions-panel-border);
   border-radius: var(--champions-card-radius);
   background: var(--champions-panel-bg);
@@ -1057,11 +1056,6 @@ body.site-video-body #body-wrap.type-champions #page {
   overflow: hidden;
 }
 
-.championship-detail__copy--warm {
-  background: var(--champions-panel-bg);
-}
-
-.championship-detail__copy h3,
 .championship-detail__matches h3 {
   margin: 0 0 18px;
   color: rgba(238, 220, 170, 0.76);
@@ -1083,7 +1077,11 @@ body.site-video-body #body-wrap.type-champions #page {
 }
 
 .championship-detail__copy-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   min-height: 0;
+  padding: 0 0 18px;
   overflow-y: auto;
   overscroll-behavior: contain;
   scrollbar-color: rgba(215, 189, 120, 0.42) transparent;
@@ -1397,11 +1395,13 @@ body.site-video-body #body-wrap.type-champions #page {
   }
 
   .championship-detail__copy {
-    grid-template-rows: auto auto;
+    display: block;
     overflow: visible;
   }
 
   .championship-detail__copy-body {
+    display: block;
+    padding: 0;
     overflow-y: visible;
     overscroll-behavior: auto;
   }
