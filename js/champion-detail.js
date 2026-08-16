@@ -243,6 +243,14 @@
     panel.setAttribute('aria-hidden', 'false')
     hero.classList.add('is-active')
 
+    // Detail panels share the timeline document. Load the selected visual only
+    // after it becomes visible instead of fetching every hidden MVP image.
+    const visual = panel.querySelector('.championship-detail__visual-image')
+    if (visual) {
+      visual.loading = 'eager'
+      visual.fetchPriority = 'high'
+    }
+
     runtime.detailId = id
     runtime.panel = panel
     runtime.heroDetail = hero

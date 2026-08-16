@@ -1,7 +1,6 @@
 /**
  * @typedef {{slug: string, title?: string, description?: string, cover?: string, photos?: string[], url?: string}} MomentRecord
  * @typedef {{slug: string, loadedCount: number, scrollY: number, viewportOffset: number, viewMode: string, savedAt: number, pending?: boolean, targetIndex?: number}} MomentReturnState
- * @typedef {{slug: string, url: string, article: HTMLElement, controller: AbortController|null, generation: number}} DetailNavigationTransaction
  */
 (() => {
   'use strict'
@@ -68,10 +67,6 @@
     targetDurationMs: 360,
     positionTolerancePx: 8
   })
-  const DETAIL_PRELOAD_CONFIG = Object.freeze({
-    timeoutMs: 10000,
-    preheatCount: 2
-  })
   const VIEW_STORAGE_KEY = 'memorable-moments:view'
   const hoverCleanupKey = Symbol('memorableMomentsHoverCleanup')
   const imageCleanupKey = Symbol('memorableMomentsImageCleanup')
@@ -88,15 +83,11 @@
     historyKey: restoreHistoryKey,
     version: restoreVersion, maxAgeMs: restoreMaxAge, guardTimeoutMs: restoreGuardLimit,
     targetDurationMs: returnTargetDuration, positionTolerancePx: restorePositionTolerance } = RESTORE_CONFIG
-  const { timeoutMs: detailPreloadTimeout, preheatCount: detailPreheatCount } = DETAIL_PRELOAD_CONFIG
 
   const reportRestoreWarning = (reason, details = {}) => {
     console.warn('[Memorable Moments] restore warning', reason, details)
   }
 
-  const reportPreloadWarning = (reason, details = {}) => {
-    console.warn('[Memorable Moments] detail preload warning', reason, details)
-  }
   // Runtime state: one instance is reused across PJAX page replacements.
   const runtime = {
     pageRuntime: null,
@@ -119,8 +110,6 @@
     /** @type {MomentReturnState|null} */
     restoreState: null,
     restoreGuardTimer: null,
-    /** @type {DetailNavigationTransaction|null} */
-    pendingDetailNavigation: null,
     revealTarget: null,
     heroEntranceTargets: new Set(),
     viewMode: VIEW_MODE.TIMELINE,
@@ -548,124 +537,13 @@
     return saved
   }
 
-  const getMomentBySlug = slug => runtime.items.find((item, index) => getMomentSlug(item, index) === slug)
-
-  const getMomentPhotoUrls = slug => {
-    const item = getMomentBySlug(slug)
-    return Array.isArray(item?.photos)
-      ? Array.from(new Set(item.photos.filter(Boolean).map(String).filter(Boolean)))
-      : []
-  }
-
-  const getMomentSlugFromUrl = href => {
-    try {
-      const url = new URL(href, window.location.href)
-      const marker = '/memorable-moments/'
-      const start = url.pathname.indexOf(marker)
-      if (start < 0) return ''
-      const slug = url.pathname.slice(start + marker.length).replace(/^\/|\/$/g, '')
-      return slug && !slug.includes('/') ? decodeURIComponent(slug) : ''
-    } catch {
-      return ''
-    }
-  }
-
-  const preloadMomentPhotos = (slug, { limit = Infinity, priority = 0 } = {}) => {
-    const urls = getMomentPhotoUrls(slug).slice(0, limit)
-    const preloadAssets = window.SitePrefetch?.preloadAssets
-    if (typeof preloadAssets !== 'function') {
-      reportPreloadWarning('shared asset preloader unavailable', { slug })
-      return Promise.resolve([])
-    }
-    return preloadAssets(urls, { priority })
-  }
-
-  const reportPreloadFailures = (slug, results, timedOut = false) => {
-    const failed = Array.isArray(results) ? results.filter(result => result.status === 'rejected').length : 0
-    if (!failed && !timedOut) return
-    reportPreloadWarning('photo preload incomplete', { slug, failed, timedOut })
-  }
-
-  const preheatMomentPhotos = (slug, { priority = 0 } = {}) => {
-    if (!slug) return
-    return preloadMomentPhotos(slug, { limit: detailPreheatCount, priority }).catch(() => {})
-  }
-
-  const preheatForUrl = (href, { priority = 0 } = {}) => {
-    const slug = getMomentSlugFromUrl(href)
-    if (!slug || !getMomentBySlug(slug)) return false
-    preheatMomentPhotos(slug, { priority })
-    return true
-  }
-
-  /** @returns {Promise<{results: Array, timedOut?: boolean, aborted?: boolean}>} */
-  const waitForMomentPhotos = (slug, controller) => {
-    const preloadPromise = preloadMomentPhotos(slug)
-
-    return new Promise(resolve => {
-      let timeoutId = null
-      let finished = false
-      let onAbort = null
-      const finish = result => {
-        if (finished) return
-        finished = true
-        if (timeoutId !== null) {
-          window.clearTimeout(timeoutId)
-          runtime.pageRuntime?.removeTimer(timeoutId)
-        }
-        controller?.signal.removeEventListener('abort', onAbort)
-        resolve(result)
-      }
-      onAbort = () => finish({ aborted: true, results: [] })
-
-      timeoutId = window.setTimeout(() => finish({ timedOut: true, results: [] }), detailPreloadTimeout)
-      runtime.pageRuntime?.addTimer(timeoutId)
-      controller?.signal.addEventListener('abort', onAbort, { once: true })
-      if (controller?.signal.aborted) onAbort()
-      preloadPromise.then(results => finish({ results, timedOut: false })).catch(() => finish({ results: [], timedOut: false }))
-    })
-  }
-
-  const clearDetailPreloadState = transaction => {
-    transaction?.article?.classList.remove('is-preloading-detail')
-    transaction?.article?.removeAttribute('aria-busy')
-  }
-
-  const cancelPendingDetailNavigation = () => {
-    const transaction = runtime.pendingDetailNavigation
-    if (!transaction) return
-    transaction.controller?.abort()
-    clearDetailPreloadState(transaction)
-    runtime.pendingDetailNavigation = null
-  }
-
   const startDetailNavigation = (link, article) => {
     const slug = article?.dataset.momentSlug || link?.dataset.momentSlug
     const root = article?.closest(rootSelector)
-    if (!slug || !root?.isConnected || runtime.root !== root || runtime.pendingDetailNavigation) return false
+    if (!slug || !root?.isConnected || runtime.root !== root) return false
     if (!captureMomentNavigation(link, article)) return false
-
-    const controller = typeof AbortController === 'function' ? new AbortController() : null
-    /** @type {DetailNavigationTransaction} */
-    const transaction = {
-      slug,
-      url: link.href,
-      article,
-      controller,
-      generation: runtime.generation
-    }
-    runtime.pendingDetailNavigation = transaction
-    article.classList.add('is-preloading-detail')
-    article.setAttribute('aria-busy', 'true')
-
-    waitForMomentPhotos(slug, controller).then(({ results, timedOut, aborted }) => {
-      if (aborted || runtime.pendingDetailNavigation !== transaction || runtime.generation !== transaction.generation || runtime.root !== root || !root.isConnected) return
-      reportPreloadFailures(slug, results, timedOut)
-      clearDetailPreloadState(transaction)
-      runtime.pendingDetailNavigation = null
-      if (window.pjax?.loadUrl) window.pjax.loadUrl(transaction.url)
-      else window.location.assign(transaction.url)
-    })
+    if (window.pjax?.loadUrl) window.pjax.loadUrl(link.href)
+    else window.location.assign(link.href)
     return true
   }
 
@@ -858,7 +736,6 @@
   const cleanup = ({ preserveVisualState = false, preserveHeroBootState = false } = {}) => {
     const root = runtime.root
     const shouldPreserveVisualState = Boolean(preserveVisualState && root?.isConnected)
-    cancelPendingDetailNavigation()
     runtime.generation += 1
     runtime.pageRuntime?.destroy()
     runtime.pageRuntime = null
@@ -896,7 +773,6 @@
     runtime.reduced = false
     runtime.restoreState = null
     runtime.restoreGuardTimer = null
-    runtime.pendingDetailNavigation = null
     runtime.revealTarget = null
     runtime.viewMode = VIEW_MODE.TIMELINE
     runtime.viewSwitching = false
@@ -1645,7 +1521,7 @@
     return true
   }
 
-  window.MemorableMoments = { init: initializeMemorableMomentsPage, cleanup, preheatForUrl }
+  window.MemorableMoments = { init: initializeMemorableMomentsPage, cleanup }
 
   if (!window.memorableMomentsNavigationStateBound) {
     window.memorableMomentsNavigationStateBound = true

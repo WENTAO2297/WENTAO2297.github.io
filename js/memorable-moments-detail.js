@@ -144,23 +144,55 @@
   }
 
   const showRowImmediately = row => {
+    hydrateRow(row)
     row.classList.add('is-visible')
     runtime.rowObserver?.unobserve(row)
   }
 
+  const hydratePhoto = photo => {
+    const image = photo?.querySelector('img[data-src]')
+    const source = image?.dataset.src
+    if (!image || !source) return false
+    image.src = source
+    image.removeAttribute('data-src')
+    return true
+  }
+
+  const hydrateRow = row => {
+    row?.querySelectorAll('.memorable-moment-detail__photo').forEach(hydratePhoto)
+  }
+
   const observeRows = rows => {
-    if (runtime.reduced || typeof window.IntersectionObserver !== 'function') {
+    if (typeof window.IntersectionObserver !== 'function') {
       runtime.rowObserver?.disconnect()
-      rows.forEach(showRowImmediately)
+      let scheduled = false
+      const hydrateNearViewport = () => {
+        scheduled = false
+        rows.forEach(row => {
+          if (row.classList.contains('is-visible')) return
+          const bounds = row.getBoundingClientRect()
+          if (bounds.top < window.innerHeight * 1.3 && bounds.bottom > -window.innerHeight * 0.3) showRowImmediately(row)
+        })
+      }
+      const scheduleHydration = () => {
+        if (scheduled) return
+        scheduled = true
+        scheduleFrame(hydrateNearViewport)
+      }
+      addListener(window, 'scroll', scheduleHydration, { passive: true })
+      scheduleHydration()
       return
     }
 
     if (!runtime.rowObserver) {
       runtime.rowObserver = new window.IntersectionObserver(entries => {
         entries.forEach(entry => {
-          if (entry.isIntersecting) showRowImmediately(entry.target)
+          // A layout reflow can briefly intersect rows that are still several
+          // screens away. Keep hydration to the viewport plus a small runway.
+          const top = entry.target.getBoundingClientRect().top
+          if (entry.isIntersecting && top < window.innerHeight * 1.3) showRowImmediately(entry.target)
         })
-      }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 })
+      }, { rootMargin: '0px 0px 35% 0px', threshold: 0.08 })
       runtime.lifecycle?.addObserver(runtime.rowObserver)
     } else {
       runtime.rowObserver.disconnect()
@@ -234,7 +266,8 @@
     const counter = lightbox.querySelector('.moment-detail-lightbox__counter')
     const previous = lightbox.querySelector('.moment-detail-lightbox__button--previous')
     const next = lightbox.querySelector('.moment-detail-lightbox__button--next')
-    image.src = source.currentSrc || source.src
+    hydratePhoto(photo)
+    image.src = source.dataset.fullSrc || source.currentSrc || source.src
     image.alt = source.alt || ''
     caption.textContent = photo.querySelector('figcaption')?.textContent?.trim() || ''
     caption.hidden = !caption.textContent
@@ -370,7 +403,7 @@
       addListener(image, 'load', loadHandler)
       addListener(image, 'error', errorHandler)
 
-      if (image.complete) {
+      if (image.hasAttribute('src') && image.complete) {
         if (image.naturalWidth) loadHandler()
         else if (image.src) errorHandler()
       }
@@ -409,7 +442,10 @@
     const gallery = runtime.gallery
     if (!gallery || !runtime.photos.length) return
 
-    Promise.allSettled(runtime.photos.map(photo => waitForImageReady(photo.querySelector('img')))).then(() => {
+    // The first row becomes visible once its initial images decode. Waiting for
+    // every gallery original here defeats native lazy loading below the fold.
+    const initialPhotos = runtime.photos.slice(0, Math.min(2, runtime.photos.length))
+    Promise.allSettled(initialPhotos.map(photo => waitForImageReady(photo.querySelector('img')))).then(() => {
       if (runtime.root !== root || !root.isConnected || runtime.gallery !== gallery) return
       const reveal = () => {
         if (runtime.root !== root || !root.isConnected || runtime.gallery !== gallery) return
@@ -608,10 +644,6 @@
     runtime.root = root
     runtime.gallery = root.querySelector('.memorable-moment-detail__gallery')
     runtime.photos = runtime.gallery ? Array.from(runtime.gallery.querySelectorAll('.memorable-moment-detail__photo')) : []
-    runtime.photos.forEach(photo => {
-      const image = photo.querySelector('img')
-      if (image) image.loading = 'eager'
-    })
     root.dataset.momentDetailInitialized = 'true'
     bindBackLink(root)
     bindPagerLinks(root)

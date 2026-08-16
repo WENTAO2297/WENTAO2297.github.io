@@ -4,10 +4,12 @@
   const root = document.documentElement
   const controlledBodyClasses = ['site-video-body', 'home-dashboard-body']
   const stylesheetTimeout = 900
+  const siteVideoIdleDelayMs = 1200
   const memorableMomentsDetailNavigationClass = 'is-memorable-moments-detail-navigation'
   const memorableMomentsRestoreClass = 'is-restoring-memorable-moments'
   let pendingUrl = null
   let navigationGeneration = 0
+  let siteVideoStartTimer = null
 
   const clearMemorableMomentsNavigationState = () => {
     root.classList.remove(memorableMomentsDetailNavigationClass)
@@ -40,6 +42,16 @@
     playPromise?.catch?.(() => {})
   }
 
+  const scheduleSiteVideoPlayback = media => {
+    if (!media || media.dataset.siteVideoStarted === 'true' || siteVideoStartTimer !== null) return
+    siteVideoStartTimer = window.setTimeout(() => {
+      siteVideoStartTimer = null
+      if (document.visibilityState === 'hidden' || prefersReducedMotion()) return
+      media.dataset.siteVideoStarted = 'true'
+      playSiteVideo(media)
+    }, siteVideoIdleDelayMs)
+  }
+
   const bindSiteVideoMedia = (container, media) => {
     if (!container || !media || media.dataset.siteVideoBound === 'true') return
 
@@ -70,7 +82,8 @@
     container.classList.toggle('is-reduced-motion', reducedMotion)
 
     if (reducedMotion || document.visibilityState === 'hidden') media.pause()
-    else playSiteVideo(media)
+    else if (media.dataset.siteVideoStarted === 'true') playSiteVideo(media)
+    else scheduleSiteVideoPlayback(media)
   }
 
   const normalizePath = (path) => {

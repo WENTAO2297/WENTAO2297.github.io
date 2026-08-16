@@ -183,17 +183,9 @@
     }))
   }
 
-  const assetLimitFor = intent => {
-    if (intent === 'intent' && isSlowConnection()) return 0
-    if (isSlowConnection() || saveDataEnabled()) return 0
-    if (isThreeG()) return 2
-    return intent === 'intent' ? 8 : 4
-  }
-
   const prefetchDocument = (value, { priority = 2, intent = 'background' } = {}) => {
     const url = normalizeUrl(value)
     if (!url) return Promise.resolve({ ok: false })
-    const assetLimit = assetLimitFor(intent)
 
     const documentPromise = schedule(runtime.documentPromises, url.href, async () => {
       const response = await fetch(url.href, {
@@ -205,15 +197,12 @@
       const contentType = response.headers.get('content-type') || ''
       if (contentType && !/text\/html/i.test(contentType)) throw new Error(`Unexpected content type: ${contentType}`)
       const html = await response.text()
-      return { ok: true, assets: assetLimit ? extractCriticalAssets(html).slice(0, assetLimit) : [] }
+      // Hover/focus intent warms only the destination document. Image bytes stay
+      // owned by the destination page so a gallery hover never starts originals.
+      return { ok: true }
     }, priority, maxDocuments)
 
-    return documentPromise.then(result => {
-      if (result?.ok && Array.isArray(result.assets)) {
-        result.assets.forEach(asset => { preloadAsset(asset, { priority }) })
-      }
-      return result
-    })
+    return documentPromise
   }
 
   const prefetchLink = (link, priority, intent = 'background') => {
@@ -222,7 +211,6 @@
     if (saveDataEnabled() || isSlowConnection()) return Promise.resolve({ ok: false })
     if (intent === 'background' && runtime.backgroundUrls.size >= 8 && !runtime.backgroundUrls.has(url.href)) return Promise.resolve({ ok: false })
     if (intent === 'background') runtime.backgroundUrls.add(url.href)
-    window.MemorableMoments?.preheatForUrl?.(url.href, { priority, intent })
     return prefetchDocument(url.href, { priority, intent })
   }
 

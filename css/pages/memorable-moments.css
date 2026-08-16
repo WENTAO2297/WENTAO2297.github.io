@@ -370,24 +370,6 @@ html.js .memorable-moments .moment-item--entering .moment-card {
   outline-offset: 4px;
 }
 
-.moment-item.is-preloading-detail .moment-card {
-  filter: brightness(0.9);
-}
-
-.moment-item.is-preloading-detail .moment-card::after {
-  position: absolute;
-  inset: 0;
-  z-index: 3;
-  display: grid;
-  place-items: center;
-  background: rgba(28, 17, 39, 0.18);
-  color: rgba(255, 245, 255, 0.78);
-  content: 'LOADING MEMORIES';
-  font-size: 0.58rem;
-  letter-spacing: 0.16em;
-  pointer-events: none;
-}
-
 .moment-item.is-hovered .moment-item__node {
   border-color: rgba(255, 221, 247, 0.98);
   box-shadow: 0 0 0 5px rgba(228, 171, 229, 0.16), 0 0 18px rgba(244, 171, 225, 0.48);
