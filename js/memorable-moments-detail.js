@@ -416,7 +416,6 @@
         gallery.dataset.galleryState = 'ready'
         gallery.removeAttribute('aria-busy')
         scheduleLayout()
-        window.SiteReadiness?.markPageReady({ page: 'memorable-moment-detail', reason: 'gallery-ready' })
       }
       if (runtime.reduced || typeof window.requestAnimationFrame !== 'function') reveal()
       else scheduleFrame(reveal)
@@ -646,12 +645,10 @@
     if (runtime.gallery && runtime.reduced) {
       runtime.gallery.dataset.galleryState = 'ready'
       runtime.gallery.removeAttribute('aria-busy')
-      window.SiteReadiness?.markPageReady({ page: 'memorable-moment-detail', reason: 'reduced-motion-layout-ready' })
     } else {
       revealGalleryWhenReady(root)
     }
     if (!runtime.gallery || !runtime.photos.length) {
-      window.SiteReadiness?.markPageReady({ page: 'memorable-moment-detail', reason: 'detail-layout-ready' })
     }
     scheduleLayout()
     return true

@@ -1627,7 +1627,6 @@
         if (runtime.viewMode === VIEW_MODE.TIMELINE) setupLoading(root)
         else cancelTimelineLoading(root)
         if (restoreState) restoreTimelinePosition(root, restoreState, generation)
-        window.SiteReadiness?.markPageReady({ page: 'memorable-moments', reason: 'initial-view-ready' })
       } catch (error) {
         if (runtime.restoreState) {
           failTimelineRestore(root, runtime.restoreState, generation, 'timeline initialization failed', {

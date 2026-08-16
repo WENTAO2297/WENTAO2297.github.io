@@ -44,18 +44,20 @@
     if (!container || !media || media.dataset.siteVideoBound === 'true') return
 
     media.dataset.siteVideoBound = 'true'
-    media.addEventListener('loadeddata', () => {
+    const revealVideo = () => {
       container.classList.add('is-video-ready')
       container.classList.remove('is-video-failed')
-    })
+    }
+    media.addEventListener('playing', revealVideo)
     media.addEventListener('canplay', () => {
-      container.classList.add('is-video-ready')
-      container.classList.remove('is-video-failed')
+      if (!media.paused) revealVideo()
     })
     media.addEventListener('error', () => {
       container.classList.remove('is-video-ready')
       container.classList.add('is-video-failed')
     })
+
+    if (media.readyState >= 3 && !media.paused) revealVideo()
   }
 
   const syncSiteVideoPlayback = () => {

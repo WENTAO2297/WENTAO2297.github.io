@@ -1016,7 +1016,6 @@
     buildLightbox()
     refillQueue()
     syncSlots()
-    window.SiteReadiness?.markPageReady({ page: 'jinshan', reason: 'memory-field-layout-ready' })
     return true
   }
 

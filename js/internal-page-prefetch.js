@@ -13,7 +13,6 @@
     activeCount: 0,
     maxConcurrency: 2,
     sequence: 0,
-    observer: null,
     backgroundUrls: new Set(),
     aboutBannerDispose: null
   }
@@ -60,10 +59,6 @@
     if (/\/(?:admin|wp-admin|api)(?:\/|$)/i.test(url.pathname)) return null
     return url
   }
-
-  const collectLinks = () => Array.from(document.querySelectorAll('a[href]'))
-    .map(link => ({ link, url: getLinkUrl(link) }))
-    .filter(item => item.url)
 
   const trimCache = (cache, limit) => {
     if (cache.size <= limit) return
@@ -135,7 +130,7 @@
     const assets = []
     try {
       const document = new DOMParser().parseFromString(html, 'text/html')
-      document.querySelectorAll('[data-boot-critical], [data-first-visit-critical], [data-page-critical-asset]')
+      document.querySelectorAll('[data-page-critical-asset]')
         .forEach(element => {
           const source = element.getAttribute('src') || element.getAttribute('content')
           const url = source ? normalizeUrl(source) : null
@@ -224,46 +219,18 @@
   const prefetchLink = (link, priority, intent = 'background') => {
     const url = getLinkUrl(link)
     if (!url) return Promise.resolve({ ok: false })
+    if (saveDataEnabled() || isSlowConnection()) return Promise.resolve({ ok: false })
     if (intent === 'background' && runtime.backgroundUrls.size >= 8 && !runtime.backgroundUrls.has(url.href)) return Promise.resolve({ ok: false })
     if (intent === 'background') runtime.backgroundUrls.add(url.href)
     window.MemorableMoments?.preheatForUrl?.(url.href, { priority, intent })
     return prefetchDocument(url.href, { priority, intent })
   }
 
-  const refreshObserver = () => {
-    runtime.observer?.disconnect()
-    runtime.observer = null
-    updateConcurrency()
-    if (saveDataEnabled() || isSlowConnection() || typeof window.IntersectionObserver !== 'function') return
-
-    runtime.observer = new window.IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return
-        const link = entry.target
-        runtime.observer?.unobserve(link)
-        prefetchLink(link, 1, 'background')
-      })
-    }, { rootMargin: '180px 0px', threshold: 0.01 })
-
-    collectLinks().forEach(({ link }) => runtime.observer.observe(link))
-  }
-
-  const scheduleIdlePrefetch = () => {
-    if (saveDataEnabled() || isSlowConnection()) return
-    const run = () => {
-      collectLinks().slice(0, 4).forEach(({ link }) => prefetchLink(link, 2, 'background'))
-    }
-    if (typeof window.requestIdleCallback === 'function') window.requestIdleCallback(run, { timeout: 3500 })
-    else window.setTimeout(run, 1200)
-  }
-
   const scheduleBackgroundWork = () => {
-    const start = () => {
-      runtime.backgroundUrls.clear()
-      refreshObserver()
-      scheduleIdlePrefetch()
-    }
-    window.SiteReadiness?.waitForInitialReady?.().then(start).catch(start)
+    // Navigation intent is the only automatic prefetch trigger. Keeping this
+    // hook preserves the public API without competing with a cold first paint.
+    runtime.backgroundUrls.clear()
+    updateConcurrency()
   }
 
   const aboutBannerTimeout = 1200
@@ -344,9 +311,7 @@
     scheduleBackgroundWork()
     prepareAboutBanner()
   })
-  document.addEventListener('site:page-ready', scheduleBackgroundWork)
   document.addEventListener('pjax:send', () => {
-    runtime.observer?.disconnect()
     runtime.aboutBannerDispose?.()
   })
   window.addEventListener('pageshow', prepareAboutBanner)

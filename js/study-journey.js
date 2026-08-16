@@ -54,10 +54,6 @@
     activeRoot = null
   }
 
-  const markReady = reason => {
-    window.SiteReadiness?.markPageReady({ page: 'study-journey', reason })
-  }
-
   const showStatic = (root, cards) => {
     root.dataset.studyState = 'ready'
     cards.forEach(card => {
@@ -114,7 +110,6 @@
     root.dataset.studyInitialized = 'true'
     if (!lifecycle || cards.length !== expectedCardCount) {
       showStatic(root, cards)
-      markReady('cards-layout-ready')
       return true
     }
 
@@ -127,12 +122,10 @@
 
     if (motionQuery.matches) {
       showStatic(root, cards)
-      markReady('cards-layout-ready')
       return true
     }
 
     root.dataset.studyState = 'pending'
-    markReady('cards-layout-ready')
     scheduleFrame(() => {
       scheduleFrame(() => {
         scheduleFrame(() => startCards(root, cards, currentGeneration))

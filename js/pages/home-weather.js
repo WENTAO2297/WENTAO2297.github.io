@@ -271,7 +271,13 @@
     if (!cached?.isFresh) refreshWeather(card, elements, Boolean(cached)).catch(() => {})
   }
 
-  initWeather()
+  const startInitialWeather = () => {
+    window.setTimeout(initWeather, 280)
+  }
+
+  // The card renders its local placeholder immediately; remote weather stays
+  // independent and starts shortly after the browser has painted the page.
+  startInitialWeather()
 
   if (!weatherRuntime.cleanupBound) {
     weatherRuntime.cleanupBound = true

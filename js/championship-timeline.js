@@ -573,7 +573,6 @@
       positionInitialCard(mode)
       updateGeometry()
     })
-    window.SiteReadiness?.markPageReady({ page: 'champions', reason: 'timeline-layout-ready' })
     return true
   }
 

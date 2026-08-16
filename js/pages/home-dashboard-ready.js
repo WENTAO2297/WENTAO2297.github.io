@@ -14,7 +14,6 @@
         window.GlassCardLifecycle?.ready(dashboard)
         dashboard.classList.remove(pendingClass)
         dashboard.classList.add(readyClass)
-        window.SiteReadiness?.markPageReady({ page: 'home', reason: 'dashboard-layout-ready' })
       })
     })
   }
