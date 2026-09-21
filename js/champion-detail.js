@@ -12,6 +12,7 @@
   const MATCHES_REVEAL_DELAY_MS = 190
   const RETURN_TRANSITION_DURATION_MS = 320
   const TRANSITION_FALLBACK_BUFFER_MS = 140
+  const MVP_PREPARE_TIMEOUT_MS = 1800
   const MATCH_CARD_GAP_PX = 18
   const MATCH_DRAG_THRESHOLD_PX = 6
   const ROOT_STATE_CLASSES = [
@@ -59,6 +60,7 @@
     transitionCard: null,
     state: 'timeline',
     pageGeneration: 0,
+    pendingDetailOpen: null,
     pagePath: '',
     pageSearch: ''
   }
@@ -226,6 +228,66 @@
       panel.setAttribute('aria-hidden', 'true')
     })
     runtime.heroDetails.forEach(hero => hero.classList.remove('is-active'))
+  }
+
+  const prepareMvpVisual = source => new Promise(resolve => {
+    if (!source) {
+      resolve({ ready: true, reason: 'no-image' })
+      return
+    }
+
+    const image = new Image()
+    let settled = false
+    let timeoutId = null
+    const finish = reason => {
+      if (settled) return
+      settled = true
+      window.clearTimeout(timeoutId)
+      image.onload = null
+      image.onerror = null
+      resolve({ ready: reason === 'decoded', reason })
+    }
+
+    timeoutId = window.setTimeout(() => finish('timeout'), MVP_PREPARE_TIMEOUT_MS)
+    image.decoding = 'async'
+    image.onload = () => {
+      Promise.resolve(typeof image.decode === 'function' ? image.decode() : undefined)
+        .catch(() => {})
+        .then(() => finish('decoded'))
+    }
+    image.onerror = () => finish('error')
+    image.src = source
+    if (image.complete) {
+      if (image.naturalWidth > 0) image.onload()
+      else image.onerror()
+    }
+  })
+
+  const clearPendingDetailOpen = transaction => {
+    if (!transaction || runtime.pendingDetailOpen !== transaction) return
+    transaction.trigger.disabled = false
+    transaction.trigger.removeAttribute('aria-busy')
+    transaction.trigger.removeAttribute('data-detail-pending')
+    runtime.pendingDetailOpen = null
+  }
+
+  const requestDetailOpen = (trigger, context = {}) => {
+    const id = context.slug || getTriggerId(trigger)
+    const panel = runtime.panels.get(id)
+    const visual = panel?.querySelector('.championship-detail__visual-image')
+    if (!trigger || runtime.state !== 'timeline' || !isKnownDetailId(id) || runtime.pendingDetailOpen) return
+
+    const transaction = { trigger, id, context, root: runtime.root }
+    runtime.pendingDetailOpen = transaction
+    trigger.disabled = true
+    trigger.setAttribute('aria-busy', 'true')
+    trigger.setAttribute('data-detail-pending', 'true')
+
+    prepareMvpVisual(visual?.currentSrc || visual?.src || '').then(() => {
+      if (runtime.pendingDetailOpen !== transaction || runtime.root !== transaction.root || !transaction.root?.isConnected || runtime.state !== 'timeline') return
+      clearPendingDetailOpen(transaction)
+      openDetail(trigger, context)
+    })
   }
 
   const selectDetail = id => {
@@ -477,6 +539,7 @@
   }
 
   const destroy = () => {
+    clearPendingDetailOpen(runtime.pendingDetailOpen)
     runtime.pageGeneration += 1
     clearAsyncWork()
     restoreTimeline({ position: false })
@@ -912,7 +975,7 @@
     addListener(root, 'championship:open-detail', event => {
       const trigger = event.detail?.card || event.detail?.trigger
       if (!trigger || !root.contains(trigger)) return
-      openDetail(trigger, {
+      requestDetailOpen(trigger, {
         slug: event.detail?.slug || getTriggerId(trigger),
         index: event.detail?.index
       })

@@ -40,6 +40,10 @@
           }
         }).filter(entry => entry.title && entry.url)
       })
+      .catch(error => {
+        window.homeSearchIndexPromise = null
+        throw error
+      })
 
     return window.homeSearchIndexPromise
   }

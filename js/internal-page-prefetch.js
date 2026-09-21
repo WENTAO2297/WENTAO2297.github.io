@@ -126,22 +126,6 @@
     return promise
   }
 
-  const extractCriticalAssets = html => {
-    const assets = []
-    try {
-      const document = new DOMParser().parseFromString(html, 'text/html')
-      document.querySelectorAll('[data-page-critical-asset]')
-        .forEach(element => {
-          const source = element.getAttribute('src') || element.getAttribute('content')
-          const url = source ? normalizeUrl(source) : null
-          if (url && !assets.includes(url.href)) assets.push(url.href)
-        })
-    } catch (error) {
-      warn('critical asset manifest parse failed; using HTML cache only', error)
-    }
-    return assets
-  }
-
   const preloadAsset = (value, { priority = 0 } = {}) => {
     const url = normalizeUrl(value)
     if (!url) return Promise.resolve({ ok: false })
@@ -196,7 +180,7 @@
       if (!response.ok) throw new Error(`HTTP ${response.status}`)
       const contentType = response.headers.get('content-type') || ''
       if (contentType && !/text\/html/i.test(contentType)) throw new Error(`Unexpected content type: ${contentType}`)
-      const html = await response.text()
+      await response.text()
       // Hover/focus intent warms only the destination document. Image bytes stay
       // owned by the destination page so a gallery hover never starts originals.
       return { ok: true }

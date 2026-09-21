@@ -56,6 +56,10 @@
     switchDelayMs: 120,
     switchOffsetPx: 8
   })
+  const DETAIL_PREPARE_CONFIG = Object.freeze({
+    timeoutMs: 2600,
+    thumbnailLimit: 8
+  })
   const RESTORE_CONFIG = Object.freeze({
     storageKey: 'memorable-moments:return',
     className: 'is-restoring-memorable-moments',
@@ -79,6 +83,7 @@
     rowTolerancePx: gridRevealTolerance, bufferTopPx: restoreRevealBufferTop, bufferBottomPx: restoreRevealBufferBottom,
     desktopOffsetPx: gridDesktopOffset, mobileOffsetPx: gridMobileOffset } = GRID_ANIMATION
   const { leaveDurationMs: viewFadeOutDuration, enterDurationMs: viewFadeInDuration } = VIEW_SWITCH_ANIMATION
+  const { timeoutMs: detailPrepareTimeout, thumbnailLimit: detailPrepareThumbnailLimit } = DETAIL_PREPARE_CONFIG
   const { storageKey: restoreStorageKey, className: restoreClassName, detailNavigationClass,
     historyKey: restoreHistoryKey,
     version: restoreVersion, maxAgeMs: restoreMaxAge, guardTimeoutMs: restoreGuardLimit,
@@ -110,6 +115,7 @@
     /** @type {MomentReturnState|null} */
     restoreState: null,
     restoreGuardTimer: null,
+    pendingDetailNavigation: null,
     revealTarget: null,
     heroEntranceTargets: new Set(),
     viewMode: VIEW_MODE.TIMELINE,
@@ -537,13 +543,53 @@
     return saved
   }
 
+  const getMomentBySlug = slug => runtime.items.find((item, index) => getMomentSlug(item, index) === slug)
+
+  const prepareMomentThumbnails = slug => {
+    const urls = Array.from(new Set((getMomentBySlug(slug)?.photos || []).filter(Boolean))).slice(0, detailPrepareThumbnailLimit)
+    if (!urls.length || typeof window.SitePrefetch?.preloadAssets !== 'function') return Promise.resolve([])
+    return window.SitePrefetch.preloadAssets(urls, { priority: -1 })
+  }
+
+  const waitForMomentPreparation = slug => new Promise(resolve => {
+    let settled = false
+    let timeoutId = null
+    const finish = reason => {
+      if (settled) return
+      settled = true
+      if (timeoutId !== null) {
+        window.clearTimeout(timeoutId)
+        runtime.pageRuntime?.removeTimer(timeoutId)
+      }
+      resolve(reason)
+    }
+    timeoutId = window.setTimeout(() => finish('timeout'), detailPrepareTimeout)
+    runtime.pageRuntime?.addTimer(timeoutId)
+    prepareMomentThumbnails(slug).then(() => finish('ready')).catch(() => finish('error'))
+  })
+
+  const clearPendingDetailNavigation = transaction => {
+    if (!transaction || runtime.pendingDetailNavigation !== transaction) return
+    transaction.link.removeAttribute('aria-busy')
+    transaction.link.removeAttribute('data-moment-detail-pending')
+    runtime.pendingDetailNavigation = null
+  }
+
   const startDetailNavigation = (link, article) => {
     const slug = article?.dataset.momentSlug || link?.dataset.momentSlug
     const root = article?.closest(rootSelector)
-    if (!slug || !root?.isConnected || runtime.root !== root) return false
+    if (!slug || !root?.isConnected || runtime.root !== root || runtime.pendingDetailNavigation) return false
     if (!captureMomentNavigation(link, article)) return false
-    if (window.pjax?.loadUrl) window.pjax.loadUrl(link.href)
-    else window.location.assign(link.href)
+    const transaction = { link, root, generation: runtime.generation }
+    runtime.pendingDetailNavigation = transaction
+    link.setAttribute('aria-busy', 'true')
+    link.setAttribute('data-moment-detail-pending', 'true')
+    waitForMomentPreparation(slug).then(() => {
+      if (runtime.pendingDetailNavigation !== transaction || runtime.generation !== transaction.generation || runtime.root !== root || !root.isConnected) return
+      clearPendingDetailNavigation(transaction)
+      if (window.pjax?.loadUrl) window.pjax.loadUrl(link.href)
+      else window.location.assign(link.href)
+    })
     return true
   }
 
@@ -736,6 +782,7 @@
   const cleanup = ({ preserveVisualState = false, preserveHeroBootState = false } = {}) => {
     const root = runtime.root
     const shouldPreserveVisualState = Boolean(preserveVisualState && root?.isConnected)
+    clearPendingDetailNavigation(runtime.pendingDetailNavigation)
     runtime.generation += 1
     runtime.pageRuntime?.destroy()
     runtime.pageRuntime = null
@@ -773,6 +820,7 @@
     runtime.reduced = false
     runtime.restoreState = null
     runtime.restoreGuardTimer = null
+    runtime.pendingDetailNavigation = null
     runtime.revealTarget = null
     runtime.viewMode = VIEW_MODE.TIMELINE
     runtime.viewSwitching = false
