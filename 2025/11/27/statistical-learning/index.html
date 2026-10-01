@@ -1513,6 +1513,25 @@ A = U\Sigma V^T, \Sigma = \text{diag}(\sigma_1, \sigma_2, \cdots, \sigma_p)</scr
     console.warn(`[MathJax] ${message}`)
   }
 
+  const waitForTypesetWindow = () => new Promise(resolve => {
+    let settled = false
+    const start = () => {
+      if (settled) return
+      settled = true
+      clearTimeout(fallback)
+      resolve()
+    }
+    const fallback = setTimeout(start, 300)
+
+    requestAnimationFrame(() => {
+      if (typeof requestIdleCallback === 'function') {
+        requestIdleCallback(start, { timeout: 250 })
+      } else {
+        setTimeout(start, 0)
+      }
+    })
+  })
+
   const clearMathjax = () => {
     runtime.generation += 1
     runtime.pendingTarget = null
@@ -1539,6 +1558,11 @@ A = U\Sigma V^T, \Sigma = \text{diag}(\sigma_1, \sigma_2, \cdots, \sigma_p)</scr
       runtime.currentTarget = target
       try {
         window.MathJax.texReset?.()
+        await waitForTypesetWindow()
+        if (generation !== runtime.generation || !target.isConnected) {
+          runtime.currentTarget = null
+          continue
+        }
         await window.MathJax.typesetPromise([target])
       } catch (error) {
         if (generation === runtime.generation) {
@@ -1707,7 +1731,7 @@ A = U\Sigma V^T, \Sigma = \text{diag}(\sigma_1, \sigma_2, \cdots, \sigma_p)</scr
   }
 
   initialize()
-})()</script><script data-pjax src="/js/gitalk-comments.js" defer></script></div><script src="/js/site-pjax-shell.js" defer></script><script src="/js/internal-page-prefetch.js" defer></script><script src="/js/page-motion.js" defer></script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script>(() => {
+})()</script><script data-pjax src="/js/gitalk-comments.js" defer></script></div><script src="/js/site-pjax-shell.js" defer></script><script src="/js/internal-page-prefetch.js" defer></script><script src="/js/page-motion.js" defer></script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script src="/js/lib/pjax-navigation.js"></script><script>(() => {
   const pjaxSelectors = ["head > title","#config-diff","#pjax-page-header","#content-inner","#rightside-config-show",".js-pjax"]
 
   if (!window.championDetailHistoryGuardBound) {
@@ -1723,10 +1747,12 @@ A = U\Sigma V^T, \Sigma = \text{diag}(\sigma_1, \sigma_2, \cdots, \sigma_p)</scr
   window.pjax = new Pjax({
     elements: 'a:not([target="_blank"]):not([download]):not([href^="#"]):not([href^="mailto:"]):not([href^="tel:"]):not([data-no-pjax]):not([href="/404.html"])',
     selectors: pjaxSelectors,
+    switches: { 'head > title': window.SitePjaxNavigation.switchTitleAndMetadata },
     cacheBust: false,
     analytics: false,
     scrollRestoration: true
   })
+  window.SitePjaxNavigation.installScrollRestoration(window.pjax)
 
   const triggerPjaxFn = (val) => {
     if (!val) return

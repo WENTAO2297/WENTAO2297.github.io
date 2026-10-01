@@ -304,6 +304,12 @@ body.site-video-body #body-wrap.post #article-container img:hover {
     transform: scale(1.008);
 }
 
+/* Match auto-sized originals despite the existing 1px image border. */
+body.site-video-body #body-wrap.post #article-container img[data-article-intrinsic] {
+    box-sizing: content-box;
+    max-width: calc(100% - 2px);
+}
+
 body.site-video-body #body-wrap.post #article-container figure figcaption {
     margin-top: -1.1em;
     color: var(--post-muted);
