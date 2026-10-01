@@ -550,6 +550,10 @@
   font: inherit;
 }
 
+.home-dashboard .personal-social .social-icon .fa-github {
+  color: rgba(255, 255, 255, 0.78) !important;
+}
+
 .home-dashboard .personal-social__brand-icon {
   display: block;
   flex: 0 0 auto;
@@ -1131,6 +1135,13 @@
 
 }
 
+@media screen and (min-width: 769px) and (max-width: 900px) {
+  .home-dashboard .weather-card__symbol {
+    width: 44px;
+    font-size: 40px;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .home-dashboard {
     grid-template-columns: minmax(0, 1fr);
@@ -1158,7 +1169,7 @@
 
   .home-dashboard .dashboard-card.dashboard-card--lyrics {
     grid-column: auto;
-    min-height: 44px;
+    min-height: 38px;
     padding: 4px 16px;
   }
 
@@ -1185,6 +1196,18 @@
     grid-column: auto;
     min-height: 0;
     gap: 14px;
+  }
+
+  .home-dashboard .dashboard-widget-row > .dashboard-card {
+    height: 184px;
+    aspect-ratio: auto;
+  }
+
+  .home-dashboard .analog-clock {
+    width: 154px;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
   }
 
   .home-dashboard .dashboard-card--weather {
@@ -1235,6 +1258,14 @@
   .home-dashboard .dashboard-widget-row {
     min-height: 0;
     gap: 10px;
+  }
+
+  .home-dashboard .dashboard-widget-row > .dashboard-card {
+    height: 156px;
+  }
+
+  .home-dashboard .analog-clock {
+    width: 130px;
   }
 
   .home-dashboard .dashboard-card--weather,

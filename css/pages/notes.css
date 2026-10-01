@@ -241,6 +241,7 @@
 
 .notes-list {
   border-top: 1px solid var(--site-border-subtle);
+  background: rgba(26, 20, 39, 0.72);
 }
 
 .notes-entry {

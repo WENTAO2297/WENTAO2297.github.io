@@ -35,6 +35,11 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('sidebar-menus')?.classList.add('open')
       document.getElementById('toggle-menu')?.setAttribute('aria-expanded', 'true')
       mobileSidebarOpen = true
+      window.requestAnimationFrame(() => {
+        window.requestAnimationFrame(() => {
+          if (mobileSidebarOpen) document.getElementById('mobile-menu-close')?.focus({ preventScroll: true })
+        })
+      })
     },
     close: () => {
       if (!mobileSidebarOpen) return
@@ -46,6 +51,8 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('toggle-menu')?.setAttribute('aria-expanded', 'false')
       mobileSidebarOpen = false
       window.scrollTo(0, mobileSidebarScrollY)
+      const toggleMenu = document.getElementById('toggle-menu')
+      if (toggleMenu && !btf.isHidden(toggleMenu)) toggleMenu.focus({ preventScroll: true })
     }
   }
 

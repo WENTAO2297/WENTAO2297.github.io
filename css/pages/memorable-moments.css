@@ -93,7 +93,7 @@ html.is-restoring-memorable-moments.pjax-content-preparing #content-inner {
   flex: 0 0 auto;
   grid-template-columns: repeat(2, minmax(max-content, 1fr));
   gap: 4px;
-  width: 168px;
+  width: 240px;
   padding: 4px;
   border: 1px solid rgba(238, 205, 244, 0.16);
   border-radius: 999px;
@@ -132,6 +132,7 @@ html:not(.is-memorable-moments-switch-ready) .memorable-moments__view-indicator 
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 6px;
   min-width: 72px;
   padding: 7px 12px;
   border: 0;
@@ -147,6 +148,10 @@ html:not(.is-memorable-moments-switch-ready) .memorable-moments__view-indicator 
   opacity: 0.68;
   transform: translateY(1px) scale(0.98);
   transition: color var(--moments-switch-text-duration) var(--moments-easing), opacity var(--moments-switch-text-duration) var(--moments-easing), transform var(--moments-switch-text-duration) var(--moments-easing);
+}
+
+.memorable-moments__view-label {
+  font-size: 0.66rem;
 }
 
 .memorable-moments__view-button:hover,
