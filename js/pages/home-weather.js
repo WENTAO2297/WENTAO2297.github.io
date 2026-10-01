@@ -268,7 +268,16 @@
     const cached = readCache()
 
     if (cached) renderWeather(card, elements, cached.data, false)
-    if (!cached?.isFresh) refreshWeather(card, elements, Boolean(cached)).catch(() => {})
+    if (!cached?.isFresh) refreshWeather(card, elements, Boolean(cached)).catch(() => {
+      if (weatherRuntime.leaving || !card.isConnected || cached) return
+      renderWeather(card, elements, {
+        location: '天气暂不可用',
+        symbol: 'fa-cloud',
+        temperature: '—',
+        uvIndex: '—',
+        airQuality: '—'
+      }, false)
+    })
   }
 
   const startInitialWeather = () => {

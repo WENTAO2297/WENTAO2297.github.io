@@ -176,9 +176,28 @@
     if (target) target.textContent = count
   }
 
+  // Gitalk 1.8.0 bundles Autosize 3.0.21 but exposes no unmount API.
+  // Its public destroy event removes both the Window resize handler and Map
+  // entry. A late GitHub response can still render into the detached root:
+  // Autosize's bubbling resized event tears that assignment down as well.
+  // This listener lives only on the old root, retaining no node in a registry.
+  const destroyDetachedAutosize = event => {
+    const textarea = event.target
+    if (textarea instanceof HTMLTextAreaElement
+      && textarea.classList.contains('gt-header-textarea') && !textarea.isConnected) {
+      textarea.dispatchEvent(new Event('autosize:destroy'))
+    }
+  }
+
   const cleanup = () => {
     state.generation += 1
     if (state.container) {
+      state.container.querySelectorAll('.gt-container').forEach(root => {
+        root.addEventListener('autosize:resized', destroyDetachedAutosize)
+      })
+      state.container.querySelectorAll('.gt-header-textarea').forEach(textarea => {
+        textarea.dispatchEvent(new Event('autosize:destroy'))
+      })
       state.container.replaceChildren()
       delete state.container.dataset.gitalkInitialized
     }
