@@ -1140,7 +1140,7 @@ body.site-video-body #body-wrap:has(.about-profile-page) #content-inner {
     }
 }
 
-/* Non-home motion is controlled exclusively by page-motion.js. */
+/* PageMotion manages shared non-home motion; Study Journey, Moments and Champions also own page-specific animations. */
 html.js #body-wrap:not(.home-dashboard-page) > #content-inner,
 html.js #body-wrap:not(.home-dashboard-page) > #page-header:not(.full_page),
 html.js #body-wrap:not(.home-dashboard-page) > #page-header #site-title,

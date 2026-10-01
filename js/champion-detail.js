@@ -305,8 +305,8 @@
     panel.setAttribute('aria-hidden', 'false')
     hero.classList.add('is-active')
 
-    // Detail panels share the timeline document. Load the selected visual only
-    // after it becomes visible instead of fetching every hidden MVP image.
+    // requestDetailOpen prepares the selected MVP (decode/timeout) before showing its panel.
+    // Promote the displayed DOM image to eager/high priority; other panels stay unchanged.
     const visual = panel.querySelector('.championship-detail__visual-image')
     if (visual) {
       visual.loading = 'eager'

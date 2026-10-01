@@ -36,7 +36,6 @@
     lightboxIndex: 0,
     pointerStartX: null,
     lastFocusedButton: null,
-    backLink: null
   }
   let layoutFrame = null
 
@@ -599,7 +598,6 @@
     }
 
     addListener(link, 'click', handler, true)
-    runtime.backLink = link
   }
 
   // PJAX/BFCache cleanup is idempotent and restores body scroll on every exit.
@@ -622,7 +620,6 @@
     runtime.reduced = false
     runtime.pointerStartX = null
     runtime.lastFocusedButton = null
-    runtime.backLink = null
   }
 
   const initializeMemorableMomentDetailPage = () => {
@@ -679,8 +676,6 @@
       runtime.gallery.removeAttribute('aria-busy')
     } else {
       revealGalleryWhenReady(root)
-    }
-    if (!runtime.gallery || !runtime.photos.length) {
     }
     scheduleLayout()
     return true

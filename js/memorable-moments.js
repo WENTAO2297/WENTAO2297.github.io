@@ -1299,11 +1299,9 @@
       return
     }
 
-    let restoreAttempts = 0
     scheduleTimer(() => {
       if (runtime.generation !== generation || runtime.root !== root || !root.isConnected) return
       try {
-        restoreAttempts += 1
         let scrollMetrics = calculateRestoredScrollPosition(target, state.viewportOffset, state.scrollY)
         let wasClamped = scrollMetrics.wasClamped
         scrollToInstantly(scrollMetrics.finalScrollY)
@@ -1314,7 +1312,6 @@
           try {
             const rect = target.getBoundingClientRect()
             if (Math.abs(rect.top - state.viewportOffset) > 8) {
-              restoreAttempts += 1
               scrollMetrics = calculateRestoredScrollPosition(target, state.viewportOffset, state.scrollY)
               wasClamped = wasClamped || scrollMetrics.wasClamped
               scrollToInstantly(scrollMetrics.finalScrollY)
