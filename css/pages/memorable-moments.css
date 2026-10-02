@@ -344,7 +344,7 @@ html.js .memorable-moments .moment-item--entering .moment-card {
   display: block;
   width: min(100%, var(--moments-card-width));
   overflow: hidden;
-  border: 1px solid var(--moments-panel-border);
+  border: 1px solid transparent;
   border-radius: var(--moments-card-radius);
   background: transparent;
   box-shadow: var(--moments-panel-shadow);
@@ -392,7 +392,7 @@ html.js .memorable-moments .moment-item--entering .moment-card {
   }
 
   to {
-    border-color: var(--moments-panel-border);
+    border-color: transparent;
     box-shadow: var(--moments-panel-shadow);
   }
 }

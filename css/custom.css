@@ -308,7 +308,7 @@ html:has(body.site-video-body)::-webkit-scrollbar-track {
 body.site-video-body #body-wrap:not(.type-ecust) .layout > div:first-child:not(.nc),
 body.site-video-body #recent-posts .recent-post-item,
 body.site-video-body #aside-content .card-widget {
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid transparent;
     background: rgba(255, 255, 255, 0.18);
     box-shadow: 0 14px 34px rgba(53, 68, 99, 0.13);
 }
@@ -407,7 +407,7 @@ body.site-video-body #body-wrap:has(.about-profile-page) #content-inner {
 .about-profile-section,
 .about-profile-aside-card,
 .about-profile-blog-card {
-    border: 1px solid var(--about-border);
+    border: 1px solid transparent;
     border-radius: var(--site-radius-panel);
     background: var(--about-glass);
     box-shadow: var(--site-shadow-panel);

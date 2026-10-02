@@ -605,15 +605,16 @@
 .home-social-copy-toast {
   position: fixed;
   z-index: 9999;
-  bottom: 24px;
+  bottom: calc(24px + env(safe-area-inset-bottom, 0px));
   left: 50%;
   max-width: min(280px, calc(100vw - 32px));
-  padding: 10px 14px;
-  border: 1px solid rgba(255, 216, 239, 0.18);
-  border-radius: 12px;
-  background: rgba(47, 29, 66, 0.9);
-  box-shadow: 0 12px 28px rgba(18, 8, 30, 0.22);
-  color: rgba(255, 247, 252, 0.94);
+  padding: 11px 18px;
+  border-radius: var(--site-radius-control);
+  background: var(--glass-ui-bg);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: var(--glass-ui-shadow-soft);
+  color: color-mix(in srgb, var(--accent-color) 15%, white);
   font-size: 0.86rem;
   line-height: 1.35;
   opacity: 0;
@@ -1289,6 +1290,11 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .home-social-copy-toast {
+    transform: translate(-50%, 0);
+    transition: none;
+  }
+
   .home-dashboard .dashboard-search-shell,
   .home-dashboard .dashboard-search-results,
   .home-dashboard .dashboard-card {

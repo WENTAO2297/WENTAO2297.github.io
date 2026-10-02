@@ -100,7 +100,7 @@
   gap: 24px;
   min-height: 152px;
   padding: 30px clamp(24px, 4vw, 42px);
-  border: var(--glass-ui-outline);
+  border: 1px solid transparent;
   border-radius: var(--site-radius-card);
   background: var(--glass-ui-bg);
   backdrop-filter: var(--glass-blur);

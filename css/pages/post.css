@@ -3,7 +3,7 @@ body.site-video-body #body-wrap.post {
     --post-reading-width: 760px;
     --post-content-max-width: 800px;
     --post-shell-bg: var(--glass-ui-bg-strong);
-    --post-shell-border: var(--glass-ui-outline);
+    --post-shell-border: 1px solid transparent;
     --post-shell-shadow: var(--site-shadow-panel);
     --post-text: rgba(255, 255, 255, 0.88);
     --post-muted: rgba(255, 255, 255, 0.64);
@@ -332,6 +332,7 @@ body.site-video-body #body-wrap.post #post .pagination-post {
 }
 
 body.site-video-body #body-wrap.post #post .post-copyright {
+    border-color: transparent;
     border-radius: 12px;
     background: rgba(30, 27, 48, 0.34);
 }

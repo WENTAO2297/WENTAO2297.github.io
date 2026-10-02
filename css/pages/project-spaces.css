@@ -118,7 +118,7 @@
   overflow: hidden;
   isolation: isolate;
   align-items: stretch;
-  border: var(--glass-ui-outline);
+  border: 1px solid transparent;
   border-radius: var(--card-radius);
   background: var(--study-card-bg);
   backdrop-filter: var(--glass-blur);
