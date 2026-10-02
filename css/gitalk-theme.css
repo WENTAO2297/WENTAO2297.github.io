@@ -1,14 +1,17 @@
 /* Gitalk 1.8.0 — avatar + comment bubble theme for WENTAO's Blog. */
 :root {
-  --gitalk-accent: rgba(174, 164, 235, 0.95);
-  --gitalk-accent-soft: rgba(243, 182, 223, 0.78);
-  --gitalk-text: rgba(255, 255, 255, 0.88);
-  --gitalk-muted: rgba(255, 255, 255, 0.52);
-  --gitalk-border: rgba(255, 255, 255, 0.1);
-  --gitalk-input: rgba(58, 66, 92, 0.44);
-  --gitalk-bubble: rgba(67, 76, 104, 0.48);
-  --gitalk-bubble-hover: rgba(75, 85, 116, 0.56);
-  --gitalk-radius: 15px;
+  --gitalk-accent: rgba(224, 202, 243, 0.94);
+  --gitalk-accent-soft: rgba(244, 169, 214, 0.9);
+  --gitalk-text: rgba(255, 255, 255, 0.9);
+  --gitalk-muted: rgba(255, 255, 255, 0.58);
+  --gitalk-divider: rgba(224, 202, 243, 0.12);
+  --gitalk-input: rgba(45, 40, 55, 0.6);
+  --gitalk-bubble: rgba(45, 40, 55, 0.54);
+  --gitalk-bubble-hover: rgba(52, 45, 63, 0.58);
+  --gitalk-radius: 16px;
+  --gitalk-blur: blur(6px);
+  --gitalk-shadow: 0 3px 12px rgba(15, 10, 25, 0.1);
+  --gitalk-focus: rgba(244, 169, 214, 0.85);
 }
 
 #gitalk-container,
@@ -22,11 +25,29 @@
   color: var(--gitalk-text);
 }
 
+/* Keep the section open; the short divider only anchors the existing title. */
+#post-comment:has(#gitalk-container) .comment-head {
+  position: relative;
+  border-bottom: 0;
+}
+
+#post-comment:has(#gitalk-container) .comment-head::before {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 56px;
+  height: 1px;
+  background: var(--gitalk-divider);
+  content: '';
+}
+
 .gitalk-status {
   padding: 18px 20px;
-  border: 1px solid var(--gitalk-border);
+  border: 0;
   border-radius: var(--gitalk-radius);
   background: var(--gitalk-input);
+  -webkit-backdrop-filter: var(--gitalk-blur);
+  backdrop-filter: var(--gitalk-blur);
   color: var(--gitalk-muted);
   font-size: 14px;
   line-height: 1.65;
@@ -34,7 +55,6 @@
 }
 
 .gitalk-status-error {
-  border-color: rgba(243, 182, 223, 0.28);
   color: rgba(255, 224, 240, 0.82);
 }
 
@@ -58,7 +78,7 @@
 .gt-container .gt-link:hover,
 .gt-container .gt-header-controls-tip:hover,
 .gt-container .gt-comment-username:hover {
-  color: rgba(214, 207, 255, 0.98);
+  color: var(--gitalk-accent-soft);
   border-color: transparent;
   text-decoration: none;
 }
@@ -85,7 +105,6 @@
   margin: 0 0 22px;
   padding: 0 0 14px;
   border: 0;
-  border-bottom: 1px solid var(--gitalk-border);
   color: var(--gitalk-muted);
   font-size: 14px;
 }
@@ -127,10 +146,12 @@
   box-sizing: border-box;
   max-width: calc(100vw - 32px);
   padding: 8px 0;
-  border: 1px solid var(--gitalk-border);
+  border: 0;
   border-radius: 10px;
-  background: rgba(39, 39, 54, 0.96);
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28);
+  background: rgba(45, 40, 55, 0.86);
+  -webkit-backdrop-filter: var(--gitalk-blur);
+  backdrop-filter: var(--gitalk-blur);
+  box-shadow: var(--gitalk-shadow);
   color: var(--gitalk-text);
 }
 
@@ -163,9 +184,9 @@
   height: 46px;
   margin: 0;
   overflow: hidden;
-  border: 1px solid var(--gitalk-border);
+  border: 0;
   border-radius: 50%;
-  background: rgba(35, 38, 55, 0.72);
+  background: rgba(45, 40, 55, 0.54);
   color: rgba(255, 255, 255, 0.72);
   box-shadow: none;
 }
@@ -195,31 +216,37 @@
   max-height: 260px;
   margin: 0;
   padding: 14px 16px;
-  border: 1px solid var(--gitalk-border);
+  border: 0;
   border-radius: var(--gitalk-radius);
   outline: 0;
   background: var(--gitalk-input);
-  box-shadow: none;
+  -webkit-backdrop-filter: var(--gitalk-blur);
+  backdrop-filter: var(--gitalk-blur);
+  box-shadow: var(--gitalk-shadow);
   color: var(--gitalk-text);
   font: inherit;
   font-size: 14px;
   line-height: 1.65;
   resize: vertical;
-  transition: border-color 220ms ease, background-color 220ms ease, box-shadow 220ms ease;
+  transition: background-color 220ms ease, box-shadow 220ms ease;
 }
 
 .gt-container .gt-header-textarea::placeholder {
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .gt-container .gt-header-textarea:hover {
-  background: rgba(65, 73, 101, 0.48);
+  background: rgba(52, 45, 63, 0.62);
 }
 
 .gt-container .gt-header-textarea:focus {
-  border-color: rgba(243, 182, 223, 0.58);
-  background: rgba(65, 73, 101, 0.52);
-  box-shadow: 0 0 0 3px rgba(243, 182, 223, 0.09);
+  background: rgba(52, 45, 63, 0.64);
+  box-shadow: 0 0 0 1px rgba(244, 169, 214, 0.36);
+}
+
+.gt-container .gt-header-textarea:focus-visible {
+  outline: 2px solid var(--gitalk-focus);
+  outline-offset: 3px;
 }
 
 .gt-container .gt-header-controls {
@@ -237,9 +264,10 @@
 }
 
 .gt-container .gt-header-controls-tip {
+  display: inline-flex;
   margin-right: auto;
   color: var(--gitalk-muted);
-  font-size: 13px;
+  font-size: 12px;
   vertical-align: baseline;
 }
 
@@ -248,30 +276,50 @@
   float: none;
   margin: 0;
   padding: 9px 16px;
-  border: 1px solid rgba(174, 164, 235, 0.3);
+  border: 0;
   border-radius: 10px;
   outline: 0;
-  background: rgba(128, 112, 174, 0.58);
+  background: rgba(170, 133, 185, 0.36);
+  -webkit-backdrop-filter: var(--gitalk-blur);
+  backdrop-filter: var(--gitalk-blur);
   box-shadow: none;
   color: rgba(255, 255, 255, 0.9);
   font-family: inherit;
   font-size: 13px;
   line-height: 1;
-  transition: background-color 200ms ease, border-color 200ms ease, color 200ms ease;
+  transition: background-color 200ms ease, color 200ms ease;
 }
 
 .gt-container .gt-btn:hover,
 .gt-container .gt-btn:focus-visible,
 .gt-container .gt-btn-public:hover,
 .gt-container .gt-btn-preview:hover {
-  border-color: rgba(243, 182, 223, 0.54);
-  background: rgba(148, 126, 190, 0.7);
+  background: rgba(183, 143, 196, 0.46);
   color: #fff;
 }
 
 .gt-container .gt-btn-preview {
-  background: rgba(255, 255, 255, 0.055);
+  background: rgba(45, 40, 55, 0.32);
   color: rgba(255, 255, 255, 0.78);
+}
+
+.gt-container .gt-btn-preview:hover,
+.gt-container .gt-comments-controls .gt-btn:hover {
+  background: rgba(73, 58, 83, 0.44);
+}
+
+.gt-container .gt-comments-controls .gt-btn {
+  background: rgba(45, 40, 55, 0.4);
+  color: var(--gitalk-muted);
+}
+
+/* Functional focus is distinct from the removed decorative surface borders. */
+.gt-container a:focus-visible,
+.gt-container .gt-btn:focus-visible,
+.gt-container .gt-user-inner:focus-visible,
+.gt-container .gt-action:focus-visible {
+  outline: 2px solid var(--gitalk-focus);
+  outline-offset: 3px;
 }
 
 .gt-container .gt-btn.is--disable {
@@ -307,7 +355,7 @@
   grid-template-columns: 46px minmax(0, 1fr);
   column-gap: 16px;
   align-items: start;
-  margin: 0 0 18px;
+  margin: 0 0 22px;
   padding: 0;
 }
 
@@ -324,24 +372,38 @@
   grid-column: 2;
   min-width: 0;
   margin: 0;
-  padding: 13px 16px;
+  padding: 15px 18px;
   overflow: visible;
-  border: 1px solid var(--gitalk-border);
-  border-radius: 14px;
+  border: 0;
+  border-radius: 18px;
   background: var(--gitalk-bubble);
-  box-shadow: none;
-  transition: background-color 220ms ease, border-color 220ms ease;
+  -webkit-backdrop-filter: var(--gitalk-blur);
+  backdrop-filter: var(--gitalk-blur);
+  box-shadow: var(--gitalk-shadow);
+  transition: background-color 220ms ease;
 }
 
 .gt-container .gt-comment-content:hover {
-  border-color: rgba(255, 255, 255, 0.15);
   background: var(--gitalk-bubble-hover);
-  box-shadow: none;
 }
 
 .gt-container .gt-comment-admin .gt-comment-content {
-  border-color: rgba(174, 164, 235, 0.18);
-  background: rgba(71, 77, 108, 0.52);
+  background: rgba(79, 58, 87, 0.54);
+}
+
+/* Gitalk derives this class from the configured admin login, WENTAO2297. */
+.gt-container .gt-comment-admin .gt-comment-username::after {
+  display: inline-block;
+  margin-left: 7px;
+  padding: 1px 5px;
+  border-radius: 5px;
+  background: rgba(244, 169, 214, 0.1);
+  color: var(--gitalk-accent-soft);
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 1.5;
+  vertical-align: middle;
+  content: '博主';
 }
 
 .gt-container .gt-comment-header {
@@ -351,6 +413,7 @@
   color: var(--gitalk-muted);
   font-size: 13px;
   line-height: 1.55;
+  overflow-wrap: anywhere;
 }
 
 .gt-container .gt-comment-username {
@@ -374,7 +437,9 @@
 .gt-container .gt-comment-edit,
 .gt-container .gt-comment-reply {
   top: 0;
-  height: 22px;
+  min-width: 24px;
+  height: 24px;
+  line-height: 24px;
   color: var(--gitalk-muted);
 }
 
@@ -413,29 +478,29 @@
 }
 
 .gt-container .markdown-body code {
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  background: rgba(20, 22, 34, 0.44);
+  border: 0;
+  background: rgba(28, 22, 38, 0.42);
   color: rgba(255, 255, 255, 0.88);
 }
 
 .gt-container .markdown-body pre {
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  background: rgba(20, 22, 34, 0.62);
+  border: 0;
+  background: rgba(28, 22, 38, 0.54);
 }
 
 .gt-container .markdown-body blockquote {
-  border-left-color: rgba(174, 164, 235, 0.42);
+  border-left-color: rgba(224, 202, 243, 0.28);
   color: rgba(255, 255, 255, 0.66);
 }
 
 .gt-container .markdown-body hr {
-  border-bottom-color: var(--gitalk-border);
+  border-bottom-color: var(--gitalk-divider);
 }
 
 .gt-container .gt-comment-body .email-hidden-toggle a {
   height: auto;
   padding: 4px 8px;
-  border: 1px solid var(--gitalk-border);
+  border: 0;
   border-radius: 5px;
   background: rgba(255, 255, 255, 0.07);
   color: var(--gitalk-text);
@@ -443,7 +508,7 @@
 }
 
 .gt-container .gt-comment-body .email-hidden-reply .email-signature-reply {
-  border-left-color: rgba(174, 164, 235, 0.38);
+  border-left-color: rgba(224, 202, 243, 0.28);
   color: var(--gitalk-muted);
 }
 
@@ -476,7 +541,7 @@
 .gt-container .gt-copyright {
   margin: 22px 0 0;
   padding-top: 10px;
-  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  border: 0;
   color: rgba(255, 255, 255, 0.3);
   font-size: 11px;
   text-align: right;
@@ -537,6 +602,27 @@
   }
 
   .gt-container .gt-comment-header {
-    padding-right: 54px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px 8px;
+    padding-right: 0;
+  }
+
+  .gt-container .gt-comment-block-1,
+  .gt-container .gt-comment-block-2 {
+    display: none;
+  }
+
+  .gt-container .gt-comment-text,
+  .gt-container .gt-comment-date {
+    margin-left: 0;
+  }
+
+  .gt-container .gt-comment-like,
+  .gt-container .gt-comment-edit,
+  .gt-container .gt-comment-reply {
+    position: static;
+    flex: 0 0 auto;
   }
 }
