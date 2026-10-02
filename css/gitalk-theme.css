@@ -6,8 +6,7 @@
   --gitalk-muted: rgba(255, 255, 255, 0.58);
   --gitalk-divider: rgba(224, 202, 243, 0.12);
   --gitalk-input: rgba(45, 40, 55, 0.6);
-  --gitalk-bubble: rgba(45, 40, 55, 0.54);
-  --gitalk-bubble-hover: rgba(52, 45, 63, 0.58);
+  --gitalk-surface: var(--gitalk-input);
   --gitalk-radius: 16px;
   --gitalk-blur: blur(6px);
   --gitalk-shadow: 0 3px 12px rgba(15, 10, 25, 0.1);
@@ -169,6 +168,13 @@
   background: var(--gitalk-accent-soft);
 }
 
+/* The menu's attribution is not a section footer: keep its spacing compact. */
+.gt-container .gt-popup .gt-copyright {
+  margin: 8px 0 0;
+  padding: 0 16px;
+  line-height: 1.5;
+}
+
 /* Editor: identity/avatar on the left and one generous input surface on the right. */
 .gt-container .gt-header {
   display: grid;
@@ -219,7 +225,7 @@
   border: 0;
   border-radius: var(--gitalk-radius);
   outline: 0;
-  background: var(--gitalk-input);
+  background: var(--gitalk-surface);
   -webkit-backdrop-filter: var(--gitalk-blur);
   backdrop-filter: var(--gitalk-blur);
   box-shadow: var(--gitalk-shadow);
@@ -236,17 +242,15 @@
 }
 
 .gt-container .gt-header-textarea:hover {
-  background: rgba(52, 45, 63, 0.62);
+  background: var(--gitalk-surface);
 }
 
 .gt-container .gt-header-textarea:focus {
-  background: rgba(52, 45, 63, 0.64);
-  box-shadow: 0 0 0 1px rgba(244, 169, 214, 0.36);
-}
-
-.gt-container .gt-header-textarea:focus-visible {
-  outline: 2px solid var(--gitalk-focus);
-  outline-offset: 3px;
+  background: var(--gitalk-surface);
+  box-shadow:
+    var(--site-shadow-card),
+    0 0 18px var(--accent-glow),
+    inset 0 0 0 1px var(--accent-border);
 }
 
 .gt-container .gt-header-controls {
@@ -376,7 +380,7 @@
   overflow: visible;
   border: 0;
   border-radius: 18px;
-  background: var(--gitalk-bubble);
+  background: var(--gitalk-surface);
   -webkit-backdrop-filter: var(--gitalk-blur);
   backdrop-filter: var(--gitalk-blur);
   box-shadow: var(--gitalk-shadow);
@@ -384,11 +388,13 @@
 }
 
 .gt-container .gt-comment-content:hover {
-  background: var(--gitalk-bubble-hover);
+  /* Neutralize Gitalk's upstream white hover halo; keep the shared surface. */
+  box-shadow: var(--gitalk-shadow);
 }
 
 .gt-container .gt-comment-admin .gt-comment-content {
-  background: rgba(79, 58, 87, 0.54);
+  /* Override the upstream admin tint without creating a separate material. */
+  background: var(--gitalk-surface);
 }
 
 /* Gitalk derives this class from the configured admin login, WENTAO2297. */
@@ -523,6 +529,29 @@
 
 .gt-container .gt-error {
   color: rgba(255, 210, 230, 0.78);
+}
+
+.gt-container .gt-error.gitalk-friendly-error,
+.gitalk-status-error.gitalk-friendly-error {
+  margin: 0 0 18px;
+  padding: 14px 18px;
+  border: 0;
+  border-radius: var(--gitalk-radius);
+  background: var(--gitalk-input);
+  -webkit-backdrop-filter: var(--gitalk-blur);
+  backdrop-filter: var(--gitalk-blur);
+  box-shadow: var(--gitalk-shadow);
+  color: var(--gitalk-muted);
+  font-size: 13px;
+  line-height: 1.8;
+  text-align: left;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+
+.gitalk-friendly-error::first-line {
+  color: var(--gitalk-text);
+  font-weight: 600;
 }
 
 .gt-container .gt-loader {

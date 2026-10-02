@@ -7,7 +7,8 @@
   const state = {
     container: null,
     pageId: '',
-    generation: 0
+    generation: 0,
+    errorObserver: null
   }
 
   const normalizePathname = value => {
@@ -129,6 +130,32 @@
     container.appendChild(status)
   }
 
+  // Normalize only Gitalk's top-level error text, never rendered comments.
+  // Keep its text node so upstream updates can still replace the message.
+  const observeFriendlyErrors = container => {
+    const rateLimit = '评论暂时无法加载\nGitHub API 请求较频繁，请稍后再试。'
+    const generic = '评论加载失败\n请稍后再试。'
+    const normalize = () => {
+      if (state.container !== container || !container.isConnected) return
+      container.querySelectorAll('.gt-container > .gt-error, :scope > .gitalk-status-error').forEach(error => {
+        const raw = error.textContent.trim()
+        if (raw === rateLimit || raw === generic) return
+        const message = /rate[\s_-]*limit|too many requests/i.test(raw) ? rateLimit : generic
+        if (error.childNodes.length === 1 && error.firstChild.nodeType === Node.TEXT_NODE) {
+          error.firstChild.nodeValue = message
+        } else {
+          error.replaceChildren(document.createTextNode(message))
+        }
+        error.classList.add('gitalk-friendly-error')
+        error.setAttribute('role', 'status')
+        error.setAttribute('aria-live', 'polite')
+      })
+    }
+    state.errorObserver = new MutationObserver(normalize)
+    state.errorObserver.observe(container, { childList: true, subtree: true, characterData: true })
+    normalize()
+  }
+
   const getConfig = container => {
     const { dataset } = container
     return {
@@ -191,6 +218,8 @@
 
   const cleanup = () => {
     state.generation += 1
+    state.errorObserver?.disconnect()
+    state.errorObserver = null
     if (state.container) {
       state.container.querySelectorAll('.gt-container').forEach(root => {
         root.addEventListener('autosize:resized', destroyDetachedAutosize)
@@ -222,6 +251,7 @@
     container.dataset.gitalkPageId = pageId
     const generation = state.generation
     const config = getConfig(container)
+    observeFriendlyErrors(container)
 
     try {
       if (!isConfigured(config)) {
