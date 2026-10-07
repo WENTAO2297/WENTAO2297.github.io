@@ -443,18 +443,14 @@ body.site-video-body #body-wrap:has(.about-profile-page) #content-inner {
     object-position: center 50%;
 }
 
-.about-profile-banner__image {
+/* Let the browser paint the hero as soon as it is available. */
+#article-container .about-profile-banner__image {
     opacity: 1;
-    transition: opacity 240ms ease;
+    transition: none;
 }
 
-.about-profile-banner.is-image-loading .about-profile-banner__image,
 .about-profile-banner.is-image-fallback .about-profile-banner__image {
     opacity: 0;
-}
-
-.about-profile-banner.is-image-ready .about-profile-banner__image {
-    opacity: 1;
 }
 
 .about-profile-banner__shade {

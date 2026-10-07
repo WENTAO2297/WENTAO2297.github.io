@@ -205,7 +205,6 @@
     updateConcurrency()
   }
 
-  const aboutBannerTimeout = 1200
   const prepareAboutBanner = () => {
     runtime.aboutBannerDispose?.()
     runtime.aboutBannerDispose = null
@@ -214,53 +213,29 @@
     const banner = image?.closest('.about-profile-banner')
     if (!image || !banner) return
 
-    let disposed = false
-    let ready = false
-    let timeout = null
-    const setState = state => {
-      banner.classList.remove('is-image-loading', 'is-image-ready', 'is-image-fallback')
-      banner.classList.add(`is-image-${state}`)
-      if (state === 'loading') banner.setAttribute('aria-busy', 'true')
-      else banner.removeAttribute('aria-busy')
-    }
+    // Native image loading controls painting; only hide a failed image.
+    // Rebinding on pageshow must not hide an already visible hero.
     const removeListeners = () => {
       image.removeEventListener('load', handleLoad)
       image.removeEventListener('error', handleError)
     }
-    const clearTimeoutFallback = () => {
-      if (timeout === null) return
-      window.clearTimeout(timeout)
-      timeout = null
-    }
-    const markReady = async () => {
-      if (disposed || ready || image.naturalWidth === 0) return
-      try { await image.decode?.() } catch {}
-      if (disposed || !image.isConnected || image.naturalWidth === 0) return
-      ready = true
-      clearTimeoutFallback()
+    function handleLoad () {
+      banner.classList.remove('is-image-fallback')
+      banner.removeAttribute('aria-busy')
       removeListeners()
-      setState('ready')
     }
-    const markFallback = () => {
-      if (disposed || ready) return
-      setState('fallback')
-    }
-    function handleLoad () { markReady() }
     function handleError () {
-      clearTimeoutFallback()
+      banner.classList.add('is-image-fallback')
+      banner.removeAttribute('aria-busy')
       removeListeners()
-      markFallback()
     }
 
-    setState('loading')
     image.addEventListener('load', handleLoad)
     image.addEventListener('error', handleError)
-    timeout = window.setTimeout(markFallback, aboutBannerTimeout)
-    if (image.complete) image.naturalWidth > 0 ? markReady() : handleError()
+    if (image.complete) image.naturalWidth > 0 ? handleLoad() : handleError()
+    else banner.setAttribute('aria-busy', 'true')
 
     runtime.aboutBannerDispose = () => {
-      disposed = true
-      clearTimeoutFallback()
       removeListeners()
       banner.removeAttribute('aria-busy')
     }
