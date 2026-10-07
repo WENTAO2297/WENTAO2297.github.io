@@ -328,12 +328,6 @@
   pointer-events: auto;
 }
 
-.home-dashboard .dashboard-card--projects {
-  grid-column: 1 / -1;
-  min-height: 148px;
-  animation-delay: 160ms;
-}
-
 .home-dashboard .dashboard-card--lyrics {
   display: flex;
   grid-column: 1 / -1;
@@ -1147,10 +1141,6 @@
   .home-dashboard {
     grid-template-columns: minmax(0, 1fr);
     gap: 14px;
-  }
-
-  .home-dashboard .dashboard-card--projects {
-    grid-column: auto;
   }
 
   .home-dashboard .dashboard-search-shell {

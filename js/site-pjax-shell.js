@@ -92,7 +92,9 @@
   }
 
   const isCurrentNavigation = (link, currentPath) => {
-    const linkPath = normalizePath(new URL(link.href, window.location.href).pathname)
+    const linkUrl = new URL(link.href, window.location.href)
+    if (linkUrl.origin !== window.location.origin) return false
+    const linkPath = normalizePath(linkUrl.pathname)
     if (linkPath === '/') return currentPath === '/'
     return currentPath === linkPath || currentPath.startsWith(`${linkPath}/`)
   }
@@ -111,6 +113,9 @@
       link.classList.toggle('active', active)
       if (active) link.setAttribute('aria-current', 'page')
       else link.removeAttribute('aria-current')
+    })
+    document.querySelectorAll('#nav .menus_item, #sidebar-menus .menus_item').forEach(item => {
+      item.querySelector(':scope > .group')?.classList.toggle('active', Boolean(item.querySelector('a.active')))
     })
   }
 

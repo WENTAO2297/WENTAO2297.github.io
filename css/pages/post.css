@@ -358,10 +358,14 @@ body.site-video-body #body-wrap.post #aside-content .card-info-social-icons .fa-
     body.site-video-body #body-wrap.post #aside-content .sticky_layout {
         position: sticky;
         position: -webkit-sticky;
-        top: var(--post-nav-offset);
+        top: 0;
         align-self: start;
         height: max-content;
         overflow: visible;
+    }
+
+    body.site-video-body:has(#page-header #nav:not(.capsule-scroll-hidden)) #body-wrap.post #aside-content .sticky_layout {
+        top: var(--post-nav-offset);
     }
 }
 

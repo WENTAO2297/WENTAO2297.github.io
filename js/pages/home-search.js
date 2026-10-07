@@ -1,4 +1,9 @@
 (() => {
+  if (window.initHomeDashboardSearch) {
+    window.initHomeDashboardSearch()
+    return
+  }
+
   const stripHtml = value => {
     const documentFragment = new DOMParser().parseFromString(value || '', 'text/html')
     return (documentFragment.body.textContent || '').replace(/\s+/g, ' ').trim()
@@ -8,7 +13,7 @@
     if (window.homeSearchIndexPromise) return window.homeSearchIndexPromise
 
     const searchPath = window.GLOBAL_CONFIG?.localSearch?.path || '/search.xml'
-    const metadataElement = document.getElementById('home-search-metadata')
+    const metadataElement = document.getElementById('capsule-search-metadata') || document.getElementById('home-search-metadata')
     let metadata = []
 
     try {
@@ -68,15 +73,16 @@
   }
 
   const closeCurrentResults = () => {
-    const input = document.getElementById('home-search-input')
-    const results = document.getElementById('home-search-results')
-    if (input && results) setResultsOpen(results, input, false)
+    document.querySelectorAll('.dashboard-search__input').forEach(input => {
+      const results = document.getElementById(input.getAttribute('aria-controls'))
+      input.closest('form')?.dispatchEvent(new Event('search:close'))
+      if (results) setResultsOpen(results, input, false)
+    })
   }
 
-  const renderResults = (container, entries, query) => {
+  const renderResults = (container, input, entries, query) => {
     const status = container.querySelector('.dashboard-search-results__status')
     const list = container.querySelector('.dashboard-search-results__list')
-    const input = document.getElementById('home-search-input')
     const keywords = query.toLocaleLowerCase().split(/\s+/).filter(Boolean)
 
     const results = entries.map(entry => {
@@ -111,19 +117,31 @@
       list.append(item)
     })
 
+    window.pjax?.refresh(container)
     if (input) setResultsOpen(container, input, true)
   }
 
   const initHomeSearch = () => {
-    const form = document.querySelector('.dashboard-search')
-    const input = document.getElementById('home-search-input')
-    const results = document.getElementById('home-search-results')
+    document.querySelectorAll('.dashboard-search').forEach(initSearchForm)
+  }
+
+  const initSearchForm = form => {
+    const input = form.querySelector('.dashboard-search__input')
+    const results = input && document.getElementById(input.getAttribute('aria-controls'))
     if (!form || !input || !results || form.dataset.searchReady === 'true') return
 
+    let requestId = 0
+    let searchTimer = 0
+    form.addEventListener('search:close', () => {
+      clearTimeout(searchTimer)
+      requestId++
+    })
     form.dataset.searchReady = 'true'
     form.addEventListener('submit', event => {
       event.preventDefault()
+      clearTimeout(searchTimer)
       const query = input.value.trim()
+      const currentRequest = ++requestId
 
       if (!query) {
         setResultsOpen(results, input, false)
@@ -137,15 +155,29 @@
       results.querySelector('.dashboard-search-results__list').replaceChildren()
 
       loadSearchIndex()
-        .then(entries => renderResults(results, entries, query))
+        .then(entries => {
+          if (currentRequest !== requestId || !form.isConnected || input.value.trim() !== query || results.hidden) return
+          renderResults(results, input, entries, query)
+        })
         .catch(() => {
+          if (currentRequest !== requestId || !form.isConnected || results.hidden) return
           results.querySelector('.dashboard-search-results__status').textContent = '搜索索引暂时不可用，请稍后再试。'
         })
     })
 
-    input.addEventListener('input', () => {
-      if (!input.value.trim()) setResultsOpen(results, input, false)
-    })
+    const scheduleSearch = event => {
+      requestId++
+      clearTimeout(searchTimer)
+      if (!input.value.trim()) {
+        setResultsOpen(results, input, false)
+        return
+      }
+      if (form.dataset.searchLive === 'true' && !event.isComposing) {
+        searchTimer = setTimeout(() => form.requestSubmit(), 180)
+      }
+    }
+    input.addEventListener('input', scheduleSearch)
+    input.addEventListener('compositionend', scheduleSearch)
 
     input.addEventListener('keydown', event => {
       if (event.key !== 'Enter' || event.isComposing) return
@@ -162,10 +194,15 @@
     window.homeDashboardSearchPjaxBound = true
     window.addEventListener('pjax:complete', initHomeSearch)
     document.addEventListener('click', event => {
-      const searchShell = document.querySelector('.dashboard-search-shell')
-      if (searchShell && !searchShell.contains(event.target)) {
-        window.closeHomeDashboardSearchResults?.()
-      }
+      document.querySelectorAll('.dashboard-search').forEach(form => {
+        const searchShell = form.closest('.dashboard-search-shell, .notes-search-shell')
+        if (!searchShell) return
+        const input = form.querySelector('.dashboard-search__input')
+        const results = document.getElementById(input.getAttribute('aria-controls'))
+        if (searchShell.contains(event.target) || results?.contains(event.target)) return
+        form.dispatchEvent(new Event('search:close'))
+        if (results) setResultsOpen(results, input, false)
+      })
     })
     document.addEventListener('keydown', event => {
       if (event.key === 'Escape') window.closeHomeDashboardSearchResults?.()

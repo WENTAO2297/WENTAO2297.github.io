@@ -536,12 +536,13 @@
   margin: 0 0 18px;
   padding: 14px 18px;
   border: 0;
-  border-radius: var(--gitalk-radius);
-  background: var(--gitalk-input);
-  -webkit-backdrop-filter: var(--gitalk-blur);
-  backdrop-filter: var(--gitalk-blur);
-  box-shadow: var(--gitalk-shadow);
-  color: var(--gitalk-muted);
+  border-radius: 0;
+  background: transparent;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  box-shadow: none;
+  color: rgba(255, 239, 247, 0.94);
+  text-shadow: 0 1px 3px rgba(20, 12, 30, 0.65);
   font-size: 13px;
   line-height: 1.8;
   text-align: left;
@@ -550,7 +551,7 @@
 }
 
 .gitalk-friendly-error::first-line {
-  color: var(--gitalk-text);
+  color: #fff7fb;
   font-weight: 600;
 }
 

@@ -1,5 +1,4 @@
-.type-study-journey #page,
-.type-personal-space #page {
+.type-study-journey #page {
   width: 100%;
   max-width: none;
   margin-top: 0 !important;
@@ -10,20 +9,16 @@
 }
 
 .type-study-journey #page .page-title,
-.type-personal-space #page .page-title,
-.type-study-journey #page-header #page-site-info,
-.type-personal-space #page-header #page-site-info {
+.type-study-journey #page-header #page-site-info {
   display: none;
 }
 
-.type-study-journey #page-header,
-.type-personal-space #page-header {
+.type-study-journey #page-header {
   height: 70px;
   min-height: 70px;
 }
 
-.type-study-journey #content-inner,
-.type-personal-space #content-inner {
+.type-study-journey #content-inner {
   padding-top: 0 !important;
 }
 

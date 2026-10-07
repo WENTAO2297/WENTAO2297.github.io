@@ -1,0 +1,127 @@
+.home-content-entries {
+  --entry-height: clamp(320px, 27.2vw, 384px);
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  gap: var(--dashboard-gap);
+  min-width: 0;
+}
+
+.home-dashboard .home-entry {
+  height: var(--entry-height);
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  background: #171321;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  animation-delay: 160ms;
+  transition: none;
+  isolation: isolate;
+}
+
+.home-entry__link {
+  position: relative;
+  display: block;
+  height: 100%;
+  color: rgba(255, 255, 255, .94) !important;
+}
+
+.home-entry__media {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  filter: brightness(.8);
+  transition: transform 1100ms cubic-bezier(.18, .8, .22, 1), filter 500ms cubic-bezier(.4, 0, .2, 1);
+}
+
+.home-entry__image {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 920ms cubic-bezier(.4, 0, .2, 1);
+}
+
+/* Keep portrait heads inside the shorter frame without stretching photos. */
+.home-entry--champions .home-entry__media { transform-origin: center top; }
+.home-entry--champions .home-entry__image { height: auto; min-height: 100%; }
+
+/* Fade only the incoming photo, keeping an opaque photo beneath it. */
+.home-entry__image.is-underlay { z-index: 1; opacity: 1; transition: none; }
+.home-entry__image.is-active { z-index: 2; opacity: 1; }
+.home-entry__image.is-preparing { opacity: 0; transition: none; }
+
+.home-entry__link::after {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  content: '';
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(12, 9, 24, .35), transparent 30%, rgba(12, 9, 24, .12) 48%, rgba(12, 9, 24, .88));
+}
+
+.home-entry__heading {
+  position: absolute;
+  inset: 20px 22px auto;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, .8);
+}
+
+.home-entry__label { font-size: .9rem; font-weight: 700; }
+
+.home-entry__caption { position: absolute; inset: auto 0 24px; z-index: 4; padding: 0 24px; }
+
+.home-entry__slides { display: grid; }
+.home-entry__slide {
+  grid-area: 1 / 1;
+  align-self: end;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 400ms cubic-bezier(.4, 0, .2, 1), visibility 0s linear 400ms;
+}
+.home-entry__slide.is-active { opacity: 1; visibility: visible; transition-delay: 0s; }
+.home-entry__title {
+  margin: 0 0 10px;
+  color: inherit;
+  font-size: clamp(20px, 1.8vw, 25px);
+  line-height: 1.3;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
+.home-entry__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  margin: 0;
+  font-size: .76rem;
+  color: rgba(255, 255, 255, .74);
+}
+.home-entry__link:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: -3px;
+}
+.home-entry__link:focus-visible .home-entry__media { filter: brightness(1); }
+.home-entry__status { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.home-entry__link { touch-action: pan-y pinch-zoom; }
+@media (hover: hover) and (pointer: fine) {
+  .home-entry:hover .home-entry__media { transform: scale(1.055); filter: brightness(1); }
+}
+@media (max-width: 600px) {
+  .home-content-entries { --entry-height: clamp(288px, 84vw, 352px); grid-column: auto; grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  .home-entry__heading { inset: 18px 20px auto; }
+  .home-entry__caption { padding-inline: 20px; }
+  .home-entry__title { font-size: 21px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-entry__media, .home-entry__image, .home-entry__slide { transition: none; }
+  .home-entry:hover .home-entry__media { transform: none; }
+}
