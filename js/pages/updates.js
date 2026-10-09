@@ -232,7 +232,11 @@
     const root = document.querySelector('.updates-page')
     if (instance?.root === root) return
     destroy()
-    if (root && window.SitePageRuntime?.create) instance = create(root)
+    if (root && window.SitePageRuntime?.create) {
+      instance = create(root)
+      // Start entrance only after cards have moved into their visible desktop/mobile lanes.
+      window.PageMotion?.init()
+    }
   }
 
   window.UpdatesPage = Object.freeze({ init, destroy })

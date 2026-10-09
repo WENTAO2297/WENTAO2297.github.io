@@ -364,6 +364,11 @@
       return false
     }
 
+    // PJAX loads UpdatesPage asynchronously; wait until it has exposed the correct lanes.
+    // Otherwise hidden desktop cards are skipped and can never receive their entrance.
+    const updatesPage = container.querySelector('.updates-page')
+    if (updatesPage && updatesPage.dataset.ready !== 'true') return false
+
     if (runtime.container === container && container.dataset.pageMotionInitialized === 'true') return true
 
     let generation = null

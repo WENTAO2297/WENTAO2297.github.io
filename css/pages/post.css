@@ -221,7 +221,7 @@ body.site-video-body #body-wrap.post #article-container .highlight {
     max-width: 100%;
     margin: 1.7em 0;
     overflow: auto;
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    border: 1px solid transparent;
     border-radius: 14px;
     background: rgba(18, 18, 22, 0.92);
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
@@ -269,7 +269,7 @@ body.site-video-body #body-wrap.post #article-container .table-wrap {
     max-width: 100%;
     margin: 1.6em 0;
     overflow-x: auto;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid transparent;
     border-radius: 12px;
     background-image: linear-gradient(to right, #3b3148 70%, transparent),
         linear-gradient(to left, #3b3148 70%, transparent),
@@ -302,7 +302,7 @@ body.site-video-body #body-wrap.post #article-container img {
     max-width: 100%;
     height: auto;
     margin: 1.7em auto;
-    border: 1px solid rgba(255, 255, 255, 0.14);
+    border: 1px solid transparent;
     border-radius: 14px;
     box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
     transition: transform 380ms var(--page-enter-ease);
@@ -328,7 +328,7 @@ body.site-video-body #body-wrap.post #article-container figure figcaption {
 body.site-video-body #body-wrap.post #post .post-copyright,
 body.site-video-body #body-wrap.post #post .tag_share,
 body.site-video-body #body-wrap.post #post .pagination-post {
-    border-color: rgba(255, 255, 255, 0.12);
+    border-color: transparent;
 }
 
 body.site-video-body #body-wrap.post #post .post-copyright {

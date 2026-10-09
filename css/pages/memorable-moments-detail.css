@@ -153,7 +153,7 @@
   min-width: 0;
   margin: 0;
   overflow: hidden;
-  border: 1px solid rgba(238, 205, 244, 0.15);
+  border: 1px solid transparent;
   border-radius: 14px;
   background: rgba(52, 31, 67, 0.5);
   transition: border-color 220ms ease, filter 220ms ease;
@@ -395,7 +395,7 @@
   width: 42px;
   height: 42px;
   place-items: center;
-  border: 1px solid rgba(255, 226, 249, 0.28);
+  border: 1px solid transparent;
   border-radius: 50%;
   background: rgba(72, 42, 82, 0.54);
   color: rgba(255, 248, 255, 0.92);

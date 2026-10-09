@@ -27,15 +27,16 @@ body.site-video-body #body-wrap.type-changelog #page {
 }
 
 .changelog-page {
-  width: min(var(--content-max-width, 1100px), calc(100% - 40px));
+  width: calc(100% - var(--wide-page-gutter));
+  max-width: var(--wide-page-max-width);
   margin: 0 auto;
-  padding: 38px 0 80px;
+  padding: 26px 0 60px;
   color: var(--site-text-primary);
   overflow-wrap: anywhere;
 }
 
 .changelog-page__heading {
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 
 .changelog-page .changelog-page__title {
@@ -53,8 +54,8 @@ body.site-video-body #body-wrap.type-changelog #page {
 }
 
 .changelog-timeline {
-  --date-width: 126px;
-  --timeline-gap: 32px;
+  --date-width: 112px;
+  --timeline-gap: 28px;
   position: relative;
   margin: 0;
   padding: 0;
@@ -128,13 +129,13 @@ body.site-video-body #body-wrap.type-changelog #page {
 .changelog-entry__card {
   min-width: 0;
   padding: 28px;
-  /* Match the updates page glass surface. */
-  border: var(--glass-ui-outline);
+  /* Use the same borderless glass as the navigation and homepage. */
+  border: var(--capsule-surface-border);
   border-radius: var(--card-radius, 22px);
-  background: var(--glass-ui-bg-strong);
-  box-shadow: var(--glass-ui-shadow-soft);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
+  background: var(--capsule-surface-bg);
+  box-shadow: var(--capsule-surface-shadow);
+  backdrop-filter: var(--capsule-surface-filter);
+  -webkit-backdrop-filter: var(--capsule-surface-filter);
 }
 
 .changelog-entry__update + .changelog-entry__update {
@@ -164,8 +165,8 @@ body.site-video-body #body-wrap.type-changelog #page {
 }
 
 @media (max-width: 760px) {
-  .changelog-page { width: calc(100% - 24px); padding: 28px 0 60px; }
-  .changelog-page__heading { margin: 0 6px 24px; }
+  .changelog-page { padding: 16px 0 40px; }
+  .changelog-page__heading { margin: 0 0 20px; }
   .changelog-entry__card { padding: 22px 20px; }
 }
 

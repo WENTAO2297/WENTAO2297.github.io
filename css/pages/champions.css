@@ -12,7 +12,7 @@ body.site-video-body {
   --hltv-score-win: #6fbd74;
   --hltv-score-loss: #e05b5b;
   --champions-panel-bg: rgba(28, 20, 43, 0.58);
-  --champions-panel-border: var(--site-border-subtle);
+  --champions-panel-border: transparent;
   --champions-card-width: 344px;
   --champions-card-height: 386px;
   --champions-card-gap: 28px;

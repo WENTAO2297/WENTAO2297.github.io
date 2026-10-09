@@ -5,8 +5,8 @@
 #body-wrap.home-dashboard-page > #content-inner.home-dashboard-content {
   position: relative;
   flex: 1 auto;
-  width: calc(100% - 64px);
-  max-width: 1480px;
+  width: calc(100% - var(--wide-page-gutter));
+  max-width: var(--wide-page-max-width);
   padding: 36px 0 34px;
   margin-inline: auto;
   animation: none;
@@ -106,7 +106,7 @@
 
 /* A soft inset clock and quiet metadata echo the existing navigation capsule. */
 .home-dashboard .dashboard-card--website { display: flex; align-items: center; gap: 20px; justify-self: center; width: 100%; min-height: 78px; margin-top: 10px; padding: 10px 24px 10px 12px; border-radius: 999px; background: var(--capsule-surface-bg); }
-.home-dashboard .website-status__clock-panel { display: grid; place-items: center; flex: 0 0 174px; align-self: stretch; min-height: 54px; padding: 0 18px; border: 1px solid rgba(200, 173, 232, .12); border-radius: 999px; background: rgba(41, 28, 64, .38); }
+.home-dashboard .website-status__clock-panel { display: grid; place-items: center; flex: 0 0 174px; align-self: stretch; min-height: 54px; padding: 0 18px; border: 1px solid transparent; border-radius: 999px; background: rgba(41, 28, 64, .38); }
 .home-dashboard .website-status__clock { color: #f7efff; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 26px; font-weight: 650; line-height: 1; letter-spacing: .025em; font-variant-numeric: tabular-nums; }
 .home-dashboard .website-status__panel { display: flex; flex: 1; justify-content: space-between; align-items: center; gap: 16px; min-width: 0; }
 .home-dashboard .website-status__runtime,
@@ -120,7 +120,7 @@
 .home-dashboard .website-status__last-update strong { font-weight: 400; }
 .home-dashboard .website-status__calendar { width: 13px; height: 13px; }
 
-.home-social-copy-toast { position: fixed; z-index: 9999; bottom: calc(24px + env(safe-area-inset-bottom, 0px)); left: 50%; max-width: min(280px, calc(100vw - 32px)); padding: 11px 18px; border: 1px solid rgba(229, 200, 248, .25); border-radius: 999px; background: rgba(40, 29, 57, .94); box-shadow: 0 8px 25px rgba(12, 6, 24, .2); color: #f6eafa; font-size: 14px; line-height: 1.4; opacity: 0; pointer-events: none; transform: translate(-50%, 8px); transition: opacity .18s ease, transform .18s ease; }
+.home-social-copy-toast { position: fixed; z-index: 9999; bottom: calc(24px + env(safe-area-inset-bottom, 0px)); left: 50%; max-width: min(280px, calc(100vw - 32px)); padding: 11px 18px; border: 1px solid transparent; border-radius: 999px; background: rgba(40, 29, 57, .94); box-shadow: 0 8px 25px rgba(12, 6, 24, .2); color: #f6eafa; font-size: 14px; line-height: 1.4; opacity: 0; pointer-events: none; transform: translate(-50%, 8px); transition: opacity .18s ease, transform .18s ease; }
 .home-social-copy-toast.is-visible { opacity: 1; transform: translate(-50%, 0); }
 
 @media (max-width: 1100px) {
