@@ -103,3 +103,8 @@
   .home-content-entries .website-status__clock { font-size: 22px; }
   .home-dashboard .home-content-entries > .dashboard-card--website { gap: 12px; padding-right: 18px; }
 }
+
+/* An intentionally empty selection keeps the homepage entry without a carousel. */
+.home-dashboard .home-entry--empty { display: grid; place-items: center; min-height: 260px; background: var(--dashboard-card-bg, #30283d); }
+.home-entry__empty-link { color: #e9c2f8 !important; padding: 12px 20px; border: 1px solid rgba(233, 194, 248, .3); border-radius: 999px; }
+.home-entry__empty-link:focus-visible { outline: 2px solid var(--accent-color); outline-offset: 4px; }
