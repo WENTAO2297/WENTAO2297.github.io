@@ -27,10 +27,13 @@
   let lastScrollTop = 0
   let scrollTravel = 0
   let resizeFrame = 0
-  let observedHome = null
   const groupCloseTimers = new WeakMap()
 
   if (!nav) return
+
+  const setStyleIfChanged = (element, name, value) => {
+    if (element.style.getPropertyValue(name) !== value) element.style.setProperty(name, value)
+  }
 
   const setAccent = name => {
     const color = colors[name]
@@ -103,9 +106,8 @@
   // Keep the same grid throughout the morph; measure existing content without clones.
   const updateMorphedWidth = () => {
     nav.classList.toggle('hide-menu', window.innerWidth <= 1240)
-    const home = document.getElementById('home-dashboard')
-    if (home) nav.style.setProperty('--capsule-expanded-width', `${home.getBoundingClientRect().width}px`)
-    else nav.style.removeProperty('--capsule-expanded-width')
+    // Expanded width is shared CSS across pages; only intrinsic compact content
+    // needs measuring. PJAX no longer retargets the bar to a page-specific grid.
     if (window.innerWidth <= 768 && nav.classList.contains('capsule-search-open')) return
     const brand = nav.querySelector('#blog-info')
     const tools = nav.querySelector('.capsule-tools')
@@ -122,7 +124,8 @@
   const setMorphed = shouldMorph => {
     if (shouldMorph === nav.classList.contains('capsule-morphed')) return
     nav.classList.toggle('capsule-morphed', shouldMorph)
-    queueResize()
+    // Morphing only changes the outer box. Its content widths are already
+    // tracked by ResizeObserver; measuring again here forces layout mid-transition.
   }
 
   const updateScrollState = () => {
@@ -130,6 +133,8 @@
     const direction = scrollTop - lastScrollTop
     const overHero = scrollTop < getHeroBoundary()
     const pinned = nav.classList.contains('capsule-search-open')
+      || nav.classList.contains('capsule-profile-open')
+      || Boolean(nav.querySelector('[data-nav-surface-state="closing"]'))
       || Boolean(menuSurface.querySelector('.menus_item.is-open'))
       || Boolean(nav.querySelector(':focus-visible'))
       || nav.querySelector('[data-capsule-palette]')?.getAttribute('aria-expanded') === 'true'
@@ -162,12 +167,22 @@
   }
 
   const alignDropdownPanels = () => {
+    const hosts = [...nav.querySelectorAll('.menus_item:has(> .menus_item_child), .capsule-palette')].filter(host => {
+      const panel = host.querySelector(':scope > .menus_item_child, :scope > .capsule-palette__options')
+      return panel && !panel.hidden && ['open', 'closing'].includes(panel.dataset.navSurfaceState)
+        && host.offsetParent !== null
+    })
+    // Closed menus need no geometry work during the capsule's scroll morph.
+    if (!hosts.length) return
     const bottom = nav.getBoundingClientRect().bottom
-    nav.querySelectorAll('.menus_item:has(> .menus_item_child), .capsule-palette').forEach(host => {
-      if (host.offsetParent === null) return
+    // Read every visible host first, then write, to avoid repeated forced layouts.
+    const positions = hosts.map(host => {
       const rect = host.getBoundingClientRect()
-      host.style.setProperty('--capsule-panel-top', `${bottom - rect.top - host.clientTop}px`)
-      host.style.setProperty('--capsule-panel-bridge', `${Math.max(0, bottom - rect.bottom) + 2}px`)
+      return { host, top: bottom - rect.top - host.clientTop, bridge: Math.max(0, bottom - rect.bottom) + 2 }
+    })
+    positions.forEach(({ host, top, bridge }) => {
+      setStyleIfChanged(host, '--capsule-panel-top', `${top}px`)
+      setStyleIfChanged(host, '--capsule-panel-bridge', `${bridge}px`)
     })
   }
 
@@ -179,15 +194,6 @@
       alignDropdownPanels()
       if (pendingIndicator?.isConnected) placeIndicator(pendingIndicator)
     })
-  }
-
-  const homeWidthObserver = new ResizeObserver(queueResize)
-  const observeHomeWidth = () => {
-    const home = document.getElementById('home-dashboard')
-    if (home === observedHome) return
-    homeWidthObserver.disconnect()
-    observedHome = home
-    if (home) homeWidthObserver.observe(home)
   }
 
   const isWithinSearch = target => Boolean(target instanceof Node && (
@@ -242,7 +248,7 @@
   const closePalette = () => {
     const toggle = nav.querySelector('[data-capsule-palette]')
     const options = nav.querySelector('#capsule-palette-options')
-    options.hidden = true
+    window.SiteNavSurfaceMotion.setOpen(options, false)
     toggle.setAttribute('aria-expanded', 'false')
   }
 
@@ -259,6 +265,7 @@
   const setGroupOpen = (item, open) => {
     clearTimeout(groupCloseTimers.get(item))
     groupCloseTimers.delete(item)
+    window.SiteNavSurfaceMotion.setOpen(item.querySelector(':scope > .menus_item_child'), open)
     item.classList.toggle('is-open', open)
     const trigger = item.querySelector(':scope > .group')
     trigger?.classList.toggle('hide', !open)
@@ -278,7 +285,6 @@
     lastScrollTop = getScrollTop()
     hideIndicator()
     syncPlayer()
-    observeHomeWidth()
     updateMorphedWidth()
     alignDropdownPanels()
     nav.classList.remove('capsule-scroll-hidden')
@@ -418,10 +424,11 @@
     const palette = event.target.closest('[data-capsule-palette]')
     if (palette) {
       closeSearch()
-      alignDropdownPanels()
       const options = nav.querySelector('#capsule-palette-options')
-      options.hidden = !options.hidden
-      palette.setAttribute('aria-expanded', String(!options.hidden))
+      const open = palette.getAttribute('aria-expanded') !== 'true'
+      window.SiteNavSurfaceMotion.setOpen(options, open)
+      palette.setAttribute('aria-expanded', String(open))
+      if (open) alignDropdownPanels()
       return
     }
 

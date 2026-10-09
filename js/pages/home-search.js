@@ -66,7 +66,8 @@
   }
 
   const setResultsOpen = (container, input, isOpen) => {
-    container.hidden = !isOpen
+    if (container.closest('#nav')) window.SiteNavSurfaceMotion.setOpen(container, isOpen)
+    else container.hidden = !isOpen
     container.classList.toggle('is-open', isOpen)
     container.setAttribute('aria-hidden', String(!isOpen))
     input.setAttribute('aria-expanded', String(isOpen))
@@ -145,8 +146,6 @@
 
       if (!query) {
         setResultsOpen(results, input, false)
-        results.querySelector('.dashboard-search-results__list').replaceChildren()
-        results.querySelector('.dashboard-search-results__status').textContent = ''
         return
       }
 
@@ -156,11 +155,11 @@
 
       loadSearchIndex()
         .then(entries => {
-          if (currentRequest !== requestId || !form.isConnected || input.value.trim() !== query || results.hidden) return
+          if (currentRequest !== requestId || !form.isConnected || input.value.trim() !== query || input.getAttribute('aria-expanded') !== 'true') return
           renderResults(results, input, entries, query)
         })
         .catch(() => {
-          if (currentRequest !== requestId || !form.isConnected || results.hidden) return
+          if (currentRequest !== requestId || !form.isConnected || input.getAttribute('aria-expanded') !== 'true') return
           results.querySelector('.dashboard-search-results__status').textContent = '搜索索引暂时不可用，请稍后再试。'
         })
     })

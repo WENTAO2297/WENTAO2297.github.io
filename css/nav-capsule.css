@@ -1,3 +1,20 @@
+/* Shared with the homepage cards so the glass is one material. */
+body.site-video-body {
+    --capsule-max-width: 1200px;
+    --capsule-expanded-width: min(var(--capsule-max-width), calc(100vw - 80px));
+    --capsule-surface-bg: rgba(49, 44, 57, .78);
+    --capsule-surface-border: 1px solid transparent;
+    --capsule-surface-shadow: 0 14px 36px rgba(12, 8, 23, .2);
+    --capsule-surface-filter: blur(20px) saturate(1.15);
+}
+
+@media (max-width: 1100px) {
+    body.site-video-body { --capsule-expanded-width: min(var(--capsule-max-width), calc(100vw - 40px)); }
+}
+@media (max-width: 768px) {
+    body.site-video-body { --capsule-expanded-width: calc(100vw - 32px); }
+}
+
 body.site-video-body #page-header {
     z-index: 20;
 }
@@ -10,21 +27,22 @@ body.site-video-body #page-header #nav {
     transform: translate3d(0, 0, 0);
     z-index: 110;
     display: grid;
-    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    /* Center the menu in the space between the brand and the animated search. */
+    grid-template-columns: max-content minmax(0, 1fr) max-content;
     align-items: center;
     gap: 16px;
-    width: var(--capsule-expanded-width, min(var(--content-max-width, 1100px), calc(100% - 40px)));
-    max-width: min(var(--content-max-width, 1100px), calc(100% - 10px));
+    width: var(--capsule-expanded-width, min(var(--capsule-max-width), calc(100% - 40px)));
+    max-width: min(var(--capsule-max-width), calc(100% - 10px));
     height: 72px;
     margin-inline: auto;
     padding: 0 24px;
     overflow: visible;
-    border: 1px solid rgba(255, 255, 255, .1) !important;
+    border: var(--capsule-surface-border) !important;
     border-radius: 999px;
-    background: rgba(49, 44, 57, .78) !important;
-    box-shadow: 0 14px 36px rgba(12, 8, 23, .2), inset 0 1px 0 rgba(255, 255, 255, .08) !important;
-    -webkit-backdrop-filter: blur(20px) saturate(1.15) !important;
-    backdrop-filter: blur(20px) saturate(1.15) !important;
+    background: var(--capsule-surface-bg) !important;
+    box-shadow: var(--capsule-surface-shadow) !important;
+    -webkit-backdrop-filter: var(--capsule-surface-filter) !important;
+    backdrop-filter: var(--capsule-surface-filter) !important;
     isolation: isolate;
     opacity: 0;
     --capsule-transition: width .45s cubic-bezier(.16, 1, .3, 1), height .45s cubic-bezier(.16, 1, .3, 1), padding .45s cubic-bezier(.16, 1, .3, 1), gap .45s cubic-bezier(.16, 1, .3, 1), margin-inline .45s cubic-bezier(.16, 1, .3, 1), opacity .24s ease, transform .42s cubic-bezier(.22, 1, .36, 1), background-color .28s ease, box-shadow .28s ease, border-color .28s ease;
@@ -73,10 +91,10 @@ body.site-video-body #page-header #nav.capsule-morphed {
     width: min(var(--capsule-compact-width, 760px), calc(100% - 24px));
     gap: 14px;
     padding-inline: 18px;
-    max-width: min(var(--capsule-expanded-width, var(--content-max-width, 1100px)), calc(100vw - 24px));
+    max-width: min(var(--capsule-expanded-width, var(--capsule-max-width)), calc(100vw - 24px));
     background: rgba(43, 39, 51, .9) !important;
-    border-color: rgba(255, 255, 255, .14) !important;
-    box-shadow: 0 10px 28px rgba(12, 8, 23, .28), inset 0 1px 0 rgba(255, 255, 255, .09) !important;
+    border-color: transparent !important;
+    box-shadow: 0 10px 28px rgba(12, 8, 23, .28) !important;
 }
 
 body.site-video-body #page-header #nav #blog-info {
@@ -122,7 +140,7 @@ body.site-video-body #page-header #nav .capsule-menu-surface {
     align-items: center;
     min-height: 48px;
     padding: 4px;
-    border: 1px solid rgba(255, 255, 255, .035);
+    border: 1px solid transparent;
     border-radius: 999px;
     background: rgba(255, 255, 255, .075);
 }
@@ -198,7 +216,7 @@ body.site-video-body #page-header #nav .capsule-menu-surface .menus_item_child {
     min-width: 200px;
     padding: 6px;
     transform: translateX(-50%);
-    animation: capsule-panel-drop .24s cubic-bezier(.2, .8, .2, 1) backwards;
+
     border: 1px solid rgba(255, 255, 255, .09);
     border-radius: 16px;
     background: rgba(42, 37, 51, .96);
@@ -311,7 +329,7 @@ body.site-video-body #page-header #nav .capsule-palette__options {
 }
 
 body.site-video-body #page-header #nav .capsule-palette__options[hidden] { display: none; }
-body.site-video-body #page-header #nav .capsule-palette__options:not([hidden]) { animation: capsule-options-in .2s cubic-bezier(.2, .8, .2, 1) both; }
+
 body.site-video-body #page-header #nav .capsule-swatch { width: 20px; height: 20px; padding: 0; border: 2px solid rgba(255, 255, 255, .64); border-radius: 50%; cursor: pointer; transition: transform .18s ease; }
 body.site-video-body #page-header #nav .capsule-swatch:hover { transform: scale(1.18); }
 body.site-video-body #page-header #nav .capsule-swatch[data-capsule-accent='pink'] { background: #f3b6df; }
@@ -325,7 +343,7 @@ body.site-video-body #page-header #nav .capsule-search-shell {
     flex: 0 0 auto;
     width: 42px;
     margin-right: 0;
-    transition: width .28s ease;
+    transition: width .45s cubic-bezier(.16, 1, .3, 1), margin-right .45s cubic-bezier(.16, 1, .3, 1);
 }
 body.site-video-body #page-header #nav .dashboard-search-results[hidden] { display: none; }
 body.site-video-body #page-header #nav .dashboard-search {
@@ -378,11 +396,11 @@ body.site-video-body #page-header #nav .dashboard-search-results {
     position: absolute;
     /* Include the nav's bottom border so both outer edges meet exactly. */
     top: calc(100% + 1px);
-    left: 50%;
-    right: auto;
+    left: auto;
+    right: -1px;
     z-index: 6;
-    width: min(520px, calc(100% - 20px));
-    transform: translateX(-50%);
+    width: min(420px, calc(100% - 20px));
+    transform: none;
     max-height: min(420px, calc(100vh - 110px));
     max-height: min(420px, calc(100dvh - 110px));
     padding: 4px 8px;
@@ -396,7 +414,7 @@ body.site-video-body #page-header #nav .dashboard-search-results {
     overscroll-behavior: contain;
     scrollbar-width: thin;
     text-align: left;
-    animation: capsule-panel-drop .24s cubic-bezier(.2, .8, .2, 1) backwards;
+
 }
 body.site-video-body #page-header #nav .dashboard-search-results__status { margin: 0; padding: 12px 8px; color: rgba(255, 255, 255, .65); font-size: .8rem; }
 body.site-video-body #page-header #nav .dashboard-search-results__list { margin: 0; padding: 0; list-style: none; }
@@ -409,17 +427,6 @@ body.site-video-body #page-header #nav .dashboard-search-result__excerpt { displ
 body.site-video-body #rightside #darkmode { display: none !important; }
 html[data-theme='dark'] body.site-video-body #page-header #nav .capsule-theme-icon { color: #f5d889; }
 
-@keyframes capsule-options-in {
-    from { opacity: 0; scale: .94; translate: 0 -4px; }
-    to { opacity: 1; scale: 1; translate: 0 0; }
-}
-
-/* Reveal from the attached top edge without scaling or moving the card. */
-@keyframes capsule-panel-drop {
-    from { opacity: 0; clip-path: inset(0 0 100% 0); }
-    to { opacity: 1; clip-path: inset(0); }
-}
-
 @media screen and (max-width: 900px) {
     body.site-video-body #page-header #nav { height: 64px; padding-inline: 14px; gap: 7px; }
     body.site-video-body #page-header #nav.capsule-morphed { height: 56px; gap: 8px; padding-inline: 12px; }
@@ -431,6 +438,12 @@ html[data-theme='dark'] body.site-video-body #page-header #nav .capsule-theme-ic
 }
 
 @media screen and (min-width: 1241px) {
+    /* Start the outer expansion with search, rather than chasing every resized frame. */
+    body.site-video-body #page-header #nav.capsule-morphed.capsule-search-open {
+        width: var(--capsule-expanded-width, var(--capsule-max-width));
+    }
+    /* Balance against the visible title edge, excluding its 10px link padding. */
+    body.site-video-body #page-header #nav #menus { margin-inline-end: 10px; }
     body.site-video-body #page-header #nav.hide-menu #menus { grid-column: 2; justify-self: center; }
     body.site-video-body #page-header #nav.hide-menu .menus_items { display: inline-flex !important; }
     body.site-video-body #page-header #nav.hide-menu #toggle-menu { display: none !important; }
@@ -503,3 +516,14 @@ body.site-video-body #page-header #nav .menus_item.is-open > .group > i:last-chi
 /* Mobile groups use Butterfly's existing hide class and click handler. */
 #sidebar #sidebar-menus .group:not(.hide) + .menus_item_child { display: block; }
 #sidebar #sidebar-menus .group.hide + .menus_item_child { display: none; }
+
+/* All navigation surfaces use the same interruptible enter/exit controller. */
+body.site-video-body #page-header #nav [data-nav-surface-state]:not([hidden]) {
+    display: block !important;
+    visibility: visible;
+    animation: none !important;
+}
+body.site-video-body #page-header #nav [data-nav-surface-state='closing'] { pointer-events: none; }
+body.site-video-body #page-header #nav [data-nav-surface-state][hidden] { display: none !important; }
+
+body.site-video-body #page-header #nav .capsule-palette__options[data-nav-surface-state]:not([hidden]) { display: flex !important; }

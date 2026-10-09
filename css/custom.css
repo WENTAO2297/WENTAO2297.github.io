@@ -113,7 +113,7 @@ body.site-video-body #web_bg {
     object-fit: cover;
     opacity: 0;
     visibility: visible;
-    filter: blur(6px) contrast(1.03);
+    filter: blur(2.5px) contrast(1.03) brightness(.82);
     transform: scale(1.035);
     transform-origin: center;
     transition: opacity 420ms ease;
@@ -121,7 +121,7 @@ body.site-video-body #web_bg {
 
 @media screen and (max-width: 768px) {
     .site-video-background__media {
-        filter: blur(6px) contrast(1.02);
+        filter: blur(3px) contrast(1.02) brightness(.78);
         transform: scale(1.024);
     }
 }
@@ -140,8 +140,8 @@ body.site-video-body #web_bg {
     inset: 0;
     z-index: 1;
     background:
-        linear-gradient(180deg, rgba(15, 10, 31, 0.18), rgba(20, 11, 39, 0.34)),
-        rgba(37, 18, 57, 0.08);
+        linear-gradient(90deg, rgba(18, 11, 34, .38), rgba(25, 13, 42, .08) 57%, rgba(18, 11, 34, .22)),
+        linear-gradient(180deg, rgba(20, 12, 37, .12), rgba(20, 12, 37, .3));
     pointer-events: none;
 }
 
@@ -385,7 +385,9 @@ body.site-video-body #body-wrap:has(.about-profile-page) > #page-header.not-home
 }
 
 body.site-video-body #body-wrap:has(.about-profile-page) #content-inner {
-    padding-top: var(--page-top-spacing);
+    width: var(--capsule-expanded-width);
+    max-width: var(--capsule-max-width);
+    padding: 26px 0 40px;
     opacity: 1;
     visibility: visible;
     transform: none;
@@ -398,14 +400,13 @@ body.site-video-body #body-wrap:has(.about-profile-page) #content-inner {
     --about-text: rgba(255, 255, 255, 0.94);
     --about-muted: rgba(235, 232, 248, 0.68);
     --about-pink: var(--accent-color);
-    width: min(var(--site-page-width), calc(100% - (var(--site-page-gutter) * 2)));
+    width: 100%;
     margin: 0 auto;
     color: var(--about-text);
 }
 
 .about-profile-hero,
 .about-profile-section,
-.about-profile-aside-card,
 .about-profile-blog-card {
     border: 1px solid transparent;
     border-radius: var(--site-radius-panel);
@@ -422,7 +423,7 @@ body.site-video-body #body-wrap:has(.about-profile-page) #content-inner {
 
 .about-profile-banner {
     position: relative;
-    height: clamp(220px, 27vw, 320px);
+    height: clamp(220px, 23vw, 280px);
     overflow: hidden;
     border-radius: 24px 24px 0 0;
     background: linear-gradient(135deg, rgba(52, 40, 72, 0.96), rgba(25, 20, 43, 0.94));
@@ -470,21 +471,22 @@ body.site-video-body #body-wrap:has(.about-profile-page) #content-inner {
 .about-profile-identity {
     position: relative;
     display: grid;
-    grid-template-columns: minmax(150px, 0.55fr) minmax(420px, 1.45fr);
+    grid-template-columns: minmax(180px, 1fr) minmax(420px, 1.2fr);
     gap: 24px;
     align-items: center;
     min-height: 96px;
-    padding: 16px 34px 14px 176px;
+    padding: 20px 32px 18px 174px;
 }
 
-.about-profile-avatar {
+#article-container .about-profile-avatar {
     position: absolute;
     top: -64px;
-    left: 34px;
+    left: 32px;
+    margin: 0;
     width: 116px;
     height: 116px;
     border: 4px solid rgba(255, 255, 255, 0.78);
-    border-radius: 50%;
+    border-radius: 20px;
     object-fit: cover;
     box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.08), 0 14px 30px rgba(10, 8, 28, 0.38);
 }
@@ -523,8 +525,8 @@ body.site-video-body #body-wrap:has(.about-profile-page) #content-inner {
 .about-profile-switch {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    width: 100%;
-    margin: 0;
+    width: min(360px, calc(100% - 40px));
+    margin: 0 auto;
     padding: 0 0 12px;
 }
 
@@ -591,9 +593,9 @@ body.site-video-body #body-wrap:has(.about-profile-page) #content-inner {
 .about-profile-grid {
     display: grid;
     grid-template-columns: repeat(12, minmax(0, 1fr));
-    gap: var(--card-spacing);
+    gap: 20px;
     align-items: stretch;
-    margin-top: 18px;
+    margin-top: 20px;
 }
 
 .about-profile-blog-card {
@@ -722,21 +724,37 @@ body.site-video-body #body-wrap:has(.about-profile-page) #content-inner {
 .about-profile-section {
     display: grid;
     grid-column: span 12;
-    grid-template-columns: 44px minmax(0, 1fr);
-    gap: 18px;
-    padding: 28px 30px;
+    grid-template-columns: 28px minmax(0, 1fr);
+    gap: 14px;
+    padding: 28px;
 }
 
 .about-profile-section--intro {
-    grid-column: span 8;
+    grid-column: span 5;
 }
 
 .about-profile-section--bio {
-    grid-template-columns: minmax(180px, 0.32fr) minmax(0, 1fr);
-    gap: 32px;
+    grid-column: span 7;
+    grid-template-columns: 1fr;
+    align-content: start;
+    gap: 14px;
+}
+
+.about-profile-section--bio > div:last-child {
+    padding-left: 42px;
+}
+
+.about-profile-section--projects,
+.about-profile-section--skills {
+    grid-column: span 6;
+}
+
+.about-profile-section--skills .about-profile-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .about-profile-section__index {
+    min-width: 28px;
     padding-top: 4px;
     color: var(--about-pink);
     font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -746,7 +764,7 @@ body.site-video-body #body-wrap:has(.about-profile-page) #content-inner {
 
 .about-profile-section__heading {
     display: flex;
-    gap: 18px;
+    gap: 14px;
     align-items: flex-start;
 }
 
@@ -820,7 +838,7 @@ body.site-video-body #body-wrap:has(.about-profile-page) #content-inner {
 }
 
 .about-profile-section--research .about-profile-list {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
 .about-profile-signoff {
@@ -843,121 +861,6 @@ body.site-video-body #body-wrap:has(.about-profile-page) #content-inner {
     margin: 0;
 }
 
-.about-profile-archive-card {
-    display: flex;
-    flex-direction: column;
-    grid-column: span 4;
-    align-self: stretch;
-    overflow: hidden;
-    padding: 0;
-    color: #fff;
-    text-decoration: none;
-    backface-visibility: hidden;
-    transform-origin: center;
-    will-change: transform;
-    transition:
-        transform 320ms cubic-bezier(0.22, 1, 0.36, 1),
-        box-shadow 320ms cubic-bezier(0.22, 1, 0.36, 1),
-        border-color 260ms ease;
-}
-
-.about-profile-page .about-profile-archive-card:hover,
-.about-profile-page .about-profile-archive-card:focus-visible {
-    text-decoration: none;
-}
-
-.about-profile-archive-card__media {
-    display: block;
-    flex: 1 1 auto;
-    width: 100%;
-    min-height: 0;
-    aspect-ratio: 16 / 9;
-    overflow: hidden;
-    background: #f4f3ef;
-}
-
-.about-profile-page .about-profile-archive-card__image {
-    display: block;
-    width: 100%;
-    height: 100%;
-    max-width: none;
-    margin: 0;
-    border-radius: 0;
-    object-fit: contain;
-    object-position: center;
-    backface-visibility: hidden;
-    transform-origin: center;
-    will-change: transform;
-    transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.about-profile-archive-card__footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    padding: 11px 14px;
-    background: linear-gradient(135deg, rgba(31, 23, 49, 0.96), rgba(20, 15, 36, 0.9));
-}
-
-.about-profile-archive-card__copy {
-    display: grid;
-    gap: 3px;
-    min-width: 0;
-}
-
-.about-profile-archive-card__copy strong {
-    color: #fff;
-    font-size: 1.08rem;
-    line-height: 1.35;
-    text-shadow: 0 6px 20px rgba(8, 6, 20, 0.42);
-    transition: color 220ms ease, text-shadow 220ms ease;
-}
-
-.about-profile-archive-card__copy > span {
-    color: rgba(255, 255, 255, 0.82);
-    font-size: 0.84rem;
-    line-height: 1.4;
-    transition: color 220ms ease;
-}
-
-.about-profile-archive-card__arrow {
-    flex: 0 0 auto;
-    color: var(--about-pink);
-    font-size: 1.12rem;
-    transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1), color 220ms ease;
-}
-
-@media (hover: hover) and (pointer: fine) {
-    .about-profile-page .about-profile-archive-card:hover {
-        border-color: rgba(243, 182, 223, 0.32);
-        box-shadow: 0 22px 52px rgba(13, 8, 30, 0.38);
-        transform: translateY(-5px) scale(1.035);
-    }
-
-    .about-profile-archive-card:hover .about-profile-archive-card__image {
-        transform: scale(1.05);
-    }
-
-    .about-profile-archive-card:hover .about-profile-archive-card__arrow {
-        transform: translateX(5px);
-    }
-}
-
-.about-profile-archive-card:focus-visible .about-profile-archive-card__arrow {
-    transform: translateX(5px);
-}
-
-.about-profile-archive-card:hover .about-profile-archive-card__copy > span,
-.about-profile-archive-card:focus-visible .about-profile-archive-card__copy > span {
-    color: rgba(255, 255, 255, 0.94);
-}
-
-.about-profile-archive-card:focus-visible {
-    outline: 1px solid rgba(243, 182, 223, 0.72);
-    outline-offset: 3px;
-}
-
 @media screen and (max-width: 1024px) {
     .about-profile-section--research .about-profile-list,
     .about-profile-list--compact {
@@ -966,19 +869,15 @@ body.site-video-body #body-wrap:has(.about-profile-page) #content-inner {
 }
 
 @media screen and (max-width: 900px) {
-    body.site-video-body #body-wrap:has(.about-profile-page) #content-inner {
-        padding-top: var(--page-top-spacing);
-    }
-
     .about-profile-identity {
-        grid-template-columns: minmax(120px, 0.45fr) minmax(0, 1fr);
-        padding-right: 26px;
+        grid-template-columns: 1fr;
+        gap: 18px;
+        padding: 20px 26px 18px 166px;
     }
 
     .about-profile-facts {
         grid-template-columns: minmax(0, 1.25fr) repeat(2, minmax(0, 1fr));
         gap: 12px;
-        padding-left: 0;
     }
 
     .about-profile-facts div {
@@ -988,43 +887,26 @@ body.site-video-body #body-wrap:has(.about-profile-page) #content-inner {
 
     .about-profile-grid {
         grid-template-columns: 1fr;
-        align-items: start;
     }
 
-    .about-profile-section,
-    .about-profile-archive-card {
+    .about-profile-section {
         grid-column: auto;
-    }
-
-    .about-profile-archive-card {
-        flex-direction: row;
-        width: 100%;
-        align-self: start;
-    }
-
-    .about-profile-archive-card__media {
-        flex: 0 0 32%;
-        width: 32%;
-        max-width: 180px;
-        align-self: stretch;
-    }
-
-    .about-profile-archive-card__footer {
-        flex: 1;
-        min-width: 0;
     }
 }
 
 @media screen and (max-width: 600px) {
     .about-profile-hero,
     .about-profile-section,
-    .about-profile-aside-card,
     .about-profile-blog-card {
         border-radius: 18px;
     }
 
+    body.site-video-body #body-wrap:has(.about-profile-page) #content-inner {
+        padding-top: 16px;
+    }
+
     .about-profile-banner {
-        height: 220px;
+        height: 180px;
         border-radius: 18px 18px 0 0;
     }
 
@@ -1034,7 +916,7 @@ body.site-video-body #body-wrap:has(.about-profile-page) #content-inner {
         padding: 62px 20px 18px;
     }
 
-    .about-profile-avatar {
+    #article-container .about-profile-avatar {
         top: -54px;
         left: 20px;
         width: 96px;
@@ -1101,7 +983,15 @@ body.site-video-body #body-wrap:has(.about-profile-page) #content-inner {
 
     .about-profile-section--bio {
         grid-template-columns: 1fr;
-        gap: 18px;
+        gap: 14px;
+    }
+
+    .about-profile-section--bio > div:last-child {
+        padding-left: 0;
+    }
+
+    .about-profile-section a {
+        overflow-wrap: anywhere;
     }
 
     .about-profile-section__heading {
@@ -1114,7 +1004,7 @@ body.site-video-body #body-wrap:has(.about-profile-page) #content-inner {
     }
 
     .about-profile-section--research .about-profile-list,
-    .about-profile-list--compact {
+    .about-profile-section--skills .about-profile-list {
         grid-template-columns: 1fr;
     }
 
@@ -1126,22 +1016,6 @@ body.site-video-body #body-wrap:has(.about-profile-page) #content-inner {
     .about-profile-section--contact h2 {
         grid-column: auto;
         margin-bottom: 6px;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .about-profile-archive-card,
-    .about-profile-page .about-profile-archive-card__image,
-    .about-profile-archive-card__arrow {
-        transition-duration: 1ms;
-        will-change: auto;
-    }
-
-    .about-profile-page .about-profile-archive-card:hover,
-    .about-profile-page .about-profile-archive-card:hover .about-profile-archive-card__image,
-    .about-profile-archive-card:hover .about-profile-archive-card__arrow,
-    .about-profile-archive-card:focus-visible .about-profile-archive-card__arrow {
-        transform: none;
     }
 }
 

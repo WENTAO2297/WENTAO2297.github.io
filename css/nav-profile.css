@@ -1,0 +1,95 @@
+/* A compact statistics surface matching the existing navigation dropdowns. */
+body.site-video-body #page-header #nav .nav-profile {
+    position: absolute;
+    z-index: 10;
+    top: calc(100% + 1px);
+    left: 0;
+    box-sizing: border-box;
+    width: min(420px, calc(100vw - 24px));
+    padding: 8px 12px;
+    border: 1px solid rgba(255, 255, 255, .09);
+    border-radius: 16px;
+    background: rgba(42, 37, 51, .96);
+    box-shadow: 0 14px 36px rgba(12, 8, 23, .25);
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+    color: rgba(255, 255, 255, .84);
+    font-size: 12px;
+    line-height: 1.4;
+    text-shadow: none;
+    white-space: normal;
+}
+body.site-video-body #page-header #nav .nav-profile[hidden] { display: none; }
+body.site-video-body #page-header #nav .nav-profile:focus-visible { outline: 2px solid var(--capsule-accent); outline-offset: 2px; }
+/* Bridge to the brand without a decorative pointer. */
+.nav-profile::after { position: absolute; inset: -14px 0 auto; height: 14px; content: ''; }
+.nav-profile__body { display: grid; grid-template-columns: minmax(0, 1fr) 144px; gap: 10px; align-items: center; }
+.nav-profile__activity { min-width: 0; }
+.nav-profile__months { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 3px; margin-bottom: 4px; color: rgba(255, 255, 255, .6); font-size: 10px; text-align: center; }
+.nav-profile__heatmap { display: grid; grid-template-rows: repeat(4, auto); grid-template-columns: repeat(12, minmax(0, 1fr)); grid-auto-flow: column; gap: 3px; }
+.nav-profile__week { display: block; aspect-ratio: 1; border-radius: 3px; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .04); }
+/* Muted theme accents, with more activity represented by a darker shade. */
+.nav-profile [data-level='0'] { background: color-mix(in srgb, var(--capsule-accent) 10%, #aaa2b0); }
+.nav-profile [data-level='1'] { background: color-mix(in srgb, var(--capsule-accent) 30%, #877b91); }
+.nav-profile [data-level='2'] { background: color-mix(in srgb, var(--capsule-accent) 40%, #65506f); }
+.nav-profile [data-level='3'] { background: color-mix(in srgb, var(--capsule-accent) 30%, #4b3657); }
+.nav-profile [data-level='4'] { background: color-mix(in srgb, var(--capsule-accent) 20%, #392840); }
+.nav-profile__week:hover { outline: 1px solid var(--capsule-accent); outline-offset: 1px; }
+.nav-profile__stats { padding-left: 10px; border-left: 1px solid rgba(255, 255, 255, .09); }
+.nav-profile__since { display: flex; align-items: baseline; justify-content: space-between; gap: 6px; margin-bottom: 6px; }
+.nav-profile__since strong { font-size: 12px; font-weight: 500; }
+.nav-profile__since > span { color: rgba(255, 255, 255, .5); font-size: 10px; white-space: nowrap; }
+.nav-profile__runtime { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px 6px; margin-bottom: 8px; text-align: center; font-variant-numeric: tabular-nums; }
+.nav-profile__runtime strong { display: block; color: var(--capsule-accent); font-family: inherit; font-size: 16px; font-weight: 600; line-height: 1.2; }
+.nav-profile__runtime small { color: rgba(255, 255, 255, .5); font-size: 10px; }
+.nav-profile__progress-label { display: flex; justify-content: space-between; color: rgba(255, 255, 255, .6); font-size: 10px; }
+.nav-profile__progress-label strong { color: rgba(255, 255, 255, .84); font-weight: 500; font-variant-numeric: tabular-nums; }
+.nav-profile__year progress { display: block; width: 100%; height: 4px; margin-top: 3px; overflow: hidden; border: 0; border-radius: 999px; background: rgba(255, 255, 255, .1); appearance: none; }
+.nav-profile__year progress::-webkit-progress-bar { border-radius: 999px; background: rgba(255, 255, 255, .1); }
+.nav-profile__year progress::-webkit-progress-value { border-radius: 999px; background: var(--capsule-accent); }
+.nav-profile__year progress::-moz-progress-bar { border-radius: 999px; background: var(--capsule-accent); }
+@media (max-width: 900px) {
+    body.site-video-body #page-header #nav .nav-profile { left: 50%; translate: -50% 0; }
+}
+@media (max-width: 520px) {
+    body.site-video-body #page-header #nav .nav-profile { max-height: calc(100dvh - 76px); overflow-y: auto; }
+    .nav-profile__body { grid-template-columns: 1fr; gap: 8px; }
+    .nav-profile__activity { width: min(100%, 260px); justify-self: center; }
+    .nav-profile__stats { padding: 8px 0 0; border-left: 0; border-top: 1px solid rgba(255, 255, 255, .09); }
+    .nav-profile__runtime { grid-template-columns: repeat(6, 1fr); margin: 6px 0; }
+}
+
+/* Shared footer balances the heatmap and runtime without adding a second bar. */
+body.site-video-body #page-header #nav .nav-profile__year {
+    display: block;
+    width: 100%;
+    height: 32px;
+    margin-top: 4px;
+    padding: 0;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+    perspective: 650px;
+    -webkit-tap-highlight-color: transparent;
+}
+.nav-profile__year-inner { border-radius: inherit; position: relative; display: block; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform .45s cubic-bezier(.2, .8, .2, 1); }
+.nav-profile__year.is-flipped .nav-profile__year-inner { transform: rotateX(180deg); }
+.nav-profile__year-front,
+.nav-profile__year-back { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; padding: 2px 0; box-sizing: border-box; -webkit-backface-visibility: hidden; backface-visibility: hidden; border-radius: inherit; }
+.nav-profile__year-back { transform: rotateX(180deg); align-items: center; padding: 2px 6px; color: var(--capsule-accent); font-size: 12px; line-height: 1.5; text-align: center; background: rgba(255, 255, 255, .04); }
+body.site-video-body #page-header #nav .nav-profile__year:focus-visible { outline: 2px solid var(--capsule-accent); outline-offset: 2px; }
+.nav-profile__year .nav-profile__progress-label { font-size: 11px; }
+.nav-profile__year progress { height: 5px; margin-top: 5px; }
+.nav-profile__runtime { margin-bottom: 0; }
+@media (prefers-reduced-motion: reduce) {
+    .nav-profile__year-inner { transition: none; }
+}
+
+@media (max-width: 520px) {
+    body.site-video-body #page-header #nav .nav-profile__year { height: 40px; }
+    .nav-profile__year-back { line-height: 1.4; }
+}

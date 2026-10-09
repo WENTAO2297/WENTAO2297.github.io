@@ -93,7 +93,7 @@ html.is-restoring-memorable-moments.pjax-content-preparing #content-inner {
   flex: 0 0 auto;
   grid-template-columns: repeat(2, minmax(max-content, 1fr));
   gap: 4px;
-  width: 240px;
+  width: 200px;
   padding: 4px;
   border: 1px solid rgba(238, 205, 244, 0.16);
   border-radius: 999px;
